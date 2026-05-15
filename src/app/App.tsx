@@ -158,6 +158,10 @@ export default function App() {
         return;
       }
 
+      if (carousel.dataset.carousel === "teachers") {
+        return;
+      }
+
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
         return;
       }
