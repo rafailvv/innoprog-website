@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 
 const DESIGN_WIDTH = 1440;
-const DESIGN_HEIGHT = 14507;
+const DESIGN_HEIGHT = 14457;
 
 const scrollTargets = {
   adults: 3436,
