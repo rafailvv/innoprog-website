@@ -1903,8 +1903,8 @@ function Frame100() {
       </div>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#464a6a] text-[0px] w-[584px]">
         <span className="leading-[20px] text-[16px]">{`Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с `}</span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] text-[16px]" href="https://main-website-sage-nu.vercel.app/#" target="_blank">
-          <span href="https://main-website-sage-nu.vercel.app/#" target="_blank">
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] text-[16px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
+          <span>
             политикой конфиденциальности
           </span>
         </a>
@@ -2054,8 +2054,8 @@ function Frame66() {
 function Frame78() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <p className="leading-[30px] relative shrink-0 w-full">Политика конфиденциальности</p>
-      <p className="leading-[30px] relative shrink-0 w-full">Публичная оферта</p>
+      <a className="leading-[30px] relative shrink-0 text-white w-full" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+      <a className="leading-[30px] relative shrink-0 text-white w-full" href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
       <div className="leading-[0] relative shrink-0 w-full">
         <p className="leading-[30px] mb-0">Выписка из реестра лицензий</p>
         <p className="leading-[30px]">на образовательную деятельность</p>
