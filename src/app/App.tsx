@@ -1,6 +1,6 @@
 import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
-import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.png";
-import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.png";
+import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
+import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import { useEffect, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 
@@ -21,7 +21,7 @@ const scrollTargets = {
 
 const CRITICAL_ASSETS = ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 const LOADER_MIN_MS = 650;
-const LOADER_MAX_MS = 2200;
+const LOADER_MAX_MS = 5000;
 
 function getCanvasScale() {
   if (typeof window === "undefined") {
@@ -104,6 +104,42 @@ function preloadImage(src: string) {
   });
 }
 
+function waitForRenderedImage(image: HTMLImageElement) {
+  const decode = () => {
+    if (typeof image.decode === "function") {
+      return image.decode().then(() => undefined).catch(() => undefined);
+    }
+
+    return Promise.resolve();
+  };
+
+  if (image.complete) {
+    return decode();
+  }
+
+  return new Promise<void>((resolve) => {
+    const done = () => {
+      image.removeEventListener("load", done);
+      image.removeEventListener("error", done);
+      decode().then(resolve);
+    };
+
+    image.addEventListener("load", done, { once: true });
+    image.addEventListener("error", done, { once: true });
+  });
+}
+
+function waitForPageAssets() {
+  const images = Array.from(document.images);
+  const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
+
+  return Promise.all([
+    ...CRITICAL_ASSETS.map(preloadImage),
+    ...images.map(waitForRenderedImage),
+    fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
+  ]).then(() => undefined);
+}
+
 export default function App() {
   const [scale, setScale] = useState(getCanvasScale);
   const [leadStatus, setLeadStatus] = useState("");
@@ -120,7 +156,7 @@ export default function App() {
       }
     }, LOADER_MAX_MS);
 
-    Promise.all(CRITICAL_ASSETS.map(preloadImage)).then(() => {
+    waitForPageAssets().then(() => {
       const elapsed = performance.now() - startedAt;
       const delay = Math.max(0, LOADER_MIN_MS - elapsed);
 
