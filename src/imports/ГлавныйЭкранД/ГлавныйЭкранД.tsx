@@ -250,7 +250,7 @@ function Frame84() {
     <div className="absolute content-stretch flex flex-col gap-[60px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
-      <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[28px] relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529">
+      <div className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">получить консультацию</p>
       </div>
     </div>
