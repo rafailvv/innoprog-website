@@ -1633,7 +1633,7 @@ function Frame124() {
 
 function Frame133() {
   return (
-    <div className="content-stretch flex font-['Raleway:Bold',sans-serif] font-bold h-[34px] items-start justify-between leading-[47px] overflow-hidden relative shrink-0 text-[#464a6a] text-[48px] text-center uppercase w-[942px] whitespace-nowrap">
+    <div className="content-stretch flex font-['Raleway:Bold',sans-serif] font-bold h-[34px] items-start justify-between leading-[47px] relative shrink-0 text-[#464a6a] text-[48px] text-center uppercase w-[942px] whitespace-nowrap">
       <p className="relative shrink-0">{`без нас `}</p>
       <p className="relative shrink-0">{`с нами `}</p>
     </div>
