@@ -1,13 +1,24 @@
 import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
 import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
+import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
+import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import { useEffect, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 
-const DESIGN_WIDTH = 1440;
-const DESIGN_HEIGHT = 14457;
+const DESKTOP_DESIGN = {
+  width: 1440,
+  height: 14457,
+};
 
-const scrollTargets = {
+const MOBILE_DESIGN = {
+  width: 390,
+  height: 9762,
+};
+
+const MOBILE_BREAKPOINT = 768;
+
+const desktopScrollTargets = {
   adults: 3436,
   children: 3436,
   directions: 3436,
@@ -19,18 +30,46 @@ const scrollTargets = {
   form: 13167,
 };
 
-const CRITICAL_ASSETS = ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
+const mobileScrollTargets = {
+  adults: 2922,
+  children: 2922,
+  directions: 2922,
+  mentor: 3536,
+  teachers: 4206,
+  support: 5046,
+  reviews: 6912,
+  about: 8310,
+  form: 8793,
+};
+
 const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const LOADER_EXIT_MS = 700;
 
-function getCanvasScale() {
+function getViewportState() {
   if (typeof window === "undefined") {
-    return 1;
+    return {
+      isMobile: false,
+      scale: 1,
+      design: DESKTOP_DESIGN,
+    };
   }
 
-  return window.innerWidth / DESIGN_WIDTH;
+  const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
+  const design = isMobile ? MOBILE_DESIGN : DESKTOP_DESIGN;
+
+  return {
+    isMobile,
+    scale: window.innerWidth / design.width,
+    design,
+  };
+}
+
+function getCriticalAssets(isMobile: boolean) {
+  return isMobile
+    ? ["/logo_education.png", heroMobileUrl]
+    : ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
@@ -122,25 +161,26 @@ function rememberLoadedInSession() {
   }
 }
 
-function waitForCriticalAssets() {
+function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
   const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
 
   return Promise.all([
-    ...CRITICAL_ASSETS.map(preloadImage),
+    ...getCriticalAssets(isMobile).map(preloadImage),
     loaderLogo && !loaderLogo.complete ? preloadImage(loaderLogo.src) : Promise.resolve(),
     fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
   ]).then(() => undefined);
 }
 
 export default function App() {
-  const [scale, setScale] = useState(getCanvasScale);
+  const [viewport, setViewport] = useState(getViewportState);
   const [leadStatus, setLeadStatus] = useState("");
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isReady) {
@@ -156,7 +196,7 @@ export default function App() {
       }
     }, LOADER_MAX_MS);
 
-    waitForCriticalAssets().then(() => {
+    waitForCriticalAssets(viewport.isMobile).then(() => {
       const elapsed = performance.now() - startedAt;
       const delay = Math.max(0, LOADER_MIN_MS - elapsed);
 
@@ -172,7 +212,7 @@ export default function App() {
       cancelled = true;
       window.clearTimeout(maxTimer);
     };
-  }, [isReady]);
+  }, [isReady, viewport.isMobile]);
 
   useEffect(() => {
     if (!isReady) {
@@ -189,7 +229,7 @@ export default function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setScale(getCanvasScale());
+      setViewport(getViewportState());
     };
 
     handleResize();
@@ -201,8 +241,16 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (!viewport.isMobile) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [viewport.isMobile]);
+
+  useEffect(() => {
     const carousels = Array.from(
-      document.querySelectorAll<HTMLElement>('[data-carousel]:not([data-carousel="teachers"])'),
+      document.querySelectorAll<HTMLElement>(
+        '[data-carousel]:not([data-carousel="teachers"]):not([data-carousel="mobile-teachers"])',
+      ),
     );
 
     const handleWheel = (event: WheelEvent) => {
@@ -235,13 +283,13 @@ export default function App() {
         carousel.removeEventListener("wheel", handleWheel);
       });
     };
-  }, []);
+  }, [viewport.isMobile]);
 
   useEffect(() => {
     document
-      .querySelector("[data-consent-toggle]")
-      ?.setAttribute("aria-checked", String(isConsentChecked));
-  }, [isConsentChecked]);
+      .querySelectorAll("[data-consent-toggle]")
+      .forEach((toggle) => toggle.setAttribute("aria-checked", String(isConsentChecked)));
+  }, [isConsentChecked, viewport.isMobile]);
 
   useEffect(() => {
     const handleConsentClick = (event: globalThis.MouseEvent) => {
@@ -299,7 +347,7 @@ export default function App() {
 
   const scrollToDesignY = (y: number) => {
     window.scrollTo({
-      top: Math.round(y * scale),
+      top: Math.round(y * viewport.scale),
       behavior: "smooth",
     });
   };
@@ -318,6 +366,26 @@ export default function App() {
 
   const handleSiteClick = (event: MouseEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+    const activeScrollTargets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
+    const mobileMenuToggle = target?.closest<HTMLElement>("[data-mobile-menu-toggle]");
+
+    if (mobileMenuToggle) {
+      event.preventDefault();
+      setIsMobileMenuOpen((open) => !open);
+      return;
+    }
+
+    const mobileMenuLink = target?.closest<HTMLElement>("[data-mobile-menu-link]");
+
+    if (mobileMenuLink?.dataset.scrollTarget) {
+      event.preventDefault();
+      const key = mobileMenuLink.dataset.scrollTarget as keyof typeof mobileScrollTargets;
+
+      scrollToDesignY(activeScrollTargets[key]);
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
     const carouselControl = target?.closest<HTMLElement>("[data-carousel-action]");
 
     if (carouselControl) {
@@ -344,37 +412,37 @@ export default function App() {
     }
 
     if (text.includes("для взрослых")) {
-      scrollToDesignY(scrollTargets.adults);
+      scrollToDesignY(activeScrollTargets.adults);
       return;
     }
 
     if (text.includes("для детей")) {
-      scrollToDesignY(scrollTargets.children);
+      scrollToDesignY(activeScrollTargets.children);
       return;
     }
 
     if (text === "отзывы" || text.includes("смотреть все отзывы")) {
-      scrollToDesignY(scrollTargets.reviews);
+      scrollToDesignY(activeScrollTargets.reviews);
       return;
     }
 
     if (text === "о нас") {
-      scrollToDesignY(scrollTargets.about);
+      scrollToDesignY(activeScrollTargets.about);
       return;
     }
 
     if (text.includes("подобрать направление")) {
-      scrollToDesignY(scrollTargets.directions);
+      scrollToDesignY(activeScrollTargets.directions);
       return;
     }
 
     if (text.includes("получить консультацию")) {
-      scrollToDesignY(scrollTargets.form);
+      scrollToDesignY(activeScrollTargets.form);
       return;
     }
 
     if (text.includes("начать обучение")) {
-      scrollToDesignY(scrollTargets.directions);
+      scrollToDesignY(activeScrollTargets.directions);
       return;
     }
 
@@ -404,29 +472,43 @@ export default function App() {
     }
   };
 
+  const activeDesign = viewport.design;
+
   return (
     <main
       aria-busy={!isReady}
       className={[
         "site-shell",
         isReady ? "site-shell--ready" : "",
+        viewport.isMobile ? "site-shell--mobile" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={{ height: `${Math.ceil(DESIGN_HEIGHT * scale)}px` }}
+      style={{ height: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
     >
       <div
-        className="site-canvas"
+        className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
+          .filter(Boolean)
+          .join(" ")}
         style={{
-          width: `${DESIGN_WIDTH}px`,
-          height: `${DESIGN_HEIGHT}px`,
-          transform: `translateX(-50%) scale(${scale})`,
+          width: `${activeDesign.width}px`,
+          height: `${activeDesign.height}px`,
+          transform: `translateX(-50%) scale(${viewport.scale})`,
         }}
       >
-        <MainScreen />
+        {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
       </div>
+      {viewport.isMobile && isMobileMenuOpen ? (
+        <nav className="site-mobile-menu" aria-label="Мобильное меню">
+          <button data-mobile-menu-link data-scroll-target="directions" type="button">направления</button>
+          <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>
+          <button data-mobile-menu-link data-scroll-target="reviews" type="button">отзывы</button>
+          <button data-mobile-menu-link data-scroll-target="about" type="button">о нас</button>
+          <button data-mobile-menu-link data-scroll-target="form" type="button">подобрать направление</button>
+        </nav>
+      ) : null}
       {shouldShowLoader ? (
         <div className="site-loader" aria-hidden={isReady}>
           <img
