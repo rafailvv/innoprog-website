@@ -16,6 +16,8 @@ body {
   min-width: 320px;
   overflow-x: clip;
   background: #ffffff;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
@@ -37,6 +39,73 @@ body {
   top: 0;
   left: 50%;
   transform-origin: top center;
+  opacity: 0;
+  backface-visibility: hidden;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.site-shell--ready .site-canvas {
+  opacity: 1;
+}
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(156, 120, 255, 0.24), rgba(255, 255, 255, 0) 34%),
+    #ffffff;
+  opacity: 1;
+  pointer-events: auto;
+  transition:
+    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 650ms step-end;
+}
+
+.site-shell--ready .site-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.site-loader__mark {
+  color: #464a6a;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.site-loader__bar {
+  width: min(320px, 58vw);
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(70, 74, 106, 0.14);
+}
+
+.site-loader__bar-fill {
+  width: 46%;
+  height: 100%;
+  border-radius: inherit;
+  background: #9c78ff;
+  animation: site-loader-slide 1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes site-loader-slide {
+  0% {
+    transform: translateX(-115%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
 }
 
 [class*="Manrope"] {

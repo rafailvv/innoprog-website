@@ -1,4 +1,6 @@
 import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
+import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.png";
+import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.png";
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 
@@ -16,6 +18,10 @@ const scrollTargets = {
   about: 11980,
   form: 13167,
 };
+
+const CRITICAL_ASSETS = [heroPersonUrl, heroBackgroundUrl];
+const LOADER_MIN_MS = 650;
+const LOADER_MAX_MS = 2200;
 
 function getCanvasScale() {
   if (typeof window === "undefined") {
@@ -80,9 +86,55 @@ function canScrollCarousel(carousel: HTMLElement, delta: number) {
   return false;
 }
 
+function preloadImage(src: string) {
+  return new Promise<void>((resolve) => {
+    const image = new Image();
+
+    image.decoding = "async";
+    image.onload = () => {
+      if (typeof image.decode === "function") {
+        image.decode().then(() => resolve()).catch(() => resolve());
+        return;
+      }
+
+      resolve();
+    };
+    image.onerror = () => resolve();
+    image.src = src;
+  });
+}
+
 export default function App() {
   const [scale, setScale] = useState(getCanvasScale);
   const [leadStatus, setLeadStatus] = useState("");
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const startedAt = performance.now();
+    const maxTimer = window.setTimeout(() => {
+      if (!cancelled) {
+        setIsReady(true);
+      }
+    }, LOADER_MAX_MS);
+
+    Promise.all(CRITICAL_ASSETS.map(preloadImage)).then(() => {
+      const elapsed = performance.now() - startedAt;
+      const delay = Math.max(0, LOADER_MIN_MS - elapsed);
+
+      window.setTimeout(() => {
+        if (!cancelled) {
+          window.clearTimeout(maxTimer);
+          window.requestAnimationFrame(() => setIsReady(true));
+        }
+      }, delay);
+    });
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(maxTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -197,7 +249,8 @@ export default function App() {
 
   return (
     <main
-      className="site-shell"
+      aria-busy={!isReady}
+      className={`site-shell${isReady ? " site-shell--ready" : ""}`}
       onClick={handleSiteClick}
       style={{ height: `${Math.ceil(DESIGN_HEIGHT * scale)}px` }}
     >
@@ -210,6 +263,12 @@ export default function App() {
         }}
       >
         <MainScreen />
+      </div>
+      <div className="site-loader" aria-hidden={isReady}>
+        <div className="site-loader__mark">ИННОПРОГ</div>
+        <div className="site-loader__bar">
+          <div className="site-loader__bar-fill" />
+        </div>
       </div>
       {leadStatus ? (
         <div className="site-toast" role="status">
