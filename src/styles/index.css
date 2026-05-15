@@ -140,6 +140,15 @@ button,
   max-width: none;
 }
 
+.site-review-quote {
+  font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 31px;
+  letter-spacing: 0;
+}
+
 .site-toast {
   position: fixed;
   right: 24px;

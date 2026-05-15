@@ -1336,7 +1336,7 @@ function Frame46() {
 function Frame47() {
   return (
     <div className="content-stretch flex flex-col h-[330px] items-center justify-between relative shrink-0 text-[24px] text-black w-[429px]">
-      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[31px] not-italic relative shrink-0 w-full">Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...</p>
+      <p className="relative shrink-0 w-full site-review-quote">Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal h-[18px] leading-[30px] relative shrink-0 w-full">Из HR → в ИТ</p>
     </div>
   );
