@@ -1633,7 +1633,7 @@ function Frame124() {
 
 function Frame133() {
   return (
-    <div className="content-stretch flex font-['Raleway:Bold',sans-serif] font-bold items-start justify-between leading-[47px] relative shrink-0 text-[#464a6a] text-[48px] text-center uppercase w-[942px] whitespace-nowrap">
+    <div className="content-stretch flex font-['Raleway:Bold',sans-serif] font-bold h-[34px] items-start justify-between leading-[47px] overflow-hidden relative shrink-0 text-[#464a6a] text-[48px] text-center uppercase w-[942px] whitespace-nowrap">
       <p className="relative shrink-0">{`без нас `}</p>
       <p className="relative shrink-0">{`с нами `}</p>
     </div>
@@ -1738,7 +1738,7 @@ function Frame104() {
 
 function Frame115() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex h-[71px] items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-center text-white uppercase whitespace-nowrap">Системное обучение</p>
     </div>
   );
@@ -1746,7 +1746,7 @@ function Frame115() {
 
 function Frame116() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex h-[71px] items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-center text-white uppercase whitespace-nowrap">Регулярные занятия</p>
     </div>
   );
@@ -1754,7 +1754,7 @@ function Frame116() {
 
 function Frame117() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex h-[71px] items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-center text-white uppercase whitespace-nowrap">Постоянная практика</p>
     </div>
   );
@@ -1762,7 +1762,7 @@ function Frame117() {
 
 function Frame118() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex h-[71px] items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-center text-white uppercase whitespace-nowrap">{` Поддержка наставника`}</p>
     </div>
   );
@@ -1770,7 +1770,7 @@ function Frame118() {
 
 function Frame119() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.8)] content-stretch flex h-[71px] items-center justify-center p-[24px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-center text-white uppercase whitespace-nowrap">{` Разбор ошибок`}</p>
     </div>
   );
@@ -1784,7 +1784,7 @@ function Frame120() {
       <Frame117 />
       <Frame118 />
       <Frame119 />
-      <div className="font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
+      <div className="font-['Manrope:Medium',sans-serif] font-medium h-[64px] leading-[0] overflow-hidden relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
         <p className="leading-[41px] mb-0">Видимый прогресс</p>
         <p className="leading-[41px]">каждый месяц</p>
       </div>
@@ -1830,7 +1830,7 @@ function Group9() {
 
 function Frame121() {
   return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-[1280px]">
+    <div className="content-stretch flex h-[579px] items-center justify-between relative shrink-0 w-[1280px]">
       <Group10 />
       <Frame104 />
       <Group9 />
