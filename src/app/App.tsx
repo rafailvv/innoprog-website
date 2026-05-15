@@ -19,7 +19,7 @@ const scrollTargets = {
   form: 13167,
 };
 
-const CRITICAL_ASSETS = [heroPersonUrl, heroBackgroundUrl];
+const CRITICAL_ASSETS = ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2200;
 
@@ -269,7 +269,12 @@ export default function App() {
         <MainScreen />
       </div>
       <div className="site-loader" aria-hidden={isReady}>
-        <div className="site-loader__mark">ИННОПРОГ</div>
+        <img
+          alt=""
+          className="site-loader__logo"
+          decoding="async"
+          src="/logo_education.png"
+        />
         <div className="site-loader__bar">
           <div className="site-loader__bar-fill" />
         </div>

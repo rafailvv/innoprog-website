@@ -74,12 +74,11 @@ body {
   pointer-events: none;
 }
 
-.site-loader__mark {
-  color: #464a6a;
-  font-family: "Raleway", sans-serif;
-  font-size: clamp(40px, 7vw, 96px);
-  font-weight: 800;
-  line-height: 1;
+.site-loader__logo {
+  display: block;
+  width: min(628px, 78vw);
+  height: auto;
+  user-select: none;
 }
 
 .site-loader__bar {
