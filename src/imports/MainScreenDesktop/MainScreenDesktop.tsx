@@ -1559,12 +1559,6 @@ function Frame50() {
         <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
         <Frame48 />
       </div>
-      <div className="bg-[rgba(255,255,255,0.4)] h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)] shrink-0 w-[791px]">
-        <Frame49 />
-      </div>
-      <div className="bg-[rgba(255,255,255,0.4)] h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)] shrink-0 w-[791px]">
-        <Frame56 />
-      </div>
       <Frame44 />
     </div>
   );
