@@ -13,7 +13,7 @@ const DESKTOP_DESIGN = {
 
 const MOBILE_DESIGN = {
   width: 390,
-  height: 9762,
+  height: 9082,
 };
 
 const MOBILE_BREAKPOINT = 768;
@@ -38,8 +38,8 @@ const mobileScrollTargets = {
   teachers: 4206,
   support: 5046,
   reviews: 6912,
-  about: 8310,
-  form: 8793,
+  about: 7630,
+  form: 8113,
 };
 
 const LOADER_MIN_MS = 650;

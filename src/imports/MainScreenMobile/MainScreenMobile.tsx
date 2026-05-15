@@ -2036,22 +2036,6 @@ function Frame166() {
           </div>
         </div>
       </div>
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
-        <div className="flex flex-col items-center size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
-            <Frame80 />
-            <Frame82 />
-          </div>
-        </div>
-      </div>
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
-        <div className="flex flex-col items-center size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
-            <Frame83 />
-            <Frame88 />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -2060,21 +2044,13 @@ function Frame167() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame166 />
-      <div className="h-[46px] relative rounded-[40px] shrink-0 w-full">
-        <div aria-hidden="true" className="absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">больше отзывов</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
 
 function Frame168() {
   return (
-    <div className="bg-[#464a6a] h-[1268px] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
+    <div className="bg-[#464a6a] h-[588px] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[40px] items-start px-[20px] py-[40px] relative size-full">
         <Frame69 />
         <Frame167 />
