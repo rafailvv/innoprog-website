@@ -28,7 +28,7 @@ function getCanvasScale() {
     return 1;
   }
 
-  return Math.min(window.innerWidth / DESIGN_WIDTH, 1);
+  return window.innerWidth / DESIGN_WIDTH;
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
