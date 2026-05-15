@@ -340,11 +340,11 @@ function Group8() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <div className="col-1 h-[190px] ml-0 mt-0 relative row-1 w-[350px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" decoding="async" loading="lazy" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
+          <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
       <div className="col-1 h-[156px] ml-[44px] mt-[11px] relative row-1 w-[263px]" data-name="image 118">
-        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
+        <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
     </div>
   );
@@ -362,30 +362,7 @@ function Frame146() {
 function Frame147() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[2348px] w-[350px]">
-      <div className="-translate-x-1/2 absolute flex h-[266.865px] items-center justify-center left-1/2 top-[113.18px] w-[409.999px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-[179.43deg]">
-          <div className="h-[262.831px] relative w-[407.409px]">
-            <div className="absolute inset-[-76.09%_-49.09%]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 807.409 662.831">
-                <g filter="url(#filter0_f_1_1111)" id="Ellipse 5">
-                  <ellipse cx="403.704" cy="331.416" fill="url(#paint0_linear_1_1111)" rx="203.704" ry="131.416" />
-                </g>
-                <defs>
-                  <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="662.831" id="filter0_f_1_1111" width="807.409" x="0" y="0">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                    <feGaussianBlur result="effect1_foregroundBlur_1_1111" stdDeviation="100" />
-                  </filter>
-                  <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_1111" x1="200" x2="607.409" y1="331.416" y2="331.416">
-                    <stop stopColor="#9C78FF" />
-                    <stop offset="1" stopColor="white" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div aria-hidden="true" className="-translate-x-1/2 absolute h-[360px] left-1/2 pointer-events-none rounded-full site-platform-glow top-[32px] w-[430px]" />
       <Frame146 />
       <div className="relative rounded-[40px] shrink-0 w-full">
         <div aria-hidden="true" className="absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />

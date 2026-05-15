@@ -43,7 +43,9 @@ body {
 }
 
 .site-canvas--mobile {
-  transform-origin: top center;
+  left: 0;
+  transform-origin: top left;
+  -webkit-font-smoothing: antialiased;
 }
 
 .site-canvas--mobile p,
@@ -230,6 +232,11 @@ button,
 
 .site-mobile-direction-dot[data-active="true"] span {
   opacity: 1;
+}
+
+.site-platform-glow {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.72) 0%, rgba(186, 161, 255, 0.58) 38%, rgba(156, 120, 255, 0) 72%);
 }
 
 [data-carousel-action] {

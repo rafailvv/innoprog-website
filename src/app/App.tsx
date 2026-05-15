@@ -2,9 +2,11 @@ import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
 import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
+import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
+import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import { useEffect, useState } from "react";
-import type { KeyboardEvent, MouseEvent } from "react";
+import type { CSSProperties, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
   width: 1440,
@@ -68,7 +70,7 @@ function getViewportState() {
 
 function getCriticalAssets(isMobile: boolean) {
   return isMobile
-    ? ["/logo_education.png", heroMobileUrl]
+    ? ["/logo_education.png", heroMobileUrl, platformLaptopUrl, platformScreenUrl]
     : ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 }
 
@@ -583,6 +585,18 @@ export default function App() {
   };
 
   const activeDesign = viewport.design;
+  const canvasStyle = viewport.isMobile
+    ? ({
+      width: `${activeDesign.width}px`,
+      height: `${activeDesign.height}px`,
+      transform: "none",
+      zoom: viewport.scale,
+    } as CSSProperties & { zoom: number })
+    : {
+      width: `${activeDesign.width}px`,
+      height: `${activeDesign.height}px`,
+      transform: `translateX(-50%) scale(${viewport.scale})`,
+    };
 
   return (
     <main
@@ -602,11 +616,7 @@ export default function App() {
         className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
           .filter(Boolean)
           .join(" ")}
-        style={{
-          width: `${activeDesign.width}px`,
-          height: `${activeDesign.height}px`,
-          transform: `translateX(-50%) scale(${viewport.scale})`,
-        }}
+        style={canvasStyle}
       >
         {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
       </div>
