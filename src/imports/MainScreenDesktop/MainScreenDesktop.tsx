@@ -2055,7 +2055,7 @@ function Frame78() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
       <p className="leading-[30px] relative shrink-0 w-full">Политика конфиденциальности</p>
-      <p className="leading-[30px] relative shrink-0 w-full">Договор оферты</p>
+      <p className="leading-[30px] relative shrink-0 w-full">Публичная оферта</p>
       <div className="leading-[0] relative shrink-0 w-full">
         <p className="leading-[30px] mb-0">Выписка из реестра лицензий</p>
         <p className="leading-[30px]">на образовательную деятельность</p>
