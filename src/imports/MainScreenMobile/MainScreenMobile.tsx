@@ -1047,7 +1047,7 @@ function Frame50() {
 
 function Frame184() {
   return (
-    <div className="content-stretch flex items-center relative shrink-0">
+    <div className="content-stretch flex h-[301px] items-center relative shrink-0 w-full site-carousel site-mobile-directions-carousel" data-carousel="mobile-directions" data-carousel-sync>
       <div className="flex flex-row items-center self-stretch">
         <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
           <div className="flex flex-col justify-center size-full">
@@ -1130,74 +1130,31 @@ function Frame184() {
   );
 }
 
+function DirectionDot({ index }: { index: number }) {
+  return (
+    <button
+      aria-current={index === 0 ? "true" : "false"}
+      aria-label={`Показать направление ${index + 1}`}
+      className={`${index === 8 ? "" : "mr-[-1px]"} content-stretch flex items-center p-[4px] relative shrink-0 site-mobile-direction-dot`}
+      data-active={index === 0 ? "true" : "false"}
+      data-carousel-dot
+      data-carousel-index={index}
+      data-carousel-target="mobile-directions"
+      type="button"
+    >
+      <span aria-hidden="true" className="relative shrink-0 size-[32px]" />
+    </button>
+  );
+}
+
 function Frame183() {
   return (
     <div className="relative shrink-0 w-full">
       <div className="flex flex-row items-end justify-center size-full">
         <div className="content-stretch flex items-end justify-center px-[20px] relative size-full">
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center mr-[-1px] p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
-          <div className="content-stretch flex items-center p-[4px] relative shrink-0">
-            <div className="relative shrink-0 size-[32px]">
-              <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" fill="var(--fill-0, #9C78FF)" fillOpacity="0.4" id="Ellipse 8" r="16" />
-              </svg>
-            </div>
-          </div>
+          {Array.from({ length: 9 }, (_, index) => (
+            <DirectionDot key={index} index={index} />
+          ))}
         </div>
       </div>
     </div>

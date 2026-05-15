@@ -189,9 +189,47 @@ button,
   min-width: max-content;
 }
 
+.site-mobile-directions-carousel {
+  overflow-x: auto;
+  overflow-y: clip;
+  touch-action: pan-x pan-y;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  contain: layout paint style;
+}
+
+.site-mobile-directions-carousel > div {
+  flex: 0 0 390px;
+  scroll-snap-align: start;
+}
+
+.site-mobile-directions-carousel [class*="size-[39px]"] {
+  cursor: pointer;
+}
+
 .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"][class*="w-[120px]"],
 .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"][class*="w-full"] {
   width: 167px;
+}
+
+.site-mobile-direction-dot {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.site-mobile-direction-dot span {
+  display: block;
+  border-radius: 999px;
+  background: #9c78ff;
+  opacity: 0.4;
+  transition: opacity 180ms ease;
+}
+
+.site-mobile-direction-dot[data-active="true"] span {
+  opacity: 1;
 }
 
 [data-carousel-action] {

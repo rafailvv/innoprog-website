@@ -109,6 +109,28 @@ function scrollCarousel(id: string, direction: number) {
   });
 }
 
+function scrollCarouselTo(id: string, index: number) {
+  const carousel = document.querySelector<HTMLElement>(`[data-carousel="${id}"]`);
+
+  if (!carousel) {
+    return;
+  }
+
+  const items = Array.from(carousel.children).filter(
+    (child): child is HTMLElement => child instanceof HTMLElement,
+  );
+  const item = items[index];
+
+  if (!item) {
+    return;
+  }
+
+  carousel.scrollTo({
+    left: item.offsetLeft,
+    behavior: "smooth",
+  });
+}
+
 function canScrollCarousel(carousel: HTMLElement, delta: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
@@ -249,7 +271,7 @@ export default function App() {
   useEffect(() => {
     const carousels = Array.from(
       document.querySelectorAll<HTMLElement>(
-        '[data-carousel]:not([data-carousel="teachers"]):not([data-carousel="mobile-teachers"])',
+        '[data-carousel]:not([data-carousel="teachers"]):not([data-carousel="mobile-teachers"]):not([data-carousel="mobile-directions"])',
       ),
     );
 
@@ -282,6 +304,64 @@ export default function App() {
       carousels.forEach((carousel) => {
         carousel.removeEventListener("wheel", handleWheel);
       });
+    };
+  }, [viewport.isMobile]);
+
+  useEffect(() => {
+    const carousels = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-carousel][data-carousel-sync]"),
+    );
+
+    const syncCarouselDots = (carousel: HTMLElement) => {
+      const id = carousel.dataset.carousel;
+
+      if (!id) {
+        return;
+      }
+
+      const items = Array.from(carousel.children).filter(
+        (child): child is HTMLElement => child instanceof HTMLElement,
+      );
+      let activeIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      items.forEach((item, index) => {
+        const distance = Math.abs(item.offsetLeft - carousel.scrollLeft);
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          activeIndex = index;
+        }
+      });
+
+      document
+        .querySelectorAll<HTMLElement>(`[data-carousel-dot][data-carousel-target="${id}"]`)
+        .forEach((dot, index) => {
+          const isActive = index === activeIndex;
+
+          dot.dataset.active = String(isActive);
+          dot.setAttribute("aria-current", isActive ? "true" : "false");
+        });
+    };
+
+    const cleanups = carousels.map((carousel) => {
+      let frame = 0;
+      const handleScroll = () => {
+        window.cancelAnimationFrame(frame);
+        frame = window.requestAnimationFrame(() => syncCarouselDots(carousel));
+      };
+
+      syncCarouselDots(carousel);
+      carousel.addEventListener("scroll", handleScroll, { passive: true });
+
+      return () => {
+        window.cancelAnimationFrame(frame);
+        carousel.removeEventListener("scroll", handleScroll);
+      };
+    });
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
     };
   }, [viewport.isMobile]);
 
@@ -394,6 +474,36 @@ export default function App() {
         carouselControl.dataset.carouselTarget || "reviews",
         carouselControl.dataset.carouselAction === "prev" ? -1 : 1,
       );
+      return;
+    }
+
+    const carouselIndexControl = target?.closest<HTMLElement>(
+      "[data-carousel-index][data-carousel-target]",
+    );
+
+    if (carouselIndexControl) {
+      event.preventDefault();
+      const index = Number(carouselIndexControl.dataset.carouselIndex);
+
+      if (Number.isFinite(index)) {
+        scrollCarouselTo(carouselIndexControl.dataset.carouselTarget || "", index);
+      }
+
+      return;
+    }
+
+    const mobileDirectionsCarousel = target?.closest<HTMLElement>(
+      '[data-carousel="mobile-directions"]',
+    );
+    const mobileDirectionsArrow = target?.closest<HTMLElement>('[class*="size-[39px]"]');
+
+    if (
+      mobileDirectionsCarousel &&
+      mobileDirectionsArrow &&
+      mobileDirectionsCarousel.contains(mobileDirectionsArrow)
+    ) {
+      event.preventDefault();
+      scrollCarousel("mobile-directions", 1);
       return;
     }
 
