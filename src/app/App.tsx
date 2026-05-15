@@ -1,4 +1,4 @@
-import MainScreen from "../imports/ГлавныйЭкранД/ГлавныйЭкранД";
+import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 
