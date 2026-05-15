@@ -9,14 +9,14 @@ import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.png";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.png";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.png";
 import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.png";
-import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.png";
-import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.png";
-import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.png";
-import imgRectangle40085 from "./e23105f42bc682ba6a00ca8960747d189f0366a0.png";
-import imgRectangle40086 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.png";
-import imgRectangle40087 from "./2cbe57953beca1178afd27d1f71884d7d612b585.png";
-import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.png";
-import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.png";
+import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
+import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
+import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.teacher.webp";
+import imgRectangle40085 from "./e23105f42bc682ba6a00ca8960747d189f0366a0.teacher.webp";
+import imgRectangle40086 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.teacher.webp";
+import imgRectangle40087 from "./2cbe57953beca1178afd27d1f71884d7d612b585.teacher.webp";
+import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.teacher.webp";
+import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.teacher.webp";
 import imgE6C1B48813384D0EAf559017Eea41F831 from "./b0e157afc5f21ed21c0695f850461b4b7de165b5.png";
 import imgImage105 from "./52099641dea92d64016f12ac74714b5a956fb8b3.png";
 import imgRectangle40111 from "./8b6fbdf5ce2f58eb13079dafd921c74432233a33.png";
@@ -843,7 +843,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(156,120,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
             </div>
           </div>
         </div>
@@ -853,7 +853,7 @@ function Frame94() {
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40083} />
+            <img alt="" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40083} />
           </div>
         </div>
         <Frame89 />
@@ -863,7 +863,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[107.41%] left-[-7.76%] max-w-none top-[-1.29%] w-[115.23%]" src={imgRectangle40084} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[107.41%] left-[-7.76%] max-w-none top-[-1.29%] w-[115.23%]" src={imgRectangle40084} />
             </div>
           </div>
         </div>
@@ -873,7 +873,7 @@ function Frame94() {
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40085} />
+            <img alt="" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40085} />
           </div>
         </div>
         <Frame91 />
@@ -883,7 +883,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40086} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40086} />
             </div>
           </div>
         </div>
@@ -894,7 +894,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[124.27%] left-[0.11%] max-w-none top-[-14.44%] w-[99.89%]" src={imgRectangle40087} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[124.27%] left-[0.11%] max-w-none top-[-14.44%] w-[99.89%]" src={imgRectangle40087} />
             </div>
           </div>
         </div>
@@ -905,7 +905,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[119.16%] left-[6.78%] max-w-none top-[-5.89%] w-[85.23%]" src={imgRectangle40088} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[119.16%] left-[6.78%] max-w-none top-[-5.89%] w-[85.23%]" src={imgRectangle40088} />
             </div>
           </div>
         </div>
@@ -916,7 +916,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
+              <img alt="" decoding="async" loading="eager" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
             </div>
           </div>
         </div>
@@ -1355,7 +1355,7 @@ function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
       <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-        <img alt="" decoding="async" loading="lazy" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
+        <img alt="" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
       </div>
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">Анастасия</p>
     </div>
@@ -1393,7 +1393,7 @@ function Frame59() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
       <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-        <img alt="" decoding="async" loading="lazy" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
+        <img alt="" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
       </div>
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">Анастасия</p>
     </div>

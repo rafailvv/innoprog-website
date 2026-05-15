@@ -142,6 +142,8 @@ button,
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
+  transform: translateZ(0);
+  will-change: scroll-position;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -155,6 +157,19 @@ button,
 
 .site-teachers-carousel {
   overflow-y: visible;
+  contain: layout paint style;
+  scroll-snap-type: none;
+}
+
+.site-teachers-carousel > div {
+  contain: layout paint style;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.site-teachers-carousel img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 [data-carousel-action] {
