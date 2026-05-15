@@ -56,6 +56,12 @@ body {
   text-box-trim: trim-both;
 }
 
+.site-mobile-readable-copy,
+.site-mobile-readable-copy * {
+  text-box-edge: auto;
+  text-box-trim: none;
+}
+
 .site-shell--ready .site-canvas {
   opacity: 1;
 }
