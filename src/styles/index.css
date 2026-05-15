@@ -232,6 +232,72 @@ button,
   letter-spacing: 0;
 }
 
+.site-consent {
+  cursor: pointer;
+}
+
+.site-consent:focus-visible {
+  outline: 3px solid rgba(156, 120, 255, 0.6);
+  outline-offset: 8px;
+  border-radius: 10px;
+}
+
+.site-consent__box {
+  background: rgba(255, 255, 255, 0.18);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.site-consent__border {
+  transition:
+    border-color 180ms ease,
+    border-width 180ms ease;
+}
+
+.site-consent__check {
+  position: absolute;
+  inset: 2px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  pointer-events: none;
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transform: scale(0.72);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.site-shell--consent-checked .site-consent__box {
+  background: #9c78ff;
+  box-shadow: 0 6px 16px rgba(70, 74, 106, 0.18);
+}
+
+.site-shell--consent-checked .site-consent__border {
+  border-color: #9c78ff;
+}
+
+.site-shell--consent-checked .site-consent__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.site-shell--consent-error .site-consent__box {
+  background: rgba(255, 59, 48, 0.14);
+  box-shadow: 0 0 0 8px rgba(255, 59, 48, 0.12);
+  transform: scale(1.04);
+}
+
+.site-shell--consent-error .site-consent__border {
+  border-color: #ff3b30;
+  border-width: 2px;
+}
+
 .site-toast {
   position: fixed;
   right: 24px;

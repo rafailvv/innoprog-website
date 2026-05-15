@@ -1894,9 +1894,12 @@ function Frame99() {
 
 function Frame100() {
   return (
-    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
-      <div className="relative rounded-[2px] shrink-0 size-[24px]" data-name="чекбокс">
-        <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[2px]" />
+    <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent" data-consent-toggle role="checkbox" tabIndex={0}>
+      <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
+        <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
+        <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
+          <path d="M5 12.5L10 17.5L19 7" />
+        </svg>
       </div>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#464a6a] text-[0px] w-[584px]">
         <span className="leading-[20px] text-[16px]">{`Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с `}</span>

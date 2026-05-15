@@ -2,7 +2,7 @@ import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.png";
 import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.png";
 import { useEffect, useState } from "react";
-import type { MouseEvent } from "react";
+import type { KeyboardEvent, MouseEvent } from "react";
 
 const DESIGN_WIDTH = 1440;
 const DESIGN_HEIGHT = 14507;
@@ -108,6 +108,8 @@ export default function App() {
   const [scale, setScale] = useState(getCanvasScale);
   const [leadStatus, setLeadStatus] = useState("");
   const [isReady, setIsReady] = useState(false);
+  const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [isConsentError, setIsConsentError] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -183,10 +185,82 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    document
+      .querySelector("[data-consent-toggle]")
+      ?.setAttribute("aria-checked", String(isConsentChecked));
+  }, [isConsentChecked]);
+
+  useEffect(() => {
+    const handleConsentClick = (event: globalThis.MouseEvent) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const consentToggle = target?.closest("[data-consent-toggle]");
+
+      if (!consentToggle || target?.closest("a")) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      setIsConsentChecked((checked) => {
+        const nextChecked = !checked;
+
+        if (nextChecked) {
+          setIsConsentError(false);
+        }
+
+        return nextChecked;
+      });
+    };
+
+    const handleConsentKeyDown = (event: globalThis.KeyboardEvent) => {
+      const target = event.target instanceof Element ? event.target : null;
+
+      if (
+        !target?.closest("[data-consent-toggle]") ||
+        (event.key !== "Enter" && event.key !== " ")
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      setIsConsentChecked((checked) => {
+        const nextChecked = !checked;
+
+        if (nextChecked) {
+          setIsConsentError(false);
+        }
+
+        return nextChecked;
+      });
+    };
+
+    document.addEventListener("click", handleConsentClick, true);
+    document.addEventListener("keydown", handleConsentKeyDown, true);
+
+    return () => {
+      document.removeEventListener("click", handleConsentClick, true);
+      document.removeEventListener("keydown", handleConsentKeyDown, true);
+    };
+  }, []);
+
   const scrollToDesignY = (y: number) => {
     window.scrollTo({
       top: Math.round(y * scale),
       behavior: "smooth",
+    });
+  };
+
+  const toggleConsent = () => {
+    setIsConsentChecked((checked) => {
+      const nextChecked = !checked;
+
+      if (nextChecked) {
+        setIsConsentError(false);
+      }
+
+      return nextChecked;
     });
   };
 
@@ -200,6 +274,14 @@ export default function App() {
         carouselControl.dataset.carouselTarget || "reviews",
         carouselControl.dataset.carouselAction === "prev" ? -1 : 1,
       );
+      return;
+    }
+
+    const consentToggle = target?.closest<HTMLElement>("[data-consent-toggle]");
+
+    if (consentToggle && !target?.closest("a")) {
+      event.preventDefault();
+      toggleConsent();
       return;
     }
 
@@ -246,16 +328,41 @@ export default function App() {
 
     if (text.includes("отправить заявку")) {
       event.preventDefault();
+
+      if (!isConsentChecked) {
+        setIsConsentError(true);
+        setLeadStatus("");
+        return;
+      }
+
       setLeadStatus("Заявка отправлена. Мы свяжемся с вами в ближайшее время.");
       window.setTimeout(() => setLeadStatus(""), 3500);
+    }
+  };
+
+  const handleSiteKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    const target = event.target instanceof Element ? event.target : null;
+
+    if (
+      target?.closest("[data-consent-toggle]") &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      toggleConsent();
     }
   };
 
   return (
     <main
       aria-busy={!isReady}
-      className={`site-shell${isReady ? " site-shell--ready" : ""}`}
+      className={[
+        "site-shell",
+        isReady ? "site-shell--ready" : "",
+        isConsentChecked ? "site-shell--consent-checked" : "",
+        isConsentError ? "site-shell--consent-error" : "",
+      ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
+      onKeyDown={handleSiteKeyDown}
       style={{ height: `${Math.ceil(DESIGN_HEIGHT * scale)}px` }}
     >
       <div
