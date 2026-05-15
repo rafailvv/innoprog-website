@@ -113,6 +113,42 @@ button,
   height: 56px;
 }
 
+.site-benefit-icon {
+  pointer-events: none;
+}
+
+.site-benefit-icon--phone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 163px;
+  height: 122px;
+  overflow: hidden;
+  border-radius: 40px;
+  mix-blend-mode: color-burn;
+}
+
+.site-benefit-icon__phone-crop {
+  position: absolute;
+  left: 3px;
+  top: -34px;
+  width: 126px;
+  height: 177px;
+  overflow: hidden;
+  border-radius: 36px;
+  transform: rotate(34deg);
+  transform-origin: 50% 50%;
+}
+
+.site-benefit-icon__phone-crop img {
+  position: absolute;
+  left: -151px;
+  top: -28px;
+  width: 405px;
+  height: 405px;
+  max-width: none;
+}
+
 .site-toast {
   position: fixed;
   right: 24px;

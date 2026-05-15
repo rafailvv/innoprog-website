@@ -1079,9 +1079,9 @@ function Frame33() {
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[302px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(1)</p>
         <Frame107 />
-        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
-          <div className="absolute inset-0 mix-blend-color-burn overflow-hidden pointer-events-none rounded-[40px]">
-            <img alt="" className="absolute h-[313.19%] left-[-38.76%] max-w-none top-[-90.89%] w-[216.82%]" src={imgRectangle40111} />
+        <div className="site-benefit-icon site-benefit-icon--phone">
+          <div className="site-benefit-icon__phone-crop">
+            <img alt="" src={imgRectangle40111} />
           </div>
         </div>
       </div>
@@ -1118,7 +1118,7 @@ function Frame35() {
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(3)</p>
         <Frame109 />
         <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[40px]">
+          <div className="absolute inset-0 mix-blend-color-burn opacity-80 overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgRectangle40112} />
           </div>
         </div>
