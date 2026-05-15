@@ -21,7 +21,9 @@ const scrollTargets = {
 
 const CRITICAL_ASSETS = ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 const LOADER_MIN_MS = 650;
-const LOADER_MAX_MS = 5000;
+const LOADER_MAX_MS = 2600;
+const LOADED_STORAGE_KEY = "innoprog-site-loaded";
+const LOADER_EXIT_MS = 700;
 
 function getCanvasScale() {
   if (typeof window === "undefined") {
@@ -104,38 +106,30 @@ function preloadImage(src: string) {
   });
 }
 
-function waitForRenderedImage(image: HTMLImageElement) {
-  const decode = () => {
-    if (typeof image.decode === "function") {
-      return image.decode().then(() => undefined).catch(() => undefined);
-    }
-
-    return Promise.resolve();
-  };
-
-  if (image.complete) {
-    return decode();
+function hasLoadedInSession() {
+  try {
+    return window.sessionStorage.getItem(LOADED_STORAGE_KEY) === "true";
+  } catch {
+    return false;
   }
-
-  return new Promise<void>((resolve) => {
-    const done = () => {
-      image.removeEventListener("load", done);
-      image.removeEventListener("error", done);
-      decode().then(resolve);
-    };
-
-    image.addEventListener("load", done, { once: true });
-    image.addEventListener("error", done, { once: true });
-  });
 }
 
-function waitForPageAssets() {
+function rememberLoadedInSession() {
+  try {
+    window.sessionStorage.setItem(LOADED_STORAGE_KEY, "true");
+  } catch {
+    // Storage can be unavailable in private or restricted contexts.
+  }
+}
+
+function waitForCriticalAssets() {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
+  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
 
   return Promise.all([
     ...CRITICAL_ASSETS.map(preloadImage),
-    ...images.map(waitForRenderedImage),
+    loaderLogo && !loaderLogo.complete ? preloadImage(loaderLogo.src) : Promise.resolve(),
     fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
   ]).then(() => undefined);
 }
@@ -143,11 +137,17 @@ function waitForPageAssets() {
 export default function App() {
   const [scale, setScale] = useState(getCanvasScale);
   const [leadStatus, setLeadStatus] = useState("");
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(hasLoadedInSession);
+  const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
 
   useEffect(() => {
+    if (isReady) {
+      rememberLoadedInSession();
+      return;
+    }
+
     let cancelled = false;
     const startedAt = performance.now();
     const maxTimer = window.setTimeout(() => {
@@ -156,7 +156,7 @@ export default function App() {
       }
     }, LOADER_MAX_MS);
 
-    waitForPageAssets().then(() => {
+    waitForCriticalAssets().then(() => {
       const elapsed = performance.now() - startedAt;
       const delay = Math.max(0, LOADER_MIN_MS - elapsed);
 
@@ -172,7 +172,20 @@ export default function App() {
       cancelled = true;
       window.clearTimeout(maxTimer);
     };
-  }, []);
+  }, [isReady]);
+
+  useEffect(() => {
+    if (!isReady) {
+      return;
+    }
+
+    rememberLoadedInSession();
+    const hideTimer = window.setTimeout(() => setShouldShowLoader(false), LOADER_EXIT_MS);
+
+    return () => {
+      window.clearTimeout(hideTimer);
+    };
+  }, [isReady]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -188,15 +201,14 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const carousels = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-carousel]:not([data-carousel="teachers"])'),
+    );
+
     const handleWheel = (event: WheelEvent) => {
-      const target = event.target instanceof Element ? event.target : null;
-      const carousel = target?.closest<HTMLElement>("[data-carousel]");
+      const carousel = event.currentTarget instanceof HTMLElement ? event.currentTarget : null;
 
       if (!carousel || carousel.scrollWidth <= carousel.clientWidth) {
-        return;
-      }
-
-      if (carousel.dataset.carousel === "teachers") {
         return;
       }
 
@@ -214,10 +226,14 @@ export default function App() {
       event.preventDefault();
     };
 
-    document.addEventListener("wheel", handleWheel, { passive: false });
+    carousels.forEach((carousel) => {
+      carousel.addEventListener("wheel", handleWheel, { passive: false });
+    });
 
     return () => {
-      document.removeEventListener("wheel", handleWheel);
+      carousels.forEach((carousel) => {
+        carousel.removeEventListener("wheel", handleWheel);
+      });
     };
   }, []);
 
@@ -411,17 +427,19 @@ export default function App() {
       >
         <MainScreen />
       </div>
-      <div className="site-loader" aria-hidden={isReady}>
-        <img
-          alt=""
-          className="site-loader__logo"
-          decoding="async"
-          src="/logo_education.png"
-        />
-        <div className="site-loader__bar">
-          <div className="site-loader__bar-fill" />
+      {shouldShowLoader ? (
+        <div className="site-loader" aria-hidden={isReady}>
+          <img
+            alt=""
+            className="site-loader__logo"
+            decoding="async"
+            src="/logo_education.png"
+          />
+          <div className="site-loader__bar">
+            <div className="site-loader__bar-fill" />
+          </div>
         </div>
-      </div>
+      ) : null}
       {leadStatus ? (
         <div className="site-toast" role="status">
           {leadStatus}
