@@ -1316,8 +1316,8 @@ function Frame54() {
 function Frame45() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-        <img alt="" className="absolute h-[128%] left-[-11%] max-w-none object-cover top-[-12%] w-[122%]" src={imgRectangle40083} />
+      <div className="relative shrink-0 size-[185px]">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" height="185" src={imgEllipse2} width="185" />
       </div>
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">Кирилл</p>
     </div>
