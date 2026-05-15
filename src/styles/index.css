@@ -1,0 +1,130 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+#root {
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.site-shell {
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  overflow-x: clip;
+  overflow-y: visible;
+  background: #ffffff;
+}
+
+.site-canvas {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+}
+
+[class*="Manrope"] {
+  font-family: "Manrope", sans-serif;
+}
+
+[class*="Raleway"] {
+  font-family: "Raleway", sans-serif;
+}
+
+[data-name="кнопки пд"],
+button,
+[class*="cursor-pointer"],
+p {
+  -webkit-tap-highlight-color: transparent;
+}
+
+[data-name="кнопки пд"],
+button,
+p:has(> span),
+p {
+  user-select: none;
+}
+
+[data-name="кнопки пд"],
+button,
+[data-name="Text"] {
+  cursor: pointer;
+}
+
+.site-carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.site-carousel > div {
+  scroll-snap-align: start;
+}
+
+.site-teachers-carousel {
+  overflow-y: visible;
+}
+
+[data-carousel-action] {
+  cursor: pointer;
+}
+
+.site-with-us-list > :not(.absolute) {
+  z-index: 2;
+}
+
+.site-with-us-list > .absolute {
+  z-index: 1;
+  opacity: 0.45;
+}
+
+.site-start-button {
+  background: rgba(156, 120, 255, 0.6);
+  -webkit-backdrop-filter: blur(74px);
+  backdrop-filter: blur(74px);
+}
+
+.site-start-button__icon {
+  width: 56px;
+  height: 56px;
+}
+
+.site-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  max-width: min(420px, calc(100vw - 48px));
+  padding: 16px 20px;
+  border-radius: 24px;
+  background: #464a6a;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+}
