@@ -62,6 +62,24 @@ function scrollCarousel(id: string, direction: number) {
   });
 }
 
+function canScrollCarousel(carousel: HTMLElement, delta: number) {
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+  if (maxScrollLeft <= 0) {
+    return false;
+  }
+
+  if (delta > 0) {
+    return carousel.scrollLeft < maxScrollLeft - 1;
+  }
+
+  if (delta < 0) {
+    return carousel.scrollLeft > 1;
+  }
+
+  return false;
+}
+
 export default function App() {
   const [scale, setScale] = useState(getCanvasScale);
   const [leadStatus, setLeadStatus] = useState("");
@@ -92,7 +110,13 @@ export default function App() {
         return;
       }
 
-      carousel.scrollLeft += event.deltaY;
+      const delta = event.deltaY;
+
+      if (!canScrollCarousel(carousel, delta)) {
+        return;
+      }
+
+      carousel.scrollLeft += delta;
       event.preventDefault();
     };
 
