@@ -10,7 +10,7 @@ import type { CSSProperties, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
   width: 1440,
-  height: 14457,
+  height: 14373,
 };
 
 const MOBILE_DESIGN = {
