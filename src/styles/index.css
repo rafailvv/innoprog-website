@@ -46,6 +46,14 @@ body {
   transform-origin: top center;
 }
 
+.site-canvas--mobile p,
+.site-canvas--mobile span,
+.site-canvas--mobile a,
+.site-canvas--mobile button {
+  text-box-edge: cap alphabetic;
+  text-box-trim: trim-both;
+}
+
 .site-shell--ready .site-canvas {
   opacity: 1;
 }
@@ -179,6 +187,11 @@ button,
 
 .site-mobile-teachers-carousel > div {
   min-width: max-content;
+}
+
+.site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"][class*="w-[120px]"],
+.site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"][class*="w-full"] {
+  width: 167px;
 }
 
 [data-carousel-action] {

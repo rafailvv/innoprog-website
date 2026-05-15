@@ -1590,7 +1590,7 @@ function Frame154() {
 
 function Frame155() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] items-center py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[743px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
       <Component1 />
       <Frame154 />
     </div>
@@ -1799,7 +1799,7 @@ function Frame177() {
 
 function Frame172() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[350px]">
+    <div className="content-stretch flex flex-col gap-[80px] h-[1222px] items-start relative shrink-0 w-[350px]">
       <Frame157 />
       <Frame177 />
     </div>
@@ -1864,7 +1864,7 @@ function Frame161() {
 
 function Component2() {
   return (
-    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-full" data-name="документы">
+    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] h-[373px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-full" data-name="документы">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center px-[20px] py-[40px] relative size-full">
           <Frame161 />
@@ -1952,8 +1952,12 @@ function Frame73() {
 
 function Frame81() {
   return (
-    <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
-      <img alt="" decoding="async" loading="lazy" className="absolute h-[118%] left-[-25%] max-w-none object-cover top-[-10%] w-[148%]" src={imgRectangle40082} />
+    <div className="relative shrink-0 size-[89px]">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 89 89">
+        <g id="Frame 118">
+          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" id="Ellipse 2" r="44.5" />
+        </g>
+      </svg>
     </div>
   );
 }
@@ -2007,8 +2011,12 @@ function Frame82() {
 
 function Frame84() {
   return (
-    <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
-      <img alt="" decoding="async" loading="lazy" className="absolute h-[118%] left-[-25%] max-w-none object-cover top-[-10%] w-[148%]" src={imgRectangle40082} />
+    <div className="relative shrink-0 size-[89px]">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 89 89">
+        <g id="Frame 118">
+          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" id="Ellipse 2" r="44.5" />
+        </g>
+      </svg>
     </div>
   );
 }
@@ -2109,7 +2117,7 @@ function Frame167() {
 
 function Frame168() {
   return (
-    <div className="bg-[#464a6a] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
+    <div className="bg-[#464a6a] h-[1268px] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[40px] items-start px-[20px] py-[40px] relative size-full">
         <Frame69 />
         <Frame167 />
@@ -2412,7 +2420,7 @@ function Component3() {
 
 function Frame180() {
   return (
-    <div className="content-stretch flex flex-col gap-[26px] items-center relative shrink-0 w-[350px]">
+    <div className="content-stretch flex flex-col gap-[26px] items-center mt-[12px] relative shrink-0 w-[350px]">
       <Frame195 />
       <Frame181 />
       <Component3 />
@@ -2500,7 +2508,7 @@ function Frame116() {
 
 function Component4() {
   return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] items-center justify-center pb-[80px] pt-[40px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
+    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[515px] items-center justify-center pb-[80px] pt-[40px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
       <Frame113 />
       <Frame116 />
     </div>
