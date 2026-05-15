@@ -756,7 +756,7 @@ function Component1() {
 
 function Frame88() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Сергей Попкович</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
@@ -765,7 +765,7 @@ function Frame88() {
 
 function Frame89() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Данила Дробышев</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">С++ разработчик</p>
     </div>
@@ -774,7 +774,7 @@ function Frame89() {
 
 function Frame90() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Григорий Чепель</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
@@ -783,7 +783,7 @@ function Frame90() {
 
 function Frame91() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] uppercase w-full">
         <p className="leading-[36px] mb-0">Алан</p>
         <p className="leading-[36px]">Агузаров</p>
@@ -795,7 +795,7 @@ function Frame91() {
 
 function Frame92() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Паавел Мягчилов</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
@@ -804,7 +804,7 @@ function Frame92() {
 
 function Frame93() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Джамбулат Таджидинов</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Unreal Engine разработчик</p>
     </div>
@@ -813,7 +813,7 @@ function Frame93() {
 
 function Frame95() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[36px] w-full">
         <p className="leading-[38px] mb-0">Полина</p>
         <p className="leading-[38px]">Караева</p>
@@ -825,7 +825,7 @@ function Frame95() {
 
 function Frame96() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start min-h-[116px] relative shrink-0 text-center text-white w-full">
       <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] uppercase w-full whitespace-pre-wrap">
         <p className="leading-[36px] mb-0">{`Лев `}</p>
         <p className="leading-[36px]">Быков</p>
