@@ -19,8 +19,9 @@ import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.teache
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.teacher.webp";
 import imgE6C1B48813384D0EAf559017Eea41F831 from "./b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgImage105 from "./52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
-import imgRectangle40111 from "./8b6fbdf5ce2f58eb13079dafd921c74432233a33.opt.webp";
-import imgRectangle40112 from "./2818b95d0774d9d24e8b1bda655f881f87943875.opt.webp";
+import imgRectangle40111 from "./benefit-icons-figma.webp";
+import imgRectangle40112 from "./benefit-icons-chat-figma.webp";
+import imgBasilDocumentSolid from "./benefit-document-figma.svg";
 import imgCircleStackSwirl from "./circle-stack-swirl.opt.webp";
 import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "./diplom-prof.opt.webp";
@@ -1168,26 +1169,7 @@ function Frame34() {
 function BasilDocumentSolid() {
   return (
     <div className="relative size-[161.947px]" data-name="basil:document-solid">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 161.947 161.947">
-        <g id="basil:document-solid" opacity="0.7">
-          <g id="Vector">
-            <path clipRule="evenodd" d={svgPaths.p2a62c100} fill="url(#paint0_linear_1_1161)" fillOpacity="0.7" fillRule="evenodd" style={{ mixBlendMode: "color-burn" }} />
-          </g>
-          <g id="Vector_2">
-            <path d={svgPaths.p188b0e00} fill="url(#paint1_linear_1_1161)" fillOpacity="0.7" style={{ mixBlendMode: "color-burn" }} />
-          </g>
-        </g>
-        <defs>
-          <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_1161" x1="58.3319" x2="130.512" y1="19.2988" y2="147.355">
-            <stop offset="0.110577" stopColor="#CDBFF4" />
-            <stop offset="0.730769" stopColor="#8559FF" />
-          </linearGradient>
-          <linearGradient gradientUnits="userSpaceOnUse" id="paint1_linear_1_1161" x1="118.755" x2="118.755" y1="17.4925" y2="49.9135">
-            <stop stopColor="#AE90FF" />
-            <stop offset="1" stopColor="#8559FF" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBasilDocumentSolid} />
     </div>
   );
 }
