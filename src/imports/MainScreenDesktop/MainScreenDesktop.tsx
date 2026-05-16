@@ -22,6 +22,7 @@ import imgImage105 from "./52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgRectangle40111 from "./benefit-icons-figma.webp";
 import imgRectangle40112 from "./benefit-icons-chat-figma.webp";
 import imgBasilDocumentSolid from "./benefit-document-figma.svg";
+import imgBenefitCard1Figma from "./benefit-card1-figma.png";
 import imgCircleStackSwirl from "./circle-stack-swirl.opt.webp";
 import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "./diplom-prof.opt.webp";
@@ -1080,10 +1081,8 @@ function Frame33() {
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[302px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(1)</p>
         <Frame107 />
-        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
-          <div className="absolute inset-0 mix-blend-color-burn overflow-hidden pointer-events-none rounded-[40px]">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[313.19%] left-[-38.76%] max-w-none top-[-90.89%] w-[216.82%]" src={imgRectangle40111} />
-          </div>
+        <div className="absolute h-[122px] left-0 overflow-hidden pointer-events-none rounded-tl-[32px] top-0 w-[163px]">
+          <img alt="" decoding="async" loading="eager" className="absolute h-[275px] left-0 max-w-none top-0 w-[302px]" src={imgBenefitCard1Figma} />
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[465px]">
@@ -1139,7 +1138,7 @@ function Frame110() {
 
 function Frame111() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0 text-[24px] w-full">
+    <div className="content-stretch flex flex-col gap-[24px] items-end min-w-0 relative shrink-0 text-[24px] text-right text-white w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 uppercase w-full">Мок-интервью</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 w-full">{` в формате реального собеседования`}</p>
     </div>
@@ -1148,8 +1147,8 @@ function Frame111() {
 
 function Frame34() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[628px]">
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full">
+      <div className="bg-[#9c78ff] content-stretch flex flex-1 flex-col h-[275px] items-end justify-between min-w-0 p-[24px] relative rounded-[32px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(4)</p>
         <Frame110 />
         <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
@@ -1158,7 +1157,7 @@ function Frame34() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 text-right text-white w-[628px]">
+      <div className="bg-[#9c78ff] content-stretch flex flex-1 flex-col h-[275px] items-end justify-between min-w-0 overflow-hidden p-[24px] relative rounded-[32px] text-right text-white">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] w-[min-content]">(5)</p>
         <Frame111 />
       </div>
