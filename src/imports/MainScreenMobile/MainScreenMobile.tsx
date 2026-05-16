@@ -1195,7 +1195,7 @@ function Frame51() {
 
 function Frame57() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[14px] py-[8px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Сильное резюме</p>
     </div>
   );
@@ -1211,7 +1211,7 @@ function Frame54() {
 
 function Frame58() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[14px] py-[8px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Индивидуальный маршрут</p>
     </div>
   );
@@ -1228,7 +1228,7 @@ function Frame150() {
 
 function Frame59() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[14px] py-[8px] relative rounded-[32px] shrink-0">
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Уверенный выход на работу</p>
     </div>
   );
