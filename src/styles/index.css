@@ -356,6 +356,12 @@ button,
   cursor: pointer;
 }
 
+.site-consent__link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 .site-consent:focus-visible {
   outline: 3px solid rgba(156, 120, 255, 0.6);
   outline-offset: 8px;
