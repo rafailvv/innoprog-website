@@ -319,6 +319,46 @@ button,
   letter-spacing: 0;
 }
 
+.site-lead-input {
+  display: block;
+  border: 0;
+  border-radius: 40px;
+  outline: 0;
+  color: #464a6a;
+  appearance: none;
+}
+
+.site-lead-input::placeholder {
+  color: rgba(156, 120, 255, 0.8);
+  opacity: 1;
+}
+
+.site-lead-input:focus {
+  box-shadow: inset 0 0 0 2px rgba(70, 74, 106, 0.35);
+}
+
+.site-lead-input--mobile {
+  width: 347px;
+  height: 46px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.site-lead-input--desktop {
+  width: 100%;
+  height: 79px;
+  padding: 24px;
+  background: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+}
+
 .site-consent {
   cursor: pointer;
 }

@@ -1866,20 +1866,8 @@ function Frame97() {
 function Frame98() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-      <button className="bg-white cursor-pointer relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex items-center p-[24px] relative size-full">
-            <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-[rgba(156,120,255,0.8)] text-left uppercase whitespace-nowrap">Ваше имя</p>
-          </div>
-        </div>
-      </button>
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex items-center p-[24px] relative size-full">
-            <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-[rgba(156,120,255,0.8)] uppercase whitespace-nowrap">+7(000)-000-00-00</p>
-          </div>
-        </div>
-      </div>
+      <input aria-label="Ваше имя" autoComplete="name" className="site-lead-input site-lead-input--desktop" name="name" placeholder="Ваше имя" type="text" />
+      <input aria-label="Номер телефона" autoComplete="tel" className="site-lead-input site-lead-input--desktop" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
     </div>
   );
 }
