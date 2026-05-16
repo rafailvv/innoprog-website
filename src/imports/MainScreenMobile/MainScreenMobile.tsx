@@ -2401,9 +2401,9 @@ function Component4() {
 function Frame117() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
-      <p className="relative shrink-0 w-full">Тел: +7 (958) 606-79-80</p>
-      <p className="relative shrink-0 w-full">Email: education@innoprog.ru</p>
-      <p className="relative shrink-0 w-full">Telegram: @innoprog_admin</p>
+      <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
+      <a className="no-underline relative shrink-0 w-full" href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+      <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
     </div>
   );
 }
@@ -2523,10 +2523,18 @@ function MynauiTelegram() {
 function Frame123() {
   return (
     <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
-      <MaterialSymbolsMailOutline />
-      <TablerPhoneCall />
-      <IcBaselineWhatsapp />
-      <MynauiTelegram />
+      <a aria-label="Написать на почту" className="block" href="mailto:educatio@innoprog.ru">
+        <MaterialSymbolsMailOutline />
+      </a>
+      <a aria-label="Позвонить" className="block" href="tel:+79586067980">
+        <TablerPhoneCall />
+      </a>
+      <a aria-label="Написать в WhatsApp" className="block" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank">
+        <IcBaselineWhatsapp />
+      </a>
+      <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
+        <MynauiTelegram />
+      </a>
     </div>
   );
 }
