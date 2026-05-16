@@ -5,6 +5,11 @@ import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
+import {
+  MOBILE_DESIGN_HEIGHT,
+  MOBILE_DESIGN_WIDTH,
+  MOBILE_SCROLL_TARGETS,
+} from "./mobileLayout";
 import { useEffect, useState } from "react";
 import type { CSSProperties, KeyboardEvent, MouseEvent } from "react";
 
@@ -14,8 +19,8 @@ const DESKTOP_DESIGN = {
 };
 
 const MOBILE_DESIGN = {
-  width: 390,
-  height: 9427,
+  width: MOBILE_DESIGN_WIDTH,
+  height: MOBILE_DESIGN_HEIGHT,
 };
 
 const MOBILE_BREAKPOINT = 768;
@@ -32,17 +37,7 @@ const desktopScrollTargets = {
   form: 13167,
 };
 
-const mobileScrollTargets = {
-  adults: 2948,
-  children: 2948,
-  directions: 2948,
-  mentor: 3562,
-  teachers: 4244,
-  support: 5064,
-  reviews: 6936,
-  about: 7704,
-  form: 8198,
-};
+const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 
 const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
