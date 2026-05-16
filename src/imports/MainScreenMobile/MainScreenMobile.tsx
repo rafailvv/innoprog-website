@@ -1538,7 +1538,7 @@ function Frame154() {
 
 function Frame155() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[743px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[780px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
       <Component1 />
       <Frame154 />
     </div>

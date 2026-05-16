@@ -224,7 +224,7 @@ button,
   touch-action: pan-x pan-y;
   scroll-snap-type: x proximity;
   contain: layout paint style;
-  padding-bottom: 4px;
+  padding-bottom: 20px;
 }
 
 .site-mobile-teachers-carousel > div {
