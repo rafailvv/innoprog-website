@@ -2076,7 +2076,7 @@ function Frame175() {
 
 function Frame195() {
   return (
-    <div className="content-stretch flex font-['Manrope:Bold',sans-serif] font-bold items-start justify-between leading-[20px] relative shrink-0 text-[#464a6a] text-[20px] text-center uppercase w-[262px] whitespace-nowrap">
+    <div className="content-stretch flex font-['Manrope:Bold',sans-serif] font-bold items-start justify-between leading-[20px] relative shrink-0 text-[#464a6a] text-[20px] text-center uppercase w-[262px] whitespace-nowrap site-mobile-comparison-title">
       <p className="relative shrink-0">{`без нас `}</p>
       <p className="relative shrink-0">{`с нами `}</p>
     </div>

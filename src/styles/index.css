@@ -337,7 +337,7 @@ button,
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 402px) {
   .site-mobile-mentor-tag {
     padding-right: 6px;
     padding-left: 6px;
@@ -347,6 +347,12 @@ button,
     font-size: 13.5px;
     line-height: 20px;
     letter-spacing: 0.16px;
+  }
+
+  .site-mobile-comparison-title {
+    width: 248px;
+    font-size: 18px;
+    line-height: 19px;
   }
 }
 

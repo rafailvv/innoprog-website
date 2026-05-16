@@ -1,8 +1,8 @@
 export const MOBILE_DESIGN_WIDTH = 390;
-export const MOBILE_DESIGN_HEIGHT = 9483;
+export const MOBILE_DESIGN_HEIGHT = 9515;
 
 export const MOBILE_FEATURES_BG_TOP = 701;
-export const MOBILE_FEATURES_BG_HEIGHT = 1623;
+export const MOBILE_FEATURES_BG_HEIGHT = 1655;
 export const MOBILE_PLATFORM_TOP = MOBILE_FEATURES_BG_TOP + MOBILE_FEATURES_BG_HEIGHT;
 export const MOBILE_PLATFORM_CONTENT_TOP = MOBILE_PLATFORM_TOP + 80;
 export const MOBILE_NEXT_SECTIONS_TOP = MOBILE_PLATFORM_TOP + 680;
@@ -11,10 +11,10 @@ export const MOBILE_SCROLL_TARGETS = {
   adults: MOBILE_NEXT_SECTIONS_TOP,
   children: MOBILE_NEXT_SECTIONS_TOP,
   directions: MOBILE_NEXT_SECTIONS_TOP,
-  mentor: 3618,
-  teachers: 4300,
-  support: 5120,
-  reviews: 6992,
-  about: 7760,
-  form: 8254,
+  mentor: 3650,
+  teachers: 4332,
+  support: 5152,
+  reviews: 7024,
+  about: 7792,
+  form: 8286,
 };
