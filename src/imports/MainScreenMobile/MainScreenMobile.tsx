@@ -2283,6 +2283,7 @@ function Group6() {
       <WithUsArrow top={60} />
       <WithUsArrow top={101} />
       <WithUsArrow top={156} />
+      <WithUsArrow top={197} />
     </div>
   );
 }
