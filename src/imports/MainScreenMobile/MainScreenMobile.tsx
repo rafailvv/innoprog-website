@@ -1293,7 +1293,7 @@ function Frame148() {
 
 function Frame151() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[349px]">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[349px] site-mobile-mentor-tags">
       <Frame150 />
       <Frame149 />
       <Frame148 />
@@ -1722,7 +1722,7 @@ function Frame159() {
 
 function Frame160() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full site-mobile-mentor-cards">
       <Frame158 />
       <div className="bg-[#9c78ff] relative rounded-[32px] shrink-0 w-full">
         <div className="flex flex-col items-end size-full">
