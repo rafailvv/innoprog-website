@@ -295,22 +295,25 @@ button,
   }
 
   .site-mobile-mentor-tags {
-    gap: 7px;
+    gap: 8px;
   }
 
   .site-mobile-mentor-tags > div {
-    gap: 7px;
+    gap: 8px;
+  }
+
+  .site-mobile-mentor-tag {
+    padding-right: 8px;
+    padding-left: 8px;
   }
 
   .site-mobile-mentor-tags p {
     max-width: 100%;
     overflow: hidden;
-    font-size: 12.8px;
-    line-height: 18px;
-    letter-spacing: 0.12px;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.24px;
     text-overflow: clip;
-    transform: scale(0.96);
-    transform-origin: center;
   }
 
   .site-mobile-mentor-cards [class*="Manrope:Medium"] {
@@ -331,6 +334,19 @@ button,
 
   .site-mobile-mentor-cards [class*="Manrope:Regular"] p {
     line-height: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-mobile-mentor-tag {
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+
+  .site-mobile-mentor-tags p {
+    font-size: 13.5px;
+    line-height: 20px;
+    letter-spacing: 0.16px;
   }
 }
 
