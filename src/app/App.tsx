@@ -75,19 +75,15 @@ function getCriticalAssets(isMobile: boolean) {
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
-  let element = target instanceof Element ? target : null;
+  const element = target instanceof Element
+    ? target.closest<HTMLElement>('button, [role="button"], [data-name="кнопки пд"], [data-name="Text"]')
+    : null;
 
-  while (element && element !== root) {
-    const text = element.textContent?.replace(/\s+/g, " ").trim().toLowerCase();
-
-    if (text) {
-      return text;
-    }
-
-    element = element.parentElement;
+  if (!element || !root.contains(element)) {
+    return "";
   }
 
-  return "";
+  return element.textContent?.replace(/\s+/g, " ").trim().toLowerCase() || "";
 }
 
 function scrollCarousel(id: string, direction: number) {

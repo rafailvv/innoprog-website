@@ -146,8 +146,10 @@ p {
 
 [data-name="кнопки пд"],
 button,
-p:has(> span),
-p {
+[data-name="Text"],
+[data-mobile-menu-link],
+[data-carousel-action],
+[data-carousel-index] {
   user-select: none;
 }
 
