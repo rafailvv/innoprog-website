@@ -143,7 +143,7 @@ function Frame72() {
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Диплом о профпереподготовке</p>
           <p className="leading-[30px] mb-0">и диплом ИННОПРОГ. Сведения вносятся</p>
-          <p className="leading-[30px]">в государственный реестр РФ</p>
+          <p className="leading-[30px]">в государственный реестр</p>
         </div>
       </div>
     </div>

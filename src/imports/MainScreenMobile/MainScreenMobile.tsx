@@ -223,8 +223,6 @@ function Frame76() {
           и диплом ИННОПРОГ. Сведения
           <br aria-hidden="true" />
           вносятся в государственный реестр
-          <br aria-hidden="true" />
-          РФ
         </p>
       </div>
     </div>
