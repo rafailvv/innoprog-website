@@ -37,11 +37,11 @@ const mobileScrollTargets = {
   children: 2948,
   directions: 2948,
   mentor: 3562,
-  teachers: 4157,
-  support: 5109,
-  reviews: 6779,
-  about: 7571,
-  form: 8054,
+  teachers: 4244,
+  support: 5064,
+  reviews: 6936,
+  about: 7704,
+  form: 8198,
 };
 
 const LOADER_MIN_MS = 650;

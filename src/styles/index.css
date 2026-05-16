@@ -10,6 +10,8 @@ html {
   min-width: 320px;
   width: 100%;
   max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   overflow-x: hidden;
   overflow-x: clip;
   overflow-y: visible;
@@ -24,6 +26,8 @@ body {
   min-width: 320px;
   width: 100%;
   max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   overflow-x: hidden;
   overflow-x: clip;
   overflow-y: visible;
