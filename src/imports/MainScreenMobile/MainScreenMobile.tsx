@@ -2164,9 +2164,9 @@ function Frame121() {
 
 function Frame134() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[25px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-center text-white uppercase whitespace-nowrap">Системное обучение</p>
         </div>
       </div>
@@ -2176,9 +2176,9 @@ function Frame134() {
 
 function Frame135() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[25px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-center text-white uppercase whitespace-nowrap">Регулярные занятия</p>
         </div>
       </div>
@@ -2188,9 +2188,9 @@ function Frame135() {
 
 function Frame136() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[25px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-center text-white uppercase whitespace-nowrap">Постоянная практика</p>
         </div>
       </div>
@@ -2200,9 +2200,9 @@ function Frame136() {
 
 function Frame137() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[39px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <div className="font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[12px] text-center text-white uppercase whitespace-nowrap">
             <p className="leading-[14px] mb-0">{` Поддержка`}</p>
             <p className="leading-[14px]">наставника</p>
@@ -2215,9 +2215,9 @@ function Frame137() {
 
 function Frame138() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[25px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-center text-white uppercase whitespace-nowrap">{` Разбор ошибок`}</p>
         </div>
       </div>
@@ -2227,9 +2227,9 @@ function Frame138() {
 
 function Frame139() {
   return (
-    <div className="bg-[rgba(156,120,255,0.8)] relative rounded-[32px] shrink-0 w-full">
+    <div className="bg-[rgba(156,120,255,0.8)] h-[39px] relative rounded-[32px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[8px] relative size-full">
+        <div className="content-stretch flex items-center justify-center px-[8px] py-[5.5px] relative size-full">
           <div className="font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[12px] text-white uppercase whitespace-nowrap">
             <p className="leading-[14px] mb-0">Видимый прогресс</p>
             <p className="leading-[14px]">каждый месяц</p>
@@ -2242,7 +2242,7 @@ function Frame139() {
 
 function Frame140() {
   return (
-    <div className="col-1 content-stretch flex flex-col gap-[16px] items-start ml-0 mt-0 relative row-1 w-[167px]">
+    <div className="col-1 content-stretch flex flex-col gap-[16px] h-[258px] items-start ml-0 mt-0 relative row-1 w-[167px]">
       <Frame134 />
       <Frame135 />
       <Frame136 />
@@ -2253,65 +2253,31 @@ function Frame140() {
   );
 }
 
+function WithUsArrow({ top }: { top: number }) {
+  return (
+    <div className="absolute flex h-[14px] items-center justify-center left-[83px] pointer-events-none w-0" style={{ top }}>
+      <div className="flex-none rotate-90 skew-x-[-1.12deg]">
+        <div className="h-0 relative w-[14px]">
+          <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
+              <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Group6() {
   return (
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <Frame140 />
-      <div className="col-1 flex h-[14px] items-center justify-center ml-[83px] mt-[25px] relative row-1 w-0" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-          <div className="h-0 relative w-[14px]">
-            <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-                <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-1 flex h-[14px] items-center justify-center ml-[83px] mt-[66px] relative row-1 w-0" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-          <div className="h-0 relative w-[14px]">
-            <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-                <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-1 flex h-[14px] items-center justify-center ml-[83px] mt-[107px] relative row-1 w-0" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-          <div className="h-0 relative w-[14px]">
-            <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-                <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-1 flex h-[14px] items-center justify-center ml-[83px] mt-[162px] relative row-1 w-0" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-          <div className="h-0 relative w-[14px]">
-            <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-                <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-1 flex h-[14px] items-center justify-center ml-[83px] mt-[203px] relative row-1 w-0" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-          <div className="h-0 relative w-[14px]">
-            <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-                <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <WithUsArrow top={28} />
+      <WithUsArrow top={69} />
+      <WithUsArrow top={110} />
+      <WithUsArrow top={165} />
+      <WithUsArrow top={206} />
     </div>
   );
 }
