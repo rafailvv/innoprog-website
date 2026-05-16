@@ -87,18 +87,18 @@ function Frame5() {
 function Frame55() {
   return (
     <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[8px] items-center leading-[43px] relative shrink-0 uppercase w-full">
-      <p className="relative shrink-0 text-[64px] whitespace-nowrap">обучаем</p>
-      <p className="relative shrink-0 text-[28px] w-[345px]">программированию</p>
+      <p className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">обучаем</p>
+      <p className="relative shrink-0 text-[26px] text-center w-full">программированию</p>
     </div>
   );
 }
 
 function Frame56() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 text-[#464a6a] text-center w-full">
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[20px] w-[345px] whitespace-pre-wrap">
-        <p className="leading-[22px] mb-0">с упором на практику</p>
-        <p className="leading-[22px]">{`и персональное обучение                  `}</p>
+    <div className="content-stretch flex flex-col gap-[18px] items-center relative shrink-0 text-[#464a6a] text-center w-full">
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-[345px]">
+        <p className="mb-0">с упором на практику</p>
+        <p>и персональное обучение</p>
       </div>
       <Frame55 />
     </div>
@@ -115,7 +115,7 @@ function Frame101() {
 
 function Frame194() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-start left-1/2 top-[193px] w-[350px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-start left-1/2 top-[176px] w-[350px]">
       <Frame101 />
     </div>
   );
@@ -2024,22 +2024,6 @@ function Frame166() {
           </div>
         </div>
       </div>
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
-        <div className="flex flex-col items-center size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
-            <Frame80 />
-            <Frame82 />
-          </div>
-        </div>
-      </div>
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
-        <div className="flex flex-col items-center size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
-            <Frame83 />
-            <Frame88 />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -2062,7 +2046,7 @@ function Frame167() {
 
 function Frame168() {
   return (
-    <div className="bg-[#464a6a] h-[1268px] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
+    <div className="bg-[#464a6a] relative rounded-bl-[40px] rounded-br-[40px] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[40px] items-start px-[20px] py-[40px] relative size-full">
         <Frame69 />
         <Frame167 />

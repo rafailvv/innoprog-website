@@ -48,14 +48,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.site-canvas--mobile p,
-.site-canvas--mobile span,
-.site-canvas--mobile a,
-.site-canvas--mobile button {
-  text-box-edge: cap alphabetic;
-  text-box-trim: trim-both;
-}
-
 .site-mobile-readable-copy,
 .site-mobile-readable-copy * {
   text-box-edge: auto;
