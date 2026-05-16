@@ -375,7 +375,7 @@ function Frame146() {
 
 function Frame147() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[2473px] w-[350px]">
+    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[2383px] w-[350px]">
       <div aria-hidden="true" className="-translate-x-1/2 absolute h-[360px] left-1/2 pointer-events-none rounded-full site-platform-glow top-[32px] w-[430px]" />
       <Frame146 />
       <div className="relative rounded-[40px] shrink-0 w-full">

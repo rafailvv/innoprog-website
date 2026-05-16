@@ -15,7 +15,7 @@ const DESKTOP_DESIGN = {
 
 const MOBILE_DESIGN = {
   width: 390,
-  height: 9503,
+  height: 9440,
 };
 
 const MOBILE_BREAKPOINT = 768;
