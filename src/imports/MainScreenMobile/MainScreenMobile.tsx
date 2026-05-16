@@ -1196,7 +1196,7 @@ function Frame51() {
 function Frame57() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">Сильное резюме</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Сильное резюме</p>
     </div>
   );
 }
@@ -1212,14 +1212,14 @@ function Frame54() {
 function Frame58() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">Индивидуальный маршрут</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Индивидуальный маршрут</p>
     </div>
   );
 }
 
 function Frame150() {
   return (
-    <div className="content-stretch flex gap-[14px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
       <Frame54 />
       <Frame58 />
     </div>
@@ -1229,7 +1229,7 @@ function Frame150() {
 function Frame59() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white text-center tracking-[0.42px] whitespace-nowrap">Уверенный выход на работу</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Уверенный выход на работу</p>
     </div>
   );
 }
@@ -1237,14 +1237,14 @@ function Frame59() {
 function Frame60() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">Разбор кейсов</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Разбор кейсов</p>
     </div>
   );
 }
 
 function Frame149() {
   return (
-    <div className="content-stretch flex gap-[18px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
       <Frame59 />
       <Frame60 />
     </div>
@@ -1254,7 +1254,7 @@ function Frame149() {
 function Frame62() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">Поддержка</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Поддержка</p>
     </div>
   );
 }
@@ -1270,14 +1270,14 @@ function Frame61() {
 function Frame63() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-white text-center tracking-[0.42px] whitespace-nowrap">Подготовка к собеседованию</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Подготовка к собеседованию</p>
     </div>
   );
 }
 
 function Frame148() {
   return (
-    <div className="content-stretch flex gap-[30px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
       <Frame61 />
       <Frame63 />
     </div>
@@ -1286,7 +1286,7 @@ function Frame148() {
 
 function Frame151() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[350px]">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[349px]">
       <Frame150 />
       <Frame149 />
       <Frame148 />
