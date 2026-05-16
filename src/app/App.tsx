@@ -269,7 +269,7 @@ export default function App() {
   useEffect(() => {
     const carousels = Array.from(
       document.querySelectorAll<HTMLElement>(
-        '[data-carousel]:not([data-carousel="teachers"]):not([data-carousel="mobile-teachers"]):not([data-carousel="mobile-directions"])',
+        '[data-carousel]:not([data-carousel="teachers"]):not([data-carousel="reviews"]):not([data-carousel="mobile-teachers"]):not([data-carousel="mobile-directions"])',
       ),
     );
 
