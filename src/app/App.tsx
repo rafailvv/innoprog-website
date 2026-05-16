@@ -581,18 +581,12 @@ export default function App() {
   };
 
   const activeDesign = viewport.design;
-  const canvasStyle = viewport.isMobile
-    ? ({
-      width: `${activeDesign.width}px`,
-      height: `${activeDesign.height}px`,
-      transform: "none",
-      zoom: viewport.scale,
-    } as CSSProperties & { zoom: number })
-    : {
-      width: `${activeDesign.width}px`,
-      height: `${activeDesign.height}px`,
-      transform: `translateX(-50%) scale(${viewport.scale})`,
-    };
+  const canvasStyle = {
+    width: `${activeDesign.width}px`,
+    height: `${activeDesign.height}px`,
+    transform: "none",
+    zoom: viewport.scale,
+  } as CSSProperties & { zoom: number };
 
   return (
     <main
