@@ -2677,7 +2677,7 @@ export default function Component() {
       <div className="absolute h-[410px] left-[-57px] top-[405px] w-[490px]" data-name="IMG_2949 1">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
       </div>
-      <div className="-translate-x-1/2 absolute bg-[rgba(156,120,255,0.4)] content-stretch flex h-[68px] items-center justify-between left-1/2 px-[24px] py-[16px] rounded-[40px] top-[682px] w-[350px]" data-name="кнопки пд">
+      <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[682px]" data-name="кнопки пд">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
         <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
           <div className="relative shrink-0 size-[16px]">
