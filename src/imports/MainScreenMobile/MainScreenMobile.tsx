@@ -139,7 +139,7 @@ function Frame4() {
 
 function Frame() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative self-stretch shrink-0 w-[167px]">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative self-stretch shrink-0 w-[167px]">
       <div className="font-['Raleway:Bold',sans-serif] font-bold min-w-full relative shrink-0 uppercase w-[min-content]">
         <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] mb-0 text-[36px]">450+</p>
         <p className="font-['Manrope:Bold',sans-serif] leading-[20px] text-[20px]">{`студентов `}</p>
@@ -154,7 +154,7 @@ function Frame() {
 
 function Frame1() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[167px]">
+    <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-[167px]">
       <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold relative shrink-0 w-full">
         <p className="leading-[38px] mb-0 text-[36px]">{`18000+`}</p>
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[20px] text-[20px]">занятий</p>
@@ -175,12 +175,16 @@ function Frame143() {
 
 function Frame2() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full whitespace-pre-wrap">
         <span>{`72% `}</span>
         <span className="font-['Manrope:Bold',sans-serif] font-bold text-[20px]">выпускников</span>
       </p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">после обучения успешно начинают карьеру в ИТ</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
+        после обучения успешно начинают
+        <br aria-hidden="true" />
+        карьеру в IT
+      </p>
     </div>
   );
 }
