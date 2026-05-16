@@ -600,7 +600,7 @@ export default function App() {
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={{ height: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
+      style={{ minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
     >
       <div
         className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
