@@ -310,6 +310,15 @@ button,
   letter-spacing: 0;
 }
 
+.site-mobile-review-quote {
+  font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0;
+}
+
 .site-consent {
   cursor: pointer;
 }

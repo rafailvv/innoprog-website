@@ -1882,9 +1882,9 @@ function Frame71() {
 function Frame163() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
-      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center w-[min-content]">Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...</p>
+      <p className="relative shrink-0 site-mobile-review-quote text-black text-center w-full">Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...</p>
       <div className="content-stretch flex items-center relative shrink-0">
-        <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[16px] relative shrink-0 text-[#9c78ff] text-[14px] text-center tracking-[0.42px] whitespace-nowrap">читать полностью</p>
+        <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[#9c78ff] text-[20px] text-center tracking-[0.6px] whitespace-nowrap">ЧИТАТЬ ПОЛНОСТЬЮ</p>
       </div>
     </div>
   );
@@ -1893,7 +1893,7 @@ function Frame163() {
 function Frame73() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
-      <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[16px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] w-full whitespace-pre-wrap">{`Из HR  → в ИТ`}</p>
+      <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[20px] text-black text-center tracking-[0.6px] w-full whitespace-nowrap">Из HR → в ИТ</p>
       <Frame163 />
     </div>
   );
