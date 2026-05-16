@@ -2,6 +2,7 @@ import svgPaths from "./svg-paths";
 import imgGain from "../MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
+import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
 import imgRectangle40082 from "../MainScreenDesktop/100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./teacher-grigoriy-mobile.webp";
@@ -2264,14 +2265,10 @@ function Frame140() {
 
 function WithUsArrow({ top }: { top: number }) {
   return (
-    <div className="absolute flex h-[14px] items-center justify-center left-[83px] pointer-events-none w-0" style={{ top }}>
-      <div className="flex-none rotate-90 skew-x-[-1.12deg]">
-        <div className="h-0 relative w-[14px]">
-          <div className="absolute inset-[-3.68px_-3.57%_-3.68px_0]">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14.5 7.36396">
-              <path d={svgPaths.p3b044f00} fill="var(--stroke-0, black)" id="Arrow 1" />
-            </svg>
-          </div>
+    <div className="absolute flex h-[28px] items-center justify-center left-[75.5px] pointer-events-none w-[15.5px]" style={{ top }}>
+      <div className="flex-none rotate-90">
+        <div className="h-[15.5px] relative w-[28px]" data-name="image 112">
+          <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgWithUsArrow} />
         </div>
       </div>
     </div>
@@ -2282,11 +2279,10 @@ function Group6() {
   return (
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <Frame140 />
-      <WithUsArrow top={28} />
-      <WithUsArrow top={69} />
-      <WithUsArrow top={110} />
-      <WithUsArrow top={165} />
-      <WithUsArrow top={206} />
+      <WithUsArrow top={19} />
+      <WithUsArrow top={60} />
+      <WithUsArrow top={101} />
+      <WithUsArrow top={156} />
     </div>
   );
 }
