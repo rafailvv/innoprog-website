@@ -115,7 +115,7 @@ function Frame101() {
 
 function Frame194() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-start left-1/2 top-[176px] w-[350px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-start left-1/2 top-[126px] w-[350px]">
       <Frame101 />
     </div>
   );
@@ -322,7 +322,7 @@ function Frame144() {
 
 function Frame145() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[810px] w-[350px]">
+    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[735px] w-[350px]">
       <Frame144 />
       <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
         <div className="flex flex-row items-center justify-center size-full">
@@ -373,7 +373,7 @@ function Frame146() {
 
 function Frame147() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[2348px] w-[350px]">
+    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[2273px] w-[350px]">
       <div aria-hidden="true" className="-translate-x-1/2 absolute h-[360px] left-1/2 pointer-events-none rounded-full site-platform-glow top-[32px] w-[430px]" />
       <Frame146 />
       <div className="relative rounded-[40px] shrink-0 w-full">
@@ -2616,7 +2616,7 @@ function Frame176() {
 
 function Frame173() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[80px] items-center left-0 top-[2922px] w-[390px]">
+    <div className="absolute content-stretch flex flex-col gap-[80px] items-center left-0 top-[2847px] w-[390px]">
       <Frame171 />
       <Frame196 />
       <Frame155 />
@@ -2628,7 +2628,7 @@ function Frame173() {
 export default function Component() {
   return (
     <div className="bg-white relative size-full" data-name="гланый экран М">
-      <div className="absolute bg-[#464a6a] h-[660px] left-0 rounded-bl-[40px] rounded-br-[40px] top-[2182px] w-[390px]" />
+      <div className="absolute bg-[#464a6a] h-[660px] left-0 rounded-bl-[40px] rounded-br-[40px] top-[2107px] w-[390px]" />
       <div className="absolute content-stretch flex items-start justify-between left-[23px] top-[40px] w-[350px]" data-name="хедер М">
         <Group />
         <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
@@ -2636,14 +2636,14 @@ export default function Component() {
         </button>
       </div>
       <Frame194 />
-      <div className="absolute bg-[#9c78ff] h-[1492px] left-0 top-[776px] w-[390px]" />
+      <div className="absolute bg-[#9c78ff] h-[1492px] left-0 top-[701px] w-[390px]" />
       <Frame145 />
       <Frame147 />
       <Frame173 />
-      <div className="absolute h-[410px] left-[-57px] top-[405px] w-[490px]" data-name="IMG_2949 1">
+      <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
       </div>
-      <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[682px]" data-name="кнопки пд">
+      <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
         <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
           <div className="relative shrink-0 size-[16px]">
