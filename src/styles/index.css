@@ -258,6 +258,37 @@ button,
   width: 167px;
 }
 
+@media (max-width: 414px) {
+  .site-mobile-teachers-title p:first-child {
+    font-size: 38px;
+    line-height: 41px;
+  }
+
+  .site-mobile-teachers-title p:last-child {
+    font-size: 37px;
+    line-height: 41px;
+  }
+
+  .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"] div[class*="Manrope:Bold"] {
+    font-size: 19px;
+  }
+
+  .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"] div[class*="Manrope:Bold"] p {
+    line-height: 17px;
+  }
+
+  .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"] > p {
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.3px;
+  }
+
+  .site-mobile-mentor-heading {
+    font-size: 31px;
+    line-height: 31px;
+  }
+}
+
 .site-mobile-direction-dot {
   border: 0;
   background: transparent;

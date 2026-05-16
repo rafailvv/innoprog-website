@@ -1332,7 +1332,7 @@ function Frame196() {
 function Component1() {
   return (
     <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-name="преподаватели">
-      <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px]">
+      <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
         <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
         <p className="leading-[43px] text-[39px]">преподаватели</p>
       </div>
@@ -1740,7 +1740,7 @@ function Frame160() {
 function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
-      <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[2px] items-start leading-[32px] relative shrink-0 text-[32px] text-black uppercase w-[351px]">
+      <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[2px] items-start leading-[32px] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
         <p className="relative shrink-0 text-[#9c78ff] w-full">Вас ждет более 40+</p>
         <p className="relative shrink-0 w-full">персональных</p>
         <p className="relative shrink-0 w-full">онлайн встреч</p>
