@@ -52,11 +52,11 @@ type CourseCardVisual = {
 const COURSE_CARD_VISUALS: CourseCardVisual[] = [
   {
     src: imgCoursePython,
-    imageClassName: "absolute h-[121.29%] left-[-24.41%] max-w-none top-[-21.29%] w-[126.6%]",
+    imageClassName: "absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]",
   },
   {
     src: imgCourseDataScience,
-    imageClassName: "absolute h-[212.54%] left-[-186.87%] max-w-none top-[-66.09%] w-[321.33%]",
+    imageClassName: "absolute h-[170.12%] left-[-36.21%] max-w-none top-[-36.44%] w-[142.1%]",
   },
   {
     src: imgCourseFrontend,
@@ -65,28 +65,29 @@ const COURSE_CARD_VISUALS: CourseCardVisual[] = [
   },
   {
     src: imgCourseDataScience,
-    imageClassName: "absolute h-[157.91%] left-[-40.99%] max-w-none top-[-36.44%] w-[159.16%]",
+    imageClassName: "absolute h-[178.17%] left-[-40.88%] max-w-none top-[-39.08%] w-[148.82%]",
   },
   {
     src: imgCourseCpp,
-    imageClassName: "absolute h-[161.9%] left-[-39.02%] max-w-none top-[-41.56%] w-[163.17%]",
+    imageClassName: "absolute h-[169.72%] left-[-31.18%] max-w-none top-[-39.2%] w-[141.76%]",
   },
   {
     src: imgCourseMobile,
-    imageClassName: "absolute h-[211.07%] left-[-42.46%] max-w-none top-[-87.03%] w-[212.73%]",
-  },
-  {
-    src: imgCourseUnreal,
-    imageClassName: "absolute h-[167.46%] left-[-42.64%] max-w-none top-[-39.64%] w-[168.78%]",
-  },
-  {
-    src: imgCourseJava,
     imageClassName: "",
     direct: true,
   },
   {
+    src: imgCourseUnreal,
+    imageClassName: "absolute h-[186.62%] left-[-41.59%] max-w-none top-[-43.31%] w-[155.88%]",
+  },
+  {
+    src: imgCourseJava,
+    imageClassName: "mix-blend-lighten",
+    direct: true,
+  },
+  {
     src: imgCourseMl,
-    imageClassName: "absolute h-[176.89%] left-[-49.21%] max-w-none top-[-46.65%] w-[178.28%]",
+    imageClassName: "absolute h-[196.66%] left-[-47.33%] max-w-none top-[-48.17%] w-[164.27%]",
   },
 ];
 
@@ -98,11 +99,11 @@ function CourseCardImage({ index }: { index: number }) {
   }
 
   return (
-    <div aria-hidden="true" className="absolute h-[256px] left-[-20px] pointer-events-none rounded-tl-[40px] top-[-24px] w-[254px]">
+    <div aria-hidden="true" className="absolute h-[284px] left-0 origin-top-left pointer-events-none rounded-tl-[40px] top-0 scale-[0.74] w-[340px]">
       {visual.direct ? (
-        <img alt="" decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-bottom opacity-60 pointer-events-none rounded-tl-[40px] size-full ${visual.imageClassName}`} src={visual.src} />
+        <img alt="" decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-bottom pointer-events-none rounded-tl-[40px] size-full ${visual.imageClassName}`} src={visual.src} />
       ) : (
-        <div className="absolute inset-0 opacity-60 overflow-hidden pointer-events-none rounded-tl-[40px]">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-tl-[40px]">
           <img alt="" decoding="async" loading="lazy" className={visual.imageClassName} src={visual.src} />
         </div>
       )}
