@@ -16,6 +16,9 @@ import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc
 import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
+import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
+import imgBenefitIcons from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
+import imgBenefitDocument from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgRectangle40082 from "../MainScreenDesktop/100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./teacher-grigoriy-mobile.webp";
 import imgRectangle40084 from "../MainScreenDesktop/b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.teacher.webp";
@@ -1769,14 +1772,45 @@ function Frame157() {
   );
 }
 
+function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "support" | "chat" | "interview" }) {
+  if (variant === "online") {
+    return (
+      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[275px] left-0 max-w-none opacity-75 top-0 w-[302px]" src={imgBenefitCard1} />
+      </div>
+    );
+  }
+
+  if (variant === "interview") {
+    return (
+      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[76px] left-[24px] max-w-none mix-blend-color-burn opacity-60 top-[-2px] w-[76px]" src={imgBenefitDocument} />
+      </div>
+    );
+  }
+
+  const imageClassName =
+    variant === "internship"
+      ? "absolute h-[227px] left-[-30px] max-w-none mix-blend-color-burn opacity-60 top-[-49px] w-[340px]"
+      : variant === "support"
+        ? "absolute h-[227px] left-[-116px] max-w-none mix-blend-color-burn opacity-60 top-[-51px] w-[340px]"
+        : "absolute h-[227px] left-[-226px] max-w-none mix-blend-color-burn opacity-60 top-[-51px] w-[340px]";
+
+  return (
+    <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
+      <img alt="" decoding="async" loading="lazy" className={imageClassName} src={imgBenefitIcons} />
+    </div>
+  );
+}
+
 function Frame126() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
-      <div className="font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[16px] uppercase w-full">
-        <p className="leading-[20px] mb-0">Консультации</p>
-        <p className="leading-[20px]">с наставником</p>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">онлайн занятия</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
+        <p className="leading-[16px] mb-0">онлайн занятия</p>
+        <p className="leading-[16px]">каждую неделю</p>
       </div>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">Не менее одной каждую неделю</p>
     </div>
   );
 }
@@ -1784,8 +1818,8 @@ function Frame126() {
 function Frame127() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
-      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">персональный план</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">{` обучения под ваши задачи и цели`}</p>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">стажировка</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">в реальных проектах после обучения</p>
     </div>
   );
 }
@@ -1793,7 +1827,8 @@ function Frame127() {
 function Frame158() {
   return (
     <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full">
-      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px relative rounded-[32px] self-stretch">
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px] self-stretch">
+        <MentorBenefitIcon variant="online" />
         <div className="flex flex-col items-end size-full">
           <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(1)</p>
@@ -1801,7 +1836,8 @@ function Frame158() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] flex-[1_0_0] h-[175px] min-w-px relative rounded-[32px]">
+      <div className="bg-[#9c78ff] flex-[1_0_0] h-[175px] min-w-px overflow-hidden relative rounded-[32px]">
+        <MentorBenefitIcon variant="internship" />
         <div className="flex flex-col items-end size-full">
           <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(2)</p>
@@ -1816,11 +1852,8 @@ function Frame158() {
 function Frame128() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
-      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Поддержка и помощь</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full whitespace-pre-wrap">
-        <p className="leading-[16px] mb-0">{`по всем организационным вопросам — `}</p>
-        <p className="leading-[16px]">вам не нужно переживать о том, что, где и когда</p>
-      </div>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">поддержка и помощь</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">вам не нужно переживать о том что где и когда</p>
     </div>
   );
 }
@@ -1828,9 +1861,9 @@ function Frame128() {
 function Frame129() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
-      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Личный чат</p>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">личный чат</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
-        <p className="leading-[16px] mb-0">с наставником</p>
+        <p className="leading-[16px] mb-0">с наставников</p>
         <p className="leading-[16px] mb-0">для вопросов</p>
         <p className="leading-[16px]">вне уроков</p>
       </div>
@@ -1842,10 +1875,7 @@ function Frame130() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Мок-интервью</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
-        <p className="leading-[16px] mb-0">в формате реального собеседования</p>
-        <p className="leading-[16px]">для успешного выхода на стажировку</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">в формате реального собеседования</p>
     </div>
   );
 }
@@ -1853,7 +1883,8 @@ function Frame130() {
 function Frame159() {
   return (
     <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full">
-      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px relative rounded-[32px] self-stretch">
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px] self-stretch">
+        <MentorBenefitIcon variant="chat" />
         <div className="flex flex-col items-end size-full">
           <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(4)</p>
@@ -1861,7 +1892,8 @@ function Frame159() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px relative rounded-[32px]">
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px]">
+        <MentorBenefitIcon variant="interview" />
         <div className="flex flex-col items-end size-full">
           <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(5)</p>
@@ -1877,7 +1909,8 @@ function Frame160() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full site-mobile-mentor-cards">
       <Frame158 />
-      <div className="bg-[#9c78ff] relative rounded-[32px] shrink-0 w-full">
+      <div className="bg-[#9c78ff] h-[163px] overflow-hidden relative rounded-[32px] shrink-0 w-full">
+        <MentorBenefitIcon variant="support" />
         <div className="flex flex-col items-end size-full">
           <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(3)</p>
@@ -1893,11 +1926,12 @@ function Frame160() {
 function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
-      <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[2px] items-start leading-[32px] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
-        <p className="relative shrink-0 text-[#9c78ff] w-full">Вас ждет более 40+</p>
-        <p className="relative shrink-0 w-full">персональных</p>
-        <p className="relative shrink-0 w-full">онлайн встреч</p>
-        <p className="relative shrink-0 w-full">с наставником:</p>
+      <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
+        <p className="mb-0">
+          <span className="leading-[32px] text-[#9c78ff]">Вас ждет более 40+ </span>
+          <span className="leading-[32px]">персональных онлайн встреч</span>
+        </p>
+        <p className="leading-[32px]">с наставником:</p>
       </div>
       <Frame160 />
     </div>
