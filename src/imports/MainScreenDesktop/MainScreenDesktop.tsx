@@ -28,6 +28,9 @@ import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "./diplom-prof.opt.webp";
 import imgEllipse2 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgEllipse3 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
+import imgReviewKirill from "./review-kirill.png";
+import imgReviewAnastasia from "./review-anastasia.png";
+import imgReviewSergey from "./review-sergey.png";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
 import imgImg29491 from "./a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
@@ -1294,6 +1297,53 @@ function Frame54() {
   );
 }
 
+const DESKTOP_REVIEWS = [
+  {
+    avatar: imgReviewKirill,
+    name: "Кирилл",
+    course: "Python-разработчик",
+    transition: "Из HR → в ИТ",
+    quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
+  },
+  {
+    avatar: imgReviewAnastasia,
+    name: "Анастасия",
+    course: "Data Science",
+    transition: "Из 1С → в Product",
+    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
+  },
+  {
+    avatar: imgReviewSergey,
+    name: "Сергей",
+    course: "Фронтенд разработчик",
+    transition: "Веб-приложение для сервиса",
+    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+  },
+] as const;
+
+function DesktopReviewCard({ review }: { review: (typeof DESKTOP_REVIEWS)[number] }) {
+  return (
+    <div className="bg-[rgba(255,255,255,0.9)] h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-name="отзыв">
+      <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex items-start justify-between left-1/2 p-[32px] top-[calc(50%-0.5px)] w-[791px]">
+        <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
+          <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
+            <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
+              <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover size-full" src={review.avatar} />
+            </div>
+            <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">{review.name}</p>
+          </div>
+          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-full relative shrink-0 text-[20px] text-black text-center w-[min-content]">{`Выпускник курса: ${review.course}`}</p>
+        </div>
+        <div className="content-stretch flex flex-col h-[330px] items-center justify-between relative shrink-0 text-[24px] text-black w-[429px]">
+          <p className="relative shrink-0 w-full site-review-quote">{review.quote}</p>
+          <p className="font-['Manrope:Regular',sans-serif] font-normal h-[18px] leading-[30px] relative shrink-0 w-full">{review.transition}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Frame45() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
@@ -1536,11 +1586,9 @@ function Frame44() {
 function Frame50() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-[1280px] site-carousel" data-carousel="reviews" tabIndex={0}>
-      <div className="bg-[rgba(255,255,255,0.9)] h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-name="отзыв">
-        <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
-        <Frame48 />
-      </div>
-      <Frame44 />
+      {DESKTOP_REVIEWS.map((review) => (
+        <DesktopReviewCard key={review.name} review={review} />
+      ))}
     </div>
   );
 }

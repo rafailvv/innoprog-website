@@ -27,7 +27,9 @@ import imgRectangle40086 from "../MainScreenDesktop/9fd4f9c316d21dbd728b3436e790
 import imgRectangle40087 from "./teacher-alan-mobile.webp";
 import imgRectangle40088 from "../MainScreenDesktop/accce48d175d044546f06312eec0a082304225b6.teacher.webp";
 import imgRectangle40089 from "../MainScreenDesktop/0637a0266dd99580004167f3ae3ffee5b51608c3.teacher.webp";
-import imgReviewKirill from "../MainScreenDesktop/d59a23af66561c21dac19b54273790bc7c10baf0.png";
+import imgReviewKirill from "../MainScreenDesktop/review-kirill.png";
+import imgReviewAnastasia from "../MainScreenDesktop/review-anastasia.png";
+import imgReviewSergey from "../MainScreenDesktop/review-sergey.png";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgImg29491 from "./hero-mobile.webp";
@@ -2036,6 +2038,66 @@ function Frame69() {
   );
 }
 
+const MOBILE_REVIEWS = [
+  {
+    avatar: imgReviewKirill,
+    name: "Кирилл",
+    course: ["Python-", "разработчик"],
+    transition: "Из HR → в ИТ",
+    quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
+  },
+  {
+    avatar: imgReviewAnastasia,
+    name: "Анастасия",
+    course: ["Data Science"],
+    transition: "Из 1С → в Product",
+    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
+  },
+  {
+    avatar: imgReviewSergey,
+    name: "Сергей",
+    course: ["Фронтенд", "разработчик"],
+    transition: "Веб-приложение для сервиса",
+    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+  },
+] as const;
+
+function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] }) {
+  return (
+    <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
+      <div className="flex flex-col items-center size-full">
+        <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
+          <div className="content-stretch flex gap-[32px] items-end relative shrink-0">
+            <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
+              <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover size-full" src={review.avatar} />
+            </div>
+            <div className="content-stretch flex flex-col gap-[16px] items-start justify-end relative shrink-0">
+              <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] relative shrink-0 text-[19px] text-black text-center whitespace-nowrap">{review.name}</p>
+              <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[8px] items-start relative shrink-0">
+                <p className="leading-[16px] relative shrink-0 text-[17px] text-black tracking-[0.51px] whitespace-nowrap">{`Выпускник курса: `}</p>
+                <div className="leading-[0] min-w-full relative shrink-0 text-[16px] text-[rgba(0,0,0,0.6)] tracking-[0.48px] w-[min-content]">
+                  {review.course.map((line) => (
+                    <p className="leading-[18px] mb-0" key={line}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
+            <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[20px] text-black text-center tracking-[0.6px] w-full whitespace-nowrap">{review.transition}</p>
+            <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
+              <p className="relative shrink-0 site-mobile-review-quote text-black text-center w-full">{review.quote}</p>
+              <div className="content-stretch flex items-center relative shrink-0">
+                <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[#9c78ff] text-[20px] text-center tracking-[0.6px] whitespace-nowrap">ЧИТАТЬ ПОЛНОСТЬЮ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Frame72() {
   return (
     <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
@@ -2212,14 +2274,9 @@ function Frame88() {
 function Frame166() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
-        <div className="flex flex-col items-center size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
-            <Frame71 />
-            <Frame73 />
-          </div>
-        </div>
-      </div>
+      {MOBILE_REVIEWS.map((review) => (
+        <MobileReviewCard key={review.name} review={review} />
+      ))}
     </div>
   );
 }
