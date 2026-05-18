@@ -1,7 +1,17 @@
 import svgPaths from "./svg-paths";
 import imgGain from "../MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
+import imgCoursePython from "../MainScreenDesktop/3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
+import imgCourseDataScience from "../MainScreenDesktop/653b7bc37f655916fe3ab94dc7fa4c9a87a9cee1.opt.webp";
+import imgCourseFrontend from "../MainScreenDesktop/c6d3c38bc41dfc3341159f2554b64cfeaf3c7d6f.opt.webp";
+import imgCourseCpp from "../MainScreenDesktop/8f047d89405d2f6d6d082c02c38bf64691b762d4.opt.webp";
+import imgCourseMobile from "../MainScreenDesktop/e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
+import imgCourseUnreal from "../MainScreenDesktop/e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
+import imgCourseJava from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
+import imgCourseMl from "../MainScreenDesktop/c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
+import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
+import imgPhoneFrame from "../MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
 import imgRectangle40082 from "../MainScreenDesktop/100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
@@ -23,6 +33,73 @@ import {
   MOBILE_PLATFORM_CONTENT_TOP,
   MOBILE_PLATFORM_TOP,
 } from "../../app/mobileLayout";
+
+type CourseCardVisual = {
+  src: string;
+  imageClassName: string;
+  direct?: boolean;
+};
+
+const COURSE_CARD_VISUALS: CourseCardVisual[] = [
+  {
+    src: imgCoursePython,
+    imageClassName: "absolute h-[121.29%] left-[-24.41%] max-w-none top-[-21.29%] w-[126.6%]",
+  },
+  {
+    src: imgCourseDataScience,
+    imageClassName: "absolute h-[212.54%] left-[-186.87%] max-w-none top-[-66.09%] w-[321.33%]",
+  },
+  {
+    src: imgCourseFrontend,
+    imageClassName: "mix-blend-lighten",
+    direct: true,
+  },
+  {
+    src: imgCourseDataScience,
+    imageClassName: "absolute h-[157.91%] left-[-40.99%] max-w-none top-[-36.44%] w-[159.16%]",
+  },
+  {
+    src: imgCourseCpp,
+    imageClassName: "absolute h-[161.9%] left-[-39.02%] max-w-none top-[-41.56%] w-[163.17%]",
+  },
+  {
+    src: imgCourseMobile,
+    imageClassName: "absolute h-[211.07%] left-[-42.46%] max-w-none top-[-87.03%] w-[212.73%]",
+  },
+  {
+    src: imgCourseUnreal,
+    imageClassName: "absolute h-[167.46%] left-[-42.64%] max-w-none top-[-39.64%] w-[168.78%]",
+  },
+  {
+    src: imgCourseJava,
+    imageClassName: "",
+    direct: true,
+  },
+  {
+    src: imgCourseMl,
+    imageClassName: "absolute h-[176.89%] left-[-49.21%] max-w-none top-[-46.65%] w-[178.28%]",
+  },
+];
+
+function CourseCardImage({ index }: { index: number }) {
+  const visual = COURSE_CARD_VISUALS[index];
+
+  if (!visual) {
+    return null;
+  }
+
+  return (
+    <div aria-hidden="true" className="absolute h-[256px] left-[-20px] pointer-events-none rounded-tl-[40px] top-[-24px] w-[254px]">
+      {visual.direct ? (
+        <img alt="" decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-bottom opacity-60 pointer-events-none rounded-tl-[40px] size-full ${visual.imageClassName}`} src={visual.src} />
+      ) : (
+        <div className="absolute inset-0 opacity-60 overflow-hidden pointer-events-none rounded-tl-[40px]">
+          <img alt="" decoding="async" loading="lazy" className={visual.imageClassName} src={visual.src} />
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Group1() {
   return (
@@ -359,14 +436,22 @@ function Frame141() {
 
 function Group8() {
   return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
-      <div className="col-1 h-[190px] ml-0 mt-0 relative row-1 w-[350px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
+    <div className="h-[217px] leading-[0] relative shrink-0 w-[350px]">
+      <div className="absolute h-[148.743px] left-[49px] top-[68px] w-[274px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
-      <div className="col-1 h-[156px] ml-[44px] mt-[11px] relative row-1 w-[263px]" data-name="image 118">
+      <div className="absolute h-[122.126px] left-[83px] top-[77px] w-[205.891px]" data-name="image 118">
         <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
+      </div>
+      <div className="absolute h-[193.242px] left-[-3.14px] rounded-[8px] top-[4.14px] w-[89.157px]" data-name="image 120">
+        <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[8px] size-full" src={imgImage120} />
+      </div>
+      <div className="absolute h-[197.383px] left-[-7px] top-0 w-[98px]" data-name="айфон">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.63%] left-[-111.41%] max-w-none top-[-4.2%] w-[322.52%]" src={imgPhoneFrame} />
+        </div>
       </div>
     </div>
   );
@@ -374,7 +459,7 @@ function Group8() {
 
 function Frame146() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame141 />
       <Group8 />
     </div>
@@ -1048,7 +1133,8 @@ function Frame184() {
   return (
     <div className="content-stretch flex h-[301px] items-center relative shrink-0 w-full site-carousel site-mobile-directions-carousel" data-carousel="mobile-directions" data-carousel-sync>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={0} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame185 />
@@ -1058,7 +1144,8 @@ function Frame184() {
         </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={1} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame186 />
@@ -1068,7 +1155,8 @@ function Frame184() {
         </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={2} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame187 />
@@ -1078,7 +1166,8 @@ function Frame184() {
         </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={3} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame188 />
@@ -1087,16 +1176,19 @@ function Frame184() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+        <CourseCardImage index={4} />
         <Frame189 />
         <Frame30 />
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+        <CourseCardImage index={5} />
         <Frame190 />
         <Frame35 />
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={6} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame191 />
@@ -1106,7 +1198,8 @@ function Frame184() {
         </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={7} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame192 />
@@ -1116,7 +1209,8 @@ function Frame184() {
         </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full relative rounded-[40px] shrink-0 w-[390px]">
+        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={8} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
               <Frame193 />
@@ -1133,7 +1227,7 @@ function DirectionDot({ index }: { index: number }) {
   return (
     <button
       aria-current={index === 0 ? "true" : "false"}
-      aria-label={`Показать направление ${index + 1}`}
+      aria-label={`Показать курс ${index + 1}`}
       className={`${index === 8 ? "" : "mr-[-1px]"} content-stretch flex items-center p-[4px] relative shrink-0 site-mobile-direction-dot`}
       data-active={index === 0 ? "true" : "false"}
       data-carousel-dot
@@ -1163,7 +1257,7 @@ function Frame183() {
 function Frame171() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">направления</p>
+      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">курсы</p>
       <Frame184 />
       <Frame183 />
     </div>

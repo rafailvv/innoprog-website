@@ -342,7 +342,7 @@ function Frame58() {
 function Frame17() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0 w-[1440px]">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-black text-center uppercase whitespace-nowrap">направления</p>
+      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-black text-center uppercase whitespace-nowrap">курсы</p>
     </div>
   );
 }
@@ -377,7 +377,7 @@ function Frame7() {
 function Frame14() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="направления">
+      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -395,7 +395,7 @@ function Frame14() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="направления">
+      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
         <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -567,7 +567,7 @@ function Frame15() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="направления">
+      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -1591,7 +1591,7 @@ function Component6() {
     <div className="content-stretch flex flex-col gap-[60px] items-center py-[80px] relative rounded-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 1129\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(4.4087e-15 56.45 -72 3.4566e-15 720 564.5)\\'><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(115,99,182,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(94,88,145,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(73,77,108,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="отзывы">
       <Frame76 />
       <div className="bg-white content-stretch flex items-center justify-center p-[28px] relative rounded-[40px] shrink-0" data-name="кнопки пд">
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">подобрать направление</p>
+        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">подобрать курс</p>
       </div>
     </div>
   );
@@ -2254,7 +2254,7 @@ export default function Component() {
           <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
             <div className="flex flex-row items-center justify-center size-full">
               <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-                <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</p>
+                <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
               </div>
             </div>
           </div>

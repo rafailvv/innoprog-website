@@ -4,6 +4,8 @@ import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb780
 import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
+import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
+import platformPhoneFrameUrl from "../imports/MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   MOBILE_DESIGN_HEIGHT,
@@ -65,7 +67,7 @@ function getViewportState() {
 
 function getCriticalAssets(isMobile: boolean) {
   return isMobile
-    ? ["/logo_education.png", heroMobileUrl, platformLaptopUrl, platformScreenUrl]
+    ? ["/logo_education.png", heroMobileUrl, platformLaptopUrl, platformScreenUrl, platformPhoneScreenUrl, platformPhoneFrameUrl]
     : ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 }
 
@@ -534,7 +536,7 @@ export default function App() {
       return;
     }
 
-    if (text.includes("подобрать направление")) {
+    if (text.includes("подобрать направление") || text.includes("подобрать курс")) {
       scrollToDesignY(activeScrollTargets.directions);
       return;
     }
@@ -607,11 +609,11 @@ export default function App() {
       </div>
       {viewport.isMobile && isMobileMenuOpen ? (
         <nav className="site-mobile-menu" aria-label="Мобильное меню">
-          <button data-mobile-menu-link data-scroll-target="directions" type="button">направления</button>
+          <button data-mobile-menu-link data-scroll-target="directions" type="button">курсы</button>
           <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>
           <button data-mobile-menu-link data-scroll-target="reviews" type="button">отзывы</button>
           <button data-mobile-menu-link data-scroll-target="about" type="button">о нас</button>
-          <button data-mobile-menu-link data-scroll-target="form" type="button">подобрать направление</button>
+          <button data-mobile-menu-link data-scroll-target="form" type="button">подобрать курс</button>
         </nav>
       ) : null}
       {shouldShowLoader ? (
