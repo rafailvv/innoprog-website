@@ -438,7 +438,7 @@ function Frame141() {
 
 function Group8() {
   return (
-    <div className="h-[217px] leading-[0] relative shrink-0 w-[350px]">
+    <div className="h-[217px] leading-[0] relative shrink-0 translate-x-[18px] w-[350px]">
       <div className="absolute h-[148.743px] left-[49px] top-[68px] w-[274px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
