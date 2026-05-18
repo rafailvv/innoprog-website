@@ -17,7 +17,8 @@ import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
-import imgBenefitIcons from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
+import imgBenefitIconsPrimary from "../MainScreenDesktop/benefit-icons-figma.webp";
+import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocument from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgRectangle40082 from "../MainScreenDesktop/100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./teacher-grigoriy-mobile.webp";
@@ -38,6 +39,7 @@ import {
   MOBILE_FEATURES_BG_TOP,
   MOBILE_NEXT_SECTIONS_TOP,
   MOBILE_PLATFORM_CONTENT_TOP,
+  MOBILE_PLATFORM_HEIGHT,
   MOBILE_PLATFORM_TOP,
 } from "../../app/mobileLayout";
 
@@ -381,7 +383,7 @@ function Frame77() {
 function Frame79() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[28px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[16px] items-start leading-[20px] p-[16px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[16px] items-start leading-[20px] p-[24px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[20px] w-full">Налоговый вычет</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] text-black tracking-[0.48px] w-full">По окончании обучения вы сможете оформить налоговый вычет и вернуть 13% от стоимости обучения</p>
       </div>
@@ -418,13 +420,6 @@ function Frame145() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[735px] w-[350px]">
       <Frame144 />
-      <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -478,14 +473,6 @@ function Frame147() {
     <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] w-[350px]" style={{ top: MOBILE_PLATFORM_CONTENT_TOP }}>
       <div aria-hidden="true" className="-translate-x-1/2 absolute h-[360px] left-1/2 pointer-events-none rounded-full site-platform-glow top-[32px] w-[430px]" />
       <Frame146 />
-      <div className="relative rounded-[40px] shrink-0 w-full">
-        <div aria-hidden="true" className="absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -1656,8 +1643,8 @@ function Frame155() {
 
 function Frame65() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Платформа</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Платформа</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
         <p className="leading-[20px] mb-0">Выполняйте домашние задания и закрепляйте навыки</p>
         <p className="leading-[20px] mb-0">на платформе. Материал и задания построены</p>
@@ -1670,8 +1657,8 @@ function Frame65() {
 
 function Frame66() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[157px]">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Куратор</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[166px]">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Куратор</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
         <p className="leading-[20px] mb-0">Куратор поможет найти</p>
         <p className="leading-[20px] mb-0">удобное решение</p>
@@ -1686,8 +1673,8 @@ function Frame66() {
 
 function Frame67() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[167px]">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Преподаватель</p>
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[167px]">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Преподаватель</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
         <p className="leading-[20px] mb-0">Если возникнут сложности</p>
         <p className="leading-[20px] mb-0">с домашними заданиями</p>
@@ -1783,24 +1770,30 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
     );
   }
 
-  if (variant === "interview") {
+  if (variant === "internship" || variant === "support") {
+    const imageClassName =
+      variant === "internship"
+        ? "absolute h-[244.4%] left-[-82.01%] max-w-none mix-blend-color-burn opacity-60 top-[-137.2%] w-[163.59%]"
+        : "absolute h-[263.53%] left-[0.13%] max-w-none mix-blend-color-burn opacity-60 top-[-142.6%] w-[176.39%]";
+
     return (
       <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-        <img alt="" decoding="async" loading="lazy" className="absolute h-[76px] left-[24px] max-w-none mix-blend-color-burn opacity-60 top-[-2px] w-[76px]" src={imgBenefitDocument} />
+        <img alt="" decoding="async" loading="lazy" className={imageClassName} src={imgBenefitIconsPrimary} />
       </div>
     );
   }
 
-  const imageClassName =
-    variant === "internship"
-      ? "absolute h-[227px] left-[-30px] max-w-none mix-blend-color-burn opacity-60 top-[-49px] w-[340px]"
-      : variant === "support"
-        ? "absolute h-[227px] left-[-116px] max-w-none mix-blend-color-burn opacity-60 top-[-51px] w-[340px]"
-        : "absolute h-[227px] left-[-226px] max-w-none mix-blend-color-burn opacity-60 top-[-51px] w-[340px]";
+  if (variant === "interview") {
+    return (
+      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgBenefitDocument} />
+      </div>
+    );
+  }
 
   return (
     <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-      <img alt="" decoding="async" loading="lazy" className={imageClassName} src={imgBenefitIcons} />
+      <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgBenefitIconsChat} />
     </div>
   );
 }
@@ -2881,7 +2874,7 @@ function Frame173() {
 export default function Component() {
   return (
     <div className="bg-white relative size-full" data-name="гланый экран М">
-      <div className="absolute bg-[#464a6a] h-[600px] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ top: MOBILE_PLATFORM_TOP }} />
+      <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
       <div className="absolute content-stretch flex items-start justify-between left-[23px] top-[40px] w-[350px]" data-name="хедер М">
         <Group />
         <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">

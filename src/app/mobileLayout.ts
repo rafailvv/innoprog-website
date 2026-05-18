@@ -1,20 +1,21 @@
 export const MOBILE_DESIGN_WIDTH = 390;
-export const MOBILE_DESIGN_HEIGHT = 10960;
+export const MOBILE_DESIGN_HEIGHT = 10645;
 
 export const MOBILE_FEATURES_BG_TOP = 701;
-export const MOBILE_FEATURES_BG_HEIGHT = 1655;
+export const MOBILE_FEATURES_BG_HEIGHT = 1515;
 export const MOBILE_PLATFORM_TOP = MOBILE_FEATURES_BG_TOP + MOBILE_FEATURES_BG_HEIGHT;
-export const MOBILE_PLATFORM_CONTENT_TOP = MOBILE_PLATFORM_TOP + 80;
-export const MOBILE_NEXT_SECTIONS_TOP = MOBILE_PLATFORM_TOP + 680;
+export const MOBILE_PLATFORM_HEIGHT = 448;
+export const MOBILE_PLATFORM_CONTENT_TOP = MOBILE_PLATFORM_TOP + 40;
+export const MOBILE_NEXT_SECTIONS_TOP = MOBILE_PLATFORM_TOP + 528;
 
 export const MOBILE_SCROLL_TARGETS = {
   adults: MOBILE_NEXT_SECTIONS_TOP,
   children: MOBILE_NEXT_SECTIONS_TOP,
   directions: MOBILE_NEXT_SECTIONS_TOP,
-  mentor: 3650,
-  teachers: 4332,
-  support: 5152,
-  reviews: 7465,
-  about: 9081,
-  form: 9574,
+  mentor: 3358,
+  teachers: 4040,
+  support: 4860,
+  reviews: 7173,
+  about: 8789,
+  form: 9282,
 };
