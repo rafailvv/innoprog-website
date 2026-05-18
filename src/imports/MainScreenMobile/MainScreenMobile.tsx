@@ -188,11 +188,11 @@ function Frame55() {
 function Frame56() {
   return (
     <div className="content-stretch flex flex-col gap-[18px] items-center relative shrink-0 text-[#464a6a] text-center w-full">
+      <Frame55 />
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-[345px]">
         <p className="mb-0">с упором на практику</p>
         <p>и персональное обучение</p>
       </div>
-      <Frame55 />
     </div>
   );
 }
