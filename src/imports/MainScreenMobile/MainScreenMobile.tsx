@@ -14,6 +14,8 @@ import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846f
 import imgPhoneFrame from "../MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
+import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgRectangle40082 from "../MainScreenDesktop/100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./teacher-grigoriy-mobile.webp";
 import imgRectangle40084 from "../MainScreenDesktop/b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.teacher.webp";
@@ -1649,12 +1651,13 @@ function Frame155() {
 
 function Frame65() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] uppercase w-full">Платформа</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-        <p className="leading-[18px] mb-0">Выполняйте домашние задания</p>
-        <p className="leading-[18px] mb-0">и закрепляйте навыки на платформе. Материал и задания построены так,</p>
-        <p className="leading-[18px]">чтобы сложные темы становились понятными и применимыми на практике</p>
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Платформа</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
+        <p className="leading-[20px] mb-0">Выполняйте домашние задания и закрепляйте навыки</p>
+        <p className="leading-[20px] mb-0">на платформе. Материал и задания построены</p>
+        <p className="leading-[20px] mb-0">так, чтобы сложные темы становились понятными</p>
+        <p className="leading-[20px]">и применимыми на практике</p>
       </div>
     </div>
   );
@@ -1662,11 +1665,15 @@ function Frame65() {
 
 function Frame66() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] uppercase w-full">Куратор</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-        <p className="leading-[18px] mb-0">Куратор поможет найти удобное решение и скорректировать темп обучения</p>
-        <p className="leading-[18px]">под ваш график, если возникают сложности с расписанием занятий</p>
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[157px]">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Куратор</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
+        <p className="leading-[20px] mb-0">Куратор поможет найти</p>
+        <p className="leading-[20px] mb-0">удобное решение</p>
+        <p className="leading-[20px] mb-0">и скорректировать темп</p>
+        <p className="leading-[20px] mb-0">обучения под ваш график,</p>
+        <p className="leading-[20px] mb-0">если возникают сложности</p>
+        <p className="leading-[20px]">с расписанием занятий</p>
       </div>
     </div>
   );
@@ -1674,39 +1681,90 @@ function Frame66() {
 
 function Frame67() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] uppercase w-full">Преподаватель</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-        <p className="leading-[18px] mb-0">Если возникнут сложности с практикой</p>
-        <p className="leading-[18px]">или домашними заданиями, преподаватель поможет разобраться и подскажет решение</p>
+    <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[167px]">
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] w-full">Преподаватель</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
+        <p className="leading-[20px] mb-0">Если возникнут сложности</p>
+        <p className="leading-[20px] mb-0">с домашними заданиями</p>
+        <p className="leading-[20px] mb-0">или с практикой,</p>
+        <p className="leading-[20px] mb-0">преподаватель поможет</p>
+        <p className="leading-[20px] mb-0">разобраться и подскажет</p>
+        <p className="leading-[20px]">решение</p>
       </div>
     </div>
   );
 }
 
-function Frame156() {
+function ProblemSupportImage() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col gap-[32px] items-start min-w-px relative text-black">
-      <Frame65 />
-      <Frame66 />
-      <Frame67 />
+    <div className="h-[292px] relative shrink-0 w-[350px]">
+      <div className="absolute flex h-[130px] items-center justify-center left-[31px] top-[13px] w-[106px]">
+        <div className="-scale-y-100 flex-none rotate-90">
+          <div className="h-[106px] relative w-[130px]" data-name="image 107">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" decoding="async" loading="lazy" className="absolute h-[164.77%] left-[-18.84%] max-w-none top-[-33.39%] w-[126.55%]" src={imgProblemArrow} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex h-[156.799px] items-center justify-center left-[165px] top-0 w-[165.583px]">
+        <div className="-rotate-150 -scale-y-100 flex-none">
+          <div className="h-[106px] relative w-[130px]" data-name="image 106">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" decoding="async" loading="lazy" className="absolute h-[156.04%] left-[-19.05%] max-w-none top-[-30.25%] w-[126.65%]" src={imgProblemArrow} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[141px] left-[60px] top-[35px] w-[212px]" data-name="e6c1b488-1338-4d0e-af55-9017eea41f83 1">
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgProblemStudent} />
+      </div>
+      <div className="absolute flex h-[156.799px] items-center justify-center left-[83px] top-[135px] w-[165.583px]">
+        <div className="-rotate-30 -scale-y-100 flex-none">
+          <div className="h-[106px] relative w-[130px]" data-name="image 105">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" decoding="async" loading="lazy" className="absolute h-[164.77%] left-[-18.84%] max-w-none top-[-33.39%] w-[126.55%]" src={imgProblemArrow} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 function Frame64() {
   return (
-    <div className="content-stretch flex items-start justify-center relative shrink-0 w-full">
-      <Frame156 />
+    <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
+      <Frame66 />
+      <Frame67 />
+    </div>
+  );
+}
+
+function ProblemSupportCta() {
+  return (
+    <div className="bg-[#464a6a] h-[68px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="flex flex-row items-center justify-center size-full">
+        <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
+          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</p>
+        </div>
+      </div>
     </div>
   );
 }
 
 function Frame157() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] text-black w-full">Наши ученики никогда не остаются 1 на 1 с проблемой</p>
+    <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full">
+      <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
+        <p className="mb-0 text-black">Наши ученики</p>
+        <p className="mb-0 text-[#9c78ff]">никогда не остаются</p>
+        <p className="text-[#9c78ff]">1 на 1 с проблемой</p>
+      </div>
+      <Frame65 />
+      <ProblemSupportImage />
       <Frame64 />
+      <ProblemSupportCta />
     </div>
   );
 }

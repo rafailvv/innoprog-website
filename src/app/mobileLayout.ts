@@ -1,5 +1,5 @@
 export const MOBILE_DESIGN_WIDTH = 390;
-export const MOBILE_DESIGN_HEIGHT = 9515;
+export const MOBILE_DESIGN_HEIGHT = 9920;
 
 export const MOBILE_FEATURES_BG_TOP = 701;
 export const MOBILE_FEATURES_BG_HEIGHT = 1655;
@@ -14,7 +14,7 @@ export const MOBILE_SCROLL_TARGETS = {
   mentor: 3650,
   teachers: 4332,
   support: 5152,
-  reviews: 7024,
-  about: 7792,
-  form: 8286,
+  reviews: 7429,
+  about: 8197,
+  form: 8691,
 };
