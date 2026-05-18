@@ -947,10 +947,7 @@ function Frame37() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 text-black w-[628px] z-10">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] min-w-full relative shrink-0 text-[40px] uppercase w-[min-content]">Преподаватель</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-[465px]">
-        <p className="leading-[30px] mb-0">Если возникнут сложности с практикой или домашними заданиями, преподаватель поможет разобраться</p>
-        <p className="leading-[30px]">и подскажет решение</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] w-[465px]">Если возникнут сложности с практикой или домашними заданиями, преподаватель поможет разобраться и подскажет решение</p>
     </div>
   );
 }
@@ -959,12 +956,7 @@ function Frame38() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-end relative shrink-0 text-black w-[507px] z-10">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase w-full">Куратор</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full whitespace-pre-wrap">
-        <p className="leading-[30px] mb-0">Куратор поможет найти удобное решение</p>
-        <p className="leading-[30px] mb-0">и скорректировать темп обучения</p>
-        <p className="leading-[30px] mb-0">{`под ваш график, если возникают сложности `}</p>
-        <p className="leading-[30px]">с расписанием занятий</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] w-full">Куратор поможет найти удобное решение и скорректировать темп обучения под ваш график, если возникают сложности с расписанием занятий</p>
     </div>
   );
 }
@@ -1012,10 +1004,7 @@ function Frame39() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 text-black w-[628px] z-10">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] min-w-full relative shrink-0 text-[40px] uppercase w-[min-content]">Платформа</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-[720px] whitespace-pre-wrap">
-        <p className="leading-[30px] mb-0">Выполняйте домашние задания и закрепляйте навыки на нашей платформе. Материал и задания построены так, чтобы сложные темы становились понятными</p>
-        <p className="leading-[30px]">{` и применимыми на практике`}</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] w-[720px]">Выполняйте домашние задания и закрепляйте навыки на нашей платформе. Материал и задания построены так, чтобы сложные темы становились понятными и применимыми на практике</p>
     </div>
   );
 }
@@ -1032,10 +1021,7 @@ function Frame41() {
 function Component3() {
   return (
     <div className="content-stretch flex flex-col gap-[208px] items-start relative shrink-0 w-[1280px]" data-name="3">
-      <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[48px] text-black uppercase w-full">
-        <p className="leading-[47px] mb-0">Наши ученики никогда</p>
-        <p className="leading-[47px]">не остаются 1 на 1 с проблемой</p>
-      </div>
+      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[48px] text-black uppercase w-full">Наши ученики никогда не остаются 1 на 1 с проблемой</p>
       <Frame41 />
     </div>
   );

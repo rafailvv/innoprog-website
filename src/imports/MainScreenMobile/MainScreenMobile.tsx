@@ -1646,12 +1646,7 @@ function Frame65() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Платформа</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
-        <p className="leading-[20px] mb-0">Выполняйте домашние задания и закрепляйте навыки</p>
-        <p className="leading-[20px] mb-0">на платформе. Материал и задания построены</p>
-        <p className="leading-[20px] mb-0">так, чтобы сложные темы становились понятными</p>
-        <p className="leading-[20px]">и применимыми на практике</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Выполняйте домашние задания и закрепляйте навыки на платформе. Материал и задания построены так, чтобы сложные темы становились понятными и применимыми на практике</p>
     </div>
   );
 }
@@ -1660,14 +1655,7 @@ function Frame66() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[166px]">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Куратор</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
-        <p className="leading-[20px] mb-0">Куратор поможет найти</p>
-        <p className="leading-[20px] mb-0">удобное решение</p>
-        <p className="leading-[20px] mb-0">и скорректировать темп</p>
-        <p className="leading-[20px] mb-0">обучения под ваш график,</p>
-        <p className="leading-[20px] mb-0">если возникают сложности</p>
-        <p className="leading-[20px]">с расписанием занятий</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Куратор поможет найти удобное решение и скорректировать темп обучения под ваш график, если возникают сложности с расписанием занятий</p>
     </div>
   );
 }
@@ -1676,14 +1664,7 @@ function Frame67() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[167px]">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Преподаватель</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black w-full">
-        <p className="leading-[20px] mb-0">Если возникнут сложности</p>
-        <p className="leading-[20px] mb-0">с домашними заданиями</p>
-        <p className="leading-[20px] mb-0">или с практикой,</p>
-        <p className="leading-[20px] mb-0">преподаватель поможет</p>
-        <p className="leading-[20px] mb-0">разобраться и подскажет</p>
-        <p className="leading-[20px]">решение</p>
-      </div>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Если возникнут сложности с домашними заданиями или с практикой, преподаватель поможет разобраться и подскажет решение</p>
     </div>
   );
 }
@@ -1749,11 +1730,10 @@ function ProblemSupportCta() {
 function Frame157() {
   return (
     <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full">
-      <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
-        <p className="mb-0 text-black">Наши ученики</p>
-        <p className="mb-0 text-[#9c78ff]">никогда не остаются</p>
-        <p className="text-[#9c78ff]">1 на 1 с проблемой</p>
-      </div>
+      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
+        <span className="text-black">Наши ученики </span>
+        <span className="text-[#9c78ff]">никогда не остаются 1 на 1 с проблемой</span>
+      </p>
       <Frame65 />
       <ProblemSupportImage />
       <Frame64 />
