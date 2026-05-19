@@ -1745,36 +1745,53 @@ function Frame157() {
 function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "support" | "chat" | "interview" }) {
   if (variant === "online") {
     return (
-      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-        <img alt="" decoding="async" loading="lazy" className="absolute h-[275px] left-0 max-w-none opacity-75 top-0 w-[302px]" src={imgBenefitCard1} />
+      <div className="absolute h-[122px] left-0 origin-top-left overflow-hidden pointer-events-none rounded-tl-[32px] top-0 scale-[0.68] w-[163px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[275px] left-0 max-w-none top-0 w-[302px]" src={imgBenefitCard1} />
       </div>
     );
   }
 
-  if (variant === "internship" || variant === "support") {
-    const imageClassName =
-      variant === "internship"
-        ? "absolute h-[244.4%] left-[-82.01%] max-w-none mix-blend-color-burn opacity-60 top-[-137.2%] w-[163.59%]"
-        : "absolute h-[263.53%] left-[0.13%] max-w-none mix-blend-color-burn opacity-60 top-[-142.6%] w-[176.39%]";
-
+  if (variant === "internship") {
     return (
-      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-        <img alt="" decoding="async" loading="lazy" className={imageClassName} src={imgBenefitIconsPrimary} />
+      <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
+        <div className="absolute inset-0 mix-blend-color-burn overflow-hidden pointer-events-none rounded-[40px]">
+          <img alt="" decoding="async" loading="lazy" className="absolute h-[289.83%] left-[-109.22%] max-w-none top-[-174.35%] w-[216.93%]" src={imgBenefitIconsPrimary} />
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "support") {
+    return (
+      <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
+        <div className="absolute inset-0 mix-blend-color-burn opacity-40 overflow-hidden pointer-events-none rounded-[40px]">
+          <img alt="" decoding="async" loading="lazy" className="absolute h-[277.49%] left-[-4.04%] max-w-none top-[-148.44%] w-[207.69%]" src={imgBenefitIconsPrimary} />
+        </div>
       </div>
     );
   }
 
   if (variant === "interview") {
-    return (
-      <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgBenefitDocument} />
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div className="absolute h-[83px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[124px]">
-      <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgBenefitIconsChat} />
+    <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[40px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgBenefitIconsChat} />
+      </div>
+    </div>
+  );
+}
+
+function MentorBenefitDocumentIcon() {
+  return (
+    <div aria-hidden="true" className="absolute flex items-center justify-center left-[200px] pointer-events-none size-[116px] top-[316px]">
+      <div className="flex-none rotate-[30.43deg]">
+        <div className="relative size-[85px]">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBenefitDocument} />
+        </div>
+      </div>
     </div>
   );
 }
@@ -1895,6 +1912,7 @@ function Frame160() {
         </div>
       </div>
       <Frame159 />
+      <MentorBenefitDocumentIcon />
     </div>
   );
 }
