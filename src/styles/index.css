@@ -870,7 +870,7 @@ button,
 
 .site-review-page__summary {
   position: sticky;
-  top: 32px;
+  top: 128px;
   display: flex;
   flex-direction: column;
   min-height: 678px;
