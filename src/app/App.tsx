@@ -11,7 +11,6 @@ import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia-hi
 import reviewMikhailUrl from "../imports/MainScreenDesktop/review-mikhail-high.webp";
 import reviewStoryKirillHeroUrl from "../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-story-collaboration.webp";
-import reviewStoryLogoUrl from "../imports/MainScreenDesktop/review-story-logo.svg";
 import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.svg";
 import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
 import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
@@ -366,7 +365,7 @@ function ReviewStoryPage({
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
       <header className="site-review-page__header">
         <button className="site-review-page__logo" data-review-home onClick={onBack} type="button">
-          <img alt="ИННОПРОГ Education" src={reviewStoryLogoUrl} />
+          <img alt="ИННОПРОГ Education" src="/logo_white_and_black.svg" />
         </button>
         <nav className="site-review-page__nav" aria-label="Навигация">
           <button data-review-nav="adults" type="button">для взрослых</button>
@@ -1173,7 +1172,7 @@ export default function App() {
               </div>
             </div>
 
-            <img alt="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_education.png" />
+            <img alt="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
 
             {leadModalState === "form" ? (
               <form className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
@@ -1214,7 +1213,16 @@ export default function App() {
                     </svg>
                   </span>
                   <span>
-                    Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
+                    Нажимая на кнопку, вы даете&nbsp;
+                    <a
+                      className="site-consent__link"
+                      href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      согласие на обработку персональных данных
+                    </a>
+                    &nbsp;и соглашаетесь с&nbsp;
                     <a
                       className="site-consent__link"
                       href="https://api.innoprog.ru/files/documents/privacy_policy.pdf"

@@ -1909,7 +1909,13 @@ function Frame100() {
         </svg>
       </div>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#464a6a] text-[0px] w-[584px]">
-        <span className="leading-[20px] text-[16px]">{`Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с `}</span>
+        <span className="leading-[20px] text-[16px]">Нажимая на кнопку, вы даете </span>
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">
+          <span>
+            согласие на обработку персональных данных
+          </span>
+        </a>
+        <span className="leading-[20px] text-[16px]">{` и соглашаетесь с `}</span>
         <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
           <span>
             политикой конфиденциальности

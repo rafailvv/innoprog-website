@@ -2662,7 +2662,11 @@ function Frame114() {
         </svg>
       </div>
       <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-white">
-        <span className="leading-[15px] text-[12px]">{`Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с `}</span>
+        <span className="leading-[15px] text-[12px]">Нажимая на кнопку, вы даете </span>
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">
+          согласие на обработку персональных данных
+        </a>
+        <span className="leading-[15px] text-[12px]">{` и соглашаетесь с `}</span>
         <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
           политикой конфиденциальности
         </a>
