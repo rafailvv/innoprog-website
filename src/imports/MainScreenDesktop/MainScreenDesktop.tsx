@@ -2285,7 +2285,7 @@ export default function Component() {
         <p className="leading-[39px] mb-0 whitespace-nowrap">с упором на практику</p>
         <p className="leading-[39px] whitespace-nowrap">и персональное обучение</p>
       </div>
-      <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] top-[24px] w-[1280px]">
+      <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
         <Group />
         <Frame58 />
         <div className="flex flex-row items-center self-stretch">

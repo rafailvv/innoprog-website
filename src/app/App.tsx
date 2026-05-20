@@ -229,16 +229,13 @@ const REVIEW_KEYS_BY_ROUTE = {
   sergey: "михаил",
 } as Record<string, ReviewStoryKey>;
 
-const OTHER_REVIEW_TITLES = [
-  "Как Екатерина перешла из HR в Data-аналитику",
-  "Как Михаил собрал веб-приложение для своего сервиса",
-  "Как Анастасия сменила профессию на бизнес-аналитику",
-  "Как Кирилл перешёл из HR в ИТ",
-  "Как Екатерина перешла из HR в Data-аналитику",
-  "Как Михаил собрал веб-приложение для своего сервиса",
-  "Как Анастасия сменила профессию на бизнес-аналитику",
-  "Как Кирилл перешёл из HR в ИТ",
-];
+const REVIEW_STORY_ORDER = ["кирилл", "анастасия", "михаил"] as const satisfies readonly ReviewStoryKey[];
+
+const REVIEW_STORY_CARD_TITLES: Record<ReviewStoryKey, string> = {
+  кирилл: "Как Кирилл перешёл из HR в ИТ",
+  анастасия: "Как Анастасия перешла из 1С в продукт",
+  михаил: "Как Михаил собрал веб-приложение для своего сервиса",
+};
 
 function getViewportState() {
   if (typeof window === "undefined") {
@@ -358,9 +355,10 @@ function ReviewStoryPage({
 }) {
   const story = REVIEW_STORIES[storyKey];
   const sections = getStorySections(storyKey);
-  const otherStories = OTHER_REVIEW_TITLES.map((title, index) => ({
-    title,
-    key: (["анастасия", "михаил", "кирилл", "кирилл"] as ReviewStoryKey[])[index % 4],
+  const otherStories = REVIEW_STORY_ORDER.filter((key) => key !== storyKey).map((key) => ({
+    key,
+    title: REVIEW_STORY_CARD_TITLES[key],
+    image: REVIEW_STORIES[key].hero,
   }));
 
   return (
@@ -458,12 +456,13 @@ function ReviewStoryPage({
                 key={`${item.title}-${index}`}
                 type="button"
               >
-                <span />
+                <span>
+                  <img alt="" src={item.image} />
+                </span>
                 <strong>{item.title}</strong>
               </button>
             ))}
           </div>
-          <button className="site-review-page__load-more" type="button">загрузить ещё</button>
         </section>
       </div>
 
