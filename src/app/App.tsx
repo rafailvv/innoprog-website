@@ -239,6 +239,43 @@ const REVIEW_STORY_CARD_TITLES: Record<ReviewStoryKey, string> = {
   михаил: "Как Михаил собрал веб-приложение для своего сервиса",
 };
 
+const REVIEW_CARD_DATA: Record<
+  ReviewStoryKey,
+  {
+    avatar: string;
+    avatarClassName: string;
+    name: string;
+    course: string;
+    transition: string;
+    quote: string;
+  }
+> = {
+  кирилл: {
+    avatar: reviewStoryKirillHeroUrl,
+    avatarClassName: "site-review-avatar-img--kirill",
+    name: "Кирилл",
+    course: "Python-разработчик",
+    transition: "Из HR → в ИТ",
+    quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
+  },
+  анастасия: {
+    avatar: reviewAnastasiaUrl,
+    avatarClassName: "site-review-avatar-img--anastasia",
+    name: "Анастасия",
+    course: "Data Science",
+    transition: "Из 1С → в Product",
+    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
+  },
+  михаил: {
+    avatar: reviewMikhailUrl,
+    avatarClassName: "site-review-avatar-img--mikhail",
+    name: "Михаил",
+    course: "Python-разработчик",
+    transition: "Веб-приложение для сервиса",
+    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+  },
+};
+
 function getViewportState() {
   if (typeof window === "undefined") {
     return {
@@ -411,6 +448,35 @@ function SitePageHeader({ onHome }: { onHome: () => void }) {
   );
 }
 
+function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
+  const review = REVIEW_CARD_DATA[storyKey];
+
+  return (
+    <button
+      aria-label={`Открыть историю: ${REVIEW_STORY_CARD_TITLES[storyKey]}`}
+      className="site-related-review-card"
+      data-name="отзыв"
+      data-review-story={storyKey}
+      type="button"
+    >
+      <span aria-hidden="true" className="site-related-review-card__border" />
+      <span className="site-related-review-card__profile">
+        <span className="site-related-review-card__person">
+          <span className="site-related-review-card__avatar">
+            <img alt="" className={review.avatarClassName} loading="lazy" src={review.avatar} />
+          </span>
+          <strong>{review.name}</strong>
+        </span>
+        <span className="site-related-review-card__course">{`Выпускник курса: ${review.course}`}</span>
+      </span>
+      <span className="site-related-review-card__body">
+        <span className="site-review-quote">{review.quote}</span>
+        <span className="site-related-review-card__transition">{review.transition}</span>
+      </span>
+    </button>
+  );
+}
+
 function ReviewStoryPage({
   storyKey,
   onBack,
@@ -420,11 +486,7 @@ function ReviewStoryPage({
 }) {
   const story = REVIEW_STORIES[storyKey];
   const sections = getStorySections(storyKey);
-  const otherStories = REVIEW_STORY_ORDER.filter((key) => key !== storyKey).map((key) => ({
-    key,
-    title: REVIEW_STORY_CARD_TITLES[key],
-    image: REVIEW_STORIES[key].hero,
-  }));
+  const otherStories = REVIEW_STORY_ORDER.filter((key) => key !== storyKey);
 
   return (
     <section className="site-review-page" aria-label={`История ${story.name}`}>
@@ -503,18 +565,8 @@ function ReviewStoryPage({
         <section className="site-review-page__other" aria-label="Другие истории">
           <h2>другие истории</h2>
           <div className="site-review-page__other-grid">
-            {otherStories.map((item, index) => (
-              <button
-                className="site-review-page__other-card"
-                data-review-story={item.key}
-                key={`${item.title}-${index}`}
-                type="button"
-              >
-                <span>
-                  <img alt="" src={item.image} />
-                </span>
-                <strong>{item.title}</strong>
-              </button>
+            {otherStories.map((item) => (
+              <RelatedReviewCard key={item} storyKey={item} />
             ))}
           </div>
         </section>
