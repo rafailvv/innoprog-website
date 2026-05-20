@@ -7,8 +7,8 @@ import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
 import platformPhoneFrameUrl from "../imports/MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
 import reviewKirillUrl from "../imports/MainScreenDesktop/review-kirill.png";
-import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia.png";
-import reviewSergeyUrl from "../imports/MainScreenDesktop/review-sergey.png";
+import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia-high.webp";
+import reviewSergeyUrl from "../imports/MainScreenDesktop/review-sergey-high.webp";
 import reviewStoryKirillHeroUrl from "../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-story-collaboration.webp";
 import reviewStoryLogoUrl from "../imports/MainScreenDesktop/review-story-logo.svg";

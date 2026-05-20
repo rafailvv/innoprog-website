@@ -27,8 +27,8 @@ import imgRectangle40087 from "./teacher-alan-mobile.webp";
 import imgRectangle40088 from "../MainScreenDesktop/accce48d175d044546f06312eec0a082304225b6.teacher.webp";
 import imgRectangle40089 from "../MainScreenDesktop/0637a0266dd99580004167f3ae3ffee5b51608c3.teacher.webp";
 import imgReviewKirill from "../MainScreenDesktop/review-kirill.png";
-import imgReviewAnastasia from "../MainScreenDesktop/review-anastasia.png";
-import imgReviewSergey from "../MainScreenDesktop/review-sergey.png";
+import imgReviewAnastasia from "../MainScreenDesktop/review-anastasia-high.webp";
+import imgReviewSergey from "../MainScreenDesktop/review-sergey-high.webp";
 import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
@@ -2108,7 +2108,7 @@ const MOBILE_REVIEWS = [
   },
   {
     avatar: imgReviewAnastasia,
-    avatarClassName: "",
+    avatarClassName: "site-review-avatar-img--anastasia",
     name: "Анастасия",
     course: ["Data Science"],
     transition: "Из 1С → в Product",
@@ -2116,7 +2116,7 @@ const MOBILE_REVIEWS = [
   },
   {
     avatar: imgReviewSergey,
-    avatarClassName: "",
+    avatarClassName: "site-review-avatar-img--sergey",
     name: "Сергей",
     course: ["Фронтенд", "разработчик"],
     transition: "Веб-приложение для сервиса",

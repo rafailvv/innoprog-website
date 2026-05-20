@@ -29,8 +29,8 @@ import imgDiplomProf1 from "./diplom-prof.opt.webp";
 import imgEllipse2 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgEllipse3 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgReviewKirill from "./review-kirill.png";
-import imgReviewAnastasia from "./review-anastasia.png";
-import imgReviewSergey from "./review-sergey.png";
+import imgReviewAnastasia from "./review-anastasia-high.webp";
+import imgReviewSergey from "./review-sergey-high.webp";
 import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
@@ -1295,7 +1295,7 @@ const DESKTOP_REVIEWS = [
   },
   {
     avatar: imgReviewAnastasia,
-    avatarClassName: "",
+    avatarClassName: "site-review-avatar-img--anastasia",
     name: "Анастасия",
     course: "Data Science",
     transition: "Из 1С → в Product",
@@ -1303,7 +1303,7 @@ const DESKTOP_REVIEWS = [
   },
   {
     avatar: imgReviewSergey,
-    avatarClassName: "",
+    avatarClassName: "site-review-avatar-img--sergey",
     name: "Сергей",
     course: "Фронтенд разработчик",
     transition: "Веб-приложение для сервиса",

@@ -590,7 +590,17 @@ button,
 }
 
 .site-review-avatar-img--kirill {
-  object-position: 50% 12%;
+  object-position: 50% 18%;
+  transform: scale(1.04);
+}
+
+.site-review-avatar-img--anastasia {
+  object-position: 50% 24%;
+  transform: scale(1.2);
+}
+
+.site-review-avatar-img--sergey {
+  object-position: 47% 22%;
   transform: scale(1.18);
 }
 
