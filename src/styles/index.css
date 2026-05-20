@@ -1271,7 +1271,7 @@ button,
   align-items: flex-end;
   width: min(1280px, calc(100% - 160px));
   height: 700px;
-  margin: 100px auto 0;
+  margin: 109px auto 0;
   overflow: hidden;
   padding: 40px;
   border-radius: 40px;
@@ -1283,28 +1283,24 @@ button,
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.8;
+  opacity: 1;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center;
 }
 
 .site-about-hero h1 {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  color: #ffffff;
-  font-family: "Raleway", sans-serif;
-  font-size: 96px;
-  font-weight: 700;
-  line-height: 97px;
-  text-transform: uppercase;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .site-about-content {
   display: flex;
   flex-direction: column;
-  gap: 208px;
   width: min(1280px, calc(100% - 160px));
   margin: 104px auto 0;
 }
@@ -1339,6 +1335,7 @@ button,
   grid-template-columns: 465px 302px 465px;
   gap: 24px;
   align-items: stretch;
+  margin-top: 80px;
 }
 
 .site-about-card {
@@ -1378,21 +1375,18 @@ button,
   min-height: 487px;
   overflow: hidden;
   border-radius: 40px;
-  background:
-    linear-gradient(225deg, rgba(255, 255, 255, 0.78) 3%, rgba(137, 101, 234, 0.67) 52%),
-    linear-gradient(238deg, #42bef8 10%, #ffffff 12%, #9c78ff 46%, #42bef8 74%, #9c78ff 100%);
+  background: #9c78ff;
 }
 
 .site-about-swirl img {
   position: absolute;
-  left: -210px;
-  top: -140px;
-  width: 760px;
-  height: 760px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
-  mix-blend-mode: color-burn;
+  mix-blend-mode: normal;
   object-fit: cover;
-  transform: rotate(13.7deg) scaleY(-1);
+  transform: none;
 }
 
 .site-about-mission {
@@ -1400,6 +1394,7 @@ button,
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 104px;
   align-items: end;
+  margin-top: 76px;
 }
 
 .site-about-mission h2,
@@ -1423,7 +1418,7 @@ button,
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -104px;
+  margin-top: 104px;
 }
 
 .site-about-tags h2 {
@@ -1453,7 +1448,8 @@ button,
 .site-about-city {
   display: flex;
   flex-direction: column;
-  gap: 104px;
+  gap: 75px;
+  margin-top: 173px;
 }
 
 .site-about-city h2,
@@ -1500,7 +1496,8 @@ button,
 .site-about-legal {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 53px;
+  margin-top: 208px;
 }
 
 .site-about-legal h2 {
@@ -2218,6 +2215,7 @@ button,
   .site-about-cards {
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-top: 0;
   }
 
   .site-about-card {
@@ -2234,15 +2232,15 @@ button,
   }
 
   .site-about-swirl img {
-    left: -105px;
-    top: -105px;
-    width: 500px;
-    height: 500px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .site-about-mission {
     grid-template-columns: 1fr;
     gap: 24px;
+    margin-top: 0;
   }
 
   .site-about-mission h2,
@@ -2271,6 +2269,7 @@ button,
 
   .site-about-city {
     gap: 30px;
+    margin-top: 0;
   }
 
   .site-about-city h2,
@@ -2297,6 +2296,7 @@ button,
 
   .site-about-legal {
     gap: 30px;
+    margin-top: 0;
   }
 
   .site-about-legal__links {

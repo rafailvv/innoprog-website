@@ -15,9 +15,9 @@ import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.s
 import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
 import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
 import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-telegram.svg";
-import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.webp";
-import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.webp";
-import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.webp";
+import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.png";
+import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.png";
+import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.png";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   MOBILE_DESIGN_HEIGHT,
@@ -431,11 +431,17 @@ function SiteFooter() {
   );
 }
 
-function SitePageHeader({ onHome }: { onHome: () => void }) {
+function SitePageHeader({
+  logoSrc = "/logo_white_and_black.svg",
+  onHome,
+}: {
+  logoSrc?: string;
+  onHome: () => void;
+}) {
   return (
     <header className="site-review-page__header">
       <button className="site-review-page__logo" data-site-home onClick={onHome} type="button">
-        <img alt="ИННОПРОГ Education" src="/logo_white_and_black.svg" />
+        <img alt="ИННОПРОГ Education" src={logoSrc} />
       </button>
       <nav className="site-review-page__nav" aria-label="Навигация">
         <button data-review-nav="adults" type="button">для взрослых</button>
@@ -580,7 +586,7 @@ function ReviewStoryPage({
 function AboutPage({ onBack }: { onBack: () => void }) {
   return (
     <section className="site-about-page" aria-label="О нас">
-      <SitePageHeader onHome={onBack} />
+      <SitePageHeader logoSrc="/logo_education.png" onHome={onBack} />
 
       <div className="site-about-page__top">
         <button className="site-review-page__back" onClick={onBack} type="button">
@@ -605,7 +611,11 @@ function AboutPage({ onBack }: { onBack: () => void }) {
         <section className="site-about-intro">
           <p className="site-about-kicker">ИННОПРОГ</p>
           <p>
-            <strong> — современная образовательная онлайн-платформа, ориентированная на подготовку будущих ИТ-специалистов для отечественного рынка</strong>
+            <strong>
+              {" — современная образовательная онлайн-платформа, ориентированная на подготовку будущих"}
+              <br />
+              ИТ-специалистов для отечественного рынка
+            </strong>
           </p>
         </section>
 
