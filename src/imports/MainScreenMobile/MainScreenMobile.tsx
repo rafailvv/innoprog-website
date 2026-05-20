@@ -1754,7 +1754,7 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
   if (variant === "internship") {
     return (
       <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
-        <div className="absolute inset-0 mix-blend-color-burn overflow-hidden pointer-events-none rounded-[40px]">
+        <div className="absolute inset-0 mix-blend-multiply opacity-70 overflow-hidden pointer-events-none rounded-[40px]">
           <img alt="" decoding="async" loading="lazy" className="absolute h-[289.83%] left-[-109.22%] max-w-none top-[-174.35%] w-[216.93%]" src={imgBenefitIconsPrimary} />
         </div>
       </div>
@@ -1764,7 +1764,7 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
   if (variant === "support") {
     return (
       <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
-        <div className="absolute inset-0 mix-blend-color-burn opacity-40 overflow-hidden pointer-events-none rounded-[40px]">
+        <div className="absolute inset-0 mix-blend-multiply opacity-65 overflow-hidden pointer-events-none rounded-[40px]">
           <img alt="" decoding="async" loading="lazy" className="absolute h-[277.49%] left-[-4.04%] max-w-none top-[-148.44%] w-[207.69%]" src={imgBenefitIconsPrimary} />
         </div>
       </div>
@@ -1786,9 +1786,9 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
 
 function MentorBenefitDocumentIcon() {
   return (
-    <div aria-hidden="true" className="absolute flex items-center justify-center left-[200px] pointer-events-none size-[116px] top-[316px]">
+    <div aria-hidden="true" className="absolute flex items-center justify-center left-[176px] pointer-events-none size-[110px] top-[342px]">
       <div className="flex-none rotate-[30.43deg]">
-        <div className="relative size-[85px]">
+        <div className="relative size-[82px]">
           <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBenefitDocument} />
         </div>
       </div>
@@ -1812,7 +1812,10 @@ function Frame127() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">стажировка</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">в реальных проектах после обучения</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
+        <p className="leading-[16px] mb-0">в реальных проектах</p>
+        <p className="leading-[16px]">после обучения</p>
+      </div>
     </div>
   );
 }
@@ -1846,7 +1849,7 @@ function Frame128() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">поддержка и помощь</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">вам не нужно переживать о том что где и когда</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-support-copy">вам не нужно переживать о том что где и когда</p>
     </div>
   );
 }
@@ -1855,10 +1858,9 @@ function Frame129() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">личный чат</p>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
-        <p className="leading-[16px] mb-0">с наставников</p>
-        <p className="leading-[16px] mb-0">для вопросов</p>
-        <p className="leading-[16px]">вне уроков</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-chat-copy">
+        <p className="leading-[16px] mb-0">с наставником для</p>
+        <p className="leading-[16px]">вопросов вне уроков</p>
       </div>
     </div>
   );
@@ -1867,8 +1869,11 @@ function Frame129() {
 function Frame130() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
-      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Мок-интервью</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">в формате реального собеседования</p>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase whitespace-nowrap w-full">Мок-интервью</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-interview-copy">
+        <p className="leading-[16px] mb-0">в формате реального</p>
+        <p className="leading-[16px]">собеседования</p>
+      </div>
     </div>
   );
 }

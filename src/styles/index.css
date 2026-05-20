@@ -317,23 +317,45 @@ button,
   }
 
   .site-mobile-mentor-cards [class*="Manrope:Medium"] {
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0.15px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0;
   }
 
   .site-mobile-mentor-cards [class*="Manrope:Medium"] p {
-    line-height: 18px;
+    line-height: 22px;
   }
 
   .site-mobile-mentor-cards [class*="Manrope:Regular"] {
-    font-size: 11px;
-    line-height: 15px;
-    letter-spacing: 0.2px;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.12px;
   }
 
   .site-mobile-mentor-cards [class*="Manrope:Regular"] p {
-    line-height: 15px;
+    line-height: 18px;
+  }
+
+  .site-mobile-mentor-cards .site-mobile-mentor-support-copy {
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: 0.08px;
+    white-space: nowrap;
+  }
+
+  .site-mobile-mentor-cards .site-mobile-mentor-chat-copy,
+  .site-mobile-mentor-cards .site-mobile-mentor-interview-copy {
+    width: 166px;
+    max-width: none;
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: 0.08px;
+  }
+
+  .site-mobile-mentor-cards .site-mobile-mentor-chat-copy p,
+  .site-mobile-mentor-cards .site-mobile-mentor-interview-copy p {
+    line-height: 17px;
+    white-space: nowrap;
   }
 }
 
