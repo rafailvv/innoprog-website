@@ -29,6 +29,7 @@ import imgRectangle40089 from "../MainScreenDesktop/0637a0266dd99580004167f3ae3f
 import imgReviewKirill from "../MainScreenDesktop/review-kirill.png";
 import imgReviewAnastasia from "../MainScreenDesktop/review-anastasia.png";
 import imgReviewSergey from "../MainScreenDesktop/review-sergey.png";
+import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgImg29491 from "./hero-mobile.webp";
@@ -2098,7 +2099,8 @@ function Frame69() {
 
 const MOBILE_REVIEWS = [
   {
-    avatar: imgReviewKirill,
+    avatar: imgReviewKirillHero,
+    avatarClassName: "site-review-avatar-img--kirill",
     name: "Кирилл",
     course: ["Python-", "разработчик"],
     transition: "Из HR → в ИТ",
@@ -2106,6 +2108,7 @@ const MOBILE_REVIEWS = [
   },
   {
     avatar: imgReviewAnastasia,
+    avatarClassName: "",
     name: "Анастасия",
     course: ["Data Science"],
     transition: "Из 1С → в Product",
@@ -2113,6 +2116,7 @@ const MOBILE_REVIEWS = [
   },
   {
     avatar: imgReviewSergey,
+    avatarClassName: "",
     name: "Сергей",
     course: ["Фронтенд", "разработчик"],
     transition: "Веб-приложение для сервиса",
@@ -2127,7 +2131,7 @@ function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] 
         <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
           <div className="content-stretch flex gap-[32px] items-end relative shrink-0">
             <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
-              <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover size-full" src={review.avatar} />
+              <img alt="" decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
             </div>
             <div className="content-stretch flex flex-col gap-[16px] items-start justify-end relative shrink-0">
               <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] relative shrink-0 text-[19px] text-black text-center whitespace-nowrap">{review.name}</p>

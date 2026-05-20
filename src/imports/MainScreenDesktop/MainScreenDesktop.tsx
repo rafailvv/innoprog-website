@@ -31,6 +31,7 @@ import imgEllipse3 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgReviewKirill from "./review-kirill.png";
 import imgReviewAnastasia from "./review-anastasia.png";
 import imgReviewSergey from "./review-sergey.png";
+import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
 import imgImg29491 from "./a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
@@ -1285,7 +1286,8 @@ function Frame54() {
 
 const DESKTOP_REVIEWS = [
   {
-    avatar: imgReviewKirill,
+    avatar: imgReviewKirillHero,
+    avatarClassName: "site-review-avatar-img--kirill",
     name: "Кирилл",
     course: "Python-разработчик",
     transition: "Из HR → в ИТ",
@@ -1293,6 +1295,7 @@ const DESKTOP_REVIEWS = [
   },
   {
     avatar: imgReviewAnastasia,
+    avatarClassName: "",
     name: "Анастасия",
     course: "Data Science",
     transition: "Из 1С → в Product",
@@ -1300,6 +1303,7 @@ const DESKTOP_REVIEWS = [
   },
   {
     avatar: imgReviewSergey,
+    avatarClassName: "",
     name: "Сергей",
     course: "Фронтенд разработчик",
     transition: "Веб-приложение для сервиса",
@@ -1315,7 +1319,7 @@ function DesktopReviewCard({ review }: { review: (typeof DESKTOP_REVIEWS)[number
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
           <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
             <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-              <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover size-full" src={review.avatar} />
+              <img alt="" decoding="async" loading="eager" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
             </div>
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">{review.name}</p>
           </div>

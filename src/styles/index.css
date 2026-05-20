@@ -589,6 +589,11 @@ button,
   background: rgba(156, 120, 255, 0.52);
 }
 
+.site-review-avatar-img--kirill {
+  object-position: 50% 12%;
+  transform: scale(1.18);
+}
+
 .site-shell--review-route {
   overflow: visible;
   background: #9c78ff;
@@ -599,6 +604,7 @@ button,
   width: 100%;
   min-height: 100vh;
   overflow: visible;
+  padding-top: 24px;
   background: #9c78ff;
   color: #ffffff;
   font-family: "Manrope", sans-serif;
@@ -621,13 +627,15 @@ button,
 }
 
 .site-review-page__header {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: min(1280px, calc(100% - 80px));
   height: 65px;
-  margin: 24px auto 0;
-  gap: 24px;
+  margin: 0 auto;
+  gap: 48px;
 }
 
 .site-review-page__logo {
@@ -644,13 +652,14 @@ button,
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .site-review-page__nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   height: 65px;
   gap: 16px;
   padding: 0 32px;
@@ -679,6 +688,7 @@ button,
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   min-width: 316px;
   height: 65px;
   padding: 0 24px;
@@ -1372,6 +1382,7 @@ button,
 @media (max-width: 767px) {
   .site-review-page {
     padding: 0;
+    padding-top: 16px;
   }
 
   .site-review-page__bg {
@@ -1459,7 +1470,6 @@ button,
   .site-review-page__header {
     width: calc(100% - 32px);
     height: auto;
-    margin-top: 16px;
     gap: 12px;
   }
 

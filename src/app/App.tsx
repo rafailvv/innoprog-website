@@ -11,6 +11,7 @@ import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia.pn
 import reviewSergeyUrl from "../imports/MainScreenDesktop/review-sergey.png";
 import reviewStoryKirillHeroUrl from "../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-story-collaboration.webp";
+import reviewStoryLogoUrl from "../imports/MainScreenDesktop/review-story-logo.svg";
 import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.svg";
 import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
 import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
@@ -290,7 +291,7 @@ function ReviewStoryPage({
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
       <header className="site-review-page__header">
         <button className="site-review-page__logo" data-review-home onClick={onBack} type="button">
-          <img alt="ИННОПРОГ Education" src="/logo_education.png" />
+          <img alt="ИННОПРОГ Education" src={reviewStoryLogoUrl} />
         </button>
         <nav className="site-review-page__nav" aria-label="Навигация">
           <button data-review-nav="adults" type="button">для взрослых</button>
