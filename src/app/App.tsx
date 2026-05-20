@@ -15,6 +15,9 @@ import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.s
 import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
 import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
 import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-telegram.svg";
+import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.webp";
+import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.webp";
+import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.webp";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   MOBILE_DESIGN_HEIGHT,
@@ -330,6 +333,14 @@ function getReviewStoryFromHash(): ReviewStoryKey | null {
   return REVIEW_KEYS_BY_ROUTE[decodeURIComponent(route)] ?? null;
 }
 
+function getIsAboutRouteFromHash() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.location.hash === "#/about";
+}
+
 function getStorySections(story: ReviewStoryKey) {
   const sections = REVIEW_STORIES[story].sections;
 
@@ -343,6 +354,56 @@ function getStorySections(story: ReviewStoryKey) {
       body: [REVIEW_STORIES[story].text],
     },
   ];
+}
+
+function SiteFooter() {
+  return (
+    <footer className="site-review-page__footer">
+      <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
+      <div className="site-review-page__footer-columns">
+        <section>
+          <h2>Контакты</h2>
+          <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
+          <a href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+          <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
+        </section>
+        <section>
+          <h2>Адреса</h2>
+          <p>г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
+          <p>420500 Республика Татарстан, Верхнеуслонский р-он</p>
+        </section>
+        <section>
+          <h2>Правовая информация</h2>
+          <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+          <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
+          <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+        </section>
+      </div>
+      <div className="site-review-page__socials" aria-label="Социальные сети">
+        <a aria-label="Написать на почту" href="mailto:educatio@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
+        <a aria-label="Позвонить" href="tel:+79586067980"><img alt="" src={reviewStoryPhoneUrl} /></a>
+        <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
+        <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
+      </div>
+    </footer>
+  );
+}
+
+function SitePageHeader({ onHome }: { onHome: () => void }) {
+  return (
+    <header className="site-review-page__header">
+      <button className="site-review-page__logo" data-site-home onClick={onHome} type="button">
+        <img alt="ИННОПРОГ Education" src="/logo_white_and_black.svg" />
+      </button>
+      <nav className="site-review-page__nav" aria-label="Навигация">
+        <button data-review-nav="adults" type="button">для взрослых</button>
+        <button data-review-nav="children" type="button">для детей</button>
+        <button data-review-nav="reviews" type="button">отзывы</button>
+        <button data-review-nav="about" type="button">о нас</button>
+      </nav>
+      <button className="site-review-page__header-cta" type="button">подобрать направление</button>
+    </header>
+  );
 }
 
 function ReviewStoryPage({
@@ -363,18 +424,7 @@ function ReviewStoryPage({
   return (
     <section className="site-review-page" aria-label={`История ${story.name}`}>
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
-      <header className="site-review-page__header">
-        <button className="site-review-page__logo" data-review-home onClick={onBack} type="button">
-          <img alt="ИННОПРОГ Education" src="/logo_white_and_black.svg" />
-        </button>
-        <nav className="site-review-page__nav" aria-label="Навигация">
-          <button data-review-nav="adults" type="button">для взрослых</button>
-          <button data-review-nav="children" type="button">для детей</button>
-          <button data-review-nav="reviews" type="button">отзывы</button>
-          <button data-review-nav="about" type="button">о нас</button>
-        </nav>
-        <button className="site-review-page__header-cta" type="button">подобрать направление</button>
-      </header>
+      <SitePageHeader onHome={onBack} />
 
       <div className="site-review-page__inner">
         <div className="site-review-page__top">
@@ -466,34 +516,113 @@ function ReviewStoryPage({
         </section>
       </div>
 
-      <footer className="site-review-page__footer">
-        <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
-        <div className="site-review-page__footer-columns">
-          <section>
-            <h2>Контакты</h2>
-            <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
-            <a href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
-            <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-          </section>
-          <section>
-            <h2>Адреса</h2>
-            <p>г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-            <p>420500 Республика Татарстан, Верхнеуслонский р-он</p>
-          </section>
-          <section>
-            <h2>Правовая информация</h2>
-            <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-            <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-            <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
-          </section>
+      <SiteFooter />
+    </section>
+  );
+}
+
+function AboutPage({ onBack }: { onBack: () => void }) {
+  return (
+    <section className="site-about-page" aria-label="О нас">
+      <SitePageHeader onHome={onBack} />
+
+      <div className="site-about-page__top">
+        <button className="site-review-page__back" onClick={onBack} type="button">
+          <span aria-hidden="true">←</span>
+          <span>назад</span>
+        </button>
+        <div className="site-review-page__crumbs" aria-hidden="true">
+          <span>главная/</span>
+          <strong>о нас</strong>
         </div>
-        <div className="site-review-page__socials" aria-label="Социальные сети">
-          <a aria-label="Написать на почту" href="mailto:educatio@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
-          <a aria-label="Позвонить" href="tel:+79586067980"><img alt="" src={reviewStoryPhoneUrl} /></a>
-          <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
-          <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
-        </div>
-      </footer>
+      </div>
+
+      <section className="site-about-hero">
+        <img alt="" src={aboutHeroUrl} />
+        <h1>
+          <span>Кто мы?</span>
+          <span>наша миссия?</span>
+        </h1>
+      </section>
+
+      <main className="site-about-content">
+        <section className="site-about-intro">
+          <p className="site-about-kicker">ИННОПРОГ</p>
+          <p>
+            <strong> — современная образовательная онлайн-платформа, ориентированная на подготовку будущих ИТ-специалистов для отечественного рынка</strong>
+          </p>
+        </section>
+
+        <section className="site-about-cards" aria-label="Подход ИННОПРОГ">
+          <article className="site-about-card site-about-card--dark">
+            <p>Мы сочетаем:</p>
+            <ul>
+              <li>системный подход</li>
+              <li>опыт экспертов</li>
+              <li>практическую подготовку</li>
+              <li>индивидуальную работу</li>
+            </ul>
+            <p>с каждым учеником</p>
+            <p>Помогаем осваивать востребованные ИТ-направления, получать актуальные навыки и формировать прочную базу для дальнейшего профессионального развития</p>
+          </article>
+
+          <div className="site-about-swirl" aria-hidden="true">
+            <img alt="" src={aboutSwirlUrl} />
+          </div>
+
+          <article className="site-about-card site-about-card--purple">
+            <p>Мы стремимся сделать качественное ИТ-образование доступным, понятным и по-настоящему полезным для тех, кто хочет уверенно развиваться в сфере технологий.</p>
+            <p>В основе нашего подхода — последовательное обучение, адаптация программы под уровень и цели ученика, а также внимание к практическому применению знаний</p>
+          </article>
+        </section>
+
+        <section className="site-about-mission">
+          <div>
+            <h2>наша миссия:</h2>
+            <p>Дать ученикам не только теоретическую основу, но и реальные инструменты для дальнейшего роста: от первых шагов в программировании до более уверенного освоения прикладных навыков, необходимых для учебы, собственных проектов и будущей профессиональной реализации.</p>
+          </div>
+          <p>Мы помогаем каждому ученику выстраивать сильную базу, постепенно углублять знания и двигаться вперед в комфортном, но системном формате</p>
+        </section>
+
+        <section className="site-about-tags" aria-label="ИННОПРОГ объединяет">
+          <h2>ИННОПРОГ объединяет:</h2>
+          <div>
+            <span>современные направления обучения</span>
+            <span>поддержку наставников</span>
+            <span>ориентацию на результат</span>
+          </div>
+        </section>
+
+        <section className="site-about-city">
+          <h2>Мы из Иннополиса</h2>
+          <div>
+            <img alt="Иннополис" src={aboutInnopolisUrl} />
+            <div>
+              <p>Наше сотрудничество с Иннополисом базируется на реализации эффективного образовательного процесса ИННОПРОГ.</p>
+              <p>Совместные усилия дают возможность для развития образовательной платформы и её методических материалов, а также использования современных методов обучения.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-about-legal">
+          <h2>правовая информация</h2>
+          <div className="site-about-legal__links">
+            <div>
+              <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
+              <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
+              <a href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
+            </div>
+            <div>
+              <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+              <a href="https://api.innoprog.ru/files/documents/consent_advertising_and_information_mailings.pdf" rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
+              <p>Выписка из единого реестра Российского ПО</p>
+            </div>
+          </div>
+          <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
+        </section>
+      </main>
+
+      <SiteFooter />
     </section>
   );
 }
@@ -566,6 +695,7 @@ export default function App() {
   const [viewport, setViewport] = useState(getViewportState);
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(getReviewStoryFromHash);
+  const [isAboutRoute, setIsAboutRoute] = useState(getIsAboutRouteFromHash);
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -659,17 +789,20 @@ export default function App() {
   }, [leadModalState]);
 
   useEffect(() => {
-    const syncReviewRoute = () => {
-      setActiveReviewStory(getReviewStoryFromHash());
+    const syncRoutes = () => {
+      const reviewStory = getReviewStoryFromHash();
+
+      setActiveReviewStory(reviewStory);
+      setIsAboutRoute(!reviewStory && getIsAboutRouteFromHash());
     };
 
-    syncReviewRoute();
-    window.addEventListener("popstate", syncReviewRoute);
-    window.addEventListener("hashchange", syncReviewRoute);
+    syncRoutes();
+    window.addEventListener("popstate", syncRoutes);
+    window.addEventListener("hashchange", syncRoutes);
 
     return () => {
-      window.removeEventListener("popstate", syncReviewRoute);
-      window.removeEventListener("hashchange", syncReviewRoute);
+      window.removeEventListener("popstate", syncRoutes);
+      window.removeEventListener("hashchange", syncRoutes);
     };
   }, []);
 
@@ -862,21 +995,39 @@ export default function App() {
     }
 
     setActiveReviewStory(key);
+    setIsAboutRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
-  const closeReviewStory = () => {
-    if (window.location.hash.startsWith("#/reviews/")) {
+  const goHome = () => {
+    if (window.location.hash.startsWith("#/reviews/") || window.location.hash === "#/about") {
       window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
     }
 
     setActiveReviewStory(null);
+    setIsAboutRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
-  const closeReviewStoryAndScroll = (key: keyof typeof desktopScrollTargets) => {
-    closeReviewStory();
+  const openAboutPage = () => {
+    if (window.location.hash !== "#/about") {
+      window.history.pushState(null, "", "#/about");
+    }
+
+    setActiveReviewStory(null);
+    setIsAboutRoute(true);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const closeCurrentPageAndScroll = (key: keyof typeof desktopScrollTargets) => {
+    if (key === "about") {
+      openAboutPage();
+      return;
+    }
+
+    goHome();
     window.setTimeout(() => {
       const targets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
       scrollToDesignY(targets[key]);
@@ -929,6 +1080,11 @@ export default function App() {
 
       if (key === "form") {
         openLeadModal();
+        return;
+      }
+
+      if (key === "about") {
+        openAboutPage();
         return;
       }
 
@@ -994,11 +1150,11 @@ export default function App() {
       return;
     }
 
-    const reviewHome = target?.closest<HTMLElement>("[data-review-home]");
+    const reviewHome = target?.closest<HTMLElement>("[data-review-home], [data-site-home]");
 
     if (reviewHome) {
       event.preventDefault();
-      closeReviewStory();
+      goHome();
       return;
     }
 
@@ -1006,7 +1162,7 @@ export default function App() {
 
     if (reviewNav?.dataset.reviewNav) {
       event.preventDefault();
-      closeReviewStoryAndScroll(reviewNav.dataset.reviewNav as keyof typeof desktopScrollTargets);
+      closeCurrentPageAndScroll(reviewNav.dataset.reviewNav as keyof typeof desktopScrollTargets);
       return;
     }
 
@@ -1032,7 +1188,7 @@ export default function App() {
     }
 
     if (text === "о нас") {
-      scrollToDesignY(activeScrollTargets.about);
+      openAboutPage();
       return;
     }
 
@@ -1085,6 +1241,7 @@ export default function App() {
 
   const activeDesign = viewport.design;
   const isReviewRoute = Boolean(activeReviewStory);
+  const isStandaloneRoute = isReviewRoute || isAboutRoute;
   const canvasStyle = {
     width: `${activeDesign.width}px`,
     height: `${activeDesign.height}px`,
@@ -1099,16 +1256,18 @@ export default function App() {
         "site-shell",
         isReady ? "site-shell--ready" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
-        isReviewRoute ? "site-shell--review-route" : "",
+        isStandaloneRoute ? "site-shell--review-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={isReviewRoute ? undefined : { minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
+      style={isStandaloneRoute ? undefined : { minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
     >
       {isReviewRoute ? (
-        <ReviewStoryPage storyKey={activeReviewStory as ReviewStoryKey} onBack={closeReviewStory} />
+        <ReviewStoryPage storyKey={activeReviewStory as ReviewStoryKey} onBack={goHome} />
+      ) : isAboutRoute ? (
+        <AboutPage onBack={goHome} />
       ) : (
         <div
           className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
