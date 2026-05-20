@@ -393,7 +393,7 @@ function Frame79() {
 
 function Frame91() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full site-mobile-readable-copy">
+    <div className="content-stretch flex flex-col gap-[16px] items-start pb-[12px] relative shrink-0 w-full site-mobile-readable-copy">
       <Frame90 />
       <Frame75 />
       <Frame77 />

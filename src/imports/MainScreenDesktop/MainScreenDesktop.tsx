@@ -228,7 +228,7 @@ function Frame86() {
 
 function Frame87() {
   return (
-    <div className="content-stretch flex h-[628px] items-start justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex h-[652px] items-start justify-between pb-[24px] relative shrink-0 w-full">
       <div className="-translate-x-1/2 absolute h-[672px] left-1/2 top-[-18px] w-[1280px]">
         <div className="absolute inset-[-44.64%_-23.44%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1880 1272">
@@ -253,7 +253,7 @@ function Frame87() {
 
 function Frame84() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[60px] h-[1256px] items-center left-[80px] top-[834px] w-[1280px]">
+    <div className="absolute content-stretch flex flex-col gap-[60px] h-[1280px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
       <div className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529">
