@@ -480,7 +480,7 @@ function Frame147() {
 function MobilePlatformStartButton() {
   return (
     <button className="bg-transparent border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">Начать бесплатно</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать бесплатно</p>
     </button>
   );
 }
