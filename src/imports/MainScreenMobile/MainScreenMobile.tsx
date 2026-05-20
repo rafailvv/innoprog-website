@@ -1708,7 +1708,7 @@ function ProblemSupportImage() {
 
 function Frame64() {
   return (
-    <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex items-start justify-between mt-[-12px] relative shrink-0 w-full">
       <Frame66 />
       <Frame67 />
     </div>
