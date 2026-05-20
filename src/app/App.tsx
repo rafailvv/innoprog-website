@@ -24,7 +24,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
@@ -57,6 +57,143 @@ const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const LOADER_EXIT_MS = 700;
+const APPLICATION_REQUEST_URL = "/api/application/request";
+const TURNSTILE_TEST_SITE_KEY = "1x00000000000000000000AA";
+const TURNSTILE_SITE_KEY =
+  (import.meta as unknown as { env?: { VITE_TURNSTILE_SITE_KEY?: string } }).env
+    ?.VITE_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY;
+
+type LeadPayload = {
+  name: string;
+  phone: string;
+};
+
+type LeadDraft = Partial<LeadPayload>;
+
+type TurnstileStatus = "idle" | "loading" | "ready" | "verified" | "error";
+
+type TurnstileApi = {
+  render: (
+    container: HTMLElement,
+    options: {
+      sitekey: string;
+      theme?: "light" | "dark" | "auto";
+      size?: "normal" | "compact" | "flexible";
+      callback?: (token: string) => void;
+      "expired-callback"?: () => void;
+      "error-callback"?: () => void;
+    },
+  ) => string;
+  remove?: (widgetId: string) => void;
+};
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
+let turnstileScriptPromise: Promise<void> | null = null;
+
+function loadTurnstileScript() {
+  if (typeof window === "undefined") {
+    return Promise.resolve();
+  }
+
+  if (window.turnstile) {
+    return Promise.resolve();
+  }
+
+  if (turnstileScriptPromise) {
+    return turnstileScriptPromise;
+  }
+
+  turnstileScriptPromise = new Promise((resolve, reject) => {
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
+    );
+
+    if (existingScript) {
+      existingScript.addEventListener("load", () => resolve(), { once: true });
+      existingScript.addEventListener("error", () => reject(new Error("turnstile-load-error")), {
+        once: true,
+      });
+      return;
+    }
+
+    const script = document.createElement("script");
+
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("turnstile-load-error"));
+    document.head.appendChild(script);
+  });
+
+  return turnstileScriptPromise;
+}
+
+function normalizePhone(rawPhone: string) {
+  const digits = rawPhone.replace(/\D/g, "");
+
+  if (!digits) {
+    return "";
+  }
+
+  if (digits.length === 11 && digits.startsWith("8")) {
+    return `+7${digits.slice(1)}`;
+  }
+
+  if (digits.startsWith("7")) {
+    return `+${digits}`;
+  }
+
+  if (rawPhone.trim().startsWith("+")) {
+    return `+${digits}`;
+  }
+
+  return digits;
+}
+
+function findLeadInputValue(scope: ParentNode, names: string[]) {
+  for (const name of names) {
+    const input = scope.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+    const value = input?.value.trim();
+
+    if (value) {
+      return value;
+    }
+  }
+
+  return "";
+}
+
+function getLeadPayload(scope?: ParentNode | null): LeadPayload {
+  const root = scope || document;
+  const name = findLeadInputValue(root, ["name", "modal-name"]);
+  const phone = normalizePhone(findLeadInputValue(root, ["phone", "modal-phone"]));
+
+  return { name, phone };
+}
+
+function isLeadPayloadValid(payload: LeadPayload) {
+  return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10;
+}
+
+async function sendLeadApplication(payload: LeadPayload, captchaToken: string) {
+  const response = await fetch(APPLICATION_REQUEST_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...payload, captchaToken }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`lead-request-failed:${response.status}`);
+  }
+}
 
 const REVIEW_STORIES = {
   кирилл: {
@@ -757,6 +894,73 @@ function waitForCriticalAssets(isMobile: boolean) {
   ]).then(() => undefined);
 }
 
+function TurnstileChallenge({
+  onStatusChange,
+  onTokenChange,
+}: {
+  onStatusChange: (status: TurnstileStatus) => void;
+  onTokenChange: (token: string) => void;
+}) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const statusRef = useRef(onStatusChange);
+  const tokenRef = useRef(onTokenChange);
+
+  useEffect(() => {
+    statusRef.current = onStatusChange;
+    tokenRef.current = onTokenChange;
+  }, [onStatusChange, onTokenChange]);
+
+  useEffect(() => {
+    let cancelled = false;
+    let widgetId: string | null = null;
+
+    statusRef.current("loading");
+    tokenRef.current("");
+
+    loadTurnstileScript()
+      .then(() => {
+        if (cancelled || !containerRef.current || !window.turnstile) {
+          return;
+        }
+
+        widgetId = window.turnstile.render(containerRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: "light",
+          size: "flexible",
+          callback: (token) => {
+            tokenRef.current(token);
+            statusRef.current("verified");
+          },
+          "expired-callback": () => {
+            tokenRef.current("");
+            statusRef.current("ready");
+          },
+          "error-callback": () => {
+            tokenRef.current("");
+            statusRef.current("error");
+          },
+        });
+        statusRef.current("ready");
+      })
+      .catch(() => {
+        if (!cancelled) {
+          tokenRef.current("");
+          statusRef.current("error");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+
+      if (widgetId && window.turnstile?.remove) {
+        window.turnstile.remove(widgetId);
+      }
+    };
+  }, []);
+
+  return <div className="site-turnstile" ref={containerRef} />;
+}
+
 export default function App() {
   const [viewport, setViewport] = useState(getViewportState);
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
@@ -767,6 +971,11 @@ export default function App() {
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
+  const [leadCaptchaToken, setLeadCaptchaToken] = useState("");
+  const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
+  const [leadFormError, setLeadFormError] = useState("");
+  const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
 
   useEffect(() => {
     if (isReady) {
@@ -1040,11 +1249,19 @@ export default function App() {
     setLeadModalState("form");
     setIsMobileMenuOpen(false);
     setIsConsentError(false);
+    setLeadFormError("");
+    setLeadCaptchaToken("");
+    setLeadCaptchaStatus("idle");
   };
 
   const closeLeadModal = () => {
     setLeadModalState("closed");
     setIsConsentError(false);
+    setLeadFormError("");
+    setLeadDraft({});
+    setLeadCaptchaToken("");
+    setLeadCaptchaStatus("idle");
+    setIsLeadSubmitting(false);
   };
 
   const openReviewStory = (story: string | undefined) => {
@@ -1100,19 +1317,59 @@ export default function App() {
     }, 0);
   };
 
-  const submitLeadApplication = () => {
+  const submitLeadApplication = async (source?: ParentNode | null) => {
     if (!isConsentChecked) {
       setIsConsentError(true);
       return;
     }
 
-    setLeadModalState("success");
+    const payload = getLeadPayload(source);
+
+    setLeadDraft(payload);
+
+    if (!isLeadPayloadValid(payload)) {
+      setLeadFormError("Заполните имя и корректный номер телефона.");
+
+      if (leadModalState === "closed") {
+        setLeadModalState("form");
+      }
+
+      return;
+    }
+
+    if (!leadCaptchaToken) {
+      setLeadFormError("Подтвердите, что вы не робот, и отправьте заявку еще раз.");
+
+      if (leadModalState === "closed") {
+        setLeadModalState("form");
+      }
+
+      return;
+    }
+
+    setIsLeadSubmitting(true);
+    setLeadFormError("");
+
+    try {
+      await sendLeadApplication(payload, leadCaptchaToken);
+      setLeadModalState("success");
+      setLeadDraft({});
+      setLeadCaptchaToken("");
+      setLeadCaptchaStatus("idle");
+    } catch {
+      setLeadFormError("Не удалось отправить заявку. Проверьте данные и попробуйте еще раз.");
+      setLeadCaptchaToken("");
+      setLeadCaptchaStatus("ready");
+    } finally {
+      setIsLeadSubmitting(false);
+    }
+
     setIsConsentError(false);
   };
 
   const handleLeadFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    submitLeadApplication();
+    void submitLeadApplication(event.currentTarget);
   };
 
   const toggleConsent = () => {
@@ -1280,7 +1537,9 @@ export default function App() {
     if (text.includes("отправить заявку")) {
       event.preventDefault();
 
-      submitLeadApplication();
+      const leadSection = target?.closest<HTMLElement>('[data-name="заявка"]');
+
+      void submitLeadApplication(leadSection || event.currentTarget);
     }
   };
 
@@ -1411,6 +1670,7 @@ export default function App() {
                     aria-label="Номер телефона"
                     autoComplete="tel"
                     className="site-lead-modal__input"
+                    defaultValue={leadDraft.phone || ""}
                     inputMode="tel"
                     name="modal-phone"
                     placeholder="+7(000)-000-00-00"
@@ -1420,6 +1680,7 @@ export default function App() {
                     aria-label="Ваше имя"
                     autoComplete="name"
                     className="site-lead-modal__input"
+                    defaultValue={leadDraft.name || ""}
                     name="modal-name"
                     placeholder="Ваше имя"
                     type="text"
@@ -1458,8 +1719,30 @@ export default function App() {
                     </a>
                   </span>
                 </div>
-                <button className="site-lead-modal__submit" type="submit">
-                  отправить заявку
+                <div className="site-lead-modal__captcha">
+                  <TurnstileChallenge
+                    onStatusChange={setLeadCaptchaStatus}
+                    onTokenChange={setLeadCaptchaToken}
+                  />
+                  <p className="site-lead-modal__captcha-status" aria-live="polite">
+                    {leadCaptchaStatus === "verified"
+                      ? "Проверка пройдена"
+                      : leadCaptchaStatus === "error"
+                        ? "Не удалось загрузить проверку. Обновите страницу и попробуйте снова."
+                        : "Подтвердите, что вы не робот"}
+                  </p>
+                </div>
+                {leadFormError ? (
+                  <p className="site-lead-modal__error" role="alert">
+                    {leadFormError}
+                  </p>
+                ) : null}
+                <button
+                  className="site-lead-modal__submit"
+                  disabled={isLeadSubmitting || leadCaptchaStatus === "error"}
+                  type="submit"
+                >
+                  {isLeadSubmitting ? "отправляем..." : "отправить заявку"}
                 </button>
               </form>
             ) : (
