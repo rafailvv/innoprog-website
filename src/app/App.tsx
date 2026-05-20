@@ -9,6 +9,12 @@ import platformPhoneFrameUrl from "../imports/MainScreenDesktop/6397a5e6c9574119
 import reviewKirillUrl from "../imports/MainScreenDesktop/review-kirill.png";
 import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia.png";
 import reviewSergeyUrl from "../imports/MainScreenDesktop/review-sergey.png";
+import reviewStoryKirillHeroUrl from "../imports/MainScreenDesktop/review-story-kirill-hero.webp";
+import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-story-collaboration.webp";
+import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.svg";
+import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
+import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
+import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-telegram.svg";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   MOBILE_DESIGN_HEIGHT,
@@ -52,28 +58,109 @@ const LOADER_EXIT_MS = 700;
 const REVIEW_STORIES = {
   кирилл: {
     avatar: reviewKirillUrl,
+    hero: reviewStoryKirillHeroUrl,
     name: "Кирилл",
     course: "Python-разработчик",
     transition: "Из HR → в ИТ",
+    city: "Москва",
+    format: "Онлайн + разборы 1:1",
+    period: "10 месяцев",
+    result: "Новая работа / по специальности",
+    pageTitle: "как я перешёл из HR в ИТ",
+    heroQuote: "“Если встретить правильного преподавателя и пройти по протоптанной дорожке — и работа найдётся, и с отчётами всё сложится”.",
+    sections: [
+      {
+        title: "Как начался переход",
+        body: [
+          "Меня зовут Кирилл. До перехода в ИT я работал HR-менеджером. Со временем я понял, что прежняя профессия перестала быть для меня интересной. Хотелось развиваться в новом направлении, где больше практических задач, больше возможностей для роста и где я действительно буду чувствовать интерес к тому, чем занимаюсь.",
+          "До начала обучения я был в программировании практически нулем. У меня не было опыта, поэтому сначала многое казалось новым и непривычным. Но желание разобраться и перейти в новую сферу было сильнее страха перед сложностью.",
+          "Об ИННОПРОГ я узнал лично от своего друга, который ранее там уже обучался. Мне понравилось, что обучение было построено удобно и понятно, через платформу, с большим количеством практических заданий и понятной структурой. Было видно, что обучение не строится только на теории, а сразу направлено на практику.",
+        ],
+      },
+      {
+        title: "Как проходило обучение",
+        body: [
+          "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование.",
+          "Самые большие сложности у меня начались на темах ООП, алгоритмов и структур данных. Это был непростой этап, но именно он помог мне глубже разобраться в логике программирования и начать понимать, как разные темы связаны между собой.",
+          "Занятия с наставником проходили прекрасно. Материал объяснялся доходчиво, а обратная связь действительно помогала двигаться дальше. Особенно полезными были разборы задач, потому что они помогали не просто увидеть правильное решение, а понять саму логику и ход рассуждений.",
+          "Я старался использовать все занятия, которые входили в тариф. Примерно через четыре месяца обучения я почувствовал, что в голове начали складываться пазлы. При этом надежда, что я не зря учусь, была у меня с первого дня.",
+        ],
+      },
+      {
+        title: "Какой результат получился",
+        body: [
+          "Главный результат для меня: я поменял профессию на ту, которая мне нравится.",
+          "Путь к трудоустройству получился достаточно быстрым. Примерно за один месяц. Возможно, в чём-то мне повезло, но я прошёл отбор и собеседование.",
+          "Сейчас я работаю программистом в компании Tages как внешний сотрудник Lemana PRO. Моя должность инженер технической поддержки. Задачи во многом похожи на DevOps.",
+          "Я занимаюсь инфраструктурной поддержкой low-code разработки, анализирую инциденты, смотрю логи, вношу изменения в конфигурации инфраструктуры под потребности пользователей. В работе использую Kubernetes, Helm, Argo CD, Tekton и другие инструменты.",
+          "Обучение в ИННОПРОГ помогло мне на старте, потому что в работе часто возникают вопросы с разработкой. Навыки программирования и понимание базы очень пригодились. Особенно в начале помогло понимание API-разработки, потому что пользователи как раз с этим и работают.",
+        ],
+      },
+      {
+        title: "МОЙ ОТЗЫВ ОБ ИННОПРОГ",
+        body: [
+          "Понравился хорошо структурированный план обучения. Понятно, что именно нужно знать на каждом этапе и куда двигаться дальше. Еженедельные занятия с наставником подталкивали двигаться дальше, позволяя экономить большую кучу времени и нервов.",
+          "Тем, кто сейчас думает перейти в ИТ, но сомневается, я бы сказал: если хочется, то обязательно нужно пробовать. Даже если на старте кажется, что ничего не понятно, со временем знания начинают складываться в систему.",
+          "Главное не забрасывать и не ждать быстрых результатов.",
+        ],
+      },
+    ],
     text: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование. На занятиях мы не просто повторяли теорию, а разбирали, почему решение работает именно так, где могут быть ошибки и как писать код увереннее. Постепенно я начал видеть логику в задачах, перестал бояться больших тем и понял, как двигаться дальше в IT.",
   },
   анастасия: {
     avatar: reviewAnastasiaUrl,
+    hero: reviewAnastasiaUrl,
     name: "Анастасия",
     course: "Data Science",
     transition: "Из 1С → в Product",
+    city: "Казань",
+    format: "Онлайн + практика",
+    period: "8 месяцев",
+    result: "Новая роль в аналитике",
+    pageTitle: "как я перешла в аналитику",
+    heroQuote: "“Практика помогла понять, что аналитика — это не абстрактные формулы, а понятный путь от задачи к решению”.",
+    sections: [],
     text: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам: как анализировать данные, как искать зависимости, как оценивать результат, как не просто построить модель, а понять, зачем она нужна и какую пользу может дать продукту. Такой подход помог мне спокойнее разбираться в новых инструментах и постепенно собрать понятную картину профессии.",
   },
   сергей: {
     avatar: reviewSergeyUrl,
+    hero: reviewSergeyUrl,
     name: "Сергей",
     course: "Фронтенд разработчик",
     transition: "Веб-приложение для сервиса",
+    city: "Иннополис",
+    format: "Онлайн + наставник",
+    period: "9 месяцев",
+    result: "Первый проект в портфолио",
+    pageTitle: "как я собрал первый проект",
+    heroQuote: "“Разборы с наставником помогли перестать бояться ошибок и начать спокойно доводить задачи до результата”.",
+    sections: [],
     text: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение. Для меня было важно, что преподаватель объяснял не только как сделать, но и почему лучше выбрать именно такой подход.",
   },
 } as const;
 
 type ReviewStoryKey = keyof typeof REVIEW_STORIES;
+
+const REVIEW_ROUTES: Record<ReviewStoryKey, string> = {
+  кирилл: "kirill",
+  анастасия: "anastasia",
+  сергей: "sergey",
+};
+
+const REVIEW_KEYS_BY_ROUTE = Object.fromEntries(
+  Object.entries(REVIEW_ROUTES).map(([key, route]) => [route, key]),
+) as Record<string, ReviewStoryKey>;
+
+const OTHER_REVIEW_TITLES = [
+  "Как Екатерина перешла из HR в Data-аналитику",
+  "Как Сергей перешел из техподдержки в Python-разработку",
+  "Как Анастасия сменила профессию на бизнес-аналитику",
+  "Как Кирилл перешёл из HR в ИТ",
+  "Как Екатерина перешла из HR в Data-аналитику",
+  "Как Сергей перешел из техподдержки в Python-разработку",
+  "Как Анастасия сменила профессию на бизнес-аналитику",
+  "Как Кирилл перешёл из HR в ИТ",
+];
 
 function getViewportState() {
   if (typeof window === "undefined") {
@@ -155,6 +242,185 @@ function scrollCarouselTo(id: string, index: number) {
   });
 }
 
+function getReviewStoryFromHash(): ReviewStoryKey | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const route = window.location.hash.match(/^#\/reviews\/([^/?#]+)/)?.[1];
+
+  if (!route) {
+    return null;
+  }
+
+  return REVIEW_KEYS_BY_ROUTE[decodeURIComponent(route)] ?? null;
+}
+
+function getStorySections(story: ReviewStoryKey) {
+  const sections = REVIEW_STORIES[story].sections;
+
+  if (sections.length > 0) {
+    return sections;
+  }
+
+  return [
+    {
+      title: `История ${REVIEW_STORIES[story].name}`,
+      body: [REVIEW_STORIES[story].text],
+    },
+  ];
+}
+
+function ReviewStoryPage({
+  storyKey,
+  onBack,
+}: {
+  storyKey: ReviewStoryKey;
+  onBack: () => void;
+}) {
+  const story = REVIEW_STORIES[storyKey];
+  const sections = getStorySections(storyKey);
+  const otherStories = OTHER_REVIEW_TITLES.map((title, index) => ({
+    title,
+    key: (["анастасия", "сергей", "кирилл", "кирилл"] as ReviewStoryKey[])[index % 4],
+  }));
+
+  return (
+    <section className="site-review-page" aria-label={`История ${story.name}`}>
+      <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
+      <header className="site-review-page__header">
+        <button className="site-review-page__logo" data-review-home onClick={onBack} type="button">
+          <img alt="ИННОПРОГ Education" src="/logo_education.png" />
+        </button>
+        <nav className="site-review-page__nav" aria-label="Навигация">
+          <button data-review-nav="adults" type="button">для взрослых</button>
+          <button data-review-nav="children" type="button">для детей</button>
+          <button data-review-nav="reviews" type="button">отзывы</button>
+          <button data-review-nav="about" type="button">о нас</button>
+        </nav>
+        <button className="site-review-page__header-cta" type="button">подобрать направление</button>
+      </header>
+
+      <div className="site-review-page__inner">
+        <div className="site-review-page__top">
+          <button className="site-review-page__back" onClick={onBack} type="button">
+            <span aria-hidden="true">←</span>
+            <span>назад</span>
+          </button>
+          <div className="site-review-page__crumbs" aria-hidden="true">
+            <span>главная/</span>
+            <strong>отзыв</strong>
+          </div>
+        </div>
+
+        <div className="site-review-page__title">
+          <h1>
+            <span>{storyKey === "кирилл" ? "История Кирилла:" : `История ${story.name}:`}</span>
+            <strong>{story.pageTitle}</strong>
+          </h1>
+        </div>
+
+        <div className="site-review-page__hero">
+          <img alt="" src={story.hero} />
+        </div>
+
+        <blockquote className="site-review-page__quote">{story.heroQuote}</blockquote>
+
+        <div className="site-review-page__content">
+          <aside className="site-review-page__summary" aria-label="Кратко о результате">
+            <h2>кратко о результате</h2>
+            <dl>
+              <div>
+                <dt>Город</dt>
+                <dd>{story.city}</dd>
+              </div>
+              <div>
+                <dt>формат</dt>
+                <dd>{story.format}</dd>
+              </div>
+              <div>
+                <dt>срок</dt>
+                <dd>{story.period}</dd>
+              </div>
+              <div>
+                <dt>результат</dt>
+                <dd>{story.result}</dd>
+              </div>
+            </dl>
+            <button type="button">хочу такой же результат</button>
+          </aside>
+
+          <article className="site-review-page__article">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                {section.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </section>
+            ))}
+          </article>
+        </div>
+
+        <section className="site-review-page__free">
+          <div>
+            <h2>Попробуйте себя в новой профессии бесплатно</h2>
+            <p>Получите вводный план по профессии, первый практический кейс и рекомендации по развитию навыков.</p>
+          </div>
+        </section>
+        <button className="site-review-page__consult" type="button">получить консультацию</button>
+
+        <section className="site-review-page__other" aria-label="Другие истории">
+          <h2>другие истории</h2>
+          <div className="site-review-page__other-grid">
+            {otherStories.map((item, index) => (
+              <button
+                className="site-review-page__other-card"
+                data-review-story={item.key}
+                key={`${item.title}-${index}`}
+                type="button"
+              >
+                <span />
+                <strong>{item.title}</strong>
+              </button>
+            ))}
+          </div>
+          <button className="site-review-page__load-more" type="button">загрузить ещё</button>
+        </section>
+      </div>
+
+      <footer className="site-review-page__footer">
+        <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
+        <div className="site-review-page__footer-columns">
+          <section>
+            <h2>Контакты</h2>
+            <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
+            <a href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+            <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
+          </section>
+          <section>
+            <h2>Адреса</h2>
+            <p>г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
+            <p>420500 Республика Татарстан, Верхнеуслонский р-он</p>
+          </section>
+          <section>
+            <h2>Правовая информация</h2>
+            <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+            <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
+            <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+          </section>
+        </div>
+        <div className="site-review-page__socials" aria-label="Социальные сети">
+          <a aria-label="Написать на почту" href="mailto:educatio@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
+          <a aria-label="Позвонить" href="tel:+79586067980"><img alt="" src={reviewStoryPhoneUrl} /></a>
+          <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
+          <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
+        </div>
+      </footer>
+    </section>
+  );
+}
+
 function canScrollCarousel(carousel: HTMLElement, delta: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
@@ -222,7 +488,7 @@ function waitForCriticalAssets(isMobile: boolean) {
 export default function App() {
   const [viewport, setViewport] = useState(getViewportState);
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
-  const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(null);
+  const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(getReviewStoryFromHash);
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -294,7 +560,7 @@ export default function App() {
   }, [viewport.isMobile]);
 
   useEffect(() => {
-    if (leadModalState === "closed" && !activeReviewStory) {
+    if (leadModalState === "closed") {
       return;
     }
 
@@ -302,7 +568,6 @@ export default function App() {
     const handleEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         setLeadModalState("closed");
-        setActiveReviewStory(null);
         setIsConsentError(false);
       }
     };
@@ -314,7 +579,22 @@ export default function App() {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleEscape);
     };
-  }, [leadModalState, activeReviewStory]);
+  }, [leadModalState]);
+
+  useEffect(() => {
+    const syncReviewRoute = () => {
+      setActiveReviewStory(getReviewStoryFromHash());
+    };
+
+    syncReviewRoute();
+    window.addEventListener("popstate", syncReviewRoute);
+    window.addEventListener("hashchange", syncReviewRoute);
+
+    return () => {
+      window.removeEventListener("popstate", syncReviewRoute);
+      window.removeEventListener("hashchange", syncReviewRoute);
+    };
+  }, []);
 
   useEffect(() => {
     const carousels = Array.from(
@@ -498,12 +778,32 @@ export default function App() {
       return;
     }
 
+    const nextHash = `#/reviews/${REVIEW_ROUTES[key]}`;
+
+    if (window.location.hash !== nextHash) {
+      window.history.pushState(null, "", nextHash);
+    }
+
     setActiveReviewStory(key);
     setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const closeReviewStory = () => {
+    if (window.location.hash.startsWith("#/reviews/")) {
+      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
+
     setActiveReviewStory(null);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const closeReviewStoryAndScroll = (key: keyof typeof desktopScrollTargets) => {
+    closeReviewStory();
+    window.setTimeout(() => {
+      const targets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
+      scrollToDesignY(targets[key]);
+    }, 0);
   };
 
   const submitLeadApplication = () => {
@@ -617,6 +917,22 @@ export default function App() {
       return;
     }
 
+    const reviewHome = target?.closest<HTMLElement>("[data-review-home]");
+
+    if (reviewHome) {
+      event.preventDefault();
+      closeReviewStory();
+      return;
+    }
+
+    const reviewNav = target?.closest<HTMLElement>("[data-review-nav]");
+
+    if (reviewNav?.dataset.reviewNav) {
+      event.preventDefault();
+      closeReviewStoryAndScroll(reviewNav.dataset.reviewNav as keyof typeof desktopScrollTargets);
+      return;
+    }
+
     const text = getClickedText(event.target, event.currentTarget);
 
     if (!text) {
@@ -643,7 +959,11 @@ export default function App() {
       return;
     }
 
-    if (text.includes("подобрать направление") || text.includes("подобрать курс")) {
+    if (
+      text.includes("подобрать направление") ||
+      text.includes("подобрать курс") ||
+      text.includes("хочу такой же результат")
+    ) {
       openLeadModal();
       return;
     }
@@ -687,6 +1007,7 @@ export default function App() {
   };
 
   const activeDesign = viewport.design;
+  const isReviewRoute = Boolean(activeReviewStory);
   const canvasStyle = {
     width: `${activeDesign.width}px`,
     height: `${activeDesign.height}px`,
@@ -701,22 +1022,27 @@ export default function App() {
         "site-shell",
         isReady ? "site-shell--ready" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
+        isReviewRoute ? "site-shell--review-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={{ minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
+      style={isReviewRoute ? undefined : { minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
     >
-      <div
-        className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
-          .filter(Boolean)
-          .join(" ")}
-        style={canvasStyle}
-      >
-        {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
-      </div>
-      {viewport.isMobile && isMobileMenuOpen ? (
+      {isReviewRoute ? (
+        <ReviewStoryPage storyKey={activeReviewStory as ReviewStoryKey} onBack={closeReviewStory} />
+      ) : (
+        <div
+          className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
+            .filter(Boolean)
+            .join(" ")}
+          style={canvasStyle}
+        >
+          {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
+        </div>
+      )}
+      {!isReviewRoute && viewport.isMobile && isMobileMenuOpen ? (
         <nav className="site-mobile-menu" aria-label="Мобильное меню">
           <button data-mobile-menu-link data-scroll-target="directions" type="button">курсы</button>
           <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>
@@ -736,41 +1062,6 @@ export default function App() {
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />
           </div>
-        </div>
-      ) : null}
-      {activeReviewStory ? (
-        <div className="site-review-page" role="presentation">
-          <article
-            aria-label={`История ${REVIEW_STORIES[activeReviewStory].name}`}
-            aria-modal="true"
-            className="site-review-page__card"
-            role="dialog"
-          >
-            <div className="site-review-page__top">
-              <button className="site-review-page__back" onClick={closeReviewStory} type="button">
-                <span aria-hidden="true">←</span>
-                <span>назад</span>
-              </button>
-              <div className="site-review-page__crumbs" aria-hidden="true">
-                <span>главная/</span>
-                <strong>история</strong>
-              </div>
-            </div>
-
-            <div className="site-review-page__hero">
-              <div className="site-review-page__avatar">
-                <img alt="" src={REVIEW_STORIES[activeReviewStory].avatar} />
-              </div>
-              <div className="site-review-page__intro">
-                <p className="site-review-page__eyebrow">история ученика</p>
-                <h1>{REVIEW_STORIES[activeReviewStory].name}</h1>
-                <p className="site-review-page__course">{`Выпускник курса: ${REVIEW_STORIES[activeReviewStory].course}`}</p>
-                <p className="site-review-page__transition">{REVIEW_STORIES[activeReviewStory].transition}</p>
-              </div>
-            </div>
-
-            <p className="site-review-page__quote">{REVIEW_STORIES[activeReviewStory].text}</p>
-          </article>
         </div>
       ) : null}
       {leadModalState !== "closed" ? (
