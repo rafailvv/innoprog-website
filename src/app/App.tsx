@@ -463,6 +463,7 @@ function ReviewStoryPage({
               </button>
             ))}
           </div>
+          <button className="site-review-page__load-more" type="button">загрузить ещё</button>
         </section>
       </div>
 

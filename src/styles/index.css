@@ -1067,10 +1067,12 @@ button,
 }
 
 .site-review-page__load-more {
-  width: 220px;
-  min-height: 54px;
+  min-width: 289px;
+  min-height: 91px;
   margin: 43px auto 0;
   padding: 0 30px;
+  font-size: 32px;
+  line-height: 35px;
 }
 
 .site-review-page__footer {
@@ -1670,7 +1672,9 @@ button,
   }
 
   .site-review-page__load-more {
-    min-height: 48px;
+    min-width: 0;
+    width: 100%;
+    min-height: 58px;
     font-size: 18px;
     line-height: 24px;
   }
