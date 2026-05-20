@@ -30,7 +30,7 @@ import imgEllipse2 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgEllipse3 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
 import imgReviewKirill from "./review-kirill.png";
 import imgReviewAnastasia from "./review-anastasia-high.webp";
-import imgReviewSergey from "./review-sergey-high.webp";
+import imgReviewMikhail from "./review-mikhail-high.webp";
 import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
@@ -1302,10 +1302,10 @@ const DESKTOP_REVIEWS = [
     quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
   },
   {
-    avatar: imgReviewSergey,
-    avatarClassName: "site-review-avatar-img--sergey",
-    name: "Сергей",
-    course: "Фронтенд разработчик",
+    avatar: imgReviewMikhail,
+    avatarClassName: "site-review-avatar-img--mikhail",
+    name: "Михаил",
+    course: "Python-разработчик",
     transition: "Веб-приложение для сервиса",
     quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
   },

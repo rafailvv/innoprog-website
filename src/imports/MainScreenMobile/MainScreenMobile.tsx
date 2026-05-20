@@ -28,7 +28,7 @@ import imgRectangle40088 from "../MainScreenDesktop/accce48d175d044546f06312eec0
 import imgRectangle40089 from "../MainScreenDesktop/0637a0266dd99580004167f3ae3ffee5b51608c3.teacher.webp";
 import imgReviewKirill from "../MainScreenDesktop/review-kirill.png";
 import imgReviewAnastasia from "../MainScreenDesktop/review-anastasia-high.webp";
-import imgReviewSergey from "../MainScreenDesktop/review-sergey-high.webp";
+import imgReviewMikhail from "../MainScreenDesktop/review-mikhail-high.webp";
 import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
@@ -2115,10 +2115,10 @@ const MOBILE_REVIEWS = [
     quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
   },
   {
-    avatar: imgReviewSergey,
-    avatarClassName: "site-review-avatar-img--sergey",
-    name: "Сергей",
-    course: ["Фронтенд", "разработчик"],
+    avatar: imgReviewMikhail,
+    avatarClassName: "site-review-avatar-img--mikhail",
+    name: "Михаил",
+    course: ["Python-", "разработчик"],
     transition: "Веб-приложение для сервиса",
     quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
   },
