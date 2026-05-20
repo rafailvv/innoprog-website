@@ -6,6 +6,9 @@ import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-dri
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
 import platformPhoneFrameUrl from "../imports/MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
+import reviewKirillUrl from "../imports/MainScreenDesktop/review-kirill.png";
+import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia.png";
+import reviewSergeyUrl from "../imports/MainScreenDesktop/review-sergey.png";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   MOBILE_DESIGN_HEIGHT,
@@ -45,6 +48,32 @@ const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const LOADER_EXIT_MS = 700;
+
+const REVIEW_STORIES = {
+  кирилл: {
+    avatar: reviewKirillUrl,
+    name: "Кирилл",
+    course: "Python-разработчик",
+    transition: "Из HR → в ИТ",
+    text: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование. На занятиях мы не просто повторяли теорию, а разбирали, почему решение работает именно так, где могут быть ошибки и как писать код увереннее. Постепенно я начал видеть логику в задачах, перестал бояться больших тем и понял, как двигаться дальше в IT.",
+  },
+  анастасия: {
+    avatar: reviewAnastasiaUrl,
+    name: "Анастасия",
+    course: "Data Science",
+    transition: "Из 1С → в Product",
+    text: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам: как анализировать данные, как искать зависимости, как оценивать результат, как не просто построить модель, а понять, зачем она нужна и какую пользу может дать продукту. Такой подход помог мне спокойнее разбираться в новых инструментах и постепенно собрать понятную картину профессии.",
+  },
+  сергей: {
+    avatar: reviewSergeyUrl,
+    name: "Сергей",
+    course: "Фронтенд разработчик",
+    transition: "Веб-приложение для сервиса",
+    text: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение. Для меня было важно, что преподаватель объяснял не только как сделать, но и почему лучше выбрать именно такой подход.",
+  },
+} as const;
+
+type ReviewStoryKey = keyof typeof REVIEW_STORIES;
 
 function getViewportState() {
   if (typeof window === "undefined") {
@@ -193,6 +222,7 @@ function waitForCriticalAssets(isMobile: boolean) {
 export default function App() {
   const [viewport, setViewport] = useState(getViewportState);
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
+  const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(null);
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -264,7 +294,7 @@ export default function App() {
   }, [viewport.isMobile]);
 
   useEffect(() => {
-    if (leadModalState === "closed") {
+    if (leadModalState === "closed" && !activeReviewStory) {
       return;
     }
 
@@ -272,6 +302,7 @@ export default function App() {
     const handleEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
         setLeadModalState("closed");
+        setActiveReviewStory(null);
         setIsConsentError(false);
       }
     };
@@ -283,7 +314,7 @@ export default function App() {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleEscape);
     };
-  }, [leadModalState]);
+  }, [leadModalState, activeReviewStory]);
 
   useEffect(() => {
     const carousels = Array.from(
@@ -460,6 +491,21 @@ export default function App() {
     setIsConsentError(false);
   };
 
+  const openReviewStory = (story: string | undefined) => {
+    const key = story as ReviewStoryKey | undefined;
+
+    if (!key || !(key in REVIEW_STORIES)) {
+      return;
+    }
+
+    setActiveReviewStory(key);
+    setIsMobileMenuOpen(false);
+  };
+
+  const closeReviewStory = () => {
+    setActiveReviewStory(null);
+  };
+
   const submitLeadApplication = () => {
     if (!isConsentChecked) {
       setIsConsentError(true);
@@ -563,6 +609,14 @@ export default function App() {
       return;
     }
 
+    const reviewStoryTrigger = target?.closest<HTMLElement>("[data-review-story]");
+
+    if (reviewStoryTrigger) {
+      event.preventDefault();
+      openReviewStory(reviewStoryTrigger.dataset.reviewStory);
+      return;
+    }
+
     const text = getClickedText(event.target, event.currentTarget);
 
     if (!text) {
@@ -613,6 +667,15 @@ export default function App() {
 
   const handleSiteKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+
+    if (
+      target?.closest("[data-review-story]") &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      openReviewStory(target.closest<HTMLElement>("[data-review-story]")?.dataset.reviewStory);
+      return;
+    }
 
     if (
       target?.closest("[data-consent-toggle]") &&
@@ -673,6 +736,41 @@ export default function App() {
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />
           </div>
+        </div>
+      ) : null}
+      {activeReviewStory ? (
+        <div className="site-review-page" role="presentation">
+          <article
+            aria-label={`История ${REVIEW_STORIES[activeReviewStory].name}`}
+            aria-modal="true"
+            className="site-review-page__card"
+            role="dialog"
+          >
+            <div className="site-review-page__top">
+              <button className="site-review-page__back" onClick={closeReviewStory} type="button">
+                <span aria-hidden="true">←</span>
+                <span>назад</span>
+              </button>
+              <div className="site-review-page__crumbs" aria-hidden="true">
+                <span>главная/</span>
+                <strong>история</strong>
+              </div>
+            </div>
+
+            <div className="site-review-page__hero">
+              <div className="site-review-page__avatar">
+                <img alt="" src={REVIEW_STORIES[activeReviewStory].avatar} />
+              </div>
+              <div className="site-review-page__intro">
+                <p className="site-review-page__eyebrow">история ученика</p>
+                <h1>{REVIEW_STORIES[activeReviewStory].name}</h1>
+                <p className="site-review-page__course">{`Выпускник курса: ${REVIEW_STORIES[activeReviewStory].course}`}</p>
+                <p className="site-review-page__transition">{REVIEW_STORIES[activeReviewStory].transition}</p>
+              </div>
+            </div>
+
+            <p className="site-review-page__quote">{REVIEW_STORIES[activeReviewStory].text}</p>
+          </article>
         </div>
       ) : null}
       {leadModalState !== "closed" ? (

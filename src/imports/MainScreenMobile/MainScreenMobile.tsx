@@ -2145,7 +2145,7 @@ function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] 
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[20px] text-black text-center tracking-[0.6px] w-full whitespace-nowrap">{review.transition}</p>
             <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
               <p className="relative shrink-0 site-mobile-review-quote text-black text-center w-full">{review.quote}</p>
-              <div className="content-stretch flex items-center relative shrink-0">
+              <div className="content-stretch cursor-pointer flex items-center relative shrink-0" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
                 <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[#9c78ff] text-[20px] text-center tracking-[0.6px] whitespace-nowrap">ЧИТАТЬ ПОЛНОСТЬЮ</p>
               </div>
             </div>

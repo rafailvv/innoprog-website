@@ -1309,7 +1309,7 @@ const DESKTOP_REVIEWS = [
 
 function DesktopReviewCard({ review }: { review: (typeof DESKTOP_REVIEWS)[number] }) {
   return (
-    <div className="bg-[rgba(255,255,255,0.9)] h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-name="отзыв">
+    <div className="bg-[rgba(255,255,255,0.9)] cursor-pointer h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-name="отзыв" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
       <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
       <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex items-start justify-between left-1/2 p-[32px] top-[calc(50%-0.5px)] w-[791px]">
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
