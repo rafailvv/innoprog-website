@@ -472,14 +472,15 @@ function Frame147() {
     <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] w-[350px]" style={{ top: MOBILE_PLATFORM_CONTENT_TOP }}>
       <div aria-hidden="true" className="-translate-x-1/2 absolute h-[360px] left-1/2 pointer-events-none rounded-full site-platform-glow top-[32px] w-[430px]" />
       <Frame146 />
+      <MobilePlatformStartButton />
     </div>
   );
 }
 
 function MobilePlatformStartButton() {
   return (
-    <button className="-translate-x-1/2 absolute bg-transparent border-[4px] border-white content-stretch cursor-pointer flex h-[68px] items-center justify-center left-1/2 px-[24px] py-[16px] rounded-[40px] w-[350px]" data-name="кнопки пд" style={{ top: MOBILE_PLATFORM_TOP + 20 }} type="button">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">Начать бесплатно</p>
+    <button className="bg-transparent border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">Начать бесплатно</p>
     </button>
   );
 }
@@ -1816,7 +1817,7 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
   }
 
   if (variant === "interview") {
-    return null;
+    return <MentorBenefitDocumentIcon className="absolute left-[8px] pointer-events-none size-[102px] top-[-8px]" />;
   }
 
   return (
@@ -1828,9 +1829,9 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
   );
 }
 
-function MentorBenefitDocumentIcon() {
+function MentorBenefitDocumentIcon({ className = "absolute left-[214px] pointer-events-none size-[82px] top-[347px]" }: { className?: string }) {
   return (
-    <div aria-hidden="true" className="absolute left-[214px] pointer-events-none size-[82px] top-[347px]">
+    <div aria-hidden="true" className={className}>
       <svg className="block size-full" fill="none" viewBox="0 0 82 82">
         <defs>
           <linearGradient id="mentor-document-body" x1="20" x2="64" y1="8" y2="75" gradientUnits="userSpaceOnUse">
@@ -1954,7 +1955,7 @@ function Frame159() {
       <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px]">
         <MentorBenefitIcon variant="interview" />
         <div className="flex flex-col items-end size-full">
-          <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
+          <div className="content-stretch flex flex-col gap-[36px] items-end p-[16px] relative size-full text-right text-white">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(5)</p>
             <Frame130 />
           </div>
@@ -1978,7 +1979,6 @@ function Frame160() {
         </div>
       </div>
       <Frame159 />
-      <MentorBenefitDocumentIcon />
     </div>
   );
 }
@@ -2949,7 +2949,6 @@ export default function Component() {
       <Frame194 />
       <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
       <Frame145 />
-      <MobilePlatformStartButton />
       <Frame147 />
       <Frame173 />
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
