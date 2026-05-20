@@ -546,7 +546,7 @@ export default function App() {
       return;
     }
 
-    if (text.includes("начать обучение")) {
+    if (text.includes("начать обучение") || text.includes("начать бесплатно")) {
       scrollToDesignY(activeScrollTargets.directions);
       return;
     }

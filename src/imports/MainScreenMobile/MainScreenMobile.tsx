@@ -476,6 +476,14 @@ function Frame147() {
   );
 }
 
+function MobilePlatformStartButton() {
+  return (
+    <button className="-translate-x-1/2 absolute bg-transparent border-[4px] border-white content-stretch cursor-pointer flex h-[68px] items-center justify-center left-1/2 px-[24px] py-[16px] rounded-[40px] w-[350px]" data-name="кнопки пд" style={{ top: MOBILE_PLATFORM_TOP + 20 }} type="button">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">Начать бесплатно</p>
+    </button>
+  );
+}
+
 function Frame7() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
@@ -2941,6 +2949,7 @@ export default function Component() {
       <Frame194 />
       <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
       <Frame145 />
+      <MobilePlatformStartButton />
       <Frame147 />
       <Frame173 />
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
