@@ -13,7 +13,7 @@ import {
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
 import { useEffect, useState } from "react";
-import type { CSSProperties, KeyboardEvent, MouseEvent } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
   width: 1440,
@@ -192,7 +192,7 @@ function waitForCriticalAssets(isMobile: boolean) {
 
 export default function App() {
   const [viewport, setViewport] = useState(getViewportState);
-  const [leadStatus, setLeadStatus] = useState("");
+  const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -262,6 +262,28 @@ export default function App() {
       setIsMobileMenuOpen(false);
     }
   }, [viewport.isMobile]);
+
+  useEffect(() => {
+    if (leadModalState === "closed") {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleEscape = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLeadModalState("closed");
+        setIsConsentError(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [leadModalState]);
 
   useEffect(() => {
     const carousels = Array.from(
@@ -364,7 +386,7 @@ export default function App() {
     document
       .querySelectorAll("[data-consent-toggle]")
       .forEach((toggle) => toggle.setAttribute("aria-checked", String(isConsentChecked)));
-  }, [isConsentChecked, viewport.isMobile]);
+  }, [isConsentChecked, viewport.isMobile, leadModalState]);
 
   useEffect(() => {
     const handleConsentClick = (event: globalThis.MouseEvent) => {
@@ -427,6 +449,32 @@ export default function App() {
     });
   };
 
+  const openLeadModal = () => {
+    setLeadModalState("form");
+    setIsMobileMenuOpen(false);
+    setIsConsentError(false);
+  };
+
+  const closeLeadModal = () => {
+    setLeadModalState("closed");
+    setIsConsentError(false);
+  };
+
+  const submitLeadApplication = () => {
+    if (!isConsentChecked) {
+      setIsConsentError(true);
+      return;
+    }
+
+    setLeadModalState("success");
+    setIsConsentError(false);
+  };
+
+  const handleLeadFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitLeadApplication();
+  };
+
   const toggleConsent = () => {
     setIsConsentChecked((checked) => {
       const nextChecked = !checked;
@@ -455,6 +503,11 @@ export default function App() {
     if (mobileMenuLink?.dataset.scrollTarget) {
       event.preventDefault();
       const key = mobileMenuLink.dataset.scrollTarget as keyof typeof mobileScrollTargets;
+
+      if (key === "form") {
+        openLeadModal();
+        return;
+      }
 
       scrollToDesignY(activeScrollTargets[key]);
       setIsMobileMenuOpen(false);
@@ -537,31 +590,24 @@ export default function App() {
     }
 
     if (text.includes("подобрать направление") || text.includes("подобрать курс")) {
-      scrollToDesignY(activeScrollTargets.directions);
+      openLeadModal();
       return;
     }
 
     if (text.includes("получить консультацию")) {
-      scrollToDesignY(activeScrollTargets.form);
+      openLeadModal();
       return;
     }
 
     if (text.includes("начать обучение") || text.includes("начать бесплатно")) {
-      scrollToDesignY(activeScrollTargets.directions);
+      openLeadModal();
       return;
     }
 
     if (text.includes("отправить заявку")) {
       event.preventDefault();
 
-      if (!isConsentChecked) {
-        setIsConsentError(true);
-        setLeadStatus("");
-        return;
-      }
-
-      setLeadStatus("Заявка отправлена. Мы свяжемся с вами в ближайшее время.");
-      window.setTimeout(() => setLeadStatus(""), 3500);
+      submitLeadApplication();
     }
   };
 
@@ -629,9 +675,104 @@ export default function App() {
           </div>
         </div>
       ) : null}
-      {leadStatus ? (
-        <div className="site-toast" role="status">
-          {leadStatus}
+      {leadModalState !== "closed" ? (
+        <div
+          className="site-lead-modal"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeLeadModal();
+            }
+          }}
+          role="presentation"
+        >
+          <section
+            aria-label={leadModalState === "form" ? "Заявка на обучение" : "Заявка успешно отправлена"}
+            aria-modal="true"
+            className={[
+              "site-lead-modal__card",
+              leadModalState === "success" ? "site-lead-modal__card--success" : "",
+            ].filter(Boolean).join(" ")}
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+          >
+            <div className="site-lead-modal__top">
+              <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
+                <span aria-hidden="true">←</span>
+                <span>назад</span>
+              </button>
+              <div className="site-lead-modal__crumbs" aria-hidden="true">
+                <span>главная/</span>
+                <strong>заявка</strong>
+              </div>
+            </div>
+
+            <img alt="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_education.png" />
+
+            {leadModalState === "form" ? (
+              <form className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
+                <p className="site-lead-modal__subtitle">
+                  Оставьте заявку, и мы свяжемся
+                  <br />
+                  с Вами в ближайшее время
+                </p>
+                <div className="site-lead-modal__fields">
+                  <input
+                    aria-label="Номер телефона"
+                    autoComplete="tel"
+                    className="site-lead-modal__input"
+                    inputMode="tel"
+                    name="modal-phone"
+                    placeholder="+7(000)-000-00-00"
+                    type="tel"
+                  />
+                  <input
+                    aria-label="Ваше имя"
+                    autoComplete="name"
+                    className="site-lead-modal__input"
+                    name="modal-name"
+                    placeholder="Ваше имя"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="site-lead-modal__consent site-consent"
+                  data-consent-toggle
+                  role="checkbox"
+                  tabIndex={0}
+                >
+                  <span className="site-lead-modal__checkbox site-consent__box">
+                    <span className="site-lead-modal__checkbox-border site-consent__border" />
+                    <svg className="site-consent__check" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5 10 17l9-10" fill="none" />
+                    </svg>
+                  </span>
+                  <span>
+                    Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с&nbsp;
+                    <a
+                      className="site-consent__link"
+                      href="https://api.innoprog.ru/files/documents/privacy_policy.pdf"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      политикой конфиденциальности
+                    </a>
+                  </span>
+                </div>
+                <button className="site-lead-modal__submit" type="submit">
+                  отправить заявку
+                </button>
+              </form>
+            ) : (
+              <div className="site-lead-modal__success" role="status">
+                <h2>ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!</h2>
+                <p>Спасибо, что доверяте нам!</p>
+                <p>
+                  Администратор ИННОПРОГ свяжется с вами в ближайшее время, уточнит детали и поможет подобрать
+                  подходящий формат обучения. Пожалуйста, ожидайте 🙏
+                </p>
+              </div>
+            )}
+          </section>
         </div>
       ) : null}
     </main>
