@@ -385,6 +385,11 @@ function SiteFooter() {
         <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
         <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
       </div>
+      <p className="site-review-page__footer-company">
+        {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
+        <br aria-hidden="true" />
+        ИНН 1683011286 ОГРН 1221600105440
+      </p>
     </footer>
   );
 }
@@ -512,7 +517,6 @@ function ReviewStoryPage({
               </button>
             ))}
           </div>
-          <button className="site-review-page__load-more" type="button">загрузить ещё</button>
         </section>
       </div>
 
