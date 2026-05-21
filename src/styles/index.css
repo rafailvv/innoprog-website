@@ -96,7 +96,6 @@ body {
 }
 
 .site-main-header {
-  position: fixed !important;
   z-index: 1200;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
@@ -111,6 +110,7 @@ body {
 }
 
 .site-main-header--desktop {
+  position: fixed !important;
   top: 24px !important;
   min-height: 104px;
   padding: 16px 24px;
@@ -119,6 +119,7 @@ body {
 }
 
 .site-main-header--mobile {
+  position: absolute !important;
   top: 40px !important;
   padding: 8px 10px;
 }
@@ -2014,6 +2015,7 @@ button,
   }
 
   .site-review-page__header {
+    position: relative;
     width: calc(100% - 32px);
     height: auto;
     min-height: 50px;
