@@ -705,6 +705,10 @@ button,
   background: #ffffff;
 }
 
+.site-about-page .site-review-page__header {
+  width: calc(100% - 160px);
+}
+
 .site-review-page__logo {
   display: block;
   width: 271px;
@@ -1322,15 +1326,24 @@ button,
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  width: min(1280px, calc(100% - 160px));
-  margin: 120px auto 0;
+  width: calc(100% - 160px);
+  margin: 81px auto 0;
+}
+
+.site-about-page .site-review-page__crumbs {
+  color: #000000;
+}
+
+.site-about-page .site-review-page__crumbs button,
+.site-about-page .site-review-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .site-about-hero {
   position: relative;
   display: flex;
   align-items: flex-end;
-  width: min(1280px, calc(100% - 160px));
+  width: calc(100% - 160px);
   height: 700px;
   margin: 109px auto 0;
   overflow: hidden;
@@ -1350,19 +1363,26 @@ button,
 }
 
 .site-about-hero h1 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 97px;
+  text-transform: uppercase;
   white-space: nowrap;
+}
+
+.site-about-hero h1 span {
+  display: block;
 }
 
 .site-about-content {
   display: flex;
   flex-direction: column;
-  width: min(1280px, calc(100% - 160px));
+  width: calc(100% - 160px);
   margin: 104px auto 0;
 }
 
@@ -1393,7 +1413,8 @@ button,
 
 .site-about-cards {
   display: grid;
-  grid-template-columns: 465px 302px 465px;
+  grid-template-columns: minmax(360px, 465px) minmax(240px, 302px) minmax(360px, 465px);
+  justify-content: center;
   gap: 24px;
   align-items: stretch;
   margin-top: 80px;
@@ -2000,6 +2021,10 @@ button,
     padding: 8px 10px;
     border-radius: 24px;
     top: 14px;
+  }
+
+  .site-about-page .site-review-page__header {
+    width: calc(100% - 32px);
   }
 
   .site-review-page__header::before {
