@@ -100,9 +100,14 @@ body {
   z-index: 1200;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 12px 36px rgba(70, 74, 106, 0.12);
+  box-shadow: 0 12px 36px rgba(70, 74, 106, 0);
   transform: translateZ(0);
+  transition: box-shadow 240ms ease;
   will-change: transform;
+}
+
+.site-has-scrolled .site-main-header {
+  box-shadow: 0 12px 36px rgba(70, 74, 106, 0.12);
 }
 
 .site-main-header--desktop {
@@ -688,6 +693,11 @@ button,
   z-index: -1;
   border-radius: inherit;
   background: #9c78ff;
+  box-shadow: 0 14px 34px rgba(70, 74, 106, 0);
+  transition: box-shadow 240ms ease;
+}
+
+.site-has-scrolled .site-review-page__header::before {
   box-shadow: 0 14px 34px rgba(70, 74, 106, 0.16);
 }
 

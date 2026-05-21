@@ -978,6 +978,33 @@ export default function App() {
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
 
   useEffect(() => {
+    let rafId = 0;
+
+    const syncScrolledState = () => {
+      rafId = 0;
+      document.documentElement.classList.toggle("site-has-scrolled", window.scrollY > 2);
+    };
+
+    const handleScroll = () => {
+      if (rafId === 0) {
+        rafId = window.requestAnimationFrame(syncScrolledState);
+      }
+    };
+
+    syncScrolledState();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+      }
+
+      window.removeEventListener("scroll", handleScroll);
+      document.documentElement.classList.remove("site-has-scrolled");
+    };
+  }, []);
+
+  useEffect(() => {
     if (isReady) {
       rememberLoadedInSession();
       return;
