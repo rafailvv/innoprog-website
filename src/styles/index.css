@@ -817,8 +817,29 @@ button,
   text-transform: uppercase;
 }
 
+.site-review-page__crumbs button,
 .site-review-page__crumbs span {
   color: rgba(255, 255, 255, 0.45);
+}
+
+.site-review-page__crumbs button,
+.site-lead-modal__crumbs button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.site-review-page__crumbs button:hover,
+.site-review-page__crumbs button:focus-visible,
+.site-lead-modal__crumbs button:hover,
+.site-lead-modal__crumbs button:focus-visible {
+  text-decoration: underline;
 }
 
 .site-review-page__title h1 {
@@ -1660,8 +1681,13 @@ button,
   text-transform: uppercase;
 }
 
+.site-lead-modal__crumbs button,
 .site-lead-modal__crumbs span {
   opacity: 0.4;
+}
+
+.site-lead-modal__crumbs button {
+  color: #000000;
 }
 
 .site-lead-modal__logo {

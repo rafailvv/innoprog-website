@@ -642,8 +642,9 @@ function ReviewStoryPage({
             <span aria-hidden="true">←</span>
             <span>назад</span>
           </button>
-          <div className="site-review-page__crumbs" aria-hidden="true">
-            <span>главная/</span>
+          <div className="site-review-page__crumbs">
+            <button onClick={onBack} type="button">главная</button>
+            <span aria-hidden="true">/</span>
             <strong>отзыв</strong>
           </div>
         </div>
@@ -730,8 +731,9 @@ function AboutPage({ onBack }: { onBack: () => void }) {
           <span aria-hidden="true">←</span>
           <span>назад</span>
         </button>
-        <div className="site-review-page__crumbs" aria-hidden="true">
-          <span>главная/</span>
+        <div className="site-review-page__crumbs">
+          <button onClick={onBack} type="button">главная</button>
+          <span aria-hidden="true">/</span>
           <strong>о нас</strong>
         </div>
       </div>
@@ -1677,8 +1679,17 @@ export default function App() {
                 <span aria-hidden="true">←</span>
                 <span>назад</span>
               </button>
-              <div className="site-lead-modal__crumbs" aria-hidden="true">
-                <span>главная/</span>
+              <div className="site-lead-modal__crumbs">
+                <button
+                  onClick={() => {
+                    closeLeadModal();
+                    goHome();
+                  }}
+                  type="button"
+                >
+                  главная
+                </button>
+                <span aria-hidden="true">/</span>
                 <strong>заявка</strong>
               </div>
             </div>
