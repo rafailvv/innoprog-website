@@ -130,7 +130,7 @@ function Frame83() {
 function Frame70() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Индивидуальные занятия</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Еженедельные персональные занятия</p>
@@ -144,7 +144,7 @@ function Frame70() {
 function Frame72() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Два диплома</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Диплом о профпереподготовке</p>
@@ -159,7 +159,7 @@ function Frame72() {
 function Frame74() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Стажировка</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения лучших учеников мы рекомендуем нашим партнёрам для прохождения стажировки в ИТ-компаниях</p>
       </div>
@@ -180,7 +180,7 @@ function Frame85() {
 function Frame71() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Преподаватели-практики</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Занимайтесь, общаетесь и практикуйтесь</p>
@@ -194,7 +194,7 @@ function Frame71() {
 function Frame73() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Обучающая платформа</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Закрепляйте полученные навыки</p>
@@ -208,7 +208,7 @@ function Frame73() {
 function Frame75() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] p-[32px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Налоговый вычет</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения вы сможете оформить налоговый вычет и вернуть 13% от стоимости обучения</p>
       </div>
