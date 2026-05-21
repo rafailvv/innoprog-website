@@ -58,10 +58,12 @@ const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const LOADER_EXIT_MS = 700;
 const APPLICATION_REQUEST_URL = "/api/application/request";
-const TURNSTILE_TEST_SITE_KEY = "1x00000000000000000000AA";
+const TURNSTILE_TEST_KEY_PREFIX = "1x000";
 const TURNSTILE_SITE_KEY =
   (import.meta as unknown as { env?: { VITE_TURNSTILE_SITE_KEY?: string } }).env
-    ?.VITE_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY;
+    ?.VITE_TURNSTILE_SITE_KEY || "";
+const IS_TURNSTILE_ENABLED =
+  Boolean(TURNSTILE_SITE_KEY) && !TURNSTILE_SITE_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
 
 type LeadPayload = {
   name: string;
@@ -145,6 +147,10 @@ function normalizePhone(rawPhone: string) {
     return `+7${digits.slice(1)}`;
   }
 
+  if (digits.length === 10) {
+    return `+7${digits}`;
+  }
+
   if (digits.startsWith("7")) {
     return `+${digits}`;
   }
@@ -181,13 +187,13 @@ function isLeadPayloadValid(payload: LeadPayload) {
   return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10;
 }
 
-async function sendLeadApplication(payload: LeadPayload, captchaToken: string) {
+async function sendLeadApplication(payload: LeadPayload, captchaToken?: string) {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ ...payload, captchaToken }),
+    body: JSON.stringify({ ...payload, captchaToken: captchaToken || "" }),
   });
 
   if (!response.ok) {
@@ -913,6 +919,12 @@ function TurnstileChallenge({
   }, [onStatusChange, onTokenChange]);
 
   useEffect(() => {
+    if (!IS_TURNSTILE_ENABLED) {
+      statusRef.current("verified");
+      tokenRef.current("");
+      return;
+    }
+
     let cancelled = false;
     let widgetId: string | null = null;
 
@@ -1366,7 +1378,7 @@ export default function App() {
       return;
     }
 
-    if (!leadCaptchaToken) {
+    if (IS_TURNSTILE_ENABLED && !leadCaptchaToken) {
       setLeadFormError("Подтвердите, что вы не робот, и отправьте заявку еще раз.");
 
       if (leadModalState === "closed") {
@@ -1757,19 +1769,21 @@ export default function App() {
                     </a>
                   </span>
                 </div>
-                <div className="site-lead-modal__captcha">
-                  <TurnstileChallenge
-                    onStatusChange={setLeadCaptchaStatus}
-                    onTokenChange={setLeadCaptchaToken}
-                  />
-                  <p className="site-lead-modal__captcha-status" aria-live="polite">
-                    {leadCaptchaStatus === "verified"
-                      ? "Проверка пройдена"
-                      : leadCaptchaStatus === "error"
-                        ? "Не удалось загрузить проверку. Обновите страницу и попробуйте снова."
-                        : "Подтвердите, что вы не робот"}
-                  </p>
-                </div>
+                {IS_TURNSTILE_ENABLED ? (
+                  <div className="site-lead-modal__captcha">
+                    <TurnstileChallenge
+                      onStatusChange={setLeadCaptchaStatus}
+                      onTokenChange={setLeadCaptchaToken}
+                    />
+                    <p className="site-lead-modal__captcha-status" aria-live="polite">
+                      {leadCaptchaStatus === "verified"
+                        ? "Проверка пройдена"
+                        : leadCaptchaStatus === "error"
+                          ? "Не удалось загрузить проверку. Обновите страницу и попробуйте снова."
+                          : "Подтвердите, что вы не робот"}
+                    </p>
+                  </div>
+                ) : null}
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">
                     {leadFormError}
@@ -1777,7 +1791,7 @@ export default function App() {
                 ) : null}
                 <button
                   className="site-lead-modal__submit"
-                  disabled={isLeadSubmitting || leadCaptchaStatus === "error"}
+                  disabled={isLeadSubmitting || (IS_TURNSTILE_ENABLED && leadCaptchaStatus === "error")}
                   type="submit"
                 >
                   {isLeadSubmitting ? "отправляем..." : "отправить заявку"}
