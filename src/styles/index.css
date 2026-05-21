@@ -773,7 +773,7 @@ button,
 }
 
 .site-review-page__inner {
-  width: min(1280px, calc(100% - 80px));
+  width: min(1680px, calc(100% - 80px));
   margin: 120px auto 0;
 }
 
@@ -1066,7 +1066,8 @@ button,
 
 .site-review-page__other-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 791px));
+  justify-content: space-between;
   gap: 32px;
   margin-top: 37px;
 }
@@ -1074,6 +1075,8 @@ button,
 .site-related-review-card {
   position: relative;
   display: flex;
+  width: 100%;
+  max-width: 791px;
   min-width: 0;
   min-height: 436px;
   align-items: flex-start;
@@ -1159,12 +1162,20 @@ button,
   z-index: 1;
   display: flex;
   min-width: 0;
+  max-width: 429px;
   height: 330px;
   flex: 1 1 auto;
   flex-direction: column;
   justify-content: space-between;
   color: #000000;
   font-size: 24px;
+}
+
+.site-related-review-card__body .site-review-quote {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
 }
 
 .site-related-review-card__transition {
