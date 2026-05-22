@@ -181,7 +181,9 @@ function Frame5() {
 export function MainScreenMobileHeader() {
   return (
     <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
-      <Group />
+      <button aria-label="На главную" className="site-main-header__logo-button" data-site-home type="button">
+        <Group />
+      </button>
       <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
         <Frame5 />
       </button>

@@ -346,7 +346,9 @@ function Frame58() {
 export function MainScreenDesktopHeader() {
   return (
     <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
-      <Group />
+      <button aria-label="На главную" className="site-main-header__logo-button" data-site-home type="button">
+        <Group />
+      </button>
       <Frame58 />
       <div className="flex flex-row items-center self-stretch">
         <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
