@@ -1,7 +1,7 @@
-import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
+import MainScreen, { MainScreenDesktopHeader } from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
 import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
-import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
+import MainScreenMobile, { MainScreenMobileHeader } from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -613,6 +613,44 @@ function SitePageHeader({
   );
 }
 
+function MainScreenHeaderSurface({
+  isMobile,
+  scale,
+}: {
+  isMobile: boolean;
+  scale: number;
+}) {
+  if (isMobile) {
+    const outerStyle = {
+      height: `${Math.ceil(112 * scale)}px`,
+    };
+    const innerStyle = {
+      width: `${MOBILE_DESIGN.width}px`,
+      height: "112px",
+      transform: `scale(${scale})`,
+    };
+
+    return (
+      <div className="site-main-header-surface site-main-header-surface--mobile" style={outerStyle}>
+        <div className="site-main-header-surface__mobile-canvas" style={innerStyle}>
+          <MainScreenMobileHeader />
+        </div>
+      </div>
+    );
+  }
+
+  const surfaceStyle = {
+    width: `${DESKTOP_DESIGN.width}px`,
+    zoom: scale,
+  } as CSSProperties & { zoom?: number };
+
+  return (
+    <div className="site-main-header-surface site-main-header-surface--desktop" style={surfaceStyle}>
+      <MainScreenDesktopHeader />
+    </div>
+  );
+}
+
 function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
   const review = REVIEW_CARD_DATA[storyKey];
 
@@ -749,10 +787,12 @@ function AboutPage({
   onBack,
   contentScale,
   headerScale,
+  isMobile,
 }: {
   onBack: () => void;
   contentScale: number;
   headerScale: number;
+  isMobile: boolean;
 }) {
   const aboutCanvasStyle = {
     width: `${ABOUT_DESIGN_WIDTH}px`,
@@ -761,7 +801,7 @@ function AboutPage({
 
   return (
     <>
-      <SitePageHeader onHome={onBack} scale={headerScale} />
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
       <div className="site-about-scale-shell" style={aboutCanvasStyle}>
       <section className="site-about-page" aria-label="О нас">
         <div className="site-about-page__top">
@@ -1674,7 +1714,12 @@ export default function App() {
           headerScale={viewport.scale}
         />
       ) : isAboutRoute ? (
-        <AboutPage onBack={goHome} contentScale={aboutScale} headerScale={viewport.scale} />
+        <AboutPage
+          onBack={goHome}
+          contentScale={aboutScale}
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
       ) : (
         <div
           className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]

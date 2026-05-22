@@ -178,6 +178,17 @@ function Frame5() {
   );
 }
 
+export function MainScreenMobileHeader() {
+  return (
+    <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
+      <Group />
+      <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
+        <Frame5 />
+      </button>
+    </div>
+  );
+}
+
 function Frame55() {
   return (
     <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[8px] items-center leading-[43px] relative shrink-0 uppercase w-full">
@@ -2948,12 +2959,7 @@ export default function Component() {
   return (
     <div className="bg-white relative size-full" data-name="гланый экран М">
       <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
-      <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
-        <Group />
-        <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
-          <Frame5 />
-        </button>
-      </div>
+      <MainScreenMobileHeader />
       <Frame194 />
       <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
       <Frame145 />

@@ -343,6 +343,24 @@ function Frame58() {
   );
 }
 
+export function MainScreenDesktopHeader() {
+  return (
+    <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
+      <Group />
+      <Frame58 />
+      <div className="flex flex-row items-center self-stretch">
+        <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
+          <div className="flex flex-row items-center justify-center size-full">
+            <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
+              <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Frame17() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0 w-[1440px]">
@@ -2293,19 +2311,7 @@ export default function Component() {
         <p className="leading-[39px] mb-0 whitespace-nowrap">с упором на практику</p>
         <p className="leading-[39px] whitespace-nowrap">и персональное обучение</p>
       </div>
-      <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
-        <Group />
-        <Frame58 />
-        <div className="flex flex-row items-center self-stretch">
-          <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
-            <div className="flex flex-row items-center justify-center size-full">
-              <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-                <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MainScreenDesktopHeader />
       <Frame122 />
       <div className="absolute flex h-[720.578px] items-center justify-center left-[47px] top-[2505px] w-[659.177px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
         <div className="flex-none rotate-[90.25deg]">
