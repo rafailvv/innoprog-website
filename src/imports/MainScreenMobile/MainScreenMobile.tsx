@@ -2947,7 +2947,6 @@ function Frame173() {
 export default function Component() {
   return (
     <div className="bg-white relative size-full" data-name="гланый экран М">
-      <div aria-hidden="true" className="absolute bg-[#464a6a] bottom-0 h-[160px] left-0 w-[390px]" />
       <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
       <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
         <Group />
