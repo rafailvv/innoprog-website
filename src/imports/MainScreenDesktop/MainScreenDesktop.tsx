@@ -1226,7 +1226,7 @@ function Frame43() {
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
-      <div className="h-[310px] relative shrink-0 w-[465px]" data-name="diplom_prof 1">
+      <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
