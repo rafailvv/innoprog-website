@@ -577,14 +577,20 @@ function SiteFooter() {
 }
 
 function SitePageHeader({
-  logoSrc = "/logo_white_and_black.svg",
+  logoSrc = "/logo_education.png",
   onHome,
+  scale = 1,
 }: {
   logoSrc?: string;
   onHome: () => void;
+  scale?: number;
 }) {
+  const headerStyle = {
+    "--site-header-scale": scale,
+  } as CSSProperties & { "--site-header-scale": number };
+
   return (
-    <header className="site-review-page__header">
+    <header className="site-review-page__header site-main-header" style={headerStyle}>
       <button className="site-review-page__logo" data-site-home onClick={onHome} type="button">
         <img alt="ИННОПРОГ Education" src={logoSrc} />
       </button>
@@ -594,7 +600,15 @@ function SitePageHeader({
         <button data-review-nav="reviews" type="button">отзывы</button>
         <button data-review-nav="about" type="button">о нас</button>
       </nav>
-      <button className="site-review-page__header-cta" type="button">подобрать направление</button>
+      <button className="site-review-page__header-cta" type="button">подобрать курс</button>
+      <button
+        aria-label="Открыть меню"
+        className="site-review-page__mobile-toggle"
+        data-mobile-menu-toggle
+        type="button"
+      >
+        <span aria-hidden="true" />
+      </button>
     </header>
   );
 }
@@ -631,9 +645,11 @@ function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
 function ReviewStoryPage({
   storyKey,
   onBack,
+  headerScale,
 }: {
   storyKey: ReviewStoryKey;
   onBack: () => void;
+  headerScale: number;
 }) {
   const story = REVIEW_STORIES[storyKey];
   const sections = getStorySections(storyKey);
@@ -642,7 +658,7 @@ function ReviewStoryPage({
   return (
     <section className="site-review-page" aria-label={`История ${story.name}`}>
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
-      <SitePageHeader onHome={onBack} />
+      <SitePageHeader onHome={onBack} scale={headerScale} />
 
       <div className="site-review-page__inner">
         <div className="site-review-page__top">
@@ -729,17 +745,25 @@ function ReviewStoryPage({
   );
 }
 
-function AboutPage({ onBack, scale }: { onBack: () => void; scale: number }) {
+function AboutPage({
+  onBack,
+  contentScale,
+  headerScale,
+}: {
+  onBack: () => void;
+  contentScale: number;
+  headerScale: number;
+}) {
   const aboutCanvasStyle = {
     width: `${ABOUT_DESIGN_WIDTH}px`,
-    zoom: scale,
+    zoom: contentScale,
   } as CSSProperties & { zoom?: number };
 
   return (
-    <div className="site-about-scale-shell" style={aboutCanvasStyle}>
+    <>
+      <SitePageHeader onHome={onBack} scale={headerScale} />
+      <div className="site-about-scale-shell" style={aboutCanvasStyle}>
       <section className="site-about-page" aria-label="О нас">
-        <SitePageHeader logoSrc="/logo_education.png" onHome={onBack} />
-
         <div className="site-about-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
             <span aria-hidden="true">←</span>
@@ -843,7 +867,8 @@ function AboutPage({ onBack, scale }: { onBack: () => void; scale: number }) {
 
         <SiteFooter />
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -1461,7 +1486,7 @@ export default function App() {
         return;
       }
 
-      scrollToDesignY(activeScrollTargets[key]);
+      closeCurrentPageAndScroll(key as keyof typeof desktopScrollTargets);
       setIsMobileMenuOpen(false);
       return;
     }
@@ -1643,9 +1668,13 @@ export default function App() {
       style={isStandaloneRoute ? undefined : { minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
     >
       {isReviewRoute ? (
-        <ReviewStoryPage storyKey={activeReviewStory as ReviewStoryKey} onBack={goHome} />
+        <ReviewStoryPage
+          storyKey={activeReviewStory as ReviewStoryKey}
+          onBack={goHome}
+          headerScale={viewport.scale}
+        />
       ) : isAboutRoute ? (
-        <AboutPage onBack={goHome} scale={aboutScale} />
+        <AboutPage onBack={goHome} contentScale={aboutScale} headerScale={viewport.scale} />
       ) : (
         <div
           className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
@@ -1656,7 +1685,7 @@ export default function App() {
           {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
         </div>
       )}
-      {!isStandaloneRoute && viewport.isMobile && isMobileMenuOpen ? (
+      {viewport.isMobile && isMobileMenuOpen ? (
         <nav className="site-mobile-menu" aria-label="Мобильное меню">
           <button data-mobile-menu-link data-scroll-target="directions" type="button">курсы</button>
           <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>
