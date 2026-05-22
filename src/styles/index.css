@@ -38,14 +38,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.site-mobile-document {
-  background: #464a6a;
-}
-
-body.site-mobile-document #root {
-  background: #464a6a;
-}
-
 #root {
   min-height: 100vh;
   height: auto;
@@ -69,7 +61,6 @@ body.site-mobile-document #root {
 
 .site-shell--mobile {
   width: 100vw;
-  background: #464a6a;
   overflow-x: hidden;
   overflow-x: clip;
   overflow-y: visible;
@@ -93,7 +84,6 @@ body.site-mobile-document #root {
   left: 0;
   transform-origin: top left;
   max-width: 390px;
-  background: #464a6a;
   overflow-x: hidden;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;

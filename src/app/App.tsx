@@ -1083,14 +1083,6 @@ export default function App() {
   }, [viewport.isMobile]);
 
   useEffect(() => {
-    document.body.classList.toggle("site-mobile-document", viewport.isMobile);
-
-    return () => {
-      document.body.classList.remove("site-mobile-document");
-    };
-  }, [viewport.isMobile]);
-
-  useEffect(() => {
     if (leadModalState === "closed") {
       return;
     }
@@ -1619,9 +1611,9 @@ export default function App() {
   const canvasStyle = {
     width: `${activeDesign.width}px`,
     height: `${activeDesign.height}px`,
-    transform: "none",
-    zoom: viewport.scale,
-  } as CSSProperties & { zoom: number };
+    transform: viewport.isMobile ? `scale(${viewport.scale})` : "none",
+    zoom: viewport.isMobile ? undefined : viewport.scale,
+  } as CSSProperties & { zoom?: number };
 
   return (
     <main
