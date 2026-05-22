@@ -1083,6 +1083,14 @@ export default function App() {
   }, [viewport.isMobile]);
 
   useEffect(() => {
+    document.body.classList.toggle("site-mobile-document", viewport.isMobile);
+
+    return () => {
+      document.body.classList.remove("site-mobile-document");
+    };
+  }, [viewport.isMobile]);
+
+  useEffect(() => {
     if (leadModalState === "closed") {
       return;
     }
