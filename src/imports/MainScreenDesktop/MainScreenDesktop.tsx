@@ -1168,9 +1168,11 @@ function Frame36() {
     <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0 w-full">
       <Frame35 />
       <Frame34 />
-      <div className="absolute flex items-center justify-center left-[627px] size-[221.664px] top-[253px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-[30.43deg]">
-          <BasilDocumentSolid />
+      <div className="absolute h-[275px] left-[652px] overflow-hidden pointer-events-none rounded-[32px] top-[299px] w-[628px]">
+        <div className="absolute flex items-center justify-center left-[-25px] size-[221.664px] top-[-46px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
+          <div className="flex-none rotate-[30.43deg]">
+            <BasilDocumentSolid />
+          </div>
         </div>
       </div>
     </div>
