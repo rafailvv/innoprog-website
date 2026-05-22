@@ -129,7 +129,7 @@ function Frame83() {
 
 function Frame70() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Индивидуальные занятия</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
@@ -143,7 +143,7 @@ function Frame70() {
 
 function Frame72() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Два диплома</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
@@ -158,7 +158,7 @@ function Frame72() {
 
 function Frame74() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Стажировка</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения лучших учеников мы рекомендуем нашим партнёрам для прохождения стажировки в ИТ-компаниях</p>
@@ -169,7 +169,7 @@ function Frame74() {
 
 function Frame85() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] h-[628px] items-start relative shrink-0 w-[628px]">
+    <div className="content-stretch flex flex-col gap-[32px] h-[694px] items-start relative shrink-0 w-[628px]">
       <Frame70 />
       <Frame72 />
       <Frame74 />
@@ -179,7 +179,7 @@ function Frame85() {
 
 function Frame71() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Преподаватели-практики</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
@@ -193,7 +193,7 @@ function Frame71() {
 
 function Frame73() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Обучающая платформа</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
@@ -207,7 +207,7 @@ function Frame73() {
 
 function Frame75() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[188px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Налоговый вычет</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения вы сможете оформить налоговый вычет и вернуть 13% от стоимости обучения</p>
@@ -218,7 +218,7 @@ function Frame75() {
 
 function Frame86() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] h-[628px] items-start relative shrink-0 w-[628px]">
+    <div className="content-stretch flex flex-col gap-[32px] h-[694px] items-start relative shrink-0 w-[628px]">
       <Frame71 />
       <Frame73 />
       <Frame75 />
@@ -228,8 +228,8 @@ function Frame86() {
 
 function Frame87() {
   return (
-    <div className="content-stretch flex h-[652px] items-start justify-between pb-[24px] relative shrink-0 w-full">
-      <div className="-translate-x-1/2 absolute h-[672px] left-1/2 top-[-18px] w-[1280px]">
+    <div className="content-stretch flex h-[718px] items-start justify-between pb-[24px] relative shrink-0 w-full">
+      <div className="-translate-x-1/2 absolute h-[738px] left-1/2 top-[-18px] w-[1280px]">
         <div className="absolute inset-[-44.64%_-23.44%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1880 1272">
             <g filter="url(#filter0_f_1_1195)" id="Ellipse 3">
@@ -253,7 +253,7 @@ function Frame87() {
 
 function Frame84() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[60px] h-[1280px] items-center left-[80px] top-[834px] w-[1280px]">
+    <div className="absolute content-stretch flex flex-col gap-[60px] h-[1346px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
       <div className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529">
@@ -2282,7 +2282,7 @@ export default function Component() {
   return (
     <div className="bg-white relative size-full" data-name="главный экран Д">
       <div className="-translate-x-1/2 absolute bg-[#464a6a] h-[1345px] left-1/2 rounded-[60px] top-[1883px] w-[1440px]" />
-      <div className="-translate-x-1/2 absolute h-[1546px] left-1/2 top-[592px] w-[1440px]">
+      <div className="-translate-x-1/2 absolute h-[1612px] left-1/2 top-[592px] w-[1440px]">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 1546">
           <path d={svgPaths.p32693a00} fill="var(--fill-0, #9C78FF)" id="Rectangle 40075" />
         </svg>
