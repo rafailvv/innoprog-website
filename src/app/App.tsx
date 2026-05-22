@@ -32,6 +32,8 @@ const DESKTOP_DESIGN = {
   height: 14373,
 };
 
+const ABOUT_DESIGN_WIDTH = DESKTOP_DESIGN.width;
+
 const MOBILE_DESIGN = {
   width: MOBILE_DESIGN_WIDTH,
   height: MOBILE_DESIGN_HEIGHT,
@@ -727,114 +729,121 @@ function ReviewStoryPage({
   );
 }
 
-function AboutPage({ onBack }: { onBack: () => void }) {
+function AboutPage({ onBack, scale }: { onBack: () => void; scale: number }) {
+  const aboutCanvasStyle = {
+    width: `${ABOUT_DESIGN_WIDTH}px`,
+    zoom: scale,
+  } as CSSProperties & { zoom?: number };
+
   return (
-    <section className="site-about-page" aria-label="О нас">
-      <SitePageHeader logoSrc="/logo_education.png" onHome={onBack} />
+    <div className="site-about-scale-shell" style={aboutCanvasStyle}>
+      <section className="site-about-page" aria-label="О нас">
+        <SitePageHeader logoSrc="/logo_education.png" onHome={onBack} />
 
-      <div className="site-about-page__top">
-        <button className="site-review-page__back" onClick={onBack} type="button">
-          <span aria-hidden="true">←</span>
-          <span>назад</span>
-        </button>
-        <div className="site-review-page__crumbs">
-          <button onClick={onBack} type="button">главная</button>
-          <span aria-hidden="true">/</span>
-          <strong>о нас</strong>
+        <div className="site-about-page__top">
+          <button className="site-review-page__back" onClick={onBack} type="button">
+            <span aria-hidden="true">←</span>
+            <span>назад</span>
+          </button>
+          <div className="site-review-page__crumbs">
+            <button onClick={onBack} type="button">главная</button>
+            <span aria-hidden="true">/</span>
+            <strong>о нас</strong>
+          </div>
         </div>
-      </div>
 
-      <section className="site-about-hero">
-        <img alt="" src={aboutHeroUrl} />
-        <h1>
-          <span>Кто мы?</span>
-          <span>наша миссия?</span>
-        </h1>
+        <section className="site-about-hero">
+          <img alt="" src={aboutHeroUrl} />
+          <h1>
+            <span>Кто мы?</span>
+            <span>наша миссия?</span>
+          </h1>
+        </section>
+
+        <main className="site-about-content">
+          <section className="site-about-intro">
+            <p className="site-about-kicker">ИННОПРОГ</p>
+            <p>
+              <strong>
+                {" — современная образовательная онлайн-платформа, ориентированная на подготовку будущих"}
+                <br />
+                {" ИТ-специалистов для отечественного рынка"}
+              </strong>
+            </p>
+          </section>
+
+          <section className="site-about-cards" aria-label="Подход ИННОПРОГ">
+            <article className="site-about-card site-about-card--dark">
+              <p>Мы сочетаем:</p>
+              <ul>
+                <li>системный подход</li>
+                <li>опыт экспертов</li>
+                <li>практическую подготовку</li>
+                <li>индивидуальную работу</li>
+              </ul>
+              <p>с каждым учеником</p>
+              <p>Помогаем осваивать востребованные ИТ-направления, получать актуальные навыки и формировать прочную базу для дальнейшего профессионального развития</p>
+            </article>
+
+            <div className="site-about-swirl" aria-hidden="true">
+              <img alt="" src={aboutSwirlUrl} />
+            </div>
+
+            <article className="site-about-card site-about-card--purple">
+              <p>Мы стремимся сделать качественное ИТ-образование доступным, понятным и по-настоящему полезным для тех, кто хочет уверенно развиваться в сфере технологий.</p>
+              <p>В основе нашего подхода — последовательное обучение, адаптация программы под уровень и цели ученика, а также внимание к практическому применению знаний</p>
+            </article>
+          </section>
+
+          <section className="site-about-mission">
+            <div>
+              <h2>наша миссия:</h2>
+              <p>Дать ученикам не только теоретическую основу, но и реальные инструменты для дальнейшего роста: от первых шагов в программировании до более уверенного освоения прикладных навыков, необходимых для учебы, собственных проектов и будущей профессиональной реализации.</p>
+            </div>
+            <p>Мы помогаем каждому ученику выстраивать сильную базу, постепенно углублять знания и двигаться вперед в комфортном, но системном формате</p>
+          </section>
+
+          <section className="site-about-tags" aria-label="ИННОПРОГ объединяет">
+            <h2>ИННОПРОГ объединяет:</h2>
+            <div>
+              <span>современные направления обучения</span>
+              <span>поддержку наставников</span>
+              <span>ориентацию на результат</span>
+            </div>
+          </section>
+
+          <section className="site-about-city">
+            <h2>Мы из Иннополиса</h2>
+            <div>
+              <img alt="Иннополис" src={aboutInnopolisUrl} />
+              <div>
+                <p>Наше сотрудничество с Иннополисом базируется на реализации эффективного образовательного процесса ИННОПРОГ.</p>
+                <p>Совместные усилия дают возможность для развития образовательной платформы и её методических материалов, а также использования современных методов обучения.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="site-about-legal">
+            <h2>правовая информация</h2>
+            <div className="site-about-legal__links">
+              <div>
+                <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
+                <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
+                <a href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
+              </div>
+              <div>
+                <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+                <a href="https://api.innoprog.ru/files/documents/consent_advertising_and_information_mailings.pdf" rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
+                <p>Выписка из единого реестра Российского ПО</p>
+              </div>
+            </div>
+            <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
+          </section>
+        </main>
+
+        <SiteFooter />
       </section>
-
-      <main className="site-about-content">
-        <section className="site-about-intro">
-          <p className="site-about-kicker">ИННОПРОГ</p>
-          <p>
-            <strong>
-              {" — современная образовательная онлайн-платформа, ориентированная на подготовку будущих"}
-              <br />
-              {" ИТ-специалистов для отечественного рынка"}
-            </strong>
-          </p>
-        </section>
-
-        <section className="site-about-cards" aria-label="Подход ИННОПРОГ">
-          <article className="site-about-card site-about-card--dark">
-            <p>Мы сочетаем:</p>
-            <ul>
-              <li>системный подход</li>
-              <li>опыт экспертов</li>
-              <li>практическую подготовку</li>
-              <li>индивидуальную работу</li>
-            </ul>
-            <p>с каждым учеником</p>
-            <p>Помогаем осваивать востребованные ИТ-направления, получать актуальные навыки и формировать прочную базу для дальнейшего профессионального развития</p>
-          </article>
-
-          <div className="site-about-swirl" aria-hidden="true">
-            <img alt="" src={aboutSwirlUrl} />
-          </div>
-
-          <article className="site-about-card site-about-card--purple">
-            <p>Мы стремимся сделать качественное ИТ-образование доступным, понятным и по-настоящему полезным для тех, кто хочет уверенно развиваться в сфере технологий.</p>
-            <p>В основе нашего подхода — последовательное обучение, адаптация программы под уровень и цели ученика, а также внимание к практическому применению знаний</p>
-          </article>
-        </section>
-
-        <section className="site-about-mission">
-          <div>
-            <h2>наша миссия:</h2>
-            <p>Дать ученикам не только теоретическую основу, но и реальные инструменты для дальнейшего роста: от первых шагов в программировании до более уверенного освоения прикладных навыков, необходимых для учебы, собственных проектов и будущей профессиональной реализации.</p>
-          </div>
-          <p>Мы помогаем каждому ученику выстраивать сильную базу, постепенно углублять знания и двигаться вперед в комфортном, но системном формате</p>
-        </section>
-
-        <section className="site-about-tags" aria-label="ИННОПРОГ объединяет">
-          <h2>ИННОПРОГ объединяет:</h2>
-          <div>
-            <span>современные направления обучения</span>
-            <span>поддержку наставников</span>
-            <span>ориентацию на результат</span>
-          </div>
-        </section>
-
-        <section className="site-about-city">
-          <h2>Мы из Иннополиса</h2>
-          <div>
-            <img alt="Иннополис" src={aboutInnopolisUrl} />
-            <div>
-              <p>Наше сотрудничество с Иннополисом базируется на реализации эффективного образовательного процесса ИННОПРОГ.</p>
-              <p>Совместные усилия дают возможность для развития образовательной платформы и её методических материалов, а также использования современных методов обучения.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="site-about-legal">
-          <h2>правовая информация</h2>
-          <div className="site-about-legal__links">
-            <div>
-              <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
-              <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
-              <a href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
-            </div>
-            <div>
-              <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
-              <a href="https://api.innoprog.ru/files/documents/consent_advertising_and_information_mailings.pdf" rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
-              <p>Выписка из единого реестра Российского ПО</p>
-            </div>
-          </div>
-          <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
-        </section>
-      </main>
-
-      <SiteFooter />
-    </section>
+    </div>
   );
 }
 
@@ -1608,6 +1617,8 @@ export default function App() {
   const activeDesign = viewport.design;
   const isReviewRoute = Boolean(activeReviewStory);
   const isStandaloneRoute = isReviewRoute || isAboutRoute;
+  const viewportWidth = activeDesign.width * viewport.scale;
+  const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
     width: `${activeDesign.width}px`,
     height: `${activeDesign.height}px`,
@@ -1622,7 +1633,8 @@ export default function App() {
         "site-shell",
         isReady ? "site-shell--ready" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
-        isStandaloneRoute ? "site-shell--review-route" : "",
+        isReviewRoute ? "site-shell--review-route" : "",
+        isAboutRoute ? "site-shell--about-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
@@ -1633,7 +1645,7 @@ export default function App() {
       {isReviewRoute ? (
         <ReviewStoryPage storyKey={activeReviewStory as ReviewStoryKey} onBack={goHome} />
       ) : isAboutRoute ? (
-        <AboutPage onBack={goHome} />
+        <AboutPage onBack={goHome} scale={aboutScale} />
       ) : (
         <div
           className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
@@ -1644,7 +1656,7 @@ export default function App() {
           {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
         </div>
       )}
-      {!isReviewRoute && viewport.isMobile && isMobileMenuOpen ? (
+      {!isStandaloneRoute && viewport.isMobile && isMobileMenuOpen ? (
         <nav className="site-mobile-menu" aria-label="Мобильное меню">
           <button data-mobile-menu-link data-scroll-target="directions" type="button">курсы</button>
           <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>

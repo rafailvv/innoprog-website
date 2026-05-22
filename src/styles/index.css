@@ -644,6 +644,11 @@ button,
   background: #9c78ff;
 }
 
+.site-shell--about-route {
+  overflow: visible;
+  background: #ffffff;
+}
+
 .site-review-page {
   position: relative;
   width: 100%;
@@ -707,7 +712,7 @@ button,
 }
 
 .site-about-page .site-review-page__header {
-  width: calc(100% - 160px);
+  width: 1280px;
 }
 
 .site-review-page__logo {
@@ -1310,12 +1315,19 @@ button,
 }
 
 .site-about-page {
+  width: 1440px;
   min-height: 100vh;
   padding-top: 24px;
   overflow: visible;
   background: #ffffff;
   color: #000000;
   font-family: "Manrope", sans-serif;
+}
+
+.site-about-scale-shell {
+  width: 1440px;
+  background: #ffffff;
+  transform-origin: top left;
 }
 
 .site-about-page button,
@@ -1327,7 +1339,7 @@ button,
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  width: calc(100% - 160px);
+  width: 1280px;
   margin: 81px auto 0;
 }
 
@@ -1344,7 +1356,7 @@ button,
   position: relative;
   display: flex;
   align-items: flex-end;
-  width: calc(100% - 160px);
+  width: 1280px;
   height: 700px;
   margin: 109px auto 0;
   overflow: hidden;
@@ -1383,7 +1395,7 @@ button,
 .site-about-content {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 160px);
+  width: 1280px;
   margin: 104px auto 0;
 }
 
@@ -1414,7 +1426,7 @@ button,
 
 .site-about-cards {
   display: grid;
-  grid-template-columns: minmax(360px, 465px) minmax(240px, 302px) minmax(360px, 465px);
+  grid-template-columns: 465px 302px 465px;
   justify-content: center;
   gap: 24px;
   align-items: stretch;
@@ -1549,7 +1561,7 @@ button,
 
 .site-about-city > div {
   display: grid;
-  grid-template-columns: 791px 1fr;
+  grid-template-columns: 791px 465px;
   gap: 24px;
   align-items: stretch;
 }
@@ -2025,10 +2037,6 @@ button,
     top: 14px;
   }
 
-  .site-about-page .site-review-page__header {
-    width: calc(100% - 32px);
-  }
-
   .site-review-page__header::before {
     inset: 0;
   }
@@ -2308,183 +2316,6 @@ button,
     letter-spacing: 0.36px;
   }
 
-  .site-about-page {
-    padding-top: 14px;
-  }
-
-  .site-about-page .site-review-page__header {
-    min-height: 64px;
-    align-items: center;
-  }
-
-  .site-about-page .site-review-page__logo {
-    width: 170px;
-    height: 40px;
-  }
-
-  .site-about-page .site-review-page__header-cta {
-    width: 154px;
-    min-width: 154px;
-    padding: 0 8px;
-    font-size: 11px;
-    line-height: 14px;
-  }
-
-  .site-about-page__top {
-    width: calc(100% - 32px);
-    margin-top: 84px;
-  }
-
-  .site-about-hero {
-    width: calc(100% - 32px);
-    height: 220px;
-    margin-top: 24px;
-    padding: 20px;
-    border-radius: 24px;
-  }
-
-  .site-about-hero img {
-    object-position: left center;
-  }
-
-  .site-about-hero h1 {
-    display: none;
-  }
-
-  .site-about-content {
-    gap: 56px;
-    width: calc(100% - 32px);
-    margin-top: 48px;
-  }
-
-  .site-about-intro {
-    width: 100%;
-    text-transform: none;
-  }
-
-  .site-about-kicker {
-    margin-bottom: 8px !important;
-    font-size: 24px;
-    line-height: 28px;
-    text-transform: uppercase;
-  }
-
-  .site-about-intro strong {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .site-about-intro br {
-    display: none;
-  }
-
-  .site-about-cards {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 0;
-  }
-
-  .site-about-card {
-    min-height: 0;
-    padding: 20px;
-    border-radius: 24px;
-    font-size: 16px;
-    line-height: 21px;
-  }
-
-  .site-about-swirl {
-    min-height: 220px;
-    border-radius: 24px;
-  }
-
-  .site-about-swirl img {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .site-about-mission {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 0;
-  }
-
-  .site-about-mission h2,
-  .site-about-tags h2 {
-    margin-bottom: 12px;
-    font-size: 24px;
-    line-height: 27px;
-  }
-
-  .site-about-mission p {
-    font-size: 16px;
-    line-height: 21px;
-  }
-
-  .site-about-tags {
-    margin-top: 0;
-  }
-
-  .site-about-tags span {
-    padding: 12px 14px;
-    border-radius: 18px;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-  }
-
-  .site-about-city {
-    gap: 30px;
-    margin-top: 0;
-  }
-
-  .site-about-city h2,
-  .site-about-legal h2 {
-    font-size: 40px;
-    line-height: 42px;
-  }
-
-  .site-about-city > div {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .site-about-city img {
-    height: 230px;
-    border-radius: 24px 24px 0 0;
-  }
-
-  .site-about-city div div {
-    gap: 20px;
-    font-size: 16px;
-    line-height: 21px;
-  }
-
-  .site-about-legal {
-    gap: 30px;
-    margin-top: 0;
-  }
-
-  .site-about-legal__links {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    font-size: 14px;
-    line-height: 17px;
-  }
-
-  .site-about-legal__links div {
-    gap: 18px;
-  }
-
-  .site-about-legal > p {
-    font-size: 16px;
-    line-height: 21px;
-  }
-
-  .site-about-page .site-review-page__footer {
-    margin-top: 56px;
-  }
-
   .site-lead-modal {
     align-items: stretch;
     padding: 12px;
@@ -2600,4 +2431,130 @@ button,
     font-size: 24px;
     line-height: 32px;
   }
+}
+
+.site-about-scale-shell .site-review-page__header {
+  position: sticky;
+  top: 24px;
+  width: 1280px;
+  height: auto;
+  min-height: 104px;
+  gap: 48px;
+  padding: 16px 24px;
+  border-radius: 40px;
+}
+
+.site-about-scale-shell .site-review-page__logo {
+  width: 271px;
+  height: 65px;
+}
+
+.site-about-scale-shell .site-review-page__nav {
+  display: flex;
+  height: 65px;
+  gap: 16px;
+  padding: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.site-about-scale-shell .site-review-page__nav button {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.site-about-scale-shell .site-review-page__header-cta {
+  min-width: 316px;
+  height: 65px;
+  padding: 0 24px;
+  font-size: 24px;
+  line-height: 35px;
+}
+
+.site-about-scale-shell .site-review-page__back {
+  gap: 10px;
+  border-radius: 18px;
+  padding: 2px 12px 3px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.site-about-scale-shell .site-review-page__back span:first-child {
+  font-size: 30px;
+  line-height: 24px;
+}
+
+.site-about-scale-shell .site-review-page__crumbs {
+  gap: 8px;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.site-about-scale-shell .site-review-page__footer {
+  position: relative;
+  width: 1440px;
+  height: 533px;
+  min-height: 0;
+  margin: 104px auto 0;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 48px 48px 0 0;
+}
+
+.site-about-scale-shell .site-review-page__footer-logo {
+  position: absolute;
+  left: 81px;
+  top: 210px;
+  bottom: auto;
+  width: 1278px;
+}
+
+.site-about-scale-shell .site-review-page__footer-columns {
+  position: absolute;
+  left: 80px;
+  top: 80px;
+  width: 954px;
+  grid-template-columns: repeat(3, 302px);
+  gap: 24px;
+  padding-top: 0;
+}
+
+.site-about-scale-shell .site-review-page__footer section {
+  gap: 24px;
+}
+
+.site-about-scale-shell .site-review-page__footer h2 {
+  font-size: 32px;
+  line-height: 30px;
+}
+
+.site-about-scale-shell .site-review-page__footer a,
+.site-about-scale-shell .site-review-page__footer p {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.site-about-scale-shell .site-review-page__socials {
+  position: absolute;
+  top: 80px;
+  right: 80px;
+  flex-direction: column;
+  margin-top: 0;
+  gap: 11px;
+}
+
+.site-about-scale-shell .site-review-page__socials a {
+  width: 85px;
+  height: 85px;
+}
+
+.site-about-scale-shell .site-review-page__footer-company {
+  position: absolute;
+  left: 346px;
+  top: 409px;
+  width: 747px;
+  margin-top: 0 !important;
+  font-size: 24px !important;
+  line-height: 30px !important;
+  letter-spacing: normal;
 }
