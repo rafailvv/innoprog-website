@@ -2254,7 +2254,7 @@ function Frame123() {
 
 function Frame131() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[2218px] w-[1280px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col items-center left-1/2 top-[2288px] w-[1280px]">
       <Frame123 />
     </div>
   );
@@ -2262,13 +2262,13 @@ function Frame131() {
 
 function Group11() {
   return (
-    <div className="absolute contents left-[calc(25%+64px)] top-[2588px]">
-      <div className="absolute h-[534px] left-[calc(25%+64px)] top-[2588px] w-[973px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
+    <div className="absolute contents left-[calc(25%+64px)] top-[2658px]">
+      <div className="absolute h-[534px] left-[calc(25%+64px)] top-[2658px] w-[973px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img alt="" decoding="async" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
-      <div className="absolute h-[439px] left-[calc(25%+183px)] top-[2619px] w-[736px]" data-name="image 118">
+      <div className="absolute h-[439px] left-[calc(25%+183px)] top-[2689px] w-[736px]" data-name="image 118">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
     </div>
@@ -2277,7 +2277,7 @@ function Group11() {
 
 function Frame134() {
   return (
-    <div className="absolute bg-[#f1ecff] content-stretch flex h-[644px] items-center left-[86px] p-[10px] rounded-[40px] top-[2490px]">
+    <div className="absolute bg-[#f1ecff] content-stretch flex h-[644px] items-center left-[86px] p-[10px] rounded-[40px] top-[2560px]">
       <div className="h-[637px] relative rounded-[40px] shrink-0 w-[294px]" data-name="image 120">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage120} />
       </div>
@@ -2287,9 +2287,9 @@ function Frame134() {
 
 function Group12() {
   return (
-    <div className="absolute contents left-[80px] top-[2453px]">
+    <div className="absolute contents left-[80px] top-[2523px]">
       <Frame134 />
-      <div className="absolute h-[690px] left-[80px] top-[2453px] w-[328px]" data-name="айфон">
+      <div className="absolute h-[690px] left-[80px] top-[2523px] w-[328px]" data-name="айфон">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img alt="" decoding="async" loading="eager" className="absolute h-[102.34%] left-[-111.8%] max-w-none top-0 w-[323.3%]" src={img} />
         </div>
