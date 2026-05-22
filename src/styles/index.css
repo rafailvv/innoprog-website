@@ -1245,9 +1245,9 @@ button,
   top: 80px;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, 302px);
+  grid-template-columns: 302px 302px 380px;
   gap: 24px;
-  width: 954px;
+  width: 1032px;
 }
 
 .site-review-page__footer section {
@@ -1266,6 +1266,10 @@ button,
   font-size: 32px;
   font-weight: 600;
   line-height: 30px;
+}
+
+.site-review-page__footer section:nth-child(3) h2 {
+  white-space: nowrap;
 }
 
 .site-review-page__footer a,
@@ -2526,8 +2530,8 @@ button,
   position: absolute;
   left: 80px;
   top: 80px;
-  width: 954px;
-  grid-template-columns: repeat(3, 302px);
+  width: 1032px;
+  grid-template-columns: 302px 302px 380px;
   gap: 24px;
   padding-top: 0;
 }

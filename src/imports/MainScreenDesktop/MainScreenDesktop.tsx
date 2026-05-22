@@ -2079,7 +2079,7 @@ function Frame78() {
 
 function Frame77() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[302px]">
+    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[380px]">
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</p>
       <Frame78 />
     </div>
@@ -2088,7 +2088,7 @@ function Frame77() {
 
 function Frame68() {
   return (
-    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-[954px]">
+    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-[1032px]">
       <Frame67 />
       <Frame66 />
       <Frame77 />
@@ -2169,7 +2169,7 @@ function Frame79() {
 
 function Frame69() {
   return (
-    <div className="col-1 content-stretch flex gap-[239px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 w-[1280px]">
+    <div className="col-1 content-stretch flex gap-[159px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 w-[1280px]">
       <Frame68 />
       <Frame79 />
     </div>
