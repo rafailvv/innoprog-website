@@ -1413,7 +1413,7 @@ export default function App() {
     }
 
     if (IS_TURNSTILE_ENABLED && !leadCaptchaToken) {
-      setLeadFormError("Подтвердите, что вы не робот, и отправьте заявку еще раз.");
+      setLeadFormError("Пройдите проверку и отправьте заявку еще раз.");
 
       if (leadModalState === "closed") {
         setLeadModalState("form");
@@ -1816,13 +1816,6 @@ export default function App() {
                       onStatusChange={setLeadCaptchaStatus}
                       onTokenChange={setLeadCaptchaToken}
                     />
-                    <p className="site-lead-modal__captcha-status" aria-live="polite">
-                      {leadCaptchaStatus === "verified"
-                        ? "Проверка пройдена"
-                        : leadCaptchaStatus === "error"
-                          ? "Не удалось загрузить проверку. Обновите страницу и попробуйте снова."
-                          : "Подтвердите, что вы не робот"}
-                    </p>
                   </div>
                 ) : null}
                 {leadFormError ? (

@@ -1822,18 +1822,10 @@ button,
   min-height: 65px;
 }
 
-.site-lead-modal__captcha-status,
 .site-lead-modal__error {
   margin: 0;
   font-family: "Manrope", sans-serif;
   text-align: center;
-}
-
-.site-lead-modal__captcha-status {
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
 }
 
 .site-lead-modal__error {
@@ -2450,11 +2442,6 @@ button,
   .site-turnstile {
     width: 100%;
     min-height: 65px;
-  }
-
-  .site-lead-modal__captcha-status {
-    font-size: 11px;
-    line-height: 14px;
   }
 
   .site-lead-modal__error {
