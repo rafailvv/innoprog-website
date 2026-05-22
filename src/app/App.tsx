@@ -1805,6 +1805,9 @@ export default function App() {
                   Администратор ИННОПРОГ свяжется с вами в ближайшее время, уточнит детали и поможет подобрать
                   подходящий формат обучения. Пожалуйста, ожидайте 🙏
                 </p>
+                <button className="site-lead-modal__submit" onClick={closeLeadModal} type="button">
+                  закрыть
+                </button>
               </div>
             )}
           </section>
