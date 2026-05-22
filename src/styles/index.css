@@ -130,6 +130,18 @@ body {
   background: transparent;
 }
 
+.site-main-header--desktop [data-name="Text"] {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.site-main-header--desktop [data-name="Text"] > p {
+  position: static;
+  inset: auto;
+  line-height: 30px;
+}
+
 .site-mobile-hero-start-button {
   display: flex;
   width: 350px;
