@@ -1426,7 +1426,7 @@ export default function App() {
   };
 
   const openChildrenPage = () => {
-    window.location.href = "https://papges.innoprog.ru/children/school";
+    window.location.href = "https://pages.innoprog.ru/children/school";
   };
 
   const closeCurrentPageAndScroll = (key: keyof typeof desktopScrollTargets) => {

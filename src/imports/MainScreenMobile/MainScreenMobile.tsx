@@ -1149,7 +1149,7 @@ function Frame184() {
   return (
     <div className="content-stretch flex h-[301px] items-center relative shrink-0 w-full site-carousel site-mobile-directions-carousel" data-carousel="mobile-directions" data-carousel-sync>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="https://pages.innoprog.ru/python-course">
           <CourseCardImage index={0} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1157,10 +1157,10 @@ function Frame184() {
               <Frame11 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="https://pages.innoprog.ru/data-scientist">
           <CourseCardImage index={1} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1168,7 +1168,7 @@ function Frame184() {
               <Frame15 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
         <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">

@@ -330,7 +330,7 @@ function Frame58() {
       <a className="h-[17px] relative shrink-0 w-[154px]" data-main-nav="adults" data-name="Text" href="/">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
       </a>
-      <a className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://papges.innoprog.ru/children/school">
+      <a className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
       </a>
       <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="#/reviews/kirill">
@@ -401,7 +401,7 @@ function Frame7() {
 function Frame14() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
+      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="https://pages.innoprog.ru/python-course">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -418,8 +418,8 @@ function Frame14() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]" src={imgImg29771} />
           </div>
         </div>
-      </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
+      </a>
+      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="https://pages.innoprog.ru/data-scientist">
         <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -436,7 +436,7 @@ function Frame14() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[170.12%] left-[-36.21%] max-w-none top-[-36.44%] w-[142.1%]" src={imgImg29772} />
           </div>
         </div>
-      </div>
+      </a>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
