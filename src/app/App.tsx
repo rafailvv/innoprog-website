@@ -468,14 +468,23 @@ function scrollCarousel(id: string, direction: number) {
   const items = Array.from(carousel.children).filter(
     (child): child is HTMLElement => child instanceof HTMLElement,
   );
+  const isCenterAligned = carousel.dataset.carouselAlign === "center";
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
-  const current = carousel.scrollLeft + paddingLeft;
+  const current = isCenterAligned
+    ? carousel.scrollLeft + (carousel.clientWidth / 2)
+    : carousel.scrollLeft + paddingLeft;
   const item = direction > 0
     ? items.find((child) => child.offsetLeft > current + 8)
     : items.findLast((child) => child.offsetLeft < current - 8);
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  const targetLeft = item
+    ? isCenterAligned
+      ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
+      : item.offsetLeft - paddingLeft
+    : (direction > 0 ? maxScrollLeft : 0);
 
   carousel.scrollTo({
-    left: item ? item.offsetLeft - paddingLeft : (direction > 0 ? carousel.scrollWidth : 0),
+    left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
     behavior: "smooth",
   });
 }
@@ -497,9 +506,14 @@ function scrollCarouselTo(id: string, index: number) {
   }
 
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
+  const isCenterAligned = carousel.dataset.carouselAlign === "center";
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  const targetLeft = isCenterAligned
+    ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
+    : item.offsetLeft - paddingLeft;
 
   carousel.scrollTo({
-    left: item.offsetLeft - paddingLeft,
+    left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
     behavior: "smooth",
   });
 }
@@ -1262,9 +1276,14 @@ export default function App() {
       let activeIndex = 0;
       let nearestDistance = Number.POSITIVE_INFINITY;
       const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
+      const isCenterAligned = carousel.dataset.carouselAlign === "center";
+      const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : 0;
 
       items.forEach((item, index) => {
-        const distance = Math.abs(item.offsetLeft - paddingLeft - carousel.scrollLeft);
+        const itemAnchor = isCenterAligned
+          ? item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft
+          : item.offsetLeft - paddingLeft - carousel.scrollLeft;
+        const distance = Math.abs(itemAnchor - activeAnchor);
 
         if (distance < nearestDistance) {
           nearestDistance = distance;

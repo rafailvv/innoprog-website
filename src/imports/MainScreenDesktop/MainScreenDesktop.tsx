@@ -1597,7 +1597,7 @@ function Frame44() {
 
 function Frame50() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-reviews-carousel" data-carousel="reviews" data-carousel-sync tabIndex={0}>
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-reviews-carousel" data-carousel="reviews" data-carousel-align="center" data-carousel-sync tabIndex={0}>
       {DESKTOP_REVIEWS.map((review, index) => (
         <DesktopReviewCard key={review.name} review={review} initialActive={index === 0} />
       ))}
