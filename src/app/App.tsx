@@ -58,6 +58,7 @@ const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
+const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const LOADER_EXIT_MS = 700;
 const APPLICATION_REQUEST_URL = "/api/application/request";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
@@ -979,6 +980,18 @@ function hasLoadedInSession() {
   }
 }
 
+function hasCookieConsent() {
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  try {
+    return window.localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) === "accepted";
+  } catch {
+    return false;
+  }
+}
+
 function rememberLoadedInSession() {
   try {
     window.sessionStorage.setItem(LOADED_STORAGE_KEY, "true");
@@ -1087,6 +1100,7 @@ export default function App() {
   const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
+  const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(() => !hasCookieConsent());
 
   useEffect(() => {
     let rafId = 0;
@@ -1413,6 +1427,16 @@ export default function App() {
     setLeadCaptchaToken("");
     setLeadCaptchaStatus("idle");
     setIsLeadSubmitting(false);
+  };
+
+  const acceptCookieConsent = () => {
+    try {
+      window.localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, "accepted");
+    } catch {
+      // Keep the banner dismissible even if localStorage is unavailable.
+    }
+
+    setShouldShowCookieBanner(false);
   };
 
   const openReviewStory = (story: string | undefined) => {
@@ -1990,6 +2014,26 @@ export default function App() {
             )}
           </section>
         </div>
+      ) : null}
+      {shouldShowCookieBanner ? (
+        <aside className="site-cookie-banner" aria-label="Уведомление о cookie">
+          <p>
+            INNOPROG использует cookie и похожие технологии для корректной работы сайта, сохранения настроек,
+            аналитики и показа более подходящего контента. Продолжая пользоваться сайтом, вы соглашаетесь с их
+            использованием по{" "}
+            <a
+              href="https://api.innoprog.ru/files/documents/privacy_policy.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Политике обработки персональных данных
+            </a>
+            .
+          </p>
+          <button type="button" onClick={acceptCookieConsent}>
+            понятно
+          </button>
+        </aside>
       ) : null}
     </main>
   );
