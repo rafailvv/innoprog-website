@@ -438,7 +438,7 @@ function Frame14() {
         </div>
       </a>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -488,7 +488,7 @@ function Frame132() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -506,7 +506,7 @@ function Frame132() {
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -524,7 +524,7 @@ function Frame132() {
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -574,7 +574,7 @@ function Frame15() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -592,7 +592,7 @@ function Frame15() {
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -608,7 +608,7 @@ function Frame15() {
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">

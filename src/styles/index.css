@@ -1756,6 +1756,11 @@ button,
   transform: translateY(-1px);
 }
 
+.site-course-arrow--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .site-lead-modal {
   position: fixed;
   inset: 0;
