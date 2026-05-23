@@ -109,6 +109,13 @@ body {
   box-shadow: 0 12px 36px rgba(70, 74, 106, 0.12);
 }
 
+.site-shell--mobile .site-main-header,
+.site-has-scrolled .site-shell--mobile .site-main-header,
+.site-shell--mobile .site-review-page__header,
+.site-has-scrolled .site-shell--mobile .site-review-page__header {
+  box-shadow: none;
+}
+
 .site-main-header--desktop {
   position: fixed !important;
   top: 24px !important;
