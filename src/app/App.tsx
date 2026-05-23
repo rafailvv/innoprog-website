@@ -469,20 +469,33 @@ function scrollCarousel(id: string, direction: number) {
   const items = Array.from(carousel.children).filter(
     (child): child is HTMLElement => child instanceof HTMLElement,
   );
+
+  if (!items.length) {
+    return;
+  }
+
   const isCenterAligned = carousel.dataset.carouselAlign === "center";
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
-  const current = isCenterAligned
-    ? carousel.scrollLeft + (carousel.clientWidth / 2)
-    : carousel.scrollLeft + paddingLeft;
-  const item = direction > 0
-    ? items.find((child) => child.offsetLeft > current + 8)
-    : items.findLast((child) => child.offsetLeft < current - 8);
+  const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : paddingLeft;
+  const activeIndex = items.reduce((nearestIndex, item, index) => {
+    const itemAnchor = isCenterAligned
+      ? item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft
+      : item.offsetLeft - carousel.scrollLeft;
+    const nearestItem = items[nearestIndex];
+    const nearestAnchor = isCenterAligned
+      ? nearestItem.offsetLeft + (nearestItem.offsetWidth / 2) - carousel.scrollLeft
+      : nearestItem.offsetLeft - carousel.scrollLeft;
+
+    return Math.abs(itemAnchor - activeAnchor) < Math.abs(nearestAnchor - activeAnchor)
+      ? index
+      : nearestIndex;
+  }, 0);
+  const targetIndex = Math.max(0, Math.min(items.length - 1, activeIndex + direction));
+  const item = items[targetIndex];
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-  const targetLeft = item
-    ? isCenterAligned
-      ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
-      : item.offsetLeft - paddingLeft
-    : (direction > 0 ? maxScrollLeft : 0);
+  const targetLeft = isCenterAligned
+    ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
+    : item.offsetLeft - paddingLeft;
 
   carousel.scrollTo({
     left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
@@ -1307,6 +1320,25 @@ export default function App() {
       const isCenterAligned = carousel.dataset.carouselAlign === "center";
       const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : 0;
 
+      if (carousel.dataset.carouselInitialized !== "true") {
+        const initialIndex = Number(carousel.dataset.carouselInitialIndex);
+        const initialItem = Number.isFinite(initialIndex) ? items[initialIndex] : null;
+
+        if (initialItem) {
+          const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+          const targetLeft = isCenterAligned
+            ? initialItem.offsetLeft - ((carousel.clientWidth - initialItem.offsetWidth) / 2)
+            : initialItem.offsetLeft - paddingLeft;
+
+          carousel.scrollTo({
+            left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
+            behavior: "auto",
+          });
+        }
+
+        carousel.dataset.carouselInitialized = "true";
+      }
+
       items.forEach((item, index) => {
         const itemAnchor = isCenterAligned
           ? item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft
@@ -1625,17 +1657,6 @@ export default function App() {
       return;
     }
 
-    const carouselControl = target?.closest<HTMLElement>("[data-carousel-action]");
-
-    if (carouselControl) {
-      event.preventDefault();
-      scrollCarousel(
-        carouselControl.dataset.carouselTarget || "reviews",
-        carouselControl.dataset.carouselAction === "prev" ? -1 : 1,
-      );
-      return;
-    }
-
     const carouselIndexControl = target?.closest<HTMLElement>(
       "[data-carousel-index][data-carousel-target]",
     );
@@ -1802,6 +1823,20 @@ export default function App() {
 
   const handleSiteKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+
+    if (
+      target?.closest("[data-carousel-action]") &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      const carouselControl = target.closest<HTMLElement>("[data-carousel-action]");
+
+      event.preventDefault();
+      scrollCarousel(
+        carouselControl?.dataset.carouselTarget || "reviews",
+        carouselControl?.dataset.carouselAction === "prev" ? -1 : 1,
+      );
+      return;
+    }
 
     if (
       target?.closest("[data-review-story]") &&

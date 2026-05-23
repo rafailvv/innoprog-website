@@ -315,8 +315,8 @@ button,
 
 .site-reviews-carousel {
   box-sizing: border-box;
-  padding-left: 80px;
-  scroll-padding-left: 80px;
+  padding-inline: max(80px, calc((100% - 791px) / 2));
+  scroll-padding-left: max(80px, calc((100% - 791px) / 2));
 }
 
 .site-reviews-carousel > div {

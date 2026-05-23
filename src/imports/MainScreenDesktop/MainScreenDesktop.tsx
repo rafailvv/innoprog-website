@@ -1333,6 +1333,42 @@ const DESKTOP_REVIEWS = [
   },
 ] as const;
 
+function scrollDesktopReviews(direction: number) {
+  const carousel = document.querySelector<HTMLElement>('[data-carousel="reviews"]');
+
+  if (!carousel) {
+    return;
+  }
+
+  const items = Array.from(carousel.children).filter(
+    (child): child is HTMLElement => child instanceof HTMLElement,
+  );
+
+  if (!items.length) {
+    return;
+  }
+
+  const activeAnchor = carousel.clientWidth / 2;
+  const activeIndex = items.reduce((nearestIndex, item, index) => {
+    const itemAnchor = item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft;
+    const nearestItem = items[nearestIndex];
+    const nearestAnchor = nearestItem.offsetLeft + (nearestItem.offsetWidth / 2) - carousel.scrollLeft;
+
+    return Math.abs(itemAnchor - activeAnchor) < Math.abs(nearestAnchor - activeAnchor)
+      ? index
+      : nearestIndex;
+  }, 0);
+  const targetIndex = Math.max(0, Math.min(items.length - 1, activeIndex + direction));
+  const targetItem = items[targetIndex];
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  const targetLeft = targetItem.offsetLeft - ((carousel.clientWidth - targetItem.offsetWidth) / 2);
+
+  carousel.scrollTo({
+    left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
+    behavior: "smooth",
+  });
+}
+
 function DesktopReviewCard({ review, initialActive = false }: { review: (typeof DESKTOP_REVIEWS)[number]; initialActive?: boolean }) {
   return (
     <div className="bg-[rgba(255,255,255,0.9)] cursor-pointer h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-active={initialActive ? "true" : "false"} data-name="отзыв" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
@@ -1597,7 +1633,7 @@ function Frame44() {
 
 function Frame50() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-reviews-carousel" data-carousel="reviews" data-carousel-align="center" data-carousel-sync tabIndex={0}>
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-reviews-carousel" data-carousel="reviews" data-carousel-align="center" data-carousel-initial-index="0" data-carousel-sync tabIndex={0}>
       {DESKTOP_REVIEWS.map((review, index) => (
         <DesktopReviewCard key={review.name} review={review} initialActive={index === 0} />
       ))}
@@ -1606,9 +1642,24 @@ function Frame50() {
 }
 
 function Frame63() {
+  const handleReviewControlClick = (direction: number) => (event: { preventDefault: () => void; stopPropagation: () => void }) => {
+    event.preventDefault();
+    event.stopPropagation();
+    scrollDesktopReviews(direction);
+  };
+  const handleReviewControlKeyDown = (direction: number) => (event: { key: string; preventDefault: () => void; stopPropagation: () => void }) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    scrollDesktopReviews(direction);
+  };
+
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" role="button" tabIndex={0}>
+      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" onKeyDown={handleReviewControlKeyDown(-1)} onMouseDown={handleReviewControlClick(-1)} role="button" tabIndex={0}>
         <div className="-scale-y-100 flex-none rotate-180">
           <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
             <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
@@ -1622,7 +1673,7 @@ function Frame63() {
           </div>
         </div>
       </div>
-      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" role="button" tabIndex={0}>
+      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" onKeyDown={handleReviewControlKeyDown(1)} onMouseDown={handleReviewControlClick(1)} role="button" tabIndex={0}>
         <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
