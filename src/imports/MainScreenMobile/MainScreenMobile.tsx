@@ -2764,11 +2764,6 @@ function Frame122() {
     <div className="content-stretch flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold gap-[24px] items-start relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase w-full">
       <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
       <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[22px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">
-        Выписка из реестра лицензий
-        <br aria-hidden="true" />
-        на образовательную деятельность
-      </a>
       <a className="leading-[20px] relative shrink-0 w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
       <a className="leading-[20px] relative shrink-0 w-full" href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>

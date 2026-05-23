@@ -2091,10 +2091,6 @@ function Frame78() {
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
       <a className="leading-[30px] relative shrink-0 text-white w-full" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
       <a className="leading-[30px] relative shrink-0 text-white w-full" href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[0] relative shrink-0 text-white w-full" href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">
-        <p className="leading-[30px] mb-0">Выписка из реестра лицензий</p>
-        <p className="leading-[30px]">на образовательную деятельность</p>
-      </a>
       <a className="leading-[30px] relative shrink-0 text-white w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
       <a className="leading-[30px] relative shrink-0 text-white w-full" href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>

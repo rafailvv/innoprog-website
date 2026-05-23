@@ -558,7 +558,6 @@ function SiteFooter() {
           <h2>Правовая информация</h2>
           <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
           <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-          <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
           <a href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
           <a href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
         </section>
