@@ -468,13 +468,14 @@ function scrollCarousel(id: string, direction: number) {
   const items = Array.from(carousel.children).filter(
     (child): child is HTMLElement => child instanceof HTMLElement,
   );
-  const current = carousel.scrollLeft;
+  const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
+  const current = carousel.scrollLeft + paddingLeft;
   const item = direction > 0
     ? items.find((child) => child.offsetLeft > current + 8)
     : items.findLast((child) => child.offsetLeft < current - 8);
 
   carousel.scrollTo({
-    left: item?.offsetLeft ?? (direction > 0 ? carousel.scrollWidth : 0),
+    left: item ? item.offsetLeft - paddingLeft : (direction > 0 ? carousel.scrollWidth : 0),
     behavior: "smooth",
   });
 }
@@ -495,8 +496,10 @@ function scrollCarouselTo(id: string, index: number) {
     return;
   }
 
+  const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
+
   carousel.scrollTo({
-    left: item.offsetLeft,
+    left: item.offsetLeft - paddingLeft,
     behavior: "smooth",
   });
 }
@@ -1258,14 +1261,22 @@ export default function App() {
       );
       let activeIndex = 0;
       let nearestDistance = Number.POSITIVE_INFINITY;
+      const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
 
       items.forEach((item, index) => {
-        const distance = Math.abs(item.offsetLeft - carousel.scrollLeft);
+        const distance = Math.abs(item.offsetLeft - paddingLeft - carousel.scrollLeft);
 
         if (distance < nearestDistance) {
           nearestDistance = distance;
           activeIndex = index;
         }
+      });
+
+      items.forEach((item, index) => {
+        const isActive = index === activeIndex;
+
+        item.dataset.active = String(isActive);
+        item.setAttribute("aria-current", isActive ? "true" : "false");
       });
 
       document

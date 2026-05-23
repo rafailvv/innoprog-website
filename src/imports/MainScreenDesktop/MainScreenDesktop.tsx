@@ -1333,9 +1333,9 @@ const DESKTOP_REVIEWS = [
   },
 ] as const;
 
-function DesktopReviewCard({ review }: { review: (typeof DESKTOP_REVIEWS)[number] }) {
+function DesktopReviewCard({ review, initialActive = false }: { review: (typeof DESKTOP_REVIEWS)[number]; initialActive?: boolean }) {
   return (
-    <div className="bg-[rgba(255,255,255,0.9)] cursor-pointer h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-name="отзыв" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
+    <div className="bg-[rgba(255,255,255,0.9)] cursor-pointer h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-active={initialActive ? "true" : "false"} data-name="отзыв" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
       <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
       <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex items-start justify-between left-1/2 p-[32px] top-[calc(50%-0.5px)] w-[791px]">
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
@@ -1597,9 +1597,9 @@ function Frame44() {
 
 function Frame50() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-[1280px] site-carousel" data-carousel="reviews" tabIndex={0}>
-      {DESKTOP_REVIEWS.map((review) => (
-        <DesktopReviewCard key={review.name} review={review} />
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-reviews-carousel" data-carousel="reviews" data-carousel-sync tabIndex={0}>
+      {DESKTOP_REVIEWS.map((review, index) => (
+        <DesktopReviewCard key={review.name} review={review} initialActive={index === 0} />
       ))}
     </div>
   );

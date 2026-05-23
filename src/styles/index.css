@@ -313,6 +313,21 @@ button,
   backface-visibility: hidden;
 }
 
+.site-reviews-carousel {
+  box-sizing: border-box;
+  padding-left: 80px;
+  scroll-padding-left: 80px;
+}
+
+.site-reviews-carousel > div {
+  opacity: 0.48;
+  transition: opacity 220ms ease;
+}
+
+.site-reviews-carousel > div[data-active="true"] {
+  opacity: 1;
+}
+
 .site-mobile-teachers-carousel {
   overflow-x: auto;
   overflow-y: clip;
