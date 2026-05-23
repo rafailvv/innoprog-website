@@ -820,8 +820,8 @@ function AboutPage({
   isMobile: boolean;
 }) {
   const aboutCanvasStyle = {
-    width: `${ABOUT_DESIGN_WIDTH}px`,
-    zoom: contentScale,
+    width: isMobile ? "100%" : `${ABOUT_DESIGN_WIDTH}px`,
+    zoom: isMobile ? undefined : contentScale,
   } as CSSProperties & { zoom?: number };
 
   return (
