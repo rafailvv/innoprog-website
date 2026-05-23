@@ -1194,6 +1194,20 @@ export default function App() {
   }, [viewport.isMobile]);
 
   useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     if (leadModalState === "closed") {
       return;
     }
@@ -1578,7 +1592,13 @@ export default function App() {
 
     if (mobileMenuLink?.dataset.scrollTarget) {
       event.preventDefault();
-      const key = mobileMenuLink.dataset.scrollTarget as keyof typeof mobileScrollTargets;
+      const key = mobileMenuLink.dataset.scrollTarget;
+
+      if (key === "adults") {
+        goHome();
+        setIsMobileMenuOpen(false);
+        return;
+      }
 
       if (key === "form") {
         openLeadModal();
@@ -1855,11 +1875,47 @@ export default function App() {
       )}
       {viewport.isMobile && isMobileMenuOpen ? (
         <nav className="site-mobile-menu" aria-label="Мобильное меню">
-          <button data-mobile-menu-link data-scroll-target="directions" type="button">курсы</button>
-          <button data-mobile-menu-link data-scroll-target="teachers" type="button">преподаватели</button>
-          <button data-mobile-menu-link data-scroll-target="reviews" type="button">отзывы</button>
-          <button data-mobile-menu-link data-scroll-target="about" type="button">о нас</button>
-          <button data-mobile-menu-link data-scroll-target="form" type="button">подобрать курс</button>
+          <div className="site-mobile-menu__top">
+            <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
+              <img alt="ИННОПРОГ Education" src="/logo_education.png" />
+            </button>
+            <button aria-label="Закрыть меню" className="site-mobile-menu__close" data-mobile-menu-toggle type="button">
+              <span aria-hidden="true" />
+            </button>
+          </div>
+          <div className="site-mobile-menu__links">
+            <button
+              aria-current={!isStandaloneRoute ? "page" : undefined}
+              data-active={!isStandaloneRoute ? "true" : undefined}
+              data-mobile-menu-link
+              data-scroll-target="adults"
+              type="button"
+            >
+              для взрослых
+            </button>
+            <button data-mobile-menu-link data-scroll-target="children" type="button">для детей</button>
+            <button
+              aria-current={isReviewRoute ? "page" : undefined}
+              data-active={isReviewRoute ? "true" : undefined}
+              data-mobile-menu-link
+              data-scroll-target="reviews"
+              type="button"
+            >
+              отзывы
+            </button>
+            <button
+              aria-current={isAboutRoute ? "page" : undefined}
+              data-active={isAboutRoute ? "true" : undefined}
+              data-mobile-menu-link
+              data-scroll-target="about"
+              type="button"
+            >
+              о нас
+            </button>
+          </div>
+          <button className="site-mobile-menu__cta" data-mobile-menu-link data-scroll-target="form" type="button">
+            подобрать направление
+          </button>
         </nav>
       ) : null}
       {shouldShowLoader ? (
