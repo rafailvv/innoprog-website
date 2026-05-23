@@ -2734,7 +2734,7 @@ function Frame117() {
 
 function Frame103() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[302px]">
+    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</p>
       <Frame117 />
     </div>
@@ -2752,7 +2752,7 @@ function Frame119() {
 
 function Frame118() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[302px]">
+    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</p>
       <Frame119 />
     </div>
@@ -2761,7 +2761,7 @@ function Frame118() {
 
 function Frame122() {
   return (
-    <div className="content-stretch flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold gap-[24px] items-start relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase w-full">
+    <div className="content-stretch flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold gap-[16px] items-start relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase w-full">
       <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
       <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
       <a className="leading-[20px] relative shrink-0 w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
@@ -2772,7 +2772,7 @@ function Frame122() {
 
 function Frame120() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[302px]">
+    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</p>
       <Frame122 />
     </div>
@@ -2781,7 +2781,7 @@ function Frame120() {
 
 function Frame92() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
+    <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0">
       <Frame103 />
       <Frame118 />
       <Frame120 />
@@ -2917,10 +2917,10 @@ function Frame182() {
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component4 />
       <div className="bg-[#464a6a] h-[912px] relative shrink-0 w-full">
-        <div className="content-stretch flex flex-col gap-[32px] items-start pb-[20px] pt-[40px] px-[20px] relative size-full">
+        <div className="content-stretch flex flex-col gap-[22px] items-start pb-[20px] pt-[28px] px-[20px] relative size-full">
           <Frame92 />
           <Frame123 />
-          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] min-w-full relative shrink-0 text-[12px] text-center text-white tracking-[0.36px] w-[min-content]">
+          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-full relative shrink-0 text-[12px] text-center text-white tracking-[0.36px] w-[min-content]">
             {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
             <br aria-hidden="true" />
             ИНН 1683011286 ОГРН 1221600105440
