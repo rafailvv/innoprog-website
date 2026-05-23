@@ -573,6 +573,10 @@ function SiteFooter() {
         {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
         <br aria-hidden="true" />
         ИНН 1683011286 ОГРН 1221600105440
+        <br aria-hidden="true" />
+        ОКВЭД: 62.09 (основной), 62.02
+        <br aria-hidden="true" />
+        Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
       </p>
     </footer>
   );
@@ -902,7 +906,6 @@ function AboutPage({
               <div>
                 <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
                 <a href="https://api.innoprog.ru/files/documents/consent_advertising_and_information_mailings.pdf" rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
-                <p>Выписка из единого реестра Российского ПО</p>
               </div>
             </div>
             <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
