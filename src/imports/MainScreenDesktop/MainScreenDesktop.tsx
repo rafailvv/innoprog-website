@@ -2095,6 +2095,8 @@ function Frame78() {
         <p className="leading-[30px] mb-0">Выписка из реестра лицензий</p>
         <p className="leading-[30px]">на образовательную деятельность</p>
       </a>
+      <a className="leading-[30px] relative shrink-0 text-white w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
+      <a className="leading-[30px] relative shrink-0 text-white w-full" href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>
   );
 }

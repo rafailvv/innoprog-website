@@ -2769,6 +2769,8 @@ function Frame122() {
         <br aria-hidden="true" />
         на образовательную деятельность
       </a>
+      <a className="leading-[20px] relative shrink-0 w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
+      <a className="leading-[20px] relative shrink-0 w-full" href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>
   );
 }
