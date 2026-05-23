@@ -684,10 +684,12 @@ function ReviewStoryPage({
   storyKey,
   onBack,
   headerScale,
+  isMobile,
 }: {
   storyKey: ReviewStoryKey;
   onBack: () => void;
   headerScale: number;
+  isMobile: boolean;
 }) {
   const story = REVIEW_STORIES[storyKey];
   const sections = getStorySections(storyKey);
@@ -696,7 +698,7 @@ function ReviewStoryPage({
   return (
     <section className="site-review-page" aria-label={`История ${story.name}`}>
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
-      <SitePageHeader onHome={onBack} scale={headerScale} />
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
 
       <div className="site-review-page__inner">
         <div className="site-review-page__top">
@@ -1419,6 +1421,10 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
+  const openChildrenPage = () => {
+    window.location.href = "https://papges.innoprog.ru/children/school";
+  };
+
   const closeCurrentPageAndScroll = (key: keyof typeof desktopScrollTargets) => {
     if (key === "about") {
       openAboutPage();
@@ -1526,6 +1532,16 @@ export default function App() {
         return;
       }
 
+      if (key === "children") {
+        openChildrenPage();
+        return;
+      }
+
+      if (key === "reviews") {
+        openReviewStory("кирилл");
+        return;
+      }
+
       closeCurrentPageAndScroll(key as keyof typeof desktopScrollTargets);
       setIsMobileMenuOpen(false);
       return;
@@ -1596,11 +1612,59 @@ export default function App() {
       return;
     }
 
+    const mainNav = target?.closest<HTMLElement>("[data-main-nav]");
+
+    if (mainNav?.dataset.mainNav) {
+      event.preventDefault();
+      const navKey = mainNav.dataset.mainNav;
+
+      if (navKey === "adults") {
+        goHome();
+        return;
+      }
+
+      if (navKey === "children") {
+        openChildrenPage();
+        return;
+      }
+
+      if (navKey === "reviews") {
+        openReviewStory("кирилл");
+        return;
+      }
+
+      if (navKey === "about") {
+        openAboutPage();
+        return;
+      }
+    }
+
     const reviewNav = target?.closest<HTMLElement>("[data-review-nav]");
 
     if (reviewNav?.dataset.reviewNav) {
       event.preventDefault();
-      closeCurrentPageAndScroll(reviewNav.dataset.reviewNav as keyof typeof desktopScrollTargets);
+      const navKey = reviewNav.dataset.reviewNav;
+
+      if (navKey === "adults") {
+        goHome();
+        return;
+      }
+
+      if (navKey === "children") {
+        openChildrenPage();
+        return;
+      }
+
+      if (navKey === "reviews") {
+        openReviewStory("кирилл");
+        return;
+      }
+
+      if (navKey === "about") {
+        openAboutPage();
+        return;
+      }
+
       return;
     }
 
@@ -1611,17 +1675,17 @@ export default function App() {
     }
 
     if (text.includes("для взрослых")) {
-      scrollToDesignY(activeScrollTargets.adults);
+      goHome();
       return;
     }
 
     if (text.includes("для детей")) {
-      scrollToDesignY(activeScrollTargets.children);
+      openChildrenPage();
       return;
     }
 
     if (text === "отзывы" || text.includes("смотреть все отзывы")) {
-      scrollToDesignY(activeScrollTargets.reviews);
+      openReviewStory("кирилл");
       return;
     }
 
@@ -1712,6 +1776,7 @@ export default function App() {
           storyKey={activeReviewStory as ReviewStoryKey}
           onBack={goHome}
           headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
         />
       ) : isAboutRoute ? (
         <AboutPage

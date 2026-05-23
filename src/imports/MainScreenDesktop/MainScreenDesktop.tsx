@@ -327,18 +327,18 @@ function Group() {
 function Frame58() {
   return (
     <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0">
-      <div className="h-[17px] relative shrink-0 w-[154px]" data-name="Text">
+      <a className="h-[17px] relative shrink-0 w-[154px]" data-main-nav="adults" data-name="Text" href="/">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
-      </div>
-      <div className="h-[17px] relative shrink-0 w-[114px]" data-name="Text">
+      </a>
+      <a className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://papges.innoprog.ru/children/school">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
-      </div>
-      <div className="h-[17px] relative shrink-0 w-[83px]" data-name="Text">
+      </a>
+      <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="#/reviews/kirill">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
-      </div>
-      <div className="h-[17px] relative shrink-0 w-[63px]" data-name="Text">
+      </a>
+      <a className="h-[17px] relative shrink-0 w-[63px]" data-main-nav="about" data-name="Text" href="#/about">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">о нас</p>
-      </div>
+      </a>
     </div>
   );
 }
