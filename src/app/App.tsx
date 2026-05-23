@@ -65,7 +65,9 @@ const TURNSTILE_TEST_KEY_PREFIX = "1x000";
 const TURNSTILE_SITE_KEY =
   (import.meta as unknown as { env?: { VITE_TURNSTILE_SITE_KEY?: string } }).env
     ?.VITE_TURNSTILE_SITE_KEY || "";
+const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
 const IS_TURNSTILE_ENABLED =
+  !IS_TURNSTILE_TEMPORARILY_HIDDEN &&
   Boolean(TURNSTILE_SITE_KEY) && !TURNSTILE_SITE_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
 
 type LeadPayload = {

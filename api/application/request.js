@@ -2,6 +2,7 @@ const BOT_APPLICATION_URL = "https://bot.innoprog.ru/application/request";
 const BOT_ALLOWED_ORIGIN = "https://innoprog-website.vercel.app";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
+const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
 
 async function readBody(req) {
   if (req.body) {
@@ -112,6 +113,7 @@ export default async function handler(req, res) {
     }
 
     const shouldVerifyCaptcha =
+      !IS_TURNSTILE_TEMPORARILY_HIDDEN &&
       Boolean(process.env.TURNSTILE_SECRET_KEY) &&
       !process.env.TURNSTILE_SECRET_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
 
