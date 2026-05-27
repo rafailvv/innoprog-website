@@ -1058,10 +1058,9 @@ function AboutPage({
             <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
           </section>
         </main>
-
-        <SiteFooter isMobile={isMobile} scale={headerScale} />
       </section>
       </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
     </>
   );
 }
