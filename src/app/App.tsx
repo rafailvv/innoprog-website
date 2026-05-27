@@ -1,7 +1,13 @@
-import MainScreen, { MainScreenDesktopHeader } from "../imports/MainScreenDesktop/MainScreenDesktop";
+import MainScreen, {
+  MainScreenDesktopFooter,
+  MainScreenDesktopHeader,
+} from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
 import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
-import MainScreenMobile, { MainScreenMobileHeader } from "../imports/MainScreenMobile/MainScreenMobile";
+import MainScreenMobile, {
+  MainScreenMobileFooter,
+  MainScreenMobileHeader,
+} from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -381,6 +387,69 @@ const REVIEW_KEYS_BY_ROUTE = {
 
 const REVIEW_STORY_ORDER = ["кирилл", "анастасия", "михаил"] as const satisfies readonly ReviewStoryKey[];
 
+const TARIFFS = [
+  {
+    name: "Базовый",
+    oldPrice: "12 590 ₽/мес.",
+    discount: "-36%",
+    price: "7 990 ₽/мес.",
+    accent: "dark",
+    features: [
+      { text: "4 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЯ В МЕСЯЦ", included: true },
+      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
+      { text: "10 проектов в портфолио", included: true },
+      { text: "Домашние задания и проверка кода преподавателем", included: true },
+      { text: "Ежедневная поддержка куратора в чате", included: true },
+      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: false },
+      { text: "Стажировка после обучения", included: false },
+      { text: "2 тестовых технических собеседования", included: false },
+      { text: "Подготовка резюме с HR-специалистом", included: false },
+    ],
+  },
+  {
+    name: "Расширенный",
+    oldPrice: "23 590 ₽/мес.",
+    discount: "-38%",
+    price: "14 390 ₽/мес.",
+    accent: "purple",
+    features: [
+      { text: "8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
+      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
+      { text: "15 проектов в портфолио", included: true },
+      { text: "Домашние задания и проверка кода преподавателем", included: true },
+      { text: "Ежедневная поддержка куратора в чате", included: true },
+      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: true },
+      { text: "Стажировка после обучения", included: true },
+      { text: "2 тестовых технических собеседования", included: false },
+      { text: "Подготовка резюме с HR-специалистом", included: false },
+    ],
+  },
+  {
+    name: "Персональный",
+    oldPrice: "31 950 ₽/мес.",
+    discount: "-41%",
+    price: "18 890 ₽/мес.",
+    accent: "dark",
+    features: [
+      { text: "8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
+      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
+      { text: "15 проектов в портфолио", included: true },
+      { text: "Домашние задания и проверка кода преподавателем", included: true },
+      { text: "Ежедневная поддержка куратора в чате", included: true },
+      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: true },
+      { text: "Стажировка после обучения", included: true },
+      { text: "2 тестовых технических собеседования", included: true },
+      { text: "Подготовка резюме с HR-специалистом", included: true },
+    ],
+  },
+] as const;
+
 const REVIEW_STORY_CARD_TITLES: Record<ReviewStoryKey, string> = {
   кирилл: "Как Кирилл перешёл из HR в ИТ",
   анастасия: "Как Анастасия перешла из 1С в продукт",
@@ -556,6 +625,14 @@ function getIsAboutRouteFromHash() {
   return window.location.hash === "#/about";
 }
 
+function getIsTariffsRouteFromHash() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.location.hash === "#/tariffs";
+}
+
 function getStorySections(story: ReviewStoryKey) {
   const sections = REVIEW_STORIES[story].sections;
 
@@ -571,7 +648,45 @@ function getStorySections(story: ReviewStoryKey) {
   ];
 }
 
-function SiteFooter() {
+function SiteFooter({
+  isMobile,
+  scale,
+}: {
+  isMobile: boolean;
+  scale: number;
+}) {
+  if (isMobile) {
+    const outerStyle = {
+      height: `${Math.ceil(912 * scale)}px`,
+    };
+    const innerStyle = {
+      width: `${MOBILE_DESIGN.width}px`,
+      height: "912px",
+      transform: `scale(${scale})`,
+    };
+
+    return (
+      <div className="site-main-footer-surface site-main-footer-surface--mobile" style={outerStyle}>
+        <div className="site-main-footer-surface__mobile-canvas" style={innerStyle}>
+          <MainScreenMobileFooter />
+        </div>
+      </div>
+    );
+  }
+
+  const footerStyle = {
+    width: `${DESKTOP_DESIGN.width}px`,
+    zoom: scale,
+  } as CSSProperties & { zoom?: number };
+
+  return (
+    <div className="site-main-footer-surface site-main-footer-surface--desktop" style={footerStyle}>
+      <MainScreenDesktopFooter />
+    </div>
+  );
+}
+
+function LegacySiteFooter() {
   return (
     <footer className="site-review-page__footer">
       <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
@@ -818,7 +933,7 @@ function ReviewStoryPage({
         </section>
       </div>
 
-      <SiteFooter />
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
     </section>
   );
 }
@@ -944,10 +1059,145 @@ function AboutPage({
           </section>
         </main>
 
-        <SiteFooter />
+        <SiteFooter isMobile={isMobile} scale={headerScale} />
       </section>
       </div>
     </>
+  );
+}
+
+function TariffFeature({
+  included,
+  text,
+}: {
+  included: boolean;
+  text: string;
+}) {
+  return (
+    <li className={included ? "site-tariffs-card__feature" : "site-tariffs-card__feature site-tariffs-card__feature--muted"}>
+      <span aria-hidden="true" className="site-tariffs-card__feature-icon">
+        {included ? "✓" : "-"}
+      </span>
+      <span>{text}</span>
+    </li>
+  );
+}
+
+function TariffsPage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const tariffCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [tariffCanvasHeight, setTariffCanvasHeight] = useState(0);
+  const tariffDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const tariffContentShellStyle = isMobile
+    ? { height: `${Math.ceil((tariffCanvasHeight || 3300) * headerScale)}px` }
+    : undefined;
+  const tariffContentCanvasStyle = isMobile
+    ? {
+      width: `${tariffDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${tariffDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = tariffCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setTariffCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-tariffs-page" aria-label="Тарифы">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-tariffs-page__content-shell" style={tariffContentShellStyle}>
+        <div
+          className="site-tariffs-page__content-canvas"
+          ref={tariffCanvasRef}
+          style={tariffContentCanvasStyle}
+        >
+          <div className="site-tariffs-page__inner">
+            <header className="site-tariffs-page__title">
+              <h1>
+                <span>Выгодные</span>
+                <strong>условия оплаты</strong>
+              </h1>
+            </header>
+
+            <section className="site-tariffs-page__conditions" aria-label="Условия оплаты">
+              <article>
+                <h2>Оплата<br />по факту обучения</h2>
+                <p>Без кредитов, рассрочек и скрытых обязательств</p>
+              </article>
+              <article>
+                <h2>Можно вернуть<br />до 13% от цены курса</h2>
+                <p>Воспользуйтесь налоговым вычетом</p>
+              </article>
+            </section>
+
+            <section className="site-tariffs-page__cards" aria-label="Список тарифов">
+              {TARIFFS.map((tariff) => (
+                <article
+                  className={[
+                    "site-tariffs-card",
+                    tariff.accent === "purple" ? "site-tariffs-card--purple" : "site-tariffs-card--dark",
+                  ].join(" ")}
+                  key={tariff.name}
+                >
+                  <h2>{tariff.name}</h2>
+                  <div className="site-tariffs-card__price">
+                    <div>
+                      <span className="site-tariffs-card__old-price">{tariff.oldPrice}</span>
+                      <span className="site-tariffs-card__discount">{tariff.discount}</span>
+                    </div>
+                    <strong>{tariff.price}</strong>
+                  </div>
+                  <button className="site-tariffs-card__button" type="button">записаться</button>
+                  <ul>
+                    {tariff.features.map((feature) => (
+                      <TariffFeature
+                        included={feature.included}
+                        key={`${tariff.name}-${feature.text}`}
+                        text={feature.text}
+                      />
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </section>
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
   );
 }
 
@@ -1105,6 +1355,7 @@ export default function App() {
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(getReviewStoryFromHash);
   const [isAboutRoute, setIsAboutRoute] = useState(getIsAboutRouteFromHash);
+  const [isTariffsRoute, setIsTariffsRoute] = useState(getIsTariffsRouteFromHash);
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -1247,9 +1498,11 @@ export default function App() {
   useEffect(() => {
     const syncRoutes = () => {
       const reviewStory = getReviewStoryFromHash();
+      const aboutRoute = !reviewStory && getIsAboutRouteFromHash();
 
       setActiveReviewStory(reviewStory);
-      setIsAboutRoute(!reviewStory && getIsAboutRouteFromHash());
+      setIsAboutRoute(aboutRoute);
+      setIsTariffsRoute(!reviewStory && !aboutRoute && getIsTariffsRouteFromHash());
     };
 
     syncRoutes();
@@ -1507,12 +1760,17 @@ export default function App() {
   };
 
   const goHome = () => {
-    if (window.location.hash.startsWith("#/reviews/") || window.location.hash === "#/about") {
+    if (
+      window.location.hash.startsWith("#/reviews/") ||
+      window.location.hash === "#/about" ||
+      window.location.hash === "#/tariffs"
+    ) {
       window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
     }
 
     setActiveReviewStory(null);
     setIsAboutRoute(false);
+    setIsTariffsRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
@@ -1523,6 +1781,19 @@ export default function App() {
 
     setActiveReviewStory(null);
     setIsAboutRoute(true);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openTariffsPage = () => {
+    if (window.location.hash !== "#/tariffs") {
+      window.history.pushState(null, "", "#/tariffs");
+    }
+
+    setActiveReviewStory(null);
+    setIsAboutRoute(false);
+    setIsTariffsRoute(true);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
@@ -1644,6 +1915,11 @@ export default function App() {
         return;
       }
 
+      if (key === "tariffs") {
+        openTariffsPage();
+        return;
+      }
+
       if (key === "children") {
         openChildrenPage();
         return;
@@ -1738,6 +2014,11 @@ export default function App() {
         openAboutPage();
         return;
       }
+
+      if (navKey === "tariffs") {
+        openTariffsPage();
+        return;
+      }
     }
 
     const reviewNav = target?.closest<HTMLElement>("[data-review-nav]");
@@ -1763,6 +2044,11 @@ export default function App() {
 
       if (navKey === "about") {
         openAboutPage();
+        return;
+      }
+
+      if (navKey === "tariffs") {
+        openTariffsPage();
         return;
       }
 
@@ -1795,10 +2081,16 @@ export default function App() {
       return;
     }
 
+    if (text.includes("во всех тарифах") || text === "тарифы") {
+      openTariffsPage();
+      return;
+    }
+
     if (
       text.includes("подобрать направление") ||
       text.includes("подобрать курс") ||
-      text.includes("хочу такой же результат")
+      text.includes("хочу такой же результат") ||
+      text.includes("записаться")
     ) {
       openLeadModal();
       return;
@@ -1860,7 +2152,7 @@ export default function App() {
 
   const activeDesign = viewport.design;
   const isReviewRoute = Boolean(activeReviewStory);
-  const isStandaloneRoute = isReviewRoute || isAboutRoute;
+  const isStandaloneRoute = isReviewRoute || isAboutRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
@@ -1879,6 +2171,7 @@ export default function App() {
         viewport.isMobile ? "site-shell--mobile" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isAboutRoute ? "site-shell--about-route" : "",
+        isTariffsRoute ? "site-shell--tariffs-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
@@ -1897,6 +2190,11 @@ export default function App() {
         <AboutPage
           onBack={goHome}
           contentScale={aboutScale}
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isTariffsRoute ? (
+        <TariffsPage
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
         />

@@ -2266,6 +2266,10 @@ function Group8() {
   );
 }
 
+export function MainScreenDesktopFooter() {
+  return <Group8 />;
+}
+
 function Frame126() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0">

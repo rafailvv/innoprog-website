@@ -2916,21 +2916,27 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component4 />
-      <div className="bg-[#464a6a] h-[912px] relative shrink-0 w-full">
-        <div className="content-stretch flex flex-col gap-[22px] items-start pb-[20px] pt-[28px] px-[20px] relative size-full">
-          <Frame92 />
-          <Frame123 />
-          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-full relative shrink-0 text-[12px] text-center text-white tracking-[0.36px] w-[min-content]">
-            {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
-            <br aria-hidden="true" />
-            ИНН 1683011286 ОГРН 1221600105440
-            <br aria-hidden="true" />
-            ОКВЭД: 62.09 (основной), 62.02
-            <br aria-hidden="true" />
-            Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
-          </p>
-          <Group3 />
-        </div>
+      <MainScreenMobileFooter />
+    </div>
+  );
+}
+
+export function MainScreenMobileFooter() {
+  return (
+    <div className="bg-[#464a6a] h-[912px] relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col gap-[22px] items-start pb-[20px] pt-[28px] px-[20px] relative size-full">
+        <Frame92 />
+        <Frame123 />
+        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-full relative shrink-0 text-[12px] text-center text-white tracking-[0.36px] w-[min-content]">
+          {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
+          <br aria-hidden="true" />
+          ИНН 1683011286 ОГРН 1221600105440
+          <br aria-hidden="true" />
+          ОКВЭД: 62.09 (основной), 62.02
+          <br aria-hidden="true" />
+          Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
+        </p>
+        <Group3 />
       </div>
     </div>
   );
