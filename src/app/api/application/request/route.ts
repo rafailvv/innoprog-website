@@ -1,26 +1,14 @@
+import { NextRequest, NextResponse } from "next/server";
+
 const BOT_APPLICATION_URL = "https://bot.innoprog.ru/application/request";
-const BOT_ALLOWED_ORIGIN = "https://innoprog-website.vercel.app";
+const BOT_ALLOWED_ORIGIN = "https://innoprog.ru";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
 const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
 
-async function readBody(req) {
-  if (req.body) {
-    return typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  }
+export const runtime = "nodejs";
 
-  const chunks = [];
-
-  for await (const chunk of req) {
-    chunks.push(Buffer.from(chunk));
-  }
-
-  const rawBody = Buffer.concat(chunks).toString("utf8");
-
-  return rawBody ? JSON.parse(rawBody) : {};
-}
-
-function normalizePhone(rawPhone) {
+function normalizePhone(rawPhone: unknown) {
   const digits = String(rawPhone || "").replace(/\D/g, "");
 
   if (!digits) {
@@ -42,17 +30,17 @@ function normalizePhone(rawPhone) {
   return String(rawPhone || "").trim().startsWith("+") ? `+${digits}` : digits;
 }
 
-function getClientIp(req) {
-  const forwardedFor = req.headers["x-forwarded-for"];
+function getClientIp(req: NextRequest) {
+  const forwardedFor = req.headers.get("x-forwarded-for");
 
-  if (typeof forwardedFor === "string" && forwardedFor) {
+  if (forwardedFor) {
     return forwardedFor.split(",")[0]?.trim();
   }
 
-  return req.socket?.remoteAddress;
+  return req.headers.get("x-real-ip") || undefined;
 }
 
-async function verifyTurnstileToken(token, req) {
+async function verifyTurnstileToken(token: string, req: NextRequest) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
 
   if (!secret || secret.startsWith(TURNSTILE_TEST_KEY_PREFIX)) {
@@ -86,21 +74,18 @@ async function verifyTurnstileToken(token, req) {
   return Boolean(result.success);
 }
 
-export default async function handler(req, res) {
-  if (req.method === "OPTIONS") {
-    res.setHeader("Allow", "POST, OPTIONS");
-    res.status(204).end();
-    return;
-  }
+export function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      Allow: "POST, OPTIONS",
+    },
+  });
+}
 
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST, OPTIONS");
-    res.status(405).json({ ok: false, error: "method_not_allowed" });
-    return;
-  }
-
+export async function POST(req: NextRequest) {
   try {
-    const body = await readBody(req);
+    const body = await req.json().catch(() => ({}));
     const payload = {
       name: String(body.name || "").trim(),
       phone: normalizePhone(body.phone),
@@ -108,8 +93,7 @@ export default async function handler(req, res) {
     const captchaToken = String(body.captchaToken || "").trim();
 
     if (payload.name.length < 2 || payload.phone.replace(/\D/g, "").length < 10) {
-      res.status(400).json({ ok: false, error: "invalid_payload" });
-      return;
+      return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
     }
 
     const shouldVerifyCaptcha =
@@ -118,8 +102,7 @@ export default async function handler(req, res) {
       !process.env.TURNSTILE_SECRET_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
 
     if (shouldVerifyCaptcha && (!captchaToken || !(await verifyTurnstileToken(captchaToken, req)))) {
-      res.status(403).json({ ok: false, error: "captcha_failed" });
-      return;
+      return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
     }
 
     const botResponse = await fetch(BOT_APPLICATION_URL, {
@@ -133,12 +116,11 @@ export default async function handler(req, res) {
     });
 
     if (!botResponse.ok) {
-      res.status(502).json({ ok: false, error: "bot_request_failed" });
-      return;
+      return NextResponse.json({ ok: false, error: "bot_request_failed" }, { status: 502 });
     }
 
-    res.status(200).json({ ok: true });
+    return NextResponse.json({ ok: true });
   } catch {
-    res.status(500).json({ ok: false, error: "internal_error" });
+    return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
 }

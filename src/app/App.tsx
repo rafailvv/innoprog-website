@@ -1,3 +1,5 @@
+"use client";
+
 import MainScreen, {
   MainScreenDesktopFooter,
   MainScreenDesktopHeader,
@@ -68,9 +70,7 @@ const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const LOADER_EXIT_MS = 700;
 const APPLICATION_REQUEST_URL = "/api/application/request";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
-const TURNSTILE_SITE_KEY =
-  (import.meta as unknown as { env?: { VITE_TURNSTILE_SITE_KEY?: string } }).env
-    ?.VITE_TURNSTILE_SITE_KEY || "";
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
 const IS_TURNSTILE_ENABLED =
   !IS_TURNSTILE_TEMPORARILY_HIDDEN &&
@@ -84,6 +84,12 @@ type LeadPayload = {
 type LeadDraft = Partial<LeadPayload>;
 
 type TurnstileStatus = "idle" | "loading" | "ready" | "verified" | "error";
+
+export type AppInitialRoute =
+  | { page: "home" }
+  | { page: "about" }
+  | { page: "tariffs" }
+  | { page: "review"; story: ReviewStoryKey };
 
 type TurnstileApi = {
   render: (
@@ -372,7 +378,7 @@ const REVIEW_STORIES = {
   },
 } as const;
 
-type ReviewStoryKey = keyof typeof REVIEW_STORIES;
+export type ReviewStoryKey = keyof typeof REVIEW_STORIES;
 
 const REVIEW_ROUTES: Record<ReviewStoryKey, string> = {
   кирилл: "kirill",
@@ -617,20 +623,63 @@ function getReviewStoryFromHash(): ReviewStoryKey | null {
   return REVIEW_KEYS_BY_ROUTE[decodeURIComponent(route)] ?? null;
 }
 
-function getIsAboutRouteFromHash() {
-  if (typeof window === "undefined") {
-    return false;
+function getReviewStoryFromPathname(pathname: string): ReviewStoryKey | null {
+  const route = pathname.match(/^\/reviews\/([^/?#]+)/)?.[1];
+
+  if (!route) {
+    return null;
   }
 
-  return window.location.hash === "#/about";
+  return REVIEW_KEYS_BY_ROUTE[decodeURIComponent(route)] ?? null;
 }
 
-function getIsTariffsRouteFromHash() {
+function getRouteFromLocation(): AppInitialRoute {
   if (typeof window === "undefined") {
-    return false;
+    return { page: "home" };
   }
 
-  return window.location.hash === "#/tariffs";
+  const hash = window.location.hash;
+
+  if (hash === "#/about") {
+    window.history.replaceState(null, "", "/about");
+    return { page: "about" };
+  }
+
+  if (hash === "#/tariffs") {
+    window.history.replaceState(null, "", "/tariffs");
+    return { page: "tariffs" };
+  }
+
+  const hashStory = getReviewStoryFromHash();
+
+  if (hashStory) {
+    window.history.replaceState(null, "", `/reviews/${REVIEW_ROUTES[hashStory]}`);
+    return { page: "review", story: hashStory };
+  }
+
+  const pathStory = getReviewStoryFromPathname(window.location.pathname);
+
+  if (pathStory) {
+    return { page: "review", story: pathStory };
+  }
+
+  if (window.location.pathname === "/about") {
+    return { page: "about" };
+  }
+
+  if (window.location.pathname === "/tariffs") {
+    return { page: "tariffs" };
+  }
+
+  return { page: "home" };
+}
+
+function getRouteState(route: AppInitialRoute) {
+  return {
+    activeReviewStory: route.page === "review" ? route.story : null,
+    isAboutRoute: route.page === "about",
+    isTariffsRoute: route.page === "tariffs",
+  };
 }
 
 function getStorySections(story: ReviewStoryKey) {
@@ -1349,12 +1398,19 @@ function TurnstileChallenge({
   return <div className="site-turnstile" ref={containerRef} />;
 }
 
-export default function App() {
+export default function App({
+  initialRoute = { page: "home" },
+}: {
+  initialRoute?: AppInitialRoute;
+}) {
+  const initialRouteState = getRouteState(initialRoute);
   const [viewport, setViewport] = useState(getViewportState);
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
-  const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(getReviewStoryFromHash);
-  const [isAboutRoute, setIsAboutRoute] = useState(getIsAboutRouteFromHash);
-  const [isTariffsRoute, setIsTariffsRoute] = useState(getIsTariffsRouteFromHash);
+  const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
+    initialRouteState.activeReviewStory,
+  );
+  const [isAboutRoute, setIsAboutRoute] = useState(initialRouteState.isAboutRoute);
+  const [isTariffsRoute, setIsTariffsRoute] = useState(initialRouteState.isTariffsRoute);
   const [isReady, setIsReady] = useState(hasLoadedInSession);
   const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
   const [isConsentChecked, setIsConsentChecked] = useState(false);
@@ -1496,12 +1552,12 @@ export default function App() {
 
   useEffect(() => {
     const syncRoutes = () => {
-      const reviewStory = getReviewStoryFromHash();
-      const aboutRoute = !reviewStory && getIsAboutRouteFromHash();
+      const route = getRouteFromLocation();
+      const routeState = getRouteState(route);
 
-      setActiveReviewStory(reviewStory);
-      setIsAboutRoute(aboutRoute);
-      setIsTariffsRoute(!reviewStory && !aboutRoute && getIsTariffsRouteFromHash());
+      setActiveReviewStory(routeState.activeReviewStory);
+      setIsAboutRoute(routeState.isAboutRoute);
+      setIsTariffsRoute(routeState.isTariffsRoute);
     };
 
     syncRoutes();
@@ -1746,25 +1802,25 @@ export default function App() {
       return;
     }
 
-    const nextHash = `#/reviews/${REVIEW_ROUTES[key]}`;
+    const nextPath = `/reviews/${REVIEW_ROUTES[key]}`;
 
-    if (window.location.hash !== nextHash) {
-      window.history.pushState(null, "", nextHash);
+    if (window.location.pathname !== nextPath || window.location.hash) {
+      window.history.pushState(null, "", nextPath);
     }
 
     setActiveReviewStory(key);
     setIsAboutRoute(false);
+    setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const goHome = () => {
     if (
-      window.location.hash.startsWith("#/reviews/") ||
-      window.location.hash === "#/about" ||
-      window.location.hash === "#/tariffs"
+      window.location.pathname !== "/" ||
+      window.location.hash
     ) {
-      window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
+      window.history.pushState(null, "", "/");
     }
 
     setActiveReviewStory(null);
@@ -1774,8 +1830,8 @@ export default function App() {
   };
 
   const openAboutPage = () => {
-    if (window.location.hash !== "#/about") {
-      window.history.pushState(null, "", "#/about");
+    if (window.location.pathname !== "/about" || window.location.hash) {
+      window.history.pushState(null, "", "/about");
     }
 
     setActiveReviewStory(null);
@@ -1786,8 +1842,8 @@ export default function App() {
   };
 
   const openTariffsPage = () => {
-    if (window.location.hash !== "#/tariffs") {
-      window.history.pushState(null, "", "#/tariffs");
+    if (window.location.pathname !== "/tariffs" || window.location.hash) {
+      window.history.pushState(null, "", "/tariffs");
     }
 
     setActiveReviewStory(null);
