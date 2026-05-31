@@ -2670,10 +2670,16 @@ button,
 
   .site-about-hero {
     width: calc(100% - 40px);
-    height: 220px;
+    height: auto;
+    aspect-ratio: 1280 / 700;
     margin: 24px auto 0;
     padding: 24px;
     border-radius: 30px;
+  }
+
+  .site-about-hero img {
+    object-fit: cover;
+    object-position: center;
   }
 
   .site-about-content {
