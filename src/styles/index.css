@@ -1658,6 +1658,19 @@ button,
   padding-left: 1.25em;
 }
 
+.site-about-card--dark ul {
+  list-style: disc outside;
+}
+
+.site-about-card--dark li {
+  display: list-item;
+}
+
+.site-about-card--dark li::marker {
+  color: #ffffff;
+  font-size: 0.72em;
+}
+
 .site-about-card--dark {
   justify-content: flex-start;
   background: #464a6a;
