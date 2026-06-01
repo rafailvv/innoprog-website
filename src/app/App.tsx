@@ -10,6 +10,8 @@ import MainScreenMobile, {
   MainScreenMobileFooter,
   MainScreenMobileHeader,
 } from "../imports/MainScreenMobile/MainScreenMobile";
+import PythonCourseDesktop from "../imports/PythonCourseDesktop/PythonCourseDesktop";
+import PythonCourseMobile from "../imports/PythonCourseMobile/PythonCourseMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -32,7 +34,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
@@ -88,6 +90,7 @@ type TurnstileStatus = "idle" | "loading" | "ready" | "verified" | "error";
 export type AppInitialRoute =
   | { page: "home" }
   | { page: "about" }
+  | { page: "pythonCourse" }
   | { page: "tariffs" }
   | { page: "review"; story: ReviewStoryKey };
 
@@ -499,23 +502,45 @@ const REVIEW_CARD_DATA: Record<
   },
 };
 
-function getViewportState() {
-  if (typeof window === "undefined") {
-    return {
-      isMobile: false,
-      scale: 1,
-      design: DESKTOP_DESIGN,
-    };
-  }
-
-  const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
+function getViewportStateFromWidth(width: number) {
+  const isMobile = width < MOBILE_BREAKPOINT;
   const design = isMobile ? MOBILE_DESIGN : DESKTOP_DESIGN;
 
   return {
     isMobile,
-    scale: window.innerWidth / design.width,
+    scale: width / design.width,
     design,
   };
+}
+
+function subscribeViewport(callback: () => void) {
+  if (typeof window === "undefined") {
+    return () => {};
+  }
+
+  window.addEventListener("resize", callback);
+
+  return () => {
+    window.removeEventListener("resize", callback);
+  };
+}
+
+function getViewportSnapshot() {
+  return typeof window === "undefined" ? String(DESKTOP_DESIGN.width) : String(window.innerWidth);
+}
+
+function getServerViewportSnapshot() {
+  return String(DESKTOP_DESIGN.width);
+}
+
+function useViewportState() {
+  const viewportWidth = Number(useSyncExternalStore(
+    subscribeViewport,
+    getViewportSnapshot,
+    getServerViewportSnapshot,
+  ));
+
+  return getViewportStateFromWidth(viewportWidth);
 }
 
 function getCriticalAssets(isMobile: boolean) {
@@ -633,42 +658,62 @@ function getReviewStoryFromPathname(pathname: string): ReviewStoryKey | null {
   return REVIEW_KEYS_BY_ROUTE[decodeURIComponent(route)] ?? null;
 }
 
-function getRouteFromLocation(): AppInitialRoute {
+function getCleanPathFromHash(): string | null {
   if (typeof window === "undefined") {
-    return { page: "home" };
+    return null;
   }
 
   const hash = window.location.hash;
 
   if (hash === "#/about") {
-    window.history.replaceState(null, "", "/about");
-    return { page: "about" };
+    return "/about";
   }
 
   if (hash === "#/tariffs") {
-    window.history.replaceState(null, "", "/tariffs");
-    return { page: "tariffs" };
+    return "/tariffs";
+  }
+
+  if (hash === "#/python-course") {
+    return "/python-course";
   }
 
   const hashStory = getReviewStoryFromHash();
 
   if (hashStory) {
-    window.history.replaceState(null, "", `/reviews/${REVIEW_ROUTES[hashStory]}`);
-    return { page: "review", story: hashStory };
+    return `/reviews/${REVIEW_ROUTES[hashStory]}`;
   }
 
-  const pathStory = getReviewStoryFromPathname(window.location.pathname);
+  return null;
+}
+
+function getRouteFromLocation(): AppInitialRoute {
+  if (typeof window === "undefined") {
+    return { page: "home" };
+  }
+
+  const cleanHashPath = getCleanPathFromHash();
+  const pathname = cleanHashPath ?? window.location.pathname;
+
+  if (cleanHashPath) {
+    window.history.replaceState(null, "", cleanHashPath);
+  }
+
+  const pathStory = getReviewStoryFromPathname(pathname);
 
   if (pathStory) {
     return { page: "review", story: pathStory };
   }
 
-  if (window.location.pathname === "/about") {
+  if (pathname === "/about") {
     return { page: "about" };
   }
 
-  if (window.location.pathname === "/tariffs") {
+  if (pathname === "/tariffs") {
     return { page: "tariffs" };
+  }
+
+  if (pathname === "/python-course") {
+    return { page: "pythonCourse" };
   }
 
   return { page: "home" };
@@ -678,6 +723,7 @@ function getRouteState(route: AppInitialRoute) {
   return {
     activeReviewStory: route.page === "review" ? route.story : null,
     isAboutRoute: route.page === "about",
+    isPythonCourseRoute: route.page === "pythonCourse",
     isTariffsRoute: route.page === "tariffs",
   };
 }
@@ -1249,6 +1295,112 @@ function TariffsPage({
   );
 }
 
+function PythonCourseHero({ isMobile }: { isMobile: boolean }) {
+  return (
+    <section className="site-python-course-hero" aria-label="Курс Python-разработчик">
+      <div className="site-python-course-hero__copy">
+        <p>профессия</p>
+        <h1>Python-разработчик</h1>
+        <span>
+          Практическое обучение программированию с наставником, платформой и поддержкой до результата.
+        </span>
+        <button type="button">начать обучение</button>
+      </div>
+      <div className="site-python-course-hero__visual" aria-hidden="true">
+        <img className="site-python-course-hero__person" src={heroPersonUrl} alt="" />
+        <img className="site-python-course-hero__laptop" src={platformLaptopUrl} alt="" />
+        <img className="site-python-course-hero__screen" src={platformScreenUrl} alt="" />
+      </div>
+      <div className="site-python-course-hero__facts" aria-label="Ключевые особенности курса">
+        {(isMobile
+          ? ["практика на платформе", "40+ встреч с наставником", "диплом после обучения"]
+          : ["практика на платформе", "40+ персональных встреч", "диплом после обучения"]
+        ).map((fact) => (
+          <span key={fact}>{fact}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PythonCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: `${Math.round(-16 * headerScale)}px`,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Python-разработчик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <PythonCourseMobile />
+            ) : (
+              <PythonCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
 function canScrollCarousel(carousel: HTMLElement, delta: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
@@ -1404,15 +1556,16 @@ export default function App({
   initialRoute?: AppInitialRoute;
 }) {
   const initialRouteState = getRouteState(initialRoute);
-  const [viewport, setViewport] = useState(getViewportState);
+  const viewport = useViewportState();
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
     initialRouteState.activeReviewStory,
   );
   const [isAboutRoute, setIsAboutRoute] = useState(initialRouteState.isAboutRoute);
+  const [isPythonCourseRoute, setIsPythonCourseRoute] = useState(initialRouteState.isPythonCourseRoute);
   const [isTariffsRoute, setIsTariffsRoute] = useState(initialRouteState.isTariffsRoute);
-  const [isReady, setIsReady] = useState(hasLoadedInSession);
-  const [shouldShowLoader, setShouldShowLoader] = useState(() => !hasLoadedInSession());
+  const [isReady, setIsReady] = useState(false);
+  const [shouldShowLoader, setShouldShowLoader] = useState(true);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -1421,7 +1574,42 @@ export default function App({
   const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
-  const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(() => !hasCookieConsent());
+  const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const syncRouteFromLocation = () => {
+      const cleanHashPath = getCleanPathFromHash();
+
+      if (cleanHashPath) {
+        window.location.replace(cleanHashPath);
+        return;
+      }
+
+      const routeState = getRouteState(getRouteFromLocation());
+
+      setActiveReviewStory(routeState.activeReviewStory);
+      setIsAboutRoute(routeState.isAboutRoute);
+      setIsPythonCourseRoute(routeState.isPythonCourseRoute);
+      setIsTariffsRoute(routeState.isTariffsRoute);
+      setIsMobileMenuOpen(false);
+    };
+
+    syncRouteFromLocation();
+    window.addEventListener("popstate", syncRouteFromLocation);
+
+    return () => {
+      window.removeEventListener("popstate", syncRouteFromLocation);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hasLoadedInSession()) {
+      setIsReady(true);
+      setShouldShowLoader(false);
+    }
+
+    setShouldShowCookieBanner(!hasCookieConsent());
+  }, []);
 
   useEffect(() => {
     let rafId = 0;
@@ -1496,19 +1684,6 @@ export default function App({
   }, [isReady]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setViewport(getViewportState());
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!viewport.isMobile) {
       setIsMobileMenuOpen(false);
     }
@@ -1557,6 +1732,7 @@ export default function App({
 
       setActiveReviewStory(routeState.activeReviewStory);
       setIsAboutRoute(routeState.isAboutRoute);
+      setIsPythonCourseRoute(routeState.isPythonCourseRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
     };
 
@@ -1810,6 +1986,7 @@ export default function App({
 
     setActiveReviewStory(key);
     setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -1825,6 +2002,7 @@ export default function App({
 
     setActiveReviewStory(null);
     setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
     setIsTariffsRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
@@ -1836,6 +2014,20 @@ export default function App({
 
     setActiveReviewStory(null);
     setIsAboutRoute(true);
+    setIsPythonCourseRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openPythonCoursePage = () => {
+    if (window.location.pathname !== "/python-course" || window.location.hash) {
+      window.history.pushState(null, "", "/python-course");
+    }
+
+    setActiveReviewStory(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(true);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -1848,6 +2040,7 @@ export default function App({
 
     setActiveReviewStory(null);
     setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
     setIsTariffsRoute(true);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2005,6 +2198,19 @@ export default function App({
       return;
     }
 
+    const carouselActionControl = target?.closest<HTMLElement>(
+      "[data-carousel-action][data-carousel-target]",
+    );
+
+    if (carouselActionControl) {
+      event.preventDefault();
+      scrollCarousel(
+        carouselActionControl.dataset.carouselTarget || "",
+        carouselActionControl.dataset.carouselAction === "prev" ? -1 : 1,
+      );
+      return;
+    }
+
     const mobileDirectionsCarousel = target?.closest<HTMLElement>(
       '[data-carousel="mobile-directions"]',
     );
@@ -2033,6 +2239,14 @@ export default function App({
     if (reviewStoryTrigger) {
       event.preventDefault();
       openReviewStory(reviewStoryTrigger.dataset.reviewStory);
+      return;
+    }
+
+    const pythonCourseLink = target?.closest<HTMLAnchorElement>('a[href="/python-course"]');
+
+    if (pythonCourseLink) {
+      event.preventDefault();
+      openPythonCoursePage();
       return;
     }
 
@@ -2207,7 +2421,7 @@ export default function App({
 
   const activeDesign = viewport.design;
   const isReviewRoute = Boolean(activeReviewStory);
-  const isStandaloneRoute = isReviewRoute || isAboutRoute || isTariffsRoute;
+  const isStandaloneRoute = isReviewRoute || isAboutRoute || isPythonCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
@@ -2226,6 +2440,7 @@ export default function App({
         viewport.isMobile ? "site-shell--mobile" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isAboutRoute ? "site-shell--about-route" : "",
+        isPythonCourseRoute ? "site-shell--python-course-route" : "",
         isTariffsRoute ? "site-shell--tariffs-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
@@ -2245,6 +2460,11 @@ export default function App({
         <AboutPage
           onBack={goHome}
           contentScale={aboutScale}
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isPythonCourseRoute ? (
+        <PythonCoursePage
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
         />

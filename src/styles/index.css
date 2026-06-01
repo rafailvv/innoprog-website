@@ -174,7 +174,8 @@ body {
   transition: color 180ms ease, opacity 180ms ease;
 }
 
-.site-shell:not(.site-shell--review-route):not(.site-shell--about-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
+.site-shell:not(.site-shell--review-route):not(.site-shell--about-route):not(.site-shell--python-course-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
+.site-shell--python-course-route .site-main-header [data-main-nav="adults"] p,
 .site-shell--review-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--about-route .site-main-header [data-main-nav="about"] p {
   color: #6f728a !important;
@@ -347,6 +348,36 @@ button,
 
 .site-carousel > div {
   scroll-snap-align: start;
+}
+
+.site-course-projects-carousel,
+.site-course-reviews-carousel {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  touch-action: pan-x pan-y;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-course-projects-carousel::-webkit-scrollbar,
+.site-course-reviews-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.site-course-projects-carousel > div,
+.site-course-reviews-carousel > div {
+  scroll-snap-align: start;
+}
+
+.site-course-carousel-actions button {
+  border: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .site-teachers-carousel {
@@ -2112,6 +2143,168 @@ button,
   margin-top: 80px;
 }
 
+.site-python-course-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: visible;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+}
+
+.site-python-course-page__content-shell {
+  width: 100%;
+  overflow: visible;
+}
+
+.site-python-course-page__content-canvas {
+  margin: 0 auto;
+  transform-origin: top center;
+}
+
+.site-python-course-page__inner {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+
+.site-course-structure {
+  overflow: visible !important;
+}
+
+.site-course-structure__sticky-side {
+  position: sticky;
+  top: 152px;
+  align-self: flex-start;
+  min-height: 520px;
+  z-index: 2;
+}
+
+.site-course-structure__details {
+  z-index: 1;
+}
+
+.site-python-course-hero {
+  position: relative;
+  width: 1280px;
+  min-height: 720px;
+  overflow: hidden;
+  border-radius: 60px;
+  background:
+    radial-gradient(circle at 72% 36%, rgba(156, 120, 255, 0.45), rgba(70, 74, 106, 0) 33%),
+    linear-gradient(135deg, #464a6a 0%, #464a6a 56%, #9c78ff 100%);
+  color: #ffffff;
+}
+
+.site-python-course-hero__copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  width: 610px;
+  flex-direction: column;
+  gap: 28px;
+  padding: 78px 0 0 72px;
+}
+
+.site-python-course-hero__copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+}
+
+.site-python-course-hero__copy h1 {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 88px;
+  text-transform: uppercase;
+}
+
+.site-python-course-hero__copy span {
+  width: 550px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 38px;
+}
+
+.site-python-course-hero__copy button {
+  width: 420px;
+  min-height: 72px;
+  border: 0;
+  border-radius: 40px;
+  background: #ffffff;
+  color: #464a6a;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.site-python-course-hero__visual {
+  position: absolute;
+  right: -30px;
+  bottom: 18px;
+  width: 690px;
+  height: 560px;
+}
+
+.site-python-course-hero__person {
+  position: absolute;
+  right: 58px;
+  bottom: 194px;
+  z-index: 2;
+  width: 390px;
+  height: auto;
+  mix-blend-mode: darken;
+}
+
+.site-python-course-hero__laptop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 690px;
+  height: auto;
+}
+
+.site-python-course-hero__screen {
+  position: absolute;
+  right: 80px;
+  bottom: 99px;
+  z-index: 2;
+  width: 522px;
+  height: 312px;
+  object-fit: cover;
+}
+
+.site-python-course-hero__facts {
+  position: absolute;
+  left: 72px;
+  bottom: 70px;
+  z-index: 3;
+  display: flex;
+  width: 680px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-python-course-hero__facts span {
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 28px;
+}
+
 .site-cookie-banner {
   position: fixed;
   right: 24px;
@@ -2912,6 +3105,121 @@ button,
     align-items: center;
     gap: 20px;
     margin-top: 48px;
+  }
+
+  .site-python-course-page {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .site-python-course-page__content-canvas {
+    margin-right: auto;
+    margin-left: auto;
+    transform-origin: top center;
+  }
+
+  .site-python-course-page__inner {
+    width: 390px;
+    max-width: 390px;
+    gap: 72px;
+    padding: 8px 0 0;
+  }
+
+  .site-course-structure__sticky-side {
+    position: relative;
+    top: auto;
+  }
+
+  .site-python-course-page__mobile-narrow {
+    width: 350px;
+  }
+
+  .site-python-course-hero {
+    width: 350px;
+    min-height: 700px;
+    border-radius: 40px;
+    background:
+      radial-gradient(circle at 50% 62%, rgba(255, 255, 255, 0.28), rgba(70, 74, 106, 0) 36%),
+      linear-gradient(180deg, #9c78ff 0%, #6f5dcc 32%, #464a6a 58%, #464a6a 100%);
+  }
+
+  .site-python-course-hero__copy {
+    width: 100%;
+    z-index: 6;
+    gap: 12px;
+    padding: 30px 20px 0;
+    text-align: center;
+  }
+
+  .site-python-course-hero__copy p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .site-python-course-hero__copy h1 {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .site-python-course-hero__copy span {
+    width: 100%;
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .site-python-course-hero__copy button {
+    width: 310px;
+    min-height: 56px;
+    margin: 2px auto 0;
+    background: rgba(70, 74, 106, 0.94);
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .site-python-course-hero__visual {
+    right: -86px;
+    bottom: 94px;
+    z-index: 2;
+    width: 520px;
+    height: 330px;
+  }
+
+  .site-python-course-hero__person {
+    right: 160px;
+    bottom: 154px;
+    width: 172px;
+  }
+
+  .site-python-course-hero__laptop {
+    right: 54px;
+    bottom: 0;
+    width: 432px;
+  }
+
+  .site-python-course-hero__screen {
+    right: 104px;
+    bottom: 62px;
+    width: 328px;
+    height: 196px;
+  }
+
+  .site-python-course-hero__facts {
+    left: 20px;
+    bottom: 30px;
+    z-index: 5;
+    width: 310px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .site-python-course-hero__facts span {
+    padding: 8px 13px;
+    font-size: 13px;
+    line-height: 17px;
   }
 
   .site-tariffs-card {

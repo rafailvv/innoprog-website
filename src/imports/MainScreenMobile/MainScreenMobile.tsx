@@ -1149,7 +1149,7 @@ function Frame184() {
   return (
     <div className="content-stretch flex h-[301px] items-center relative shrink-0 w-full site-carousel site-mobile-directions-carousel" data-carousel="mobile-directions" data-carousel-sync>
       <div className="flex flex-row items-center self-stretch">
-        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="https://pages.innoprog.ru/python-course">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/python-course">
           <CourseCardImage index={0} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -2962,6 +2962,22 @@ function Frame173() {
       <Frame176 />
     </div>
   );
+}
+
+export function MainScreenMobileMentorSection() {
+  return <Frame196 />;
+}
+
+export function MainScreenMobileTeachersSection() {
+  return <Frame155 />;
+}
+
+export function MainScreenMobileMeetingsSection() {
+  return <Frame177 />;
+}
+
+export function MainScreenMobileResultsSection() {
+  return <Component2 />;
 }
 
 export default function Component() {

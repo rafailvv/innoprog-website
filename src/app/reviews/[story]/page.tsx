@@ -5,8 +5,10 @@ import {
   REVIEW_META,
   REVIEW_ROUTE_TO_KEY,
   type ReviewRoute,
-  absoluteUrl,
+  breadcrumbJsonLd,
   createPageMetadata,
+  reviewJsonLd,
+  webPageJsonLd,
 } from "../../seo";
 
 function isReviewRoute(value: string): value is ReviewRoute {
@@ -30,6 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ story: st
     title: meta.title,
     description: meta.description,
     path: `/reviews/${story}`,
+    keywords: [`отзыв ${meta.name} ИННОПРОГ`, `история ${meta.name}`, `отзывы ИННОПРОГ`, meta.course],
   });
 }
 
@@ -48,23 +51,20 @@ export default async function ReviewPage({ params }: { params: Promise<{ story: 
 
   return (
     <>
+      <JsonLd data={reviewJsonLd(story)} />
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Review",
-          itemReviewed: {
-            "@type": "EducationalOrganization",
-            name: "ИННОПРОГ",
-            url: absoluteUrl("/"),
-          },
-          author: {
-            "@type": "Person",
-            name: meta.name,
-          },
+        data={webPageJsonLd({
+          path: `/reviews/${story}`,
           name: meta.title,
-          reviewBody: meta.description,
-          url: absoluteUrl(`/reviews/${story}`),
-        }}
+          description: meta.description,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Главная", path: "/" },
+          { name: "Отзывы", path: "/reviews/kirill" },
+          { name: meta.name, path: `/reviews/${story}` },
+        ])}
       />
       <App initialRoute={route} />
     </>

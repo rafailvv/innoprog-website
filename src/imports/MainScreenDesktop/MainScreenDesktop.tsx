@@ -401,7 +401,7 @@ function Frame7() {
 function Frame14() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="https://pages.innoprog.ru/python-course">
+      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="/python-course">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -2353,6 +2353,22 @@ function Group12() {
       </div>
     </div>
   );
+}
+
+export function MainScreenDesktopMentorSection() {
+  return <Component1 />;
+}
+
+export function MainScreenDesktopTeachersSection() {
+  return <Component2 />;
+}
+
+export function MainScreenDesktopMeetingsSection() {
+  return <Frame42 />;
+}
+
+export function MainScreenDesktopResultsSection() {
+  return <Component4 />;
 }
 
 export default function Component() {
