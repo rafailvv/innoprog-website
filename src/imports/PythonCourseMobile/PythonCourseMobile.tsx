@@ -13,9 +13,8 @@ import img18001 from "./40ec54b08771963beaaad715c22e691c4519e3d3.png";
 import img335 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import img420501 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
 import img5134 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.png";
-import imgCircleStackSwirl from "./8c53c63c1e803779f595cb91d7b3744c0433a983.png";
-import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.png";
-import imgDiplomProf1 from "./c4f7145c3280955650d267920f5da895bd1ba9a1.png";
+import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
+import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.png";
 import imgRectangle40083 from "./004de5560ec5b2aefa2edb08a745b9f1e187ccf7.png";
 import imgRectangle40084 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.png";
@@ -26,6 +25,7 @@ import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.png";
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.png";
 import { imgGroup } from "./svg-htygp";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
+import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
 
 const mobileProjectVisuals = [
@@ -2158,6 +2158,11 @@ function Frame93() {
           className="absolute inset-0 size-full object-contain"
           loop
           muted
+          onCanPlay={(event) => {
+            if (event.currentTarget.paused) {
+              void event.currentTarget.play();
+            }
+          }}
           playsInline
           preload="auto"
           src="/videos/course-ai.mp4"
@@ -2262,9 +2267,9 @@ function Frame242() {
 
 function Frame112() {
   return (
-    <div className="bg-[#9c78ff] h-[2324px] relative rounded-[40px] shrink-0 w-full">
-      <div className="overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[115px] items-start px-[20px] py-[32px] relative size-full">
+    <div className="bg-[#9c78ff] min-h-[2324px] relative rounded-[40px] shrink-0 w-full">
+      <div className="overflow-clip rounded-[inherit] w-full">
+        <div className="content-stretch flex flex-col gap-[115px] items-start px-[20px] py-[32px] relative w-full">
           <div className="-translate-x-1/2 absolute h-[147.726px] left-[calc(50%-0.01px)] top-[71.35px] w-[244.657px]" data-name="image 123">
             <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImage123} />
           </div>
@@ -2598,9 +2603,9 @@ function Frame198() {
 
 function Frame33() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[8px] items-end justify-center leading-[28px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0">Что вы получите</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-right">после обучения</p>
+    <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[8px] items-end justify-center leading-[28px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
+      <p className="relative shrink-0">Что вы получите</p>
+      <p className="relative shrink-0 text-right">после обучения</p>
     </div>
   );
 }
@@ -2609,10 +2614,10 @@ function Frame14() {
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-[345px]">
       <div className="h-[110px] relative shrink-0 w-[165px]" data-name="Group 682 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[110px] relative shrink-0 w-[164px]" data-name="diplom_prof 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );
@@ -2620,12 +2625,12 @@ function Frame14() {
 
 function Frame34() {
   return (
-    <div className="[word-break:break-word] content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[167px]">
+    <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
+      <div className="relative shrink-0 w-[167px]">
         <p className="leading-[16px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
         <p className="leading-[16px]">в трудоустройстве</p>
       </div>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] flex-[1_0_0] min-w-px relative">
+      <div className="flex-[1_0_0] min-w-px relative">
         <p className="leading-[16px] mb-0">(2) Удостоверение</p>
         <p className="leading-[16px] mb-0">о повышении квалификации и диплом</p>
         <p className="leading-[16px]">о профпереподготовке установленного образца</p>
@@ -2654,15 +2659,12 @@ function Frame179() {
 
 function Component1() {
   return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[rgba(156,120,255,0.8)] gap-[80px] h-[413px] items-center mb-[-40px] px-[20px] py-[40px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-[390px]" data-name="документы">
-      <div className="-translate-x-1/2 absolute flex h-[373px] items-center justify-center left-[calc(50%-0.5px)] top-[-0.1px] w-[389px]">
-        <div className="-scale-y-100 flex-none">
-          <div className="h-[373px] relative w-[389px]" data-name="Circle_Stack_Swirl">
-            <img alt="" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-50 pointer-events-none size-full" src={imgCircleStackSwirl} />
-          </div>
+    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] min-h-[373px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-full" data-name="документы">
+      <div className="flex flex-col items-center size-full">
+        <div className="content-stretch flex flex-col items-center px-[20px] py-[40px] relative size-full">
+          <Frame179 />
         </div>
       </div>
-      <Frame179 />
     </div>
   );
 }
@@ -3044,17 +3046,20 @@ function MobileCourseProgramModuleCard({
       <div aria-hidden={!isOpen} className="site-course-program-panel-shell">
         <div className="site-course-program-panel">
           <div className="site-course-program-panel-inner">
+            <div className="site-course-program-tags">
+              {module.tags.map((tag) => (
+                <span className="site-course-program-tag" key={tag}>
+                  <CourseProgramTagIcon tag={tag} />
+                  <span className="site-course-program-tag-label">{tag}</span>
+                </span>
+              ))}
+            </div>
             <p className="site-course-program-description">{module.description}</p>
             <ul className="site-course-program-topics">
               {module.topics.map((topic) => (
                 <li key={topic}>{topic}</li>
               ))}
             </ul>
-            <div className="site-course-program-tags">
-              {module.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -3100,7 +3105,7 @@ function Frame280() {
 
 function Component2() {
   return (
-    <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-name="преподаватели">
+    <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0 site-course-render-section site-course-teachers-section" data-name="преподаватели">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px]">
         <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
         <p className="leading-[43px] text-[39px]">преподаватели</p>

@@ -1128,7 +1128,7 @@ function Frame35() {
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(3)</p>
         <Frame109 />
         <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[40px]">
+          <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" decoding="async" loading="eager" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgRectangle40112} />
           </div>
         </div>

@@ -16,9 +16,9 @@ import imgRectangle40094 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import imgRectangle40093 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
 import imgRectangle40095 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.png";
 import imgImage115 from "./6f7c219f8f920445932a5ab496a09907db2bd7ae.png";
-import imgCircleStackSwirl from "./549e891e00c08754b0b0818d11d1e901675b1c26.png";
-import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.png";
-import imgDiplomProf1 from "./c4f7145c3280955650d267920f5da895bd1ba9a1.png";
+import imgCircleStackSwirl from "../MainScreenDesktop/circle-stack-swirl.opt.webp";
+import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
+import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgContraBluestar1 from "./8f9d493ec8bd19b806c3ba56b61df7f250ca9d00.png";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.png";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.png";
@@ -35,6 +35,7 @@ import imgBenefitIconsChatFigma from "../MainScreenDesktop/benefit-icons-chat-fi
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Figma from "../MainScreenDesktop/benefit-card1-figma.png";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
+import { CourseProgramTagIcon } from "../courseProgramIcons";
 
 const projectVisuals = [
   { title: "Склад фруктов", code: "stock.py", icon: "fruit" },
@@ -399,8 +400,11 @@ function Frame67() {
 
 function Frame165() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[1180px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[42px] relative shrink-0 text-[40px] translate-x-[2px] w-full">Курс</p>
+    <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[1280px]">
+      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[42px] relative shrink-0 text-[40px] translate-x-[4px]">Курс</p>
+        <Frame67 />
+      </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">Python - разработчик</p>
     </div>
   );
@@ -416,8 +420,7 @@ function Frame226() {
 
 function Frame201() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-full">
-      <Frame67 />
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Frame226 />
     </div>
   );
@@ -580,13 +583,13 @@ function Frame230() {
 function Frame70() {
   return (
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="site-course-feature-card__content [word-break:break-word] content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[12px] items-center justify-center p-[24px] relative size-full text-black">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[0px] w-full">
-            <span className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] text-[#9c78ff] text-[24px] uppercase">Индивидуальная программа</span>
-            <span className="leading-[36px] text-[24px]">{` `}</span>
+      <div>
+        <div className="site-course-feature-card__content site-course-feature-card__content--clean">
+          <p>
+            <strong className="site-course-feature-line">Индивидуальная программа</strong>
+            <span className="site-course-feature-line">обучения под ваш уровень подготовки,</span>
+            <span className="site-course-feature-line">цели и темп</span>
           </p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[30px] relative shrink-0 text-[24px] w-full">обучения под ваш уровень подготовки, цели и темп</p>
         </div>
       </div>
     </div>
@@ -596,13 +599,12 @@ function Frame70() {
 function Frame72() {
   return (
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="site-course-feature-card__content [word-break:break-word] content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[10px] items-center justify-center p-[24px] relative size-full text-black">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[0px] w-full">
-            <span className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] text-[#9c78ff] text-[24px] uppercase">Живые занятия с преподавателем</span>
-            <span className="leading-[36px] text-[24px]">,</span>
+      <div>
+        <div className="site-course-feature-card__content site-course-feature-card__content--clean">
+          <p>
+            <strong className="site-course-feature-line">Живые занятия с преподавателем,</strong>
+            <span className="site-course-feature-line">а не только материалы в записи</span>
           </p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[30px] relative shrink-0 text-[24px] w-full">а не только материалы в записи</p>
         </div>
       </div>
     </div>
@@ -612,14 +614,12 @@ function Frame72() {
 function Frame71() {
   return (
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="site-course-feature-card__content [word-break:break-word] content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[12px] items-center justify-center p-[24px] relative size-full text-black">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[0px] w-full">
-            <span className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] text-[#9c78ff] text-[24px] uppercase">Обучение с экспертами</span>
-            <span className="leading-[36px] text-[24px]">{` `}</span>
-            <span className="leading-[30px] text-[24px]">{`из Сбера, `}</span>
+      <div>
+        <div className="site-course-feature-card__content site-course-feature-card__content--clean">
+          <p>
+            <span className="site-course-feature-line"><strong>Обучение с экспертами</strong> из Сбера,</span>
+            <span className="site-course-feature-line">Яндекса, МТС, Точки и других компаний</span>
           </p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[30px] relative shrink-0 text-[24px] w-full">Яндекса, МТС, Точки и других компаний</p>
         </div>
       </div>
     </div>
@@ -629,13 +629,13 @@ function Frame71() {
 function Frame69() {
   return (
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="site-course-feature-card__content [word-break:break-word] content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[12px] items-center justify-center p-[24px] relative size-full text-black">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[0px] w-full">
-            <span className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] text-[#9c78ff] text-[24px] uppercase">Практика на платформе Иннопрог</span>
-            <span className="leading-[36px] text-[24px]">{`, `}</span>
+      <div>
+        <div className="site-course-feature-card__content site-course-feature-card__content--clean">
+          <p>
+            <strong className="site-course-feature-line">Практика на платформе Иннопрог,</strong>
+            <span className="site-course-feature-line">работа над проектами и сопровождение</span>
+            <span className="site-course-feature-line">наставника на протяжении всего обучения</span>
           </p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[30px] relative shrink-0 text-[24px] w-full">работа над проектами и сопровождение наставника на протяжении всего обучения</p>
         </div>
       </div>
     </div>
@@ -645,11 +645,13 @@ function Frame69() {
 function Frame68() {
   return (
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
-      <div className="flex flex-col items-center justify-center size-full">
-        <div className="site-course-feature-card__content [word-break:break-word] content-stretch flex flex-col gap-[12px] items-center justify-center p-[24px] relative size-full text-[24px]">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal h-[17px] leading-[30px] relative shrink-0 text-black w-[500px]">{`После завершения обучения — `}</p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] min-w-full relative shrink-0 text-[#9c78ff] uppercase w-[min-content]">возможность пройти стажировку</p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] min-w-full relative shrink-0 text-black w-[min-content]">и применить навыки на практике</p>
+      <div>
+        <div className="site-course-feature-card__content site-course-feature-card__content--clean">
+          <p>
+            <span className="site-course-feature-line">После завершения обучения —</span>
+            <strong className="site-course-feature-line">возможность пройти стажировку</strong>
+            <span className="site-course-feature-line">и применить навыки на практике</span>
+          </p>
         </div>
       </div>
     </div>
@@ -1140,7 +1142,7 @@ function Frame16() {
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(3)</p>
         <Frame64 />
         <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[40px]">
+          <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgBenefitIconsChatFigma} />
           </div>
         </div>
@@ -2161,7 +2163,7 @@ function Frame163() {
 function Frame193() {
   return (
     <div className="content-stretch flex flex-col gap-[208px] items-start relative shrink-0 w-[1280px]">
-      <Frame251 />
+      <Frame258 />
       <Component2 />
       <Frame20 />
       <Frame163 />
@@ -2224,6 +2226,11 @@ function Frame105() {
               className="absolute inset-0 size-full object-contain"
               loop
               muted
+              onCanPlay={(event) => {
+                if (event.currentTarget.paused) {
+                  void event.currentTarget.play();
+                }
+              }}
               playsInline
               preload="auto"
               src="/videos/course-ai.mp4"
@@ -2253,10 +2260,8 @@ function Frame107() {
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col gap-[24px] items-center p-[24px] relative size-full">
           <Frame103 />
-          <div className="h-[468px] relative shrink-0 w-full">
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img alt="" className="absolute h-full left-[0.08%] max-w-none top-0 w-[99.84%]" src={imgRectangle40094} />
-            </div>
+          <div className="aspect-[3024/1790] overflow-hidden relative shrink-0 w-full" data-name="3">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle40094} />
           </div>
         </div>
       </div>
@@ -2339,26 +2344,29 @@ function Frame125() {
 
 function Component3() {
   return (
-    <div className="site-course-structure bg-[#9c78ff] content-stretch flex gap-[24px] h-[3805px] items-start overflow-clip p-[80px] relative rounded-[80px] shrink-0" data-name="структура курса">
-      <div className="absolute flex h-[1809.758px] items-center justify-center left-[-477px] top-[-399px] w-[1917.088px]">
-        <div className="flex-none rotate-[22.09deg]">
-          <div
-            className="h-[1333.056px] opacity-90 pointer-events-none relative w-[1527.983px]"
-            data-name="Balance"
-            style={{
-              background: `url(${imgBalance}) #9c78ff 50% / cover no-repeat`,
-              backgroundBlendMode: "color-burn",
-            }}
-          />
-        </div>
+    <div className="site-course-structure bg-[#9c78ff] content-stretch flex gap-[24px] items-start min-h-[3805px] p-[80px] relative rounded-[80px] shrink-0" data-name="структура курса">
+      <div className="site-course-structure__clip-bg" aria-hidden="true">
+        <div className="absolute bg-[#9c78ff] inset-0" />
       </div>
       <div className="site-course-structure__sticky-side relative shrink-0 w-[465px]">
-        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white uppercase w-[465px]">
+        <div className="site-course-structure__sticky-balance-art" aria-hidden="true">
+          <div className="flex-none rotate-[22.09deg]">
+            <div
+              className="h-[1333.056px] opacity-90 pointer-events-none relative w-[1527.983px]"
+              data-name="Balance"
+              style={{
+                background: `url(${imgBalance}) #9c78ff 50% / cover no-repeat`,
+                backgroundBlendMode: "color-burn",
+              }}
+            />
+          </div>
+        </div>
+        <div className="site-course-structure__sticky-title [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white uppercase w-[465px]">
           <p className="mb-0 whitespace-nowrap">Курс</p>
           <p className="mb-0 whitespace-nowrap">состоит</p>
           <p className="whitespace-nowrap">из</p>
         </div>
-        <div className="absolute h-[147px] left-[157px] top-[188px] w-[291px]" data-name="image 115">
+        <div className="site-course-structure__sticky-arrow absolute h-[147px] left-[157px] top-[188px] w-[291px]" data-name="image 115">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <img alt="" className="absolute h-[156.46%] left-[-9.28%] max-w-none top-[-25.17%] w-[118.56%]" src={imgImage115} />
           </div>
@@ -2664,7 +2672,7 @@ function Frame249() {
 
 function Frame78() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[1440px]">
+    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[1440px] site-course-render-section site-course-after-results-section">
       <Frame259 />
       <Frame249 />
     </div>
@@ -2676,21 +2684,21 @@ function Component5() {
     <div className="absolute h-[968px] left-[-80px] opacity-70 overflow-clip rounded-[40px] top-[-104px] w-[1440px]" style={{ backgroundImage: "linear-gradient(213.954deg, rgb(66, 190, 248) 10.648%, rgb(255, 255, 255) 8.7589%, rgb(156, 120, 255) 45.956%, rgb(66, 190, 248) 73.988%, rgb(156, 120, 255) 101.48%)" }} data-name="слово дня">
       <div className="absolute left-0 size-[1304px] top-[-135px]" />
       <div className="absolute blur-[37.15px] h-[1191px] left-[-66px] top-[-56px] w-[1242px]" style={{ backgroundImage: "linear-gradient(135.943deg, rgb(255, 255, 255) 3.2894%, rgba(137, 101, 234, 0.67) 51.298%)" }} />
-      <div className="absolute flex h-[3865.744px] items-center justify-center left-[-1014px] top-[-1556px] w-[3914.288px]">
+      <div className="absolute flex h-[3865.744px] items-center justify-center left-[-1014px] top-[-1556px] w-[3914.288px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
         <div className="-scale-y-100 flex-none rotate-[13.7deg]">
           <div className="h-[3186.072px] relative rounded-[40px] w-[3252.149px]" data-name="Circle_Stack_Swirl">
-            <img alt="" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
+            <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
           </div>
         </div>
       </div>
       <div className="-translate-x-1/2 absolute h-0 left-1/2 top-[1022px] w-[1086px]">
         <div className="absolute inset-[-0.5px_0]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1086 1">
-            <path d="M0 0.5H1086" id="Vector 12" stroke="var(--stroke-0, white)" strokeOpacity="0.6" />
+            <path d="M0 0.5H1086" id="Vector 12" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
           </svg>
         </div>
       </div>
-      <p className="[word-break:break-word] absolute font-['JetBrains_Mono:Regular',sans-serif] font-normal leading-[normal] left-[943px] text-[#f9f9f9] text-[24px] top-[968px] whitespace-nowrap">{`{//}`}</p>
+      <p className="absolute font-['JetBrains_Mono:Regular',sans-serif] font-normal leading-[normal] left-[943px] text-[#f9f9f9] text-[24px] top-[968px] whitespace-nowrap">{`{//}`}</p>
     </div>
   );
 }
@@ -2699,8 +2707,8 @@ function Frame42() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
       <Component5 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Что вы получите</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[64px] text-right text-white uppercase whitespace-nowrap">после обучения</p>
+      <p className="font-['Raleway:Bold',sans-serif] font-bold h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Что вы получите</p>
+      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[64px] text-right text-white uppercase whitespace-nowrap">после обучения</p>
     </div>
   );
 }
@@ -2709,10 +2717,10 @@ function Frame21() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
-      <div className="h-[310px] relative shrink-0 w-[465px]" data-name="diplom_prof 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+      <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
+        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );
@@ -2720,9 +2728,12 @@ function Frame21() {
 
 function Frame43() {
   return (
-    <div className="[word-break:break-word] content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between relative shrink-0 text-[24px] text-white w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[30px] relative shrink-0 w-[628px]">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает в трудоустройстве</p>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 w-[628px]">
+    <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between leading-[0] relative shrink-0 text-[24px] text-white w-full">
+      <div className="relative shrink-0 w-[628px]">
+        <p className="leading-[30px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
+        <p className="leading-[30px]">в трудоустройстве</p>
+      </div>
+      <div className="relative shrink-0 w-[628px]">
         <p className="leading-[30px] mb-0">(2) Удостоверение о повышении квалификации</p>
         <p className="leading-[30px]">и диплом о профпереподготовке установленного образца</p>
       </div>
@@ -3125,17 +3136,20 @@ function CourseProgramModuleCard({
       <div aria-hidden={!isOpen} className="site-course-program-panel-shell">
         <div className="site-course-program-panel">
           <div className="site-course-program-panel-inner">
+            <div className="site-course-program-tags">
+              {module.tags.map((tag) => (
+                <span className="site-course-program-tag" key={tag}>
+                  <CourseProgramTagIcon tag={tag} />
+                  <span className="site-course-program-tag-label">{tag}</span>
+                </span>
+              ))}
+            </div>
             <p className="site-course-program-description">{module.description}</p>
             <ul className="site-course-program-topics">
               {module.topics.map((topic) => (
                 <li key={topic}>{topic}</li>
               ))}
             </ul>
-            <div className="site-course-program-tags">
-              {module.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -3163,7 +3177,7 @@ function Frame110() {
 
 function Component6() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center overflow-hidden py-[80px] relative rounded-[40px] shrink-0 w-full site-course-program-section" data-name="программа">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center overflow-hidden py-[80px] relative rounded-[40px] shrink-0 w-full site-course-render-section site-course-program-section" data-name="программа">
       <div className="absolute flex h-[2579.243px] items-center justify-center left-[-228px] pointer-events-none top-[-849px] w-[2601.092px] site-course-program-star-wrap">
         <div className="-rotate-30 flex-none">
           <div
@@ -3364,7 +3378,7 @@ function Frame51() {
 
 function Component7() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center py-[80px] relative rounded-[40px] shrink-0 w-[1440px]" data-name="преподаватели">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-teachers-section" data-name="преподаватели">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[96px] text-center text-white uppercase w-[1280px]">
         <span className="leading-[97px] text-[rgba(255,255,255,0.4)]">наши</span>
         <span className="leading-[97px]">{` преподаватели`}</span>
@@ -3840,8 +3854,8 @@ function Frame66() {
 
 function Component8() {
   return (
-    <div className="bg-[#9c78ff] content-stretch flex flex-col gap-[80px] items-start py-[80px] relative rounded-[40px] shrink-0 w-[1440px]" data-name="отзывы">
-      <div className="absolute flex h-[1305.563px] items-center justify-center left-[-318px] top-[-150px] w-[2187.149px]">
+    <div className="bg-[#9c78ff] content-stretch flex flex-col gap-[80px] items-start py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-reviews-section" data-name="отзывы">
+      <div className="absolute flex h-[1305.563px] items-center justify-center left-[-318px] top-[-150px] w-[2187.149px] site-course-reviews-bg">
         <div className="flex-none rotate-[-100.48deg]">
           <div className="h-[2048.76px] relative w-[948.755px]" data-name="Cloned_Circles_2">
             <img alt="" className="absolute inset-0 max-w-none mix-blend-lighten object-cover pointer-events-none size-full" src={imgClonedCircles2} />
@@ -4733,7 +4747,7 @@ function Frame252() {
 
 function Component10() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-center relative shrink-0 w-[1280px]" data-name="тариф">
+    <div className="content-stretch flex flex-col gap-[80px] items-center relative shrink-0 w-[1280px] site-course-render-section" data-name="тариф">
       <Frame203 />
       <Frame179 />
       <Frame252 />
@@ -4931,7 +4945,7 @@ function Frame60() {
 
 function Component11() {
   return (
-    <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="заявка">
+    <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full site-course-render-section" data-name="заявка">
       <div className="flex flex-row items-end justify-center size-full">
         <div className="content-stretch flex items-end justify-between px-[80px] py-[104px] relative size-full">
           <Frame254 />
@@ -5426,64 +5440,83 @@ function Frame195WithoutFooter() {
 function Frame202WithoutHeaderFooter() {
   return (
     <div className="content-stretch flex flex-col gap-[104px] items-center relative shrink-0 w-full">
-      <Frame230 />
-      <Frame166 />
+      <CourseTopSurface />
       <Frame195WithoutFooter />
     </div>
+  );
+}
+
+function CourseTopBackground() {
+  return (
+    <>
+      <div className="absolute bg-[#9c78ff] inset-0" />
+      <div className="absolute flex h-[2878.892px] items-center justify-center left-[-396px] top-[254px] w-[2836.465px]">
+        <div className="flex-none rotate-[-23.78deg]">
+          <div
+            className="h-[2209.064px] opacity-90 pointer-events-none relative w-[2126.168px]"
+            data-name="Focus"
+            style={{
+              background: `url(${imgFocus}) #9c78ff 50% / cover no-repeat`,
+              backgroundBlendMode: "color-burn",
+            }}
+          />
+        </div>
+      </div>
+      <div className="absolute h-[686px] left-[80px] top-[1710px] w-[1280px]">
+        <div className="absolute inset-[-29.15%_-15.63%]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 1086">
+            <g filter="url(#filter0_f_1_2632)" id="Ellipse 7">
+              <ellipse cx="840" cy="543" fill="var(--fill-0, white)" fillOpacity="0.4" rx="640" ry="343" />
+            </g>
+            <defs>
+              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1086" id="filter0_f_1_2632" width="1680" x="0" y="0">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
+                <feGaussianBlur result="effect1_foregroundBlur_1_2632" stdDeviation="100" />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div className="absolute h-[1007px] left-[94px] top-[186px] w-[1236px]">
+        <div className="absolute inset-[-19.86%_-16.18%]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1636 1407">
+            <g filter="url(#filter0_f_1_2491)" id="Ellipse 6">
+              <ellipse cx="818" cy="703.5" fill="var(--fill-0, white)" fillOpacity="0.4" rx="618" ry="503.5" />
+            </g>
+            <defs>
+              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1407" id="filter0_f_1_2491" width="1636" x="0" y="0">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
+                <feGaussianBlur result="effect1_foregroundBlur_1_2491" stdDeviation="100" />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function CourseTopSurface() {
+  return (
+    <section className="site-python-course-top-surface">
+      <CourseTopBackground />
+      <div className="site-python-course-top-surface__content">
+        <Frame230 />
+        <Frame166 />
+        <div className="site-python-course-top-surface__advantages">
+          <Frame231 />
+        </div>
+      </div>
+    </section>
   );
 }
 
 export default function PythonCourseDesktop() {
   return (
     <div className="bg-white overflow-visible relative w-[1440px]" data-name="python course desktop">
-      <div className="absolute h-[2705px] left-0 overflow-hidden rounded-bl-[40px] rounded-br-[40px] top-[4px] w-[1440px]">
-        <div className="absolute bg-[#9c78ff] inset-0" />
-        <div className="absolute flex h-[2878.892px] items-center justify-center left-[-396px] top-[450px] w-[2836.465px]">
-          <div className="flex-none rotate-[-23.78deg]">
-            <div
-              className="h-[2209.064px] opacity-90 pointer-events-none relative w-[2126.168px]"
-              data-name="Focus"
-              style={{
-                background: `url(${imgFocus}) #9c78ff 50% / cover no-repeat`,
-                backgroundBlendMode: "color-burn",
-              }}
-            />
-          </div>
-        </div>
-        <div className="absolute h-[686px] left-[80px] top-[1906px] w-[1280px]">
-          <div className="absolute inset-[-29.15%_-15.63%]">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 1086">
-              <g filter="url(#filter0_f_1_2632)" id="Ellipse 7">
-                <ellipse cx="840" cy="543" fill="var(--fill-0, white)" fillOpacity="0.4" rx="640" ry="343" />
-              </g>
-              <defs>
-                <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1086" id="filter0_f_1_2632" width="1680" x="0" y="0">
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_1_2632" stdDeviation="100" />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-        </div>
-        <div className="absolute h-[1007px] left-[94px] top-[382px] w-[1236px]">
-          <div className="absolute inset-[-19.86%_-16.18%]">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1636 1407">
-              <g filter="url(#filter0_f_1_2491)" id="Ellipse 6">
-                <ellipse cx="818" cy="703.5" fill="var(--fill-0, white)" fillOpacity="0.4" rx="618" ry="503.5" />
-              </g>
-              <defs>
-                <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1407" id="filter0_f_1_2491" width="1636" x="0" y="0">
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                  <feGaussianBlur result="effect1_foregroundBlur_1_2491" stdDeviation="100" />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div className="content-stretch flex flex-col items-center pb-[104px] pt-[192px] relative w-full">
+      <div className="content-stretch flex flex-col items-center pb-[104px] relative w-full">
         <Frame202WithoutHeaderFooter />
       </div>
     </div>

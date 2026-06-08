@@ -70,7 +70,7 @@ const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const LOADER_EXIT_MS = 700;
-const APPLICATION_REQUEST_URL = "/api/application/request";
+const APPLICATION_REQUEST_URL = "/application/request";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
@@ -81,6 +81,8 @@ const IS_TURNSTILE_ENABLED =
 type LeadPayload = {
   name: string;
   phone: string;
+  email?: string;
+  question?: string;
 };
 
 type LeadDraft = Partial<LeadPayload>;
@@ -183,10 +185,12 @@ function normalizePhone(rawPhone: string) {
   return digits;
 }
 
-function findLeadInputValue(scope: ParentNode, names: string[]) {
+function findLeadFieldValue(scope: ParentNode, names: string[]) {
   for (const name of names) {
-    const input = scope.querySelector<HTMLInputElement>(`input[name="${name}"]`);
-    const value = input?.value.trim();
+    const field = scope.querySelector<HTMLInputElement | HTMLTextAreaElement>(
+      `input[name="${name}"], textarea[name="${name}"]`,
+    );
+    const value = field?.value.trim();
 
     if (value) {
       return value;
@@ -198,14 +202,18 @@ function findLeadInputValue(scope: ParentNode, names: string[]) {
 
 function getLeadPayload(scope?: ParentNode | null): LeadPayload {
   const root = scope || document;
-  const name = findLeadInputValue(root, ["name", "modal-name"]);
-  const phone = normalizePhone(findLeadInputValue(root, ["phone", "modal-phone"]));
+  const name = findLeadFieldValue(root, ["name", "modal-name"]);
+  const phone = normalizePhone(findLeadFieldValue(root, ["phone", "modal-phone"]));
+  const email = findLeadFieldValue(root, ["email", "modal-email"]);
+  const question = findLeadFieldValue(root, ["question", "modal-question"]);
 
-  return { name, phone };
+  return { name, phone, email, question };
 }
 
 function isLeadPayloadValid(payload: LeadPayload) {
-  return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10;
+  const isEmailValid = !payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
+
+  return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10 && isEmailValid;
 }
 
 async function sendLeadApplication(payload: LeadPayload, captchaToken?: string) {
@@ -1623,6 +1631,66 @@ function PythonCoursePage({
     };
   }, [headerScale, isMobile]);
 
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+
+        if (image.getBoundingClientRect().top > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+
+    const refreshId = window.setTimeout(tuneMedia, 250);
+    const videos = Array.from(canvas.querySelectorAll<HTMLVideoElement>("video"));
+
+    videos.forEach((video) => {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+    });
+
+    if (videos.length === 0 || typeof IntersectionObserver === "undefined") {
+      return () => {
+        window.clearTimeout(refreshId);
+      };
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+
+        if (entry.isIntersecting) {
+          void video.play().catch(() => undefined);
+          return;
+        }
+
+        video.pause();
+      });
+    }, { rootMargin: "320px 0px", threshold: 0.01 });
+
+    videos.forEach((video) => {
+      observer.observe(video);
+    });
+
+    return () => {
+      window.clearTimeout(refreshId);
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
   return (
     <section className="site-python-course-page" aria-label="Python-разработчик">
       <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
@@ -2133,13 +2201,16 @@ export default function App({
     document
       .querySelectorAll<HTMLElement>('[data-name="заявка"] [data-name="кнопки пд"]')
       .forEach((button) => {
-        button.setAttribute("aria-disabled", String(!isConsentChecked));
+        const isDisabled = !isConsentChecked || isLeadSubmitting;
+
+        button.setAttribute("aria-disabled", String(isDisabled));
+        button.setAttribute("aria-busy", String(isLeadSubmitting));
 
         if (button instanceof HTMLButtonElement) {
-          button.disabled = !isConsentChecked;
+          button.disabled = isDisabled;
         }
       });
-  }, [isConsentChecked, viewport.isMobile, leadModalState]);
+  }, [isConsentChecked, viewport.isMobile, leadModalState, isLeadSubmitting]);
 
   useEffect(() => {
     const handleConsentClick = (event: globalThis.MouseEvent) => {
@@ -2351,6 +2422,10 @@ export default function App({
   };
 
   const submitLeadApplication = async (source?: ParentNode | null) => {
+    if (isLeadSubmitting) {
+      return;
+    }
+
     if (!isConsentChecked) {
       setIsConsentError(true);
       return;
@@ -2361,7 +2436,15 @@ export default function App({
     setLeadDraft(payload);
 
     if (!isLeadPayloadValid(payload)) {
-      setLeadFormError("Заполните имя и корректный номер телефона.");
+      const hasEmailField = Boolean(
+        (source || document).querySelector('input[name="email"], input[name="modal-email"]'),
+      );
+
+      setLeadFormError(
+        hasEmailField
+          ? "Заполните имя, корректный номер телефона и проверьте почту."
+          : "Заполните имя и корректный номер телефона.",
+      );
 
       if (leadModalState === "closed") {
         setLeadModalState("form");
@@ -2518,6 +2601,17 @@ export default function App({
     if (consentToggle && !target?.closest("a")) {
       event.preventDefault();
       toggleConsent();
+      return;
+    }
+
+    const courseLeadSubmit = target?.closest<HTMLElement>('[data-name="заявка"] .site-course-lead-submit');
+
+    if (courseLeadSubmit) {
+      event.preventDefault();
+
+      const leadSection = courseLeadSubmit.closest<HTMLElement>('[data-name="заявка"]');
+
+      void submitLeadApplication(leadSection || event.currentTarget);
       return;
     }
 

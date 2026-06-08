@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BOT_APPLICATION_URL = "https://bot.innoprog.ru/application/request";
+const BOT_APPLICATION_URL =
+  process.env.APPLICATION_REQUEST_PROXY_URL || "https://bot.innoprog.ru/application/request";
 const BOT_ALLOWED_ORIGIN = "https://innoprog.ru";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
@@ -89,6 +90,8 @@ export async function POST(req: NextRequest) {
     const payload = {
       name: String(body.name || "").trim(),
       phone: normalizePhone(body.phone),
+      email: String(body.email || "").trim(),
+      question: String(body.question || "").trim(),
     };
     const captchaToken = String(body.captchaToken || "").trim();
 

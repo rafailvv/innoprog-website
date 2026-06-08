@@ -1836,7 +1836,7 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
 
   return (
     <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[40px]">
+      <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
         <img alt="" decoding="async" loading="lazy" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgBenefitIconsChat} />
       </div>
     </div>
