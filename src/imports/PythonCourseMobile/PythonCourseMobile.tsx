@@ -1,3 +1,4 @@
+import { useState, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.png";
 import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.png";
@@ -24,6 +25,184 @@ import imgRectangle40087 from "./dffabcf9253f8840fc97552d03f9a59b8a13fb24.png";
 import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.png";
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.png";
 import { imgGroup } from "./svg-htygp";
+import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
+import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+
+const mobileProjectVisuals = [
+  { title: "Склад фруктов", code: "stock.py", icon: "fruit" },
+  { title: "HR база", code: "salary.py", icon: "people" },
+  { title: "Менеджер задач", code: "tasks.py", icon: "kanban" },
+  { title: "Telegram задачи", code: "bot.py", icon: "taskBot" },
+  { title: "Бронирование поездок", code: "booking.py", icon: "route" },
+  { title: "Пассажирские перевозки", code: "fleet.py", icon: "bus" },
+  { title: "Склад товаров", code: "warehouse.py", icon: "box" },
+  { title: "Key-Value storage", code: "tree.py", icon: "tree" },
+  { title: "Прогноз погоды", code: "weather.py", icon: "cloud" },
+  { title: "Telegram погода", code: "weather_bot.py", icon: "weatherBot" },
+  { title: "Бронирование столиков", code: "tables_bot.py", icon: "calendar" },
+  { title: "Telegram-магазин", code: "shop_bot.py", icon: "botShop" },
+  { title: "Django каталог", code: "catalog/", icon: "catalog" },
+  { title: "Магазин с корзиной", code: "cart/", icon: "basket" },
+  { title: "Production Django", code: "deploy.sh", icon: "server" },
+];
+
+function MobileProjectVisual({ index }: { index: number }) {
+  const item = mobileProjectVisuals[index] ?? mobileProjectVisuals[0];
+  const gradientId = `mobileProjectGradient${index}`;
+  const accent = ["#72e7ff", "#ffe186", "#76f4cf", "#f4f1ff"][index % 4];
+  const icon = item.icon;
+
+  return (
+    <div className="h-[195px] overflow-hidden relative rounded-[32px] shrink-0 w-full site-course-mobile-project-visual">
+      <svg aria-hidden className="absolute inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 351 195">
+        <defs>
+          <linearGradient id={gradientId} x1="15" x2="336" y1="8" y2="186" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#9C78FF" />
+            <stop offset="0.62" stopColor="#7A50F2" />
+            <stop offset="1" stopColor="#464A6A" />
+          </linearGradient>
+        </defs>
+        <rect fill={`url(#${gradientId})`} height="195" rx="32" width="351" />
+        <circle cx="287" cy="35" fill={accent} opacity="0.42" r="82" />
+        <path d="M-35 159C43 107 104 119 168 150C243 187 290 168 391 91" stroke="white" strokeOpacity="0.23" strokeWidth="30" />
+        <rect fill="rgba(255,255,255,0.84)" height="108" rx="16" width="192" x="24" y="34" />
+        <rect fill="#25283A" height="24" rx="10" width="164" x="38" y="48" />
+        <circle cx="52" cy="60" fill="#FF7A8A" r="4" />
+        <circle cx="66" cy="60" fill="#FFE186" r="4" />
+        <circle cx="80" cy="60" fill="#76F4CF" r="4" />
+        <rect fill="#F4F1FF" height="54" rx="11" width="74" x="38" y="83" />
+        <rect fill="#EEE8FF" height="10" rx="5" width="48" x="51" y="95" />
+        <rect fill="#9C78FF" height="8" rx="4" width="42" x="51" y="116" />
+        <rect fill="#202334" height="54" rx="11" width="78" x="124" y="83" />
+        <path d="M138 99H187M138 115H176M138 130H190" stroke={accent} strokeLinecap="round" strokeWidth="5" />
+        <rect fill="rgba(255,255,255,0.32)" height="88" rx="18" width="88" x="229" y="61" />
+        {icon === "fruit" && (
+          <>
+            <circle cx="263" cy="104" fill="#76F4CF" r="22" />
+            <circle cx="286" cy="116" fill="#FFE186" r="18" />
+            <path d="M263 78C274 71 284 74 291 82" stroke="#25283A" strokeLinecap="round" strokeWidth="6" />
+          </>
+        )}
+        {icon === "people" && (
+          <>
+            <circle cx="263" cy="99" fill="#FFE186" r="16" />
+            <circle cx="291" cy="104" fill="#76F4CF" r="14" />
+            <path d="M242 139C247 117 278 116 284 139" fill="#25283A" />
+            <path d="M276 139C281 122 309 122 313 139" fill="#464A6A" />
+          </>
+        )}
+        {icon === "kanban" && (
+          <>
+            <rect fill="#F4F1FF" height="58" rx="12" width="68" x="239" y="81" />
+            <path d="M260 81V139M281 81V139" stroke="#9C78FF" strokeOpacity="0.55" strokeWidth="4" />
+            <rect fill="#76F4CF" height="13" rx="5" width="16" x="246" y="94" />
+            <rect fill="#FFE186" height="17" rx="5" width="16" x="269" y="103" />
+            <rect fill="#25283A" height="22" rx="5" width="16" x="291" y="94" />
+          </>
+        )}
+        {icon === "taskBot" && (
+          <>
+            <path d="M238 96C238 82 250 73 273 73C295 73 309 84 309 100C309 116 294 125 271 125H259L242 139L246 123C240 119 238 108 238 96Z" fill="#F4F1FF" />
+            <path d="M257 98L268 109L289 86" stroke="#76F4CF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="7" />
+            <rect fill="#9C78FF" height="7" rx="3.5" width="28" x="269" y="116" />
+          </>
+        )}
+        {icon === "route" && (
+          <>
+            <path d="M241 136C270 75 269 76 308 133" stroke="#F4F1FF" strokeLinecap="round" strokeWidth="9" />
+            <circle cx="241" cy="136" fill="#76F4CF" r="10" />
+            <circle cx="308" cy="133" fill="#FFE186" r="10" />
+            <circle cx="269" cy="76" fill="#25283A" r="9" />
+          </>
+        )}
+        {icon === "bus" && (
+          <>
+            <rect fill="#F4F1FF" height="52" rx="12" width="74" x="237" y="90" />
+            <rect fill="#9C78FF" height="18" rx="6" width="58" x="245" y="99" />
+            <circle cx="255" cy="142" fill="#25283A" r="7" />
+            <circle cx="294" cy="142" fill="#25283A" r="7" />
+          </>
+        )}
+        {icon === "box" && (
+          <>
+            <path d="M274 76L310 97V130L274 150L238 130V97L274 76Z" fill="#F4F1FF" />
+            <path d="M238 97L274 118L310 97M274 118V150" stroke="#9C78FF" strokeLinejoin="round" strokeWidth="6" />
+          </>
+        )}
+        {icon === "tree" && (
+          <>
+            <circle cx="274" cy="80" fill="#FFE186" r="15" />
+            <circle cx="247" cy="126" fill="#76F4CF" r="15" />
+            <circle cx="302" cy="126" fill="#F4F1FF" r="15" />
+            <path d="M274 95V111M274 111L247 119M274 111L302 119" stroke="#25283A" strokeLinecap="round" strokeWidth="5" />
+          </>
+        )}
+        {icon === "cloud" && (
+          <>
+            <path d="M238 118C238 104 249 96 263 97C269 84 288 81 298 93C312 94 318 104 318 117C318 131 308 139 293 139H256C246 139 238 132 238 118Z" fill="#F4F1FF" />
+            <path d="M254 153L264 139M286 156L296 140" stroke="#72E7FF" strokeLinecap="round" strokeWidth="6" />
+          </>
+        )}
+        {icon === "weatherBot" && (
+          <>
+            <path d="M238 95C238 81 250 72 273 72C296 72 310 83 310 99C310 115 295 124 272 124H260L242 139L247 122C240 118 238 107 238 95Z" fill="#F4F1FF" />
+            <path d="M253 102C253 93 260 88 270 89C274 81 287 79 293 86C303 87 307 94 307 102C307 112 299 117 288 117H266C258 117 253 112 253 102Z" fill="#72E7FF" opacity="0.85" />
+          </>
+        )}
+        {icon === "calendar" && (
+          <>
+            <rect fill="#F4F1FF" height="64" rx="12" width="72" x="238" y="84" />
+            <path d="M238 106H310" stroke="#9C78FF" strokeWidth="7" />
+            <rect fill="#464A6A" height="10" rx="5" width="38" x="256" y="127" />
+          </>
+        )}
+        {icon === "botShop" && (
+          <>
+            <path d="M238 94C238 80 250 72 273 72C295 72 309 83 309 99C309 115 294 124 272 124H260L242 139L246 122C240 118 238 106 238 94Z" fill="#F4F1FF" />
+            <path d="M257 91H268L275 115H294L300 99H271" stroke="#9C78FF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" />
+            <circle cx="278" cy="122" fill="#25283A" r="4" />
+            <circle cx="293" cy="122" fill="#25283A" r="4" />
+          </>
+        )}
+        {icon === "catalog" && (
+          <>
+            <rect fill="#F4F1FF" height="64" rx="12" width="74" x="237" y="84" />
+            <rect fill="#9C78FF" height="20" rx="6" width="24" x="247" y="95" />
+            <rect fill="#76F4CF" height="20" rx="6" width="24" x="283" y="95" />
+            <path d="M249 130H298" stroke="#25283A" strokeLinecap="round" strokeWidth="6" />
+          </>
+        )}
+        {icon === "basket" && (
+          <>
+            <path d="M244 96H308L298 142H254L244 96Z" fill="#F4F1FF" />
+            <path d="M258 96C262 80 291 80 295 96" stroke="#25283A" strokeLinecap="round" strokeWidth="7" />
+            <path d="M263 119H293" stroke="#9C78FF" strokeLinecap="round" strokeWidth="7" />
+          </>
+        )}
+        {icon === "server" && (
+          <>
+            <rect fill="#25283A" height="28" rx="8" width="76" x="236" y="84" />
+            <rect fill="#F4F1FF" height="28" rx="8" width="76" x="236" y="122" />
+            <circle cx="252" cy="98" fill="#76F4CF" r="4" />
+            <circle cx="252" cy="136" fill="#9C78FF" r="4" />
+            <path d="M265 98H298M265 136H298" stroke={accent} strokeLinecap="round" strokeWidth="4" />
+          </>
+        )}
+        <text fill="white" fontFamily="Manrope, Arial, sans-serif" fontSize="18" fontWeight="700" x="24" y="166">{item.title}</text>
+        <text fill="rgba(255,255,255,0.72)" fontFamily="JetBrains Mono, monospace" fontSize="12" x="24" y="183">{item.code}</text>
+      </svg>
+    </div>
+  );
+}
+
+function MobileProjectCard({ index, children }: { index: number; children: ReactNode }) {
+  return (
+    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
+      <MobileProjectVisual index={index} />
+      {children}
+    </div>
+  );
+}
 
 function scrollCourseCarousel(id: string, direction: number) {
   const carousel = document.querySelector<HTMLElement>(`[data-carousel="${id}"]`);
@@ -252,9 +431,9 @@ function Frame238() {
 
 function Frame61() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
+    <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
+        <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
             <span className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] text-[#9c78ff] text-[16px] uppercase">{`Индивидуальная программа `}</span>
             <span className="leading-[18px] text-[16px]">обучения под ваш уровень подготовки, цели и темп</span>
@@ -267,9 +446,9 @@ function Frame61() {
 
 function Frame63() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
+    <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
+        <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
           <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px] whitespace-pre-wrap">
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] mb-0 text-[#9c78ff] text-[16px] uppercase">Живые занятия</p>
             <p className="mb-0 text-[16px]">
@@ -286,9 +465,9 @@ function Frame63() {
 
 function Frame62() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
+    <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
+        <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
           <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] mb-0 text-[#9c78ff] text-[16px] uppercase">Обучение с экспертами</p>
             <p className="leading-[18px] mb-0 text-[16px]">из Сбера, Яндекса, МТС, Точки</p>
@@ -302,9 +481,9 @@ function Frame62() {
 
 function Frame60() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
+    <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
+        <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
           <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
             <p className="mb-0 text-[16px]">
               <span className="[word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] text-[#9c78ff] tracking-[0.48px] uppercase">Практика на платформе INNOPROG</span>
@@ -320,9 +499,9 @@ function Frame60() {
 
 function Frame59() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
+    <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
+        <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
             <span className="leading-[18px] text-[16px]">{`После завершения обучения — `}</span>
             <span className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] text-[#9c78ff] text-[16px] uppercase">{`возможность пройти стажировку `}</span>
@@ -336,8 +515,8 @@ function Frame59() {
 
 function Frame65() {
   return (
-    <div className="bg-[rgba(70,74,106,0.5)] relative rounded-[40px] shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[16px] items-start p-[16px] relative size-full">
+    <div className="site-course-feature-list site-course-feature-list--mobile bg-[rgba(70,74,106,0.5)] relative rounded-[40px] shrink-0 w-full">
+      <div className="site-course-feature-list__inner content-stretch flex flex-col gap-[16px] items-start p-[16px] relative size-full">
         <Frame61 />
         <Frame63 />
         <Frame62 />
@@ -437,7 +616,7 @@ function Frame149() {
 
 function Frame151() {
   return (
-    <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-start ml-0 mt-0 p-[16px] relative rounded-[32px] row-1 w-[350px]">
+    <div className="site-course-advantage-card site-course-advantage-card--white bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-start ml-0 mt-0 p-[16px] relative rounded-[32px] row-1 w-[350px]">
       <Frame28 />
       <Frame27 />
       <Frame149 />
@@ -447,7 +626,7 @@ function Frame151() {
 
 function Frame30() {
   return (
-    <div className="[word-break:break-word] bg-[rgba(70,74,106,0.6)] col-1 content-stretch flex flex-col gap-[12px] items-start ml-0 mt-[431px] px-[20px] py-[16px] relative rounded-[32px] row-1 text-white w-[259px]">
+    <div className="site-course-advantage-card site-course-advantage-card--platform [word-break:break-word] bg-[rgba(70,74,106,0.6)] col-1 content-stretch flex flex-col gap-[12px] items-start ml-0 mt-[431px] px-[20px] py-[16px] relative rounded-[32px] row-1 text-white w-[259px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Обучающая платформа</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
         <p className="leading-[17px] mb-0">Закрепляйте полученные навыки</p>
@@ -477,7 +656,7 @@ function Frame150() {
 
 function Frame31() {
   return (
-    <div className="[word-break:break-word] col-1 content-stretch flex flex-col gap-[16px] items-start ml-[54.15px] mt-[258px] px-[20px] py-[16px] relative rounded-[32px] row-1 text-white w-[295.845px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 295.85 182\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'0.4000000059604645\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.0576e-16 9.1 -14.792 5.5721e-16 147.92 91)\\'><stop stop-color=\\'rgba(255,255,255,1)\\' offset=\\'0.26442\\'/><stop stop-color=\\'rgba(206,188,255,1)\\' offset=\\'0.63221\\'/><stop stop-color=\\'rgba(181,154,255,1)\\' offset=\\'0.81611\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }}>
+    <div className="site-course-advantage-card site-course-advantage-card--purple [word-break:break-word] col-1 content-stretch flex flex-col gap-[16px] items-start ml-[54.15px] mt-[258px] px-[20px] py-[16px] relative rounded-[32px] row-1 text-white w-[295.845px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 295.85 182\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'0.4000000059604645\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.0576e-16 9.1 -14.792 5.5721e-16 147.92 91)\\'><stop stop-color=\\'rgba(255,255,255,1)\\' offset=\\'0.26442\\'/><stop stop-color=\\'rgba(206,188,255,1)\\' offset=\\'0.63221\\'/><stop stop-color=\\'rgba(181,154,255,1)\\' offset=\\'0.81611\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }}>
       <Frame32 />
       <Frame150 />
     </div>
@@ -599,7 +778,10 @@ function Frame278() {
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] uppercase w-full">
         <p className="leading-[20px] mb-0">Python входит в число самых востребованных языков программирования</p>
-        <p className="leading-[20px]">по данным hh.ru</p>
+        <p className="leading-[20px]">
+          по данным{" "}
+          <a className="site-course-inline-link" href="https://career.hh.ru/profession/50" rel="noopener noreferrer" target="_blank">hh.ru</a>
+        </p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
         <p className="leading-[18px] mb-0">Python активно применяют в разработке сайтов, приложений, автоматизации</p>
@@ -648,7 +830,10 @@ function Frame168() {
       <Frame278 />
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-full">
         <p className="leading-[32px] mb-0">Уровень дохода Python-разработчика</p>
-        <p className="leading-[32px]">по данным hh.ru</p>
+        <p className="leading-[32px]">
+          по данным{" "}
+          <a className="site-course-inline-link" href="https://career.hh.ru/profession/50" rel="noopener noreferrer" target="_blank">hh.ru</a>
+        </p>
       </div>
       <Frame277 />
     </div>
@@ -998,7 +1183,7 @@ function Frame83() {
 
 function Frame239() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center justify-center ml-0 mt-[619px] p-[20px] relative rounded-[24px] row-1 w-[276px]">
+    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center justify-center ml-0 mt-[619px] p-[20px] relative rounded-[24px] row-1 w-[276px]">
       <Frame83 />
     </div>
   );
@@ -1006,7 +1191,7 @@ function Frame239() {
 
 function Frame146() {
   return (
-    <div className="[word-break:break-word] bg-[rgba(84,110,122,0.8)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-[91px] mt-[432px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[259px]">
+    <div className="site-internship-card site-internship-card--gray [word-break:break-word] bg-[rgba(84,110,122,0.8)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-[91px] mt-[432px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[259px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] w-full">
         <p className="leading-[18px] mb-0">4. Поддержка</p>
         <p className="leading-[18px] mb-0">от наставников</p>
@@ -1023,7 +1208,7 @@ function Frame146() {
 
 function Frame84() {
   return (
-    <div className="[word-break:break-word] bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[298px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[350px]">
+    <div className="site-internship-card site-internship-card--purple [word-break:break-word] bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[298px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[350px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] w-full">
         <p className="leading-[18px] mb-0">3. Профессиональные</p>
         <p className="leading-[18px]">ИТ-инструменты</p>
@@ -1051,7 +1236,7 @@ function Frame() {
 
 function Frame85() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center ml-[92px] mt-0 p-[20px] relative rounded-[24px] row-1 w-[258px]">
+    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center ml-[92px] mt-0 p-[20px] relative rounded-[24px] row-1 w-[258px]">
       <Frame />
     </div>
   );
@@ -1059,7 +1244,7 @@ function Frame85() {
 
 function Frame86() {
   return (
-    <div className="[word-break:break-word] bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[141px] p-[20px] relative rounded-[24px] row-1 text-[#464a6a] text-center w-[259px]">
+    <div className="site-internship-card site-internship-card--white [word-break:break-word] bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[141px] p-[20px] relative rounded-[24px] row-1 text-[#464a6a] text-center w-[259px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">2. Проект под ваш уровень подготовки</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
         <p className="leading-[16px] mb-0">Мы подбираем задачи и формат участия с учетом ваших текущих навыков, чтобы вы могли постепенно включаться</p>
@@ -1124,7 +1309,7 @@ function Frame114() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Bold',sans-serif] font-bold gap-[8px] items-start relative shrink-0 w-[131px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[18px] relative shrink-0 w-full">Python-разработчик</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[15px] relative shrink-0 uppercase w-full">Венедиктов Рафаил</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[15px] relative shrink-0 uppercase w-full">Иванов Иван</p>
     </div>
   );
 }
@@ -1141,8 +1326,8 @@ function Frame115() {
 function Frame116() {
   return (
     <div className="content-stretch flex gap-[8px] items-end justify-center relative shrink-0">
-      <div className="relative rounded-[16px] shrink-0 size-[51px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[16px] size-full" src={imgRectangle40091} />
+      <div className="overflow-hidden relative rounded-[16px] shrink-0 size-[51px]">
+        <img alt="" className="absolute inset-0 max-w-none object-cover object-top pointer-events-none rounded-[16px] size-full" src={imgRectangle40091} />
       </div>
       <Frame115 />
     </div>
@@ -1151,9 +1336,9 @@ function Frame116() {
 
 function Frame87() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start leading-[20px] relative shrink-0 text-black text-right w-[120px]">
+    <div className="content-stretch flex flex-col gap-[8px] items-start leading-[20px] relative shrink-0 text-black text-right w-[128px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light relative shrink-0 text-[10px] tracking-[0.3px] w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase w-full">от 120 000 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 120 000 ₽</p>
     </div>
   );
 }
@@ -1966,8 +2151,18 @@ function Frame89() {
 function Frame93() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-      <div className="bg-[#d9d9d9] h-[187px] relative shrink-0 w-full" />
       <Frame89 />
+      <div className="aspect-[1148/720] overflow-hidden relative rounded-[16px] shrink-0 w-full">
+        <video
+          autoPlay
+          className="absolute inset-0 size-full object-contain"
+          loop
+          muted
+          playsInline
+          preload="auto"
+          src="/videos/course-ai.mp4"
+        />
+      </div>
     </div>
   );
 }
@@ -1991,10 +2186,10 @@ function Frame91() {
 function Frame95() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
+      <Frame91 />
       <div className="aspect-[3024/1790] relative shrink-0 w-full" data-name="3 35">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img335} />
       </div>
-      <Frame91 />
     </div>
   );
 }
@@ -2295,73 +2490,58 @@ function Frame82() {
 function Frame197() {
   return (
     <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full site-carousel site-course-projects-carousel" data-carousel="python-mobile-projects">
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      <MobileProjectCard index={0}>
         <Frame68 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={1}>
         <Frame69 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={2}>
         <Frame70 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={3}>
         <Frame71 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={4}>
         <Frame72 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={5}>
         <Frame73 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={6}>
         <Frame74 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={7}>
         <Frame75 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={8}>
         <Frame76 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={9}>
         <Frame77 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={10}>
         <Frame78 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={11}>
         <Frame79 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={12}>
         <Frame80 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={13}>
         <Frame81 />
-      </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
-        <div className="bg-[#d9d9d9] h-[195px] relative rounded-[32px] shrink-0 w-full" />
+      </MobileProjectCard>
+      <MobileProjectCard index={14}>
         <Frame82 />
-      </div>
+      </MobileProjectCard>
     </div>
   );
 }
 
 function Frame18() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 site-course-carousel-actions">
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 site-course-carousel-actions site-course-carousel-actions--projects">
       <button aria-label="Предыдущие проекты" className="bg-transparent flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="python-mobile-projects" onClick={(event) => handleCourseCarouselClick(event, "python-mobile-projects", -1)} type="button">
         <div className="-scale-y-100 flex-none rotate-180">
           <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
@@ -2835,53 +3015,67 @@ function Frame113() {
   );
 }
 
-function Frame201() {
+function MobileCourseProgramModuleCard({
+  module,
+  index,
+  isOpen,
+  onToggle,
+}: {
+  module: CourseProgramModule;
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <div className="content-stretch cursor-pointer flex flex-col items-start relative shrink-0 w-full">
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame98 />
+    <div className={`site-course-program-module site-course-program-module--mobile ${isOpen ? "is-open" : ""}`}>
+      <button
+        aria-expanded={isOpen}
+        className="site-course-program-toggle"
+        onClick={onToggle}
+        type="button"
+      >
+        <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
+        <span className="site-course-program-chevron" aria-hidden>
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.7295 28.7282">
+            <path d={svgPaths.p16c30c80} stroke="currentColor" />
+          </svg>
+        </span>
       </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame99 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame104 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame105 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame106 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame107 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame108 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame109 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame110 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame111 />
-      </button>
-      <button className="content-stretch flex items-start justify-center px-[20px] py-[16px] relative shrink-0 w-[389px]">
-        <div aria-hidden className="absolute border-b border-solid border-t border-white inset-0 pointer-events-none" />
-        <Frame113 />
-      </button>
+      <div aria-hidden={!isOpen} className="site-course-program-panel-shell">
+        <div className="site-course-program-panel">
+          <div className="site-course-program-panel-inner">
+            <p className="site-course-program-description">{module.description}</p>
+            <ul className="site-course-program-topics">
+              {module.topics.map((topic) => (
+                <li key={topic}>{topic}</li>
+              ))}
+            </ul>
+            <div className="site-course-program-tags">
+              {module.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Frame201() {
+  const [openIndex, setOpenIndex] = useState(-1);
+
+  return (
+    <div className="site-course-program-list site-course-program-list--mobile">
+      {pythonCourseProgramModules.map((module, index) => (
+        <MobileCourseProgramModuleCard
+          key={module.title}
+          index={index}
+          isOpen={openIndex === index}
+          module={module}
+          onToggle={() => setOpenIndex((current) => (current === index ? -1 : index))}
+        />
+      ))}
     </div>
   );
 }
@@ -3138,7 +3332,7 @@ function Frame200() {
       <Frame112 />
       <Frame198 />
       <Frame280 />
-      <Frame244 />
+      <MainScreenMobileTeachersSection />
       <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[75.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[91px]">
         <p className="leading-[18px] mb-0">Начинающий</p>
         <p className="leading-[18px]">(Junior)</p>
@@ -3212,9 +3406,9 @@ function Frame253() {
 
 function Frame250() {
   return (
-    <div className="content-stretch flex items-center justify-center py-[8px] relative shrink-0 w-full">
+    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="vildan" type="button">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </div>
+    </button>
   );
 }
 
@@ -3291,9 +3485,9 @@ function Frame255() {
 
 function Frame256() {
   return (
-    <div className="content-stretch flex items-center justify-center py-[8px] relative shrink-0 w-full">
+    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="veniamin" type="button">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </div>
+    </button>
   );
 }
 
@@ -3370,9 +3564,9 @@ function Frame258() {
 
 function Frame259() {
   return (
-    <div className="content-stretch flex items-center justify-center py-[8px] relative shrink-0 w-full">
+    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="ilya" type="button">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </div>
+    </button>
   );
 }
 
@@ -3446,9 +3640,9 @@ function Frame261() {
 
 function Frame262() {
   return (
-    <div className="content-stretch flex items-center justify-center py-[8px] relative shrink-0 w-full">
+    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="andrey" type="button">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </div>
+    </button>
   );
 }
 
@@ -3611,25 +3805,25 @@ function Frame15() {
 function Frame248() {
   return (
     <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-mobile-reviews">
-      <div className="bg-white relative rounded-[32px] shrink-0 w-[258px]" data-name="отзвывы все">
+      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="vildan" data-name="отзвывы все" role="button" tabIndex={0}>
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame216 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </div>
-      <div className="bg-white relative rounded-[32px] shrink-0 w-[258px]" data-name="отзвывы все">
+      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="veniamin" data-name="отзвывы все" role="button" tabIndex={0}>
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame217 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </div>
-      <div className="bg-white relative rounded-[32px] shrink-0 w-[258px]" data-name="отзвывы все">
+      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="ilya" data-name="отзвывы все" role="button" tabIndex={0}>
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame226 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </div>
-      <div className="bg-white relative rounded-[32px] shrink-0 w-[258px]" data-name="отзвывы все">
+      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="andrey" data-name="отзвывы все" role="button" tabIndex={0}>
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame231 />
         </div>
@@ -3744,7 +3938,7 @@ function Frame204() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-[350px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[0px] text-black text-center uppercase w-[301px]">
-        <p className="leading-[32px] mb-0 text-[#9c78ff] text-[51px]">Выгодные</p>
+        <p className="leading-[32px] mb-0 relative text-[#9c78ff] text-[51px] top-[-6px]">Выгодные</p>
         <p className="leading-[32px] text-[32px]">условия</p>
       </div>
       <Frame157 />
@@ -4409,27 +4603,9 @@ function Frame247() {
 function Frame161() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <button className="bg-[rgba(156,120,255,0.6)] cursor-pointer relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex items-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-[rgba(255,255,255,0.8)] text-left uppercase whitespace-nowrap">Ваше имя</p>
-          </div>
-        </div>
-      </button>
-      <div className="bg-[rgba(156,120,255,0.6)] relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex items-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-[rgba(255,255,255,0.8)] uppercase whitespace-nowrap">+7(000)-000-00-00</p>
-          </div>
-        </div>
-      </div>
-      <button className="bg-[rgba(156,120,255,0.6)] cursor-pointer relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center size-full">
-          <div className="content-stretch flex items-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-[rgba(255,255,255,0.8)] text-left uppercase whitespace-nowrap">почта</p>
-          </div>
-        </div>
-      </button>
+      <input aria-label="Ваше имя" autoComplete="name" className="site-course-lead-input site-course-lead-input--mobile" name="name" placeholder="Ваше имя" type="text" />
+      <input aria-label="Номер телефона" autoComplete="tel" className="site-course-lead-input site-course-lead-input--mobile" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
+      <input aria-label="Почта" autoComplete="email" className="site-course-lead-input site-course-lead-input--mobile" name="email" placeholder="Почта" type="email" />
     </div>
   );
 }
@@ -4438,26 +4614,27 @@ function Frame49() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame161 />
-      <div className="bg-[rgba(156,120,255,0.6)] h-[107px] relative rounded-[40px] shrink-0 w-full">
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[14px] relative shrink-0 text-[12px] text-[rgba(255,255,255,0.8)] uppercase whitespace-nowrap">ваш вопрос</p>
-          </div>
-        </div>
-      </div>
+      <textarea aria-label="Ваш вопрос" className="site-course-lead-input site-course-lead-input--mobile site-course-lead-input--question" name="question" placeholder="Ваш вопрос" />
     </div>
   );
 }
 
 function Frame50() {
   return (
-    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
-      <div className="relative rounded-[2px] shrink-0 size-[24px]" data-name="чекбокс">
-        <div aria-hidden className="absolute border border-[rgba(156,120,255,0.4)] border-solid inset-0 pointer-events-none rounded-[2px]" />
+    <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-course-consent" data-consent-toggle role="checkbox" tabIndex={0}>
+      <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
+        <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
+        <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
+          <path d="M5 12.5L10 17.5L19 7" />
+        </svg>
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-white">
-        <span className="leading-[16px] text-[12px]">{`Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с `}</span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[16px] text-[12px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
+        <span className="leading-[16px] text-[12px]">Нажимая на кнопку, вы даете </span>
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[16px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">
+          <span>согласие на обработку персональных данных</span>
+        </a>
+        <span className="leading-[16px] text-[12px]">{` и соглашаетесь с `}</span>
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[16px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
           <span>политикой конфиденциальности</span>
         </a>
       </p>
@@ -4469,10 +4646,10 @@ function Frame51() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame50 />
-      <div className="content-stretch flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[350px]" data-name="кнопки пд">
+      <button className="content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[350px] site-course-lead-submit site-course-lead-submit--mobile" data-name="кнопки пд" type="button">
         <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
-      </div>
+      </button>
     </div>
   );
 }
@@ -4503,7 +4680,7 @@ function Frame209() {
 function Frame118() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start relative shrink-0 uppercase w-[349px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-black w-[min-content]">{`Часто задаваемые `}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-black top-[-8px] w-[min-content]">{`Часто задаваемые `}</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[#9c78ff] text-[40px] text-right whitespace-nowrap">вопросы</p>
     </div>
   );

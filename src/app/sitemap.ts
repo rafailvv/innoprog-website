@@ -11,6 +11,12 @@ const routes = [
   { path: "/reviews/kirill", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews/anastasia", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews/mikhail", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/python-course/reviews/maria", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/python-course/reviews/vladimir", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/python-course/reviews/vildan", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/python-course/reviews/veniamin", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/python-course/reviews/ilya", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/python-course/reviews/andrey", changeFrequency: "monthly", priority: 0.65 },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

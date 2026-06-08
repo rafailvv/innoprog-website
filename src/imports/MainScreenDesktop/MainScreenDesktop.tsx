@@ -1936,9 +1936,9 @@ function Component7() {
 
 function Frame125() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-start leading-[92px] relative shrink-0 text-[96px] uppercase w-[694px]">
-      <p className="relative shrink-0 w-full">{`заявка `}</p>
-      <p className="relative shrink-0 w-full">на обучение</p>
+    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold items-center justify-center leading-[92px] relative shrink-0 text-[96px] uppercase w-[1000px]">
+      <p className="relative shrink-0 whitespace-nowrap">заявка</p>
+      <p className="relative shrink-0 whitespace-nowrap">на обучение</p>
     </div>
   );
 }
