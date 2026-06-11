@@ -1,196 +1,65 @@
 import { useState, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.png";
-import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.png";
-import imgRectangle40113 from "./8b6fbdf5ce2f58eb13079dafd921c74432233a33.png";
-import imgRectangle40114 from "./4a306b2c86f71e6b23c94b353df62e69192fa41a.png";
-import imgRectangle40115 from "./0d127c5dd8d9545f360ee9becde636b817532452.png";
-import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.png";
-import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.png";
+import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
+import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
+import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
+import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
+import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.opt.webp";
 import imgImage52 from "./438bc548f7863d8ef2b783a4cb669ce08d59b346.png";
 import imgImage123 from "./6f94b00dc436fda0e2abe13ee6583f19665d3066.png";
-import img18001 from "./40ec54b08771963beaaad715c22e691c4519e3d3.png";
+import img18001 from "./40ec54b08771963beaaad715c22e691c4519e3d3.opt.webp";
 import img335 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import img420501 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
-import img5134 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.png";
+import img5134 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.opt.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
-import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.png";
-import imgRectangle40083 from "./004de5560ec5b2aefa2edb08a745b9f1e187ccf7.png";
-import imgRectangle40084 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.png";
-import imgRectangle40085 from "./2cbe57953beca1178afd27d1f71884d7d612b585.png";
-import imgRectangle40086 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.png";
-import imgRectangle40087 from "./dffabcf9253f8840fc97552d03f9a59b8a13fb24.png";
-import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.png";
-import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.png";
+import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.opt.webp";
+import imgRectangle40083 from "./004de5560ec5b2aefa2edb08a745b9f1e187ccf7.opt.webp";
+import imgRectangle40084 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.opt.webp";
+import imgRectangle40085 from "./2cbe57953beca1178afd27d1f71884d7d612b585.opt.webp";
+import imgRectangle40086 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.opt.webp";
+import imgRectangle40087 from "./dffabcf9253f8840fc97552d03f9a59b8a13fb24.opt.webp";
+import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.opt.webp";
+import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.opt.webp";
 import { imgGroup } from "./svg-htygp";
+import { courseFaqItems } from "../courseFaqData";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
+import { courseProjectVisualImages } from "../courseProjectVisualImages";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
 
 const mobileProjectVisuals = [
-  { title: "Склад фруктов", code: "stock.py", icon: "fruit" },
-  { title: "HR база", code: "salary.py", icon: "people" },
-  { title: "Менеджер задач", code: "tasks.py", icon: "kanban" },
-  { title: "Telegram задачи", code: "bot.py", icon: "taskBot" },
-  { title: "Бронирование поездок", code: "booking.py", icon: "route" },
-  { title: "Пассажирские перевозки", code: "fleet.py", icon: "bus" },
-  { title: "Склад товаров", code: "warehouse.py", icon: "box" },
-  { title: "Key-Value storage", code: "tree.py", icon: "tree" },
-  { title: "Прогноз погоды", code: "weather.py", icon: "cloud" },
-  { title: "Telegram погода", code: "weather_bot.py", icon: "weatherBot" },
-  { title: "Бронирование столиков", code: "tables_bot.py", icon: "calendar" },
-  { title: "Telegram-магазин", code: "shop_bot.py", icon: "botShop" },
-  { title: "Django каталог", code: "catalog/", icon: "catalog" },
-  { title: "Магазин с корзиной", code: "cart/", icon: "basket" },
-  { title: "Production Django", code: "deploy.sh", icon: "server" },
+  { title: "Склад фруктов", code: "stock.py" },
+  { title: "HR база", code: "salary.py" },
+  { title: "Менеджер задач", code: "tasks.py" },
+  { title: "Telegram задачи", code: "bot.py" },
+  { title: "Бронирование поездок", code: "booking.py" },
+  { title: "Пассажирские перевозки", code: "fleet.py" },
+  { title: "Склад товаров", code: "warehouse.py" },
+  { title: "Key-Value storage", code: "tree.py" },
+  { title: "Прогноз погоды", code: "weather.py" },
+  { title: "Telegram погода", code: "weather_bot.py" },
+  { title: "Бронирование столиков", code: "tables_bot.py" },
+  { title: "Telegram-магазин", code: "shop_bot.py" },
+  { title: "Django каталог", code: "catalog/" },
+  { title: "Магазин с корзиной", code: "cart/" },
+  { title: "Production Django", code: "deploy.sh" },
 ];
 
 function MobileProjectVisual({ index }: { index: number }) {
   const item = mobileProjectVisuals[index] ?? mobileProjectVisuals[0];
-  const gradientId = `mobileProjectGradient${index}`;
-  const accent = ["#72e7ff", "#ffe186", "#76f4cf", "#f4f1ff"][index % 4];
-  const icon = item.icon;
+  const image = courseProjectVisualImages[index] ?? courseProjectVisualImages[0];
 
   return (
-    <div className="h-[195px] overflow-hidden relative rounded-[32px] shrink-0 w-full site-course-mobile-project-visual">
-      <svg aria-hidden className="absolute inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 351 195">
-        <defs>
-          <linearGradient id={gradientId} x1="15" x2="336" y1="8" y2="186" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#9C78FF" />
-            <stop offset="0.62" stopColor="#7A50F2" />
-            <stop offset="1" stopColor="#464A6A" />
-          </linearGradient>
-        </defs>
-        <rect fill={`url(#${gradientId})`} height="195" rx="32" width="351" />
-        <circle cx="287" cy="35" fill={accent} opacity="0.42" r="82" />
-        <path d="M-35 159C43 107 104 119 168 150C243 187 290 168 391 91" stroke="white" strokeOpacity="0.23" strokeWidth="30" />
-        <rect fill="rgba(255,255,255,0.84)" height="108" rx="16" width="192" x="24" y="34" />
-        <rect fill="#25283A" height="24" rx="10" width="164" x="38" y="48" />
-        <circle cx="52" cy="60" fill="#FF7A8A" r="4" />
-        <circle cx="66" cy="60" fill="#FFE186" r="4" />
-        <circle cx="80" cy="60" fill="#76F4CF" r="4" />
-        <rect fill="#F4F1FF" height="54" rx="11" width="74" x="38" y="83" />
-        <rect fill="#EEE8FF" height="10" rx="5" width="48" x="51" y="95" />
-        <rect fill="#9C78FF" height="8" rx="4" width="42" x="51" y="116" />
-        <rect fill="#202334" height="54" rx="11" width="78" x="124" y="83" />
-        <path d="M138 99H187M138 115H176M138 130H190" stroke={accent} strokeLinecap="round" strokeWidth="5" />
-        <rect fill="rgba(255,255,255,0.32)" height="88" rx="18" width="88" x="229" y="61" />
-        {icon === "fruit" && (
-          <>
-            <circle cx="263" cy="104" fill="#76F4CF" r="22" />
-            <circle cx="286" cy="116" fill="#FFE186" r="18" />
-            <path d="M263 78C274 71 284 74 291 82" stroke="#25283A" strokeLinecap="round" strokeWidth="6" />
-          </>
-        )}
-        {icon === "people" && (
-          <>
-            <circle cx="263" cy="99" fill="#FFE186" r="16" />
-            <circle cx="291" cy="104" fill="#76F4CF" r="14" />
-            <path d="M242 139C247 117 278 116 284 139" fill="#25283A" />
-            <path d="M276 139C281 122 309 122 313 139" fill="#464A6A" />
-          </>
-        )}
-        {icon === "kanban" && (
-          <>
-            <rect fill="#F4F1FF" height="58" rx="12" width="68" x="239" y="81" />
-            <path d="M260 81V139M281 81V139" stroke="#9C78FF" strokeOpacity="0.55" strokeWidth="4" />
-            <rect fill="#76F4CF" height="13" rx="5" width="16" x="246" y="94" />
-            <rect fill="#FFE186" height="17" rx="5" width="16" x="269" y="103" />
-            <rect fill="#25283A" height="22" rx="5" width="16" x="291" y="94" />
-          </>
-        )}
-        {icon === "taskBot" && (
-          <>
-            <path d="M238 96C238 82 250 73 273 73C295 73 309 84 309 100C309 116 294 125 271 125H259L242 139L246 123C240 119 238 108 238 96Z" fill="#F4F1FF" />
-            <path d="M257 98L268 109L289 86" stroke="#76F4CF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="7" />
-            <rect fill="#9C78FF" height="7" rx="3.5" width="28" x="269" y="116" />
-          </>
-        )}
-        {icon === "route" && (
-          <>
-            <path d="M241 136C270 75 269 76 308 133" stroke="#F4F1FF" strokeLinecap="round" strokeWidth="9" />
-            <circle cx="241" cy="136" fill="#76F4CF" r="10" />
-            <circle cx="308" cy="133" fill="#FFE186" r="10" />
-            <circle cx="269" cy="76" fill="#25283A" r="9" />
-          </>
-        )}
-        {icon === "bus" && (
-          <>
-            <rect fill="#F4F1FF" height="52" rx="12" width="74" x="237" y="90" />
-            <rect fill="#9C78FF" height="18" rx="6" width="58" x="245" y="99" />
-            <circle cx="255" cy="142" fill="#25283A" r="7" />
-            <circle cx="294" cy="142" fill="#25283A" r="7" />
-          </>
-        )}
-        {icon === "box" && (
-          <>
-            <path d="M274 76L310 97V130L274 150L238 130V97L274 76Z" fill="#F4F1FF" />
-            <path d="M238 97L274 118L310 97M274 118V150" stroke="#9C78FF" strokeLinejoin="round" strokeWidth="6" />
-          </>
-        )}
-        {icon === "tree" && (
-          <>
-            <circle cx="274" cy="80" fill="#FFE186" r="15" />
-            <circle cx="247" cy="126" fill="#76F4CF" r="15" />
-            <circle cx="302" cy="126" fill="#F4F1FF" r="15" />
-            <path d="M274 95V111M274 111L247 119M274 111L302 119" stroke="#25283A" strokeLinecap="round" strokeWidth="5" />
-          </>
-        )}
-        {icon === "cloud" && (
-          <>
-            <path d="M238 118C238 104 249 96 263 97C269 84 288 81 298 93C312 94 318 104 318 117C318 131 308 139 293 139H256C246 139 238 132 238 118Z" fill="#F4F1FF" />
-            <path d="M254 153L264 139M286 156L296 140" stroke="#72E7FF" strokeLinecap="round" strokeWidth="6" />
-          </>
-        )}
-        {icon === "weatherBot" && (
-          <>
-            <path d="M238 95C238 81 250 72 273 72C296 72 310 83 310 99C310 115 295 124 272 124H260L242 139L247 122C240 118 238 107 238 95Z" fill="#F4F1FF" />
-            <path d="M253 102C253 93 260 88 270 89C274 81 287 79 293 86C303 87 307 94 307 102C307 112 299 117 288 117H266C258 117 253 112 253 102Z" fill="#72E7FF" opacity="0.85" />
-          </>
-        )}
-        {icon === "calendar" && (
-          <>
-            <rect fill="#F4F1FF" height="64" rx="12" width="72" x="238" y="84" />
-            <path d="M238 106H310" stroke="#9C78FF" strokeWidth="7" />
-            <rect fill="#464A6A" height="10" rx="5" width="38" x="256" y="127" />
-          </>
-        )}
-        {icon === "botShop" && (
-          <>
-            <path d="M238 94C238 80 250 72 273 72C295 72 309 83 309 99C309 115 294 124 272 124H260L242 139L246 122C240 118 238 106 238 94Z" fill="#F4F1FF" />
-            <path d="M257 91H268L275 115H294L300 99H271" stroke="#9C78FF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" />
-            <circle cx="278" cy="122" fill="#25283A" r="4" />
-            <circle cx="293" cy="122" fill="#25283A" r="4" />
-          </>
-        )}
-        {icon === "catalog" && (
-          <>
-            <rect fill="#F4F1FF" height="64" rx="12" width="74" x="237" y="84" />
-            <rect fill="#9C78FF" height="20" rx="6" width="24" x="247" y="95" />
-            <rect fill="#76F4CF" height="20" rx="6" width="24" x="283" y="95" />
-            <path d="M249 130H298" stroke="#25283A" strokeLinecap="round" strokeWidth="6" />
-          </>
-        )}
-        {icon === "basket" && (
-          <>
-            <path d="M244 96H308L298 142H254L244 96Z" fill="#F4F1FF" />
-            <path d="M258 96C262 80 291 80 295 96" stroke="#25283A" strokeLinecap="round" strokeWidth="7" />
-            <path d="M263 119H293" stroke="#9C78FF" strokeLinecap="round" strokeWidth="7" />
-          </>
-        )}
-        {icon === "server" && (
-          <>
-            <rect fill="#25283A" height="28" rx="8" width="76" x="236" y="84" />
-            <rect fill="#F4F1FF" height="28" rx="8" width="76" x="236" y="122" />
-            <circle cx="252" cy="98" fill="#76F4CF" r="4" />
-            <circle cx="252" cy="136" fill="#9C78FF" r="4" />
-            <path d="M265 98H298M265 136H298" stroke={accent} strokeLinecap="round" strokeWidth="4" />
-          </>
-        )}
-        <text fill="white" fontFamily="Manrope, Arial, sans-serif" fontSize="18" fontWeight="700" x="24" y="166">{item.title}</text>
-        <text fill="rgba(255,255,255,0.72)" fontFamily="JetBrains Mono, monospace" fontSize="12" x="24" y="183">{item.code}</text>
-      </svg>
+    <div className="bg-[#eee8ff] h-[195px] overflow-hidden relative rounded-[32px] shrink-0 w-full site-course-mobile-project-visual">
+      <img
+        alt={item.title}
+        className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
+        decoding="async"
+        loading="eager"
+        src={image}
+      />
     </div>
   );
 }
@@ -434,10 +303,11 @@ function Frame61() {
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
-            <span className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] text-[#9c78ff] text-[16px] uppercase">{`Индивидуальная программа `}</span>
-            <span className="leading-[18px] text-[16px]">обучения под ваш уровень подготовки, цели и темп</span>
-          </p>
+          <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
+            <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] mb-0 text-[#9c78ff] text-[16px] uppercase">Индивидуальная программа</p>
+            <p className="leading-[18px] mb-0 text-[16px]">обучения под ваш уровень</p>
+            <p className="leading-[18px] text-[16px]">подготовки, цели и темп</p>
+          </div>
         </div>
       </div>
     </div>
@@ -788,8 +658,8 @@ function Frame278() {
         <p className="leading-[18px] mb-0">и аналитике. Язык остаётся одним</p>
         <p className="leading-[18px] mb-0">{`из самых удобных для старта карьеры `}</p>
         <p className="leading-[18px] mb-0">в ИТ и стабильно востребован в вакансиях.</p>
-        <p className="leading-[18px] mb-0">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior, Middle</p>
-        <p className="leading-[18px]">и Senior</p>
+        <p className="leading-[18px] mb-0">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior (начальный), Middle (средний)</p>
+        <p className="leading-[18px]">и Senior (старший)</p>
       </div>
     </div>
   );
@@ -1021,31 +891,132 @@ function Frame54() {
   );
 }
 
+function MentorBenefitDocumentIcon({ className = "absolute left-[214px] pointer-events-none size-[82px] top-[347px]" }: { className?: string }) {
+  return (
+    <div aria-hidden="true" className={className}>
+      <svg className="block size-full" fill="none" viewBox="0 0 82 82">
+        <defs>
+          <linearGradient id="course-mentor-document-body" x1="20" x2="64" y1="8" y2="75" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#CAB9FF" />
+            <stop offset="0.6" stopColor="#966EFF" />
+            <stop offset="1" stopColor="#7844F5" />
+          </linearGradient>
+          <linearGradient id="course-mentor-document-fold" x1="52" x2="74" y1="7" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#BDA3FF" />
+            <stop offset="1" stopColor="#6B35F0" />
+          </linearGradient>
+          <filter id="course-mentor-document-shadow" colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="82" width="82" x="0" y="0">
+            <feDropShadow dx="0" dy="8" floodColor="#6932F2" floodOpacity="0.18" stdDeviation="7" />
+          </filter>
+        </defs>
+        <g filter="url(#course-mentor-document-shadow)" opacity="0.62">
+          <path d="M19 12C19 8.7 21.7 6 25 6H50L67 23V69C67 72.3 64.3 75 61 75H25C21.7 75 19 72.3 19 69V12Z" fill="url(#course-mentor-document-body)" />
+          <path d="M50 6V20C50 22.2 51.8 24 54 24H67L50 6Z" fill="url(#course-mentor-document-fold)" />
+          <rect fill="#6535E6" fillOpacity="0.52" height="5" rx="2.5" width="31" x="28" y="39" />
+          <rect fill="#6535E6" fillOpacity="0.52" height="5" rx="2.5" width="24" x="28" y="53" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "support" | "chat" | "interview" }) {
+  if (variant === "online") {
+    return (
+      <div className="absolute h-[122px] left-0 origin-top-left overflow-hidden pointer-events-none rounded-tl-[32px] top-0 scale-[0.68] w-[163px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[275px] left-0 max-w-none top-0 w-[302px]" src={imgBenefitCard1} />
+      </div>
+    );
+  }
+
+  if (variant === "internship") {
+    return (
+      <div className="absolute h-[78px] left-[8px] pointer-events-none top-[-5px] w-[102px]">
+        <svg aria-hidden="true" className="block size-full" fill="none" viewBox="0 0 102 78">
+          <defs>
+            <linearGradient id="course-mentor-briefcase-body" x1="20" x2="78" y1="10" y2="75" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#D9CDFE" />
+              <stop offset="0.55" stopColor="#9B73FF" />
+              <stop offset="1" stopColor="#7D4CFF" />
+            </linearGradient>
+            <linearGradient id="course-mentor-briefcase-flap" x1="22" x2="81" y1="6" y2="54" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#BEA7FF" />
+              <stop offset="1" stopColor="#6E35F8" />
+            </linearGradient>
+            <filter id="course-mentor-briefcase-shadow" colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="68" width="90" x="6" y="8">
+              <feDropShadow dx="0" dy="8" floodColor="#6D35FF" floodOpacity="0.32" stdDeviation="8" />
+            </filter>
+          </defs>
+          <g filter="url(#course-mentor-briefcase-shadow)" opacity="0.9">
+            <path d="M36 19.5C36 12.6 41.6 7 48.5 7H56C62.9 7 68.5 12.6 68.5 19.5V23H59.8V19.5C59.8 17.4 58.1 15.7 56 15.7H48.5C46.4 15.7 44.7 17.4 44.7 19.5V23H36V19.5Z" fill="#7E46FF" />
+            <rect fill="url(#course-mentor-briefcase-body)" height="44" rx="12" width="76" x="13" y="23" />
+            <path d="M13 34.5C13 28.1 18.1 23 24.5 23H77.5C83.9 23 89 28.1 89 34.5V39.8L51 53L13 39.8V34.5Z" fill="url(#course-mentor-briefcase-flap)" />
+            <circle cx="51" cy="41" fill="#956AFF" r="6.3" stroke="#7742F6" strokeOpacity="0.45" strokeWidth="1.1" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  if (variant === "support") {
+    return (
+      <div className="absolute h-[88px] left-[7px] pointer-events-none top-[8px] w-[116px]">
+        <svg aria-hidden="true" className="block size-full" fill="none" viewBox="0 0 116 88">
+          <defs>
+            <linearGradient id="course-mentor-support-front" x1="20" x2="79" y1="12" y2="84" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#E2D7FF" />
+              <stop offset="0.58" stopColor="#AE8FFF" />
+              <stop offset="1" stopColor="#8352FF" />
+            </linearGradient>
+            <linearGradient id="course-mentor-support-back" x1="61" x2="108" y1="11" y2="76" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#B08DFF" />
+              <stop offset="1" stopColor="#6F32F3" />
+            </linearGradient>
+            <filter id="course-mentor-support-shadow" colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="88" width="112" x="2" y="0">
+              <feDropShadow dx="0" dy="8" floodColor="#6D35FF" floodOpacity="0.24" stdDeviation="8" />
+            </filter>
+          </defs>
+          <g filter="url(#course-mentor-support-shadow)" opacity="0.88">
+            <circle cx="72" cy="30" fill="url(#course-mentor-support-back)" r="24" />
+            <path d="M47 82C47 65.4 60.4 52 77 52H80C96.6 52 110 65.4 110 82V84H47V82Z" fill="url(#course-mentor-support-back)" />
+            <circle cx="36" cy="33" fill="url(#course-mentor-support-front)" r="26" />
+            <path d="M8 86C8 67.8 22.8 53 41 53H45C63.2 53 78 67.8 78 86V88H8V86Z" fill="url(#course-mentor-support-front)" />
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  if (variant === "interview") {
+    return <MentorBenefitDocumentIcon className="absolute left-[8px] pointer-events-none size-[102px] top-[-8px]" />;
+  }
+
+  return (
+    <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
+      <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
+        <img alt="" decoding="async" loading="lazy" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgBenefitIconsChat} />
+      </div>
+    </div>
+  );
+}
+
 function Frame176() {
   return (
     <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full">
-      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px relative rounded-[32px] self-stretch">
-        <div className="flex flex-col items-end justify-center size-full">
-          <div className="content-stretch flex flex-col items-end justify-between p-[16px] relative size-full">
-            <div className="absolute h-[83px] left-0 rounded-[32px] top-0 w-[124px]">
-              <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[32px]">
-                <img alt="" className="absolute h-[260.52%] left-[-38.06%] max-w-none top-[-49.64%] w-[174.38%]" src={imgRectangle40113} />
-              </div>
-            </div>
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[20px] text-right text-white w-[min-content]">(1)</p>
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px] self-stretch">
+        <MentorBenefitIcon variant="online" />
+        <div className="flex flex-col items-end size-full">
+          <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
+            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(1)</p>
             <Frame53 />
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] flex-[1_0_0] h-[175px] min-w-px relative rounded-[32px]">
-        <div className="flex flex-col items-end justify-center size-full">
-          <div className="content-stretch flex flex-col items-end justify-between p-[16px] relative size-full">
-            <div className="absolute h-[83px] left-0 rounded-[32px] top-0 w-[124px]">
-              <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[32px]">
-                <img alt="" className="absolute h-[244.4%] left-[-82.01%] max-w-none top-[-137.2%] w-[163.59%]" src={imgRectangle40113} />
-              </div>
-            </div>
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[20px] text-right text-white w-[min-content]">(2)</p>
+      <div className="bg-[#9c78ff] flex-[1_0_0] h-[175px] min-w-px overflow-hidden relative rounded-[32px]">
+        <MentorBenefitIcon variant="internship" />
+        <div className="flex flex-col items-end size-full">
+          <div className="content-stretch flex flex-col gap-[34px] items-end p-[16px] relative size-full text-right text-white">
+            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(2)</p>
             <Frame54 />
           </div>
         </div>
@@ -1057,8 +1028,8 @@ function Frame176() {
 function Frame55() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-end relative shrink-0 text-right text-white w-full">
-      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full whitespace-pre-wrap">{`поддержка  и помощь`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">вам не нужно переживать о том что где и когда</p>
+      <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">поддержка и помощь</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-support-copy">вам не нужно переживать о том что где и когда</p>
     </div>
   );
 }
@@ -1067,10 +1038,9 @@ function Frame56() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-end relative shrink-0 text-right text-white w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">личный чат</p>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
-        <p className="leading-[16px] mb-0">с наставников</p>
-        <p className="leading-[16px] mb-0">для вопросов</p>
-        <p className="leading-[16px]">вне уроков</p>
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-chat-copy">
+        <p className="leading-[16px] mb-0">с наставником для</p>
+        <p className="leading-[16px]">вопросов вне уроков</p>
       </div>
     </div>
   );
@@ -1080,7 +1050,10 @@ function Frame57() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-end relative shrink-0 text-right text-white w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Мок-интервью</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">в формате реального собеседования</p>
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-interview-copy">
+        <p className="leading-[16px] mb-0">в формате реального</p>
+        <p className="leading-[16px]">собеседования</p>
+      </div>
     </div>
   );
 }
@@ -1088,24 +1061,20 @@ function Frame57() {
 function Frame177() {
   return (
     <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full">
-      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px relative rounded-[32px] self-stretch">
-        <div className="flex flex-col items-end justify-center size-full">
-          <div className="content-stretch flex flex-col items-end justify-between p-[16px] relative size-full">
-            <div className="absolute h-[83px] left-0 rounded-[32px] top-0 w-[124px]">
-              <img alt="" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgRectangle40114} />
-            </div>
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[20px] text-right text-white w-[min-content]">(4)</p>
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px] self-stretch">
+        <MentorBenefitIcon variant="chat" />
+        <div className="flex flex-col items-end size-full">
+          <div className="content-stretch flex flex-col gap-[24px] items-end p-[16px] relative size-full text-right text-white">
+            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(4)</p>
             <Frame56 />
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] flex-[1_0_0] h-[163px] min-w-px relative rounded-[32px]">
-        <div className="flex flex-col items-end justify-center size-full">
-          <div className="content-stretch flex flex-col items-end justify-between p-[16px] relative size-full">
-            <div className="absolute h-[83px] left-0 rounded-[32px] top-0 w-[124px]">
-              <img alt="" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-60 pointer-events-none rounded-[32px] size-full" src={imgRectangle40115} />
-            </div>
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[20px] text-right text-white w-[min-content]">(5)</p>
+      <div className="bg-[#9c78ff] flex-[1_0_0] min-w-px overflow-hidden relative rounded-[32px]">
+        <MentorBenefitIcon variant="interview" />
+        <div className="flex flex-col items-end size-full">
+          <div className="content-stretch flex flex-col gap-[36px] items-end p-[16px] relative size-full text-right text-white">
+            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(5)</p>
             <Frame57 />
           </div>
         </div>
@@ -1116,17 +1085,13 @@ function Frame177() {
 
 function Frame178() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full site-mobile-mentor-cards">
       <Frame176 />
-      <div className="bg-[#9c78ff] h-[163px] relative rounded-[32px] shrink-0 w-full">
-        <div className="flex flex-col items-end justify-center size-full">
-          <div className="content-stretch flex flex-col items-end justify-between p-[16px] relative size-full">
-            <div className="absolute h-[83px] left-0 rounded-[32px] top-0 w-[124px]">
-              <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[32px]">
-                <img alt="" className="absolute h-[263.53%] left-[0.13%] max-w-none top-[-142.6%] w-[176.39%]" src={imgRectangle40113} />
-              </div>
-            </div>
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[20px] text-right text-white w-[min-content]">(3)</p>
+      <div className="bg-[#9c78ff] h-[163px] overflow-hidden relative rounded-[32px] shrink-0 w-full">
+        <MentorBenefitIcon variant="support" />
+        <div className="flex flex-col items-end size-full">
+          <div className="content-stretch flex flex-col gap-[42px] items-end p-[16px] relative size-full text-right text-white">
+            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[20px] w-full">(3)</p>
             <Frame55 />
           </div>
         </div>
@@ -1153,14 +1118,13 @@ function Frame273() {
 
 function Frame145() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[16px] items-start justify-center relative shrink-0 uppercase">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[27px] relative shrink-0 text-[24px] text-black w-[350px]">{`пройдёте стажировку `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[#9c78ff] text-[0px] w-[350px]">
-        <span className="leading-[27px] text-[24px] text-black">в</span>
-        <span className="leading-[32px] text-[32px]">{` `}</span>
-        <span className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] text-[40px]">{`Иннопрог проджектс `}</span>
+    <div className="site-internship-title site-internship-title--mobile content-stretch flex flex-col items-start relative shrink-0 w-[350px]">
+      <p className="site-internship-title__line site-internship-title__line--black">пройдёте стажировку</p>
+      <p className="site-internship-title__line site-internship-title__line--brand">
+        <span className="site-internship-title__prefix">в</span>
+        <span className="site-internship-title__brand">иннопрог проджектс</span>
       </p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[27px] relative shrink-0 text-[24px] text-black w-[350px]">уже во время обучения</p>
+      <p className="site-internship-title__line site-internship-title__line--black">уже во время обучения</p>
     </div>
   );
 }
@@ -1183,7 +1147,7 @@ function Frame83() {
 
 function Frame239() {
   return (
-    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center justify-center ml-0 mt-[619px] p-[20px] relative rounded-[24px] row-1 w-[276px]">
+    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center justify-center ml-0 mt-[619px] p-[20px] relative rounded-[32px] row-1 w-[276px]">
       <Frame83 />
     </div>
   );
@@ -1191,7 +1155,7 @@ function Frame239() {
 
 function Frame146() {
   return (
-    <div className="site-internship-card site-internship-card--gray [word-break:break-word] bg-[rgba(84,110,122,0.8)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-[91px] mt-[432px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[259px]">
+    <div className="site-internship-card site-internship-card--gray [word-break:break-word] bg-[rgba(84,110,122,0.8)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-[91px] mt-[432px] p-[20px] relative rounded-[32px] row-1 text-center text-white w-[259px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] w-full">
         <p className="leading-[18px] mb-0">4. Поддержка</p>
         <p className="leading-[18px] mb-0">от наставников</p>
@@ -1208,9 +1172,9 @@ function Frame146() {
 
 function Frame84() {
   return (
-    <div className="site-internship-card site-internship-card--purple [word-break:break-word] bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[298px] p-[20px] relative rounded-[24px] row-1 text-center text-white w-[350px]">
+    <div className="site-internship-card site-internship-card--purple [word-break:break-word] bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[298px] p-[20px] relative rounded-[32px] row-1 text-center text-white w-[350px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] w-full">
-        <p className="leading-[18px] mb-0">3. Профессиональные</p>
+        <p className="leading-[18px] mb-0">2. Профессиональные</p>
         <p className="leading-[18px]">ИТ-инструменты</p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[12px] tracking-[0.36px] w-full">
@@ -1236,7 +1200,7 @@ function Frame() {
 
 function Frame85() {
   return (
-    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center ml-[92px] mt-0 p-[20px] relative rounded-[24px] row-1 w-[258px]">
+    <div className="site-internship-card site-internship-card--purple bg-[rgba(156,120,255,0.6)] col-1 content-stretch flex items-center ml-[92px] mt-0 p-[20px] relative rounded-[32px] row-1 w-[258px]">
       <Frame />
     </div>
   );
@@ -1244,8 +1208,8 @@ function Frame85() {
 
 function Frame86() {
   return (
-    <div className="site-internship-card site-internship-card--white [word-break:break-word] bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[141px] p-[20px] relative rounded-[24px] row-1 text-[#464a6a] text-center w-[259px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">2. Проект под ваш уровень подготовки</p>
+    <div className="site-internship-card site-internship-card--white [word-break:break-word] bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col gap-[16px] items-center ml-0 mt-[141px] p-[20px] relative rounded-[32px] row-1 text-[#464a6a] text-center w-[259px]">
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">3. Проект под ваш уровень подготовки</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full">
         <p className="leading-[16px] mb-0">Мы подбираем задачи и формат участия с учетом ваших текущих навыков, чтобы вы могли постепенно включаться</p>
         <p className="leading-[16px]">в командную работу</p>
@@ -1317,7 +1281,7 @@ function Frame114() {
 function Frame115() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-[12px] text-black">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light leading-[35px] relative shrink-0 whitespace-nowrap">{`Начинающий(Junior) `}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light leading-[35px] relative shrink-0 whitespace-nowrap">Junior (начальный)</p>
       <Frame114 />
     </div>
   );
@@ -2076,13 +2040,43 @@ function Frame190() {
 
 function Frame191() {
   return (
-    <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[350px]">
-      <Frame185 />
-      <Frame186 />
-      <Frame187 />
-      <Frame188 />
-      <Frame189 />
-      <Frame190 />
+    <div className="site-course-tech-stack content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[350px]">
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <div className="content-stretch flex gap-[16px] h-[32px] items-center p-[8px] relative rounded-[16px] shrink-0 w-[105px]">
+          <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
+          <MaterialIconThemePython />
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">Python</p>
+        </div>
+        <Frame133 />
+        <Frame135 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame126 />
+        <Frame138 />
+        <Frame140 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame139 />
+        <Frame125 />
+        <Frame128 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame123 />
+        <Frame132 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame129 />
+        <Frame131 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame127 />
+        <Frame134 />
+      </div>
+      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
+        <Frame137 />
+        <Frame136 />
+        <Frame130 />
+      </div>
     </div>
   );
 }
@@ -2156,16 +2150,19 @@ function Frame93() {
         <video
           autoPlay
           className="absolute inset-0 size-full object-contain"
+          data-course-autoplay-video
           loop
           muted
           onCanPlay={(event) => {
+            event.currentTarget.defaultMuted = true;
+            event.currentTarget.muted = true;
             if (event.currentTarget.paused) {
-              void event.currentTarget.play();
+              void event.currentTarget.play().catch(() => undefined);
             }
           }}
           playsInline
           preload="auto"
-          src="/videos/course-ai.mp4"
+          src="/videos/course-ai-autoplay.mp4"
         />
       </div>
     </div>
@@ -3339,16 +3336,16 @@ function Frame200() {
       <Frame280 />
       <MainScreenMobileTeachersSection />
       <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[75.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[91px]">
-        <p className="leading-[18px] mb-0">Начинающий</p>
-        <p className="leading-[18px]">(Junior)</p>
+        <p className="leading-[18px] mb-0">Junior</p>
+        <p className="leading-[18px]">(начальный)</p>
       </div>
       <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[193px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[78px]">
-        <p className="leading-[18px] mb-0">Уверенный</p>
-        <p className="leading-[18px]">(Middle)</p>
+        <p className="leading-[18px] mb-0">Middle</p>
+        <p className="leading-[18px]">(средний)</p>
       </div>
-      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[312.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[63px]">
-        <p className="leading-[18px] mb-0">Опытный</p>
-        <p className="leading-[18px]">(Senior)</p>
+      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[312.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[76px]">
+        <p className="leading-[18px] mb-0">Senior</p>
+        <p className="leading-[18px]">(старший)</p>
       </div>
     </div>
   );
@@ -4651,7 +4648,7 @@ function Frame51() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame50 />
-      <button className="content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[350px] site-course-lead-submit site-course-lead-submit--mobile" data-name="кнопки пд" type="button">
+      <button aria-busy="false" aria-disabled="true" className="content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[350px] site-course-lead-submit site-course-lead-submit--mobile" data-name="кнопки пд" disabled type="button">
         <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
       </button>
@@ -4670,7 +4667,7 @@ function Frame52() {
 
 function Frame209() {
   return (
-    <div className="bg-[#464a6a] relative rounded-[24px] shrink-0 w-full">
+    <div className="bg-[#464a6a] relative rounded-[24px] shrink-0 w-full" data-name="заявка">
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col gap-[40px] items-center px-[20px] py-[40px] relative size-full">
           <Frame48 />
@@ -4816,56 +4813,34 @@ function Frame144() {
 }
 
 function Frame210() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <div className="content-stretch cursor-pointer flex flex-col items-start relative shrink-0 w-full">
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame119 />
+    <div className="site-course-faq-list site-course-faq-list--mobile content-stretch flex flex-col items-start relative shrink-0 w-full">
+      {courseFaqItems.map((item, index) => {
+        const isOpen = openIndex === index;
+
+        return (
+          <div className={`site-course-faq-item site-course-faq-item--mobile relative shrink-0 w-full${isOpen ? " is-open" : ""}`} key={item.question}>
+            <button
+              aria-expanded={isOpen}
+              className="site-course-faq-trigger site-course-faq-trigger--mobile"
+              onClick={() => setOpenIndex((current) => (current === index ? null : index))}
+              type="button"
+            >
+              <span className="site-course-faq-question site-course-faq-question--mobile">{item.question}</span>
+              <span aria-hidden className="site-course-faq-arrow">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
+                  <path d={svgPaths.p3133300} stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </span>
+            </button>
+            <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
+              <div className="site-course-faq-answer site-course-faq-answer--mobile">{item.answer}</div>
+            </div>
           </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame124 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame141 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame142 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame143 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end p-[20px] relative size-full">
-            <Frame144 />
-          </div>
-        </div>
-      </button>
+        );
+      })}
     </div>
   );
 }

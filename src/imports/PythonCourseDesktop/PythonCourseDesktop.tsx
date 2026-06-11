@@ -1,252 +1,76 @@
 import { useState, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
-import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.png";
-import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.png";
-import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.png";
-import imgRectangle40111 from "./8b6fbdf5ce2f58eb13079dafd921c74432233a33.png";
+import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
+import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
+import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgRectangle40111 from "./8b6fbdf5ce2f58eb13079dafd921c74432233a33.opt.webp";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
-import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.png";
+import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
 import imgCollabration from "./0ddae1105f6319bcc13e96735e2d30ab76fbfe3d.png";
-import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.png";
-import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.png";
+import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
+import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.opt.webp";
 import imgImage52 from "./438bc548f7863d8ef2b783a4cb669ce08d59b346.png";
 import imgBalance from "./7c7f9895d31d45c04affa2dd30f717ed232ed528.png";
-import imgImage46 from "./40ec54b08771963beaaad715c22e691c4519e3d3.png";
+import imgImage46 from "./40ec54b08771963beaaad715c22e691c4519e3d3.opt.webp";
 import imgRectangle40094 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import imgRectangle40093 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
-import imgRectangle40095 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.png";
-import imgImage115 from "./6f7c219f8f920445932a5ab496a09907db2bd7ae.png";
+import imgRectangle40095 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.opt.webp";
+import imgImage115 from "./6f7c219f8f920445932a5ab496a09907db2bd7ae.opt.webp";
 import imgCircleStackSwirl from "../MainScreenDesktop/circle-stack-swirl.opt.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgContraBluestar1 from "./8f9d493ec8bd19b806c3ba56b61df7f250ca9d00.png";
-import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.png";
-import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.png";
-import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.png";
-import imgRectangle40085 from "./e23105f42bc682ba6a00ca8960747d189f0366a0.png";
-import imgRectangle40086 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.png";
-import imgRectangle40087 from "./2cbe57953beca1178afd27d1f71884d7d612b585.png";
-import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.png";
-import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.png";
+import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.opt.webp";
+import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.opt.webp";
+import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.opt.webp";
+import imgRectangle40085 from "./e23105f42bc682ba6a00ca8960747d189f0366a0.opt.webp";
+import imgRectangle40086 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.opt.webp";
+import imgRectangle40087 from "./2cbe57953beca1178afd27d1f71884d7d612b585.opt.webp";
+import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.opt.webp";
+import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.opt.webp";
 import imgClonedCircles2 from "./004036d2f412af879a4069e312c6af83af5e08a1.png";
 import { imgGroup } from "./svg-0m3gv";
 import imgBenefitIconsFigma from "../MainScreenDesktop/benefit-icons-figma.webp";
 import imgBenefitIconsChatFigma from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Figma from "../MainScreenDesktop/benefit-card1-figma.png";
+import { courseFaqItems } from "../courseFaqData";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
+import { courseProjectVisualImages } from "../courseProjectVisualImages";
 
 const projectVisuals = [
-  { title: "Склад фруктов", code: "stock.py", icon: "fruit" },
-  { title: "HR база", code: "salary.py", icon: "people" },
-  { title: "Менеджер задач", code: "tasks.py", icon: "kanban" },
-  { title: "Telegram задачи", code: "bot.py", icon: "taskBot" },
-  { title: "Бронирование поездок", code: "booking.py", icon: "route" },
-  { title: "Пассажирские перевозки", code: "fleet.py", icon: "bus" },
-  { title: "Складской менеджер", code: "warehouse.py", icon: "box" },
-  { title: "Key-Value storage", code: "tree.py", icon: "tree" },
-  { title: "Прогноз погоды", code: "weather.py", icon: "cloud" },
-  { title: "Telegram погода", code: "weather_bot.py", icon: "weatherBot" },
-  { title: "Бронирование столиков", code: "tables_bot.py", icon: "calendar" },
-  { title: "Telegram-магазин", code: "shop_bot.py", icon: "botShop" },
-  { title: "Django каталог", code: "catalog/", icon: "catalog" },
-  { title: "Магазин с корзиной", code: "cart/", icon: "basket" },
-  { title: "Production Django", code: "deploy.sh", icon: "server" },
+  { title: "Склад фруктов", code: "stock.py" },
+  { title: "HR база", code: "salary.py" },
+  { title: "Менеджер задач", code: "tasks.py" },
+  { title: "Telegram задачи", code: "bot.py" },
+  { title: "Бронирование поездок", code: "booking.py" },
+  { title: "Пассажирские перевозки", code: "fleet.py" },
+  { title: "Складской менеджер", code: "warehouse.py" },
+  { title: "Key-Value storage", code: "tree.py" },
+  { title: "Прогноз погоды", code: "weather.py" },
+  { title: "Telegram погода", code: "weather_bot.py" },
+  { title: "Бронирование столиков", code: "tables_bot.py" },
+  { title: "Telegram-магазин", code: "shop_bot.py" },
+  { title: "Django каталог", code: "catalog/" },
+  { title: "Магазин с корзиной", code: "cart/" },
+  { title: "Production Django", code: "deploy.sh" },
 ];
 
 function ProjectVisual({ index, compact = false }: { index: number; compact?: boolean }) {
   const item = projectVisuals[index] ?? projectVisuals[0];
-  const gradientId = `projectGradientDesktop${index}`;
-  const glowId = `projectGlowDesktop${index}`;
-  const accents = ["#72e7ff", "#ffe186", "#ffffff", "#d8c4ff", "#78ffd6"];
-  const accent = accents[index % accents.length];
+  const image = courseProjectVisualImages[index] ?? courseProjectVisualImages[0];
   const heightClass = compact ? "h-[195px] rounded-[32px]" : "h-[300px] rounded-[40px]";
 
   return (
-    <div className={`${heightClass} overflow-hidden relative shrink-0 w-full site-course-project-visual`}>
-      <svg aria-hidden className="absolute inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 465 300">
-        <defs>
-          <linearGradient id={gradientId} x1="35" x2="442" y1="19" y2="285" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#9C78FF" />
-            <stop offset="0.56" stopColor="#7D54F4" />
-            <stop offset="1" stopColor="#464A6A" />
-          </linearGradient>
-          <radialGradient id={glowId} cx="0" cy="0" gradientTransform="translate(320 92) rotate(128) scale(229 214)" gradientUnits="userSpaceOnUse" r="1">
-            <stop stopColor={accent} stopOpacity="0.72" />
-            <stop offset="1" stopColor="#9C78FF" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <rect fill={`url(#${gradientId})`} height="300" rx="40" width="465" />
-        <rect fill={`url(#${glowId})`} height="300" rx="40" width="465" />
-        <path d="M-48 244C63 167 143 180 238 228C331 275 399 258 506 160" stroke="white" strokeOpacity="0.24" strokeWidth="42" />
-        <path d="M-18 77C84 130 188 123 302 63C392 16 449 20 514 53" stroke="#1F2035" strokeOpacity="0.24" strokeWidth="24" />
-        <rect fill="rgba(255,255,255,0.82)" height="178" rx="20" width="285" x="44" y="55" />
-        <rect fill="#25283A" height="36" rx="14" width="245" x="64" y="75" />
-        <circle cx="84" cy="93" fill="#FF7A8A" r="5" />
-        <circle cx="102" cy="93" fill="#FFE186" r="5" />
-        <circle cx="120" cy="93" fill="#76F4CF" r="5" />
-        <rect fill="#F4F1FF" height="96" rx="14" width="108" x="64" y="126" />
-        <rect fill="#EEE8FF" height="16" rx="8" width="74" x="82" y="145" />
-        <rect fill="#9C78FF" height="12" rx="6" width="54" x="82" y="175" />
-        <rect fill="#464A6A" height="12" rx="6" opacity="0.82" width="76" x="82" y="196" />
-        <rect fill="#202334" height="96" rx="14" width="128" x="191" y="126" />
-        <path d="M212 155H297" stroke={accent} strokeLinecap="round" strokeWidth="7" />
-        <path d="M212 180H276" stroke="white" strokeLinecap="round" strokeOpacity="0.82" strokeWidth="7" />
-        <path d="M212 205H287" stroke="#9C78FF" strokeLinecap="round" strokeWidth="7" />
-        <rect fill="rgba(255,255,255,0.34)" height="132" rx="22" width="132" x="318" y="111" />
-        {item.icon === "fruit" && (
-          <>
-            <circle cx="369" cy="171" fill="#76F4CF" r="34" />
-            <circle cx="395" cy="188" fill="#FFE186" r="28" />
-            <path d="M369 132C386 121 399 126 408 137" stroke="#25283A" strokeLinecap="round" strokeWidth="8" />
-          </>
-        )}
-        {item.icon === "people" && (
-          <>
-            <circle cx="365" cy="159" fill="#FFE186" r="24" />
-            <circle cx="408" cy="166" fill="#76F4CF" r="21" />
-            <path d="M333 221C340 186 389 184 398 221" fill="#25283A" />
-            <path d="M379 221C386 194 432 194 440 221" fill="#464A6A" />
-          </>
-        )}
-        {item.icon === "check" && (
-          <>
-            <rect fill="#F4F1FF" height="84" rx="18" width="90" x="348" y="143" />
-            <path d="M366 185L386 205L420 165" stroke="#76F4CF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12" />
-          </>
-        )}
-        {item.icon === "kanban" && (
-          <>
-            <rect fill="#F4F1FF" height="96" rx="18" width="112" x="339" y="128" />
-            <rect fill="#9C78FF" height="60" rx="10" width="26" x="354" y="149" />
-            <rect fill="#76F4CF" height="42" rx="10" width="26" x="391" y="167" />
-            <rect fill="#FFE186" height="74" rx="10" width="26" x="428" y="135" />
-            <path d="M354 139H434" stroke="#25283A" strokeLinecap="round" strokeWidth="7" />
-          </>
-        )}
-        {item.icon === "chat" && (
-          <>
-            <path d="M346 150C346 129 364 116 393 116C422 116 440 131 440 154C440 177 421 191 389 191H374L350 211L356 187C347 180 346 166 346 150Z" fill="#F4F1FF" />
-            <circle cx="376" cy="153" fill="#9C78FF" r="7" />
-            <circle cx="395" cy="153" fill="#9C78FF" r="7" />
-            <circle cx="414" cy="153" fill="#9C78FF" r="7" />
-          </>
-        )}
-        {item.icon === "taskBot" && (
-          <>
-            <path d="M347 141C347 122 363 110 393 110C424 110 441 124 441 145C441 166 423 178 390 178H374L351 197L357 176C350 169 347 158 347 141Z" fill="#F4F1FF" />
-            <rect fill="#25283A" height="54" rx="12" width="88" x="351" y="184" />
-            <path d="M367 210L382 224L422 197" stroke="#76F4CF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8" />
-            <circle cx="376" cy="144" fill="#9C78FF" r="6" />
-            <circle cx="396" cy="144" fill="#9C78FF" r="6" />
-            <circle cx="416" cy="144" fill="#9C78FF" r="6" />
-          </>
-        )}
-        {item.icon === "route" && (
-          <>
-            <path d="M352 210C392 119 391 120 432 206" stroke="#F4F1FF" strokeLinecap="round" strokeWidth="14" />
-            <circle cx="352" cy="210" fill="#76F4CF" r="15" />
-            <circle cx="432" cy="206" fill="#FFE186" r="15" />
-            <circle cx="391" cy="120" fill="#25283A" r="13" />
-          </>
-        )}
-        {item.icon === "bus" && (
-          <>
-            <rect fill="#F4F1FF" height="80" rx="18" width="106" x="342" y="139" />
-            <rect fill="#9C78FF" height="28" rx="8" width="84" x="353" y="150" />
-            <circle cx="369" cy="219" fill="#25283A" r="10" />
-            <circle cx="421" cy="219" fill="#25283A" r="10" />
-          </>
-        )}
-        {item.icon === "box" && (
-          <>
-            <path d="M394 119L442 147V202L394 230L346 202V147L394 119Z" fill="#F4F1FF" />
-            <path d="M346 147L394 176L442 147M394 176V230" stroke="#9C78FF" strokeLinejoin="round" strokeWidth="8" />
-          </>
-        )}
-        {item.icon === "tree" && (
-          <>
-            <circle cx="394" cy="123" fill="#FFE186" r="22" />
-            <circle cx="354" cy="190" fill="#76F4CF" r="22" />
-            <circle cx="434" cy="190" fill="#F4F1FF" r="22" />
-            <path d="M394 145V166M394 166L354 176M394 166L434 176" stroke="#25283A" strokeLinecap="round" strokeWidth="8" />
-          </>
-        )}
-        {item.icon === "cloud" && (
-          <>
-            <path d="M347 190C347 169 363 158 381 159C388 141 413 137 425 153C445 154 453 168 453 185C453 203 439 214 419 214H374C357 214 347 205 347 190Z" fill="#F4F1FF" />
-            <path d="M371 232L385 210M407 236L421 212" stroke={accent} strokeLinecap="round" strokeWidth="8" />
-          </>
-        )}
-        {item.icon === "weatherBot" && (
-          <>
-            <path d="M344 145C344 126 360 114 388 114C416 114 434 128 434 148C434 168 417 181 387 181H372L348 200L354 178C347 171 344 160 344 145Z" fill="#F4F1FF" />
-            <circle cx="414" cy="126" fill="#FFE186" r="19" />
-            <path d="M362 163C362 151 372 145 383 146C388 136 403 134 411 143C425 144 433 154 433 166C433 179 423 187 408 187H381C369 187 362 181 362 163Z" fill="#76F4CF" />
-            <path d="M381 207L391 190M409 211L419 193" stroke="#25283A" strokeLinecap="round" strokeWidth="6" />
-          </>
-        )}
-        {item.icon === "calendar" && (
-          <>
-            <rect fill="#F4F1FF" height="96" rx="18" width="104" x="343" y="128" />
-            <path d="M343 158H447" stroke="#9C78FF" strokeWidth="10" />
-            <rect fill="#464A6A" height="14" rx="7" width="56" x="367" y="184" />
-          </>
-        )}
-        {item.icon === "cart" && (
-          <>
-            <path d="M347 135H368L382 199H425L439 157H375" stroke="#F4F1FF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12" />
-            <circle cx="386" cy="221" fill="#25283A" r="11" />
-            <circle cx="421" cy="221" fill="#25283A" r="11" />
-          </>
-        )}
-        {item.icon === "botShop" && (
-          <>
-            <path d="M345 140C345 122 362 111 391 111C422 111 440 126 440 147C440 168 421 181 389 181H374L350 201L356 179C349 172 345 161 345 140Z" fill="#F4F1FF" />
-            <path d="M359 157H378L389 209H423L435 174H384" stroke="#25283A" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8" />
-            <circle cx="394" cy="225" fill="#76F4CF" r="8" />
-            <circle cx="421" cy="225" fill="#76F4CF" r="8" />
-          </>
-        )}
-        {item.icon === "shop" && (
-          <>
-            <rect fill="#F4F1FF" height="82" rx="14" width="108" x="341" y="150" />
-            <path d="M350 150L363 119H436L449 150" fill="#FFE186" />
-            <path d="M350 150H449" stroke="#25283A" strokeWidth="8" />
-            <rect fill="#9C78FF" height="34" rx="8" width="34" x="384" y="198" />
-          </>
-        )}
-        {item.icon === "catalog" && (
-          <>
-            <rect fill="#F4F1FF" height="106" rx="18" width="112" x="341" y="122" />
-            <rect fill="#FFE186" height="30" rx="8" width="40" x="356" y="140" />
-            <rect fill="#76F4CF" height="30" rx="8" width="40" x="410" y="140" />
-            <rect fill="#9C78FF" height="30" rx="8" width="40" x="356" y="184" />
-            <rect fill="#25283A" height="30" rx="8" width="40" x="410" y="184" />
-          </>
-        )}
-        {item.icon === "basket" && (
-          <>
-            <path d="M359 159H438L427 223H370L359 159Z" fill="#F4F1FF" />
-            <path d="M374 159C379 128 420 128 425 159" stroke="#FFE186" strokeLinecap="round" strokeWidth="10" />
-            <path d="M376 184H421M382 204H414" stroke="#9C78FF" strokeLinecap="round" strokeWidth="8" />
-            <circle cx="375" cy="229" fill="#25283A" r="8" />
-            <circle cx="423" cy="229" fill="#25283A" r="8" />
-          </>
-        )}
-        {item.icon === "server" && (
-          <>
-            <rect fill="#25283A" height="42" rx="12" width="110" x="340" y="124" />
-            <rect fill="#F4F1FF" height="42" rx="12" width="110" x="340" y="180" />
-            <circle cx="364" cy="145" fill="#76F4CF" r="6" />
-            <circle cx="364" cy="201" fill="#9C78FF" r="6" />
-            <path d="M382 145H426M382 201H426" stroke={accent} strokeLinecap="round" strokeWidth="6" />
-          </>
-        )}
-        <text fill="white" fontFamily="Manrope, Arial, sans-serif" fontSize="22" fontWeight="700" x="44" y="264">{item.title}</text>
-        <text fill="rgba(255,255,255,0.72)" fontFamily="JetBrains Mono, monospace" fontSize="16" x="44" y="286">{item.code}</text>
-      </svg>
+    <div className={heightClass + " bg-[#eee8ff] overflow-hidden relative shrink-0 w-full site-course-project-visual"}>
+      <img
+        alt={item.title}
+        className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
+        decoding="async"
+        loading="lazy"
+        src={image}
+      />
     </div>
   );
 }
@@ -400,11 +224,11 @@ function Frame67() {
 
 function Frame165() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[1280px]">
-      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[42px] relative shrink-0 text-[40px] translate-x-[4px]">Курс</p>
+    <div className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start relative shrink-0 text-white uppercase w-[1280px]">
+      <div className="relative self-end shrink-0">
         <Frame67 />
       </div>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[42px] relative shrink-0 text-[40px] translate-x-[4px]">Курс</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">Python - разработчик</p>
     </div>
   );
@@ -848,7 +672,7 @@ function Frame191() {
       </p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
         <p className="leading-[30px] mb-0">Python активно применяют в разработке сайтов, приложений, автоматизации и аналитике. Язык остаётся одним из самых удобных для старта карьеры в ИТ и стабильно востребован в вакансиях.</p>
-        <p className="leading-[30px]">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior, Middle и Senior.</p>
+        <p className="leading-[30px]">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior (начальный), Middle (средний) и Senior (старший).</p>
       </div>
     </div>
   );
@@ -876,7 +700,7 @@ function Frame255() {
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`< 87 444 ₽`}</p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Начинающий (Junior)</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Junior (начальный)</p>
         </div>
       </div>
     </div>
@@ -889,7 +713,7 @@ function Frame256() {
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`> 155 373 ₽`}</p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Уверенный (Middle)</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Middle (средний)</p>
         </div>
       </div>
     </div>
@@ -902,7 +726,7 @@ function Frame257() {
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`> 293 783 ₽`}</p>
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Опытный (Senior)</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Senior (старший)</p>
         </div>
       </div>
     </div>
@@ -1075,13 +899,13 @@ function Component2() {
 
 function Frame248() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[1280px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[#9c78ff] text-[0px] w-full whitespace-nowrap">
+    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
+      <p className="relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
         <span className="leading-[52px] text-[74px]">{`Вас ждет более `}</span>
         <span className="font-['Manrope:Bold',sans-serif] leading-[97px] text-[122px]">40+</span>
         <span className="leading-[52px] text-[74px]">{` `}</span>
       </p>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[#464a6a] text-[48px] w-full">
+      <div className="relative shrink-0 text-[#464a6a] text-[48px] w-full">
         <p className="leading-[52px] mb-0">персональных онлайн встреч</p>
         <p className="leading-[52px]">с наставником</p>
       </div>
@@ -1387,7 +1211,7 @@ function Frame127() {
 function Frame128() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[32px] h-[124px] items-center relative shrink-0 w-[465px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light leading-[35px] relative shrink-0 text-[32px] text-black w-full">Начинающий (Junior)</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light leading-[35px] relative shrink-0 text-[32px] text-black w-full">Junior (начальный)</p>
       <Frame127 />
     </div>
   );
@@ -2224,16 +2048,19 @@ function Frame105() {
             <video
               autoPlay
               className="absolute inset-0 size-full object-contain"
+              data-course-autoplay-video
               loop
               muted
               onCanPlay={(event) => {
+                event.currentTarget.defaultMuted = true;
+                event.currentTarget.muted = true;
                 if (event.currentTarget.paused) {
-                  void event.currentTarget.play();
+                  void event.currentTarget.play().catch(() => undefined);
                 }
               }}
               playsInline
               preload="auto"
-              src="/videos/course-ai.mp4"
+              src="/videos/course-ai-autoplay.mp4"
             />
           </div>
         </div>
@@ -2705,22 +2532,21 @@ function Component5() {
 
 function Frame42() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
-      <Component5 />
-      <p className="font-['Raleway:Bold',sans-serif] font-bold h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Что вы получите</p>
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[64px] text-right text-white uppercase whitespace-nowrap">после обучения</p>
+    <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[8px] items-end justify-center leading-[28px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
+      <p className="relative shrink-0">Что вы получите</p>
+      <p className="relative shrink-0 text-right">после обучения</p>
     </div>
   );
 }
 
 function Frame21() {
   return (
-    <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
-      <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+    <div className="content-stretch flex items-center justify-between relative shrink-0 w-[345px]">
+      <div className="h-[110px] relative shrink-0 w-[165px]" data-name="Group 682 1">
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
-      <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+      <div className="h-[110px] relative shrink-0 w-[164px]" data-name="diplom_prof 1">
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );
@@ -2728,14 +2554,15 @@ function Frame21() {
 
 function Frame43() {
   return (
-    <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between leading-[0] relative shrink-0 text-[24px] text-white w-full">
-      <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
-        <p className="leading-[30px]">в трудоустройстве</p>
+    <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
+      <div className="relative shrink-0 w-[167px]">
+        <p className="leading-[16px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
+        <p className="leading-[16px]">в трудоустройстве</p>
       </div>
-      <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(2) Удостоверение о повышении квалификации</p>
-        <p className="leading-[30px]">и диплом о профпереподготовке установленного образца</p>
+      <div className="flex-[1_0_0] min-w-px relative">
+        <p className="leading-[16px] mb-0">(2) Удостоверение</p>
+        <p className="leading-[16px] mb-0">о повышении квалификации и диплом</p>
+        <p className="leading-[16px]">о профпереподготовке установленного образца</p>
       </div>
     </div>
   );
@@ -2743,7 +2570,7 @@ function Frame43() {
 
 function Frame44() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[1280px]">
+    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-full">
       <Frame21 />
       <Frame43 />
     </div>
@@ -2752,9 +2579,15 @@ function Frame44() {
 
 function Component4() {
   return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[rgba(156,120,255,0.8)] gap-[80px] items-center mb-[-40px] pb-[144px] pt-[104px] px-[80px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-[1440px]" data-name="документы">
-      <Frame42 />
-      <Frame44 />
+    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] min-h-[373px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-full" data-name="документы">
+      <div className="flex flex-col items-center size-full">
+        <div className="content-stretch flex flex-col items-center px-[20px] py-[40px] relative size-full">
+          <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
+            <Frame42 />
+            <Frame44 />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -5086,56 +4919,34 @@ function Frame185() {
 }
 
 function Frame137() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <div className="content-stretch cursor-pointer flex flex-col items-start relative shrink-0 w-full">
-      <button className="relative shrink-0 w-full" data-name="вопросы">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame162 />
+    <div className="site-course-faq-list site-course-faq-list--desktop content-stretch flex flex-col items-start relative shrink-0 w-full">
+      {courseFaqItems.map((item, index) => {
+        const isOpen = openIndex === index;
+
+        return (
+          <div className={`site-course-faq-item site-course-faq-item--desktop relative shrink-0 w-full${isOpen ? " is-open" : ""}`} key={item.question}>
+            <button
+              aria-expanded={isOpen}
+              className="site-course-faq-trigger site-course-faq-trigger--desktop"
+              onClick={() => setOpenIndex((current) => (current === index ? null : index))}
+              type="button"
+            >
+              <span className="site-course-faq-question site-course-faq-question--desktop">{item.question}</span>
+              <span aria-hidden className="site-course-faq-arrow">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
+                  <path d={svgPaths.p3133300} stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </span>
+            </button>
+            <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
+              <div className="site-course-faq-answer site-course-faq-answer--desktop">{item.answer}</div>
+            </div>
           </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame171 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame173 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame183 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame184 />
-          </div>
-        </div>
-      </button>
-      <button className="relative shrink-0 w-full">
-        <div aria-hidden className="absolute border-b border-black border-solid border-t inset-0 pointer-events-none" />
-        <div className="flex flex-row items-center justify-end size-full">
-          <div className="content-stretch flex items-center justify-end px-[80px] py-[48px] relative size-full">
-            <Frame185 />
-          </div>
-        </div>
-      </button>
+        );
+      })}
     </div>
   );
 }

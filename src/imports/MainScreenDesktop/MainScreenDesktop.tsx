@@ -1051,7 +1051,7 @@ function Component3() {
 function Frame130() {
   return (
     <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
-      <p className="relative shrink-0 text-[#9c78ff] text-[0px] w-full">
+      <p className="relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
         <span className="leading-[52px] text-[74px]">{`Вас ждет более `}</span>
         <span className="font-['Manrope:Bold',sans-serif] leading-[97px] text-[122px]">40+</span>
         <span className="leading-[52px] text-[74px]">{` `}</span>

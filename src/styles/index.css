@@ -533,6 +533,8 @@ body {
 }
 
 .site-main-header {
+  position: relative;
+  isolation: isolate;
   z-index: 1200;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
@@ -540,6 +542,16 @@ body {
   transform: translateZ(0);
   transition: box-shadow 240ms ease;
   will-change: transform;
+}
+
+.site-shell--python-course-route .site-main-header::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(156, 120, 255, 0.92);
+  pointer-events: none;
 }
 
 .site-has-scrolled .site-main-header {
@@ -574,6 +586,10 @@ body {
   cursor: pointer;
 }
 
+.site-main-header__course-logo {
+  display: none;
+}
+
 .site-main-header--mobile {
   position: absolute !important;
   top: 40px !important;
@@ -594,6 +610,20 @@ body {
 
 .site-shell--mobile.site-shell--python-course-route .site-main-header--mobile {
   position: fixed !important;
+  padding: 8px 10px;
+  background: transparent;
+  border-radius: 32px;
+}
+
+.site-shell--mobile.site-shell--python-course-route .site-main-header--mobile .site-main-header__logo-button > div {
+  display: none;
+}
+
+.site-shell--mobile.site-shell--python-course-route .site-main-header--mobile .site-main-header__course-logo {
+  display: block;
+  width: 170px;
+  height: 41px;
+  object-fit: contain;
 }
 
 .site-main-header--desktop > div:nth-child(2) {
@@ -816,6 +846,11 @@ body {
 .site-internship-card {
   backdrop-filter: blur(74px);
   -webkit-backdrop-filter: blur(74px);
+  background-clip: padding-box;
+  border: 0;
+  box-shadow: none;
+  outline: 0;
+  overflow: hidden;
   contain: layout paint style;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -831,6 +866,38 @@ body {
 
 .site-internship-card--white {
   background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.site-internship-title--mobile {
+  gap: 12px;
+}
+
+.site-internship-title--mobile .site-internship-title__line {
+  width: 350px;
+}
+
+.site-internship-title--mobile .site-internship-title__line--black {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 27px;
+}
+
+.site-internship-title--mobile .site-internship-title__line--brand {
+  gap: 8px;
+  line-height: 32px;
+}
+
+.site-internship-title--mobile .site-internship-title__prefix {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 27px;
+}
+
+.site-internship-title--mobile .site-internship-title__brand {
+  font-size: 25px;
+  line-height: 32px;
 }
 
 .site-course-program-star {
@@ -901,12 +968,19 @@ button,
   box-sizing: border-box;
   max-width: 100%;
   overflow-x: auto;
-  overflow-y: visible;
   touch-action: pan-x pan-y;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.site-course-projects-carousel {
+  overflow-y: clip;
+}
+
+.site-course-reviews-carousel {
+  overflow-y: visible;
 }
 
 .site-shell--python-course-route:not(.site-shell--mobile) .site-course-projects-carousel,
@@ -935,6 +1009,11 @@ button,
   touch-action: pan-x pan-y;
 }
 
+.site-shell--mobile .site-course-projects-carousel {
+  padding-left: 0;
+  scroll-padding-left: 0;
+}
+
 .site-course-teachers-carousel {
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
@@ -945,7 +1024,7 @@ button,
 }
 
 .site-shell--mobile .site-course-carousel-actions--projects {
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 .site-course-projects-carousel::-webkit-scrollbar,
@@ -1119,6 +1198,7 @@ button,
   justify-content: center;
   gap: 12px;
   min-height: 48px;
+  background: #ffffff;
   border: 1px solid #9c78ff;
   border-radius: 32px;
   color: #9c78ff;
@@ -1140,6 +1220,42 @@ button,
 .site-course-program-tag-label {
   display: inline;
   min-width: 0;
+}
+
+.site-course-tech-stack {
+  align-content: flex-start;
+}
+
+.site-course-tech-row {
+  gap: 6px;
+}
+
+.site-course-tech-row > div {
+  min-height: 34px;
+  width: auto !important;
+  max-width: 100%;
+  padding: 6px 8px !important;
+  gap: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.92);
+  box-sizing: border-box;
+}
+
+.site-course-tech-row > div > div[aria-hidden] {
+  display: none;
+}
+
+.site-course-tech-row > div > div:not([aria-hidden]) {
+  width: 17px !important;
+  height: 17px !important;
+  flex: 0 0 17px;
+}
+
+.site-course-tech-row > div > p {
+  font-size: 16px !important;
+  line-height: 18px !important;
+  letter-spacing: 0 !important;
 }
 
 .site-course-program-list--mobile {
@@ -3379,14 +3495,30 @@ button,
 }
 
 .site-course-feature-list--mobile .site-course-feature-card__content {
-  align-items: flex-start !important;
+  align-items: center !important;
   justify-content: center !important;
   padding: 20px !important;
+}
+
+.site-course-feature-list--mobile .site-course-feature-card:nth-child(1),
+.site-course-feature-list--mobile .site-course-feature-card:nth-child(2),
+.site-course-feature-list--mobile .site-course-feature-card:nth-child(3) {
+  min-height: 88px;
+}
+
+.site-course-feature-list--mobile .site-course-feature-card:nth-child(4),
+.site-course-feature-list--mobile .site-course-feature-card:nth-child(5) {
+  min-height: 108px;
 }
 
 .site-course-advantage-card {
   backdrop-filter: blur(74px);
   -webkit-backdrop-filter: blur(74px);
+  background-clip: padding-box;
+  border: 0;
+  box-shadow: none;
+  outline: 0;
+  overflow: hidden;
 }
 
 .site-course-advantage-card--white {
@@ -3398,7 +3530,28 @@ button,
 }
 
 .site-course-advantage-card--purple {
-  background: rgba(156, 120, 255, 0.5) !important;
+  background-color: rgba(156, 120, 255, 0.5) !important;
+  background-image: none !important;
+}
+
+.site-course-advantage-card--purple::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.4) 26.442%,
+      rgba(206, 188, 255, 0.4) 63.221%,
+      rgba(181, 154, 255, 0.4) 81.611%,
+      rgba(156, 120, 255, 0.4) 100%);
+  pointer-events: none;
+}
+
+.site-course-advantage-card--purple > * {
+  position: relative;
+  z-index: 1;
 }
 
 .site-course-inline-link {
@@ -5021,14 +5174,122 @@ button,
     height: 58px;
   }
 
-  .site-about-scale-shell .site-review-page__footer-company {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 100%;
-    margin-top: 28px !important;
-    font-size: 12px !important;
-    line-height: 20px !important;
-    letter-spacing: 0.36px;
+.site-about-scale-shell .site-review-page__footer-company {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 100%;
+  margin-top: 28px !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.36px;
   }
+}
+
+.site-course-faq-list {
+  color: #000000;
+}
+
+.site-course-faq-item {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.site-course-faq-item + .site-course-faq-item {
+  margin-top: -1px;
+}
+
+.site-course-faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.site-course-faq-trigger--desktop {
+  gap: 32px;
+  padding: 48px 80px;
+}
+
+.site-course-faq-trigger--mobile {
+  gap: 16px;
+  padding: 20px;
+}
+
+.site-course-faq-question {
+  min-width: 0;
+  text-transform: uppercase;
+}
+
+.site-course-faq-question--desktop {
+  max-width: 1180px;
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 53px;
+}
+
+.site-course-faq-question--mobile {
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.site-course-faq-arrow {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  color: #000000;
+  transform: rotate(90deg);
+  transition: transform 260ms ease;
+}
+
+.site-course-faq-item.is-open .site-course-faq-arrow {
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+.site-course-faq-answer-shell {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease;
+}
+
+.site-course-faq-item.is-open .site-course-faq-answer-shell {
+  max-height: 240px;
+}
+
+.site-course-faq-answer {
+  min-height: 0;
+  overflow: hidden;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 240ms ease, transform 320ms ease;
+}
+
+.site-course-faq-item.is-open .site-course-faq-answer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-course-faq-answer--desktop {
+  padding: 0 80px 48px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.site-course-faq-answer--mobile {
+  padding: 0 20px 20px;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.48px;
 }

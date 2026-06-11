@@ -1589,7 +1589,7 @@ function PythonCoursePage({
   const courseContentShellStyle = isMobile
     ? {
       height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
-      marginTop: `${Math.round(-48 * headerScale)}px`,
+      marginTop: 0,
     }
     : undefined;
   const courseContentCanvasStyle = isMobile
@@ -1644,6 +1644,12 @@ function PythonCoursePage({
       canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
         image.decoding = "async";
 
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          image.loading = "eager";
+          image.setAttribute("fetchpriority", "high");
+          return;
+        }
+
         if (image.getBoundingClientRect().top > preloadLine) {
           image.loading = "lazy";
           image.setAttribute("fetchpriority", "low");
@@ -1654,23 +1660,38 @@ function PythonCoursePage({
     tuneMedia();
 
     const refreshId = window.setTimeout(tuneMedia, 250);
-    const videos = Array.from(canvas.querySelectorAll<HTMLVideoElement>("video"));
+    const videoCleanups = new Map<HTMLVideoElement, () => void>();
 
-    videos.forEach((video) => {
+    const playVideo = (video: HTMLVideoElement) => {
+      video.autoplay = true;
       video.muted = true;
+      video.defaultMuted = true;
       video.loop = true;
       video.playsInline = true;
-    });
+      video.preload = "auto";
+      video.setAttribute("autoplay", "");
+      video.setAttribute("loop", "");
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      void video.play().catch(() => undefined);
+    };
 
-    if (videos.length === 0 || typeof IntersectionObserver === "undefined") {
-      return () => {
-        window.clearTimeout(refreshId);
-      };
-    }
+    const schedulePlay = (video: HTMLVideoElement) => {
+      playVideo(video);
+      window.requestAnimationFrame(() => playVideo(video));
+      window.setTimeout(() => playVideo(video), 250);
+      window.setTimeout(() => playVideo(video), 1000);
+    };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
+
+        if (video.hasAttribute("data-course-autoplay-video")) {
+          void video.play().catch(() => undefined);
+          return;
+        }
 
         if (entry.isIntersecting) {
           void video.play().catch(() => undefined);
@@ -1681,13 +1702,60 @@ function PythonCoursePage({
       });
     }, { rootMargin: "320px 0px", threshold: 0.01 });
 
-    videos.forEach((video) => {
-      observer.observe(video);
-    });
+    const configureVideo = (video: HTMLVideoElement) => {
+      if (videoCleanups.has(video)) {
+        schedulePlay(video);
+        return;
+      }
+
+      const retry = () => schedulePlay(video);
+
+      video.addEventListener("loadeddata", retry);
+      video.addEventListener("canplay", retry);
+      video.addEventListener("canplaythrough", retry);
+      observer?.observe(video);
+      schedulePlay(video);
+
+      videoCleanups.set(video, () => {
+        video.removeEventListener("loadeddata", retry);
+        video.removeEventListener("canplay", retry);
+        video.removeEventListener("canplaythrough", retry);
+        observer?.unobserve(video);
+      });
+    };
+
+    const configureVideos = () => {
+      canvas.querySelectorAll<HTMLVideoElement>("video").forEach(configureVideo);
+    };
+
+    configureVideos();
+
+    const retryIds = [
+      window.setTimeout(configureVideos, 500),
+      window.setTimeout(configureVideos, 1500),
+    ];
+
+    const mutationObserver = typeof MutationObserver === "undefined" ? null : new MutationObserver(configureVideos);
+    mutationObserver?.observe(canvas, { childList: true, subtree: true });
+
+    const resumeVideos = () => {
+      if (!document.hidden) {
+        configureVideos();
+      }
+    };
+
+    document.addEventListener("visibilitychange", resumeVideos);
+    window.addEventListener("focus", configureVideos);
 
     return () => {
       window.clearTimeout(refreshId);
-      observer.disconnect();
+      retryIds.forEach((retryId) => window.clearTimeout(retryId));
+      document.removeEventListener("visibilitychange", resumeVideos);
+      window.removeEventListener("focus", configureVideos);
+      mutationObserver?.disconnect();
+      videoCleanups.forEach((cleanup) => cleanup());
+      videoCleanups.clear();
+      observer?.disconnect();
     };
   }, [headerScale, isMobile]);
 
