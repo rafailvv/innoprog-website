@@ -552,7 +552,7 @@ body {
   border-radius: inherit;
   pointer-events: none;
 }
-@media (min-width: 761px) {
+@media (max-width: 767px) {
   .site-shell--python-course-route .site-main-header::before {
     background: rgba(156, 120, 255, 0.92);
   }
