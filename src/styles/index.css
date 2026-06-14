@@ -552,6 +552,11 @@ body {
   border-radius: inherit;
   pointer-events: none;
 }
+@media (min-width: 761px) {
+  .site-shell--python-course-route .site-main-header::before {
+    background: rgba(156, 120, 255, 0.92);
+  }
+}
 
 .site-has-scrolled .site-main-header {
   box-shadow: 0 12px 36px rgba(70, 74, 106, 0.12);
