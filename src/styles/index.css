@@ -983,8 +983,7 @@ button,
   overflow-y: visible;
 }
 
-.site-shell--python-course-route:not(.site-shell--mobile) .site-course-projects-carousel,
-.site-shell--python-course-route:not(.site-shell--mobile) .site-course-reviews-carousel {
+.site-shell--python-course-route:not(.site-shell--mobile) .site-course-projects-carousel {
   width: 1440px !important;
   max-width: none;
   margin-left: 0;
@@ -995,8 +994,18 @@ button,
   scroll-padding-right: 80px;
 }
 
-.site-shell--mobile .site-course-projects-carousel,
-.site-shell--mobile .site-course-reviews-carousel {
+.site-shell--python-course-route:not(.site-shell--mobile) .site-course-reviews-carousel {
+  width: 1440px !important;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 80px;
+  padding-right: 0;
+  scroll-padding-left: 80px;
+  scroll-padding-right: 0;
+}
+
+.site-shell--mobile .site-course-projects-carousel {
   width: 100% !important;
   max-width: 100%;
   margin-left: 0;
@@ -1005,6 +1014,19 @@ button,
   padding-left: 20px;
   scroll-padding-left: 20px;
   scroll-padding-right: 20px;
+  overscroll-behavior: auto;
+  touch-action: pan-x pan-y;
+}
+
+.site-shell--mobile .site-course-reviews-carousel {
+  width: calc(100% + 20px) !important;
+  max-width: none;
+  margin-left: 0;
+  margin-right: -20px;
+  padding-left: 0;
+  padding-right: 0;
+  scroll-padding-left: 0;
+  scroll-padding-right: 0;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
 }
@@ -1197,16 +1219,16 @@ button,
   align-items: center;
   justify-content: center;
   gap: 12px;
-  min-height: 48px;
-  background: #ffffff;
-  border: 1px solid #9c78ff;
-  border-radius: 32px;
-  color: #9c78ff;
+  min-height: 54px;
+  background: #9c78ff;
+  border: 0;
+  border-radius: 40px;
+  color: #ffffff;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 400;
-  line-height: 27px;
-  padding: 8px 16px;
+  line-height: 22px;
+  padding: 13px 16px;
 }
 
 .site-course-program-tag-icon {
@@ -1230,7 +1252,8 @@ button,
   gap: 6px;
 }
 
-.site-course-tech-row > div {
+.site-course-tech-row > div,
+.site-course-tech-stack > div {
   min-height: 34px;
   width: auto !important;
   max-width: 100%;
@@ -1242,20 +1265,54 @@ button,
   box-sizing: border-box;
 }
 
-.site-course-tech-row > div > div[aria-hidden] {
+.site-course-tech-row > div > div[aria-hidden],
+.site-course-tech-stack > div > div[aria-hidden] {
   display: none;
 }
 
-.site-course-tech-row > div > div:not([aria-hidden]) {
+.site-course-tech-row > div > div:not([aria-hidden]),
+.site-course-tech-stack > div > div:not([aria-hidden]) {
   width: 17px !important;
   height: 17px !important;
   flex: 0 0 17px;
 }
 
-.site-course-tech-row > div > p {
+.site-course-tech-row > div > p,
+.site-course-tech-stack > div > p {
   font-size: 16px !important;
   line-height: 18px !important;
   letter-spacing: 0 !important;
+}
+
+.site-course-structure-mobile-arrow {
+  z-index: 3;
+  pointer-events: none;
+  background: var(--course-structure-arrow-url) lightgray 10.255px -17.092px / 91.617% 126.446% no-repeat;
+  background-blend-mode: plus-darker;
+}
+
+@supports not (background-blend-mode: plus-darker) {
+  .site-course-structure-mobile-arrow {
+    background: var(--course-structure-arrow-fallback-url) transparent 10.255px -17.092px / 91.617% 126.446% no-repeat;
+    background-blend-mode: normal;
+  }
+}
+
+.site-course-structure-mobile-title {
+  z-index: 4;
+}
+
+.site-course-structure-mobile-title + div {
+  z-index: 2;
+}
+
+.site-course-mobile-projects-section {
+  margin-top: 24px;
+  gap: 24px !important;
+}
+
+.site-course-mobile-projects-list-wrap {
+  gap: 12px !important;
 }
 
 .site-course-program-list--mobile {
@@ -1329,12 +1386,13 @@ button,
 }
 
 .site-course-program-list--mobile .site-course-program-tag {
-  min-height: 38px;
-  border-width: 1px;
-  font-size: 12px;
+  min-height: 42px;
+  border-width: 0;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 16px;
-  padding: 7px 12px;
+  letter-spacing: 0.48px;
+  line-height: 18px;
+  padding: 10px 12px;
 }
 
 .site-course-program-list--mobile .site-course-program-tag-icon {
@@ -4510,7 +4568,7 @@ button,
     width: 390px;
     max-width: 390px;
     gap: 72px;
-    padding: 8px 0 0;
+    padding: 0;
   }
 
   .site-course-structure__sticky-side {

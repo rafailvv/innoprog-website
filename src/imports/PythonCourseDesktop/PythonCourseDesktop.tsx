@@ -4592,10 +4592,14 @@ function Frame253() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:SemiBold',sans-serif] font-semibold leading-[0] relative shrink-0 text-[64px] uppercase w-full">
-        <p className="leading-[68px] mb-0">Не уверены, что вам</p>
+        <p className="leading-[68px] mb-0">Не уверены,</p>
+        <p className="leading-[68px] mb-0">что вам</p>
         <p className="leading-[68px]">это подходит?</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[33px] relative shrink-0 text-[24px] w-full whitespace-pre-wrap">{`Оставьте заявку  — мы обо всем расскажем подробнее.`}</p>
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
+        <p className="leading-[33px] mb-0">Оставьте заявку — мы обо всем расскажем</p>
+        <p className="leading-[33px]">подробнее.</p>
+      </div>
     </div>
   );
 }

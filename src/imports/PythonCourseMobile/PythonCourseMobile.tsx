@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
 import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
@@ -8,12 +8,14 @@ import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
 import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.opt.webp";
 import imgImage52 from "./438bc548f7863d8ef2b783a4cb669ce08d59b346.png";
 import imgImage123 from "./6f94b00dc436fda0e2abe13ee6583f19665d3066.png";
+import imgCourseStructureArrowFigma from "./course-structure-arrow-plus-darker.webp";
 import img18001 from "./40ec54b08771963beaaad715c22e691c4519e3d3.opt.webp";
 import img335 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import img420501 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
 import img5134 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.opt.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
+import imgCourseResultsCircleStackSwirl from "./course-results-circle-stack-swirl.png";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.opt.webp";
 import imgRectangle40083 from "./004de5560ec5b2aefa2edb08a745b9f1e187ccf7.opt.webp";
 import imgRectangle40084 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.opt.webp";
@@ -2040,43 +2042,29 @@ function Frame190() {
 
 function Frame191() {
   return (
-    <div className="site-course-tech-stack content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[350px]">
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <div className="content-stretch flex gap-[16px] h-[32px] items-center p-[8px] relative rounded-[16px] shrink-0 w-[105px]">
-          <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
-          <MaterialIconThemePython />
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">Python</p>
-        </div>
-        <Frame133 />
-        <Frame135 />
+    <div className="site-course-tech-stack content-stretch flex flex-wrap gap-[8px] items-center justify-center relative shrink-0 w-[350px]">
+      <div className="content-stretch flex gap-[16px] h-[32px] items-center p-[8px] relative rounded-[16px] shrink-0 w-[105px]">
+        <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
+        <MaterialIconThemePython />
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">Python</p>
       </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame126 />
-        <Frame138 />
-        <Frame140 />
-      </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame139 />
-        <Frame125 />
-        <Frame128 />
-      </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame123 />
-        <Frame132 />
-      </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame129 />
-        <Frame131 />
-      </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame127 />
-        <Frame134 />
-      </div>
-      <div className="site-course-tech-row content-stretch flex items-center justify-between relative shrink-0 w-full">
-        <Frame137 />
-        <Frame136 />
-        <Frame130 />
-      </div>
+      <Frame133 />
+      <Frame135 />
+      <Frame126 />
+      <Frame138 />
+      <Frame140 />
+      <Frame139 />
+      <Frame125 />
+      <Frame128 />
+      <Frame123 />
+      <Frame132 />
+      <Frame129 />
+      <Frame131 />
+      <Frame127 />
+      <Frame134 />
+      <Frame137 />
+      <Frame136 />
+      <Frame130 />
     </div>
   );
 }
@@ -2267,12 +2255,19 @@ function Frame112() {
     <div className="bg-[#9c78ff] min-h-[2324px] relative rounded-[40px] shrink-0 w-full">
       <div className="overflow-clip rounded-[inherit] w-full">
         <div className="content-stretch flex flex-col gap-[115px] items-start px-[20px] py-[32px] relative w-full">
-          <div className="-translate-x-1/2 absolute h-[147.726px] left-[calc(50%-0.01px)] top-[71.35px] w-[244.657px]" data-name="image 123">
-            <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImage123} />
-          </div>
-          <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[#464a6a] text-[40px] uppercase w-[min-content]">
-            <p className="mb-0 whitespace-nowrap">Курс</p>
-            <p className="mb-0 whitespace-nowrap">состоит</p>
+          <div
+            aria-hidden="true"
+            className="site-course-structure-mobile-arrow -translate-x-1/2 absolute h-[147.726px] left-[calc(50%-0.01px)] top-[84px] w-[244.657px]"
+            data-name="image 123"
+            style={{
+              "--course-structure-arrow-url": `url(${imgImage123})`,
+              "--course-structure-arrow-fallback-url": `url(${imgCourseStructureArrowFigma})`,
+            } as CSSProperties}
+            data-figma-background="url(<path-to-image>) lightgray 10.255px -17.092px / 91.617% 126.446% no-repeat"
+            data-figma-background-blend-mode="plus-darker"
+          />
+          <div className="site-course-structure-mobile-title [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[#464a6a] text-[40px] uppercase w-[min-content]">
+            <p className="mb-0 whitespace-nowrap">Курс состоит</p>
             <p className="whitespace-nowrap">из</p>
           </div>
           <Frame242 />
@@ -2582,7 +2577,7 @@ function Frame199() {
 
 function Frame279() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
+    <div className="site-course-mobile-projects-list-wrap content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame197 />
       <Frame199 />
     </div>
@@ -2591,7 +2586,7 @@ function Frame279() {
 
 function Frame198() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
+    <div className="site-course-mobile-projects-section content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
       <Frame67 />
       <Frame279 />
     </div>
@@ -2656,8 +2651,15 @@ function Frame179() {
 
 function Component1() {
   return (
-    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] min-h-[373px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-full" data-name="документы">
-      <div className="flex flex-col items-center size-full">
+    <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] h-[413px] mb-[-40px] overflow-hidden relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-[390px]" data-name="документы">
+      <div aria-hidden="true" className="-translate-x-1/2 absolute flex h-[373px] items-center justify-center left-[calc(50%-0.5px)] pointer-events-none top-0 w-[389px]">
+        <div className="-scale-y-100 flex-none">
+          <div className="h-[373px] relative w-[389px]" data-name="Circle_Stack_Swirl">
+            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-50 pointer-events-none size-full" src={imgCourseResultsCircleStackSwirl} />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col items-center relative z-10 size-full">
         <div className="content-stretch flex flex-col items-center px-[20px] py-[40px] relative size-full">
           <Frame179 />
         </div>
@@ -3084,7 +3086,7 @@ function Frame201() {
 
 function Frame203() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] items-center py-[40px] relative rounded-[24px] shrink-0 w-[390px]">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] items-center py-[40px] relative rounded-[24px] shrink-0 w-[390px] z-10">
       <Frame202 />
       <Frame201 />
     </div>
@@ -3093,7 +3095,7 @@ function Frame203() {
 
 function Frame280() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component1 />
       <Frame203 />
     </div>
@@ -4508,7 +4510,10 @@ function Frame48() {
         <p className="leading-[43px] mb-0">что вам</p>
         <p className="leading-[43px]">это подходит?</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-full relative shrink-0 text-[16px] tracking-[0.48px] w-[min-content]">Оставьте заявку — мы обо всем расскажем подробнее.</p>
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[16px] tracking-[0.48px] w-[min-content]">
+        <p className="leading-[18px] mb-0">Оставьте заявку — мы обо всем расскажем</p>
+        <p className="leading-[18px]">подробнее.</p>
+      </div>
     </div>
   );
 }
@@ -5040,7 +5045,7 @@ function Group8() {
 
 function Frame213() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[80px] items-start left-0 top-[2314px] w-[390px]">
+    <div className="content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
       <Frame200 />
       <Frame251 />
       <Frame212 />
