@@ -550,7 +550,6 @@ body {
   inset: -5px;
   z-index: -1;
   border-radius: inherit;
-  background: rgba(156, 120, 255, 0.92);
   pointer-events: none;
 }
 
