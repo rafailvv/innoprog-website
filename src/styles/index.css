@@ -1246,14 +1246,28 @@ button,
 
 .site-course-tech-stack {
   align-content: flex-start;
+  align-items: stretch !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  justify-content: flex-start !important;
 }
 
 .site-course-tech-row {
-  gap: 6px;
+  align-items: center;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-course-tech-row--last {
+  gap: 8px;
+  justify-content: flex-start;
 }
 
 .site-course-tech-row > div,
-.site-course-tech-stack > div {
+.site-course-tech-stack > div:not(.site-course-tech-row) {
   min-height: 34px;
   width: auto !important;
   max-width: 100%;
@@ -1266,19 +1280,19 @@ button,
 }
 
 .site-course-tech-row > div > div[aria-hidden],
-.site-course-tech-stack > div > div[aria-hidden] {
+.site-course-tech-stack > div:not(.site-course-tech-row) > div[aria-hidden] {
   display: none;
 }
 
 .site-course-tech-row > div > div:not([aria-hidden]),
-.site-course-tech-stack > div > div:not([aria-hidden]) {
+.site-course-tech-stack > div:not(.site-course-tech-row) > div:not([aria-hidden]) {
   width: 17px !important;
   height: 17px !important;
   flex: 0 0 17px;
 }
 
 .site-course-tech-row > div > p,
-.site-course-tech-stack > div > p {
+.site-course-tech-stack > div:not(.site-course-tech-row) > p {
   font-size: 16px !important;
   line-height: 18px !important;
   letter-spacing: 0 !important;

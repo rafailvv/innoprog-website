@@ -2040,31 +2040,49 @@ function Frame190() {
   );
 }
 
+function PythonTechChip() {
+  return (
+    <div className="content-stretch flex gap-[16px] h-[32px] items-center p-[8px] relative rounded-[16px] shrink-0 w-[105px]">
+      <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <MaterialIconThemePython />
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">Python</p>
+    </div>
+  );
+}
+
 function Frame191() {
   return (
     <div className="site-course-tech-stack content-stretch flex flex-wrap gap-[8px] items-center justify-center relative shrink-0 w-[350px]">
-      <div className="content-stretch flex gap-[16px] h-[32px] items-center p-[8px] relative rounded-[16px] shrink-0 w-[105px]">
-        <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
-        <MaterialIconThemePython />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">Python</p>
+      <div className="site-course-tech-row relative shrink-0">
+        <PythonTechChip />
+        <Frame135 />
+        <Frame138 />
       </div>
-      <Frame133 />
-      <Frame135 />
-      <Frame126 />
-      <Frame138 />
-      <Frame140 />
-      <Frame139 />
-      <Frame125 />
-      <Frame128 />
-      <Frame123 />
-      <Frame132 />
-      <Frame129 />
-      <Frame131 />
-      <Frame127 />
-      <Frame134 />
-      <Frame137 />
-      <Frame136 />
-      <Frame130 />
+      <div className="site-course-tech-row relative shrink-0">
+        <Frame133 />
+        <Frame123 />
+        <Frame131 />
+      </div>
+      <div className="site-course-tech-row relative shrink-0">
+        <Frame126 />
+        <Frame125 />
+        <Frame128 />
+        <Frame136 />
+      </div>
+      <div className="site-course-tech-row relative shrink-0">
+        <Frame129 />
+        <Frame137 />
+      </div>
+      <div className="site-course-tech-row relative shrink-0">
+        <Frame140 />
+        <Frame127 />
+        <Frame134 />
+      </div>
+      <div className="site-course-tech-row site-course-tech-row--last relative shrink-0">
+        <Frame139 />
+        <Frame132 />
+        <Frame130 />
+      </div>
     </div>
   );
 }
