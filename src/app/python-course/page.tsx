@@ -1,10 +1,18 @@
 import App from "../App";
-import { JsonLd, breadcrumbJsonLd, createPageMetadata, pythonCourseJsonLd, webPageJsonLd } from "../seo";
+import { courseFaqItems } from "../../imports/courseFaqData";
+import {
+  JsonLd,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  faqPageJsonLd,
+  pythonCourseJsonLd,
+  webPageJsonLd,
+} from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Python-разработчик",
+  title: "Курс Python-разработчик с нуля",
   description:
-    "Курс Python-разработчик в ИННОПРОГ: практика на платформе, личный наставник, преподаватели и документы после обучения.",
+    "Курс Python-разработчик с нуля в ИННОПРОГ: онлайн-обучение с наставником, практика на платформе, проекты в портфолио и документы после обучения.",
   path: "/python-course",
   keywords: [
     "курс Python-разработчик",
@@ -17,13 +25,16 @@ export const metadata = createPageMetadata({
 export default function PythonCourseRoute() {
   return (
     <>
+      <h1 className="site-seo-heading">Курс Python-разработчик с наставником и практическими проектами</h1>
       <JsonLd data={pythonCourseJsonLd} />
+      <JsonLd data={faqPageJsonLd(courseFaqItems, "/python-course")} />
       <JsonLd
         data={webPageJsonLd({
           path: "/python-course",
-          name: "Курс Python-разработчик",
+          name: "Курс Python-разработчик с нуля",
           description:
-            "Практический онлайн-курс Python-разработчик с наставником, платформой и проектами.",
+            "Практический онлайн-курс Python-разработчик с наставником, платформой и проектами в портфолио.",
+          primaryEntityId: "https://innoprog.ru/python-course#course",
         })}
       />
       <JsonLd

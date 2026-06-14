@@ -1668,7 +1668,7 @@ function Frame65() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Платформа</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Выполняйте домашние задания и закрепляйте навыки на платформе. Материал и задания построены так, чтобы сложные темы становились понятными и применимыми на практике</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[15px] text-black w-full">Выполняйте домашние задания и закрепляйте навыки на платформе. Материал и задания построены так, чтобы сложные темы становились понятными и применимыми на практике</p>
     </div>
   );
 }
@@ -1676,8 +1676,8 @@ function Frame65() {
 function Frame66() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[166px]">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Куратор</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Куратор поможет найти удобное решение и скорректировать темп обучения под ваш график, если возникают сложности с расписанием занятий</p>
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[20px] w-full">Куратор</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-black w-full">Куратор поможет найти удобное решение и скорректировать темп обучения под ваш график, если возникают сложности с расписанием занятий</p>
     </div>
   );
 }
@@ -1685,8 +1685,8 @@ function Frame66() {
 function Frame67() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[167px]">
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[24px] relative shrink-0 text-[24px] w-full">Преподаватель</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black w-full">Если возникнут сложности с домашними заданиями или с практикой, преподаватель поможет разобраться и подскажет решение</p>
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[20px] w-full">Преподаватель</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-black w-full">Если возникнут сложности с домашними заданиями или с практикой, преподаватель поможет разобраться и подскажет решение</p>
     </div>
   );
 }

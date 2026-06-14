@@ -799,8 +799,21 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+.site-seo-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
 .site-internship-title {
-  gap: 18px;
+  gap: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
   letter-spacing: 0;
@@ -819,7 +832,7 @@ body {
 .site-internship-title__line--black {
   color: #000000;
   font-size: 64px;
-  line-height: 76px;
+  line-height: 68px;
 }
 
 .site-internship-title__line--brand {
@@ -827,19 +840,19 @@ body {
   align-items: baseline;
   gap: 20px;
   color: #9c78ff;
-  line-height: 97px;
+  line-height: 92px;
 }
 
 .site-internship-title__prefix {
   color: #000000;
   font-size: 64px;
-  line-height: 76px;
+  line-height: 68px;
 }
 
 .site-internship-title__brand {
   color: #9c78ff;
   font-size: 96px;
-  line-height: 97px;
+  line-height: 92px;
   white-space: nowrap;
 }
 
@@ -869,7 +882,7 @@ body {
 }
 
 .site-internship-title--mobile {
-  gap: 12px;
+  gap: 2px;
 }
 
 .site-internship-title--mobile .site-internship-title__line {
@@ -880,24 +893,24 @@ body {
   font-family: "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 800;
-  line-height: 27px;
+  line-height: 25px;
 }
 
 .site-internship-title--mobile .site-internship-title__line--brand {
   gap: 8px;
-  line-height: 32px;
+  line-height: 29px;
 }
 
 .site-internship-title--mobile .site-internship-title__prefix {
   font-family: "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 800;
-  line-height: 27px;
+  line-height: 25px;
 }
 
 .site-internship-title--mobile .site-internship-title__brand {
   font-size: 25px;
-  line-height: 32px;
+  line-height: 29px;
 }
 
 .site-course-program-star {
@@ -1006,33 +1019,35 @@ button,
 }
 
 .site-shell--mobile .site-course-projects-carousel {
-  width: 100% !important;
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  width: calc(100% + 40px) !important;
+  max-width: none;
+  margin-left: -20px;
+  margin-right: -20px;
   padding-right: 20px;
   padding-left: 20px;
-  scroll-padding-left: 20px;
+  scroll-padding-left: 0;
   scroll-padding-right: 20px;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
+  scroll-snap-type: none;
 }
 
 .site-shell--mobile .site-course-reviews-carousel {
-  width: calc(100% + 20px) !important;
+  width: calc(100% + 40px) !important;
   max-width: none;
-  margin-left: 0;
+  margin-left: -20px;
   margin-right: -20px;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
   scroll-padding-left: 0;
-  scroll-padding-right: 0;
+  scroll-padding-right: 20px;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
+  scroll-snap-type: none;
 }
 
 .site-shell--mobile .site-course-projects-carousel {
-  padding-left: 0;
+  padding-left: 20px;
   scroll-padding-left: 0;
 }
 
@@ -1298,26 +1313,40 @@ button,
   letter-spacing: 0 !important;
 }
 
-.site-course-structure-mobile-arrow {
-  z-index: 3;
-  pointer-events: none;
-  background: var(--course-structure-arrow-url) lightgray 10.255px -17.092px / 91.617% 126.446% no-repeat;
-  background-blend-mode: plus-darker;
+.site-course-structure-mobile-stage {
+  isolation: isolate;
 }
 
-@supports not (background-blend-mode: plus-darker) {
-  .site-course-structure-mobile-arrow {
-    background: var(--course-structure-arrow-fallback-url) transparent 10.255px -17.092px / 91.617% 126.446% no-repeat;
-    background-blend-mode: normal;
-  }
+.site-course-structure-mobile-arrow-slot {
+  pointer-events: none;
+  z-index: 20;
+}
+
+.site-course-structure-mobile-arrow {
+  display: block;
+  max-width: 100%;
+  pointer-events: none;
+  transform: translateX(-24px);
 }
 
 .site-course-structure-mobile-title {
-  z-index: 4;
+  z-index: 30;
 }
 
-.site-course-structure-mobile-title + div {
-  z-index: 2;
+.site-course-structure-mobile-arrow-slot + div {
+  z-index: 10;
+}
+
+.site-course-pdf-download--hidden {
+  display: none !important;
+}
+
+.site-course-mobile-content-flow {
+  pointer-events: none;
+}
+
+.site-course-mobile-content-flow > * {
+  pointer-events: auto;
 }
 
 .site-course-mobile-projects-section {
@@ -1446,10 +1475,18 @@ button,
 }
 
 .site-mobile-teachers-carousel {
+  width: 390px !important;
+  max-width: none;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  scroll-padding-left: 0;
+  scroll-padding-right: 20px;
   overflow-x: auto;
   overflow-y: clip;
   touch-action: pan-x pan-y;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: none;
   contain: layout paint style;
   padding-bottom: 20px;
 }
@@ -1846,6 +1883,84 @@ button,
   justify-content: space-between;
   padding: 48px 24px 40px;
   background: #464a6a;
+}
+
+.site-mobile-menu--open {
+  animation: site-mobile-menu-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-mobile-menu--closing {
+  pointer-events: none;
+  animation: site-mobile-menu-out 200ms ease-in both;
+}
+
+.site-mobile-menu__top,
+.site-mobile-menu__links,
+.site-mobile-menu__cta {
+  animation: site-mobile-menu-content-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-mobile-menu--closing .site-mobile-menu__top,
+.site-mobile-menu--closing .site-mobile-menu__links,
+.site-mobile-menu--closing .site-mobile-menu__cta {
+  animation: site-mobile-menu-content-out 170ms ease-in both;
+  animation-delay: 0ms;
+}
+
+.site-mobile-menu__links {
+  animation-delay: 45ms;
+}
+
+.site-mobile-menu__cta {
+  animation-delay: 75ms;
+}
+
+@keyframes site-mobile-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes site-mobile-menu-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes site-mobile-menu-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes site-mobile-menu-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
 
 .site-mobile-menu__top {
@@ -3826,6 +3941,7 @@ button,
   background: rgba(0, 0, 0, 0.28);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+  animation: site-modal-overlay-in 220ms ease-out both;
 }
 
 .site-lead-modal__card {
@@ -3841,6 +3957,42 @@ button,
   border-radius: 40px;
   background: #9c78ff;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+  animation: site-modal-card-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes site-modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes site-modal-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-mobile-menu--open,
+  .site-mobile-menu--closing,
+  .site-mobile-menu__top,
+  .site-mobile-menu__links,
+  .site-mobile-menu__cta,
+  .site-lead-modal,
+  .site-lead-modal__card {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
 }
 
 .site-lead-modal__card--success {
@@ -3915,7 +4067,18 @@ button,
   width: min(628px, 100%);
   flex-direction: column;
   align-items: stretch;
-  gap: 48px;
+  gap: 28px;
+}
+
+.site-lead-modal__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .site-lead-modal__subtitle {
@@ -3959,6 +4122,12 @@ button,
 
 .site-lead-modal__input:focus {
   box-shadow: inset 0 0 0 2px rgba(70, 74, 106, 0.35);
+}
+
+.site-lead-modal__textarea {
+  min-height: 126px;
+  height: auto;
+  resize: vertical;
 }
 
 .site-lead-modal__consent {
@@ -4990,15 +5159,16 @@ button,
   }
 
   .site-lead-modal {
-    align-items: stretch;
-    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
   }
 
   .site-lead-modal__card {
-    width: 100%;
-    max-height: calc(100dvh - 24px);
-    gap: 30px;
-    padding: 24px 20px 28px;
+    width: min(350px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    gap: 16px;
+    padding: 18px 18px 22px;
     border-radius: 32px;
   }
 
@@ -5030,34 +5200,43 @@ button,
   }
 
   .site-lead-modal__logo {
-    width: 268px;
-    max-width: 88%;
+    width: 204px;
+    max-width: 82%;
   }
 
   .site-lead-modal__form {
-    gap: 28px;
+    gap: 11px;
+  }
+
+  .site-lead-modal__title {
+    font-size: 24px;
+    line-height: 29px;
   }
 
   .site-lead-modal__subtitle {
-    font-size: 22px;
-    line-height: 31px;
+    font-size: 17px;
+    line-height: 23px;
   }
 
   .site-lead-modal__fields {
-    gap: 14px;
+    gap: 9px;
   }
 
   .site-lead-modal__input {
-    height: 54px;
-    padding: 14px 18px;
+    height: 48px;
+    padding: 12px 18px;
     font-size: 16px;
     line-height: 22px;
   }
 
+  .site-lead-modal__textarea {
+    min-height: 72px;
+  }
+
   .site-lead-modal__consent {
     gap: 12px;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 11px;
+    line-height: 14px;
   }
 
   .site-lead-modal__captcha {
@@ -5084,8 +5263,8 @@ button,
   }
 
   .site-lead-modal__submit {
-    min-height: 54px;
-    padding: 14px 18px;
+    min-height: 48px;
+    padding: 12px 18px;
     font-size: 16px;
     line-height: 22px;
   }
@@ -5334,12 +5513,12 @@ button,
 }
 
 .site-course-faq-item.is-open .site-course-faq-answer-shell {
-  max-height: 240px;
+  max-height: 1200px;
 }
 
 .site-course-faq-answer {
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   color: #000000;
   font-family: "Manrope", sans-serif;
   font-weight: 400;
@@ -5353,6 +5532,14 @@ button,
   transform: translateY(0);
 }
 
+.site-course-faq-answer p {
+  margin: 0;
+}
+
+.site-course-faq-answer p + p {
+  margin-top: 14px;
+}
+
 .site-course-faq-answer--desktop {
   padding: 0 80px 48px;
   font-size: 24px;
@@ -5362,6 +5549,10 @@ button,
 .site-course-faq-answer--mobile {
   padding: 0 20px 20px;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 20px;
   letter-spacing: 0.48px;
+}
+
+.site-course-faq-answer--mobile p + p {
+  margin-top: 10px;
 }

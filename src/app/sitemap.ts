@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_LOGO_PATH, SITE_URL, absoluteUrl } from "./seo";
 
-const UPDATED_AT = new Date("2026-06-01T00:00:00.000Z");
+const UPDATED_AT = new Date("2026-06-15T00:00:00.000Z");
 
 const routes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },

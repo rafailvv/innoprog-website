@@ -1953,6 +1953,7 @@ export default function App({
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
   const [leadCaptchaToken, setLeadCaptchaToken] = useState("");
   const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
@@ -2071,8 +2072,26 @@ export default function App({
   useEffect(() => {
     if (!viewport.isMobile) {
       setIsMobileMenuOpen(false);
+      setIsMobileMenuMounted(false);
     }
   }, [viewport.isMobile]);
+
+  useEffect(() => {
+    if (!viewport.isMobile) {
+      return;
+    }
+
+    if (isMobileMenuOpen) {
+      setIsMobileMenuMounted(true);
+      return;
+    }
+
+    const closeTimer = window.setTimeout(() => setIsMobileMenuMounted(false), 210);
+
+    return () => {
+      window.clearTimeout(closeTimer);
+    };
+  }, [isMobileMenuOpen, viewport.isMobile]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -2842,7 +2861,11 @@ export default function App({
       return;
     }
 
-    if (text.includes("начать обучение") || text.includes("начать бесплатно")) {
+    if (
+      text.includes("начать обучение") ||
+      text.includes("начать бесплатно") ||
+      text.includes("открыт набор на обучение")
+    ) {
       openLeadModal();
       return;
     }
@@ -2870,6 +2893,15 @@ export default function App({
         carouselControl?.dataset.carouselTarget || "reviews",
         carouselControl?.dataset.carouselAction === "prev" ? -1 : 1,
       );
+      return;
+    }
+
+    if (
+      target?.closest("[data-application-open]") &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      openLeadModal();
       return;
     }
 
@@ -2977,8 +3009,15 @@ export default function App({
           {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
         </div>
       )}
-      {viewport.isMobile && isMobileMenuOpen ? (
-        <nav className="site-mobile-menu" aria-label="Мобильное меню">
+      {viewport.isMobile && isMobileMenuMounted ? (
+        <nav
+          aria-hidden={!isMobileMenuOpen}
+          aria-label="Мобильное меню"
+          className={[
+            "site-mobile-menu",
+            isMobileMenuOpen ? "site-mobile-menu--open" : "site-mobile-menu--closing",
+          ].join(" ")}
+        >
           <div className="site-mobile-menu__top">
             <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
               <img alt="ИННОПРОГ Education" src="/logo_education.png" />
@@ -3079,12 +3118,22 @@ export default function App({
 
             {leadModalState === "form" ? (
               <form className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
+                <h2 className="site-lead-modal__title">Записаться на обучение</h2>
                 <p className="site-lead-modal__subtitle">
                   Оставьте заявку, и мы свяжемся
                   <br />
                   с Вами в ближайшее время
                 </p>
                 <div className="site-lead-modal__fields">
+                  <input
+                    aria-label="Ваше имя"
+                    autoComplete="name"
+                    className="site-lead-modal__input"
+                    defaultValue={leadDraft.name || ""}
+                    name="modal-name"
+                    placeholder="Ваше имя"
+                    type="text"
+                  />
                   <input
                     aria-label="Номер телефона"
                     autoComplete="tel"
@@ -3096,13 +3145,21 @@ export default function App({
                     type="tel"
                   />
                   <input
-                    aria-label="Ваше имя"
-                    autoComplete="name"
+                    aria-label="Почта"
+                    autoComplete="email"
                     className="site-lead-modal__input"
-                    defaultValue={leadDraft.name || ""}
-                    name="modal-name"
-                    placeholder="Ваше имя"
-                    type="text"
+                    defaultValue={leadDraft.email || ""}
+                    inputMode="email"
+                    name="modal-email"
+                    placeholder="Почта"
+                    type="email"
+                  />
+                  <textarea
+                    aria-label="Ваш вопрос"
+                    className="site-lead-modal__input site-lead-modal__textarea"
+                    defaultValue={leadDraft.question || ""}
+                    name="modal-question"
+                    placeholder="Ваш вопрос"
                   />
                 </div>
                 <div
@@ -3153,7 +3210,7 @@ export default function App({
                 ) : null}
                 <button
                   className="site-lead-modal__submit"
-                  disabled={isLeadSubmitting || (IS_TURNSTILE_ENABLED && leadCaptchaStatus === "error")}
+                  disabled={!isConsentChecked || isLeadSubmitting || (IS_TURNSTILE_ENABLED && leadCaptchaStatus === "error")}
                   type="submit"
                 >
                   {isLeadSubmitting ? "отправляем..." : "отправить заявку"}

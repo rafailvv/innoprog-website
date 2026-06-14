@@ -7,8 +7,7 @@ import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.w
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
 import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.opt.webp";
 import imgImage52 from "./438bc548f7863d8ef2b783a4cb669ce08d59b346.png";
-import imgImage123 from "./6f94b00dc436fda0e2abe13ee6583f19665d3066.png";
-import imgCourseStructureArrowFigma from "./course-structure-arrow-plus-darker.webp";
+import imgCourseStructureArrowFull from "./course-structure-arrow-full.png";
 import img18001 from "./40ec54b08771963beaaad715c22e691c4519e3d3.opt.webp";
 import img335 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import img420501 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
@@ -91,8 +90,10 @@ function scrollCourseCarousel(id: string, direction: number) {
   }
 
   const isCenterAligned = carousel.dataset.carouselAlign === "center";
+  const isMobileFullBleedCarousel = carousel.classList.contains("site-course-projects-carousel")
+    || carousel.classList.contains("site-course-reviews-carousel");
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
-  const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : paddingLeft;
+  const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : 0;
   const activeIndex = items.reduce((nearestIndex, item, index) => {
     const itemAnchor = isCenterAligned
       ? item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft
@@ -111,7 +112,9 @@ function scrollCourseCarousel(id: string, direction: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
   const targetLeft = isCenterAligned
     ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
-    : item.offsetLeft - paddingLeft;
+    : targetIndex === 0
+      ? item.offsetLeft - paddingLeft
+      : item.offsetLeft - (isMobileFullBleedCarousel ? 0 : paddingLeft);
 
   carousel.scrollTo({
     left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
@@ -626,7 +629,7 @@ function Frame269() {
 
 function Frame64() {
   return (
-    <div className="bg-[#9c78ff] relative rounded-[40px] shrink-0 w-full">
+    <div className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open role="button" tabIndex={0}>
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase whitespace-nowrap">Открыт набор на обучение</p>
@@ -2272,21 +2275,23 @@ function Frame112() {
   return (
     <div className="bg-[#9c78ff] min-h-[2324px] relative rounded-[40px] shrink-0 w-full">
       <div className="overflow-clip rounded-[inherit] w-full">
-        <div className="content-stretch flex flex-col gap-[115px] items-start px-[20px] py-[32px] relative w-full">
-          <div
-            aria-hidden="true"
-            className="site-course-structure-mobile-arrow -translate-x-1/2 absolute h-[147.726px] left-[calc(50%-0.01px)] top-[84px] w-[244.657px]"
-            data-name="image 123"
-            style={{
-              "--course-structure-arrow-url": `url(${imgImage123})`,
-              "--course-structure-arrow-fallback-url": `url(${imgCourseStructureArrowFigma})`,
-            } as CSSProperties}
-            data-figma-background="url(<path-to-image>) lightgray 10.255px -17.092px / 91.617% 126.446% no-repeat"
-            data-figma-background-blend-mode="plus-darker"
-          />
+        <div className="site-course-structure-mobile-stage content-stretch flex flex-col gap-[16px] items-start px-[20px] py-[32px] relative w-full">
           <div className="site-course-structure-mobile-title [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[#464a6a] text-[40px] uppercase w-[min-content]">
             <p className="mb-0 whitespace-nowrap">Курс состоит</p>
             <p className="whitespace-nowrap">из</p>
+          </div>
+          <div className="site-course-structure-mobile-arrow-slot h-[128px] mt-[-48px] relative shrink-0 w-full" aria-hidden="true">
+            <img
+              alt=""
+              className="site-course-structure-mobile-arrow block h-full mx-auto object-contain pointer-events-none w-auto"
+              data-name="image 123"
+              decoding="sync"
+              fetchPriority="high"
+              height={128}
+              loading="eager"
+              src={imgCourseStructureArrowFull}
+              width={116}
+            />
           </div>
           <Frame242 />
         </div>
@@ -2688,7 +2693,7 @@ function Component1() {
 
 function Frame66() {
   return (
-    <div className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
+    <div className="site-course-pdf-download--hidden bg-[#9c78ff] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">скачать полную версию в PDF</p>
     </div>
   );
@@ -4859,7 +4864,11 @@ function Frame210() {
               </span>
             </button>
             <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
-              <div className="site-course-faq-answer site-course-faq-answer--mobile">{item.answer}</div>
+              <div className="site-course-faq-answer site-course-faq-answer--mobile">
+                {item.answer.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           </div>
         );
@@ -5063,7 +5072,7 @@ function Group8() {
 
 function Frame213() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
+    <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
       <Frame200 />
       <Frame251 />
       <Frame212 />

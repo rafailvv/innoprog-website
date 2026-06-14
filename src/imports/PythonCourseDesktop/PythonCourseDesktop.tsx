@@ -360,7 +360,7 @@ function Frame209() {
 
 function Frame73() {
   return (
-    <div className="bg-[#9c78ff] relative rounded-[40px] shrink-0 w-full">
+    <div className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open role="button" tabIndex={0}>
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">Открыт набор на обучение</p>
@@ -2594,7 +2594,7 @@ function Component4() {
 
 function Frame75() {
   return (
-    <div className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0">
+    <div className="site-course-pdf-download--hidden bg-[#9c78ff] content-stretch flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">скачать полную версию в PDF</p>
     </div>
   );
@@ -4946,7 +4946,11 @@ function Frame137() {
               </span>
             </button>
             <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
-              <div className="site-course-faq-answer site-course-faq-answer--desktop">{item.answer}</div>
+              <div className="site-course-faq-answer site-course-faq-answer--desktop">
+                {item.answer.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           </div>
         );

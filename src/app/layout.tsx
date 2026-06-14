@@ -1,6 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import "../styles/index.css";
-import { DEFAULT_DESCRIPTION, DEFAULT_KEYWORDS, SITE_FAVICON_PATH, SITE_LOGO_PATH, SITE_NAME, SITE_URL } from "./seo";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_KEYWORDS,
+  DEFAULT_ROBOTS,
+  SITE_FAVICON_PATH,
+  SITE_LEGAL_NAME,
+  SITE_LOGO_PATH,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from "./seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -10,8 +20,20 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_LEGAL_NAME,
+  category: "education",
+  classification: "Online education",
   keywords: DEFAULT_KEYWORDS,
   manifest: "/manifest.webmanifest",
+  robots: DEFAULT_ROBOTS,
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      "ru-RU": SITE_URL,
+    },
+  },
   appleWebApp: {
     capable: true,
     title: SITE_NAME,
@@ -40,14 +62,17 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    images: [absoluteUrl(SITE_LOGO_PATH)],
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  minimumScale: 1,
-  userScalable: false,
   viewportFit: "cover",
   themeColor: "#ffffff",
   colorScheme: "light",

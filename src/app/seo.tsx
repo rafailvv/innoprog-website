@@ -20,7 +20,7 @@ export const DEFAULT_KEYWORDS = [
   "курсы с наставником",
 ];
 
-const DEFAULT_ROBOTS: Metadata["robots"] = {
+export const DEFAULT_ROBOTS: Metadata["robots"] = {
   index: true,
   follow: true,
   "max-image-preview": "large",
@@ -82,13 +82,25 @@ export function createPageMetadata({
   description = DEFAULT_DESCRIPTION,
   path = "/",
   keywords = [],
+  noIndex = false,
 }: {
   title: string;
   description?: string;
   path?: string;
   keywords?: string[];
+  noIndex?: boolean;
 }): Metadata {
   const url = absoluteUrl(path);
+  const robots = noIndex
+    ? {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+        },
+      }
+    : DEFAULT_ROBOTS;
 
   return {
     title,
@@ -101,7 +113,7 @@ export function createPageMetadata({
     classification: "Online education",
     keywords: [...DEFAULT_KEYWORDS, ...keywords],
     referrer: "origin-when-cross-origin",
-    robots: DEFAULT_ROBOTS,
+    robots,
     alternates: {
       canonical: url,
       languages: {
@@ -210,11 +222,17 @@ export const courseJsonLd = {
   "@id": `${SITE_URL}/#courses`,
   name: "Курсы программирования ИННОПРОГ",
   description: DEFAULT_DESCRIPTION,
+  url: SITE_URL,
   provider: {
     "@id": `${SITE_URL}/#organization`,
   },
   inLanguage: "ru-RU",
   courseMode: "online",
+  isAccessibleForFree: false,
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
   teaches: [
     "Python",
     "Data Science",
@@ -230,7 +248,7 @@ export const pythonCourseJsonLd = {
   "@id": `${SITE_URL}/python-course#course`,
   name: "Python-разработчик",
   description:
-    "Практический онлайн-курс Python-разработчик в ИННОПРОГ с наставником, платформой, проектами, преподавателями и документами после обучения.",
+    "Практический онлайн-курс Python-разработчик с нуля в ИННОПРОГ с наставником, платформой, проектами в портфолио и документами после обучения.",
   url: absoluteUrl("/python-course"),
   provider: {
     "@id": `${SITE_URL}/#organization`,
@@ -238,6 +256,11 @@ export const pythonCourseJsonLd = {
   inLanguage: "ru-RU",
   courseMode: "online",
   educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
   teaches: [
     "Python",
     "backend-разработка",
@@ -254,6 +277,7 @@ export const pythonCourseJsonLd = {
   },
   hasCourseInstance: {
     "@type": "CourseInstance",
+    "@id": `${SITE_URL}/python-course#course-instance`,
     courseMode: "online",
     inLanguage: "ru-RU",
     instructor: {
@@ -263,14 +287,37 @@ export const pythonCourseJsonLd = {
   },
 };
 
+export function faqPageJsonLd(
+  items: ReadonlyArray<{ question: string; answer: readonly string[] }>,
+  path = "/python-course",
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
+    url: absoluteUrl(path),
+    inLanguage: "ru-RU",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer.join("\n\n"),
+      },
+    })),
+  };
+}
+
 export function webPageJsonLd({
   path,
   name,
   description,
+  primaryEntityId,
 }: {
   path: string;
   name: string;
   description: string;
+  primaryEntityId?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -286,6 +333,7 @@ export function webPageJsonLd({
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },
+    ...(primaryEntityId ? { primaryEntity: { "@id": primaryEntityId } } : {}),
   };
 }
 
@@ -311,6 +359,7 @@ export function reviewJsonLd(route: ReviewRoute) {
     "@id": `${absoluteUrl(`/reviews/${route}`)}#review`,
     itemReviewed: {
       "@type": "Course",
+      "@id": `${SITE_URL}/#courses`,
       name: meta.course,
       provider: {
         "@id": `${SITE_URL}/#organization`,
@@ -323,5 +372,8 @@ export function reviewJsonLd(route: ReviewRoute) {
     name: meta.title,
     reviewBody: meta.reviewBody,
     url: absoluteUrl(`/reviews/${route}`),
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
   };
 }

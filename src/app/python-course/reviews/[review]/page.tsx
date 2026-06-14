@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import App, { type AppInitialRoute, type CourseReviewKey } from "../../../App";
-import { JsonLd, breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "../../../seo";
+import { JsonLd, SITE_URL, absoluteUrl, breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "../../../seo";
 
 const COURSE_REVIEW_ROUTE_TO_KEY = {
   maria: "maria",
@@ -94,15 +94,24 @@ export default async function CourseReviewPage({ params }: { params: Promise<{ r
         data={{
           "@context": "https://schema.org",
           "@type": "Review",
+          "@id": `${absoluteUrl(`/python-course/reviews/${review}`)}#review`,
           name: meta.title,
           reviewBody: meta.description,
+          url: absoluteUrl(`/python-course/reviews/${review}`),
           author: {
             "@type": "Person",
             name: meta.name,
           },
           itemReviewed: {
             "@type": "Course",
+            "@id": `${SITE_URL}/python-course#course`,
             name: "Python-разработчик",
+            provider: {
+              "@id": `${SITE_URL}/#organization`,
+            },
+          },
+          publisher: {
+            "@id": `${SITE_URL}/#organization`,
           },
         }}
       />
@@ -111,6 +120,7 @@ export default async function CourseReviewPage({ params }: { params: Promise<{ r
           path: `/python-course/reviews/${review}`,
           name: meta.title,
           description: meta.description,
+          primaryEntityId: `${absoluteUrl(`/python-course/reviews/${review}`)}#review`,
         })}
       />
       <JsonLd
