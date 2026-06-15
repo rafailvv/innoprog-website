@@ -5,6 +5,428 @@
   box-sizing: border-box;
 }
 
+.site-reviews-index-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 24px;
+  overflow: visible;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+}
+
+.site-reviews-index-page__inner {
+  width: min(1280px, calc(100% - 160px));
+  margin: 184px auto 0;
+}
+
+.site-reviews-index-page__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-reviews-index-page__crumbs {
+  color: #000000;
+}
+
+.site-reviews-index-page__crumbs button,
+.site-reviews-index-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.site-reviews-index-page__crumbs strong {
+  color: #000000;
+}
+
+.site-reviews-index-page__title {
+  margin-top: 80px;
+  text-transform: uppercase;
+}
+
+.site-reviews-index-page__title h1,
+.site-reviews-index-page__title p,
+.site-reviews-index-page__directions h2 {
+  margin: 0;
+}
+
+.site-reviews-index-page__title h1 {
+  width: min(1112px, 100%);
+  color: #9c78ff;
+  font-family: "Raleway", sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 97px;
+}
+
+.site-reviews-index-page__title p {
+  margin-top: 16px;
+  color: #464a6a;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 40px;
+}
+
+.site-reviews-index-page__reviews {
+  margin-top: 80px;
+}
+
+.site-reviews-index-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 628px));
+  gap: 16px 24px;
+}
+
+.site-reviews-index-card {
+  display: flex;
+  width: 100%;
+  height: 252px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid #9c78ff;
+  border-radius: 40px;
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  text-align: left;
+}
+
+.site-reviews-index-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.site-reviews-index-card__head > span:first-child,
+.site-reviews-index-card__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-reviews-index-card__head > span:first-child {
+  gap: 8px;
+}
+
+.site-reviews-index-card__head strong {
+  display: block;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+.site-reviews-index-card__head > span:first-child > span {
+  display: block;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  line-height: 16px;
+}
+
+.site-reviews-index-card .site-course-review-rating {
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.site-reviews-index-card .site-course-review-rating span:last-child {
+  color: #9747ff;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.site-reviews-index-card__copy {
+  gap: 24px;
+  font-size: 14px;
+  letter-spacing: 0.42px;
+}
+
+.site-reviews-index-card__title {
+  display: block;
+  width: 100%;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.site-reviews-index-card__body {
+  display: block;
+  width: 100%;
+  max-height: 90px;
+  overflow: hidden;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.42px;
+  line-height: 20px;
+  -webkit-mask-image: linear-gradient(180deg, #000000 0%, #000000 47%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(180deg, #000000 0%, #000000 47%, rgba(0, 0, 0, 0) 100%);
+}
+
+.site-reviews-index-page__load-more {
+  display: flex;
+  min-width: 302px;
+  min-height: 91px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 0;
+  padding: 28px;
+  border: 0;
+  border-radius: 40px;
+  background: rgba(156, 120, 255, 0.6);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+.site-reviews-index-page__directions {
+  margin-top: 80px;
+}
+
+.site-reviews-index-page__directions h2 {
+  max-width: 920px;
+  color: #9c78ff;
+  font-family: "Raleway", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  text-transform: uppercase;
+}
+
+.site-reviews-index-page__directions > div {
+  display: flex;
+  max-width: 1040px;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.site-reviews-index-page__directions a,
+.site-reviews-index-page__directions button {
+  display: inline-flex;
+  min-height: 91px;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  border: 0;
+  border-radius: 40px;
+  background: rgba(156, 120, 255, 0.6);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .site-reviews-index-page {
+    padding-top: 0;
+  }
+
+  .site-reviews-index-page__inner {
+    width: min(350px, calc(100% - 40px));
+    margin-top: -8px;
+  }
+
+  .site-reviews-index-page__top {
+    display: none;
+  }
+
+  .site-reviews-index-page__title {
+    margin-top: 0;
+  }
+
+  .site-reviews-index-page__title h1 {
+    width: 100%;
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 32px;
+  }
+
+  .site-reviews-index-page__title p {
+    margin-top: 16px;
+    color: rgba(156, 120, 255, 0.6);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.48px;
+    line-height: 20px;
+  }
+
+  .site-reviews-index-page__reviews {
+    margin-top: 40px;
+  }
+
+  .site-reviews-index-page__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .site-reviews-index-card {
+    height: 193px;
+    gap: 24px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .site-reviews-index-card__head {
+    align-items: center;
+  }
+
+  .site-reviews-index-card__head > span:first-child {
+    gap: 8px;
+  }
+
+  .site-reviews-index-card__head strong {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.36px;
+    line-height: 18px;
+  }
+
+  .site-reviews-index-card__head > span:first-child > span {
+    font-size: 12px;
+    letter-spacing: 0.36px;
+    line-height: 16px;
+  }
+
+  .site-reviews-index-card .site-course-review-rating {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.48px;
+    line-height: 20px;
+  }
+
+  .site-reviews-index-card .site-course-review-rating span:last-child {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .site-reviews-index-card__copy {
+    gap: 24px;
+    font-size: 12px;
+    letter-spacing: 0.36px;
+  }
+
+  .site-reviews-index-card__title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.36px;
+    line-height: 16px;
+  }
+
+  .site-reviews-index-card__body {
+    max-height: 51px;
+    font-size: 12px;
+    letter-spacing: 0.36px;
+    line-height: 17px;
+  }
+
+  .site-reviews-index-page__load-more {
+    width: 100%;
+    min-width: 0;
+    min-height: 54px;
+    margin-top: 40px;
+    padding: 16px;
+    color: #464a6a;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .site-reviews-index-page__directions {
+    margin-top: 80px;
+  }
+
+  .site-reviews-index-page__directions h2 {
+    max-width: 100%;
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 32px;
+  }
+
+  .site-reviews-index-page__directions > div {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .site-reviews-index-page__directions a,
+  .site-reviews-index-page__directions button {
+    min-height: 54px;
+    padding: 16px;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(1) {
+    order: 1;
+    width: calc(50% - 8px);
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(2) {
+    order: 2;
+    width: calc(50% - 8px);
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(5) {
+    order: 3;
+    width: calc(50% - 8px);
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(3) {
+    order: 4;
+    width: calc(50% - 8px);
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(6) {
+    order: 5;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(7) {
+    order: 6;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(8) {
+    order: 7;
+  }
+
+  .site-reviews-index-page__directions > div > :nth-child(4) {
+    order: 8;
+  }
+}
+
 .site-course-reviews-page {
   width: 100%;
   min-height: 100vh;
@@ -739,6 +1161,7 @@ body {
 .site-shell:not(.site-shell--review-route):not(.site-shell--about-route):not(.site-shell--python-course-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
 .site-shell--python-course-route .site-main-header [data-main-nav="adults"] p,
 .site-shell--review-route .site-main-header [data-main-nav="reviews"] p,
+.site-shell--reviews-index-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--about-route .site-main-header [data-main-nav="about"] p {
   color: #6f728a !important;
   opacity: 0.72;
@@ -798,6 +1221,10 @@ body {
 .site-shell--python-course-route .site-main-footer-surface--desktop,
 .site-shell--python-course-route .site-main-footer-surface--mobile {
   margin-top: 0;
+}
+
+.site-shell--reviews-index-route .site-main-footer-surface--mobile {
+  margin-top: 80px;
 }
 
 .site-main-footer-surface__mobile-canvas {

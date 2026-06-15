@@ -480,6 +480,51 @@ const COURSE_REVIEW_STORIES: Record<CourseReviewKey, {
   },
 };
 
+const REVIEWS_INDEX_ORDER = ["vildan", "veniamin", "andrey", "ilya", "vladimir"] as const satisfies readonly CourseReviewKey[];
+
+const REVIEWS_INDEX_COPY: Record<(typeof REVIEWS_INDEX_ORDER)[number], {
+  name: string;
+  rating: string;
+  title: string;
+  body: string;
+}> = {
+  vildan: {
+    name: "Вильдан С.",
+    rating: "4.9",
+    title: "Готовлюсь к внутренней защите дипломного проекта и подготовки к собеседованию",
+    body:
+      "Всё нравится, обучаюсь с удовольствием, спустя 2-3 месяца появилось понимание того, чем именно хотел бы заниматься дальше в разработке. Преподаватель Артемий всё разжевывает и объясняет. Администрация школы очень отзывчивая, если вдруг возникают вопросы отвечают развернуто и без затягиваний. На данный момент уже рассматриваю переход на новое место работы, сейчас готовлюсь к внутренней защите дипломного проекта и подготовки к собеседованию.",
+  },
+  veniamin: {
+    name: "Вениамин",
+    rating: "4.9",
+    title: "Нравится, что преподаватели работают здесь не только «за деньги», а за идею.",
+    body:
+      "Изначально искал репетитора или наставника для самостоятельного изучения Python. Очень скиптически отношусь к курсам, где тебе дают доступ к урокам и пдфкам. Благо в данной школе всё совмещается, занятия и платформа, да и в целом прогресс пошел заметно быстрее. Нравится, что преподаватели работают здесь не только «за деньги», а за идею.",
+  },
+  andrey: {
+    name: "Андрей",
+    rating: "4.9",
+    title: "Обучением полностью доволен, каждый урок теория и практика",
+    body:
+      "В связи с тем, что самостоятельное изучение Python обернулось неудачей принял решение записаться на занятия, чтобы перенимать опыт из первых рук. Обучением полностью доволен, каждый урок теория и практика, и ещё ДЗ; постоянная обратная связь по любым вопросам как со стороны администрации, так и преподавателя. Спасибо администрации школы за организацию и курирование обучения, а преподавателю Сергею - за интересные и полезные занятия!",
+  },
+  ilya: {
+    name: "Илья",
+    rating: "4.9",
+    title: "Результатом доволен, собес удалось пройти, сейчас стажируюсь. По необходимости буду обращаться еще)",
+    body:
+      "Выбрал данную школу для подготовки к отбору на стажировку в Яндекс нужно было подтянуть алгоритмы и задачи, которые обычно дают на тех. секции. На занятиях много решали задач, разбирали разные подходы к их решению и учились правильно объяснять ход мыслей как это требуется на собесе. Постепенно стало намного легче ориентироваться в алгоритмических задачах. Результатом доволен, собес удалось пройти, сейчас стажируюсь. По необходимости буду обращаться еще)",
+  },
+  vladimir: {
+    name: "Владимир",
+    rating: "4.9",
+    title: "Я заметно подтянул уровень и стал увереннее в командной работе.",
+    body:
+      "Обратился в онлайн-школу ИННОПРОГ с запросом на личного наставника по backend-разработке на Python, потому что хотел систематизировать знания и закрыть пробелы, которые мешали двигаться быстрее. Моим наставником стал Артемий, и это оказался именно тот специалист, которого я искал. Артемий выстроил понятный план обучения и помог привести в порядок базу. Начиная от архитектурного мышления и принципов построения backend-сервисов до практики написания чистого кода и уверенной работы с типовыми задачами. Особенно ценно, что он объясняет не как сделать по шаблону, а почему это делается именно так, где могут быть ошибки и мыслить как разработчик. Благодаря регулярной обратной связи, разбору моих решений и точечным рекомендациям я заметно подтянул уровень и стал увереннее в командной работе. Рекомендую Артемия всем, кто хочет реального прогресса в Python backend, структурно, по делу и с сильной поддержкой наставника на каждом этапе.",
+  },
+};
+
 const TARIFFS = [
   {
     name: "Базовый",
@@ -1244,6 +1289,99 @@ function CourseReviewsPage({
         </section>
 
         <section className="site-course-reviews-page__directions" aria-label="Другие направления">
+          <h2>о каком направлении ещё хотите почитать?</h2>
+          <div>
+            {directions.map((direction) => (
+              direction.href ? (
+                <a href={direction.href} key={direction.label}>{direction.label}</a>
+              ) : (
+                <button data-application-open key={direction.label} type="button">{direction.label}</button>
+              )
+            ))}
+          </div>
+        </section>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function ReviewsIndexPage({
+  onBack,
+  onHome,
+  headerScale,
+  isMobile,
+}: {
+  onBack: () => void;
+  onHome: () => void;
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const directions = [
+    { label: "Data Science", href: "https://pages.innoprog.ru/data-scientist" },
+    { label: "Unreal Engine" },
+    { label: "Data-аналитик" },
+    { label: "Java разработчик" },
+    { label: "ML-инженер" },
+    { label: "Мобильный разработчик" },
+    { label: "Фронтенд разработчик" },
+    { label: "Разработчик C++" },
+  ];
+
+  return (
+    <section className="site-reviews-index-page" aria-label="Отзывы учеников">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-reviews-index-page__inner">
+        <div className="site-reviews-index-page__top">
+          <button className="site-review-page__back" onClick={onBack} type="button">
+            <span aria-hidden="true">←</span>
+            <span>назад</span>
+          </button>
+          <div className="site-review-page__crumbs site-reviews-index-page__crumbs">
+            <button onClick={onHome} type="button">главная</button>
+            <span aria-hidden="true">/</span>
+            <strong>отзыв</strong>
+          </div>
+        </div>
+
+        <header className="site-reviews-index-page__title">
+          <h1>Отзывы учеников</h1>
+          <p>о курсе Python-разработчик</p>
+        </header>
+
+        <section className="site-reviews-index-page__reviews" aria-label="Отзывы о курсе Python-разработчик">
+          <div className="site-reviews-index-page__grid">
+            {REVIEWS_INDEX_ORDER.map((reviewKey) => {
+              const review = COURSE_REVIEW_STORIES[reviewKey];
+              const copy = REVIEWS_INDEX_COPY[reviewKey];
+
+              return (
+                <button
+                  aria-label={`Открыть отзыв: ${copy.name}`}
+                  className="site-reviews-index-card"
+                  data-course-review={reviewKey}
+                  key={reviewKey}
+                  type="button"
+                >
+                  <span className="site-reviews-index-card__head">
+                    <span>
+                      <strong>{copy.name}</strong>
+                      <span>{`курс: ${review.course}`}</span>
+                    </span>
+                    <CourseRating rating={copy.rating} />
+                  </span>
+                  <span className="site-reviews-index-card__copy">
+                    <span className="site-reviews-index-card__title">{copy.title}</span>
+                    <span className="site-reviews-index-card__body">{copy.body}</span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          <button className="site-reviews-index-page__load-more" type="button">загрузить ещё</button>
+        </section>
+
+        <section className="site-reviews-index-page__directions" aria-label="Другие направления">
           <h2>о каком направлении ещё хотите почитать?</h2>
           <div>
             {directions.map((direction) => (
@@ -2027,6 +2165,7 @@ export default function App({
   );
   const [isAboutRoute, setIsAboutRoute] = useState(initialRouteState.isAboutRoute);
   const [isPythonCourseRoute, setIsPythonCourseRoute] = useState(initialRouteState.isPythonCourseRoute);
+  const [isReviewsRoute, setIsReviewsRoute] = useState(initialRouteState.isReviewsRoute);
   const [isTariffsRoute, setIsTariffsRoute] = useState(initialRouteState.isTariffsRoute);
   const [isReady, setIsReady] = useState(false);
   const [shouldShowLoader, setShouldShowLoader] = useState(true);
@@ -2056,6 +2195,7 @@ export default function App({
       setActiveCourseReview(routeState.activeCourseReview);
       setIsAboutRoute(routeState.isAboutRoute);
       setIsPythonCourseRoute(routeState.isPythonCourseRoute);
+      setIsReviewsRoute(routeState.isReviewsRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
       setIsMobileMenuOpen(false);
     };
@@ -2218,6 +2358,7 @@ export default function App({
       setActiveCourseReview(routeState.activeCourseReview);
       setIsAboutRoute(routeState.isAboutRoute);
       setIsPythonCourseRoute(routeState.isPythonCourseRoute);
+      setIsReviewsRoute(routeState.isReviewsRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
     };
 
@@ -2486,6 +2627,22 @@ export default function App({
     setActiveCourseReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openReviewsPage = () => {
+    if (window.location.pathname !== "/reviews" || window.location.hash) {
+      window.history.pushState(null, "", "/reviews");
+    }
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsReviewsRoute(true);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2508,6 +2665,7 @@ export default function App({
     setActiveCourseReview(key);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2525,6 +2683,7 @@ export default function App({
     setActiveCourseReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
@@ -2538,6 +2697,7 @@ export default function App({
     setActiveCourseReview(null);
     setIsAboutRoute(true);
     setIsPythonCourseRoute(false);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2552,6 +2712,7 @@ export default function App({
     setActiveCourseReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(true);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2566,6 +2727,7 @@ export default function App({
     setActiveCourseReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(true);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -2711,7 +2873,7 @@ export default function App({
       }
 
       if (key === "reviews") {
-        openReviewStory("кирилл");
+        openReviewsPage();
         return;
       }
 
@@ -2839,7 +3001,7 @@ export default function App({
       }
 
       if (navKey === "reviews") {
-        openReviewStory("кирилл");
+        openReviewsPage();
         return;
       }
 
@@ -2871,7 +3033,7 @@ export default function App({
       }
 
       if (navKey === "reviews") {
-        openReviewStory("кирилл");
+        openReviewsPage();
         return;
       }
 
@@ -2912,7 +3074,7 @@ export default function App({
     }
 
     if (text === "отзывы" || text.includes("смотреть все отзывы") || text.includes("больше отзывов")) {
-      openReviewStory("кирилл");
+      openReviewsPage();
       return;
     }
 
@@ -3017,7 +3179,7 @@ export default function App({
   const activeDesign = viewport.design;
   const isReviewRoute = Boolean(activeReviewStory);
   const isCourseReviewRoute = Boolean(activeCourseReview);
-  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isAboutRoute || isPythonCourseRoute || isTariffsRoute;
+  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
@@ -3036,6 +3198,7 @@ export default function App({
         viewport.isMobile ? "site-shell--mobile" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isCourseReviewRoute ? "site-shell--course-review-route" : "",
+        isReviewsRoute ? "site-shell--reviews-index-route" : "",
         isAboutRoute ? "site-shell--about-route" : "",
         isPythonCourseRoute ? "site-shell--python-course-route" : "",
         isTariffsRoute ? "site-shell--tariffs-route" : "",
@@ -3059,6 +3222,13 @@ export default function App({
           onBack={openPythonCoursePage}
           onHome={goHome}
           onPythonCourse={openPythonCoursePage}
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isReviewsRoute ? (
+        <ReviewsIndexPage
+          onBack={goHome}
+          onHome={goHome}
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
         />
@@ -3118,8 +3288,8 @@ export default function App({
             </button>
             <button data-mobile-menu-link data-scroll-target="children" type="button">для детей</button>
             <button
-              aria-current={isReviewRoute ? "page" : undefined}
-              data-active={isReviewRoute ? "true" : undefined}
+              aria-current={isReviewRoute || isReviewsRoute ? "page" : undefined}
+              data-active={isReviewRoute || isReviewsRoute ? "true" : undefined}
               data-mobile-menu-link
               data-scroll-target="reviews"
               type="button"

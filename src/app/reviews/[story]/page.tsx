@@ -62,7 +62,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ story: 
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Главная", path: "/" },
-          { name: "Отзывы", path: "/reviews/kirill" },
+          { name: "Отзывы", path: "/reviews" },
           { name: meta.name, path: `/reviews/${story}` },
         ])}
       />

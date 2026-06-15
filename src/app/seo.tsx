@@ -246,6 +246,12 @@ export const siteNavigationJsonLd = {
     {
       "@type": "SiteNavigationElement",
       position: 4,
+      name: "Отзывы",
+      url: absoluteUrl("/reviews"),
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 5,
       name: "О нас",
       url: absoluteUrl("/about"),
     },

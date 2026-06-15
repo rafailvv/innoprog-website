@@ -333,7 +333,7 @@ function Frame58() {
       <a className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
       </a>
-      <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="/reviews/kirill">
+      <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="/reviews">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
       </a>
       <a className="h-[17px] relative shrink-0 w-[63px]" data-main-nav="about" data-name="Text" href="/about">

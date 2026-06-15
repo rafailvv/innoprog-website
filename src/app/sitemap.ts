@@ -8,6 +8,7 @@ const routes = [
   { path: "/python-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/tariffs", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/reviews", changeFrequency: "monthly", priority: 0.75 },
   { path: "/reviews/kirill", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews/anastasia", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews/mikhail", changeFrequency: "monthly", priority: 0.7 },
