@@ -265,7 +265,7 @@ function Frame84() {
 
 function Frame129() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[80px] text-[#464a6a] top-[313px] uppercase w-[615px]">
+    <div className="absolute content-stretch flex flex-col gap-[8px] items-start left-[80px] text-[#464a6a] top-[313px] uppercase w-[615px]">
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">обучаем</p>
       <p className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программированию</p>
     </div>
@@ -773,7 +773,7 @@ function Component1() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame30 />
-      <div className="h-[735px] relative rounded-[40px] shrink-0 w-[1280px]" data-name="image 119">
+      <div className="h-[735px] relative rounded-[40px] shrink-0 w-[1280px] site-smooth-photo site-smooth-photo--40" data-name="image 119">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
@@ -1091,14 +1091,14 @@ function Frame33() {
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[302px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(1)</p>
         <Frame107 />
-        <div className="absolute h-[122px] left-0 overflow-hidden pointer-events-none rounded-tl-[32px] top-0 w-[163px]">
+        <div className="absolute h-[122px] left-0 overflow-hidden pointer-events-none rounded-[32px] top-0 w-[163px] site-smooth-photo site-smooth-photo--32">
           <img alt="" decoding="async" loading="eager" className="absolute h-[275px] left-0 max-w-none top-0 w-[302px]" src={imgBenefitCard1Figma} />
         </div>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[465px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(2)</p>
         <Frame108 />
-        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
+        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px] site-smooth-photo site-smooth-photo--40">
           <div className="absolute inset-0 mix-blend-color-burn overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" decoding="async" loading="eager" className="absolute h-[289.83%] left-[-109.22%] max-w-none top-[-174.35%] w-[216.93%]" src={imgRectangle40111} />
           </div>
@@ -1127,7 +1127,7 @@ function Frame35() {
       <div className="bg-[#9c78ff] content-stretch flex flex-col h-[275px] items-end justify-between p-[24px] relative rounded-[32px] shrink-0 w-[465px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(3)</p>
         <Frame109 />
-        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
+        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px] site-smooth-photo site-smooth-photo--40">
           <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" decoding="async" loading="eager" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgRectangle40112} />
           </div>
@@ -1161,7 +1161,7 @@ function Frame34() {
       <div className="bg-[#9c78ff] content-stretch flex flex-1 flex-col h-[275px] items-end justify-between min-w-0 p-[24px] relative rounded-[32px]">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] min-w-full relative shrink-0 text-[32px] text-right text-white w-[min-content]">(4)</p>
         <Frame110 />
-        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px]">
+        <div className="absolute h-[122px] left-0 rounded-[40px] top-0 w-[163px] site-smooth-photo site-smooth-photo--40">
           <div className="absolute inset-0 mix-blend-color-burn opacity-40 overflow-hidden pointer-events-none rounded-[40px]">
             <img alt="" decoding="async" loading="eager" className="absolute h-[277.49%] left-[-4.04%] max-w-none top-[-148.44%] w-[207.69%]" src={imgRectangle40111} />
           </div>
@@ -1188,7 +1188,7 @@ function Frame36() {
     <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0 w-full">
       <Frame35 />
       <Frame34 />
-      <div className="absolute h-[275px] left-[652px] overflow-hidden pointer-events-none rounded-[32px] top-[299px] w-[628px]">
+      <div className="absolute h-[275px] left-[652px] overflow-hidden pointer-events-none rounded-[32px] top-[299px] w-[628px] site-smooth-photo site-smooth-photo--32">
         <div className="absolute flex items-center justify-center left-[-25px] size-[221.664px] top-[-46px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
           <div className="flex-none rotate-[30.43deg]">
             <BasilDocumentSolid />
@@ -1333,6 +1333,19 @@ const DESKTOP_REVIEWS = [
   },
 ] as const;
 
+function getVisibleCarouselAnchor(carousel: HTMLElement) {
+  const rect = carousel.getBoundingClientRect();
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  const visibleLeft = Math.max(rect.left, 0);
+  const visibleRight = Math.min(rect.right, viewportWidth);
+
+  if (visibleRight > visibleLeft) {
+    return ((visibleLeft + visibleRight) / 2) - rect.left;
+  }
+
+  return carousel.clientWidth / 2;
+}
+
 function scrollDesktopReviews(direction: number) {
   const carousel = document.querySelector<HTMLElement>('[data-carousel="reviews"]');
 
@@ -1348,7 +1361,7 @@ function scrollDesktopReviews(direction: number) {
     return;
   }
 
-  const activeAnchor = carousel.clientWidth / 2;
+  const activeAnchor = getVisibleCarouselAnchor(carousel);
   const activeIndex = items.reduce((nearestIndex, item, index) => {
     const itemAnchor = item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft;
     const nearestItem = items[nearestIndex];
@@ -1361,7 +1374,7 @@ function scrollDesktopReviews(direction: number) {
   const targetIndex = Math.max(0, Math.min(items.length - 1, activeIndex + direction));
   const targetItem = items[targetIndex];
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-  const targetLeft = targetItem.offsetLeft - ((carousel.clientWidth - targetItem.offsetWidth) / 2);
+  const targetLeft = targetItem.offsetLeft + (targetItem.offsetWidth / 2) - activeAnchor;
 
   carousel.scrollTo({
     left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
@@ -1659,7 +1672,7 @@ function Frame63() {
 
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" onKeyDown={handleReviewControlKeyDown(-1)} onMouseDown={handleReviewControlClick(-1)} role="button" tabIndex={0}>
+      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" onClick={handleReviewControlClick(-1)} onKeyDown={handleReviewControlKeyDown(-1)} role="button" tabIndex={0}>
         <div className="-scale-y-100 flex-none rotate-180">
           <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
             <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
@@ -1673,7 +1686,7 @@ function Frame63() {
           </div>
         </div>
       </div>
-      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" onKeyDown={handleReviewControlKeyDown(1)} onMouseDown={handleReviewControlClick(1)} role="button" tabIndex={0}>
+      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" onClick={handleReviewControlClick(1)} onKeyDown={handleReviewControlKeyDown(1)} role="button" tabIndex={0}>
         <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -2252,14 +2265,10 @@ function Group8() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group5 />
-      <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[30px] ml-[346px] mt-[409px] relative row-1 text-[24px] text-center text-white w-[747px]">
-        {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
+      <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[480px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
+        ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
         <br aria-hidden="true" />
-        ИНН 1683011286 ОГРН 1221600105440
-        <br aria-hidden="true" />
-        ОКВЭД: 62.09 (основной), 62.02
-        <br aria-hidden="true" />
-        Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
+        ОКВЭД: 62.09 (основной), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (основной), 1.01, 1.12
       </p>
       <Frame69 />
     </div>
@@ -2325,7 +2334,7 @@ function Group11() {
           <img alt="" decoding="async" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
-      <div className="absolute h-[439px] left-[calc(25%+183px)] top-[2689px] w-[736px]" data-name="image 118">
+      <div className="absolute h-[439px] left-[calc(25%+183px)] top-[2689px] w-[736px] site-smooth-photo site-smooth-photo--18" data-name="image 118">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
     </div>
@@ -2335,7 +2344,7 @@ function Group11() {
 function Frame134() {
   return (
     <div className="absolute bg-[#f1ecff] content-stretch flex h-[644px] items-center left-[86px] p-[10px] rounded-[40px] top-[2560px]">
-      <div className="h-[637px] relative rounded-[40px] shrink-0 w-[294px]" data-name="image 120">
+      <div className="h-[637px] relative rounded-[40px] shrink-0 w-[294px] site-smooth-photo site-smooth-photo--40" data-name="image 120">
         <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage120} />
       </div>
     </div>

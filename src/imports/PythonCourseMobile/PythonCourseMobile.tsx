@@ -1,7 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
-import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
@@ -14,7 +14,6 @@ import img420501 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
 import img5134 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.opt.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
-import imgCourseResultsCircleStackSwirl from "./course-results-circle-stack-swirl.png";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.opt.webp";
 import imgRectangle40083 from "./004de5560ec5b2aefa2edb08a745b9f1e187ccf7.opt.webp";
 import imgRectangle40084 from "./b1f967bb9c7ae9c25195d8f4a73fc5847efd16f6.opt.webp";
@@ -207,7 +206,7 @@ function Frame1() {
 function Frame148() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[350px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Курс</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] pl-[2px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Курс</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] w-full">
         <p className="leading-[43px] mb-0">Python</p>
         <p className="leading-[43px]">разработчик</p>
@@ -377,11 +376,11 @@ function Frame59() {
     <div className="site-course-feature-card bg-[rgba(255,255,255,0.8)] relative rounded-[16px] shrink-0 w-full">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="site-course-feature-card__content content-stretch flex items-center justify-center p-[20px] relative size-full">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
-            <span className="leading-[18px] text-[16px]">{`После завершения обучения — `}</span>
-            <span className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] text-[#9c78ff] text-[16px] uppercase">{`возможность пройти стажировку `}</span>
-            <span className="leading-[18px] text-[16px]">и применить полученные навыки на практике</span>
-          </p>
+          <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-black text-center tracking-[0.48px]">
+            <p className="leading-[18px] mb-0 text-[16px]">После завершения обучения —</p>
+            <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] mb-0 text-[#9c78ff] text-[16px] uppercase">возможность пройти стажировку</p>
+            <p className="leading-[18px] text-[16px]">и применить полученные навыки на практике</p>
+          </div>
         </div>
       </div>
     </div>
@@ -726,28 +725,29 @@ function Frame184() {
 function Frame3() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">Во всех тарифах</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">Во всех тарифах</p>
     </div>
   );
 }
 
 function Frame4() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black text-center w-[355px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] uppercase w-full">{`Личный наставник `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">на всём пути обучения</p>
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black text-center w-[355px]">
+      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] uppercase w-full">{`Личный наставник `}</p>
+      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">на всём пути обучения</p>
     </div>
   );
 }
 
 function Frame5() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
       <Frame3 />
       <Frame4 />
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] w-[350px]">
-        <p className="leading-[18px] mb-0">На протяжении всего обучения вас будет сопровождать эксперт из индустрии,</p>
-        <p className="leading-[18px]">который помог многим начинающим специалистам</p>
+      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black text-center tracking-[0.48px] w-[349px]">
+        <p className="leading-[18px] mb-0">На протяжении всего обучения</p>
+        <p className="leading-[18px] mb-0">вас будет сопровождать эксперт</p>
+        <p className="leading-[18px]">из индустрии, который помог многим начинающим специалистам</p>
       </div>
     </div>
   );
@@ -755,8 +755,8 @@ function Frame5() {
 
 function Frame10() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[141px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Сильное резюме</p>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[139px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Сильное резюме</p>
     </div>
   );
 }
@@ -771,15 +771,15 @@ function Frame12() {
 
 function Frame9() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Индивидуальный маршрут</p>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[202px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Индивидуальный маршрут</p>
     </div>
   );
 }
 
 function Frame171() {
   return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
       <Frame12 />
       <Frame9 />
     </div>
@@ -788,27 +788,23 @@ function Frame171() {
 
 function Frame8() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] flex-[1_0_0] min-w-px relative rounded-[32px]">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center px-[12px] py-[8px] relative size-full">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Уверенный выход на работу</p>
-        </div>
-      </div>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[218px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Уверенный выход на работу</p>
     </div>
   );
 }
 
 function Frame7() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center px-[12px] py-[8px] relative rounded-[32px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Разбор кейсов</p>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[123px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Разбор кейсов</p>
     </div>
   );
 }
 
 function Frame170() {
   return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
       <Frame8 />
       <Frame7 />
     </div>
@@ -817,8 +813,8 @@ function Frame170() {
 
 function Frame13() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[117px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Поддержка</p>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[112px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black tracking-[0.42px] whitespace-nowrap">Поддержка</p>
     </div>
   );
 }
@@ -833,15 +829,15 @@ function Frame11() {
 
 function Frame6() {
   return (
-    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Подготовка к собеседованию</p>
+    <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[32px] shrink-0 w-[229px] site-mobile-mentor-tag">
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[21px] relative shrink-0 text-[14px] text-black text-center tracking-[0.42px] whitespace-nowrap">Подготовка к собеседованию</p>
     </div>
   );
 }
 
 function Frame169() {
   return (
-    <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
       <Frame11 />
       <Frame6 />
     </div>
@@ -850,7 +846,7 @@ function Frame169() {
 
 function Frame172() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[349px] site-mobile-mentor-tags">
       <Frame171 />
       <Frame170 />
       <Frame169 />
@@ -860,10 +856,10 @@ function Frame172() {
 
 function Frame173() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame172 />
-      <div className="aspect-[2280/1310] relative shrink-0 w-full" data-name="image 119">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage119} />
+      <div className="h-[201px] overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImage119} />
       </div>
     </div>
   );
@@ -871,7 +867,7 @@ function Frame173() {
 
 function Frame274() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-[350px]">
+    <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0">
       <Frame5 />
       <Frame173 />
     </div>
@@ -1295,7 +1291,7 @@ function Frame115() {
 function Frame116() {
   return (
     <div className="content-stretch flex gap-[8px] items-end justify-center relative shrink-0">
-      <div className="overflow-hidden relative rounded-[16px] shrink-0 size-[51px]">
+      <div className="bg-[#9c78ff] overflow-hidden relative rounded-[16px] shrink-0 size-[51px]">
         <img alt="" className="absolute inset-0 max-w-none object-cover object-top pointer-events-none rounded-[16px] size-full" src={imgRectangle40091} />
       </div>
       <Frame115 />
@@ -2128,7 +2124,7 @@ function Frame92() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame88 />
-      <div className="aspect-[1584/849] relative shrink-0 w-full" data-name="1 8001">
+      <div className="aspect-[1584/849] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="1 8001">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img18001} />
       </div>
     </div>
@@ -2198,7 +2194,7 @@ function Frame95() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
       <Frame91 />
-      <div className="aspect-[3024/1790] relative shrink-0 w-full" data-name="3 35">
+      <div className="aspect-[3024/1790] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="3 35">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img335} />
       </div>
     </div>
@@ -2218,7 +2214,7 @@ function Frame90() {
         <p className="leading-[18px] mb-0">где можно задавать вопросы вне занятий, отправлять домашние задания и получать подробную обратную связь</p>
         <p className="leading-[18px]">по выполненной работе.</p>
       </div>
-      <div className="aspect-[1936/1674] relative shrink-0 w-full" data-name="4 20501">
+      <div className="aspect-[1936/1674] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="4 20501">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img420501} />
       </div>
     </div>
@@ -2252,7 +2248,7 @@ function Frame96() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
       <Frame97 />
-      <div className="aspect-[2894/1638] relative shrink-0 w-full" data-name="5 134">
+      <div className="aspect-[2894/1638] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="5 134">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img5134} />
       </div>
     </div>
@@ -2675,14 +2671,7 @@ function Frame179() {
 function Component1() {
   return (
     <div className="bg-gradient-to-b from-[rgba(156,120,255,0.8)] h-[413px] mb-[-40px] overflow-hidden relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[rgba(112,60,255,0.8)] w-[390px]" data-name="документы">
-      <div aria-hidden="true" className="-translate-x-1/2 absolute flex h-[373px] items-center justify-center left-[calc(50%-0.5px)] pointer-events-none top-0 w-[389px]">
-        <div className="-scale-y-100 flex-none">
-          <div className="h-[373px] relative w-[389px]" data-name="Circle_Stack_Swirl">
-            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-bottom opacity-50 pointer-events-none size-full" src={imgCourseResultsCircleStackSwirl} />
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col items-center relative z-10 size-full">
+      <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col items-center px-[20px] py-[40px] relative size-full">
           <Frame179 />
         </div>
@@ -3128,9 +3117,9 @@ function Frame280() {
 function Component2() {
   return (
     <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0 site-course-render-section site-course-teachers-section" data-name="преподаватели">
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px]">
+      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
         <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
-        <p className="leading-[43px] text-[39px]">преподаватели</p>
+        <p className="leading-[40px] text-[36px]">преподаватели</p>
       </div>
     </div>
   );
@@ -3915,10 +3904,10 @@ function Frame251() {
 function Frame152() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black whitespace-nowrap">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">Рассрочка под 0%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">Оплата по факту обучения</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-center tracking-[0.48px]">
-        <p className="leading-[18px] mb-0">Без переплаты и скрытых платежей</p>
-        <p className="leading-[18px]">Без первого взноса</p>
+        <p className="leading-[18px] mb-0">Без кредитов, рассрочек</p>
+        <p className="leading-[18px]">и скрытых обязательств</p>
       </div>
     </div>
   );
@@ -4073,7 +4062,7 @@ function Frame194() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
           </svg>
         </div>
-        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[16px] text-white tracking-[0.48px]">
+        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Bold',sans-serif] font-bold leading-[0] min-w-px relative text-[16px] text-white tracking-[0.48px]">
           <p className="leading-[18px] mb-0">4 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЯ</p>
           <p className="leading-[18px]">В МЕСЯЦ</p>
         </div>
@@ -4236,7 +4225,7 @@ function Frame195() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
           </svg>
         </div>
-        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">
+        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Bold',sans-serif] font-bold leading-[0] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">
           <p className="leading-[18px] mb-0">8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ</p>
           <p className="leading-[18px]">В МЕСЯЦ</p>
         </div>
@@ -4395,7 +4384,7 @@ function Frame196() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
           </svg>
         </div>
-        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[16px] text-white tracking-[0.48px] whitespace-pre-wrap">
+        <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Bold',sans-serif] font-bold leading-[0] min-w-px relative text-[16px] text-white tracking-[0.48px] whitespace-pre-wrap">
           <p className="leading-[18px] mb-0">{`12 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ  `}</p>
           <p className="leading-[18px]">В МЕСЯЦ</p>
         </div>
@@ -4544,10 +4533,10 @@ function Frame48() {
 function Frame164() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">286</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">172</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px]">
         <p className="leading-[16px] mb-0">интерактивных</p>
-        <p className="leading-[16px]">уроков</p>
+        <p className="leading-[16px]">урока</p>
       </div>
     </div>
   );
@@ -4556,8 +4545,8 @@ function Frame164() {
 function Frame165() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">196</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">практических заданий</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">194</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">практических задания</p>
     </div>
   );
 }
@@ -4584,7 +4573,7 @@ function Frame245() {
 function Frame166() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">до 10</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">15</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px]">
         <p className="leading-[16px] mb-0">крупных проектов</p>
         <p className="leading-[16px]">в портфолио</p>
@@ -4596,7 +4585,7 @@ function Frame166() {
 function Frame162() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">8,5</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">7</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">месяцев обучения</p>
     </div>
   );
@@ -4605,8 +4594,8 @@ function Frame162() {
 function Frame163() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">{`334 `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">академических часа</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">560</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">академических часов</p>
     </div>
   );
 }

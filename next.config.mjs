@@ -38,6 +38,30 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/python",
+        destination: "/python-course",
+        permanent: true,
+      },
+      {
+        source: "/oop_python",
+        destination: "/python-course",
+        permanent: true,
+      },
+      {
+        source: "/page34389955.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/data-scientist",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|webp|avif|svg)$/i,

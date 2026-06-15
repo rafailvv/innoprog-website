@@ -15,6 +15,80 @@
   font-family: "Manrope", sans-serif;
 }
 
+.site-course-mentor-media {
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.site-course-mentor-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.site-course-mentor-media--mobile {
+  border-radius: 24px;
+}
+
+.site-smooth-photo {
+  --site-photo-radius: 40px;
+  overflow: hidden !important;
+  border-radius: var(--site-photo-radius) !important;
+  clip-path: inset(0 round var(--site-photo-radius));
+  background-clip: padding-box;
+  backface-visibility: hidden;
+  isolation: isolate;
+}
+
+.site-smooth-photo img {
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
+.site-smooth-photo--8 {
+  --site-photo-radius: 8px;
+}
+
+.site-smooth-photo--18 {
+  --site-photo-radius: 18px;
+}
+
+.site-smooth-photo--24 {
+  --site-photo-radius: 24px;
+}
+
+.site-smooth-photo--32 {
+  --site-photo-radius: 32px;
+}
+
+.site-smooth-photo--40 {
+  --site-photo-radius: 40px;
+}
+
+.site-smooth-photo--top-left-32 {
+  border-radius: 32px 0 0 0 !important;
+  clip-path: inset(0 round 32px 0 0 0);
+}
+
+.site-smooth-photo--top-left-40 {
+  border-radius: 40px 0 0 0 !important;
+  clip-path: inset(0 round 40px 0 0 0);
+}
+
+[data-name="IMG_2977 1"] {
+  overflow: hidden !important;
+  border-radius: 40px 0 0 0;
+  clip-path: inset(0 round 40px 0 0 0);
+  backface-visibility: hidden;
+}
+
+[data-name="IMG_2977 1"] img {
+  border-radius: inherit;
+  backface-visibility: hidden;
+}
+
 .site-course-reviews-page__inner {
   width: min(1280px, calc(100% - 80px));
   margin: 184px auto 0;
@@ -156,8 +230,9 @@
 
 .site-course-reviews-page__other > div {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(0, 791px));
+  justify-content: center;
+  gap: 32px;
   margin-top: 40px;
 }
 
@@ -710,6 +785,7 @@ body {
 
 .site-main-footer-surface--desktop {
   margin: 80px auto 0;
+  height: 533px;
   transform-origin: top center;
 }
 
@@ -717,6 +793,11 @@ body {
   width: 100%;
   max-width: 100vw;
   margin: 48px auto 0;
+}
+
+.site-shell--python-course-route .site-main-footer-surface--desktop,
+.site-shell--python-course-route .site-main-footer-surface--mobile {
+  margin-top: 0;
 }
 
 .site-main-footer-surface__mobile-canvas {
@@ -861,8 +942,8 @@ body {
 }
 
 .site-internship-card {
-  backdrop-filter: blur(74px);
-  -webkit-backdrop-filter: blur(74px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   background-clip: padding-box;
   border: 0;
   box-shadow: none;
@@ -874,15 +955,15 @@ body {
 }
 
 .site-internship-card--purple {
-  background: rgba(156, 120, 255, 0.6) !important;
+  background: #9c78ff !important;
 }
 
 .site-internship-card--gray {
-  background: rgba(84, 110, 122, 0.8) !important;
+  background: #546e7a !important;
 }
 
 .site-internship-card--white {
-  background: rgba(255, 255, 255, 0.6) !important;
+  background: #ffffff !important;
 }
 
 .site-internship-title--mobile {
@@ -1060,6 +1141,16 @@ button,
   touch-action: pan-x pan-y;
 }
 
+@media (max-width: 767px) {
+  .site-python-course-page .site-course-teachers-title {
+    font-size: 88px !important;
+  }
+
+  .site-python-course-page .site-course-teachers-title span {
+    line-height: 90px !important;
+  }
+}
+
 .site-course-carousel-actions--projects {
   margin-left: 80px;
 }
@@ -1199,7 +1290,7 @@ button,
 .site-course-program-topics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 48px;
+  gap: 48px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1208,6 +1299,15 @@ button,
   font-size: 24px;
   font-weight: 300;
   line-height: 30px;
+}
+
+.site-course-program-topics-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .site-course-program-topics li {
@@ -1459,8 +1559,14 @@ button,
   contain: layout paint style;
 }
 
-.site-teachers-carousel img {
+.site-teachers-carousel img,
+.site-mobile-teachers-carousel img {
   backface-visibility: hidden;
+}
+
+.site-teachers-carousel img[class*="rounded-[32px]"],
+.site-mobile-teachers-carousel img[class*="rounded-[32px]"] {
+  clip-path: inset(0 round 32px);
 }
 
 .site-reviews-carousel {
@@ -1500,8 +1606,14 @@ button,
 }
 
 .site-mobile-directions-carousel {
+  box-sizing: border-box;
+  gap: 12px;
   overflow-x: auto;
   overflow-y: clip;
+  padding-left: 8px;
+  padding-right: 8px;
+  scroll-padding-left: 8px;
+  scroll-padding-right: 8px;
   touch-action: pan-x pan-y;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
@@ -1509,8 +1621,16 @@ button,
 }
 
 .site-mobile-directions-carousel > div {
-  flex: 0 0 390px;
+  flex: 0 0 374px !important;
+  width: 374px !important;
+  min-width: 0;
+  max-width: 374px;
   scroll-snap-align: start;
+}
+
+.site-mobile-directions-carousel > div > a,
+.site-mobile-directions-carousel > div > div {
+  width: 100% !important;
 }
 
 .site-mobile-directions-carousel [class*="size-[39px]"] {
@@ -1529,8 +1649,8 @@ button,
   }
 
   .site-mobile-teachers-title p:last-child {
-    font-size: 37px;
-    line-height: 41px;
+    font-size: 36px;
+    line-height: 40px;
   }
 
   .site-mobile-teachers-carousel div[class*="text-center"][class*="text-white"] div[class*="Manrope:Bold"] {
@@ -2540,30 +2660,44 @@ button,
 
 .site-review-page__other-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 791px));
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(0, 791px));
+  justify-content: center;
   gap: 32px;
   margin-top: 37px;
 }
 
 .site-related-review-card {
   position: relative;
-  display: flex;
-  width: 100%;
+  display: block;
+  width: 791px;
   max-width: 791px;
   min-width: 0;
+  height: 436px;
   min-height: 436px;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 28px;
   overflow: hidden;
-  padding: 32px;
+  padding: 0;
   border: 0;
   border-radius: 40px 40px 0 40px;
   background: rgba(255, 255, 255, 0.9);
   color: #000000;
   cursor: pointer;
+  font-family: "Manrope:Regular", "Manrope", sans-serif;
   text-align: left;
+}
+
+.site-related-review-card__inner {
+  position: absolute !important;
+  left: 50%;
+  top: calc(50% - 0.5px);
+  display: flex !important;
+  width: 791px;
+  height: auto !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: space-between;
+  gap: 0 !important;
+  padding: 32px !important;
+  transform: translate(-50%, -50%);
 }
 
 .site-related-review-card__border {
@@ -2588,7 +2722,7 @@ button,
   text-align: center;
 }
 
-.site-related-review-card__person {
+.site-related-review-card__profile-copy {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2612,7 +2746,7 @@ button,
   object-fit: cover;
 }
 
-.site-related-review-card__person strong {
+.site-related-review-card__profile-copy strong {
   display: block;
   width: 100%;
   color: #000000;
@@ -2631,39 +2765,56 @@ button,
   text-align: center;
 }
 
+.site-related-review-card__course-desktop {
+  display: block;
+}
+
+.site-related-review-card__course-mobile {
+  display: none;
+}
+
 .site-related-review-card__body {
   position: relative;
   z-index: 1;
   display: flex;
   min-width: 0;
-  max-width: 429px;
+  width: 429px;
   height: 330px;
-  flex: 1 1 auto;
+  flex: 0 0 429px;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   color: #000000;
   font-size: 24px;
 }
 
-.site-related-review-card__body .site-review-quote {
-  display: -webkit-box;
-  overflow: hidden;
+.site-related-review-card__quote {
+  order: 1;
+  display: block;
+  width: 100%;
   font-family: "Segoe UI Light", "Segoe UI", sans-serif;
   font-size: 24px;
   font-style: italic;
   font-weight: 300;
   line-height: 31px;
   letter-spacing: 0;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
+  text-align: left;
 }
 
 .site-related-review-card__transition {
+  order: 2;
   display: block;
+  width: 100%;
+  min-height: 18px;
   color: #000000;
+  font-family: "Manrope:Regular", "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
+}
+
+.site-related-review-card__read-more {
+  display: none;
 }
 
 .site-review-page__footer {
@@ -2756,14 +2907,15 @@ button,
 
 .site-review-page__footer-company {
   position: absolute;
-  left: 346px;
-  top: 409px;
+  left: 100px;
+  top: 436px;
   z-index: 1;
-  width: 747px;
+  width: 1240px;
   color: #ffffff;
-  font-size: 24px !important;
+  font-size: 16px !important;
   font-weight: 400 !important;
-  line-height: 30px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.18px;
   text-align: center;
 }
 
@@ -3721,8 +3873,10 @@ button,
 }
 
 .site-course-advantage-card--purple {
-  background-color: rgba(156, 120, 255, 0.5) !important;
+  background-color: #9c78ff !important;
   background-image: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .site-course-advantage-card--purple::before {
@@ -5046,55 +5200,146 @@ button,
   }
 
   .site-related-review-card {
+    width: 100%;
+    max-width: none;
+    height: auto;
     min-height: 0;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 24px 18px;
-    border-radius: 32px 32px 0 32px;
+    overflow: visible;
+    padding: 0;
+    border-radius: 40px;
+    background: #ffffff;
+  }
+
+  .site-related-review-card__border {
+    display: none;
+  }
+
+  .site-related-review-card__inner {
+    position: relative !important;
+    left: auto;
+    top: auto;
+    width: 100%;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+    padding: 24px 16px !important;
+    transform: none;
   }
 
   .site-related-review-card__profile {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     flex-basis: auto;
-    gap: 16px;
-  }
-
-  .site-related-review-card__person {
-    gap: 12px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 32px;
+    text-align: left;
   }
 
   .site-related-review-card__avatar {
-    width: 128px;
-    height: 128px;
+    width: 89px;
+    height: 89px;
+    flex: 0 0 89px;
   }
 
-  .site-related-review-card__person strong {
-    font-size: 24px;
-    line-height: 30px;
+  .site-related-review-card__profile-copy {
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+    width: auto;
+  }
+
+  .site-related-review-card__profile-copy strong {
+    width: auto;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .site-related-review-card__course {
-    max-width: 260px;
-    font-size: 18px;
-    line-height: 22px;
+    width: auto;
+    max-width: none;
+    text-align: left;
+  }
+
+  .site-related-review-card__course-desktop {
+    display: none;
+  }
+
+  .site-related-review-card__course-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: "Manrope:Regular", "Manrope", sans-serif;
+    font-weight: 400;
+  }
+
+  .site-related-review-card__course-prefix {
+    color: #000000;
+    font-size: 17px;
+    line-height: 16px;
+    letter-spacing: 0.51px;
+    white-space: nowrap;
+  }
+
+  .site-related-review-card__course-lines {
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.48px;
   }
 
   .site-related-review-card__body {
+    width: 100%;
     height: auto;
-    gap: 20px;
+    flex-basis: auto;
+    align-items: center;
+    gap: 0;
     text-align: center;
   }
 
-  .site-related-review-card__body .site-review-quote {
-    font-size: 18px;
-    line-height: 25px;
+  .site-related-review-card__quote {
+    order: 2;
+    margin-bottom: 12px;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
   }
 
   .site-related-review-card__transition {
+    order: 1;
+    width: 100%;
+    min-height: 0;
+    margin-bottom: 24px;
+    font-family: "Manrope:SemiBold", "Manrope", sans-serif;
     font-size: 20px;
-    line-height: 26px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.6px;
     text-align: center;
+  }
+
+  .site-related-review-card__read-more {
+    order: 3;
+    display: block;
+    color: #9c78ff;
+    font-family: "Manrope:SemiBold", "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .site-review-page__footer {
@@ -5157,9 +5402,9 @@ button,
     top: auto;
     width: 100%;
     margin-top: 28px !important;
-    font-size: 12px !important;
-    line-height: 20px !important;
-    letter-spacing: 0.36px;
+    font-size: 11px !important;
+    line-height: 14px !important;
+    letter-spacing: 0.12px;
   }
 
   .site-lead-modal {
@@ -5364,13 +5609,13 @@ button,
 
 .site-about-scale-shell .site-review-page__footer-company {
   position: absolute;
-  left: 346px;
-  top: 409px;
-  width: 747px;
+  left: 100px;
+  top: 436px;
+  width: 1240px;
   margin-top: 0 !important;
-  font-size: 24px !important;
-  line-height: 30px !important;
-  letter-spacing: normal;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.18px;
 }
 
 @media (max-width: 767px) {
@@ -5435,9 +5680,9 @@ button,
   top: auto;
   width: 100%;
   margin-top: 28px !important;
-  font-size: 12px !important;
-  line-height: 20px !important;
-  letter-spacing: 0.36px;
+  font-size: 11px !important;
+  line-height: 14px !important;
+  letter-spacing: 0.12px;
   }
 }
 

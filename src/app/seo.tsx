@@ -6,9 +6,10 @@ export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
 export const SITE_LOGO_PATH = "/logo_education.png";
 export const SITE_FAVICON_PATH = "/favicon.png";
 export const DEFAULT_DESCRIPTION =
-  "ИННОПРОГ - онлайн-школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой.";
+  "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой.";
 export const DEFAULT_KEYWORDS = [
   "ИННОПРОГ",
+  "онлайн школа программирования",
   "онлайн-школа программирования",
   "курсы программирования",
   "курс Python",
@@ -83,12 +84,14 @@ export function createPageMetadata({
   path = "/",
   keywords = [],
   noIndex = false,
+  absoluteTitle = false,
 }: {
   title: string;
   description?: string;
   path?: string;
   keywords?: string[];
   noIndex?: boolean;
+  absoluteTitle?: boolean;
 }): Metadata {
   const url = absoluteUrl(path);
   const robots = noIndex
@@ -103,7 +106,7 @@ export function createPageMetadata({
     : DEFAULT_ROBOTS;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     applicationName: SITE_NAME,
     authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -209,11 +212,44 @@ export const websiteJsonLd = {
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
   name: SITE_NAME,
+  alternateName: "ИННОПРОГ - онлайн школа программирования",
   url: SITE_URL,
   inLanguage: "ru-RU",
   publisher: {
     "@id": `${SITE_URL}/#organization`,
   },
+};
+
+export const siteNavigationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE_URL}/#site-navigation`,
+  itemListElement: [
+    {
+      "@type": "SiteNavigationElement",
+      position: 1,
+      name: "Главная",
+      url: SITE_URL,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 2,
+      name: "Курс Python-разработчик",
+      url: absoluteUrl("/python-course"),
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 3,
+      name: "Тарифы",
+      url: absoluteUrl("/tariffs"),
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 4,
+      name: "О нас",
+      url: absoluteUrl("/about"),
+    },
+  ],
 };
 
 export const courseJsonLd = {

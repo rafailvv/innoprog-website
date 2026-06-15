@@ -98,7 +98,7 @@ function CourseCardImage({ index }: { index: number }) {
   }
 
   return (
-    <div aria-hidden="true" className="absolute h-[284px] left-0 origin-top-left pointer-events-none rounded-tl-[40px] top-0 scale-[0.74] w-[340px]">
+    <div aria-hidden="true" className="absolute h-[284px] left-0 origin-top-left pointer-events-none rounded-tl-[40px] top-0 scale-[0.70] w-[340px] site-smooth-photo site-smooth-photo--top-left-40">
       {visual.direct ? (
         <img alt="" decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-bottom pointer-events-none rounded-tl-[40px] size-full ${visual.imageClassName}`} src={visual.src} />
       ) : (
@@ -194,7 +194,7 @@ export function MainScreenMobileHeader() {
 
 function Frame55() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[8px] items-center leading-[43px] relative shrink-0 uppercase w-full">
+    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[43px] relative shrink-0 uppercase w-full">
       <p className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">обучаем</p>
       <p className="relative shrink-0 text-[26px] text-center w-full">программированию</p>
     </div>
@@ -458,10 +458,10 @@ function Group8() {
           <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
-      <div className="absolute h-[122.126px] left-[83px] top-[77px] w-[205.891px]" data-name="image 118">
+      <div className="absolute h-[122.126px] left-[83px] top-[77px] w-[205.891px] site-smooth-photo site-smooth-photo--8" data-name="image 118">
         <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
-      <div className="absolute h-[193.242px] left-[-3.14px] rounded-[8px] top-[4.14px] w-[89.157px]" data-name="image 120">
+      <div className="absolute h-[193.242px] left-[-3.14px] rounded-[8px] top-[4.14px] w-[89.157px] site-smooth-photo site-smooth-photo--8" data-name="image 120">
         <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[8px] size-full" src={imgImage120} />
       </div>
       <div className="absolute h-[197.383px] left-[-7px] top-0 w-[98px]" data-name="айфон">
@@ -705,7 +705,7 @@ function Frame187() {
 function Frame20() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Фронтенд разработчик</p>
+      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[30px] whitespace-nowrap w-full">Фронтенд разработчик</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Освойте современную фронтенд-разработку, React, TypeScript и работу</p>
         <p className="leading-[18px] mb-0">с API, чтобы создавать полноценные</p>
@@ -1193,15 +1193,19 @@ function Frame184() {
           </div>
         </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
-        <CourseCardImage index={4} />
-        <Frame189 />
-        <Frame30 />
+      <div className="flex flex-row items-center self-stretch">
+        <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={4} />
+          <Frame189 />
+          <Frame30 />
+        </div>
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
-        <CourseCardImage index={5} />
-        <Frame190 />
-        <Frame35 />
+      <div className="flex flex-row items-center self-stretch">
+        <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+          <CourseCardImage index={5} />
+          <Frame190 />
+          <Frame35 />
+        </div>
       </div>
       <div className="flex flex-row items-center self-stretch">
         <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
@@ -1417,7 +1421,7 @@ function Frame152() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame151 />
-      <div className="h-[201px] relative shrink-0 w-[349px]" data-name="image 119">
+      <div className="h-[201px] relative shrink-0 w-[349px] site-smooth-photo site-smooth-photo--24" data-name="image 119">
         <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage119} />
       </div>
     </div>
@@ -1446,7 +1450,7 @@ function Component1() {
     <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-name="преподаватели">
       <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
         <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
-        <p className="leading-[43px] text-[39px]">преподаватели</p>
+        <p className="leading-[40px] text-[36px]">преподаватели</p>
       </div>
     </div>
   );
@@ -1767,7 +1771,7 @@ function Frame157() {
 function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "support" | "chat" | "interview" }) {
   if (variant === "online") {
     return (
-      <div className="absolute h-[122px] left-0 origin-top-left overflow-hidden pointer-events-none rounded-tl-[32px] top-0 scale-[0.68] w-[163px]">
+      <div className="absolute h-[122px] left-0 origin-top-left overflow-hidden pointer-events-none rounded-[32px] top-0 scale-[0.68] w-[163px] site-smooth-photo site-smooth-photo--32">
         <img alt="" decoding="async" loading="lazy" className="absolute h-[275px] left-0 max-w-none top-0 w-[302px]" src={imgBenefitCard1} />
       </div>
     );
@@ -1836,7 +1840,7 @@ function MentorBenefitIcon({ variant }: { variant: "online" | "internship" | "su
   }
 
   return (
-    <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px]">
+    <div className="absolute h-[122px] left-0 origin-top-left pointer-events-none rounded-[40px] top-0 scale-[0.68] w-[163px] site-smooth-photo site-smooth-photo--40">
       <div className="absolute inset-0 mix-blend-color-burn opacity-60 overflow-hidden pointer-events-none rounded-[40px]">
         <img alt="" decoding="async" loading="lazy" className="absolute h-[392.05%] left-[-263.81%] max-w-none top-[-139.73%] w-[391.24%]" src={imgBenefitIconsChat} />
       </div>
@@ -2361,14 +2365,14 @@ function Frame167() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame166 />
-      <div className="h-[46px] relative rounded-[40px] shrink-0 w-full">
+      <button className="bg-transparent border-0 cursor-pointer h-[46px] p-0 relative rounded-[40px] shrink-0 w-full" data-main-nav="reviews" type="button">
         <div aria-hidden="true" className="absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
             <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">больше отзывов</p>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }
@@ -2844,7 +2848,7 @@ function MynauiTelegram() {
 
 function Frame123() {
   return (
-    <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
+    <div className="content-stretch flex gap-[16px] items-start mt-auto relative shrink-0">
       <a aria-label="Написать на почту" className="block" href="mailto:educatio@innoprog.ru">
         <MaterialSymbolsMailOutline />
       </a>
@@ -2863,7 +2867,7 @@ function Frame123() {
 
 function Group4() {
   return (
-    <div className="absolute inset-[87.27%_5.13%_3.92%_54.33%] opacity-30" data-name="Group">
+    <div className="absolute inset-[66.9%_5.13%_24.5%_54.33%] opacity-30" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 158.124 76.8275">
         <g id="Group">
           <path d={svgPaths.p395a3880} fill="var(--fill-0, #9C78FF)" id="Vector" />
@@ -2877,7 +2881,7 @@ function Group4() {
 
 function Group5() {
   return (
-    <div className="absolute inset-[87.84%_5.13%_1.72%_5.13%] opacity-30" data-name="Group">
+    <div className="absolute inset-[67.2%_5.13%_22.82%_5.13%] opacity-30" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 350.001 91.0073">
         <g id="Group">
           <path d={svgPaths.p1ffff600} fill="var(--fill-0, #9C78FF)" id="Vector" />
@@ -2925,17 +2929,13 @@ function Frame182() {
 export function MainScreenMobileFooter() {
   return (
     <div className="bg-[#464a6a] h-[912px] relative shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[22px] items-start pb-[20px] pt-[28px] px-[20px] relative size-full">
+      <div className="content-stretch flex flex-col gap-[22px] items-start pb-[10px] pt-[28px] px-[20px] relative size-full">
         <Frame92 />
         <Frame123 />
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-full relative shrink-0 text-[12px] text-center text-white tracking-[0.36px] w-[min-content]">
-          {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
+        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[14px] min-w-full mt-[12px] relative shrink-0 text-[11px] text-center text-white tracking-[0.12px] w-[min-content]">
+          ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
           <br aria-hidden="true" />
-          ИНН 1683011286 ОГРН 1221600105440
-          <br aria-hidden="true" />
-          ОКВЭД: 62.09 (основной), 62.02
-          <br aria-hidden="true" />
-          Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
+          ОКВЭД: 62.09 (осн.), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (осн.), 1.01, 1.12
         </p>
         <Group3 />
       </div>

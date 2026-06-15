@@ -39,7 +39,7 @@ import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react"
 
 const DESKTOP_DESIGN = {
   width: 1440,
-  height: 14373,
+  height: 14457,
 };
 
 const ABOUT_DESIGN_WIDTH = DESKTOP_DESIGN.width;
@@ -93,6 +93,7 @@ export type AppInitialRoute =
   | { page: "home" }
   | { page: "about" }
   | { page: "pythonCourse" }
+  | { page: "reviews" }
   | { page: "courseReview"; review: CourseReviewKey }
   | { page: "tariffs" }
   | { page: "review"; story: ReviewStoryKey };
@@ -548,22 +549,25 @@ const REVIEW_STORY_CARD_TITLES: Record<ReviewStoryKey, string> = {
   михаил: "Как Михаил собрал веб-приложение для своего сервиса",
 };
 
-const REVIEW_CARD_DATA: Record<
-  ReviewStoryKey,
-  {
-    avatar: string;
-    avatarClassName: string;
-    name: string;
-    course: string;
-    transition: string;
-    quote: string;
-  }
-> = {
+type ReviewCardData = {
+  avatar: string;
+  avatarClassName: string;
+  name: string;
+  course: string;
+  courseLines: readonly string[];
+  transition: string;
+  quote: string;
+};
+
+const PYTHON_COURSE_LINES = ["Python-", "разработчик"] as const;
+
+const REVIEW_CARD_DATA: Record<ReviewStoryKey, ReviewCardData> = {
   кирилл: {
     avatar: reviewStoryKirillHeroUrl,
     avatarClassName: "site-review-avatar-img--kirill",
     name: "Кирилл",
     course: "Python-разработчик",
+    courseLines: PYTHON_COURSE_LINES,
     transition: "Из HR → в ИТ",
     quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
   },
@@ -572,6 +576,7 @@ const REVIEW_CARD_DATA: Record<
     avatarClassName: "site-review-avatar-img--anastasia",
     name: "Анастасия",
     course: "Data Science",
+    courseLines: ["Data Science"],
     transition: "Из 1С → в Product",
     quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
   },
@@ -580,8 +585,36 @@ const REVIEW_CARD_DATA: Record<
     avatarClassName: "site-review-avatar-img--mikhail",
     name: "Михаил",
     course: "Python-разработчик",
+    courseLines: PYTHON_COURSE_LINES,
     transition: "Веб-приложение для сервиса",
     quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+  },
+};
+
+const COURSE_REVIEW_CARD_ASSETS: Record<CourseReviewKey, Pick<ReviewCardData, "avatar" | "avatarClassName">> = {
+  maria: {
+    avatar: reviewAnastasiaUrl,
+    avatarClassName: "site-review-avatar-img--anastasia",
+  },
+  vladimir: {
+    avatar: reviewStoryKirillHeroUrl,
+    avatarClassName: "site-review-avatar-img--kirill",
+  },
+  vildan: {
+    avatar: reviewMikhailUrl,
+    avatarClassName: "site-review-avatar-img--mikhail",
+  },
+  veniamin: {
+    avatar: reviewKirillUrl,
+    avatarClassName: "site-review-avatar-img--kirill",
+  },
+  ilya: {
+    avatar: reviewStoryKirillHeroUrl,
+    avatarClassName: "site-review-avatar-img--kirill",
+  },
+  andrey: {
+    avatar: reviewMikhailUrl,
+    avatarClassName: "site-review-avatar-img--mikhail",
   },
 };
 
@@ -644,6 +677,19 @@ function getClickedText(target: EventTarget | null, root: HTMLElement) {
   return element.textContent?.replace(/\s+/g, " ").trim().toLowerCase() || "";
 }
 
+function getVisibleCarouselAnchor(carousel: HTMLElement) {
+  const rect = carousel.getBoundingClientRect();
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  const visibleLeft = Math.max(rect.left, 0);
+  const visibleRight = Math.min(rect.right, viewportWidth);
+
+  if (visibleRight > visibleLeft) {
+    return ((visibleLeft + visibleRight) / 2) - rect.left;
+  }
+
+  return carousel.clientWidth / 2;
+}
+
 function scrollCarousel(id: string, direction: number) {
   const carousel = document.querySelector<HTMLElement>(`[data-carousel="${id}"]`);
 
@@ -661,7 +707,7 @@ function scrollCarousel(id: string, direction: number) {
 
   const isCenterAligned = carousel.dataset.carouselAlign === "center";
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
-  const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : paddingLeft;
+  const activeAnchor = isCenterAligned ? getVisibleCarouselAnchor(carousel) : paddingLeft;
   const activeIndex = items.reduce((nearestIndex, item, index) => {
     const itemAnchor = isCenterAligned
       ? item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft
@@ -679,7 +725,7 @@ function scrollCarousel(id: string, direction: number) {
   const item = items[targetIndex];
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
   const targetLeft = isCenterAligned
-    ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
+    ? item.offsetLeft + (item.offsetWidth / 2) - activeAnchor
     : item.offsetLeft - paddingLeft;
 
   carousel.scrollTo({
@@ -784,6 +830,10 @@ function getCleanPathFromHash(): string | null {
     return "/python-course";
   }
 
+  if (hash === "#/reviews") {
+    return "/reviews";
+  }
+
   const hashStory = getReviewStoryFromHash();
 
   if (hashStory) {
@@ -835,6 +885,10 @@ function getRouteFromLocation(): AppInitialRoute {
     return { page: "pythonCourse" };
   }
 
+  if (pathname === "/reviews") {
+    return { page: "reviews" };
+  }
+
   return { page: "home" };
 }
 
@@ -844,6 +898,7 @@ function getRouteState(route: AppInitialRoute) {
     activeCourseReview: route.page === "courseReview" ? route.review : null,
     isAboutRoute: route.page === "about",
     isPythonCourseRoute: route.page === "pythonCourse",
+    isReviewsRoute: route.page === "reviews",
     isTariffsRoute: route.page === "tariffs",
   };
 }
@@ -932,13 +987,9 @@ function LegacySiteFooter() {
         <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
       </div>
       <p className="site-review-page__footer-company">
-        {`Общество с ограниченной ответственностью "ИННОПРОГ"`}
+        ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
         <br aria-hidden="true" />
-        ИНН 1683011286 ОГРН 1221600105440
-        <br aria-hidden="true" />
-        ОКВЭД: 62.09 (основной), 62.02
-        <br aria-hidden="true" />
-        Коды видов деятельности в области ИТ: 16.01 (основной), 1.01, 1.12
+        ОКВЭД: 62.09 (основной), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (основной), 1.01, 1.12
       </p>
     </footer>
   );
@@ -1019,32 +1070,68 @@ function MainScreenHeaderSurface({
   );
 }
 
-function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
-  const review = REVIEW_CARD_DATA[storyKey];
+function ReviewStyleCard({
+  ariaLabel,
+  card,
+  courseReviewKey,
+  storyKey,
+}: {
+  ariaLabel: string;
+  card: ReviewCardData;
+  courseReviewKey?: CourseReviewKey;
+  storyKey?: ReviewStoryKey;
+}) {
+  const dataAttributes = {
+    ...(storyKey ? { "data-review-story": storyKey } : {}),
+    ...(courseReviewKey ? { "data-course-review": courseReviewKey } : {}),
+  };
 
   return (
     <button
-      aria-label={`Открыть историю: ${REVIEW_STORY_CARD_TITLES[storyKey]}`}
+      aria-label={ariaLabel}
       className="site-related-review-card"
       data-name="отзыв"
-      data-review-story={storyKey}
       type="button"
+      {...dataAttributes}
     >
       <span aria-hidden="true" className="site-related-review-card__border" />
-      <span className="site-related-review-card__profile">
-        <span className="site-related-review-card__person">
+      <span className="site-related-review-card__inner content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
+        <span className="site-related-review-card__profile">
           <span className="site-related-review-card__avatar">
-            <img alt="" className={review.avatarClassName} loading="lazy" src={review.avatar} />
+            <img alt="" className={card.avatarClassName} loading="lazy" src={card.avatar} />
           </span>
-          <strong>{review.name}</strong>
+          <span className="site-related-review-card__profile-copy">
+            <strong>{card.name}</strong>
+            <span className="site-related-review-card__course">
+              <span className="site-related-review-card__course-desktop">{`Выпускник курса: ${card.course}`}</span>
+              <span className="site-related-review-card__course-mobile">
+                <span className="site-related-review-card__course-prefix">Выпускник курса: </span>
+                <span className="site-related-review-card__course-lines">
+                  {card.courseLines.map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </span>
+              </span>
+            </span>
+          </span>
         </span>
-        <span className="site-related-review-card__course">{`Выпускник курса: ${review.course}`}</span>
-      </span>
-      <span className="site-related-review-card__body">
-        <span className="site-review-quote">{review.quote}</span>
-        <span className="site-related-review-card__transition">{review.transition}</span>
+        <span className="site-related-review-card__body">
+          <span className="site-related-review-card__transition">{card.transition}</span>
+          <span className="site-related-review-card__quote site-review-quote site-mobile-review-quote">{card.quote}</span>
+          <span className="site-related-review-card__read-more">ЧИТАТЬ ПОЛНОСТЬЮ</span>
+        </span>
       </span>
     </button>
+  );
+}
+
+function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
+  return (
+    <ReviewStyleCard
+      ariaLabel={`Открыть историю: ${REVIEW_STORY_CARD_TITLES[storyKey]}`}
+      card={REVIEW_CARD_DATA[storyKey]}
+      storyKey={storyKey}
+    />
   );
 }
 
@@ -1059,34 +1146,27 @@ function CourseRating({ rating }: { rating: string }) {
 
 function CourseReviewCard({
   reviewKey,
-  compact = false,
 }: {
   reviewKey: CourseReviewKey;
   compact?: boolean;
 }) {
   const review = COURSE_REVIEW_STORIES[reviewKey];
+  const assets = COURSE_REVIEW_CARD_ASSETS[reviewKey];
+  const card: ReviewCardData = {
+    ...assets,
+    name: review.name,
+    course: review.course,
+    courseLines: PYTHON_COURSE_LINES,
+    transition: review.title,
+    quote: review.body,
+  };
 
   return (
-    <button
-      className={[
-        "site-course-review-card",
-        compact ? "site-course-review-card--compact" : "",
-      ].filter(Boolean).join(" ")}
-      data-course-review={reviewKey}
-      type="button"
-    >
-      <span className="site-course-review-card__meta">
-        <span>
-          <strong>{review.name}</strong>
-          <span>{`курс: ${review.course}`}</span>
-        </span>
-        <CourseRating rating={review.rating} />
-      </span>
-      <span className="site-course-review-card__content">
-        <span className="site-course-review-card__title">{review.title}</span>
-        <span className="site-course-review-card__body">{review.body}</span>
-      </span>
-    </button>
+    <ReviewStyleCard
+      ariaLabel={`Открыть отзыв: ${review.name}`}
+      card={card}
+      courseReviewKey={reviewKey}
+    />
   );
 }
 
@@ -2209,7 +2289,7 @@ export default function App({
       let nearestDistance = Number.POSITIVE_INFINITY;
       const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
       const isCenterAligned = carousel.dataset.carouselAlign === "center";
-      const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : 0;
+      const activeAnchor = isCenterAligned ? getVisibleCarouselAnchor(carousel) : 0;
 
       if (carousel.dataset.carouselInitialized !== "true") {
         const initialIndex = Number(carousel.dataset.carouselInitialIndex);
@@ -2218,7 +2298,7 @@ export default function App({
         if (initialItem) {
           const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
           const targetLeft = isCenterAligned
-            ? initialItem.offsetLeft - ((carousel.clientWidth - initialItem.offsetWidth) / 2)
+            ? initialItem.offsetLeft + (initialItem.offsetWidth / 2) - activeAnchor
             : initialItem.offsetLeft - paddingLeft;
 
           carousel.scrollTo({
@@ -2831,7 +2911,7 @@ export default function App({
       return;
     }
 
-    if (text === "отзывы" || text.includes("смотреть все отзывы")) {
+    if (text === "отзывы" || text.includes("смотреть все отзывы") || text.includes("больше отзывов")) {
       openReviewStory("кирилл");
       return;
     }
