@@ -1,9 +1,12 @@
 import App from "../App";
 import { JsonLd, breadcrumbJsonLd, courseJsonLd, createPageMetadata, webPageJsonLd } from "../seo";
 
+const TARIFFS_DESCRIPTION =
+  "Тарифы обучения в ИННОПРОГ: форматы занятий с наставником, стоимость программирования онлайн и условия выбора подходящего курса.";
+
 export const metadata = createPageMetadata({
   title: "Тарифы",
-  description: "Тарифы обучения в ИННОПРОГ: базовый, оптимальный и премиальный форматы.",
+  description: TARIFFS_DESCRIPTION,
   path: "/tariffs",
   keywords: ["тарифы ИННОПРОГ", "стоимость обучения программированию", "тарифы курса Python"],
 });
@@ -16,7 +19,7 @@ export default function TariffsPage() {
         data={webPageJsonLd({
           path: "/tariffs",
           name: "Тарифы обучения",
-          description: "Тарифы обучения в ИННОПРОГ: базовый, оптимальный и премиальный форматы.",
+          description: TARIFFS_DESCRIPTION,
         })}
       />
       <JsonLd

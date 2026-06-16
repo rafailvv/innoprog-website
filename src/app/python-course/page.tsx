@@ -5,6 +5,7 @@ import {
   breadcrumbJsonLd,
   createPageMetadata,
   faqPageJsonLd,
+  PYTHON_COURSE_OG_IMAGE_PATH,
   pythonCourseJsonLd,
   webPageJsonLd,
 } from "../seo";
@@ -20,6 +21,8 @@ export const metadata = createPageMetadata({
     "обучение Python онлайн",
     "Python-разработчик с нуля",
   ],
+  ogImage: PYTHON_COURSE_OG_IMAGE_PATH,
+  ogImageAlt: "Курс Python-разработчик с нуля в ИННОПРОГ",
 });
 
 export default function PythonCourseRoute() {

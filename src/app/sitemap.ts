@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
-import { SITE_LOGO_PATH, SITE_URL, absoluteUrl } from "./seo";
+import { DEFAULT_OG_IMAGE_PATH, PYTHON_COURSE_OG_IMAGE_PATH, SITE_URL, absoluteUrl } from "./seo";
 
-const UPDATED_AT = new Date("2026-06-15T00:00:00.000Z");
+const UPDATED_AT = new Date("2026-06-17T00:00:00.000Z");
 
 const routes = [
-  { path: "/", changeFrequency: "weekly", priority: 1 },
-  { path: "/python-course", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/", changeFrequency: "weekly", priority: 1, image: DEFAULT_OG_IMAGE_PATH },
+  { path: "/python-course", changeFrequency: "weekly", priority: 0.9, image: PYTHON_COURSE_OG_IMAGE_PATH },
   { path: "/tariffs", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews", changeFrequency: "monthly", priority: 0.75 },
@@ -31,6 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "ru-RU": `${SITE_URL}${route.path}`,
       },
     },
-    images: [absoluteUrl(SITE_LOGO_PATH)],
+    images: [absoluteUrl("image" in route ? route.image : DEFAULT_OG_IMAGE_PATH)],
   }));
 }

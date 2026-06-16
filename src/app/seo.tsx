@@ -5,6 +5,8 @@ export const SITE_NAME = "ИННОПРОГ";
 export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
 export const SITE_LOGO_PATH = "/logo_education.png";
 export const SITE_FAVICON_PATH = "/favicon.png";
+export const DEFAULT_OG_IMAGE_PATH = "/og-home.png";
+export const PYTHON_COURSE_OG_IMAGE_PATH = "/og-python-course.png";
 export const DEFAULT_DESCRIPTION =
   "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой.";
 export const DEFAULT_KEYWORDS = [
@@ -46,7 +48,8 @@ export const REVIEW_META = {
   kirill: {
     name: "Кирилл",
     title: "История Кирилла",
-    description: "История Кирилла: путь из HR в Python-разработку с ИННОПРОГ.",
+    description:
+      "История Кирилла о переходе из HR в Python-разработку: обучение в ИННОПРОГ, практика с наставником и первые уверенные шаги в ИТ.",
     course: "Python-разработчик",
     result: "Из HR в ИТ",
     reviewBody:
@@ -55,7 +58,8 @@ export const REVIEW_META = {
   anastasia: {
     name: "Анастасия",
     title: "История Анастасии",
-    description: "История Анастасии: обучение Data Science и переход к работе с продуктовой аналитикой.",
+    description:
+      "История Анастасии о переходе из 1С в продуктовую аналитику: обучение Data Science, практика с данными и поддержка наставника.",
     course: "Data Science",
     result: "Из 1C в Product",
     reviewBody:
@@ -64,7 +68,8 @@ export const REVIEW_META = {
   mikhail: {
     name: "Михаил",
     title: "История Михаила",
-    description: "История Михаила: путь к созданию рабочего веб-приложения на обучении ИННОПРОГ.",
+    description:
+      "История Михаила о разработке веб-приложения в ИННОПРОГ: как обучение, практика и обратная связь помогли собрать рабочий проект.",
     course: "Веб-приложение",
     result: "От идеи к проекту",
     reviewBody:
@@ -85,6 +90,8 @@ export function createPageMetadata({
   keywords = [],
   noIndex = false,
   absoluteTitle = false,
+  ogImage = DEFAULT_OG_IMAGE_PATH,
+  ogImageAlt = "ИННОПРОГ - онлайн школа программирования",
 }: {
   title: string;
   description?: string;
@@ -92,6 +99,8 @@ export function createPageMetadata({
   keywords?: string[];
   noIndex?: boolean;
   absoluteTitle?: boolean;
+  ogImage?: string;
+  ogImageAlt?: string;
 }): Metadata {
   const url = absoluteUrl(path);
   const robots = noIndex
@@ -132,10 +141,10 @@ export function createPageMetadata({
       type: "website",
       images: [
         {
-          url: absoluteUrl(SITE_LOGO_PATH),
-          width: 1256,
-          height: 296,
-          alt: "ИННОПРОГ Education",
+          url: absoluteUrl(ogImage),
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
         },
       ],
     },
@@ -143,7 +152,7 @@ export function createPageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [absoluteUrl(SITE_LOGO_PATH)],
+      images: [absoluteUrl(ogImage)],
     },
   };
 }
@@ -314,8 +323,15 @@ export const pythonCourseJsonLd = {
     "@type": "Offer",
     category: "Paid online course",
     availability: "https://schema.org/InStock",
+    price: "7990",
     priceCurrency: "RUB",
     url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
   },
   hasCourseInstance: {
     "@type": "CourseInstance",

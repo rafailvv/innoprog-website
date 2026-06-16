@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "../styles/index.css";
 import {
   DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE_PATH,
   DEFAULT_KEYWORDS,
   DEFAULT_ROBOTS,
   SITE_FAVICON_PATH,
   SITE_LEGAL_NAME,
-  SITE_LOGO_PATH,
   SITE_NAME,
   SITE_URL,
   absoluteUrl,
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: SITE_LOGO_PATH,
-        width: 1256,
-        height: 296,
-        alt: "ИННОПРОГ Education",
+        url: absoluteUrl(DEFAULT_OG_IMAGE_PATH),
+        width: 1200,
+        height: 630,
+        alt: "ИННОПРОГ - онлайн школа программирования",
       },
     ],
   },
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
-    images: [absoluteUrl(SITE_LOGO_PATH)],
+    images: [absoluteUrl(DEFAULT_OG_IMAGE_PATH)],
   },
 };
 
