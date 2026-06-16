@@ -1138,11 +1138,8 @@ function MentorBenefitBriefcaseIcon() {
             <stop stopColor="#BEA7FF" />
             <stop offset="1" stopColor="#6E35F8" />
           </linearGradient>
-          <filter id="mentor-briefcase-shadow-desktop" colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="68" width="90" x="6" y="8">
-            <feDropShadow dx="0" dy="8" floodColor="#6D35FF" floodOpacity="0.32" stdDeviation="8" />
-          </filter>
         </defs>
-        <g filter="url(#mentor-briefcase-shadow-desktop)" opacity="0.9">
+        <g opacity="0.9">
           <path d="M36 19.5C36 12.6 41.6 7 48.5 7H56C62.9 7 68.5 12.6 68.5 19.5V23H59.8V19.5C59.8 17.4 58.1 15.7 56 15.7H48.5C46.4 15.7 44.7 17.4 44.7 19.5V23H36V19.5Z" fill="#7E46FF" />
           <rect fill="url(#mentor-briefcase-body-desktop)" height="44" rx="12" width="76" x="13" y="23" />
           <path d="M13 34.5C13 28.1 18.1 23 24.5 23H77.5C83.9 23 89 28.1 89 34.5V39.8L51 53L13 39.8V34.5Z" fill="url(#mentor-briefcase-flap-desktop)" />
