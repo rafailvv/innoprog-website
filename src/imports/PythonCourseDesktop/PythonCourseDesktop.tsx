@@ -3218,6 +3218,46 @@ function Frame51() {
   );
 }
 
+function CourseTeachersCarouselActions() {
+  return (
+    <div className="content-stretch flex gap-[24px] items-center justify-center relative shrink-0 w-full site-teachers-carousel-actions">
+      <button aria-label="Предыдущие преподаватели" className="bg-transparent flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="python-teachers" onClick={(event) => handleCourseCarouselClick(event, "python-teachers", -1)} type="button">
+        <div className="-scale-y-100 flex-none rotate-180">
+          <div className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
+            <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+            <div className="flex-[1_0_0] min-h-px relative w-full">
+              <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
+                  <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button aria-label="Следующие преподаватели" className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="python-teachers" onClick={(event) => handleCourseCarouselClick(event, "python-teachers", 1)} type="button">
+        <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+        <div className="flex-[1_0_0] min-h-px relative w-full">
+          <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
+              <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  );
+}
+
+function CourseTeachersCarouselBlock() {
+  return (
+    <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
+      <Frame51 />
+      <CourseTeachersCarouselActions />
+    </div>
+  );
+}
+
 function Component7() {
   return (
     <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-teachers-section" data-name="преподаватели">
@@ -3225,7 +3265,7 @@ function Component7() {
         <span className="leading-[97px] text-[rgba(255,255,255,0.4)]">наши</span>
         <span className="leading-[97px]">{` преподаватели`}</span>
       </p>
-      <Frame51 />
+      <CourseTeachersCarouselBlock />
     </div>
   );
 }

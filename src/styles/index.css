@@ -1477,7 +1477,23 @@ button,
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.site-carousel img {
+  -webkit-user-drag: none;
+}
+
+.site-carousel--dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.site-carousel--dragging * {
+  cursor: grabbing !important;
 }
 
 .site-carousel::-webkit-scrollbar {
@@ -1597,6 +1613,13 @@ button,
 }
 
 .site-course-carousel-actions button {
+  border: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.site-teachers-carousel-actions button {
   border: 0;
   cursor: pointer;
   -webkit-appearance: none;

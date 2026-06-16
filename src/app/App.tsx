@@ -2018,6 +2018,102 @@ function canScrollCarousel(carousel: HTMLElement, delta: number) {
   return false;
 }
 
+function enableCarouselPointerDrag(carousel: HTMLElement) {
+  let pointerId: number | null = null;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let didDrag = false;
+  let suppressClickTimer = 0;
+  const dragThreshold = 6;
+
+  const clearDragState = () => {
+    pointerId = null;
+    carousel.classList.remove("site-carousel--dragging");
+  };
+
+  const handlePointerDown = (event: PointerEvent) => {
+    if (event.button !== 0 || carousel.scrollWidth <= carousel.clientWidth) {
+      return;
+    }
+
+    if (
+      event.target instanceof Element &&
+      event.target.closest("[data-carousel-action], [data-carousel-index]")
+    ) {
+      return;
+    }
+
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startScrollLeft = carousel.scrollLeft;
+    didDrag = false;
+    window.clearTimeout(suppressClickTimer);
+    delete carousel.dataset.dragSuppressClick;
+    carousel.setPointerCapture?.(event.pointerId);
+  };
+
+  const handlePointerMove = (event: PointerEvent) => {
+    if (pointerId !== event.pointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - startX;
+
+    if (!didDrag && Math.abs(deltaX) < dragThreshold) {
+      return;
+    }
+
+    didDrag = true;
+    carousel.classList.add("site-carousel--dragging");
+    carousel.scrollLeft = startScrollLeft - deltaX;
+    event.preventDefault();
+  };
+
+  const handlePointerEnd = (event: PointerEvent) => {
+    if (pointerId !== event.pointerId) {
+      return;
+    }
+
+    carousel.releasePointerCapture?.(event.pointerId);
+
+    if (didDrag) {
+      carousel.dataset.dragSuppressClick = "true";
+      suppressClickTimer = window.setTimeout(() => {
+        delete carousel.dataset.dragSuppressClick;
+      }, 180);
+    }
+
+    clearDragState();
+  };
+
+  const handleClickCapture = (event: globalThis.MouseEvent) => {
+    if (carousel.dataset.dragSuppressClick !== "true") {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    delete carousel.dataset.dragSuppressClick;
+    window.clearTimeout(suppressClickTimer);
+  };
+
+  carousel.addEventListener("pointerdown", handlePointerDown);
+  carousel.addEventListener("pointermove", handlePointerMove);
+  carousel.addEventListener("pointerup", handlePointerEnd);
+  carousel.addEventListener("pointercancel", handlePointerEnd);
+  carousel.addEventListener("click", handleClickCapture, true);
+
+  return () => {
+    window.clearTimeout(suppressClickTimer);
+    carousel.removeEventListener("pointerdown", handlePointerDown);
+    carousel.removeEventListener("pointermove", handlePointerMove);
+    carousel.removeEventListener("pointerup", handlePointerEnd);
+    carousel.removeEventListener("pointercancel", handlePointerEnd);
+    carousel.removeEventListener("click", handleClickCapture, true);
+    carousel.classList.remove("site-carousel--dragging");
+  };
+}
+
 function preloadImage(src: string) {
   return new Promise<void>((resolve) => {
     const image = new Image();
@@ -2410,6 +2506,25 @@ export default function App({
       });
     };
   }, [viewport.isMobile]);
+
+  useEffect(() => {
+    const cleanups = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-carousel]"),
+      enableCarouselPointerDrag,
+    );
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  }, [
+    viewport.isMobile,
+    activeReviewStory,
+    activeCourseReview,
+    isAboutRoute,
+    isPythonCourseRoute,
+    isReviewsRoute,
+    isTariffsRoute,
+  ]);
 
   useEffect(() => {
     const carousels = Array.from(
