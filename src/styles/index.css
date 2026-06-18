@@ -16,8 +16,8 @@
 }
 
 .site-reviews-index-page__inner {
-  width: min(1280px, calc(100% - 160px));
-  margin: 184px auto 0;
+  width: min(1280px, calc(100% - 80px));
+  margin: 144px auto 0;
 }
 
 .site-reviews-index-page__top {
@@ -25,6 +25,8 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .site-reviews-index-page__crumbs {
@@ -69,22 +71,23 @@
 }
 
 .site-reviews-index-page__reviews {
-  margin-top: 80px;
+  margin-top: 56px;
 }
 
 .site-reviews-index-page__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 628px));
-  gap: 16px 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .site-reviews-index-card {
   display: flex;
   width: 100%;
-  height: 252px;
+  height: 356px;
+  min-height: 356px;
   flex-direction: column;
   align-items: stretch;
-  gap: 24px;
+  gap: 22px;
   overflow: hidden;
   padding: 24px;
   border: 1px solid #9c78ff;
@@ -94,6 +97,11 @@
   cursor: pointer;
   font-family: "Manrope", sans-serif;
   text-align: left;
+  text-decoration: none;
+}
+
+.site-reviews-index-card:not(button):not(a) {
+  cursor: default;
 }
 
 .site-reviews-index-card__head {
@@ -119,39 +127,42 @@
 .site-reviews-index-card__head strong {
   display: block;
   color: #000000;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 26px;
   text-transform: uppercase;
 }
 
 .site-reviews-index-card__head > span:first-child > span {
   display: block;
   color: rgba(0, 0, 0, 0.4);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.48px;
-  line-height: 16px;
+  line-height: 22px;
 }
 
 .site-reviews-index-card .site-course-review-rating {
   align-items: center;
   gap: 4px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 .site-reviews-index-card .site-course-review-rating span:last-child {
   color: #9747ff;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 22px;
 }
 
 .site-reviews-index-card__copy {
-  gap: 24px;
-  font-size: 14px;
+  flex: 1 1 auto;
+  gap: 20px;
+  min-height: 0;
+  overflow: hidden;
+  font-size: 17px;
   letter-spacing: 0.42px;
 }
 
@@ -159,23 +170,41 @@
   display: block;
   width: 100%;
   color: #000000;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 18px;
+  line-height: 28px;
 }
 
 .site-reviews-index-card__body {
   display: block;
+  flex: 1 1 auto;
   width: 100%;
-  max-height: 90px;
+  min-height: 0;
   overflow: hidden;
   color: #000000;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.42px;
-  line-height: 20px;
-  -webkit-mask-image: linear-gradient(180deg, #000000 0%, #000000 47%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(180deg, #000000 0%, #000000 47%, rgba(0, 0, 0, 0) 100%);
+  line-height: 24px;
+  -webkit-mask-image: linear-gradient(180deg, #000000 0%, #000000 68%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(180deg, #000000 0%, #000000 68%, rgba(0, 0, 0, 0) 100%);
+}
+
+.site-reviews-index-card__read-more {
+  display: block;
+  align-self: flex-end;
+  margin-top: auto;
+  color: #9c78ff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.site-reviews-index-card:hover .site-reviews-index-card__read-more,
+.site-reviews-index-card:focus-visible .site-reviews-index-card__read-more {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .site-reviews-index-page__load-more {
@@ -199,6 +228,24 @@
 
 .site-reviews-index-page__directions {
   margin-top: 80px;
+}
+
+.site-reviews-index-page__directions--top {
+  margin-top: 40px;
+}
+
+.site-reviews-index-page__directions--top > div {
+  max-width: 1280px;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.site-reviews-index-page__directions--top a,
+.site-reviews-index-page__directions--top button {
+  min-height: 62px;
+  padding: 0 22px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .site-reviews-index-page__directions h2 {
@@ -239,6 +286,26 @@
   white-space: nowrap;
 }
 
+.site-reviews-index-page__directions a[data-active="true"],
+.site-reviews-index-page__directions button[data-active="true"] {
+  background: #9c78ff;
+  color: #ffffff;
+}
+
+.site-reviews-index-page__directions.site-reviews-index-page__directions--top > div {
+  max-width: 1280px;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.site-reviews-index-page__directions.site-reviews-index-page__directions--top a,
+.site-reviews-index-page__directions.site-reviews-index-page__directions--top button {
+  min-height: 62px;
+  padding: 0 22px;
+  font-size: 24px;
+  line-height: 28px;
+}
+
 @media (max-width: 767px) {
   .site-reviews-index-page {
     padding-top: 0;
@@ -246,15 +313,17 @@
 
   .site-reviews-index-page__inner {
     width: min(350px, calc(100% - 40px));
-    margin-top: -8px;
+    margin-top: 0;
   }
 
   .site-reviews-index-page__top {
-    display: none;
+    width: 100%;
+    margin: 24px auto 0;
+    align-items: center;
   }
 
   .site-reviews-index-page__title {
-    margin-top: 0;
+    margin-top: 24px;
   }
 
   .site-reviews-index-page__title h1 {
@@ -275,7 +344,7 @@
   }
 
   .site-reviews-index-page__reviews {
-    margin-top: 40px;
+    margin-top: 32px;
   }
 
   .site-reviews-index-page__grid {
@@ -284,8 +353,9 @@
   }
 
   .site-reviews-index-card {
-    height: 193px;
-    gap: 24px;
+    height: 302px;
+    min-height: 302px;
+    gap: 18px;
     padding: 16px;
     border-radius: 24px;
   }
@@ -299,16 +369,16 @@
   }
 
   .site-reviews-index-card__head strong {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: 0.36px;
-    line-height: 18px;
+    line-height: 20px;
   }
 
   .site-reviews-index-card__head > span:first-child > span {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.36px;
-    line-height: 16px;
+    line-height: 18px;
   }
 
   .site-reviews-index-card .site-course-review-rating {
@@ -324,23 +394,27 @@
   }
 
   .site-reviews-index-card__copy {
-    gap: 24px;
-    font-size: 12px;
+    gap: 14px;
+    font-size: 14px;
     letter-spacing: 0.36px;
   }
 
   .site-reviews-index-card__title {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: 0.36px;
-    line-height: 16px;
+    line-height: 20px;
   }
 
   .site-reviews-index-card__body {
-    max-height: 51px;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.36px;
-    line-height: 17px;
+    line-height: 20px;
+  }
+
+  .site-reviews-index-card__read-more {
+    font-size: 15px;
+    line-height: 20px;
   }
 
   .site-reviews-index-page__load-more {
@@ -356,6 +430,10 @@
 
   .site-reviews-index-page__directions {
     margin-top: 80px;
+  }
+
+  .site-reviews-index-page__directions--top {
+    margin-top: 32px;
   }
 
   .site-reviews-index-page__directions h2 {
@@ -380,6 +458,8 @@
     padding: 16px;
     font-size: 20px;
     line-height: 22px;
+    text-align: center;
+    white-space: normal;
   }
 
   .site-reviews-index-page__directions > div > :nth-child(1) {
@@ -424,6 +504,40 @@
 
   .site-reviews-index-page__directions > div > :nth-child(4) {
     order: 8;
+  }
+
+  .site-reviews-index-page__directions > div > * {
+    width: auto !important;
+    max-width: 100%;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+
+  .site-reviews-index-page__directions--top > div > * {
+    width: 100% !important;
+  }
+
+  .site-reviews-index-page__directions--top > div {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .site-reviews-index-page__directions--top > div > * {
+    order: initial !important;
+    width: 100% !important;
+    max-width: none;
+  }
+
+  .site-reviews-index-page__directions--top a,
+  .site-reviews-index-page__directions--top button {
+    min-height: 50px;
+    padding: 8px 6px !important;
+    border-radius: 22px;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: normal;
   }
 }
 
@@ -524,21 +638,34 @@
 }
 
 .site-course-reviews-page .site-review-page__back {
-  background: #464a6a;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
 }
 
 .site-course-reviews-page__crumbs {
-  color: #464a6a;
+  color: #000000;
 }
 
 .site-course-reviews-page__crumbs button,
 .site-course-reviews-page__crumbs span {
-  color: rgba(70, 74, 106, 0.45);
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .site-course-reviews-page__crumbs strong {
-  color: #464a6a;
+  color: #000000;
+}
+
+.site-course-reviews-page .site-course-reviews-page__crumbs {
+  color: #000000;
+}
+
+.site-course-reviews-page .site-course-reviews-page__crumbs button,
+.site-course-reviews-page .site-course-reviews-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.site-course-reviews-page .site-course-reviews-page__crumbs strong {
+  color: #000000;
 }
 
 .site-course-reviews-page__title {
@@ -656,6 +783,97 @@
   justify-content: center;
   gap: 32px;
   margin-top: 40px;
+}
+
+.site-student-review-page .site-course-reviews-page__other > div {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.site-student-review-page .site-course-reviews-page__top {
+  align-items: flex-end;
+}
+
+.site-student-review-page .site-review-page__back {
+  background: #ffffff;
+  color: #000000;
+}
+
+.site-student-review-page .site-course-reviews-page__crumbs {
+  color: #000000;
+}
+
+.site-student-review-page .site-course-reviews-page__crumbs button,
+.site-student-review-page .site-course-reviews-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.site-student-review-page .site-course-reviews-page__crumbs strong {
+  color: #000000;
+}
+
+.site-student-review-page .site-course-reviews-page__other h2 {
+  color: #9c78ff;
+  line-height: 97px;
+  text-align: left;
+}
+
+.site-student-review-page .site-student-review-page__other-grid {
+  gap: 20px 24px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card {
+  height: 252px;
+  min-height: 252px;
+  gap: 20px;
+  padding: 24px;
+  border-width: 1px;
+  border-radius: 40px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__head > span:first-child {
+  gap: 8px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__head strong {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__head > span:first-child > span {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card .site-course-review-rating {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card .site-course-review-rating span:last-child {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__copy {
+  gap: 14px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__body {
+  flex: 0 0 90px;
+  height: 90px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.site-student-review-page__other-grid .site-reviews-index-card__read-more {
+  display: none;
 }
 
 .site-course-review-card {
@@ -937,6 +1155,58 @@
     font-size: 16px;
     line-height: 20px;
   }
+
+  .site-student-review-page .site-course-reviews-page__top {
+    align-items: center;
+  }
+
+  .site-student-review-page .site-course-reviews-page__other h2 {
+    line-height: 32px;
+  }
+
+  .site-student-review-page .site-student-review-page__other-grid {
+    gap: 16px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card {
+    height: 252px;
+    min-height: 252px;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card__head strong {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card__head > span:first-child > span {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card .site-course-review-rating {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card .site-course-review-rating span:last-child {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card__title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .site-student-review-page__other-grid .site-reviews-index-card__body {
+    flex-basis: 86px;
+    height: 86px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 html {
@@ -1158,9 +1428,10 @@ body {
   transition: color 180ms ease, opacity 180ms ease;
 }
 
-.site-shell:not(.site-shell--review-route):not(.site-shell--about-route):not(.site-shell--python-course-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
+.site-shell:not(.site-shell--review-route):not(.site-shell--course-review-route):not(.site-shell--reviews-index-route):not(.site-shell--about-route):not(.site-shell--python-course-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
 .site-shell--python-course-route .site-main-header [data-main-nav="adults"] p,
 .site-shell--review-route .site-main-header [data-main-nav="reviews"] p,
+.site-shell--course-review-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--reviews-index-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--about-route .site-main-header [data-main-nav="about"] p {
   color: #6f728a !important;
@@ -1486,6 +1757,11 @@ button,
   -webkit-user-drag: none;
 }
 
+.site-carousel > a,
+.site-carousel > a * {
+  -webkit-user-drag: none;
+}
+
 .site-carousel--dragging {
   cursor: grabbing;
   scroll-behavior: auto;
@@ -1500,7 +1776,8 @@ button,
   display: none;
 }
 
-.site-carousel > div {
+.site-carousel > div,
+.site-carousel > a {
   scroll-snap-align: start;
 }
 
@@ -2023,14 +2300,27 @@ button,
   box-sizing: border-box;
   padding-inline: max(80px, calc((100% - 791px) / 2));
   scroll-padding-left: max(80px, calc((100% - 791px) / 2));
+  cursor: grab;
+  touch-action: pan-y;
 }
 
-.site-reviews-carousel > div {
+.site-reviews-carousel > [data-review-story] {
   opacity: 0.48;
   transition: opacity 220ms ease;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.site-reviews-carousel > div[data-active="true"] {
+.site-reviews-carousel > [data-review-story] * {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.site-reviews-carousel.site-carousel--dragging {
+  cursor: grabbing;
+}
+
+.site-reviews-carousel > [data-review-story][data-active="true"] {
   opacity: 1;
 }
 
@@ -2797,7 +3087,7 @@ button,
 
 .site-review-page__inner {
   width: min(1680px, calc(100% - 80px));
-  margin: 224px auto 0;
+  margin: 144px auto 0;
 }
 
 .site-review-page__top {
@@ -2805,6 +3095,8 @@ button,
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
+  width: min(1280px, 100%);
+  margin: 0 auto;
 }
 
 .site-review-page__back {
@@ -2843,6 +3135,20 @@ button,
 .site-review-page__crumbs button,
 .site-review-page__crumbs span {
   color: rgba(255, 255, 255, 0.45);
+}
+
+.site-review-page .site-review-page__crumbs {
+  color: #000000;
+}
+
+.site-review-page .site-review-page__crumbs button,
+.site-review-page .site-review-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.site-review-page .site-review-page__crumbs button:hover,
+.site-review-page .site-review-page__crumbs button:focus-visible {
+  text-decoration: underline;
 }
 
 .site-review-page__crumbs button,
@@ -3038,17 +3344,17 @@ button,
 }
 
 .site-review-page__article p {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
   font-size: 24px;
-  font-style: italic;
-  font-weight: 300;
+  font-style: normal;
+  font-weight: 400;
   line-height: 31px;
 }
 
 .site-review-page__free {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   margin-top: 60px;
   padding: 40px;
   border-radius: 40px;
@@ -3057,7 +3363,8 @@ button,
 }
 
 .site-review-page__free h2 {
-  max-width: 670px;
+  width: 100%;
+  max-width: none;
   font-family: "Raleway", sans-serif;
   font-size: 48px;
   font-weight: 700;
@@ -3066,14 +3373,15 @@ button,
 }
 
 .site-review-page__free p {
-  max-width: 650px;
+  width: 100%;
+  max-width: none;
   margin-top: 18px;
   font-size: 24px;
   line-height: 31px;
 }
 
-.site-review-page__consult,
-.site-review-page__load-more {
+.site-review-page .site-review-page__consult,
+.site-review-page .site-review-page__load-more {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3087,13 +3395,13 @@ button,
   line-height: 31px;
 }
 
-.site-review-page__consult {
-  min-width: 369px;
-  min-height: 91px;
+.site-review-page .site-review-page__consult {
+  min-width: 430px;
+  min-height: 96px;
   margin: 40px auto 0;
-  padding: 0 28px;
-  font-size: 32px;
-  line-height: 35px;
+  padding: 0 34px;
+  font-size: 36px;
+  line-height: 40px;
 }
 
 .site-review-page__other {
@@ -3133,6 +3441,7 @@ button,
   cursor: pointer;
   font-family: "Manrope:Regular", "Manrope", sans-serif;
   text-align: left;
+  text-decoration: none;
 }
 
 .site-related-review-card__inner {
@@ -3265,6 +3574,75 @@ button,
 
 .site-related-review-card__read-more {
   display: none;
+}
+
+@media (min-width: 1024px) {
+  .site-review-page__other-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    align-items: stretch;
+  }
+
+  .site-review-page__other-grid .site-related-review-card {
+    width: 100%;
+    max-width: none;
+    height: 396px;
+    min-height: 396px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__inner {
+    position: relative !important;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 100% !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+    padding: 28px !important;
+    transform: none;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__profile {
+    width: 156px;
+    flex: 0 0 156px;
+    gap: 18px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__profile-copy {
+    gap: 16px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__avatar {
+    width: 148px;
+    height: 148px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__profile-copy strong {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__course {
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__body {
+    width: auto;
+    height: 100%;
+    flex: 1 1 auto;
+    font-size: 20px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__quote {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .site-review-page__other-grid .site-related-review-card__transition {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 .site-review-page__footer {
@@ -4538,6 +4916,141 @@ button,
   pointer-events: none;
 }
 
+.site-desktop-direction-card {
+  isolation: isolate;
+}
+
+.site-desktop-direction-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.site-desktop-direction-card:hover .site-desktop-direction-hover,
+.site-desktop-direction-card:focus-visible .site-desktop-direction-hover,
+.site-desktop-direction-card:focus-within .site-desktop-direction-hover {
+  opacity: 1;
+}
+
+.site-desktop-direction-hover__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.site-desktop-direction-hover__tags {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.site-desktop-direction-hover__tag-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.site-desktop-direction-hover__tags span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 32px;
+  background: #464a6a;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.site-desktop-direction-hover__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  flex: 0 0 44px;
+  border: 1px solid #000000;
+  border-radius: 32px;
+}
+
+.site-desktop-direction-hover__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.site-desktop-direction-hover__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.site-desktop-direction-hover__title {
+  margin: 0;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+.site-desktop-direction-hover__description {
+  margin: 0;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+}
+
+.site-desktop-direction-hover__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 40px;
+  background: #464a6a;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.site-desktop-direction-card:hover .site-desktop-direction-hover__button,
+.site-desktop-direction-card:focus-visible .site-desktop-direction-hover__button,
+.site-desktop-direction-card:focus-within .site-desktop-direction-hover__button {
+  pointer-events: auto;
+}
+
 .site-lead-modal {
   position: fixed;
   inset: 0;
@@ -5160,7 +5673,7 @@ button,
   }
 
   .site-about-swirl {
-    min-height: 220px;
+    min-height: 160px;
     border-radius: 28px;
   }
 
@@ -5613,6 +6126,14 @@ button,
     margin-top: 32px;
     padding: 30px 24px;
     border-radius: 30px;
+    cursor: pointer;
+    transition: box-shadow 180ms ease, transform 180ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .site-review-page__free[data-active="true"] {
+    box-shadow: inset 0 0 0 2px #9c78ff, 0 16px 32px rgba(70, 74, 106, 0.16);
+    transform: translateY(-2px);
   }
 
   .site-review-page__free h2 {
@@ -5625,13 +6146,17 @@ button,
     line-height: 24px;
   }
 
-  .site-review-page__consult {
+  .site-review-page .site-review-page__consult {
     width: 100%;
     min-width: 0;
-    min-height: 58px;
+    min-height: 64px;
     margin-top: 22px;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .site-review-page .site-review-page__consult:not([data-review-consult-ready="true"]) {
+    background: rgba(70, 74, 106, 0.82);
   }
 
   .site-review-page__other {

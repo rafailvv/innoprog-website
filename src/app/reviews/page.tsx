@@ -8,7 +8,7 @@ import {
 
 const REVIEWS_TITLE = "Отзывы учеников ИННОПРОГ";
 const REVIEWS_DESCRIPTION =
-  "Отзывы учеников ИННОПРОГ о курсах программирования, наставниках, практических проектах и результатах обучения в онлайн-школе.";
+  "Отзывы учеников ИННОПРОГ о курсах программирования, наставниках, практических проектах и результатах обучения в онлайн-школе";
 
 export const metadata = createPageMetadata({
   title: REVIEWS_TITLE,
@@ -22,8 +22,16 @@ export const metadata = createPageMetadata({
   ],
 });
 
-export default function ReviewsPage() {
-  const route: AppInitialRoute = { page: "reviews" };
+type ReviewsPageProps = {
+  searchParams?: Promise<{
+    direction?: string | string[];
+  }>;
+};
+
+export default async function ReviewsPage({ searchParams }: ReviewsPageProps) {
+  const params = await searchParams;
+  const direction = Array.isArray(params?.direction) ? params.direction[0] : params?.direction;
+  const route: AppInitialRoute = { page: "reviews", direction };
 
   return (
     <>

@@ -73,6 +73,10 @@ function MobileProjectCard({ index, children }: { index: number; children: React
   );
 }
 
+function shouldLoopCarousel(carousel: HTMLElement) {
+  return carousel.dataset.carouselLoop === "true";
+}
+
 function scrollCourseCarousel(id: string, direction: number) {
   const carousel = document.querySelector<HTMLElement>(`[data-carousel="${id}"]`);
 
@@ -106,9 +110,18 @@ function scrollCourseCarousel(id: string, direction: number) {
       ? index
       : nearestIndex;
   }, 0);
-  const targetIndex = Math.max(0, Math.min(items.length - 1, activeIndex + direction));
-  const item = items[targetIndex];
+  const isLooping = shouldLoopCarousel(carousel);
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+  const rawTargetIndex = isLooping && direction > 0 && carousel.scrollLeft >= maxScrollLeft - 1
+    ? items.length
+    : isLooping && direction < 0 && carousel.scrollLeft <= 1
+      ? -1
+      : activeIndex + direction;
+  const isLoopWrap = isLooping && (rawTargetIndex < 0 || rawTargetIndex >= items.length);
+  const targetIndex = isLooping
+    ? (rawTargetIndex + items.length) % items.length
+    : Math.max(0, Math.min(items.length - 1, rawTargetIndex));
+  const item = items[targetIndex];
   const targetLeft = isCenterAligned
     ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
     : targetIndex === 0
@@ -117,7 +130,7 @@ function scrollCourseCarousel(id: string, direction: number) {
 
   carousel.scrollTo({
     left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
-    behavior: "smooth",
+    behavior: isLoopWrap ? "auto" : "smooth",
   });
 }
 
@@ -438,7 +451,7 @@ function Frame182() {
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[20px] text-center text-white uppercase w-[350px]">
         <p className="leading-[20px] mb-0">За 10 месяцев освоите с нуля</p>
         <p className="leading-[20px] mb-0">backend-разработку</p>
-        <p className="leading-[20px]">на Python и Django.</p>
+        <p className="leading-[20px]">на Python и Django</p>
       </div>
       <Frame65 />
       <Frame181 />
@@ -661,7 +674,7 @@ function Frame278() {
         <p className="leading-[18px] mb-0">Python активно применяют в разработке сайтов, приложений, автоматизации</p>
         <p className="leading-[18px] mb-0">и аналитике. Язык остаётся одним</p>
         <p className="leading-[18px] mb-0">{`из самых удобных для старта карьеры `}</p>
-        <p className="leading-[18px] mb-0">в ИТ и стабильно востребован в вакансиях.</p>
+        <p className="leading-[18px] mb-0">в ИТ и стабильно востребован в вакансиях</p>
         <p className="leading-[18px] mb-0">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior (начальный), Middle (средний)</p>
         <p className="leading-[18px]">и Senior (старший)</p>
       </div>
@@ -2114,7 +2127,7 @@ function Frame88() {
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
         <p className="leading-[18px] mb-0">Вы занимаетесь один на один</p>
         <p className="leading-[18px] mb-0">{`с наставником, последовательно проходите программу, разбираете сложные темы, получаете ответы на вопросы и двигаетесь в комфортном `}</p>
-        <p className="leading-[18px]">для себя темпе.</p>
+        <p className="leading-[18px]">для себя темпе</p>
       </div>
     </div>
   );
@@ -2141,7 +2154,7 @@ function Frame89() {
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Теорию вы изучаете в удобном формате видеоуроков и не только: с объяснением ключевых тем, примерами кода</p>
         <p className="leading-[18px] mb-0">и дополнительными материалами</p>
-        <p className="leading-[18px]">для закрепления.</p>
+        <p className="leading-[18px]">для закрепления</p>
       </div>
     </div>
   );
@@ -2184,7 +2197,7 @@ function Frame91() {
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Во время обучения вы работаете</p>
         <p className="leading-[18px] mb-0">над проектами разного уровня сложности, закрепляете навыки на практике</p>
-        <p className="leading-[18px]">и постепенно собираете портфолио.</p>
+        <p className="leading-[18px]">и постепенно собираете портфолио</p>
       </div>
     </div>
   );
@@ -2212,7 +2225,7 @@ function Frame90() {
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">У вас будет личный чат с наставником,</p>
         <p className="leading-[18px] mb-0">где можно задавать вопросы вне занятий, отправлять домашние задания и получать подробную обратную связь</p>
-        <p className="leading-[18px]">по выполненной работе.</p>
+        <p className="leading-[18px]">по выполненной работе</p>
       </div>
       <div className="aspect-[1936/1674] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="4 20501">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img420501} />
@@ -2238,7 +2251,7 @@ function Frame97() {
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">На платформе вы решаете практические задания, отрабатываете навыки</p>
-        <p className="leading-[18px]">и закрепляете материал в интерактивном формате — без необходимости использовать сторонние сервисы.</p>
+        <p className="leading-[18px]">и закрепляете материал в интерактивном формате — без необходимости использовать сторонние сервисы</p>
       </div>
     </div>
   );
@@ -3422,9 +3435,9 @@ function Frame253() {
 
 function Frame250() {
   return (
-    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="vildan" type="button">
+    <span className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </button>
+    </span>
   );
 }
 
@@ -3493,7 +3506,7 @@ function Frame255() {
     <div className="content-stretch flex flex-col h-[214px] items-center overflow-clip relative shrink-0 w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[14px] text-black tracking-[0.42px] w-full whitespace-pre-wrap">
         <p className="leading-[20px] mb-0">{`Изначально искал репетитора или наставника для самостоятельного изучения Python. Очень скиптически отношусь к курсам, где тебе дают доступ к урокам и пдфкам. Благо в данной школе всё совмещается, занятия и платформа, да и в целом прогресс пошел заметно быстрее. Нравится, что преподаватели работают здесь не только «за деньги», `}</p>
-        <p className="leading-[20px]">а за идею.</p>
+        <p className="leading-[20px]">а за идею</p>
       </div>
     </div>
   );
@@ -3501,9 +3514,9 @@ function Frame255() {
 
 function Frame256() {
   return (
-    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="veniamin" type="button">
+    <span className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </button>
+    </span>
   );
 }
 
@@ -3580,9 +3593,9 @@ function Frame258() {
 
 function Frame259() {
   return (
-    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="ilya" type="button">
+    <span className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </button>
+    </span>
   );
 }
 
@@ -3656,9 +3669,9 @@ function Frame261() {
 
 function Frame262() {
   return (
-    <button className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full" data-course-review="andrey" type="button">
+    <span className="bg-transparent border-0 content-stretch cursor-pointer flex items-center justify-center p-0 py-[8px] relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[20px] min-w-px relative text-[14px] text-black text-right">{`читать полностью `}</p>
-    </button>
+    </span>
   );
 }
 
@@ -3787,10 +3800,10 @@ function Frame16() {
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-black text-center uppercase whitespace-nowrap">Мы ценим каждого</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[0] min-w-full relative shrink-0 text-[16px] text-black text-center tracking-[0.48px] uppercase w-[min-content]">
-        <p className="leading-[20px] mb-0">Вдохновляйтесь историями успеха реальных людей.</p>
-        <p className="leading-[20px]">Их результат может стать вашим.</p>
+        <p className="leading-[20px] mb-0">Вдохновляйтесь историями успеха реальных людей</p>
+        <p className="leading-[20px]">Их результат может стать вашим</p>
       </div>
-      <button className="bg-[rgba(156,120,255,0.6)] content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0" data-name="кнопки пд">
+      <button className="bg-[rgba(156,120,255,0.6)] content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0" data-name="кнопки пд" data-reviews-all="python" type="button">
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-left text-white whitespace-pre">{`смотреть все  отзывы`}</p>
       </button>
     </div>
@@ -3821,30 +3834,30 @@ function Frame15() {
 function Frame248() {
   return (
     <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-mobile-reviews">
-      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="vildan" data-name="отзвывы все" role="button" tabIndex={0}>
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="vildan" data-name="отзвывы все" draggable={false} href="/python-course/reviews/vildan">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame216 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </div>
-      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="veniamin" data-name="отзвывы все" role="button" tabIndex={0}>
+      </a>
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="veniamin" data-name="отзвывы все" draggable={false} href="/python-course/reviews/veniamin">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame217 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </div>
-      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="ilya" data-name="отзвывы все" role="button" tabIndex={0}>
+      </a>
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="ilya" data-name="отзвывы все" draggable={false} href="/python-course/reviews/ilya">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame226 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </div>
-      <div className="bg-white cursor-pointer relative rounded-[32px] shrink-0 w-[258px]" data-course-review="andrey" data-name="отзвывы все" role="button" tabIndex={0}>
+      </a>
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="andrey" data-name="отзвывы все" draggable={false} href="/python-course/reviews/andrey">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame231 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </div>
+      </a>
       <div className="flex flex-row items-center self-stretch">
         <Frame15 />
       </div>
@@ -4524,7 +4537,7 @@ function Frame48() {
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[16px] tracking-[0.48px] w-[min-content]">
         <p className="leading-[18px] mb-0">Оставьте заявку — мы обо всем расскажем</p>
-        <p className="leading-[18px]">подробнее.</p>
+        <p className="leading-[18px]">подробнее</p>
       </div>
     </div>
   );
@@ -4585,7 +4598,7 @@ function Frame166() {
 function Frame162() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">7</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">10</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">месяцев обучения</p>
     </div>
   );

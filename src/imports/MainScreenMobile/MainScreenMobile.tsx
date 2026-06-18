@@ -13,7 +13,7 @@ import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d3
 import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
 import imgPhoneFrame from "../MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
-import imgImage119 from "../MainScreenDesktop/ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -237,7 +237,7 @@ function Frame4() {
         <span>{` — это онлайн`}</span>
       </p>
       <p className="relative shrink-0 w-full">образовательная платформа для изучения</p>
-      <p className="relative shrink-0 w-full">ИТ-профессий.</p>
+      <p className="relative shrink-0 w-full">ИТ-профессий</p>
       <p className="relative shrink-0 w-full">Пошаговое обучение, индивидуальные</p>
       <p className="relative shrink-0 w-full">занятия с преподавателями</p>
       <p className="relative shrink-0 w-full">и круглосуточная поддержка в чате</p>
@@ -308,7 +308,7 @@ function Frame3() {
 
 function Frame74() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[28px] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[28px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[16px] items-start p-[24px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[#9c78ff] text-[20px] w-full">Индивидуальные занятия</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-black tracking-[0.48px] w-full whitespace-pre-wrap">
@@ -1652,7 +1652,7 @@ function Frame99() {
 
 function Frame154() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px] site-carousel site-mobile-teachers-carousel" data-carousel="mobile-teachers">
+    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px] site-carousel site-mobile-teachers-carousel" data-carousel="mobile-teachers" data-carousel-loop="true">
       <Frame153 />
       <Frame99 />
     </div>
@@ -2119,32 +2119,38 @@ const MOBILE_REVIEWS = [
   {
     avatar: imgReviewKirillHero,
     avatarClassName: "site-review-avatar-img--kirill",
+    href: "/reviews/kirill",
     name: "Кирилл",
     course: ["Python-", "разработчик"],
+    story: "кирилл",
     transition: "Из HR → в ИТ",
     quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
   },
   {
     avatar: imgReviewAnastasia,
     avatarClassName: "site-review-avatar-img--anastasia",
+    href: "/reviews/anastasia",
     name: "Анастасия",
     course: ["Data Science"],
+    story: "анастасия",
     transition: "Из 1С → в Product",
-    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
+    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту",
   },
   {
     avatar: imgReviewMikhail,
     avatarClassName: "site-review-avatar-img--mikhail",
+    href: "/reviews/mikhail",
     name: "Михаил",
     course: ["Python-", "разработчик"],
+    story: "михаил",
     transition: "Веб-приложение для сервиса",
-    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение",
   },
 ] as const;
 
 function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] }) {
   return (
-    <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="отзыв">
+    <a className="bg-white block no-underline relative rounded-[40px] shrink-0 text-inherit w-full" data-name="отзыв" data-review-story={review.story} href={review.href}>
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
           <div className="content-stretch flex gap-[32px] items-end relative shrink-0">
@@ -2167,14 +2173,14 @@ function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] 
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[20px] text-black text-center tracking-[0.6px] w-full whitespace-nowrap">{review.transition}</p>
             <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
               <p className="relative shrink-0 site-mobile-review-quote text-black text-center w-full">{review.quote}</p>
-              <div className="content-stretch cursor-pointer flex items-center relative shrink-0" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
+              <div className="content-stretch cursor-pointer flex items-center relative shrink-0">
                 <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[24px] relative shrink-0 text-[#9c78ff] text-[20px] text-center tracking-[0.6px] whitespace-nowrap">ЧИТАТЬ ПОЛНОСТЬЮ</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -2275,7 +2281,7 @@ function Frame80() {
 function Frame170() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
-      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center w-[min-content]">“ Если встретить правильного преподавателя и пройти по протоптанной дорожке — и работа найдётся, и с отчётами всё сложится”.</p>
+      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center w-[min-content]">“ Если встретить правильного преподавателя и пройти по протоптанной дорожке — и работа найдётся, и с отчётами всё сложится”</p>
       <div className="content-stretch flex items-center relative shrink-0">
         <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[16px] relative shrink-0 text-[#9c78ff] text-[14px] text-center tracking-[0.42px] whitespace-nowrap">читать полностью</p>
       </div>
@@ -2334,7 +2340,7 @@ function Frame83() {
 function Frame179() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center justify-center relative shrink-0 w-full">
-      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center w-[min-content]">“ Если встретить правильного преподавателя и пройти по протоптанной дорожке — и работа найдётся, и с отчётами всё сложится”.</p>
+      <p className="font-['Segoe_UI:Light_Italic',sans-serif] leading-[20px] min-w-full not-italic relative shrink-0 text-[16px] text-black text-center w-[min-content]">“ Если встретить правильного преподавателя и пройти по протоптанной дорожке — и работа найдётся, и с отчётами всё сложится”</p>
       <div className="content-stretch flex items-center relative shrink-0">
         <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[16px] relative shrink-0 text-[#9c78ff] text-[14px] text-center tracking-[0.42px] whitespace-nowrap">читать полностью</p>
       </div>

@@ -2,7 +2,7 @@ import App from "../App";
 import { JsonLd, breadcrumbJsonLd, createPageMetadata, organizationJsonLd, webPageJsonLd } from "../seo";
 
 const ABOUT_DESCRIPTION =
-  "О школе ИННОПРОГ: миссия, документы, юридическая информация и подход к обучению программированию с практикой, наставниками и поддержкой.";
+  "О школе ИННОПРОГ: миссия, документы, юридическая информация и подход к обучению программированию с практикой, наставниками и поддержкой";
 
 export const metadata = createPageMetadata({
   title: "О нас",

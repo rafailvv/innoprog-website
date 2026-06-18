@@ -2,7 +2,7 @@ import App from "../App";
 import { JsonLd, breadcrumbJsonLd, courseJsonLd, createPageMetadata, webPageJsonLd } from "../seo";
 
 const TARIFFS_DESCRIPTION =
-  "Тарифы обучения в ИННОПРОГ: форматы занятий с наставником, стоимость программирования онлайн и условия выбора подходящего курса.";
+  "Тарифы обучения в ИННОПРОГ: форматы занятий с наставником, стоимость программирования онлайн и условия выбора подходящего курса";
 
 export const metadata = createPageMetadata({
   title: "Тарифы",

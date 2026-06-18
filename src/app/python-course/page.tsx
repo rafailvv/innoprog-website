@@ -13,7 +13,7 @@ import {
 export const metadata = createPageMetadata({
   title: "Курс Python-разработчик с нуля",
   description:
-    "Курс Python-разработчик с нуля в ИННОПРОГ: онлайн-обучение с наставником, практика на платформе, проекты в портфолио и документы после обучения.",
+    "Курс Python-разработчик с нуля в ИННОПРОГ: онлайн-обучение с наставником, практика на платформе, проекты в портфолио и документы после обучения",
   path: "/python-course",
   keywords: [
     "курс Python-разработчик",
@@ -36,7 +36,7 @@ export default function PythonCourseRoute() {
           path: "/python-course",
           name: "Курс Python-разработчик с нуля",
           description:
-            "Практический онлайн-курс Python-разработчик с наставником, платформой и проектами в портфолио.",
+            "Практический онлайн-курс Python-разработчик с наставником, платформой и проектами в портфолио",
           primaryEntityId: "https://innoprog.ru/python-course#course",
         })}
       />

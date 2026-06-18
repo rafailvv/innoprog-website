@@ -8,7 +8,7 @@ import imgImg29775 from "./e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
 import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
-import imgImage119 from "./ba565c24ba9ea8905f81d42c3313cf70fe810e53.opt.webp";
+import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
 import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.teacher.webp";
@@ -128,7 +128,7 @@ function Frame83() {
 
 function Frame70() {
   return (
-    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shrink-0 w-full">
+    <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Индивидуальные занятия</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
@@ -370,6 +370,44 @@ function Frame17() {
   );
 }
 
+function DirectionHoverOverlay({
+  title,
+  description,
+  showArrow = false,
+}: {
+  title: string;
+  description: string;
+  showArrow?: boolean;
+}) {
+  return (
+    <div aria-hidden="true" className="site-desktop-direction-hover">
+      <div className="site-desktop-direction-hover__top">
+        <div className="site-desktop-direction-hover__tags">
+          <div className="site-desktop-direction-hover__tag-column">
+            <span>≈10 месяцев</span>
+            <span>Стажировка</span>
+          </div>
+          <span>С наставником</span>
+        </div>
+        {showArrow ? (
+          <div className="site-desktop-direction-hover__arrow">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
+              <path d={svgPaths.p50fce00} stroke="black" />
+            </svg>
+          </div>
+        ) : null}
+      </div>
+      <div className="site-desktop-direction-hover__bottom">
+        <div className="site-desktop-direction-hover__copy">
+          <p className="site-desktop-direction-hover__title">{title}</p>
+          <p className="site-desktop-direction-hover__description">{description}</p>
+        </div>
+        <div className="site-desktop-direction-hover__button" data-application-open>Получить консультацию</div>
+      </div>
+    </div>
+  );
+}
+
 function Frame5() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
@@ -400,7 +438,7 @@ function Frame7() {
 function Frame14() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="/python-course">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="/python-course">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -417,8 +455,13 @@ function Frame14() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]" src={imgImg29771} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="Python разработчик"
+          description="Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов и автоматизировать рабочие задачи в проектах"
+          showArrow
+        />
       </a>
-      <a className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="https://pages.innoprog.ru/data-scientist">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="https://pages.innoprog.ru/data-scientist">
         <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -435,8 +478,13 @@ function Frame14() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[170.12%] left-[-36.21%] max-w-none top-[-36.44%] w-[142.1%]" src={imgImg29772} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="Data Science"
+          description="Научитесь работать с данными, Python, статистикой и моделями ИИ, чтобы находить закономерности и решать бизнес-задачи"
+          showArrow
+        />
       </a>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -451,6 +499,10 @@ function Frame14() {
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29773} />
         </div>
+        <DirectionHoverOverlay
+          title="Фронтенд разработчик"
+          description="Освойте современную фронтенд-разработку, React, TypeScript и работу с API, чтобы создавать полноценные веб-приложения"
+        />
       </div>
     </div>
   );
@@ -486,7 +538,7 @@ function Frame10() {
 function Frame132() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -503,8 +555,12 @@ function Frame132() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[178.17%] left-[-40.88%] max-w-none top-[-39.08%] w-[148.82%]" src={imgImg29772} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="Data-аналитик"
+          description="Освойте анализ данных, отчеты и визуализацию, чтобы находить закономерности и делать обоснованные выводы для бизнеса"
+        />
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -521,8 +577,12 @@ function Frame132() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[169.72%] left-[-31.18%] max-w-none top-[-39.2%] w-[141.76%]" src={imgImg29774} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="Разработчик С++"
+          description="Освойте C++, алгоритмы, структуры данных и принципы разработки быстрых программ, игр и технически сложных решений на практике"
+        />
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -537,6 +597,10 @@ function Frame132() {
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29775} />
         </div>
+        <DirectionHoverOverlay
+          title="Мобильный разработчик"
+          description="Научитесь создавать мобильные приложения, проектировать экраны и запускать удобные цифровые продукты для пользователей"
+        />
       </div>
     </div>
   );
@@ -572,7 +636,7 @@ function Frame13() {
 function Frame15() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -589,8 +653,12 @@ function Frame15() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[186.62%] left-[-41.59%] max-w-none top-[-43.31%] w-[155.88%]" src={imgImg29776} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="Unreal Engine"
+          description="Освойте разработку игр и 3D-миров на Unreal Engine, работая с визуальной логикой, объектами и игровыми механиками"
+        />
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -605,8 +673,12 @@ function Frame15() {
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29777} />
         </div>
+        <DirectionHoverOverlay
+          title="Java разработчик"
+          description="Изучите Java, ООП и backend-разработку, чтобы создавать приложения, сервисы и надежную логику проектов на сервере"
+        />
       </div>
-      <div className="bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
+      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -623,6 +695,10 @@ function Frame15() {
             <img alt="" decoding="async" loading="eager" className="absolute h-[196.66%] left-[-47.33%] max-w-none top-[-48.17%] w-[164.27%]" src={imgImg29778} />
           </div>
         </div>
+        <DirectionHoverOverlay
+          title="ML-инженер"
+          description="Разберитесь в машинном обучении и нейросетях, научитесь обучать модели и применять их для прогнозирования"
+        />
       </div>
     </div>
   );
@@ -862,7 +938,7 @@ function Frame96() {
 
 function Frame94() {
   return (
-    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-teachers-carousel" data-carousel="teachers" tabIndex={0}>
+    <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full site-carousel site-teachers-carousel" data-carousel="teachers" data-carousel-loop="true" tabIndex={0}>
       <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[302px]" data-name="Сергей Попкович">
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
@@ -1396,81 +1472,38 @@ const DESKTOP_REVIEWS = [
   {
     avatar: imgReviewKirillHero,
     avatarClassName: "site-review-avatar-img--kirill",
+    href: "/reviews/kirill",
     name: "Кирилл",
     course: "Python-разработчик",
+    story: "кирилл",
     transition: "Из HR → в ИТ",
     quote: "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование...",
   },
   {
     avatar: imgReviewAnastasia,
     avatarClassName: "site-review-avatar-img--anastasia",
+    href: "/reviews/anastasia",
     name: "Анастасия",
     course: "Data Science",
+    story: "анастасия",
     transition: "Из 1С → в Product",
-    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту.",
+    quote: "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту",
   },
   {
     avatar: imgReviewMikhail,
     avatarClassName: "site-review-avatar-img--mikhail",
+    href: "/reviews/mikhail",
     name: "Михаил",
     course: "Python-разработчик",
+    story: "михаил",
     transition: "Веб-приложение для сервиса",
-    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение.",
+    quote: "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение",
   },
 ] as const;
 
-function getVisibleCarouselAnchor(carousel: HTMLElement) {
-  const rect = carousel.getBoundingClientRect();
-  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-  const visibleLeft = Math.max(rect.left, 0);
-  const visibleRight = Math.min(rect.right, viewportWidth);
-
-  if (visibleRight > visibleLeft) {
-    return ((visibleLeft + visibleRight) / 2) - rect.left;
-  }
-
-  return carousel.clientWidth / 2;
-}
-
-function scrollDesktopReviews(direction: number) {
-  const carousel = document.querySelector<HTMLElement>('[data-carousel="reviews"]');
-
-  if (!carousel) {
-    return;
-  }
-
-  const items = Array.from(carousel.children).filter(
-    (child): child is HTMLElement => child instanceof HTMLElement,
-  );
-
-  if (!items.length) {
-    return;
-  }
-
-  const activeAnchor = getVisibleCarouselAnchor(carousel);
-  const activeIndex = items.reduce((nearestIndex, item, index) => {
-    const itemAnchor = item.offsetLeft + (item.offsetWidth / 2) - carousel.scrollLeft;
-    const nearestItem = items[nearestIndex];
-    const nearestAnchor = nearestItem.offsetLeft + (nearestItem.offsetWidth / 2) - carousel.scrollLeft;
-
-    return Math.abs(itemAnchor - activeAnchor) < Math.abs(nearestAnchor - activeAnchor)
-      ? index
-      : nearestIndex;
-  }, 0);
-  const targetIndex = Math.max(0, Math.min(items.length - 1, activeIndex + direction));
-  const targetItem = items[targetIndex];
-  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-  const targetLeft = targetItem.offsetLeft + (targetItem.offsetWidth / 2) - activeAnchor;
-
-  carousel.scrollTo({
-    left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
-    behavior: "smooth",
-  });
-}
-
 function DesktopReviewCard({ review, initialActive = false }: { review: (typeof DESKTOP_REVIEWS)[number]; initialActive?: boolean }) {
   return (
-    <div className="bg-[rgba(255,255,255,0.9)] cursor-pointer h-[436px] relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-active={initialActive ? "true" : "false"} data-name="отзыв" data-review-story={review.name.toLowerCase()} role="button" tabIndex={0}>
+    <a className="bg-[rgba(255,255,255,0.9)] block cursor-pointer h-[436px] no-underline relative rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shrink-0 w-[791px]" data-active={initialActive ? "true" : "false"} data-name="отзыв" data-review-story={review.story} draggable={false} href={review.href}>
       <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-bl-[40px] rounded-tl-[40px] rounded-tr-[40px] shadow-[6px_6px_20px_0px_rgba(0,0,0,0.17)]" />
       <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex items-start justify-between left-1/2 p-[32px] top-[calc(50%-0.5px)] w-[791px]">
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
@@ -1487,7 +1520,7 @@ function DesktopReviewCard({ review, initialActive = false }: { review: (typeof 
           <p className="font-['Manrope:Regular',sans-serif] font-normal h-[18px] leading-[30px] relative shrink-0 w-full">{review.transition}</p>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -1552,7 +1585,7 @@ function Frame51() {
 function Frame55() {
   return (
     <div className="content-stretch flex flex-col h-[330px] items-center justify-between relative shrink-0 text-[24px] text-black w-[429px]">
-      <p className="font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[31px] relative shrink-0 w-full">“ Если вы хотите и правда поменять свою жизнь в лучшую сторону, не откладывайте.”.</p>
+      <p className="font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[31px] relative shrink-0 w-full">“ Если вы хотите и правда поменять свою жизнь в лучшую сторону, не откладывайте.”</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal h-[18px] leading-[30px] relative shrink-0 w-full">Из ПВЗ Lamoda → в бизнес-аналитику</p>
     </div>
   );
@@ -1590,7 +1623,7 @@ function Frame57() {
 function Frame60() {
   return (
     <div className="content-stretch flex flex-col h-[330px] items-center justify-between relative shrink-0 text-[24px] text-black w-[429px]">
-      <p className="font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[31px] relative shrink-0 w-full">“ Если вы хотите и правда поменять свою жизнь в лучшую сторону, не откладывайте.”.</p>
+      <p className="font-['Manrope:ExtraLight',sans-serif] font-extralight leading-[31px] relative shrink-0 w-full">“ Если вы хотите и правда поменять свою жизнь в лучшую сторону, не откладывайте.”</p>
       <p className="font-['Manrope:Regular',sans-serif] font-normal h-[18px] leading-[30px] relative shrink-0 w-full">Из ПВЗ Lamoda → в бизнес-аналитику</p>
     </div>
   );
@@ -1703,8 +1736,8 @@ function Frame62() {
     <div className="content-stretch flex flex-col h-[330px] items-center justify-between relative shrink-0 w-[429px]">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] min-w-full relative shrink-0 text-[36px] text-black text-center w-[min-content]">Мы ценим каждого</p>
       <div className="font-['Manrope:Bold',sans-serif] font-bold leading-[0] min-w-full relative shrink-0 text-[24px] text-black text-center uppercase w-[min-content]">
-        <p className="leading-[31px] mb-0">Вдохновляйтесь историями успеха реальных людей.</p>
-        <p className="leading-[31px]">Их результат может стать вашим.</p>
+        <p className="leading-[31px] mb-0">Вдохновляйтесь историями успеха реальных людей</p>
+        <p className="leading-[31px]">Их результат может стать вашим</p>
       </div>
       <div className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[362px]" data-name="Frame 40/дефолт/фиолетовый">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-pre">{`смотреть все  отзывы`}</p>
@@ -1741,24 +1774,9 @@ function Frame50() {
 }
 
 function Frame63() {
-  const handleReviewControlClick = (direction: number) => (event: { preventDefault: () => void; stopPropagation: () => void }) => {
-    event.preventDefault();
-    event.stopPropagation();
-    scrollDesktopReviews(direction);
-  };
-  const handleReviewControlKeyDown = (direction: number) => (event: { key: string; preventDefault: () => void; stopPropagation: () => void }) => {
-    if (event.key !== "Enter" && event.key !== " ") {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-    scrollDesktopReviews(direction);
-  };
-
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" onClick={handleReviewControlClick(-1)} onKeyDown={handleReviewControlKeyDown(-1)} role="button" tabIndex={0}>
+      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" role="button" tabIndex={0}>
         <div className="-scale-y-100 flex-none rotate-180">
           <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
             <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
@@ -1772,7 +1790,7 @@ function Frame63() {
           </div>
         </div>
       </div>
-      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" onClick={handleReviewControlClick(1)} onKeyDown={handleReviewControlKeyDown(1)} role="button" tabIndex={0}>
+      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" role="button" tabIndex={0}>
         <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
