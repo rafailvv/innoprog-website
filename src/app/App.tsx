@@ -469,7 +469,7 @@ const COURSE_REVIEW_STORIES: Record<CourseReviewKey, {
   },
   veniamin: {
     name: "Вениамин",
-    rating: "5",
+    rating: "5.0",
     course: "Python-разработчик",
     title: "Преподаватели работают здесь не только за деньги, а за идею",
     body:
@@ -485,7 +485,7 @@ const COURSE_REVIEW_STORIES: Record<CourseReviewKey, {
   },
   andrey: {
     name: "Андрей",
-    rating: "4.9",
+    rating: "4.8",
     course: "Python-разработчик",
     title: "Обучением полностью доволен",
     body:
@@ -510,14 +510,14 @@ const REVIEWS_INDEX_COPY: Record<(typeof REVIEWS_INDEX_ORDER)[number], {
   },
   veniamin: {
     name: "Вениамин",
-    rating: "4.9",
+    rating: "5.0",
     title: "Нравится, что преподаватели работают здесь не только «за деньги», а за идею",
     body:
       "Изначально искал репетитора или наставника для самостоятельного изучения Python. Очень скиптически отношусь к курсам, где тебе дают доступ к урокам и пдфкам. Благо в данной школе всё совмещается, занятия и платформа, да и в целом прогресс пошел заметно быстрее. Нравится, что преподаватели работают здесь не только «за деньги», а за идею",
   },
   andrey: {
     name: "Андрей",
-    rating: "4.9",
+    rating: "4.8",
     title: "Обучением полностью доволен, каждый урок теория и практика",
     body:
       "В связи с тем, что самостоятельное изучение Python обернулось неудачей принял решение записаться на занятия, чтобы перенимать опыт из первых рук. Обучением полностью доволен, каждый урок теория и практика, и ещё ДЗ; постоянная обратная связь по любым вопросам как со стороны администрации, так и преподавателя. Спасибо администрации школы за организацию и курирование обучения, а преподавателю Сергею - за интересные и полезные занятия!",
@@ -2586,6 +2586,7 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
+  const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
   const initialRouteKey = (() => {
     if (initialRoute.page === "review") {
       return `${initialRoute.page}:${initialRoute.story}`;
@@ -2621,6 +2622,25 @@ export default function App({
   }, [initialRouteKey]);
 
   useEffect(() => {
+    const restorePendingReturnScroll = () => {
+      const pendingReturnScroll = pendingReturnScrollRef.current;
+
+      if (!pendingReturnScroll) {
+        return;
+      }
+
+      const currentPath = `${window.location.pathname}${window.location.search}`;
+
+      if (currentPath !== pendingReturnScroll.path) {
+        return;
+      }
+
+      pendingReturnScrollRef.current = null;
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: pendingReturnScroll.y, behavior: "instant" });
+      });
+    };
+
     const syncRouteFromLocation = () => {
       const cleanHashPath = getCleanPathFromHash();
 
@@ -2642,6 +2662,7 @@ export default function App({
         routeState.isReviewsRoute ? getReviewsDirectionFromLocation() : ALL_REVIEWS_DIRECTION_KEY,
       );
       setIsMobileMenuOpen(false);
+      restorePendingReturnScroll();
     };
 
     syncRouteFromLocation();
@@ -3103,6 +3124,13 @@ export default function App({
     }
   };
 
+  const saveReturnScrollPosition = () => {
+    pendingReturnScrollRef.current = {
+      path: `${window.location.pathname}${window.location.search}`,
+      y: window.scrollY,
+    };
+  };
+
   const openReviewStory = (story: string | undefined) => {
     const key = story as ReviewStoryKey | undefined;
 
@@ -3112,6 +3140,7 @@ export default function App({
 
     const nextPath = `/reviews/${REVIEW_ROUTES[key]}`;
 
+    saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(key);
@@ -3152,6 +3181,7 @@ export default function App({
 
     const nextPath = `/python-course/reviews/${COURSE_REVIEW_ROUTES[key]}`;
 
+    saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
@@ -3174,6 +3204,7 @@ export default function App({
 
     const nextPath = getStudentReviewPath(review.id);
 
+    saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
@@ -3822,6 +3853,7 @@ export default function App({
         isAboutRoute ? "site-shell--about-route" : "",
         isPythonCourseRoute ? "site-shell--python-course-route" : "",
         isTariffsRoute ? "site-shell--tariffs-route" : "",
+        !isStandaloneRoute ? "site-shell--home-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}

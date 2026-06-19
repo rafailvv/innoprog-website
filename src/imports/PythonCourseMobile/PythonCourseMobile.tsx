@@ -1247,7 +1247,7 @@ function Group12() {
 function Frame240() {
   return (
     <div className="content-stretch flex h-[272px] items-end p-[24px] relative rounded-[40px] shrink-0 w-[350px]">
-      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgFrame700} />
+      <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgFrame700} />
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[16px] text-white tracking-[0.48px] whitespace-pre-wrap">
         <p className="leading-[18px] mb-0">ИННОПРОГ ПРОДЖЕКТС — среда,</p>
         <p className="leading-[18px] mb-0">{`где ученики и наставники объединяются в команду и получают опыт работы над реальными `}</p>
@@ -2138,7 +2138,7 @@ function Frame92() {
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame88 />
       <div className="aspect-[1584/849] overflow-hidden relative rounded-[16px] shrink-0 w-full" data-name="1 8001">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img18001} />
+        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img18001} />
       </div>
     </div>
   );
@@ -3311,7 +3311,7 @@ function Frame42() {
           <div aria-hidden className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" className="absolute h-[123.09%] left-[5.67%] max-w-none top-[-7.86%] w-[87.96%]" src={imgRectangle40088} />
+              <img alt="" decoding="async" loading="lazy" className="absolute h-[123.09%] left-[5.67%] max-w-none top-[-7.86%] w-[87.96%]" src={imgRectangle40088} />
             </div>
           </div>
         </div>
@@ -3322,7 +3322,7 @@ function Frame42() {
           <div aria-hidden className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
+              <img alt="" decoding="async" loading="lazy" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
             </div>
           </div>
         </div>
@@ -3471,7 +3471,7 @@ function Frame216() {
 function Frame224() {
   return (
     <div className="content-stretch flex gap-[4px] items-start relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-black uppercase whitespace-nowrap">5</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-black uppercase whitespace-nowrap">5.0</p>
       <div className="relative shrink-0 size-[18px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.119 16.2812">
@@ -3629,7 +3629,7 @@ function Frame226() {
 function Frame234() {
   return (
     <div className="content-stretch flex gap-[4px] items-start relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-black uppercase whitespace-nowrap">4.9</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 text-[24px] text-black uppercase whitespace-nowrap">4.8</p>
       <div className="relative shrink-0 size-[18px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17.119 16.2812">
