@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import MainScreen, {
   MainScreenDesktopFooter,
   MainScreenDesktopHeader,
@@ -648,33 +649,6 @@ const REVIEW_CARD_DATA: Record<ReviewStoryKey, ReviewCardData> = {
   },
 };
 
-const COURSE_REVIEW_CARD_ASSETS: Record<CourseReviewKey, Pick<ReviewCardData, "avatar" | "avatarClassName">> = {
-  maria: {
-    avatar: reviewAnastasiaUrl,
-    avatarClassName: "site-review-avatar-img--anastasia",
-  },
-  vladimir: {
-    avatar: reviewStoryKirillHeroUrl,
-    avatarClassName: "site-review-avatar-img--kirill",
-  },
-  vildan: {
-    avatar: reviewMikhailUrl,
-    avatarClassName: "site-review-avatar-img--mikhail",
-  },
-  veniamin: {
-    avatar: reviewKirillUrl,
-    avatarClassName: "site-review-avatar-img--kirill",
-  },
-  ilya: {
-    avatar: reviewStoryKirillHeroUrl,
-    avatarClassName: "site-review-avatar-img--kirill",
-  },
-  andrey: {
-    avatar: reviewMikhailUrl,
-    avatarClassName: "site-review-avatar-img--mikhail",
-  },
-};
-
 function getViewportStateFromWidth(width: number) {
   const isMobile = width < MOBILE_BREAKPOINT;
   const design = isMobile ? MOBILE_DESIGN : DESKTOP_DESIGN;
@@ -1180,7 +1154,15 @@ function SitePageHeader({
 
   return (
     <header className="site-review-page__header site-main-header" style={headerStyle}>
-      <button className="site-review-page__logo" data-site-home onClick={onHome} type="button">
+      <button
+        className="site-review-page__logo"
+        data-site-home
+        onClick={(event) => {
+          event.stopPropagation();
+          onHome();
+        }}
+        type="button"
+      >
         <img alt="ИННОПРОГ Education" src={logoSrc} />
       </button>
       <nav className="site-review-page__nav" aria-label="Навигация">
@@ -1319,32 +1301,6 @@ function CourseRating({ rating }: { rating: string }) {
   );
 }
 
-function CourseReviewCard({
-  reviewKey,
-}: {
-  reviewKey: CourseReviewKey;
-  compact?: boolean;
-}) {
-  const review = COURSE_REVIEW_STORIES[reviewKey];
-  const assets = COURSE_REVIEW_CARD_ASSETS[reviewKey];
-  const card: ReviewCardData = {
-    ...assets,
-    name: review.name,
-    course: review.course,
-    courseLines: PYTHON_COURSE_LINES,
-    transition: review.title,
-    quote: review.body,
-  };
-
-  return (
-    <ReviewStyleCard
-      ariaLabel={`Открыть отзыв: ${review.name}`}
-      card={card}
-      courseReviewKey={reviewKey}
-    />
-  );
-}
-
 function CourseReviewsPage({
   reviewKey,
   onBack,
@@ -1362,12 +1318,30 @@ function CourseReviewsPage({
   headerScale: number;
   isMobile: boolean;
 }) {
+  const [isMoreOtherReviewsVisible, setIsMoreOtherReviewsVisible] = useState(false);
   const review = COURSE_REVIEW_STORIES[reviewKey] || COURSE_REVIEW_STORIES.maria;
-  const otherReviews = COURSE_REVIEW_ORDER.filter((key) => key !== reviewKey);
+  const baseOtherReviews = STUDENT_REVIEWS.filter((item) => item.courseReviewKey !== reviewKey);
+  const orderedCourseReviews = COURSE_REVIEW_ORDER
+    .filter((key) => key !== reviewKey)
+    .flatMap((key) => baseOtherReviews.filter((item) => item.courseReviewKey === key));
+  const otherReviewPool = [
+    ...orderedCourseReviews,
+    ...baseOtherReviews.filter((item) => item.direction === "python" && !item.courseReviewKey),
+    ...baseOtherReviews.filter((item) => item.direction !== "python"),
+  ];
+  const initialOtherReviewLimit = isMobile ? 2 : 4;
+  const otherReviews = isMoreOtherReviewsVisible
+    ? otherReviewPool
+    : otherReviewPool.slice(0, initialOtherReviewLimit);
+  const hasMoreOtherReviews = otherReviewPool.length > otherReviews.length;
   const directions = REVIEWS_DIRECTIONS.filter((direction) => direction.key !== ALL_REVIEWS_DIRECTION_KEY);
 
+  useEffect(() => {
+    setIsMoreOtherReviewsVisible(false);
+  }, [reviewKey]);
+
   return (
-    <section className="site-course-reviews-page" aria-label="Отзывы учеников о курсе Python-разработчик">
+    <section className="site-course-reviews-page site-student-review-page" aria-label="Отзывы учеников о курсе Python-разработчик">
       <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
       <div className="site-course-reviews-page__inner">
         <div className="site-course-reviews-page__top">
@@ -1401,12 +1375,20 @@ function CourseReviewsPage({
 
         <section className="site-course-reviews-page__other" aria-label="Еще отзывы о направлении">
           <h2>другие отзывы</h2>
-          <div>
+          <div className="site-student-review-page__other-grid">
             {otherReviews.map((item) => (
-              <CourseReviewCard compact key={item} reviewKey={item} />
+              <ReviewsIndexCard key={item.id} review={item} />
             ))}
           </div>
-          <button className="site-review-page__load-more" type="button">загрузить ещё</button>
+          {hasMoreOtherReviews ? (
+            <button
+              className="site-review-page__load-more"
+              onClick={() => setIsMoreOtherReviewsVisible(true)}
+              type="button"
+            >
+              загрузить ещё
+            </button>
+          ) : null}
         </section>
 
         <section className="site-course-reviews-page__directions" aria-label="Другие направления">
@@ -2160,14 +2142,21 @@ function PythonCoursePage({
 
       canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
         image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
 
         if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
-          image.loading = "eager";
-          image.setAttribute("fetchpriority", "high");
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
           return;
         }
 
-        if (image.getBoundingClientRect().top > preloadLine) {
+        if (imageTop > preloadLine) {
           image.loading = "lazy";
           image.setAttribute("fetchpriority", "low");
         }
@@ -2565,6 +2554,7 @@ export default function App({
   initialRoute?: AppInitialRoute;
 }) {
   const initialRouteState = getRouteState(initialRoute);
+  const router = useRouter();
   const viewport = useViewportState();
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
@@ -2596,6 +2586,39 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
+  const initialRouteKey = (() => {
+    if (initialRoute.page === "review") {
+      return `${initialRoute.page}:${initialRoute.story}`;
+    }
+
+    if (initialRoute.page === "courseReview") {
+      return `${initialRoute.page}:${initialRoute.review}`;
+    }
+
+    if (initialRoute.page === "studentReview") {
+      return `${initialRoute.page}:${initialRoute.review}`;
+    }
+
+    if (initialRoute.page === "reviews") {
+      return `${initialRoute.page}:${initialRoute.direction || ""}`;
+    }
+
+    return initialRoute.page;
+  })();
+
+  useEffect(() => {
+    const routeState = getRouteState(initialRoute);
+
+    setActiveReviewStory(routeState.activeReviewStory);
+    setActiveCourseReview(routeState.activeCourseReview);
+    setActiveStudentReview(routeState.activeStudentReview);
+    setIsAboutRoute(routeState.isAboutRoute);
+    setIsPythonCourseRoute(routeState.isPythonCourseRoute);
+    setIsReviewsRoute(routeState.isReviewsRoute);
+    setIsTariffsRoute(routeState.isTariffsRoute);
+    setActiveReviewsDirection(routeState.activeReviewsDirection);
+    setIsMobileMenuOpen(false);
+  }, [initialRouteKey]);
 
   useEffect(() => {
     const syncRouteFromLocation = () => {
@@ -3072,6 +3095,14 @@ export default function App({
     setShouldShowCookieBanner(false);
   };
 
+  const pushInternalRoute = (nextPath: string) => {
+    const currentPath = `${window.location.pathname}${window.location.search}`;
+
+    if (currentPath !== nextPath || window.location.hash) {
+      router.push(nextPath, { scroll: false });
+    }
+  };
+
   const openReviewStory = (story: string | undefined) => {
     const key = story as ReviewStoryKey | undefined;
 
@@ -3081,9 +3112,7 @@ export default function App({
 
     const nextPath = `/reviews/${REVIEW_ROUTES[key]}`;
 
-    if (window.location.pathname !== nextPath || window.location.hash) {
-      window.history.pushState(null, "", nextPath);
-    }
+    pushInternalRoute(nextPath);
 
     setActiveReviewStory(key);
     setActiveCourseReview(null);
@@ -3099,11 +3128,8 @@ export default function App({
   const openReviewsPage = (direction?: ReviewsDirectionKey | string) => {
     const reviewsDirection = normalizeReviewsDirectionKey(direction);
     const nextPath = getReviewsDirectionPath(reviewsDirection);
-    const currentPath = `${window.location.pathname}${window.location.search}`;
 
-    if (currentPath !== nextPath || window.location.hash) {
-      window.history.pushState(null, "", nextPath);
-    }
+    pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -3126,9 +3152,7 @@ export default function App({
 
     const nextPath = `/python-course/reviews/${COURSE_REVIEW_ROUTES[key]}`;
 
-    if (window.location.pathname !== nextPath || window.location.hash) {
-      window.history.pushState(null, "", nextPath);
-    }
+    pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(key);
@@ -3150,9 +3174,7 @@ export default function App({
 
     const nextPath = getStudentReviewPath(review.id);
 
-    if (window.location.pathname !== nextPath || window.location.hash) {
-      window.history.pushState(null, "", nextPath);
-    }
+    pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -3166,12 +3188,7 @@ export default function App({
   };
 
   const goHome = () => {
-    if (
-      window.location.pathname !== "/" ||
-      window.location.hash
-    ) {
-      window.history.pushState(null, "", "/");
-    }
+    pushInternalRoute("/");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -3187,7 +3204,7 @@ export default function App({
     setIsMobileMenuOpen(false);
 
     if (window.history.length > 1) {
-      window.history.back();
+      router.back();
       return;
     }
 
@@ -3195,9 +3212,7 @@ export default function App({
   };
 
   const openAboutPage = () => {
-    if (window.location.pathname !== "/about" || window.location.hash) {
-      window.history.pushState(null, "", "/about");
-    }
+    pushInternalRoute("/about");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -3211,9 +3226,7 @@ export default function App({
   };
 
   const openPythonCoursePage = () => {
-    if (window.location.pathname !== "/python-course" || window.location.hash) {
-      window.history.pushState(null, "", "/python-course");
-    }
+    pushInternalRoute("/python-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -3227,9 +3240,7 @@ export default function App({
   };
 
   const openTariffsPage = () => {
-    if (window.location.pathname !== "/tariffs" || window.location.hash) {
-      window.history.pushState(null, "", "/tariffs");
-    }
+    pushInternalRoute("/tariffs");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);

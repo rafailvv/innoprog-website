@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { DEFAULT_OG_IMAGE_PATH, PYTHON_COURSE_OG_IMAGE_PATH, SITE_URL, absoluteUrl } from "./seo";
+import { STUDENT_REVIEWS, getStudentReviewPath } from "./studentReviewsData";
 
-const UPDATED_AT = new Date("2026-06-17T00:00:00.000Z");
+const UPDATED_AT = new Date("2026-06-18T00:00:00.000Z");
 
-const routes = [
+const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1, image: DEFAULT_OG_IMAGE_PATH },
   { path: "/python-course", changeFrequency: "weekly", priority: 0.9, image: PYTHON_COURSE_OG_IMAGE_PATH },
   { path: "/tariffs", changeFrequency: "monthly", priority: 0.8 },
@@ -19,6 +20,16 @@ const routes = [
   { path: "/python-course/reviews/ilya", changeFrequency: "monthly", priority: 0.65 },
   { path: "/python-course/reviews/andrey", changeFrequency: "monthly", priority: 0.65 },
 ] as const;
+
+const textReviewRoutes = STUDENT_REVIEWS
+  .filter((review) => !review.courseReviewKey)
+  .map((review) => ({
+    path: getStudentReviewPath(review.id),
+    changeFrequency: "monthly" as const,
+    priority: 0.55,
+  }));
+
+const routes = [...baseRoutes, ...textReviewRoutes];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({

@@ -57,7 +57,7 @@ function MobileProjectVisual({ index }: { index: number }) {
         alt={item.title}
         className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
         decoding="async"
-        loading="eager"
+        loading="lazy"
         src={image}
       />
     </div>

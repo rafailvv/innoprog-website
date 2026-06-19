@@ -42,6 +42,19 @@
   color: #000000;
 }
 
+.site-reviews-index-page .site-reviews-index-page__crumbs {
+  color: #000000;
+}
+
+.site-reviews-index-page .site-reviews-index-page__crumbs button,
+.site-reviews-index-page .site-reviews-index-page__crumbs span {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.site-reviews-index-page .site-reviews-index-page__crumbs strong {
+  color: #000000;
+}
+
 .site-reviews-index-page__title {
   margin-top: 80px;
   text-transform: uppercase;
@@ -943,13 +956,23 @@
 }
 
 .site-course-reviews-page .site-review-page__load-more {
-  min-width: 282px;
-  min-height: 63px;
+  display: flex;
+  min-width: 302px;
+  min-height: 91px;
+  align-items: center;
+  justify-content: center;
   margin: 40px auto 0;
-  padding: 0 28px;
-  background: #464a6a;
-  font-size: 24px;
-  line-height: 31px;
+  padding: 28px;
+  border: 0;
+  border-radius: 40px;
+  background: rgba(156, 120, 255, 0.6);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35px;
+  text-align: center;
 }
 
 .site-course-reviews-page__directions {
@@ -1134,8 +1157,10 @@
     min-width: 0;
     min-height: 54px;
     margin-top: 24px;
-    font-size: 18px;
-    line-height: 24px;
+    padding: 16px;
+    color: #464a6a;
+    font-size: 20px;
+    line-height: 22px;
   }
 
   .site-course-reviews-page__directions {
