@@ -586,7 +586,7 @@ const TARIFFS = [
     price: "18 890 ₽/мес.",
     accent: "dark",
     features: [
-      { text: "8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
+      { text: "12 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
       { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
       { text: "15 проектов в портфолио", included: true },
       { text: "Домашние задания и проверка кода преподавателем", included: true },

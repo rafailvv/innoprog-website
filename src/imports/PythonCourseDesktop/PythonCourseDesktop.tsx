@@ -4613,7 +4613,7 @@ function Frame188() {
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center relative shrink-0 w-full">
       <div className="content-stretch flex gap-[16px] items-center justify-center relative shrink-0 w-full">
         <WeuiDone2Filled16 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Bold',sans-serif] font-bold leading-[22px] min-w-px relative text-[20px] text-white">8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Bold',sans-serif] font-bold leading-[22px] min-w-px relative text-[20px] text-white">12 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center justify-center relative shrink-0 w-full">
         <WeuiDone2Filled17 />
