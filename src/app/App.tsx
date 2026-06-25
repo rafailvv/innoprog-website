@@ -19,6 +19,16 @@ import FrontendCourseDesktop from "../imports/FrontendCourseDesktop/FrontendCour
 import FrontendCourseMobile from "../imports/FrontendCourseMobile/FrontendCourseMobile";
 import DataAnalystCourseDesktop from "../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop";
 import DataAnalystCourseMobile from "../imports/DataAnalystCourseMobile/DataAnalystCourseMobile";
+import CppCourseDesktop from "../imports/CppCourseDesktop/CppCourseDesktop";
+import CppCourseMobile from "../imports/CppCourseMobile/CppCourseMobile";
+import MobileDeveloperCourseDesktop from "../imports/MobileDeveloperCourseDesktop/MobileDeveloperCourseDesktop";
+import MobileDeveloperCourseMobile from "../imports/MobileDeveloperCourseMobile/MobileDeveloperCourseMobile";
+import UnrealEngineCourseDesktop from "../imports/UnrealEngineCourseDesktop/UnrealEngineCourseDesktop";
+import UnrealEngineCourseMobile from "../imports/UnrealEngineCourseMobile/UnrealEngineCourseMobile";
+import JavaCourseDesktop from "../imports/JavaCourseDesktop/JavaCourseDesktop";
+import JavaCourseMobile from "../imports/JavaCourseMobile/JavaCourseMobile";
+import MlEngineerCourseDesktop from "../imports/MlEngineerCourseDesktop/MlEngineerCourseDesktop";
+import MlEngineerCourseMobile from "../imports/MlEngineerCourseMobile/MlEngineerCourseMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -114,6 +124,11 @@ export type AppInitialRoute =
   | { page: "dataScienceCourse" }
   | { page: "frontendCourse" }
   | { page: "dataAnalystCourse" }
+  | { page: "cppCourse" }
+  | { page: "mobileDeveloperCourse" }
+  | { page: "unrealEngineCourse" }
+  | { page: "javaCourse" }
+  | { page: "mlEngineerCourse" }
   | { page: "reviews"; direction?: string | null }
   | { page: "courseReview"; review: CourseReviewKey }
   | { page: "studentReview"; review: string }
@@ -971,6 +986,26 @@ function getCleanPathFromHash(): string | null {
     return "/data-analyst-course";
   }
 
+  if (hash === "#/cpp-developer-course") {
+    return "/cpp-developer-course";
+  }
+
+  if (hash === "#/mobile-developer-course") {
+    return "/mobile-developer-course";
+  }
+
+  if (hash === "#/unreal-engine-course") {
+    return "/unreal-engine-course";
+  }
+
+  if (hash === "#/java-developer-course") {
+    return "/java-developer-course";
+  }
+
+  if (hash === "#/ml-engineer-course") {
+    return "/ml-engineer-course";
+  }
+
   if (hash === "#/reviews") {
     return "/reviews";
   }
@@ -1050,6 +1085,26 @@ function getRouteFromLocation(): AppInitialRoute {
     return { page: "dataAnalystCourse" };
   }
 
+  if (pathname === "/cpp-developer-course") {
+    return { page: "cppCourse" };
+  }
+
+  if (pathname === "/mobile-developer-course") {
+    return { page: "mobileDeveloperCourse" };
+  }
+
+  if (pathname === "/unreal-engine-course") {
+    return { page: "unrealEngineCourse" };
+  }
+
+  if (pathname === "/java-developer-course") {
+    return { page: "javaCourse" };
+  }
+
+  if (pathname === "/ml-engineer-course") {
+    return { page: "mlEngineerCourse" };
+  }
+
   if (pathname === "/reviews") {
     return { page: "reviews" };
   }
@@ -1078,6 +1133,11 @@ function getRouteState(route: AppInitialRoute) {
     isDataScienceCourseRoute: route.page === "dataScienceCourse",
     isFrontendCourseRoute: route.page === "frontendCourse",
     isDataAnalystCourseRoute: route.page === "dataAnalystCourse",
+    isCppCourseRoute: route.page === "cppCourse",
+    isMobileDeveloperCourseRoute: route.page === "mobileDeveloperCourse",
+    isUnrealEngineCourseRoute: route.page === "unrealEngineCourse",
+    isJavaCourseRoute: route.page === "javaCourse",
+    isMlEngineerCourseRoute: route.page === "mlEngineerCourse",
     isReviewsRoute: route.page === "reviews",
     isTariffsRoute: route.page === "tariffs",
   };
@@ -2803,6 +2863,587 @@ function DataAnalystCoursePage({
   );
 }
 
+function CppCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
+
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
+          return;
+        }
+
+        if (imageTop > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+    const refreshId = window.setTimeout(tuneMedia, 250);
+
+    return () => {
+      window.clearTimeout(refreshId);
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="C++ разработчик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <CppCourseMobile />
+            ) : (
+              <CppCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function MobileDeveloperCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
+
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
+          return;
+        }
+
+        if (imageTop > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+    const refreshId = window.setTimeout(tuneMedia, 250);
+
+    return () => {
+      window.clearTimeout(refreshId);
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Мобильный разработчик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <MobileDeveloperCourseMobile />
+            ) : (
+              <MobileDeveloperCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function UnrealEngineCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
+
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
+          return;
+        }
+
+        if (imageTop > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+    const refreshId = window.setTimeout(tuneMedia, 250);
+
+    return () => {
+      window.clearTimeout(refreshId);
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Unreal Engine">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <UnrealEngineCourseMobile />
+            ) : (
+              <UnrealEngineCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function JavaCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        const box = image.getBoundingClientRect();
+
+        if (box.top < preloadLine) {
+          image.loading = "eager";
+          image.decoding = "async";
+          return;
+        }
+
+        image.loading = "lazy";
+        image.decoding = "async";
+      });
+    };
+
+    tuneMedia();
+    window.addEventListener("scroll", tuneMedia, { passive: true });
+    window.addEventListener("resize", tuneMedia);
+
+    return () => {
+      window.removeEventListener("scroll", tuneMedia);
+      window.removeEventListener("resize", tuneMedia);
+    };
+  }, [isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Курс Java-разработчик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <JavaCourseMobile />
+            ) : (
+              <JavaCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function MlEngineerCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        const box = image.getBoundingClientRect();
+
+        if (box.top < preloadLine) {
+          image.loading = "eager";
+          image.decoding = "async";
+          return;
+        }
+
+        image.loading = "lazy";
+        image.decoding = "async";
+      });
+    };
+
+    tuneMedia();
+    window.addEventListener("scroll", tuneMedia, { passive: true });
+    window.addEventListener("resize", tuneMedia);
+
+    return () => {
+      window.removeEventListener("scroll", tuneMedia);
+      window.removeEventListener("resize", tuneMedia);
+    };
+  }, [isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Курс ML-инженер">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <MlEngineerCourseMobile />
+            ) : (
+              <MlEngineerCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
 function canScrollCarousel(carousel: HTMLElement, delta: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
@@ -3086,6 +3727,11 @@ export default function App({
   const [isDataScienceCourseRoute, setIsDataScienceCourseRoute] = useState(initialRouteState.isDataScienceCourseRoute);
   const [isFrontendCourseRoute, setIsFrontendCourseRoute] = useState(initialRouteState.isFrontendCourseRoute);
   const [isDataAnalystCourseRoute, setIsDataAnalystCourseRoute] = useState(initialRouteState.isDataAnalystCourseRoute);
+  const [isCppCourseRoute, setIsCppCourseRoute] = useState(initialRouteState.isCppCourseRoute);
+  const [isMobileDeveloperCourseRoute, setIsMobileDeveloperCourseRoute] = useState(initialRouteState.isMobileDeveloperCourseRoute);
+  const [isUnrealEngineCourseRoute, setIsUnrealEngineCourseRoute] = useState(initialRouteState.isUnrealEngineCourseRoute);
+  const [isJavaCourseRoute, setIsJavaCourseRoute] = useState(initialRouteState.isJavaCourseRoute);
+  const [isMlEngineerCourseRoute, setIsMlEngineerCourseRoute] = useState(initialRouteState.isMlEngineerCourseRoute);
   const [isReviewsRoute, setIsReviewsRoute] = useState(initialRouteState.isReviewsRoute);
   const [isTariffsRoute, setIsTariffsRoute] = useState(initialRouteState.isTariffsRoute);
   const [activeReviewsDirection, setActiveReviewsDirection] = useState<ReviewsDirectionKey>(
@@ -3136,6 +3782,11 @@ export default function App({
     setIsDataScienceCourseRoute(routeState.isDataScienceCourseRoute);
     setIsFrontendCourseRoute(routeState.isFrontendCourseRoute);
     setIsDataAnalystCourseRoute(routeState.isDataAnalystCourseRoute);
+    setIsCppCourseRoute(routeState.isCppCourseRoute);
+    setIsMobileDeveloperCourseRoute(routeState.isMobileDeveloperCourseRoute);
+    setIsUnrealEngineCourseRoute(routeState.isUnrealEngineCourseRoute);
+    setIsJavaCourseRoute(routeState.isJavaCourseRoute);
+    setIsMlEngineerCourseRoute(routeState.isMlEngineerCourseRoute);
     setIsReviewsRoute(routeState.isReviewsRoute);
     setIsTariffsRoute(routeState.isTariffsRoute);
     setActiveReviewsDirection(routeState.activeReviewsDirection);
@@ -3180,6 +3831,11 @@ export default function App({
       setIsDataScienceCourseRoute(routeState.isDataScienceCourseRoute);
       setIsFrontendCourseRoute(routeState.isFrontendCourseRoute);
       setIsDataAnalystCourseRoute(routeState.isDataAnalystCourseRoute);
+      setIsCppCourseRoute(routeState.isCppCourseRoute);
+      setIsMobileDeveloperCourseRoute(routeState.isMobileDeveloperCourseRoute);
+      setIsUnrealEngineCourseRoute(routeState.isUnrealEngineCourseRoute);
+      setIsJavaCourseRoute(routeState.isJavaCourseRoute);
+    setIsMlEngineerCourseRoute(routeState.isMlEngineerCourseRoute);
       setIsReviewsRoute(routeState.isReviewsRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
       setActiveReviewsDirection(
@@ -3680,6 +4336,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3700,6 +4361,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(true);
     setIsTariffsRoute(false);
     setActiveReviewsDirection(reviewsDirection);
@@ -3727,6 +4393,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3753,6 +4424,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3770,6 +4446,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -3797,6 +4478,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3814,6 +4500,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3831,6 +4522,11 @@ export default function App({
     setIsDataScienceCourseRoute(true);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3848,6 +4544,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(true);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3865,6 +4566,121 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(true);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openCppCoursePage = () => {
+    pushInternalRoute("/cpp-developer-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(true);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openMobileDeveloperCoursePage = () => {
+    pushInternalRoute("/mobile-developer-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(true);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openUnrealEngineCoursePage = () => {
+    pushInternalRoute("/unreal-engine-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(true);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openJavaCoursePage = () => {
+    pushInternalRoute("/java-developer-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(true);
+    setIsMlEngineerCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openMlEngineerCoursePage = () => {
+    pushInternalRoute("/ml-engineer-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(true);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3882,6 +4698,11 @@ export default function App({
     setIsDataScienceCourseRoute(false);
     setIsFrontendCourseRoute(false);
     setIsDataAnalystCourseRoute(false);
+    setIsCppCourseRoute(false);
+    setIsMobileDeveloperCourseRoute(false);
+    setIsUnrealEngineCourseRoute(false);
+    setIsJavaCourseRoute(false);
+    setIsMlEngineerCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(true);
     setIsMobileMenuOpen(false);
@@ -4210,6 +5031,46 @@ export default function App({
       return;
     }
 
+    const cppCourseLink = target?.closest<HTMLAnchorElement>('a[href="/cpp-developer-course"]');
+
+    if (cppCourseLink) {
+      event.preventDefault();
+      openCppCoursePage();
+      return;
+    }
+
+    const mobileDeveloperCourseLink = target?.closest<HTMLAnchorElement>('a[href="/mobile-developer-course"]');
+
+    if (mobileDeveloperCourseLink) {
+      event.preventDefault();
+      openMobileDeveloperCoursePage();
+      return;
+    }
+
+    const unrealEngineCourseLink = target?.closest<HTMLAnchorElement>('a[href="/unreal-engine-course"]');
+
+    if (unrealEngineCourseLink) {
+      event.preventDefault();
+      openUnrealEngineCoursePage();
+      return;
+    }
+
+    const javaCourseLink = target?.closest<HTMLAnchorElement>('a[href="/java-developer-course"]');
+
+    if (javaCourseLink) {
+      event.preventDefault();
+      openJavaCoursePage();
+      return;
+    }
+
+    const mlEngineerCourseLink = target?.closest<HTMLAnchorElement>('a[href="/ml-engineer-course"]');
+
+    if (mlEngineerCourseLink) {
+      event.preventDefault();
+      openMlEngineerCoursePage();
+      return;
+    }
+
     const reviewHome = target?.closest<HTMLElement>("[data-review-home], [data-site-home]");
 
     if (reviewHome) {
@@ -4463,7 +5324,7 @@ export default function App({
   const isReviewRoute = Boolean(activeReviewStory);
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
-  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isTariffsRoute;
+  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
@@ -4489,6 +5350,11 @@ export default function App({
         isDataScienceCourseRoute ? "site-shell--python-course-route site-shell--data-science-course-route" : "",
         isFrontendCourseRoute ? "site-shell--python-course-route site-shell--frontend-course-route" : "",
         isDataAnalystCourseRoute ? "site-shell--python-course-route site-shell--data-analyst-course-route" : "",
+        isCppCourseRoute ? "site-shell--python-course-route site-shell--cpp-course-route" : "",
+        isMobileDeveloperCourseRoute ? "site-shell--python-course-route site-shell--mobile-developer-course-route" : "",
+        isUnrealEngineCourseRoute ? "site-shell--python-course-route site-shell--unreal-engine-course-route" : "",
+        isJavaCourseRoute ? "site-shell--python-course-route site-shell--java-course-route" : "",
+        isMlEngineerCourseRoute ? "site-shell--python-course-route site-shell--ml-engineer-course-route" : "",
         isTariffsRoute ? "site-shell--tariffs-route" : "",
         !isStandaloneRoute ? "site-shell--home-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
@@ -4560,6 +5426,31 @@ export default function App({
         />
       ) : isDataAnalystCourseRoute ? (
         <DataAnalystCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isCppCourseRoute ? (
+        <CppCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isMobileDeveloperCourseRoute ? (
+        <MobileDeveloperCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isUnrealEngineCourseRoute ? (
+        <UnrealEngineCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isJavaCourseRoute ? (
+        <JavaCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isMlEngineerCourseRoute ? (
+        <MlEngineerCoursePage
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
         />

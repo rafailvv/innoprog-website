@@ -8,6 +8,7 @@ import imgImg29775 from "./e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
 import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
+import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero.png";
 import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
@@ -475,7 +476,7 @@ function Frame14() {
         <Frame6 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[170.12%] left-[-36.21%] max-w-none top-[-36.44%] w-[142.1%]" src={imgImg29772} />
+            <img alt="" decoding="async" loading="eager" className="absolute h-[275px] left-[-45px] max-w-none object-contain top-[-42px] w-[386px]" src={imgDataScienceHero} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -560,8 +561,8 @@ function Frame132() {
           description="Освойте анализ данных, отчеты и визуализацию, чтобы находить закономерности и делать обоснованные выводы для бизнеса"
         />
       </a>
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 text-white no-underline w-[410.667px]" href="/cpp-developer-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -581,9 +582,9 @@ function Frame132() {
           title="Разработчик С++"
           description="Освойте C++, алгоритмы, структуры данных и принципы разработки быстрых программ, игр и технически сложных решений на практике"
         />
-      </div>
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      </a>
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/mobile-developer-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -601,7 +602,7 @@ function Frame132() {
           title="Мобильный разработчик"
           description="Научитесь создавать мобильные приложения, проектировать экраны и запускать удобные цифровые продукты для пользователей"
         />
-      </div>
+      </a>
     </div>
   );
 }
@@ -636,8 +637,8 @@ function Frame13() {
 function Frame15() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/unreal-engine-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -657,9 +658,9 @@ function Frame15() {
           title="Unreal Engine"
           description="Освойте разработку игр и 3D-миров на Unreal Engine, работая с визуальной логикой, объектами и игровыми механиками"
         />
-      </div>
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]" data-name="курсы">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      </a>
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/java-developer-course" data-name="курсы">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -677,9 +678,9 @@ function Frame15() {
           title="Java разработчик"
           description="Изучите Java, ООП и backend-разработку, чтобы создавать приложения, сервисы и надежную логику проектов на сервере"
         />
-      </div>
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      </a>
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/ml-engineer-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -699,7 +700,7 @@ function Frame15() {
           title="ML-инженер"
           description="Разберитесь в машинном обучении и нейросетях, научитесь обучать модели и применять их для прогнозирования"
         />
-      </div>
+      </a>
     </div>
   );
 }

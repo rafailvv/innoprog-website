@@ -80,6 +80,81 @@ const nextConfig = {
         destination: "/data-analyst-course",
         permanent: true,
       },
+      {
+        source: "/cpp",
+        destination: "/cpp-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/cpp-developer",
+        destination: "/cpp-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/c-plus-plus",
+        destination: "/cpp-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/mobile-developer",
+        destination: "/mobile-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/mobile",
+        destination: "/mobile-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/flutter",
+        destination: "/mobile-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/unreal",
+        destination: "/unreal-engine-course",
+        permanent: true,
+      },
+      {
+        source: "/unreal-engine",
+        destination: "/unreal-engine-course",
+        permanent: true,
+      },
+      {
+        source: "/game-development",
+        destination: "/unreal-engine-course",
+        permanent: true,
+      },
+      {
+        source: "/java",
+        destination: "/java-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/java-developer",
+        destination: "/java-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/spring-boot",
+        destination: "/java-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/ml",
+        destination: "/ml-engineer-course",
+        permanent: true,
+      },
+      {
+        source: "/ml-engineer",
+        destination: "/ml-engineer-course",
+        permanent: true,
+      },
+      {
+        source: "/machine-learning",
+        destination: "/ml-engineer-course",
+        permanent: true,
+      },
     ];
   },
   webpack(config) {

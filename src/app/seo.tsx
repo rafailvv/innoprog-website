@@ -10,6 +10,11 @@ export const PYTHON_COURSE_OG_IMAGE_PATH = "/og-python-course.png";
 export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og-home.png";
 export const FRONTEND_COURSE_OG_IMAGE_PATH = "/og-home.png";
 export const DATA_ANALYST_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const CPP_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const UNREAL_ENGINE_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const JAVA_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const ML_ENGINEER_COURSE_OG_IMAGE_PATH = "/og-home.png";
 export const DEFAULT_DESCRIPTION =
   "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой";
 export const DEFAULT_KEYWORDS = [
@@ -24,6 +29,30 @@ export const DEFAULT_KEYWORDS = [
   "аналитик данных",
   "SQL",
   "BI",
+  "C++ разработчик",
+  "курс C++",
+  "CMake",
+  "Мобильный разработчик",
+  "курс Flutter",
+  "Dart",
+  "Flutter",
+  "Unreal Engine",
+  "Unreal Engine 5",
+  "Blueprint",
+  "разработка игр",
+  "Java-разработчик",
+  "курс Java",
+  "Spring Boot",
+  "Hibernate",
+  "JavaFX",
+  "Maven",
+  "Gradle",
+  "ML-инженер",
+  "курс машинное обучение",
+  "Machine Learning",
+  "MLOps",
+  "scikit-learn",
+  "PyTorch",
   "Frontend-разработчик",
   "React",
   "JavaScript",
@@ -522,6 +551,303 @@ export const dataAnalystCourseJsonLd = {
   hasCourseInstance: {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/data-analyst-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const cppCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/cpp-developer-course#course`,
+  name: "C++ разработчик",
+  description:
+    "Практический онлайн-курс C++ разработчик в ИННОПРОГ: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 C++ проектов с наставником",
+  url: absoluteUrl("/cpp-developer-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "основы программирования на C++",
+    "алгоритмы и структуры данных",
+    "современный C++ и STL",
+    "объектно-ориентированное программирование",
+    "CMake и Git",
+    "SQL и PostgreSQL",
+    "Linux и эксплуатация C++ приложений",
+    "unit-тестирование и отладка",
+    "портфолио C++ проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/cpp-developer-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const mobileDeveloperCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/mobile-developer-course#course`,
+  name: "Мобильный разработчик",
+  description:
+    "Практический онлайн-курс Мобильный разработчик в ИННОПРОГ: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование, публикация и 15 мобильных проектов с наставником",
+  url: absoluteUrl("/mobile-developer-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "Dart",
+    "Flutter",
+    "мобильные интерфейсы",
+    "архитектура Flutter-приложений",
+    "работа с API, JSON и HTTP",
+    "локальное хранение и offline-first",
+    "нативные интеграции Android и iOS",
+    "тестирование мобильных приложений",
+    "сборка и публикация приложений",
+    "портфолио мобильных проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/mobile-developer-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const unrealEngineCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/unreal-engine-course#course`,
+  name: "Unreal Engine",
+  description:
+    "Практический онлайн-курс Unreal Engine в ИННОПРОГ: Unreal Engine 5, Blueprint, игровые механики, персонажи, UMG, State Tree, оптимизация, публикация и 6 игровых проектов с наставником",
+  url: absoluteUrl("/unreal-engine-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "Unreal Engine 5",
+    "Blueprint",
+    "разработка игровых прототипов",
+    "игровые механики",
+    "level design",
+    "UMG и User Widget",
+    "State Tree и простой AI",
+    "профилирование и оптимизация",
+    "публикация игры на itch.io",
+    "портфолио игровых проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/unreal-engine-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const javaCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/java-developer-course#course`,
+  name: "Java-разработчик",
+  description:
+    "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API, безопасность, тестирование, деплой и 15 Java-проектов с наставником",
+  url: absoluteUrl("/java-developer-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "Java Core",
+    "объектно-ориентированное программирование",
+    "коллекции, исключения и Stream API",
+    "SQL и PostgreSQL",
+    "JDBC, JPA и Hibernate",
+    "JavaFX",
+    "Spring Boot",
+    "REST API и Spring Security",
+    "JUnit, Mockito и тестирование",
+    "Docker, Linux и деплой Java-приложений",
+    "портфолио Java-проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/java-developer-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const mlEngineerCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/ml-engineer-course#course`,
+  name: "ML-инженер",
+  description:
+    "Практический онлайн-курс ML-инженер в ИННОПРОГ: Python, SQL, статистика, feature engineering, machine learning, deep learning, NLP, CV, MLOps, FastAPI, Docker и 15 ML-проектов с наставником",
+  url: absoluteUrl("/ml-engineer-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "Python для машинного обучения",
+    "SQL и PostgreSQL для ML-задач",
+    "математические основы ML и метрики",
+    "EDA и feature engineering",
+    "валидация моделей",
+    "scikit-learn",
+    "deep learning",
+    "NLP и компьютерное зрение",
+    "FastAPI и ML API",
+    "Docker, MLflow или DVC",
+    "мониторинг качества и дрейфа модели",
+    "портфолио ML-проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/ml-engineer-course#course-instance`,
     courseMode: "online",
     inLanguage: "ru-RU",
     instructor: {

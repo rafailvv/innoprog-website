@@ -8,6 +8,7 @@ import imgCourseMobile from "../MainScreenDesktop/e9d641090abdd6bedcdf1c20f81315
 import imgCourseUnreal from "../MainScreenDesktop/e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgCourseJava from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgCourseMl from "../MainScreenDesktop/c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
+import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero.png";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -54,8 +55,9 @@ const COURSE_CARD_VISUALS: CourseCardVisual[] = [
     imageClassName: "absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]",
   },
   {
-    src: imgCourseDataScience,
-    imageClassName: "absolute h-[170.12%] left-[-36.21%] max-w-none top-[-36.44%] w-[142.1%]",
+    src: imgCourseDataScienceHero,
+    imageClassName: "object-contain object-left-top",
+    direct: true,
   },
   {
     src: imgCourseFrontend,
@@ -761,7 +763,7 @@ function Frame188() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame107 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -834,7 +836,7 @@ function Frame189() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame108 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -903,7 +905,7 @@ function Frame190() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame109 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -975,7 +977,7 @@ function Frame191() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame110 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -1047,7 +1049,7 @@ function Frame192() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame111 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -1119,7 +1121,7 @@ function Frame193() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame112 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -1194,21 +1196,21 @@ function Frame184() {
         </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/cpp-developer-course">
           <CourseCardImage index={4} />
           <Frame189 />
           <Frame30 />
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/mobile-developer-course">
           <CourseCardImage index={5} />
           <Frame190 />
           <Frame35 />
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/unreal-engine-course">
           <CourseCardImage index={6} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1216,10 +1218,10 @@ function Frame184() {
               <Frame40 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/java-developer-course">
           <CourseCardImage index={7} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1227,10 +1229,10 @@ function Frame184() {
               <Frame45 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/ml-engineer-course">
           <CourseCardImage index={8} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1238,7 +1240,7 @@ function Frame184() {
               <Frame50 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );
