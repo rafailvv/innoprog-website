@@ -15,6 +15,10 @@ import PythonCourseDesktop from "../imports/PythonCourseDesktop/PythonCourseDesk
 import PythonCourseMobile from "../imports/PythonCourseMobile/PythonCourseMobile";
 import DataScienceCourseDesktop from "../imports/DataScienceCourseDesktop/DataScienceCourseDesktop";
 import DataScienceCourseMobile from "../imports/DataScienceCourseMobile/DataScienceCourseMobile";
+import FrontendCourseDesktop from "../imports/FrontendCourseDesktop/FrontendCourseDesktop";
+import FrontendCourseMobile from "../imports/FrontendCourseMobile/FrontendCourseMobile";
+import DataAnalystCourseDesktop from "../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop";
+import DataAnalystCourseMobile from "../imports/DataAnalystCourseMobile/DataAnalystCourseMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -108,6 +112,8 @@ export type AppInitialRoute =
   | { page: "about" }
   | { page: "pythonCourse" }
   | { page: "dataScienceCourse" }
+  | { page: "frontendCourse" }
+  | { page: "dataAnalystCourse" }
   | { page: "reviews"; direction?: string | null }
   | { page: "courseReview"; review: CourseReviewKey }
   | { page: "studentReview"; review: string }
@@ -957,6 +963,14 @@ function getCleanPathFromHash(): string | null {
     return "/data-science-course";
   }
 
+  if (hash === "#/frontend-developer-course") {
+    return "/frontend-developer-course";
+  }
+
+  if (hash === "#/data-analyst-course") {
+    return "/data-analyst-course";
+  }
+
   if (hash === "#/reviews") {
     return "/reviews";
   }
@@ -1028,6 +1042,14 @@ function getRouteFromLocation(): AppInitialRoute {
     return { page: "dataScienceCourse" };
   }
 
+  if (pathname === "/frontend-developer-course") {
+    return { page: "frontendCourse" };
+  }
+
+  if (pathname === "/data-analyst-course") {
+    return { page: "dataAnalystCourse" };
+  }
+
   if (pathname === "/reviews") {
     return { page: "reviews" };
   }
@@ -1054,6 +1076,8 @@ function getRouteState(route: AppInitialRoute) {
     isAboutRoute: route.page === "about",
     isPythonCourseRoute: route.page === "pythonCourse",
     isDataScienceCourseRoute: route.page === "dataScienceCourse",
+    isFrontendCourseRoute: route.page === "frontendCourse",
+    isDataAnalystCourseRoute: route.page === "dataAnalystCourse",
     isReviewsRoute: route.page === "reviews",
     isTariffsRoute: route.page === "tariffs",
   };
@@ -2541,6 +2565,244 @@ function DataScienceCoursePage({
   );
 }
 
+function FrontendCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
+
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
+          return;
+        }
+
+        if (imageTop > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+    const refreshId = window.setTimeout(tuneMedia, 250);
+
+    return () => {
+      window.clearTimeout(refreshId);
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Frontend-разработчик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <FrontendCourseMobile />
+            ) : (
+              <FrontendCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
+function DataAnalystCoursePage({
+  headerScale,
+  isMobile,
+}: {
+  headerScale: number;
+  isMobile: boolean;
+}) {
+  const courseCanvasRef = useRef<HTMLDivElement | null>(null);
+  const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
+  const courseDesignWidth = isMobile ? MOBILE_DESIGN.width : DESKTOP_DESIGN.width;
+  const courseContentShellStyle = isMobile
+    ? {
+      height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+      marginTop: 0,
+    }
+    : undefined;
+  const courseContentCanvasStyle = isMobile
+    ? {
+      width: `${courseDesignWidth}px`,
+      transform: `scale(${headerScale})`,
+    }
+    : {
+      width: `${courseDesignWidth}px`,
+      zoom: headerScale,
+    } as CSSProperties & { zoom?: number };
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas || !isMobile) {
+      return;
+    }
+
+    const updateHeight = () => {
+      setCourseCanvasHeight(canvas.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeight);
+
+      return () => {
+        window.removeEventListener("resize", updateHeight);
+      };
+    }
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(canvas);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [headerScale, isMobile]);
+
+  useEffect(() => {
+    const canvas = courseCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    const tuneMedia = () => {
+      const preloadLine = (window.innerHeight || 900) * 1.25;
+
+      canvas.querySelectorAll<HTMLImageElement>("img").forEach((image) => {
+        image.decoding = "async";
+        const imageTop = image.getBoundingClientRect().top;
+
+        if (image.closest(".site-course-project-visual, .site-course-mobile-project-visual")) {
+          if (imageTop <= preloadLine) {
+            image.loading = "eager";
+            image.setAttribute("fetchpriority", "high");
+          } else {
+            image.loading = "lazy";
+            image.setAttribute("fetchpriority", "low");
+          }
+
+          return;
+        }
+
+        if (imageTop > preloadLine) {
+          image.loading = "lazy";
+          image.setAttribute("fetchpriority", "low");
+        }
+      });
+    };
+
+    tuneMedia();
+    const refreshId = window.setTimeout(tuneMedia, 250);
+
+    return () => {
+      window.clearTimeout(refreshId);
+    };
+  }, [headerScale, isMobile]);
+
+  return (
+    <section className="site-python-course-page" aria-label="Data-аналитик">
+      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
+        <div
+          className="site-python-course-page__content-canvas"
+          ref={courseCanvasRef}
+          style={courseContentCanvasStyle}
+        >
+          <div className="site-python-course-page__inner">
+            {isMobile ? (
+              <DataAnalystCourseMobile />
+            ) : (
+              <DataAnalystCourseDesktop />
+            )}
+          </div>
+        </div>
+      </div>
+      <SiteFooter isMobile={isMobile} scale={headerScale} />
+    </section>
+  );
+}
+
 function canScrollCarousel(carousel: HTMLElement, delta: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
@@ -2822,6 +3084,8 @@ export default function App({
   const [isAboutRoute, setIsAboutRoute] = useState(initialRouteState.isAboutRoute);
   const [isPythonCourseRoute, setIsPythonCourseRoute] = useState(initialRouteState.isPythonCourseRoute);
   const [isDataScienceCourseRoute, setIsDataScienceCourseRoute] = useState(initialRouteState.isDataScienceCourseRoute);
+  const [isFrontendCourseRoute, setIsFrontendCourseRoute] = useState(initialRouteState.isFrontendCourseRoute);
+  const [isDataAnalystCourseRoute, setIsDataAnalystCourseRoute] = useState(initialRouteState.isDataAnalystCourseRoute);
   const [isReviewsRoute, setIsReviewsRoute] = useState(initialRouteState.isReviewsRoute);
   const [isTariffsRoute, setIsTariffsRoute] = useState(initialRouteState.isTariffsRoute);
   const [activeReviewsDirection, setActiveReviewsDirection] = useState<ReviewsDirectionKey>(
@@ -2870,6 +3134,8 @@ export default function App({
     setIsAboutRoute(routeState.isAboutRoute);
     setIsPythonCourseRoute(routeState.isPythonCourseRoute);
     setIsDataScienceCourseRoute(routeState.isDataScienceCourseRoute);
+    setIsFrontendCourseRoute(routeState.isFrontendCourseRoute);
+    setIsDataAnalystCourseRoute(routeState.isDataAnalystCourseRoute);
     setIsReviewsRoute(routeState.isReviewsRoute);
     setIsTariffsRoute(routeState.isTariffsRoute);
     setActiveReviewsDirection(routeState.activeReviewsDirection);
@@ -2912,6 +3178,8 @@ export default function App({
       setIsAboutRoute(routeState.isAboutRoute);
       setIsPythonCourseRoute(routeState.isPythonCourseRoute);
       setIsDataScienceCourseRoute(routeState.isDataScienceCourseRoute);
+      setIsFrontendCourseRoute(routeState.isFrontendCourseRoute);
+      setIsDataAnalystCourseRoute(routeState.isDataAnalystCourseRoute);
       setIsReviewsRoute(routeState.isReviewsRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
       setActiveReviewsDirection(
@@ -3410,6 +3678,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3428,6 +3698,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(true);
     setIsTariffsRoute(false);
     setActiveReviewsDirection(reviewsDirection);
@@ -3453,6 +3725,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3477,6 +3751,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3492,6 +3768,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -3517,6 +3795,8 @@ export default function App({
     setIsAboutRoute(true);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3532,6 +3812,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(true);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3547,6 +3829,42 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(true);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openFrontendCoursePage = () => {
+    pushInternalRoute("/frontend-developer-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(true);
+    setIsDataAnalystCourseRoute(false);
+    setIsReviewsRoute(false);
+    setIsTariffsRoute(false);
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
+  const openDataAnalystCoursePage = () => {
+    pushInternalRoute("/data-analyst-course");
+
+    setActiveReviewStory(null);
+    setActiveCourseReview(null);
+    setActiveStudentReview(null);
+    setIsAboutRoute(false);
+    setIsPythonCourseRoute(false);
+    setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(true);
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
@@ -3562,6 +3880,8 @@ export default function App({
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
+    setIsFrontendCourseRoute(false);
+    setIsDataAnalystCourseRoute(false);
     setIsReviewsRoute(false);
     setIsTariffsRoute(true);
     setIsMobileMenuOpen(false);
@@ -3874,6 +4194,22 @@ export default function App({
       return;
     }
 
+    const frontendCourseLink = target?.closest<HTMLAnchorElement>('a[href="/frontend-developer-course"]');
+
+    if (frontendCourseLink) {
+      event.preventDefault();
+      openFrontendCoursePage();
+      return;
+    }
+
+    const dataAnalystCourseLink = target?.closest<HTMLAnchorElement>('a[href="/data-analyst-course"]');
+
+    if (dataAnalystCourseLink) {
+      event.preventDefault();
+      openDataAnalystCoursePage();
+      return;
+    }
+
     const reviewHome = target?.closest<HTMLElement>("[data-review-home], [data-site-home]");
 
     if (reviewHome) {
@@ -4127,7 +4463,7 @@ export default function App({
   const isReviewRoute = Boolean(activeReviewStory);
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
-  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isTariffsRoute;
+  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle = {
@@ -4151,6 +4487,8 @@ export default function App({
         isAboutRoute ? "site-shell--about-route" : "",
         isPythonCourseRoute ? "site-shell--python-course-route" : "",
         isDataScienceCourseRoute ? "site-shell--python-course-route site-shell--data-science-course-route" : "",
+        isFrontendCourseRoute ? "site-shell--python-course-route site-shell--frontend-course-route" : "",
+        isDataAnalystCourseRoute ? "site-shell--python-course-route site-shell--data-analyst-course-route" : "",
         isTariffsRoute ? "site-shell--tariffs-route" : "",
         !isStandaloneRoute ? "site-shell--home-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
@@ -4212,6 +4550,16 @@ export default function App({
         />
       ) : isDataScienceCourseRoute ? (
         <DataScienceCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isFrontendCourseRoute ? (
+        <FrontendCoursePage
+          headerScale={viewport.scale}
+          isMobile={viewport.isMobile}
+        />
+      ) : isDataAnalystCourseRoute ? (
+        <DataAnalystCoursePage
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
         />

@@ -60,6 +60,26 @@ const nextConfig = {
         destination: "/data-science-course",
         permanent: true,
       },
+      {
+        source: "/frontend",
+        destination: "/frontend-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/frontend-developer",
+        destination: "/frontend-developer-course",
+        permanent: true,
+      },
+      {
+        source: "/data-analyst",
+        destination: "/data-analyst-course",
+        permanent: true,
+      },
+      {
+        source: "/data-analytics",
+        destination: "/data-analyst-course",
+        permanent: true,
+      },
     ];
   },
   webpack(config) {

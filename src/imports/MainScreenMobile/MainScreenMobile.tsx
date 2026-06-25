@@ -688,7 +688,7 @@ function Frame187() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
       <Frame106 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px] site-course-arrow--hidden">
+      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
         <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
@@ -780,9 +780,9 @@ function Frame25() {
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
       <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Data-аналитик</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-        <p className="leading-[18px] mb-0">Научитесь работать с данными, Python, статистикой и моделями ИИ,</p>
+        <p className="leading-[18px] mb-0">Освойте анализ данных, SQL, Python, BI-отчеты и визуализацию,</p>
         <p className="leading-[18px] mb-0">чтобы находить закономерности</p>
-        <p className="leading-[18px]">и решать бизнес-задачи</p>
+        <p className="leading-[18px]">и делать выводы для бизнеса</p>
       </div>
     </div>
   );
@@ -1172,7 +1172,7 @@ function Frame184() {
         </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/frontend-developer-course">
           <CourseCardImage index={2} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1180,10 +1180,10 @@ function Frame184() {
               <Frame20 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#9c78ff] h-full overflow-clip relative rounded-[40px] shrink-0 w-[390px]">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/data-analyst-course">
           <CourseCardImage index={3} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
@@ -1191,7 +1191,7 @@ function Frame184() {
               <Frame25 />
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
         <div className="bg-[#9c78ff] content-stretch flex flex-col h-[301px] items-start justify-between overflow-clip px-[20px] py-[24px] relative rounded-[40px] shrink-0 w-[390px]">

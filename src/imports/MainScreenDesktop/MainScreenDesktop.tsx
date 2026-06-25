@@ -484,8 +484,8 @@ function Frame14() {
           showArrow
         />
       </a>
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/frontend-developer-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -503,7 +503,7 @@ function Frame14() {
           title="Фронтенд разработчик"
           description="Освойте современную фронтенд-разработку, React, TypeScript и работу с API, чтобы создавать полноценные веб-приложения"
         />
-      </div>
+      </a>
     </div>
   );
 }
@@ -538,8 +538,8 @@ function Frame10() {
 function Frame132() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 w-[410.667px]">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/data-analyst-course">
+        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
             <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -559,7 +559,7 @@ function Frame132() {
           title="Data-аналитик"
           description="Освойте анализ данных, отчеты и визуализацию, чтобы находить закономерности и делать обоснованные выводы для бизнеса"
         />
-      </div>
+      </a>
       <div className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-[410.667px]">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px] site-course-arrow--hidden">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />

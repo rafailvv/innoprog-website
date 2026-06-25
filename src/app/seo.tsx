@@ -8,6 +8,8 @@ export const SITE_FAVICON_PATH = "/favicon.png";
 export const DEFAULT_OG_IMAGE_PATH = "/og-home.png";
 export const PYTHON_COURSE_OG_IMAGE_PATH = "/og-python-course.png";
 export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const FRONTEND_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const DATA_ANALYST_COURSE_OG_IMAGE_PATH = "/og-home.png";
 export const DEFAULT_DESCRIPTION =
   "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой";
 export const DEFAULT_KEYWORDS = [
@@ -18,6 +20,14 @@ export const DEFAULT_KEYWORDS = [
   "курс Python",
   "Python-разработчик",
   "Data Science",
+  "Data-аналитик",
+  "аналитик данных",
+  "SQL",
+  "BI",
+  "Frontend-разработчик",
+  "React",
+  "JavaScript",
+  "TypeScript",
   "программирование онлайн",
   "обучение программированию",
   "ИТ-курсы",
@@ -394,6 +404,124 @@ export const dataScienceCourseJsonLd = {
   hasCourseInstance: {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/data-science-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const frontendCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/frontend-developer-course#course`,
+  name: "Frontend-разработчик",
+  description:
+    "Практический онлайн-курс Frontend-разработчик в ИННОПРОГ: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и 15 проектных работ с наставником",
+  url: absoluteUrl("/frontend-developer-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "HTML и CSS",
+    "адаптивная верстка",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "маршрутизация и состояние",
+    "работа с API",
+    "тестирование frontend-приложений",
+    "доступность и производительность",
+    "портфолио frontend-проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/frontend-developer-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const dataAnalystCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/data-analyst-course#course`,
+  name: "Data-аналитик",
+  description:
+    "Практический онлайн-курс Data-аналитик в ИННОПРОГ: SQL, Python, BI, статистика, A/B-тестирование и 15 аналитических проектов с наставником",
+  url: absoluteUrl("/data-analyst-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "SQL и реляционные базы данных",
+    "Python для анализа данных",
+    "pandas и NumPy",
+    "очистка и контроль качества данных",
+    "математическая статистика",
+    "BI и визуализация",
+    "аналитические витрины",
+    "продуктовая и бизнес-аналитика",
+    "A/B-тестирование",
+    "портфолио аналитических проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/data-analyst-course#course-instance`,
     courseMode: "online",
     inLanguage: "ru-RU",
     instructor: {
