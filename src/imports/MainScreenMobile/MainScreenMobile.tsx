@@ -1161,7 +1161,7 @@ function Frame184() {
         </a>
       </div>
       <div className="flex flex-row items-center self-stretch">
-        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="https://pages.innoprog.ru/data-scientist">
+        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/data-science-course">
           <CourseCardImage index={1} />
           <div className="flex flex-col justify-center size-full">
             <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">

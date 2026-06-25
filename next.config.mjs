@@ -57,7 +57,7 @@ const nextConfig = {
       },
       {
         source: "/data-scientist",
-        destination: "/python-course",
+        destination: "/data-science-course",
         permanent: true,
       },
     ];

@@ -1328,6 +1328,10 @@ body {
   opacity: 1;
 }
 
+.site-shell--home-route:not(.site-shell--mobile) .site-canvas > [data-name="главный экран Д"] {
+  background: linear-gradient(to bottom, #ffffff 0 13111px, #464a6a 13111px 100%);
+}
+
 .site-canvas--mobile {
   left: 0;
   transform-origin: top left;

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { DEFAULT_OG_IMAGE_PATH, PYTHON_COURSE_OG_IMAGE_PATH, SITE_URL, absoluteUrl } from "./seo";
+import { DATA_SCIENCE_COURSE_OG_IMAGE_PATH, DEFAULT_OG_IMAGE_PATH, PYTHON_COURSE_OG_IMAGE_PATH, SITE_URL, absoluteUrl } from "./seo";
 import { STUDENT_REVIEWS, getStudentReviewPath } from "./studentReviewsData";
 
 const UPDATED_AT = new Date("2026-06-18T00:00:00.000Z");
@@ -7,6 +7,7 @@ const UPDATED_AT = new Date("2026-06-18T00:00:00.000Z");
 const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1, image: DEFAULT_OG_IMAGE_PATH },
   { path: "/python-course", changeFrequency: "weekly", priority: 0.9, image: PYTHON_COURSE_OG_IMAGE_PATH },
+  { path: "/data-science-course", changeFrequency: "weekly", priority: 0.9, image: DATA_SCIENCE_COURSE_OG_IMAGE_PATH },
   { path: "/tariffs", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews", changeFrequency: "monthly", priority: 0.75 },

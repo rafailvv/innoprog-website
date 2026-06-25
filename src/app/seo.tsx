@@ -7,6 +7,7 @@ export const SITE_LOGO_PATH = "/logo_education.png";
 export const SITE_FAVICON_PATH = "/favicon.png";
 export const DEFAULT_OG_IMAGE_PATH = "/og-home.png";
 export const PYTHON_COURSE_OG_IMAGE_PATH = "/og-python-course.png";
+export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og-home.png";
 export const DEFAULT_DESCRIPTION =
   "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой";
 export const DEFAULT_KEYWORDS = [
@@ -336,6 +337,63 @@ export const pythonCourseJsonLd = {
   hasCourseInstance: {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/python-course#course-instance`,
+    courseMode: "online",
+    inLanguage: "ru-RU",
+    instructor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+    },
+  },
+};
+
+export const dataScienceCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/data-science-course#course`,
+  name: "Data Science",
+  description:
+    "Практический онлайн-курс Data Science в ИННОПРОГ: Python, SQL, статистика, машинное обучение, MLOps и 13 проектных работ с наставником",
+  url: absoluteUrl("/data-science-course"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  inLanguage: "ru-RU",
+  courseMode: "online",
+  educationalLevel: "beginner",
+  isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
+  audience: {
+    "@type": "EducationalAudience",
+    educationalRole: "student",
+  },
+  teaches: [
+    "Python для анализа данных",
+    "SQL и PostgreSQL",
+    "статистика",
+    "исследовательский анализ данных",
+    "машинное обучение",
+    "глубокое обучение",
+    "MLOps",
+    "портфолио Data Science проектов",
+  ],
+  offers: {
+    "@type": "Offer",
+    category: "Paid online course",
+    availability: "https://schema.org/InStock",
+    price: "7990",
+    priceCurrency: "RUB",
+    url: absoluteUrl("/tariffs"),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: "7990",
+      priceCurrency: "RUB",
+      unitText: "месяц",
+    },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    "@id": `${SITE_URL}/data-science-course#course-instance`,
     courseMode: "online",
     inLanguage: "ru-RU",
     instructor: {
