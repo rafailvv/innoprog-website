@@ -97,6 +97,7 @@ const LOADER_MIN_MS = 650;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
+const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
 const LOADER_EXIT_MS = 700;
 const APPLICATION_REQUEST_URL = "/application/request";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
@@ -3619,6 +3620,42 @@ function rememberLoadedInSession() {
   }
 }
 
+function readReturnScrollPosition(): { path: string; y: number } | null {
+  try {
+    const raw = window.sessionStorage.getItem(RETURN_SCROLL_STORAGE_KEY);
+
+    if (!raw) {
+      return null;
+    }
+
+    const parsed = JSON.parse(raw) as { path?: unknown; y?: unknown };
+
+    if (typeof parsed.path !== "string" || typeof parsed.y !== "number") {
+      return null;
+    }
+
+    return { path: parsed.path, y: parsed.y };
+  } catch {
+    return null;
+  }
+}
+
+function writeReturnScrollPosition(value: { path: string; y: number }) {
+  try {
+    window.sessionStorage.setItem(RETURN_SCROLL_STORAGE_KEY, JSON.stringify(value));
+  } catch {
+    // Storage can be unavailable in private or restricted contexts.
+  }
+}
+
+function clearReturnScrollPosition() {
+  try {
+    window.sessionStorage.removeItem(RETURN_SCROLL_STORAGE_KEY);
+  } catch {
+    // Storage can be unavailable in private or restricted contexts.
+  }
+}
+
 function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
@@ -3794,8 +3831,11 @@ export default function App({
   }, [initialRouteKey]);
 
   useEffect(() => {
+    const previousScrollRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+
     const restorePendingReturnScroll = () => {
-      const pendingReturnScroll = pendingReturnScrollRef.current;
+      const pendingReturnScroll = pendingReturnScrollRef.current || readReturnScrollPosition();
 
       if (!pendingReturnScroll) {
         return;
@@ -3808,8 +3848,12 @@ export default function App({
       }
 
       pendingReturnScrollRef.current = null;
+      clearReturnScrollPosition();
+      const restore = () => window.scrollTo({ top: pendingReturnScroll.y, behavior: "instant" });
       window.requestAnimationFrame(() => {
-        window.scrollTo({ top: pendingReturnScroll.y, behavior: "instant" });
+        restore();
+        window.setTimeout(restore, 0);
+        window.setTimeout(restore, 120);
       });
     };
 
@@ -3850,6 +3894,7 @@ export default function App({
 
     return () => {
       window.removeEventListener("popstate", syncRouteFromLocation);
+      window.history.scrollRestoration = previousScrollRestoration;
     };
   }, []);
 
@@ -4019,6 +4064,13 @@ export default function App({
       setIsAboutRoute(routeState.isAboutRoute);
       setIsPythonCourseRoute(routeState.isPythonCourseRoute);
       setIsDataScienceCourseRoute(routeState.isDataScienceCourseRoute);
+      setIsFrontendCourseRoute(routeState.isFrontendCourseRoute);
+      setIsDataAnalystCourseRoute(routeState.isDataAnalystCourseRoute);
+      setIsCppCourseRoute(routeState.isCppCourseRoute);
+      setIsMobileDeveloperCourseRoute(routeState.isMobileDeveloperCourseRoute);
+      setIsUnrealEngineCourseRoute(routeState.isUnrealEngineCourseRoute);
+      setIsJavaCourseRoute(routeState.isJavaCourseRoute);
+      setIsMlEngineerCourseRoute(routeState.isMlEngineerCourseRoute);
       setIsReviewsRoute(routeState.isReviewsRoute);
       setIsTariffsRoute(routeState.isTariffsRoute);
     };
@@ -4310,10 +4362,13 @@ export default function App({
   };
 
   const saveReturnScrollPosition = () => {
-    pendingReturnScrollRef.current = {
+    const value = {
       path: `${window.location.pathname}${window.location.search}`,
       y: window.scrollY,
     };
+
+    pendingReturnScrollRef.current = value;
+    writeReturnScrollPosition(value);
   };
 
   const openReviewStory = (story: string | undefined) => {
@@ -4490,6 +4545,7 @@ export default function App({
   };
 
   const openPythonCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/python-course");
 
     setActiveReviewStory(null);
@@ -4512,6 +4568,7 @@ export default function App({
   };
 
   const openDataScienceCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/data-science-course");
 
     setActiveReviewStory(null);
@@ -4534,6 +4591,7 @@ export default function App({
   };
 
   const openFrontendCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/frontend-developer-course");
 
     setActiveReviewStory(null);
@@ -4556,6 +4614,7 @@ export default function App({
   };
 
   const openDataAnalystCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/data-analyst-course");
 
     setActiveReviewStory(null);
@@ -4578,6 +4637,7 @@ export default function App({
   };
 
   const openCppCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/cpp-developer-course");
 
     setActiveReviewStory(null);
@@ -4600,6 +4660,7 @@ export default function App({
   };
 
   const openMobileDeveloperCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/mobile-developer-course");
 
     setActiveReviewStory(null);
@@ -4622,6 +4683,7 @@ export default function App({
   };
 
   const openUnrealEngineCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/unreal-engine-course");
 
     setActiveReviewStory(null);
@@ -4644,6 +4706,7 @@ export default function App({
   };
 
   const openJavaCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/java-developer-course");
 
     setActiveReviewStory(null);
@@ -4666,6 +4729,7 @@ export default function App({
   };
 
   const openMlEngineerCoursePage = () => {
+    saveReturnScrollPosition();
     pushInternalRoute("/ml-engineer-course");
 
     setActiveReviewStory(null);

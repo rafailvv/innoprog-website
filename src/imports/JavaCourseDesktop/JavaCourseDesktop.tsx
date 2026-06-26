@@ -484,7 +484,7 @@ function Frame229() {
     <div className="bg-[rgba(255,255,255,0.6)] h-[599px] relative rounded-[40px] shrink-0 w-full">
       <div className="flex flex-col items-end justify-center overflow-clip rounded-[inherit] size-full">
         <div className="content-stretch flex flex-col items-end justify-between p-[24px] relative size-full">
-          <div className="absolute h-[1012px] left-[-123px] top-[-258px] w-[1048px]" data-name="ChatGPT Image 30 апр. 2026 г., 11_32_21_Nero_AI_Image_Upscaler_Photo_Face_Nero_AI_Background_Remover_transparent 1">
+          <div className="absolute h-[1012px] left-[-123px] top-[-258px] w-[1048px] site-java-hero-image-wrap site-java-hero-image-wrap--desktop" data-name="ChatGPT Image 30 апр. 2026 г., 11_32_21_Nero_AI_Image_Upscaler_Photo_Face_Nero_AI_Background_Remover_transparent 1">
             <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgJavaHero} />
           </div>
           <Frame228 />
