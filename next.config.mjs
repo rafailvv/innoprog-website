@@ -157,6 +157,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/oferta",
+        destination: "/documents/offer.pdf",
+      },
+      {
+        source: "/privacy",
+        destination: "/documents/privacy.pdf",
+      },
+    ];
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|webp|avif|svg)$/i,
