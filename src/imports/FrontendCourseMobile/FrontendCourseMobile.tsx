@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgFrontendHero from "../MainScreenDesktop/c6d3c38bc41dfc3341159f2554b64cfeaf3c7d6f.opt.webp";
+import imgFrontendHero from "../FrontendCourseDesktop/frontend-course-hero-main.png";
 import imgImage119 from "../FrontendCourseDesktop/personal-mentor.gif";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
@@ -44,7 +44,7 @@ const mobileProjectVisuals = [
   { title: "Chat interface", code: "chat-ui/" },
   { title: "Product analytics dashboard", code: "analytics-dashboard/" },
   { title: "PWA habit tracker", code: "habit-tracker-pwa/" },
-  { title: "Production React app", code: "production-react-app/" },
+  { title: "Student portal", code: "student-portal/" },
 ];
 
 const frontendMobileProjects = [
@@ -105,8 +105,8 @@ const frontendMobileProjects = [
     description: "Создадите приложение с трекером привычек, офлайн-режимом, локальным хранением, календарем и уведомительными состояниями",
   },
   {
-    title: "Продакшн-ориентированное React-приложение",
-    description: "Реализуете законченный проект с TypeScript, маршрутизацией, API, состоянием, тестами, доступностью, сборкой, деплоем и защитой архитектуры",
+    title: "Личный кабинет ученика онлайн-школы",
+    description: "Реализуете веб-кабинет с расписанием занятий, прогрессом по курсу, домашними заданиями, уведомлениями, профилем ученика, API-интеграцией и адаптивной версткой",
   },
 ];
 
@@ -763,9 +763,9 @@ function Frame275() {
 function Frame276() {
   return (
     <div className="[word-break:break-word] content-stretch flex font-['Manrope:ExtraBold',sans-serif] font-extrabold items-center justify-between leading-[20px] relative shrink-0 text-[#464a6a] text-[16px] text-center tracking-[0.48px] uppercase w-[350px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 90 000 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`от 150 000 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 250 000 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 79 500 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`от 142 100 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 276 700 ₽`}</p>
     </div>
   );
 }
@@ -785,7 +785,10 @@ function Frame168() {
       <Frame278 />
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-full">
         <p className="leading-[32px] mb-0">Уровень дохода frontend-разработчика</p>
-        <p className="leading-[32px]">по уровню подготовки</p>
+        <p className="leading-[32px]">
+          по данным{" "}
+          <a className="site-course-inline-link" href="https://career.hh.ru/profession/40" rel="noopener noreferrer" target="_blank">hh.ru</a>
+        </p>
       </div>
       <Frame277 />
     </div>
@@ -1381,7 +1384,7 @@ function Frame87() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start leading-[20px] relative shrink-0 text-black text-right w-[128px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light relative shrink-0 text-[10px] tracking-[0.3px] w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 120 000 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 79 500 ₽</p>
     </div>
   );
 }
@@ -3192,7 +3195,7 @@ function Frame36() {
         <p className="leading-[18px] mb-0">Сергей</p>
         <p className="leading-[18px]">Попкович</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3204,7 +3207,7 @@ function Frame37() {
         <p className="leading-[18px] mb-0">Григорий</p>
         <p className="leading-[18px]">Чепель</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3216,7 +3219,7 @@ function Frame38() {
         <p className="leading-[18px] mb-0">Павел</p>
         <p className="leading-[18px]">Мягчилов</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3315,7 +3318,7 @@ function Frame43() {
         <p className="leading-[18px] mb-0">Полина</p>
         <p className="leading-[18px]">Караева</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3429,7 +3432,7 @@ function Frame222() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 uppercase w-[348px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white w-full">Отзывы учеников</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[0.48px] w-full">о курсе Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[0.48px] w-full">о курсе Python-разработчик</p>
     </div>
   );
 }
@@ -3462,7 +3465,7 @@ function Frame214() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame218 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3543,7 +3546,7 @@ function Frame221() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame223 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3625,7 +3628,7 @@ function Frame227() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame228 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3701,7 +3704,7 @@ function Frame232() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame233 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Frontend-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-[rgba(0,0,0,0.4)] tracking-[0.48px] w-full">курс: Python-разработчик</p>
     </div>
   );
 }

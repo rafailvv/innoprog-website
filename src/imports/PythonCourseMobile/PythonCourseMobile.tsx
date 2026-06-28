@@ -695,9 +695,9 @@ function Frame275() {
 function Frame276() {
   return (
     <div className="[word-break:break-word] content-stretch flex font-['Manrope:ExtraBold',sans-serif] font-extrabold items-center justify-between leading-[20px] relative shrink-0 text-[#464a6a] text-[16px] text-center tracking-[0.48px] uppercase w-[350px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`< 87 444 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`> 155 373 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`> 293 783 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 102 400 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`от 165 600 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 314 000 ₽`}</p>
     </div>
   );
 }
@@ -1316,7 +1316,7 @@ function Frame87() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start leading-[20px] relative shrink-0 text-black text-right w-[128px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light relative shrink-0 text-[10px] tracking-[0.3px] w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 120 000 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 102 400 ₽</p>
     </div>
   );
 }
@@ -4588,7 +4588,7 @@ function Frame166() {
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">15</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px]">
-        <p className="leading-[16px] mb-0">крупных проектов</p>
+        <p className="leading-[16px] mb-0">вариативных проектов</p>
         <p className="leading-[16px]">в портфолио</p>
       </div>
     </div>

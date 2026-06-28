@@ -710,7 +710,7 @@ function Frame255() {
     <div className="bg-gradient-to-b flex-[1_0_0] from-[rgba(191,167,255,0.6)] h-[162px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] shadow-[15px_0px_80px_0px_rgba(156,120,255,0.2)] to-[78.365%] to-[rgba(156,120,255,0.8)]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`< 87 444 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 102 400 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Junior (начальный)</p>
         </div>
       </div>
@@ -723,7 +723,7 @@ function Frame256() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(156,120,255,0.2)] flex-[1_0_0] from-[#ae90ff] h-[342px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#8559ff]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`> 155 373 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 165 600 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Middle (средний)</p>
         </div>
       </div>
@@ -736,7 +736,7 @@ function Frame257() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(70,74,106,0.2)] flex-[1_0_0] from-[#7f87cd] h-[562px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#464a6a]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`> 293 783 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 314 000 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Senior (старший)</p>
         </div>
       </div>
@@ -1290,7 +1290,7 @@ function Frame98() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-right w-[290px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[24px] text-black w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 120 000 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 102 400 ₽</p>
     </div>
   );
 }
@@ -4761,7 +4761,7 @@ function Frame198() {
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">15</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
-        <p className="leading-[30px] mb-0 whitespace-pre">{`крупных проектов `}</p>
+        <p className="leading-[30px] mb-0 whitespace-pre">{`вариативных проектов `}</p>
         <p className="leading-[30px] whitespace-pre">в портфолио</p>
       </div>
     </div>

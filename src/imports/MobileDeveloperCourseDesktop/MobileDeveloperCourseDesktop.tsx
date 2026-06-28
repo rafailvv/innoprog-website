@@ -1,7 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
-import imgMobileDeveloperHero from "../MainScreenDesktop/e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
+import imgMobileDeveloperHero from "./mobile-developer-course-hero-main.png";
 import imgImage119 from "./personal-mentor.gif";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
 import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
@@ -52,7 +52,7 @@ const projectVisuals = [
   { title: "Fitness tracker", code: "fitness-tracker/" },
   { title: "Synced notes", code: "synced-notes/" },
   { title: "Auth profile app", code: "auth-profile-app/" },
-  { title: "Production Flutter app", code: "production-flutter-app/" },
+  { title: "Study planner app", code: "study-planner-app/" },
 ];
 
 const mobileDeveloperProjects = [
@@ -127,9 +127,9 @@ const mobileDeveloperProjects = [
       "Соберете мобильный проект с регистрацией, входом, защищенными экранами, профилем пользователя и обработкой ошибок API",
   },
   {
-    title: "Продакшн-версия Flutter-приложения",
+    title: "Мобильный планировщик обучения",
     description:
-      "Подготовите итоговый проект с архитектурой, локальным хранением, API, тестами, сборкой, релизной конфигурацией, README и демонстрацией",
+      "Создадите Flutter-приложение с расписанием занятий, задачами, прогрессом по курсу, push-состояниями, локальным хранением, API-синхронизацией и релизной сборкой",
   },
 ];
 
@@ -767,7 +767,8 @@ function Frame191() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[40px] items-start relative shrink-0 text-black w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] uppercase w-full">
-        Мобильный разработчик создает приложения для Android и iOS, проектирует интерфейсы, бизнес-логику, API-интеграции и локальное хранение
+        Мобильный разработчик создает приложения для Android и iOS, проектирует интерфейсы, бизнес-логику, API-интеграции и локальное хранение по данным{" "}
+        <a className="site-course-inline-link" href="https://career.hh.ru/profession/52" rel="noopener noreferrer" target="_blank">hh.ru</a>
       </p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
         <p className="leading-[30px] mb-0">На курсе вы проходите полный цикл мобильной разработки: Dart, Flutter UI, архитектуру, API, локальное хранение, тестирование и подготовку к публикации</p>
@@ -798,7 +799,7 @@ function Frame255() {
     <div className="bg-gradient-to-b flex-[1_0_0] from-[rgba(191,167,255,0.6)] h-[162px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] shadow-[15px_0px_80px_0px_rgba(156,120,255,0.2)] to-[78.365%] to-[rgba(156,120,255,0.8)]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 90 000 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 94 400 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Junior (начальный)</p>
         </div>
       </div>
@@ -811,7 +812,7 @@ function Frame256() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(156,120,255,0.2)] flex-[1_0_0] from-[#ae90ff] h-[342px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#8559ff]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 150 000 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 152 800 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Middle (средний)</p>
         </div>
       </div>
@@ -824,7 +825,7 @@ function Frame257() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(70,74,106,0.2)] flex-[1_0_0] from-[#7f87cd] h-[562px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#464a6a]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 250 000 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 280 000 ₽`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Senior (старший)</p>
         </div>
       </div>
@@ -1378,7 +1379,7 @@ function Frame98() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-right w-[290px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[24px] text-black w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 120 000 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 94 400 ₽</p>
     </div>
   );
 }
@@ -2565,13 +2566,13 @@ function Frame99() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold relative shrink-0 text-[32px] uppercase w-full">
-        <p className="leading-[33px] mb-0">Продакшн-версия Flutter-приложения</p>
-        <p className="leading-[33px]">для портфолио</p>
+        <p className="leading-[33px] mb-0">Мобильный планировщик</p>
+        <p className="leading-[33px]">обучения</p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[20px] w-full">
-        <p className="leading-[22px] mb-0">Разработаете полноценный мобильный проект</p>
-        <p className="leading-[22px] mb-0">с архитектурой, тестами, README, сборкой и релизной конфигурацией</p>
-        <p className="leading-[22px]">с логичной архитектурой, приближенной к реальным требованиям мобильной разработки</p>
+        <p className="leading-[22px] mb-0">Создадите Flutter-приложение с расписанием занятий, задачами</p>
+        <p className="leading-[22px] mb-0">прогрессом по курсу, push-состояниями и локальным хранением</p>
+        <p className="leading-[22px]">API-синхронизацией и релизной сборкой</p>
       </div>
     </div>
   );
@@ -3180,7 +3181,7 @@ function Frame45() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Сергей Попкович</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3198,7 +3199,7 @@ function Frame47() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Григорий Чепель</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3210,7 +3211,7 @@ function Frame48() {
         <p className="leading-[36px] mb-0">Алан</p>
         <p className="leading-[36px]">Агузаров</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Data Scientist</p>
     </div>
   );
 }
@@ -3219,7 +3220,7 @@ function Frame49() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Паавел Мягчилов</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3240,7 +3241,7 @@ function Frame52() {
         <p className="leading-[38px] mb-0">Полина</p>
         <p className="leading-[38px]">Караева</p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
   );
 }
@@ -3404,7 +3405,7 @@ function Frame212() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start relative shrink-0 uppercase w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white w-full">Отзывы учеников</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-[rgba(255,255,255,0.6)] w-full">о курсе Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-[rgba(255,255,255,0.6)] w-full">о курсе Python-разработчик</p>
     </div>
   );
 }
@@ -3437,7 +3438,7 @@ function Frame204() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame208 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3506,7 +3507,7 @@ function Frame211() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame213 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3557,7 +3558,7 @@ function Frame217() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame218 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -3626,7 +3627,7 @@ function Frame222() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame223 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Мобильный разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] w-full">курс: Python-разработчик</p>
     </div>
   );
 }
@@ -4833,7 +4834,7 @@ function Frame198() {
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">15</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
-        <p className="leading-[30px] mb-0 whitespace-pre">{`проектных работ `}</p>
+        <p className="leading-[30px] mb-0 whitespace-pre">{`мобильных проектов `}</p>
         <p className="leading-[30px] whitespace-pre">в портфолио</p>
       </div>
     </div>
