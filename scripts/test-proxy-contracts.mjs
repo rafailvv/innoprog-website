@@ -23,6 +23,11 @@ assert.match(
   "application request API route must forward requests server-side",
 );
 assert.match(
+  route,
+  /headers\.Authorization = `Bearer \$\{normalizedToken\}`;/,
+  "application request API route should attach a configured bot_api service token server-side",
+);
+assert.match(
   publicRoute,
   /export \{ OPTIONS, POST \} from "\.\.\/\.\.\/api\/application\/request\/route";/,
   "public /application/request route must reuse the protected API route implementation",

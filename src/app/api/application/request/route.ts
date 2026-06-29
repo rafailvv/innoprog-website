@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 const BOT_APPLICATION_URL =
   process.env.APPLICATION_REQUEST_PROXY_URL || "https://bot.innoprog.ru/application/request";
+const BOT_APPLICATION_TOKEN =
+  process.env.APPLICATION_REQUEST_PROXY_TOKEN ||
+  process.env.BOT_API_SERVICE_TOKEN ||
+  process.env.AUTH_TOKEN ||
+  "";
 const BOT_ALLOWED_ORIGIN = "https://innoprog.ru";
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const TURNSTILE_TEST_KEY_PREFIX = "1x000";
@@ -108,13 +113,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
     }
 
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+      Origin: BOT_ALLOWED_ORIGIN,
+      Referer: `${BOT_ALLOWED_ORIGIN}/`,
+    };
+    const normalizedToken = BOT_APPLICATION_TOKEN.replace(/^Bearer\s+/i, "").trim();
+    if (normalizedToken) {
+      headers.Authorization = `Bearer ${normalizedToken}`;
+    }
+
     const botResponse = await fetch(BOT_APPLICATION_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Origin: BOT_ALLOWED_ORIGIN,
-        Referer: `${BOT_ALLOWED_ORIGIN}/`,
-      },
+      headers,
       body: JSON.stringify(payload),
     });
 
