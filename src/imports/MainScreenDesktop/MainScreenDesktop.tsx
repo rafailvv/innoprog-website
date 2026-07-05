@@ -8,7 +8,7 @@ import imgImg29775 from "./e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
 import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
-import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero.png";
+import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.png";
 import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";

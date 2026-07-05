@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgCppHero from "../CppCourseDesktop/cpp-course-hero-main.png";
+import imgCppHero from "../MainScreenDesktop/8f047d89405d2f6d6d082c02c38bf64691b762d4.opt.webp";
 import imgImage119 from "../CppCourseDesktop/personal-mentor.gif";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";

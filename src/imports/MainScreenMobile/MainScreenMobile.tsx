@@ -8,7 +8,7 @@ import imgCourseMobile from "../MainScreenDesktop/e9d641090abdd6bedcdf1c20f81315
 import imgCourseUnreal from "../MainScreenDesktop/e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgCourseJava from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgCourseMl from "../MainScreenDesktop/c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
-import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero.png";
+import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.png";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";

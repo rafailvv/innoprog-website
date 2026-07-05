@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgJavaHero from "../JavaCourseDesktop/java-course-hero-main.png";
+import imgJavaHero from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImage119 from "../JavaCourseDesktop/personal-mentor.gif";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";

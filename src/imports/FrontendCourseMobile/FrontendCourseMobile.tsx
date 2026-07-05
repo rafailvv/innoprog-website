@@ -1,6 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgFrontendHero from "../FrontendCourseDesktop/frontend-course-hero-main.png";
+import imgFrontendHero from "../MainScreenDesktop/c6d3c38bc41dfc3341159f2554b64cfeaf3c7d6f.opt.webp";
 import imgImage119 from "../FrontendCourseDesktop/personal-mentor.gif";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
