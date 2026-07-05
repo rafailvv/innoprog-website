@@ -766,6 +766,125 @@
   line-height: 34px;
 }
 
+.site-course-reviews-carousel .site-course-review-card--dynamic {
+  align-self: stretch;
+  display: flex !important;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.site-course-direction-review-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.site-course-direction-review-card::after {
+  border: 1px solid #9c78ff;
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.site-course-direction-review-card__head {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 54px 1fr auto;
+}
+
+.site-course-direction-review-card__avatar {
+  align-items: center;
+  background: linear-gradient(135deg, #9c78ff, #6f42ff);
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-flex;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  height: 54px;
+  justify-content: center;
+  width: 54px;
+}
+
+.site-course-direction-review-card__person {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.site-course-direction-review-card__person strong {
+  color: #201838;
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 25px;
+}
+
+.site-course-direction-review-card__person span,
+.site-course-direction-review-card__course {
+  color: rgba(32, 24, 56, 0.58);
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.site-course-direction-review-card__rating {
+  color: #201838;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.site-course-direction-review-card__course {
+  background: rgba(156, 120, 255, 0.12);
+  border-radius: 999px;
+  color: #59418a;
+  display: inline-flex;
+  padding: 8px 14px;
+  width: fit-content;
+}
+
+.site-course-direction-review-card__title {
+  color: #201838;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 29px;
+}
+
+.site-course-direction-review-card__body {
+  color: rgba(32, 24, 56, 0.78);
+  display: -webkit-box;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 25px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.site-course-direction-review-card__read-more {
+  color: #7c55e7;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin-top: auto;
+  text-transform: uppercase;
+}
+
 .site-course-review-feature h3 {
   margin-top: 44px;
   font-size: 32px;
@@ -1094,6 +1213,62 @@
   .site-course-review-rating span:last-child {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .site-course-reviews-carousel .site-course-review-card--dynamic {
+    min-height: 340px;
+  }
+
+  .site-course-direction-review-card {
+    gap: 12px;
+    padding: 22px 18px;
+  }
+
+  .site-course-direction-review-card__head {
+    gap: 10px;
+    grid-template-columns: 42px 1fr;
+  }
+
+  .site-course-direction-review-card__avatar {
+    font-size: 19px;
+    height: 42px;
+    width: 42px;
+  }
+
+  .site-course-direction-review-card__person strong {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .site-course-direction-review-card__person span,
+  .site-course-direction-review-card__course {
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .site-course-direction-review-card__rating {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .site-course-direction-review-card__course {
+    padding: 7px 11px;
+  }
+
+  .site-course-direction-review-card__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .site-course-direction-review-card__body {
+    font-size: 14px;
+    line-height: 20px;
+    -webkit-line-clamp: 6;
+  }
+
+  .site-course-direction-review-card__read-more {
+    font-size: 12px;
   }
 
   .site-course-review-feature h3 {
