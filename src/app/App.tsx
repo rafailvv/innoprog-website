@@ -55,7 +55,6 @@ import {
   getReviewCoursePath,
   getReviewsDirectionPath,
   getStudentReviewPath,
-  getStudentReviewTextPath,
   normalizeReviewsDirectionKey,
   type ReviewsDirectionKey,
   type StudentReview,
@@ -1147,6 +1146,12 @@ function getStudentReviewFromPathname(pathname: string): string | null {
   return review.id;
 }
 
+function getStudentReviewFromSearchParams(searchParams: URLSearchParams): string | null {
+  const review = findStudentReviewByRouteSlug(searchParams.get("review"));
+
+  return review?.id ?? null;
+}
+
 function getCourseReviewFromHash(): CourseReviewKey | null {
   if (typeof window === "undefined") {
     return null;
@@ -1229,7 +1234,7 @@ function getCleanPathFromHash(): string | null {
   const hashStudentReview = getStudentReviewFromHash();
 
   if (hashStudentReview) {
-    return getStudentReviewTextPath(hashStudentReview);
+    return getStudentReviewPath(hashStudentReview);
   }
 
   const hashStory = getReviewStoryFromHash();
@@ -1254,6 +1259,7 @@ function getRouteFromLocation(): AppInitialRoute {
 
   const cleanHashPath = getCleanPathFromHash();
   const pathname = cleanHashPath ?? window.location.pathname;
+  const searchParams = new URLSearchParams(window.location.search);
 
   if (cleanHashPath) {
     window.history.replaceState(null, "", cleanHashPath);
@@ -1263,6 +1269,14 @@ function getRouteFromLocation(): AppInitialRoute {
 
   if (pathStudentReview) {
     return { page: "studentReview", review: pathStudentReview };
+  }
+
+  if (pathname === "/reviews") {
+    const queryStudentReview = getStudentReviewFromSearchParams(searchParams);
+
+    if (queryStudentReview) {
+      return { page: "studentReview", review: queryStudentReview };
+    }
   }
 
   const pathStory = getReviewStoryFromPathname(pathname);
@@ -1838,7 +1852,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
       className="site-reviews-index-card"
       data-student-review={review.id}
       draggable={false}
-      href={getStudentReviewTextPath(review)}
+      href={getStudentReviewPath(review)}
       id={reviewAnchorId}
     >
       {content}
@@ -4695,7 +4709,7 @@ export default function App({
       return;
     }
 
-    const nextPath = getStudentReviewTextPath(review);
+    const nextPath = getStudentReviewPath(review);
 
     trackMetrikaGoal("student_review_open", {
       review: review.id,
