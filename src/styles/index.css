@@ -2271,6 +2271,11 @@ body {
   background: transparent;
 }
 
+.site-not-found .site-review-page__free.site-not-found__message {
+  padding: 0;
+  background: transparent;
+}
+
 .site-not-found__message h1 {
   margin: 0;
   color: #000000;
@@ -2333,8 +2338,15 @@ body {
 }
 
 .site-not-found__courses > div {
-  max-width: 1040px;
+  max-width: 1280px;
   justify-content: flex-start;
+}
+
+.site-not-found .site-reviews-index-page__directions--top a {
+  min-height: 62px;
+  padding: 0 22px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .site-not-found .site-review-page__footer {

@@ -9,7 +9,7 @@ export default function NotFoundPageContent() {
           <img alt="ИННОПРОГ Education" src="/logo_education.png" />
         </Link>
         <nav className="site-review-page__nav" aria-label="Основные разделы">
-          <Link href="/python-course">для взрослых</Link>
+          <Link href="/">для взрослых</Link>
           <Link href="/reviews">отзывы</Link>
           <Link href="/about">о нас</Link>
           <Link href="/tariffs">тарифы</Link>
@@ -35,7 +35,7 @@ export default function NotFoundPageContent() {
           </div>
         </section>
 
-        <section className="site-reviews-index-page__directions site-not-found__courses" aria-labelledby="not-found-courses">
+        <section className="site-reviews-index-page__directions site-reviews-index-page__directions--top site-not-found__courses" aria-labelledby="not-found-courses">
           <h2 id="not-found-courses">Популярные направления</h2>
           <div>
             {COURSE_SEO_ITEMS.map((course) => (
