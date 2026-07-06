@@ -893,6 +893,31 @@ function getServerViewportSnapshot() {
   return String(DESKTOP_DESIGN.width);
 }
 
+function getSafariSnapshot() {
+  if (typeof navigator === "undefined") {
+    return "false";
+  }
+
+  const userAgent = navigator.userAgent;
+  const isSafari = /Safari/i.test(userAgent) &&
+    /AppleWebKit/i.test(userAgent) &&
+    !/(Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android)/i.test(userAgent);
+
+  return isSafari ? "true" : "false";
+}
+
+function getServerSafariSnapshot() {
+  return "false";
+}
+
+function useIsSafariBrowser() {
+  return useSyncExternalStore(
+    () => () => {},
+    getSafariSnapshot,
+    getServerSafariSnapshot,
+  ) === "true";
+}
+
 function useViewportState() {
   const viewportWidth = Number(useSyncExternalStore(
     subscribeViewport,
@@ -3985,6 +4010,7 @@ export default function App({
   const initialRouteState = getRouteState(initialRoute);
   const router = useRouter();
   const viewport = useViewportState();
+  const isSafariBrowser = useIsSafariBrowser();
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
     initialRouteState.activeReviewStory,
@@ -5711,11 +5737,19 @@ export default function App({
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
-  const canvasStyle = {
-    width: `${activeDesign.width}px`,
-    height: `${activeDesign.height}px`,
-    transform: `scale(${viewport.scale})`,
-  } as CSSProperties;
+  const shouldUseSafariCanvasZoom = !viewport.isMobile && isSafariBrowser;
+  const canvasStyle = shouldUseSafariCanvasZoom
+    ? {
+        width: `${activeDesign.width}px`,
+        height: `${activeDesign.height}px`,
+        transform: "none",
+        zoom: viewport.scale,
+      } as CSSProperties & { zoom?: number }
+    : {
+        width: `${activeDesign.width}px`,
+        height: `${activeDesign.height}px`,
+        transform: `scale(${viewport.scale})`,
+      } as CSSProperties;
 
   return (
     <main
@@ -5725,6 +5759,7 @@ export default function App({
         isReady ? "site-shell--ready" : "",
         isReviewTransitionLoading ? "site-shell--review-transition-loading" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
+        shouldUseSafariCanvasZoom ? "site-shell--safari-canvas-zoom" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isCourseReviewRoute ? "site-shell--course-review-route" : "",
         isStudentReviewRoute ? "site-shell--student-review-route" : "",
@@ -5746,7 +5781,9 @@ export default function App({
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={isStandaloneRoute ? undefined : { minHeight: `${Math.ceil(activeDesign.height * viewport.scale)}px` }}
+      style={isStandaloneRoute ? undefined : {
+        minHeight: `${Math.ceil(activeDesign.height * viewport.scale) + (shouldUseSafariCanvasZoom ? 8 : 0)}px`,
+      }}
     >
       {isReviewRoute ? (
         <ReviewStoryPage
