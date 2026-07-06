@@ -212,9 +212,8 @@ const desktopScrollTargets = {
 
 const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 
-const LOADER_MIN_MS = 650;
-const LOADER_MAX_MS = 2600;
-const LOADED_STORAGE_KEY = "innoprog-site-loaded";
+const LOADER_MIN_MS = 900;
+const LOADER_MAX_MS = 6200;
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
 const LOADER_EXIT_MS = 700;
@@ -3827,14 +3826,6 @@ function preloadImage(src: string) {
   });
 }
 
-function hasLoadedInSession() {
-  try {
-    return window.sessionStorage.getItem(LOADED_STORAGE_KEY) === "true";
-  } catch {
-    return false;
-  }
-}
-
 function hasCookieConsent() {
   if (typeof window === "undefined") {
     return true;
@@ -3844,14 +3835,6 @@ function hasCookieConsent() {
     return window.localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) === "accepted";
   } catch {
     return false;
-  }
-}
-
-function rememberLoadedInSession() {
-  try {
-    window.sessionStorage.setItem(LOADED_STORAGE_KEY, "true");
-  } catch {
-    // Storage can be unavailable in private or restricted contexts.
   }
 }
 
@@ -3895,9 +3878,29 @@ function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
   const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
+  const pageImageSources = new Set<string>();
+
+  images.forEach((image) => {
+    image.decoding = "async";
+    image.loading = "eager";
+    image.setAttribute("fetchpriority", "high");
+
+    const source = image.currentSrc || image.src;
+
+    if (source) {
+      pageImageSources.add(source);
+    }
+  });
+
+  document.querySelectorAll<HTMLVideoElement>("video").forEach((video) => {
+    video.preload = "auto";
+    video.setAttribute("preload", "auto");
+    video.load();
+  });
 
   return Promise.all([
     ...getCriticalAssets(isMobile).map(preloadImage),
+    ...Array.from(pageImageSources).map(preloadImage),
     loaderLogo && !loaderLogo.complete ? preloadImage(loaderLogo.src) : Promise.resolve(),
     fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
   ]).then(() => undefined);
@@ -4134,13 +4137,16 @@ export default function App({
   }, []);
 
   useEffect(() => {
-    if (hasLoadedInSession()) {
-      setIsReady(true);
-      setShouldShowLoader(false);
-    }
-
     setShouldShowCookieBanner(!hasCookieConsent());
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("site-app-ready", isReady);
+
+    return () => {
+      document.documentElement.classList.remove("site-app-ready");
+    };
+  }, [isReady]);
 
   useEffect(() => {
     let rafId = 0;
@@ -4171,7 +4177,6 @@ export default function App({
 
   useEffect(() => {
     if (isReady) {
-      rememberLoadedInSession();
       return;
     }
 
@@ -4206,7 +4211,6 @@ export default function App({
       return;
     }
 
-    rememberLoadedInSession();
     const hideTimer = window.setTimeout(() => setShouldShowLoader(false), LOADER_EXIT_MS);
 
     return () => {

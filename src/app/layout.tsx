@@ -85,6 +85,74 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru">
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html:not(.site-app-ready) {
+                overflow: hidden;
+              }
+
+              html:not(.site-app-ready) .site-shell {
+                opacity: 0;
+                visibility: hidden;
+              }
+
+              .site-boot-loader {
+                position: fixed;
+                inset: 0;
+                z-index: 3000;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+                justify-content: center;
+                background: radial-gradient(circle at 50% 45%, rgba(156, 120, 255, 0.24), rgba(255, 255, 255, 0) 34%), #ffffff;
+                opacity: 1;
+                pointer-events: auto;
+                transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), visibility 650ms step-end;
+              }
+
+              .site-boot-loader__logo {
+                display: block;
+                width: min(628px, 78vw);
+                height: auto;
+                user-select: none;
+              }
+
+              .site-boot-loader__bar {
+                width: min(320px, 58vw);
+                height: 6px;
+                overflow: hidden;
+                border-radius: 999px;
+                background: rgba(70, 74, 106, 0.14);
+              }
+
+              .site-boot-loader__bar-fill {
+                width: 46%;
+                height: 100%;
+                border-radius: inherit;
+                background: #9c78ff;
+                animation: site-loader-slide 1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+              }
+
+              @keyframes site-loader-slide {
+                0% {
+                  transform: translateX(-115%);
+                }
+
+                100% {
+                  transform: translateX(250%);
+                }
+              }
+
+              html.site-app-ready .site-boot-loader {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+              }
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -93,7 +161,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <div className="site-boot-loader" aria-hidden="true">
+          <img
+            alt=""
+            className="site-boot-loader__logo"
+            decoding="async"
+            src="/logo_education.png"
+          />
+          <div className="site-boot-loader__bar">
+            <div className="site-boot-loader__bar-fill" />
+          </div>
+        </div>
         {children}
+        <Script id="site-boot-non-app" strategy="afterInteractive">
+          {`
+            if (!document.querySelector('.site-shell')) {
+              document.documentElement.classList.add('site-app-ready');
+            }
+          `}
+        </Script>
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){
