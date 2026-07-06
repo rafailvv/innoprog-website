@@ -3803,7 +3803,7 @@ function Frame22() {
 function Component9() {
   return (
     <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-reviews" data-name="сами отзывы">
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="vildan" draggable={false} href="/python-course/reviews/vildan">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="vildan" draggable={false} href="/reviews?direction=python#review-vildan">
         <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
           <Frame206 />
           <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">
@@ -3812,11 +3812,11 @@ function Component9() {
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
       </a>
-      <a className="bg-white content-stretch cursor-pointer flex flex-col items-end no-underline p-[32px] relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="veniamin" draggable={false} href="/python-course/reviews/veniamin">
+      <a className="bg-white content-stretch cursor-pointer flex flex-col items-end no-underline p-[32px] relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="veniamin" draggable={false} href="/reviews?direction=python#review-veniamin">
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <Frame207 />
       </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="ilya" draggable={false} href="/python-course/reviews/ilya">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="ilya" draggable={false} href="/reviews?direction=python#review-ilya">
         <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
           <Frame216 />
           <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">
@@ -3825,7 +3825,7 @@ function Component9() {
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
       </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="andrey" draggable={false} href="/python-course/reviews/andrey">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="andrey" draggable={false} href="/reviews?direction=python#review-andrey">
         <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
           <Frame221 />
           <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">

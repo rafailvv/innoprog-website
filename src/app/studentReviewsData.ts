@@ -23,6 +23,20 @@ export type StudentReview = {
   courseReviewKey?: string;
 };
 
+export const REVIEW_COURSE_PATH_BY_DIRECTION: Record<
+  Exclude<ReviewsDirectionKey, typeof ALL_REVIEWS_DIRECTION_KEY>,
+  string
+> = {
+  python: "/python-course",
+  "data-science": "/data-science-course",
+  cpp: "/cpp-developer-course",
+  java: "/java-developer-course",
+  frontend: "/frontend-developer-course",
+  ml: "/ml-engineer-course",
+  unreal: "/unreal-engine-course",
+  mobile: "/mobile-developer-course",
+};
+
 export const REVIEWS_DIRECTIONS: readonly {
   key: ReviewsDirectionKey;
   label: string;
@@ -77,8 +91,22 @@ export function getReviewsDirectionPath(direction: ReviewsDirectionKey) {
   return direction === ALL_REVIEWS_DIRECTION_KEY ? "/reviews" : `/reviews?direction=${direction}`;
 }
 
-export function getStudentReviewPath(reviewId: string) {
-  return `/reviews/text/${encodeURIComponent(reviewId)}`;
+export function getReviewCoursePath(direction: StudentReview["direction"]) {
+  return REVIEW_COURSE_PATH_BY_DIRECTION[direction];
+}
+
+export function getStudentReviewSlug(review: StudentReview) {
+  return review.courseReviewKey || review.id;
+}
+
+export function getStudentReviewPath(reviewOrId: StudentReview | string) {
+  const review = typeof reviewOrId === "string" ? findStudentReviewByRouteSlug(reviewOrId) : reviewOrId;
+
+  if (!review) {
+    return "/reviews";
+  }
+
+  return `${getReviewsDirectionPath(review.direction)}#review-${encodeURIComponent(getStudentReviewSlug(review))}`;
 }
 
 export const STUDENT_REVIEWS: readonly StudentReview[] = [
@@ -448,6 +476,23 @@ export function findStudentReviewById(value?: string | null): StudentReview | nu
     const reviewId = decodeURIComponent(value);
 
     return STUDENT_REVIEWS.find((review) => review.id === reviewId) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function findStudentReviewByRouteSlug(value?: string | null): StudentReview | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const reviewSlug = decodeURIComponent(value);
+
+    return (
+      STUDENT_REVIEWS.find((review) => review.id === reviewSlug || review.courseReviewKey === reviewSlug) ??
+      null
+    );
   } catch {
     return null;
   }

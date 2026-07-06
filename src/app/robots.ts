@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "./seo";
 
+const SITE_HOST = new URL(SITE_URL).host;
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -10,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/application/request", "/healthz"],
       },
     ],
-    host: SITE_URL,
+    host: SITE_HOST,
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

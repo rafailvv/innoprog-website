@@ -3831,25 +3831,25 @@ function Frame15() {
 function Frame248() {
   return (
     <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-mobile-reviews">
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="vildan" data-name="отзвывы все" draggable={false} href="/python-course/reviews/vildan">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="vildan" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-vildan">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame216 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="veniamin" data-name="отзвывы все" draggable={false} href="/python-course/reviews/veniamin">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="veniamin" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-veniamin">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame217 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="ilya" data-name="отзвывы все" draggable={false} href="/python-course/reviews/ilya">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="ilya" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-ilya">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame226 />
         </div>
         <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
       </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="andrey" data-name="отзвывы все" draggable={false} href="/python-course/reviews/andrey">
+      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="andrey" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-andrey">
         <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
           <Frame231 />
         </div>

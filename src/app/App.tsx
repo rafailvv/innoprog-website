@@ -42,15 +42,17 @@ import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.s
 import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
 import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
 import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-telegram.svg";
-import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.png";
-import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.png";
-import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.png";
+import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.opt.webp";
+import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.opt.webp";
+import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.opt.webp";
 import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
 import {
   ALL_REVIEWS_DIRECTION_KEY,
   REVIEWS_DIRECTIONS,
   STUDENT_REVIEWS,
   findStudentReviewById,
+  findStudentReviewByRouteSlug,
+  getReviewCoursePath,
   getReviewsDirectionPath,
   getStudentReviewPath,
   normalizeReviewsDirectionKey,
@@ -82,13 +84,7 @@ const MOBILE_BREAKPOINT = 768;
 type CourseReviewsDirection = Exclude<ReviewsDirectionKey, typeof ALL_REVIEWS_DIRECTION_KEY>;
 
 function getCourseReviewHref(review: StudentReview) {
-  const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
-
-  if (courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES) {
-    return `/python-course/reviews/${COURSE_REVIEW_ROUTES[courseReviewKey]}`;
-  }
-
-  return getStudentReviewPath(review.id);
+  return getStudentReviewPath(review);
 }
 
 function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
@@ -1044,15 +1040,41 @@ function getStudentReviewFromHash(): string | null {
     return null;
   }
 
-  const route = window.location.hash.match(/^#\/reviews\/text\/([^/?#]+)/)?.[1];
+  const legacyRoute = window.location.hash.match(/^#\/reviews\/text\/([^/?#]+)/)?.[1];
+  const legacyReview = findStudentReviewById(legacyRoute);
 
-  return findStudentReviewById(route)?.id ?? null;
+  if (legacyReview && !legacyReview.courseReviewKey) {
+    return legacyReview.id;
+  }
+
+  const route = window.location.hash.match(/^#\/([^/?#]+)\/reviews\/([^/?#]+)/);
+  const coursePath = route ? `/${decodeURIComponent(route[1])}` : null;
+  const review = findStudentReviewByRouteSlug(route?.[2]);
+
+  if (!review || review.courseReviewKey || getReviewCoursePath(review.direction) !== coursePath) {
+    return null;
+  }
+
+  return review.id;
 }
 
 function getStudentReviewFromPathname(pathname: string): string | null {
-  const route = pathname.match(/^\/reviews\/text\/([^/?#]+)/)?.[1];
+  const legacyRoute = pathname.match(/^\/reviews\/text\/([^/?#]+)/)?.[1];
+  const legacyReview = findStudentReviewById(legacyRoute);
 
-  return findStudentReviewById(route)?.id ?? null;
+  if (legacyReview && !legacyReview.courseReviewKey) {
+    return legacyReview.id;
+  }
+
+  const route = pathname.match(/^\/([^/?#]+)\/reviews\/([^/?#]+)/);
+  const coursePath = route ? `/${decodeURIComponent(route[1])}` : null;
+  const review = findStudentReviewByRouteSlug(route?.[2]);
+
+  if (!review || review.courseReviewKey || getReviewCoursePath(review.direction) !== coursePath) {
+    return null;
+  }
+
+  return review.id;
 }
 
 function getCourseReviewFromHash(): CourseReviewKey | null {
@@ -1149,7 +1171,7 @@ function getCleanPathFromHash(): string | null {
   const hashCourseReview = getCourseReviewFromHash();
 
   if (hashCourseReview) {
-    return `/python-course/reviews/${COURSE_REVIEW_ROUTES[hashCourseReview]}`;
+    return getStudentReviewPath(hashCourseReview);
   }
 
   return null;
@@ -1460,7 +1482,7 @@ function ReviewStyleCard({
   const href = storyKey
     ? `/reviews/${REVIEW_ROUTES[storyKey]}`
     : courseReviewKey
-      ? `/python-course/reviews/${COURSE_REVIEW_ROUTES[courseReviewKey]}`
+      ? getStudentReviewPath(courseReviewKey)
       : undefined;
 
   return (
@@ -1723,6 +1745,7 @@ function ReviewsIndexPage({
 }
 
 function ReviewsIndexCard({ review }: { review: StudentReview }) {
+  const reviewAnchorId = `review-${review.courseReviewKey || review.id}`;
   const content = (
     <>
       <span className="site-reviews-index-card__head">
@@ -1741,7 +1764,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
   );
   const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
   const courseReviewPath = courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES
-    ? `/python-course/reviews/${COURSE_REVIEW_ROUTES[courseReviewKey]}`
+    ? getStudentReviewPath(review)
     : null;
 
   if (courseReviewPath) {
@@ -1752,6 +1775,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
         data-course-review={courseReviewKey}
         draggable={false}
         href={courseReviewPath}
+        id={reviewAnchorId}
       >
         {content}
       </a>
@@ -1765,6 +1789,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
       data-student-review={review.id}
       draggable={false}
       href={getStudentReviewPath(review.id)}
+      id={reviewAnchorId}
     >
       {content}
     </a>
@@ -2039,7 +2064,14 @@ function AboutPage({
         </div>
 
         <section className="site-about-hero">
-          <img alt="" src={aboutHeroUrl} />
+          <img
+            alt=""
+            decoding="async"
+            fetchPriority="high"
+            height={700}
+            src={aboutHeroUrl}
+            width={1280}
+          />
           <h1>
             <span>Кто мы?</span>
             <span>наша миссия?</span>
@@ -2072,7 +2104,7 @@ function AboutPage({
             </article>
 
             <div className="site-about-swirl" aria-hidden="true">
-              <img alt="" src={aboutSwirlUrl} />
+              <img alt="" decoding="async" height={487} loading="lazy" src={aboutSwirlUrl} width={302} />
             </div>
 
             <article className="site-about-card site-about-card--purple">
@@ -2101,7 +2133,14 @@ function AboutPage({
           <section className="site-about-city">
             <h2>Мы из Иннополиса</h2>
             <div>
-              <img alt="Иннополис" src={aboutInnopolisUrl} />
+              <img
+                alt="Иннополис"
+                decoding="async"
+                height={468}
+                loading="lazy"
+                src={aboutInnopolisUrl}
+                width={791}
+              />
               <div>
                 <p>Наше сотрудничество с Иннополисом базируется на реализации эффективного образовательного процесса ИННОПРОГ</p>
                 <p>Совместные усилия дают возможность для развития образовательной платформы и её методических материалов, а также использования современных методов обучения</p>
@@ -4563,17 +4602,17 @@ export default function App({
   const openCourseReviewStory = (review: string | undefined) => {
     const key = review as CourseReviewKey | undefined;
 
-    if (!key || !(key in COURSE_REVIEW_STORIES)) {
+    if (!key || !(key in COURSE_REVIEW_ROUTES)) {
       return;
     }
 
-    const nextPath = `/python-course/reviews/${COURSE_REVIEW_ROUTES[key]}`;
+    const nextPath = getStudentReviewPath(key);
 
     saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
-    setActiveCourseReview(key);
+    setActiveCourseReview(null);
     setActiveStudentReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
@@ -4585,8 +4624,9 @@ export default function App({
     setIsUnrealEngineCourseRoute(false);
     setIsJavaCourseRoute(false);
     setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
+    setIsReviewsRoute(true);
     setIsTariffsRoute(false);
+    setActiveReviewsDirection("python");
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
@@ -4598,14 +4638,14 @@ export default function App({
       return;
     }
 
-    const nextPath = getStudentReviewPath(review.id);
+    const nextPath = getStudentReviewPath(review);
 
     saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
-    setActiveStudentReview(review.id);
+    setActiveStudentReview(null);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
@@ -4616,8 +4656,9 @@ export default function App({
     setIsUnrealEngineCourseRoute(false);
     setIsJavaCourseRoute(false);
     setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
+    setIsReviewsRoute(true);
     setIsTariffsRoute(false);
+    setActiveReviewsDirection(review.direction);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };

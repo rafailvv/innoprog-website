@@ -78,6 +78,54 @@ export const DEFAULT_ROBOTS: Metadata["robots"] = {
   },
 };
 
+export const COURSE_SEO_ITEMS = [
+  {
+    name: "Python-разработчик",
+    path: "/python-course",
+    description: "Онлайн-курс Python-разработчик с наставником, практикой на платформе, проектами в портфолио и документами после обучения",
+  },
+  {
+    name: "Data Science",
+    path: "/data-science-course",
+    description: "Онлайн-курс Data Science: Python, SQL, статистика, машинное обучение, MLOps и 13 проектных работ с наставником",
+  },
+  {
+    name: "Frontend-разработчик",
+    path: "/frontend-developer-course",
+    description: "Онлайн-курс Frontend-разработчик: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и 15 проектных работ",
+  },
+  {
+    name: "Data-аналитик",
+    path: "/data-analyst-course",
+    description: "Онлайн-курс Data-аналитик: SQL, Python, BI, статистика, A/B-тестирование и 15 аналитических проектов",
+  },
+  {
+    name: "C++ разработчик",
+    path: "/cpp-developer-course",
+    description: "Онлайн-курс C++ разработчик: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 проектов",
+  },
+  {
+    name: "Мобильный разработчик",
+    path: "/mobile-developer-course",
+    description: "Онлайн-курс мобильной разработки: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование и 15 проектов",
+  },
+  {
+    name: "Unreal Engine",
+    path: "/unreal-engine-course",
+    description: "Онлайн-курс Unreal Engine: Unreal Engine 5, Blueprint, игровые механики, UMG, State Tree, оптимизация и 6 проектов",
+  },
+  {
+    name: "Java-разработчик",
+    path: "/java-developer-course",
+    description: "Онлайн-курс Java-разработчик: Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API и 15 проектов",
+  },
+  {
+    name: "ML-инженер",
+    path: "/ml-engineer-course",
+    description: "Онлайн-курс ML-инженер: Python, SQL, статистика, ML, deep learning, NLP, CV, MLOps, FastAPI, Docker и 15 проектов",
+  },
+] as const;
+
 export const REVIEW_ROUTE_TO_KEY = {
   kirill: "кирилл",
   anastasia: "анастасия",
@@ -280,31 +328,61 @@ export const siteNavigationJsonLd = {
       name: "Главная",
       url: SITE_URL,
     },
+    ...COURSE_SEO_ITEMS.map((course, index) => ({
+      "@type": "SiteNavigationElement",
+      position: index + 2,
+      name: `Курс ${course.name}`,
+      url: absoluteUrl(course.path),
+    })),
     {
       "@type": "SiteNavigationElement",
-      position: 2,
-      name: "Курс Python-разработчик",
-      url: absoluteUrl("/python-course"),
-    },
-    {
-      "@type": "SiteNavigationElement",
-      position: 3,
+      position: COURSE_SEO_ITEMS.length + 2,
       name: "Тарифы",
       url: absoluteUrl("/tariffs"),
     },
     {
       "@type": "SiteNavigationElement",
-      position: 4,
+      position: COURSE_SEO_ITEMS.length + 3,
       name: "Отзывы",
       url: absoluteUrl("/reviews"),
     },
     {
       "@type": "SiteNavigationElement",
-      position: 5,
+      position: COURSE_SEO_ITEMS.length + 4,
       name: "О нас",
       url: absoluteUrl("/about"),
     },
   ],
+};
+
+export const courseCatalogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE_URL}/#course-catalog`,
+  name: "Направления обучения ИННОПРОГ",
+  description: "Каталог онлайн-курсов программирования ИННОПРОГ для взрослых и детей",
+  inLanguage: "ru-RU",
+  publisher: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  itemListElement: COURSE_SEO_ITEMS.map((course, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: absoluteUrl(course.path),
+    item: {
+      "@type": "Course",
+      "@id": `${absoluteUrl(course.path)}#course`,
+      name: course.name,
+      description: course.description,
+      url: absoluteUrl(course.path),
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      courseMode: "online",
+      inLanguage: "ru-RU",
+      isAccessibleForFree: false,
+    },
+  })),
 };
 
 export const courseJsonLd = {
@@ -327,6 +405,13 @@ export const courseJsonLd = {
   teaches: [
     "Python",
     "Data Science",
+    "Frontend-разработка",
+    "Data-аналитика",
+    "C++",
+    "мобильная разработка",
+    "Unreal Engine",
+    "Java",
+    "машинное обучение",
     "программирование",
     "аналитика данных",
     "разработка приложений",

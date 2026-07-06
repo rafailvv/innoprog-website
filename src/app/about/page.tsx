@@ -1,4 +1,5 @@
 import App from "../App";
+import aboutHeroUrl from "../../imports/MainScreenDesktop/about-hero.opt.webp";
 import { JsonLd, breadcrumbJsonLd, createPageMetadata, organizationJsonLd, webPageJsonLd } from "../seo";
 
 const ABOUT_DESCRIPTION =
@@ -14,6 +15,7 @@ export const metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
+      <link rel="preload" as="image" href={aboutHeroUrl} fetchPriority="high" />
       <JsonLd data={organizationJsonLd} />
       <JsonLd
         data={webPageJsonLd({

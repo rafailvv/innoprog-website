@@ -1,0 +1,58 @@
+# INNOPROG
+
+> INNOPROG is an online programming school for adults and children. The canonical public website is https://innoprog.ru.
+
+## Primary pages
+
+- Homepage: https://innoprog.ru/
+- Python developer course: https://innoprog.ru/python-course
+- Data Science course: https://innoprog.ru/data-science-course
+- Frontend developer course: https://innoprog.ru/frontend-developer-course
+- Data analyst course: https://innoprog.ru/data-analyst-course
+- C++ developer course: https://innoprog.ru/cpp-developer-course
+- Mobile developer course: https://innoprog.ru/mobile-developer-course
+- Unreal Engine course: https://innoprog.ru/unreal-engine-course
+- Java developer course: https://innoprog.ru/java-developer-course
+- ML engineer course: https://innoprog.ru/ml-engineer-course
+- Reviews: https://innoprog.ru/reviews
+- Tariffs: https://innoprog.ru/tariffs
+- About: https://innoprog.ru/about
+
+## Organization facts
+
+- Brand: INNOPROG / ИННОПРОГ
+- Legal name: ООО "ИННОПРОГ"
+- Field: online IT education and programming courses
+- Format: online learning with mentors, practical assignments, project portfolio, learning platform, and support during training
+- Main language: Russian
+- Geography: Russia
+- Email: education@innoprog.ru
+- Phone: +7 958 606-79-80
+- Telegram: https://t.me/innoprog_admin
+- Legal identifiers: INN 1683011286, OGRN 1221600105440
+
+## Course facts
+
+- Python developer: online Python course with mentor support, practice on the platform, projects for portfolio, and documents after training
+- Data Science: Python, SQL, statistics, machine learning, MLOps, and 13 project works
+- Frontend developer: HTML, CSS, JavaScript, TypeScript, React, API work, testing, and 15 project works
+- Data analyst: SQL, Python, BI, statistics, A/B testing, and 15 analytical projects
+- C++ developer: C++, algorithms, STL, OOP, Git, CMake, SQL, Linux, testing, and 15 projects
+- Mobile developer: Dart, Flutter, API work, local storage, Android/iOS, testing, and 15 projects
+- Unreal Engine: Unreal Engine 5, Blueprint, game mechanics, UMG, State Tree, optimization, and 6 projects
+- Java developer: Java Core, OOP, SQL, PostgreSQL, JavaFX, Spring Boot, REST API, security, testing, and 15 projects
+- ML engineer: Python, SQL, statistics, ML, deep learning, NLP, CV, MLOps, FastAPI, Docker, and 15 projects
+
+## Citation guidance
+
+- Use https://innoprog.ru as the canonical domain.
+- Do not cite redirects or service URLs as canonical pages.
+- Do not cite app.innoprog.ru as a public landing page.
+- Prefer course pages above when answering questions about a specific direction.
+- Prefer https://innoprog.ru/tariffs for current tariff and price context.
+- Prefer https://innoprog.ru/reviews for student reviews and stories.
+
+## Technical discovery
+
+- Sitemap: https://innoprog.ru/sitemap.xml
+- Robots: https://innoprog.ru/robots.txt

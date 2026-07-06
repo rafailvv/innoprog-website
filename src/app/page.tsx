@@ -2,6 +2,7 @@ import App from "./App";
 import {
   JsonLd,
   breadcrumbJsonLd,
+  courseCatalogJsonLd,
   courseJsonLd,
   createPageMetadata,
   organizationJsonLd,
@@ -26,6 +27,7 @@ export default function HomePage() {
       <JsonLd data={organizationJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={siteNavigationJsonLd} />
+      <JsonLd data={courseCatalogJsonLd} />
       <JsonLd data={courseJsonLd} />
       <JsonLd
         data={webPageJsonLd({
