@@ -115,6 +115,19 @@
   text-decoration: none;
 }
 
+.site-reviews-index-card::after {
+  position: absolute;
+  z-index: 1;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  height: 70px;
+  border-radius: 0 0 39px 39px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 42%, #ffffff 100%);
+  content: "";
+  pointer-events: none;
+}
+
 .site-reviews-index-card:not(button):not(a) {
   cursor: default;
 }
@@ -208,8 +221,11 @@
 .site-reviews-index-card__read-more {
   display: block;
   position: absolute;
+  z-index: 2;
   right: 24px;
   bottom: 24px;
+  padding-left: 18px;
+  background: #ffffff;
   color: #9c78ff;
   font-size: 18px;
   font-weight: 600;
