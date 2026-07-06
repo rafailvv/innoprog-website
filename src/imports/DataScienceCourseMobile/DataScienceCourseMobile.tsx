@@ -3377,15 +3377,15 @@ function Frame200() {
       <Frame198 />
       <Frame280 />
       <MainScreenMobileTeachersSection />
-      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[75.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[91px]">
+      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[75.5px] text-[14px] text-center text-white top-[612px] tracking-[0.42px] w-[91px]">
         <p className="leading-[18px] mb-0">Junior</p>
         <p className="leading-[18px]">(начальный)</p>
       </div>
-      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[193px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[78px]">
+      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[193px] text-[14px] text-center text-white top-[612px] tracking-[0.42px] w-[78px]">
         <p className="leading-[18px] mb-0">Middle</p>
         <p className="leading-[18px]">(средний)</p>
       </div>
-      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[312.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[76px]">
+      <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[312.5px] text-[14px] text-center text-white top-[612px] tracking-[0.42px] w-[76px]">
         <p className="leading-[18px] mb-0">Senior</p>
         <p className="leading-[18px]">(старший)</p>
       </div>
