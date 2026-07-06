@@ -6,15 +6,23 @@ export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
 export const SITE_LOGO_PATH = "/logo_education.png";
 export const SITE_FAVICON_PATH = "/favicon.png";
 export const DEFAULT_OG_IMAGE_PATH = "/og-home.png";
-export const PYTHON_COURSE_OG_IMAGE_PATH = "/og-python-course.png";
-export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const FRONTEND_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const DATA_ANALYST_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const CPP_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const UNREAL_ENGINE_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const JAVA_COURSE_OG_IMAGE_PATH = "/og-home.png";
-export const ML_ENGINEER_COURSE_OG_IMAGE_PATH = "/og-home.png";
+export const PYTHON_COURSE_OG_IMAGE_PATH = "/og/python-course.png";
+export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og/data-science-course.png";
+export const FRONTEND_COURSE_OG_IMAGE_PATH = "/og/frontend-developer-course.png";
+export const DATA_ANALYST_COURSE_OG_IMAGE_PATH = "/og/data-analyst-course.png";
+export const CPP_COURSE_OG_IMAGE_PATH = "/og/cpp-developer-course.png";
+export const MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH = "/og/mobile-developer-course.png";
+export const UNREAL_ENGINE_COURSE_OG_IMAGE_PATH = "/og/unreal-engine-course.png";
+export const JAVA_COURSE_OG_IMAGE_PATH = "/og/java-developer-course.png";
+export const ML_ENGINEER_COURSE_OG_IMAGE_PATH = "/og/ml-engineer-course.png";
+export const DEFAULT_OG_IMAGE_SIZE = {
+  width: 1200,
+  height: 630,
+};
+export const COURSE_OG_IMAGE_SIZE = {
+  width: 1280,
+  height: 599,
+};
 export const DEFAULT_DESCRIPTION =
   "ИННОПРОГ - онлайн школа программирования для взрослых и детей с практикой, наставниками, собственной платформой и карьерной поддержкой";
 export const DEFAULT_KEYWORDS = [
@@ -180,6 +188,7 @@ export function createPageMetadata({
   absoluteTitle = false,
   ogImage = DEFAULT_OG_IMAGE_PATH,
   ogImageAlt = "ИННОПРОГ - онлайн школа программирования",
+  ogImageSize = DEFAULT_OG_IMAGE_SIZE,
 }: {
   title: string;
   description?: string;
@@ -189,6 +198,10 @@ export function createPageMetadata({
   absoluteTitle?: boolean;
   ogImage?: string;
   ogImageAlt?: string;
+  ogImageSize?: {
+    width: number;
+    height: number;
+  };
 }): Metadata {
   const url = absoluteUrl(path);
   const robots = noIndex
@@ -230,8 +243,8 @@ export function createPageMetadata({
       images: [
         {
           url: absoluteUrl(ogImage),
-          width: 1200,
-          height: 630,
+          width: ogImageSize.width,
+          height: ogImageSize.height,
           alt: ogImageAlt,
         },
       ],
@@ -433,6 +446,8 @@ export const pythonCourseJsonLd = {
   courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
+  timeRequired: "P28W",
+  totalTime: "PT560H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",

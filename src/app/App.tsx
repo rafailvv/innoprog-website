@@ -273,6 +273,75 @@ type TurnstileApi = {
 declare global {
   interface Window {
     turnstile?: TurnstileApi;
+    ym?: (
+      counterId: number,
+      method: "reachGoal" | "hit",
+      target: string,
+      params?: Record<string, unknown>,
+    ) => void;
+  }
+}
+
+const YANDEX_METRIKA_ID = 110454081;
+
+function trackMetrikaGoal(goal: string, params?: Record<string, unknown>) {
+  if (typeof window === "undefined" || typeof window.ym !== "function") {
+    return;
+  }
+
+  window.ym(YANDEX_METRIKA_ID, "reachGoal", goal, {
+    page: window.location.pathname,
+    ...params,
+  });
+}
+
+function trackMetrikaHit(path: string) {
+  if (typeof window === "undefined" || typeof window.ym !== "function") {
+    return;
+  }
+
+  window.ym(YANDEX_METRIKA_ID, "hit", path);
+}
+
+function trackLinkGoal(anchor: HTMLAnchorElement | null) {
+  const href = anchor?.getAttribute("href");
+
+  if (!href) {
+    return;
+  }
+
+  const params = {
+    href,
+    text: anchor.textContent?.trim().slice(0, 120) || anchor.getAttribute("aria-label") || "",
+  };
+
+  if (href.startsWith("tel:")) {
+    trackMetrikaGoal("contact_phone_click", params);
+    return;
+  }
+
+  if (href.startsWith("mailto:")) {
+    trackMetrikaGoal("contact_email_click", params);
+    return;
+  }
+
+  if (href.includes("t.me/")) {
+    trackMetrikaGoal("contact_telegram_click", params);
+    return;
+  }
+
+  if (href.includes("wa.me/") || href.includes("whatsapp")) {
+    trackMetrikaGoal("contact_whatsapp_click", params);
+    return;
+  }
+
+  if (href.includes("/documents/") || href.includes("/files/documents/") || href.endsWith(".pdf")) {
+    trackMetrikaGoal("document_click", params);
+    return;
+  }
+
+  if (href.startsWith("http")) {
+    trackMetrikaGoal("external_link_click", params);
   }
 }
 
@@ -4496,6 +4565,7 @@ export default function App({
   };
 
   const openLeadModal = () => {
+    trackMetrikaGoal("lead_form_open");
     setLeadModalState("form");
     setIsMobileMenuOpen(false);
     setIsConsentError(false);
@@ -4515,6 +4585,8 @@ export default function App({
   };
 
   const acceptCookieConsent = () => {
+    trackMetrikaGoal("cookie_accept");
+
     try {
       window.localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, "accepted");
     } catch {
@@ -4529,6 +4601,7 @@ export default function App({
 
     if (currentPath !== nextPath || window.location.hash) {
       router.push(nextPath, { scroll: false });
+      trackMetrikaHit(nextPath);
     }
   };
 
@@ -4551,6 +4624,7 @@ export default function App({
 
     const nextPath = `/reviews/${REVIEW_ROUTES[key]}`;
 
+    trackMetrikaGoal("review_story_open", { story: REVIEW_ROUTES[key] });
     saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
@@ -4577,6 +4651,7 @@ export default function App({
     const reviewsDirection = normalizeReviewsDirectionKey(direction);
     const nextPath = getReviewsDirectionPath(reviewsDirection);
 
+    trackMetrikaGoal("reviews_open", { direction: reviewsDirection });
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
@@ -4608,6 +4683,7 @@ export default function App({
 
     const nextPath = getStudentReviewPath(key);
 
+    trackMetrikaGoal("course_review_open", { review: key });
     saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
@@ -4640,6 +4716,10 @@ export default function App({
 
     const nextPath = getStudentReviewPath(review);
 
+    trackMetrikaGoal("student_review_open", {
+      review: review.id,
+      direction: review.direction,
+    });
     saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
@@ -4696,6 +4776,7 @@ export default function App({
   };
 
   const openAboutPage = () => {
+    trackMetrikaGoal("about_open");
     pushInternalRoute("/about");
 
     setActiveReviewStory(null);
@@ -4718,6 +4799,8 @@ export default function App({
   };
 
   const openPythonCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "python" });
+    trackMetrikaGoal("course_open_python");
     saveReturnScrollPosition();
     pushInternalRoute("/python-course");
 
@@ -4741,6 +4824,8 @@ export default function App({
   };
 
   const openDataScienceCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "data_science" });
+    trackMetrikaGoal("course_open_data_science");
     saveReturnScrollPosition();
     pushInternalRoute("/data-science-course");
 
@@ -4764,6 +4849,8 @@ export default function App({
   };
 
   const openFrontendCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "frontend" });
+    trackMetrikaGoal("course_open_frontend");
     saveReturnScrollPosition();
     pushInternalRoute("/frontend-developer-course");
 
@@ -4787,6 +4874,8 @@ export default function App({
   };
 
   const openDataAnalystCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "data_analyst" });
+    trackMetrikaGoal("course_open_data_analyst");
     saveReturnScrollPosition();
     pushInternalRoute("/data-analyst-course");
 
@@ -4810,6 +4899,8 @@ export default function App({
   };
 
   const openCppCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "cpp" });
+    trackMetrikaGoal("course_open_cpp");
     saveReturnScrollPosition();
     pushInternalRoute("/cpp-developer-course");
 
@@ -4833,6 +4924,8 @@ export default function App({
   };
 
   const openMobileDeveloperCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "mobile_developer" });
+    trackMetrikaGoal("course_open_mobile_developer");
     saveReturnScrollPosition();
     pushInternalRoute("/mobile-developer-course");
 
@@ -4856,6 +4949,8 @@ export default function App({
   };
 
   const openUnrealEngineCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "unreal_engine" });
+    trackMetrikaGoal("course_open_unreal_engine");
     saveReturnScrollPosition();
     pushInternalRoute("/unreal-engine-course");
 
@@ -4879,6 +4974,8 @@ export default function App({
   };
 
   const openJavaCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "java" });
+    trackMetrikaGoal("course_open_java");
     saveReturnScrollPosition();
     pushInternalRoute("/java-developer-course");
 
@@ -4902,6 +4999,8 @@ export default function App({
   };
 
   const openMlEngineerCoursePage = () => {
+    trackMetrikaGoal("course_open", { course: "ml_engineer" });
+    trackMetrikaGoal("course_open_ml_engineer");
     saveReturnScrollPosition();
     pushInternalRoute("/ml-engineer-course");
 
@@ -4925,6 +5024,7 @@ export default function App({
   };
 
   const openTariffsPage = () => {
+    trackMetrikaGoal("tariffs_open");
     pushInternalRoute("/tariffs");
 
     setActiveReviewStory(null);
@@ -4947,6 +5047,7 @@ export default function App({
   };
 
   const openChildrenPage = () => {
+    trackMetrikaGoal("children_school_click");
     window.location.href = "https://pages.innoprog.ru/children/school";
   };
 
@@ -4968,7 +5069,12 @@ export default function App({
       return;
     }
 
+    trackMetrikaGoal("lead_form_submit_attempt", {
+      source: leadModalState === "closed" ? "inline" : "modal",
+    });
+
     if (!isConsentChecked) {
+      trackMetrikaGoal("lead_form_consent_missing");
       setIsConsentError(true);
       return;
     }
@@ -4978,6 +5084,9 @@ export default function App({
     setLeadDraft(payload);
 
     if (!isLeadPayloadValid(payload)) {
+      trackMetrikaGoal("lead_form_validation_error", {
+        has_email: Boolean(payload.email),
+      });
       const hasEmailField = Boolean(
         (source || document).querySelector('input[name="email"], input[name="modal-email"]'),
       );
@@ -4996,6 +5105,7 @@ export default function App({
     }
 
     if (IS_TURNSTILE_ENABLED && !leadCaptchaToken) {
+      trackMetrikaGoal("lead_form_captcha_missing");
       setLeadFormError("Пройдите проверку и отправьте заявку еще раз");
 
       if (leadModalState === "closed") {
@@ -5010,11 +5120,19 @@ export default function App({
 
     try {
       await sendLeadApplication(payload, leadCaptchaToken);
+      trackMetrikaGoal("lead_form_submit_success", {
+        source: leadModalState === "closed" ? "inline" : "modal",
+        has_email: Boolean(payload.email),
+        has_question: Boolean(payload.question),
+      });
       setLeadModalState("success");
       setLeadDraft({});
       setLeadCaptchaToken("");
       setLeadCaptchaStatus("idle");
     } catch {
+      trackMetrikaGoal("lead_form_submit_error", {
+        source: leadModalState === "closed" ? "inline" : "modal",
+      });
       setLeadFormError("Не удалось отправить заявку. Проверьте данные и попробуйте еще раз");
       setLeadCaptchaToken("");
       setLeadCaptchaStatus("ready");
@@ -5035,6 +5153,7 @@ export default function App({
       const nextChecked = !checked;
 
       if (nextChecked) {
+        trackMetrikaGoal("lead_form_consent_accept");
         setIsConsentError(false);
       }
 
@@ -5044,6 +5163,10 @@ export default function App({
 
   const handleSiteClick = (event: MouseEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+    const clickedLink = target?.closest<HTMLAnchorElement>("a[href]") || null;
+
+    trackLinkGoal(clickedLink);
+
     const activeScrollTargets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
     const mobileMenuToggle = target?.closest<HTMLElement>("[data-mobile-menu-toggle]");
 

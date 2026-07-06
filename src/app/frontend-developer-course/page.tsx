@@ -3,6 +3,7 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   FRONTEND_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
   faqPageJsonLd,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: FRONTEND_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Frontend-разработчик с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function FrontendCourseRoute() {

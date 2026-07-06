@@ -2,6 +2,7 @@ import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   CPP_COURSE_OG_IMAGE_PATH,
+  COURSE_OG_IMAGE_SIZE,
   JsonLd,
   breadcrumbJsonLd,
   cppCourseJsonLd,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: CPP_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс C++ разработчик с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function CppCourseRoute() {

@@ -2,6 +2,7 @@ import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
   faqPageJsonLd,
@@ -23,6 +24,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: PYTHON_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Python-разработчик с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function PythonCourseRoute() {

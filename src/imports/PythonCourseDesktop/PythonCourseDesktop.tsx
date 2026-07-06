@@ -3146,7 +3146,7 @@ function Frame48() {
 function Frame49() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Паавел Мягчилов</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">Павел Мягчилов</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
   );
@@ -3165,8 +3165,8 @@ function Frame52() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] h-[104px] items-start relative shrink-0 text-center text-white w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[36px] w-full">
-        <p className="leading-[38px] mb-0">Полина</p>
-        <p className="leading-[38px]">Караева</p>
+        <p className="leading-[38px] mb-0">ПОЛИНА</p>
+        <p className="leading-[38px]">КАРАЕВА</p>
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Python-разработчик</p>
     </div>
@@ -3250,7 +3250,7 @@ function Frame51() {
         </div>
         <Frame50 />
       </div>
-      <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[302px]" data-name="Полина Караева">
+      <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[302px]" data-name="ПОЛИНА КАРАЕВА">
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-[302px]">
           <div aria-hidden className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />

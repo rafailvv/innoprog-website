@@ -3,6 +3,7 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   JAVA_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   javaCourseJsonLd,
   createPageMetadata,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: JAVA_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Java-разработчик с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function JavaCourseRoute() {

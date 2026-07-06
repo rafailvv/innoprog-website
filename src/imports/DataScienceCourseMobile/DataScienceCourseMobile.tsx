@@ -3281,8 +3281,8 @@ function Frame43() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-center text-white w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[20px] w-full">
-        <p className="leading-[18px] mb-0">Полина</p>
-        <p className="leading-[18px]">Караева</p>
+        <p className="leading-[18px] mb-0">ПОЛИНА</p>
+        <p className="leading-[18px]">КАРАЕВА</p>
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Python-разработчик</p>
     </div>

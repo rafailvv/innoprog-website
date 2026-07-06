@@ -3,6 +3,7 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   DATA_SCIENCE_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
   dataScienceCourseJsonLd,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: DATA_SCIENCE_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Data Science с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function DataScienceCourseRoute() {

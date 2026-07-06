@@ -3,6 +3,7 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   ML_ENGINEER_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   mlEngineerCourseJsonLd,
   createPageMetadata,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: ML_ENGINEER_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс ML-инженер с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function MlEngineerCourseRoute() {

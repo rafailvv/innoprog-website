@@ -3,6 +3,7 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import {
   UNREAL_ENGINE_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   unrealEngineCourseJsonLd,
   createPageMetadata,
@@ -24,6 +25,7 @@ export const metadata = createPageMetadata({
   ],
   ogImage: UNREAL_ENGINE_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Unreal Engine с нуля в ИННОПРОГ",
+  ogImageSize: COURSE_OG_IMAGE_SIZE,
 });
 
 export default function UnrealEngineCourseRoute() {
