@@ -109,6 +109,16 @@ export function getStudentReviewPath(reviewOrId: StudentReview | string) {
   return `${getReviewsDirectionPath(review.direction)}#review-${encodeURIComponent(getStudentReviewSlug(review))}`;
 }
 
+export function getStudentReviewTextPath(reviewOrId: StudentReview | string) {
+  const review = typeof reviewOrId === "string" ? findStudentReviewByRouteSlug(reviewOrId) : reviewOrId;
+
+  if (!review) {
+    return "/reviews";
+  }
+
+  return `/reviews/text/${encodeURIComponent(getStudentReviewSlug(review))}`;
+}
+
 export const STUDENT_REVIEWS: readonly StudentReview[] = [
   {
     id: "vildan",

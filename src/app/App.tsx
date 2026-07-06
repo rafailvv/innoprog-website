@@ -55,6 +55,7 @@ import {
   getReviewCoursePath,
   getReviewsDirectionPath,
   getStudentReviewPath,
+  getStudentReviewTextPath,
   normalizeReviewsDirectionKey,
   type ReviewsDirectionKey,
   type StudentReview,
@@ -1110,9 +1111,9 @@ function getStudentReviewFromHash(): string | null {
   }
 
   const legacyRoute = window.location.hash.match(/^#\/reviews\/text\/([^/?#]+)/)?.[1];
-  const legacyReview = findStudentReviewById(legacyRoute);
+  const legacyReview = findStudentReviewByRouteSlug(legacyRoute);
 
-  if (legacyReview && !legacyReview.courseReviewKey) {
+  if (legacyReview) {
     return legacyReview.id;
   }
 
@@ -1129,9 +1130,9 @@ function getStudentReviewFromHash(): string | null {
 
 function getStudentReviewFromPathname(pathname: string): string | null {
   const legacyRoute = pathname.match(/^\/reviews\/text\/([^/?#]+)/)?.[1];
-  const legacyReview = findStudentReviewById(legacyRoute);
+  const legacyReview = findStudentReviewByRouteSlug(legacyRoute);
 
-  if (legacyReview && !legacyReview.courseReviewKey) {
+  if (legacyReview) {
     return legacyReview.id;
   }
 
@@ -1228,7 +1229,7 @@ function getCleanPathFromHash(): string | null {
   const hashStudentReview = getStudentReviewFromHash();
 
   if (hashStudentReview) {
-    return getStudentReviewPath(hashStudentReview);
+    return getStudentReviewTextPath(hashStudentReview);
   }
 
   const hashStory = getReviewStoryFromHash();
@@ -1831,33 +1832,13 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
       <span className="site-reviews-index-card__read-more">Читать полностью</span>
     </>
   );
-  const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
-  const courseReviewPath = courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES
-    ? getStudentReviewPath(review)
-    : null;
-
-  if (courseReviewPath) {
-    return (
-      <a
-        aria-label={`Открыть отзыв: ${review.name}`}
-        className="site-reviews-index-card"
-        data-course-review={courseReviewKey}
-        draggable={false}
-        href={courseReviewPath}
-        id={reviewAnchorId}
-      >
-        {content}
-      </a>
-    );
-  }
-
   return (
     <a
       aria-label={`Открыть отзыв: ${review.name}`}
       className="site-reviews-index-card"
       data-student-review={review.id}
       draggable={false}
-      href={getStudentReviewPath(review.id)}
+      href={getStudentReviewTextPath(review)}
       id={reviewAnchorId}
     >
       {content}
@@ -4714,7 +4695,7 @@ export default function App({
       return;
     }
 
-    const nextPath = getStudentReviewPath(review);
+    const nextPath = getStudentReviewTextPath(review);
 
     trackMetrikaGoal("student_review_open", {
       review: review.id,
