@@ -1753,20 +1753,19 @@ function ReviewsIndexPage({
   headerScale: number;
   isMobile: boolean;
 }) {
-  const [isAllReviewsVisible, setIsAllReviewsVisible] = useState(false);
   const currentDirection = REVIEWS_DIRECTIONS.find((direction) => direction.key === activeDirection) || REVIEWS_DIRECTIONS[0];
   const filteredReviews = activeDirection === ALL_REVIEWS_DIRECTION_KEY
     ? STUDENT_REVIEWS
     : STUDENT_REVIEWS.filter((review) => review.direction === activeDirection);
   const initialReviewLimit = isMobile ? 4 : 6;
-  const visibleReviews = isAllReviewsVisible
-    ? filteredReviews
-    : filteredReviews.slice(0, initialReviewLimit);
+  const reviewsLoadMoreStep = 9;
+  const [visibleReviewLimit, setVisibleReviewLimit] = useState(initialReviewLimit);
+  const visibleReviews = filteredReviews.slice(0, visibleReviewLimit);
   const hasMoreReviews = filteredReviews.length > visibleReviews.length;
 
   useEffect(() => {
-    setIsAllReviewsVisible(false);
-  }, [activeDirection]);
+    setVisibleReviewLimit(initialReviewLimit);
+  }, [activeDirection, initialReviewLimit]);
 
   return (
     <section className="site-reviews-index-page" aria-label="Отзывы учеников">
@@ -1815,7 +1814,9 @@ function ReviewsIndexPage({
           {hasMoreReviews ? (
             <button
               className="site-reviews-index-page__load-more"
-              onClick={() => setIsAllReviewsVisible(true)}
+              onClick={() => setVisibleReviewLimit((currentLimit) => (
+                Math.min(filteredReviews.length, currentLimit + reviewsLoadMoreStep)
+              ))}
               type="button"
             >
               загрузить ещё
