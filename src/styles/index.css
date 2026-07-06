@@ -1011,7 +1011,11 @@
 }
 
 .site-student-review-page__other-grid .site-reviews-index-card__read-more {
-  display: none;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+  font-size: 15px;
+  line-height: 18px;
 }
 
 .site-course-review-card {
@@ -1778,6 +1782,12 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.site-shell--ready.site-shell--review-transition-loading .site-loader {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .site-loader__logo {

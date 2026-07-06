@@ -145,7 +145,7 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
 
   const readMore = document.createElement("span");
   readMore.className = "site-course-direction-review-card__read-more";
-  readMore.textContent = "Читать полностью";
+  readMore.textContent = "читать полностью";
 
   content.append(head, course, title, body, readMore);
   card.replaceChildren(content);
@@ -1843,7 +1843,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
         <span className="site-reviews-index-card__title">{review.title}</span>
         <span className="site-reviews-index-card__body">{review.body}</span>
       </span>
-      <span className="site-reviews-index-card__read-more">Читать полностью</span>
+      <span className="site-reviews-index-card__read-more">читать полностью</span>
     </>
   );
   return (
@@ -4016,6 +4016,7 @@ export default function App({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
   const [isReviewConsultPrimed, setIsReviewConsultPrimed] = useState(false);
+  const [isReviewTransitionLoading, setIsReviewTransitionLoading] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
   const [leadCaptchaToken, setLeadCaptchaToken] = useState("");
   const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
@@ -4023,6 +4024,7 @@ export default function App({
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
   const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
+  const reviewTransitionTimerRef = useRef<number | null>(null);
   const initialRouteKey = (() => {
     if (initialRoute.page === "review") {
       return `${initialRoute.page}:${initialRoute.story}`;
@@ -4200,6 +4202,12 @@ export default function App({
       window.clearTimeout(maxTimer);
     };
   }, [isReady, viewport.isMobile]);
+
+  useEffect(() => () => {
+    if (reviewTransitionTimerRef.current !== null) {
+      window.clearTimeout(reviewTransitionTimerRef.current);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isReady) {
@@ -4610,6 +4618,18 @@ export default function App({
     writeReturnScrollPosition(value);
   };
 
+  const showReviewTransitionLoader = () => {
+    if (reviewTransitionTimerRef.current !== null) {
+      window.clearTimeout(reviewTransitionTimerRef.current);
+    }
+
+    setIsReviewTransitionLoading(true);
+    reviewTransitionTimerRef.current = window.setTimeout(() => {
+      setIsReviewTransitionLoading(false);
+      reviewTransitionTimerRef.current = null;
+    }, 720);
+  };
+
   const openReviewStory = (story: string | undefined) => {
     const key = story as ReviewStoryKey | undefined;
 
@@ -4676,15 +4696,22 @@ export default function App({
       return;
     }
 
-    const nextPath = getStudentReviewPath(key);
+    const studentReview = findStudentReviewByRouteSlug(key);
+
+    if (!studentReview) {
+      return;
+    }
+
+    const nextPath = getStudentReviewPath(studentReview);
 
     trackMetrikaGoal("course_review_open", { review: key });
     saveReturnScrollPosition();
+    showReviewTransitionLoader();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
-    setActiveStudentReview(null);
+    setActiveStudentReview(studentReview.id);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
@@ -4695,9 +4722,9 @@ export default function App({
     setIsUnrealEngineCourseRoute(false);
     setIsJavaCourseRoute(false);
     setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(true);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
-    setActiveReviewsDirection("python");
+    setActiveReviewsDirection(studentReview.direction);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
@@ -4716,11 +4743,12 @@ export default function App({
       direction: review.direction,
     });
     saveReturnScrollPosition();
+    showReviewTransitionLoader();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
-    setActiveStudentReview(null);
+    setActiveStudentReview(review.id);
     setIsAboutRoute(false);
     setIsPythonCourseRoute(false);
     setIsDataScienceCourseRoute(false);
@@ -4731,7 +4759,7 @@ export default function App({
     setIsUnrealEngineCourseRoute(false);
     setIsJavaCourseRoute(false);
     setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(true);
+    setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setActiveReviewsDirection(review.direction);
     setIsMobileMenuOpen(false);
@@ -5694,6 +5722,7 @@ export default function App({
       className={[
         "site-shell",
         isReady ? "site-shell--ready" : "",
+        isReviewTransitionLoading ? "site-shell--review-transition-loading" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isCourseReviewRoute ? "site-shell--course-review-route" : "",
@@ -5875,8 +5904,8 @@ export default function App({
           </button>
         </nav>
       ) : null}
-      {shouldShowLoader ? (
-        <div className="site-loader" aria-hidden={isReady}>
+      {shouldShowLoader || isReviewTransitionLoading ? (
+        <div className="site-loader" aria-hidden={isReady && !isReviewTransitionLoading}>
           <img
             alt=""
             className="site-loader__logo"
