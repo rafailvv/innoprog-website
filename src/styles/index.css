@@ -2743,8 +2743,50 @@ button,
 }
 
 .site-shell--mobile .site-course-projects-carousel {
-  padding-left: 20px;
+  padding-left: 0;
   scroll-padding-left: 0;
+}
+
+.site-shell--mobile .site-course-projects-carousel > div {
+  width: 390px !important;
+  flex: 0 0 390px;
+}
+
+.site-shell--mobile .site-course-projects-carousel .site-course-mobile-project-visual {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+  border-radius: 32px;
+}
+
+.site-shell--mobile .site-course-projects-carousel .site-course-mobile-project-visual img {
+  object-fit: cover !important;
+}
+
+.site-shell--mobile .site-course-projects-carousel > div > :not(.site-course-mobile-project-visual) {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.site-shell--mobile .site-course-reviews-carousel {
+  gap: 20px !important;
+}
+
+.site-shell--mobile .site-course-reviews-carousel > a.site-course-review-card--dynamic {
+  width: 350px !important;
+  height: 407px;
+  border-radius: 40px !important;
+}
+
+.site-shell--mobile .site-course-reviews-carousel > a.site-course-review-card--dynamic .site-course-direction-review-card {
+  gap: 16px;
+  padding: 24px;
+}
+
+.site-shell--mobile .site-course-reviews-carousel > a.site-course-review-card--dynamic .site-course-direction-review-card__body {
+  -webkit-line-clamp: 5;
 }
 
 .site-course-teachers-carousel {

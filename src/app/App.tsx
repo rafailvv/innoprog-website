@@ -3731,8 +3731,11 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
   let didDrag = false;
   let maxAbsDeltaX = 0;
   let suppressClickTimer = 0;
-  const dragThreshold = 18;
-  const clickSuppressThreshold = 24;
+  const isCourseSwipeCarousel =
+    carousel.classList.contains("site-course-projects-carousel") ||
+    carousel.classList.contains("site-course-reviews-carousel");
+  const dragThreshold = isCourseSwipeCarousel ? 4 : 18;
+  const clickSuppressThreshold = isCourseSwipeCarousel ? 16 : 24;
 
   const clearDragState = () => {
     pointerId = null;
