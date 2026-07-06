@@ -285,8 +285,7 @@ function Frame148() {
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[350px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] pl-[2px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Курс</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] w-full">
-        <p className="leading-[43px] mb-0">Data</p>
-        <p className="leading-[43px]">Science</p>
+        <p className="leading-[43px] whitespace-nowrap">Data Science</p>
       </div>
     </div>
   );
