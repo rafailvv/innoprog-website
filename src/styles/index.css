@@ -1512,6 +1512,17 @@ body {
   background: #ffffff;
 }
 
+.site-shell--home-route:not(.site-shell--mobile) .site-canvas > [data-name="главный экран Д"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  height: 8px;
+  pointer-events: none;
+  background: #464a6a;
+}
+
 .site-canvas--mobile {
   left: 0;
   transform-origin: top left;
