@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
 import NotFoundPageContent from "./NotFoundPageContent";
+import { createPageMetadata } from "./seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Страница не найдена",
   description: "Страница не найдена. Перейдите на главную страницу ИННОПРОГ или выберите подходящий курс программирования.",
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+  path: "/not-found",
+  noIndex: true,
+  follow: true,
+});
 
 export default function NotFound() {
   return <NotFoundPageContent />;

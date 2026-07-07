@@ -5,7 +5,7 @@ export const SITE_NAME = "ИННОПРОГ";
 export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
 export const SITE_LOGO_PATH = "/logo_education.png";
 export const SITE_FAVICON_PATH = "/favicon.png";
-export const DEFAULT_OG_IMAGE_PATH = "/og-home.png";
+export const DEFAULT_OG_IMAGE_PATH = "/og-brand.png";
 export const PYTHON_COURSE_OG_IMAGE_PATH = "/og/python-course.png";
 export const DATA_SCIENCE_COURSE_OG_IMAGE_PATH = "/og/data-science-course.png";
 export const FRONTEND_COURSE_OG_IMAGE_PATH = "/og/frontend-developer-course.png";
@@ -185,6 +185,7 @@ export function createPageMetadata({
   path = "/",
   keywords = [],
   noIndex = false,
+  follow = !noIndex,
   absoluteTitle = false,
   ogImage = DEFAULT_OG_IMAGE_PATH,
   ogImageAlt = "ИННОПРОГ - онлайн школа программирования",
@@ -195,6 +196,7 @@ export function createPageMetadata({
   path?: string;
   keywords?: string[];
   noIndex?: boolean;
+  follow?: boolean;
   absoluteTitle?: boolean;
   ogImage?: string;
   ogImageAlt?: string;
@@ -207,10 +209,10 @@ export function createPageMetadata({
   const robots = noIndex
     ? {
         index: false,
-        follow: false,
+        follow,
         googleBot: {
           index: false,
-          follow: false,
+          follow,
         },
       }
     : DEFAULT_ROBOTS;
