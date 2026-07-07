@@ -1457,6 +1457,7 @@ html {
   overflow-y: visible;
   overscroll-behavior-x: none;
   scroll-behavior: smooth;
+  background: #ffffff;
 }
 
 body {
@@ -1472,20 +1473,12 @@ body {
   overflow-x: clip;
   overflow-y: visible;
   overscroll-behavior-x: none;
-  background: #ffffff;
+  background-color: #464a6a;
+  background-image: linear-gradient(180deg, #ffffff 0, #ffffff 100vh, #464a6a 100vh, #464a6a 100%);
+  background-repeat: no-repeat;
   position: relative;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
-}
-
-html.site-home-route-page,
-html.site-home-route-page body,
-html.site-home-route-page #root,
-html:has(.site-shell--home-route),
-html:has(.site-shell--home-route) body,
-body:has(.site-shell--home-route),
-#root:has(.site-shell--home-route) {
-  background: #464a6a;
 }
 
 #root {
@@ -1495,6 +1488,7 @@ body:has(.site-shell--home-route),
   overflow-x: hidden;
   overflow-x: clip;
   overflow-y: visible;
+  background: #ffffff;
 }
 
 .site-shell {
