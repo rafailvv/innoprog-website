@@ -1543,6 +1543,18 @@ body {
   background: #464a6a;
 }
 
+.site-main-desktop-footer {
+  width: 1440px;
+  min-height: 537px;
+  margin-bottom: -4px;
+  overflow: hidden;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  background: #464a6a;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 .site-canvas--mobile {
   left: 0;
   transform-origin: top left;

@@ -2367,7 +2367,7 @@ function Frame69() {
 
 function Group8() {
   return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
+    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 site-main-desktop-footer">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group5 />
       <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[480px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
