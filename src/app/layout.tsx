@@ -94,6 +94,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <Script id="site-resize-bottom-anchor" strategy="afterInteractive">
+          {`
+            (function() {
+              var bottomThreshold = 96;
+              var wasNearBottom = false;
+              var resizeTimer = 0;
+
+              function getMaxScroll() {
+                var doc = document.documentElement;
+                var body = document.body;
+                var scrollHeight = Math.max(
+                  doc ? doc.scrollHeight : 0,
+                  body ? body.scrollHeight : 0
+                );
+
+                return Math.max(0, scrollHeight - window.innerHeight);
+              }
+
+              function updateBottomState() {
+                var maxScroll = getMaxScroll();
+                wasNearBottom = maxScroll > bottomThreshold && maxScroll - window.scrollY <= bottomThreshold;
+                document.documentElement.classList.toggle("site-scroll-bottom", wasNearBottom);
+              }
+
+              function scrollToCurrentBottom() {
+                window.scrollTo(0, getMaxScroll());
+                updateBottomState();
+              }
+
+              function keepBottomAfterResize() {
+                if (!wasNearBottom) {
+                  updateBottomState();
+                  return;
+                }
+
+                window.requestAnimationFrame(function() {
+                  scrollToCurrentBottom();
+                  window.requestAnimationFrame(scrollToCurrentBottom);
+                });
+
+                window.clearTimeout(resizeTimer);
+                resizeTimer = window.setTimeout(scrollToCurrentBottom, 180);
+              }
+
+              updateBottomState();
+              window.addEventListener("scroll", updateBottomState, { passive: true });
+              window.addEventListener("resize", keepBottomAfterResize, { passive: true });
+            })();
+          `}
+        </Script>
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){
