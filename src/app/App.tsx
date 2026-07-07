@@ -5754,6 +5754,14 @@ export default function App({
         transform: `scale(${viewport.scale})`,
       } as CSSProperties;
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("site-home-route-page", !isStandaloneRoute);
+
+    return () => {
+      document.documentElement.classList.remove("site-home-route-page");
+    };
+  }, [isStandaloneRoute]);
+
   return (
     <main
       aria-busy={!isReady}
