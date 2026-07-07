@@ -58,15 +58,5 @@ export function TelegramRedirectClient() {
     };
   }, []);
 
-  return (
-    <main className="site-telegram-redirect" aria-label="Переход в Telegram-канал ИННОПРОГ">
-      <section>
-        <p>Открываем Telegram-канал ИННОПРОГ</p>
-        <a href={TELEGRAM_CHANNEL_URL} rel="noopener noreferrer">
-          перейти вручную
-        </a>
-      </section>
-    </main>
-  );
+  return null;
 }
-
