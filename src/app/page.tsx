@@ -5,6 +5,7 @@ import {
   courseCatalogJsonLd,
   courseJsonLd,
   createPageMetadata,
+  keyPagesJsonLd,
   organizationJsonLd,
   siteNavigationJsonLd,
   webPageJsonLd,
@@ -27,6 +28,7 @@ export default function HomePage() {
       <JsonLd data={organizationJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={siteNavigationJsonLd} />
+      <JsonLd data={keyPagesJsonLd} />
       <JsonLd data={courseCatalogJsonLd} />
       <JsonLd data={courseJsonLd} />
       <JsonLd

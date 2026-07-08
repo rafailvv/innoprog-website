@@ -1,5 +1,5 @@
 import App from "../App";
-import { JsonLd, breadcrumbJsonLd, courseJsonLd, createPageMetadata, webPageJsonLd } from "../seo";
+import { JsonLd, breadcrumbJsonLd, courseJsonLd, createPageMetadata, tariffsOfferCatalogJsonLd, webPageJsonLd } from "../seo";
 
 const TARIFFS_DESCRIPTION =
   "Тарифы обучения в ИННОПРОГ: форматы занятий с наставником, стоимость программирования онлайн и условия выбора подходящего курса";
@@ -15,11 +15,13 @@ export default function TariffsPage() {
   return (
     <>
       <JsonLd data={courseJsonLd} />
+      <JsonLd data={tariffsOfferCatalogJsonLd} />
       <JsonLd
         data={webPageJsonLd({
           path: "/tariffs",
           name: "Тарифы обучения",
           description: TARIFFS_DESCRIPTION,
+          primaryEntityId: "https://innoprog.ru/tariffs#course-offers",
         })}
       />
       <JsonLd

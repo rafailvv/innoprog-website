@@ -6,6 +6,7 @@ import {
   DEFAULT_OG_IMAGE_PATH,
   DEFAULT_KEYWORDS,
   DEFAULT_ROBOTS,
+  KEY_SITE_LINKS,
   SITE_FAVICON_PATH,
   SITE_LEGAL_NAME,
   SITE_NAME,
@@ -94,6 +95,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <nav className="site-seo-navigation" aria-label="Основные страницы сайта">
+          {KEY_SITE_LINKS.map((link) => (
+            <a href={link.path} key={link.path}>
+              {link.name}
+            </a>
+          ))}
+        </nav>
         {children}
         <Script id="site-resize-bottom-anchor" strategy="afterInteractive">
           {`

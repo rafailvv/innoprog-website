@@ -22,6 +22,7 @@ export default function AboutPage() {
           path: "/about",
           name: "О нас",
           description: ABOUT_DESCRIPTION,
+          pageType: "AboutPage",
         })}
       />
       <JsonLd

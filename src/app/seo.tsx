@@ -147,6 +147,7 @@ export const REVIEW_META = {
     description:
       "История Кирилла о переходе из HR в Python-разработку: обучение в ИННОПРОГ, практика с наставником и первые уверенные шаги в ИТ",
     course: "Python-разработчик",
+    coursePath: "/python-course",
     result: "Из HR в ИТ",
     reviewBody:
       "Обучение проходило постепенно, от базовых тем к более сложным задачам. Через сложные задания лучше всего начинаешь понимать программирование",
@@ -157,6 +158,7 @@ export const REVIEW_META = {
     description:
       "История Анастасии о переходе из 1С в продуктовую аналитику: обучение Data Science, практика с данными и поддержка наставника",
     course: "Data Science",
+    coursePath: "/data-science-course",
     result: "Из 1C в Product",
     reviewBody:
       "Обучение выстроено так, чтобы почти каждую тему можно было привязать к практике, анализировать результат и понимать, какую пользу дает модель",
@@ -166,7 +168,8 @@ export const REVIEW_META = {
     title: "История Михаила",
     description:
       "История Михаила о разработке веб-приложения в ИННОПРОГ: как обучение, практика и обратная связь помогли собрать рабочий проект",
-    course: "Веб-приложение",
+    course: "Python-разработчик",
+    coursePath: "/python-course",
     result: "От идеи к проекту",
     reviewBody:
       "Во время обучения получилось собрать рабочее веб-приложение, закрепить практику и увидеть, как знания складываются в реальный проект",
@@ -177,6 +180,38 @@ export type ReviewRoute = keyof typeof REVIEW_ROUTE_TO_KEY;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, SITE_URL).toString();
+}
+
+export const KEY_SITE_LINKS = [
+  {
+    name: "Главная",
+    path: "/",
+    description: "Главная страница онлайн-школы программирования ИННОПРОГ",
+  },
+  ...COURSE_SEO_ITEMS,
+  {
+    name: "Тарифы",
+    path: "/tariffs",
+    description: "Стоимость и форматы обучения в ИННОПРОГ",
+  },
+  {
+    name: "Отзывы учеников",
+    path: "/reviews",
+    description: "Отзывы и истории учеников ИННОПРОГ",
+  },
+  {
+    name: "О нас",
+    path: "/about",
+    description: "Информация об онлайн-школе ИННОПРОГ, документах и подходе к обучению",
+  },
+] as const;
+
+function courseEntityId(path: string) {
+  return `${absoluteUrl(path)}#course`;
+}
+
+function offerEntityId(path: string) {
+  return `${absoluteUrl(path)}#offer`;
 }
 
 export function createPageMetadata({
@@ -316,6 +351,27 @@ export const organizationJsonLd = {
     "@type": "Country",
     name: "Россия",
   },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    "@id": `${SITE_URL}/#course-offer-catalog`,
+    name: "Онлайн-курсы программирования ИННОПРОГ",
+    itemListElement: COURSE_SEO_ITEMS.map((course) => ({
+      "@type": "Offer",
+      "@id": offerEntityId(course.path),
+      name: `Обучение на курсе ${course.name}`,
+      url: absoluteUrl("/tariffs"),
+      category: "Paid online course",
+      availability: "https://schema.org/InStock",
+      price: "7990",
+      priceCurrency: "RUB",
+      itemOffered: {
+        "@type": "Course",
+        "@id": courseEntityId(course.path),
+        name: course.name,
+        url: absoluteUrl(course.path),
+      },
+    })),
+  },
   sameAs: ["https://t.me/innoprog"],
 };
 
@@ -330,6 +386,12 @@ export const websiteJsonLd = {
   publisher: {
     "@id": `${SITE_URL}/#organization`,
   },
+  hasPart: KEY_SITE_LINKS.map((link) => ({
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(link.path)}#webpage`,
+    name: link.name,
+    url: absoluteUrl(link.path),
+  })),
 };
 
 export const siteNavigationJsonLd = {
@@ -398,6 +460,105 @@ export const courseCatalogJsonLd = {
       isAccessibleForFree: false,
     },
   })),
+};
+
+export const keyPagesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE_URL}/#key-pages`,
+  name: "Основные страницы ИННОПРОГ",
+  description: "Главные страницы сайта ИННОПРОГ: курсы, тарифы, отзывы учеников и информация о школе",
+  inLanguage: "ru-RU",
+  itemListElement: KEY_SITE_LINKS.map((link, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: link.name,
+    url: absoluteUrl(link.path),
+    item: {
+      "@type": "WebPage",
+      "@id": `${absoluteUrl(link.path)}#webpage`,
+      name: link.name,
+      description: link.description,
+      url: absoluteUrl(link.path),
+      isPartOf: {
+        "@id": `${SITE_URL}/#website`,
+      },
+    },
+  })),
+};
+
+export const tariffsOfferCatalogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "@id": `${absoluteUrl("/tariffs")}#course-offers`,
+  name: "Тарифы на обучение в ИННОПРОГ",
+  description: "Тарифы и форматы обучения на онлайн-курсах программирования ИННОПРОГ",
+  url: absoluteUrl("/tariffs"),
+  provider: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  itemListElement: COURSE_SEO_ITEMS.map((course, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Offer",
+      "@id": offerEntityId(course.path),
+      name: `Тариф курса ${course.name}`,
+      url: absoluteUrl("/tariffs"),
+      category: "Paid online course",
+      availability: "https://schema.org/InStock",
+      price: "7990",
+      priceCurrency: "RUB",
+      itemOffered: {
+        "@type": "Course",
+        "@id": courseEntityId(course.path),
+        name: course.name,
+        description: course.description,
+        url: absoluteUrl(course.path),
+        provider: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+      },
+    },
+  })),
+};
+
+export const reviewsItemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${absoluteUrl("/reviews")}#student-reviews`,
+  name: "Истории и отзывы учеников ИННОПРОГ",
+  description: "Отзывы учеников о курсах программирования ИННОПРОГ, наставниках, практике и результатах обучения",
+  url: absoluteUrl("/reviews"),
+  inLanguage: "ru-RU",
+  itemListElement: (Object.keys(REVIEW_META) as ReviewRoute[]).map((route, index) => {
+    const meta = REVIEW_META[route];
+
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(`/reviews/${route}`),
+      item: {
+        "@type": "Review",
+        "@id": `${absoluteUrl(`/reviews/${route}`)}#review`,
+        name: meta.title,
+        url: absoluteUrl(`/reviews/${route}`),
+        author: {
+          "@type": "Person",
+          name: meta.name,
+        },
+        itemReviewed: {
+          "@type": "Course",
+          "@id": courseEntityId(meta.coursePath),
+          name: meta.course,
+          url: absoluteUrl(meta.coursePath),
+          provider: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+        },
+      },
+    };
+  }),
 };
 
 export const courseJsonLd = {
@@ -985,15 +1146,24 @@ export function webPageJsonLd({
   name,
   description,
   primaryEntityId,
+  pageType = "WebPage",
+  significantLinks,
 }: {
   path: string;
   name: string;
   description: string;
   primaryEntityId?: string;
+  pageType?: "WebPage" | "AboutPage" | "CollectionPage";
+  significantLinks?: readonly string[];
 }) {
+  const linkPaths = significantLinks ?? KEY_SITE_LINKS.map((link) => link.path);
+  const significantLinkUrls = Array.from(
+    new Set(linkPaths.filter((linkPath) => linkPath !== path).map((linkPath) => absoluteUrl(linkPath))),
+  );
+
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": pageType,
     "@id": `${absoluteUrl(path)}#webpage`,
     url: absoluteUrl(path),
     name,
@@ -1005,6 +1175,7 @@ export function webPageJsonLd({
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },
+    ...(significantLinkUrls.length > 0 ? { significantLink: significantLinkUrls } : {}),
     ...(primaryEntityId ? { primaryEntity: { "@id": primaryEntityId } } : {}),
   };
 }
@@ -1024,6 +1195,7 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
 
 export function reviewJsonLd(route: ReviewRoute) {
   const meta = REVIEW_META[route];
+  const courseId = courseEntityId(meta.coursePath);
 
   return {
     "@context": "https://schema.org",
@@ -1031,8 +1203,9 @@ export function reviewJsonLd(route: ReviewRoute) {
     "@id": `${absoluteUrl(`/reviews/${route}`)}#review`,
     itemReviewed: {
       "@type": "Course",
-      "@id": `${SITE_URL}/#courses`,
+      "@id": courseId,
       name: meta.course,
+      url: absoluteUrl(meta.coursePath),
       provider: {
         "@id": `${SITE_URL}/#organization`,
       },

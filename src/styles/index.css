@@ -2498,6 +2498,19 @@ body {
   white-space: nowrap;
 }
 
+.site-seo-navigation {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
 .site-internship-title {
   gap: 0;
   font-family: "Raleway", sans-serif;
