@@ -1,3 +1,37 @@
+const securityHeaders = [
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
+  },
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  {
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
+  },
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "form-action 'self'",
+      "frame-ancestors 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://yastatic.net https://*.yastatic.net",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com data:",
+      "img-src 'self' data: blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://yastatic.net https://*.yastatic.net https://api.innoprog.ru",
+      "media-src 'self' blob:",
+      "connect-src 'self' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com wss://mc.yandex.ru wss://*.mc.yandex.ru wss://mc.yandex.com wss://*.mc.yandex.com https://yastatic.net https://*.yastatic.net https://api.innoprog.ru",
+      "frame-src 'self' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com",
+      "worker-src 'self' blob:",
+      "manifest-src 'self'",
+    ].join("; "),
+  },
+];
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   htmlLimitedBots: /.*/,
@@ -9,6 +43,40 @@ const nextConfig = {
   trailingSlash: false,
   async headers() {
     return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+      {
+        source: "/reviews",
+        has: [
+          {
+            type: "query",
+            key: "direction",
+          },
+        ],
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, follow",
+          },
+        ],
+      },
+      {
+        source: "/reviews",
+        has: [
+          {
+            type: "query",
+            key: "review",
+          },
+        ],
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, follow",
+          },
+        ],
+      },
       {
         source: "/api/:path*",
         headers: [
@@ -40,6 +108,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/favicon.ico",
+        destination: "/favicon.png",
+        permanent: true,
+      },
       {
         source: "/python",
         destination: "/python-course",

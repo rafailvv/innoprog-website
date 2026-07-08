@@ -48,7 +48,7 @@ export default function NotFoundPageContent() {
       </div>
 
       <footer className="site-review-page__footer">
-        <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
+        <img alt="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
         <div className="site-review-page__footer-columns">
           <section>
             <h2>Контакты</h2>

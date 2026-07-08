@@ -453,7 +453,7 @@ function Frame14() {
         <Frame5 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]" src={imgImg29771} />
+            <img alt="Курс Python-разработчик в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]" src={imgImg29771} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -476,7 +476,7 @@ function Frame14() {
         <Frame6 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[275px] left-[-45px] max-w-none object-contain top-[-42px] w-[386px]" src={imgDataScienceHero} />
+            <img alt="Курс Data Science в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[275px] left-[-45px] max-w-none object-contain top-[-42px] w-[386px]" src={imgDataScienceHero} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -498,7 +498,7 @@ function Frame14() {
         </div>
         <Frame7 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
-          <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29773} />
+          <img alt="Курс Frontend-разработчик в ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29773} />
         </div>
         <DirectionHoverOverlay
           title="Фронтенд разработчик"
@@ -553,7 +553,7 @@ function Frame132() {
         <Frame8 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[178.17%] left-[-40.88%] max-w-none top-[-39.08%] w-[148.82%]" src={imgImg29772} />
+            <img alt="Курс Data-аналитик в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[178.17%] left-[-40.88%] max-w-none top-[-39.08%] w-[148.82%]" src={imgImg29772} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -575,7 +575,7 @@ function Frame132() {
         <Frame9 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[169.72%] left-[-31.18%] max-w-none top-[-39.2%] w-[141.76%]" src={imgImg29774} />
+            <img alt="Курс C++ разработчик в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[169.72%] left-[-31.18%] max-w-none top-[-39.2%] w-[141.76%]" src={imgImg29774} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -596,7 +596,7 @@ function Frame132() {
         </div>
         <Frame10 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
-          <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29775} />
+          <img alt="Курс Мобильный разработчик в ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29775} />
         </div>
         <DirectionHoverOverlay
           title="Мобильный разработчик"
@@ -651,7 +651,7 @@ function Frame15() {
         <Frame11 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[186.62%] left-[-41.59%] max-w-none top-[-43.31%] w-[155.88%]" src={imgImg29776} />
+            <img alt="Курс Unreal Engine в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[186.62%] left-[-41.59%] max-w-none top-[-43.31%] w-[155.88%]" src={imgImg29776} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -672,7 +672,7 @@ function Frame15() {
         </div>
         <Frame12 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
-          <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29777} />
+          <img alt="Курс Java-разработчик в ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none mix-blend-lighten object-bottom pointer-events-none size-full" src={imgImg29777} />
         </div>
         <DirectionHoverOverlay
           title="Java разработчик"
@@ -693,7 +693,7 @@ function Frame15() {
         <Frame13 />
         <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" decoding="async" loading="eager" className="absolute h-[196.66%] left-[-47.33%] max-w-none top-[-48.17%] w-[164.27%]" src={imgImg29778} />
+            <img alt="Курс ML-инженер в ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[196.66%] left-[-47.33%] max-w-none top-[-48.17%] w-[164.27%]" src={imgImg29778} />
           </div>
         </div>
         <DirectionHoverOverlay
@@ -945,7 +945,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(156,120,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
+              <img alt="Преподаватель Сергей Попкович" decoding="async" loading="eager" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
             </div>
           </div>
         </div>
@@ -955,7 +955,7 @@ function Frame94() {
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40083} />
+            <img alt="Преподаватель Данила Дробышев" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40083} />
           </div>
         </div>
         <Frame89 />
@@ -965,7 +965,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[107.41%] left-[-7.76%] max-w-none top-[-1.29%] w-[115.23%]" src={imgRectangle40084} />
+              <img alt="Преподаватель Григорий Чепель" decoding="async" loading="eager" className="absolute h-[107.41%] left-[-7.76%] max-w-none top-[-1.29%] w-[115.23%]" src={imgRectangle40084} />
             </div>
           </div>
         </div>
@@ -975,7 +975,7 @@ function Frame94() {
         <div className="h-[324px] relative rounded-[32px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40085} />
+            <img alt="Преподаватель Алан Агузаров" decoding="async" loading="eager" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40085} />
           </div>
         </div>
         <Frame91 />
@@ -985,7 +985,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40086} />
+              <img alt="Преподаватель Павел Мягчилов" decoding="async" loading="eager" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40086} />
             </div>
           </div>
         </div>
@@ -996,7 +996,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[124.27%] left-[0.11%] max-w-none top-[-14.44%] w-[99.89%]" src={imgRectangle40087} />
+              <img alt="Преподаватель Джамбулат Таджидинов" decoding="async" loading="eager" className="absolute h-[124.27%] left-[0.11%] max-w-none top-[-14.44%] w-[99.89%]" src={imgRectangle40087} />
             </div>
           </div>
         </div>
@@ -1007,7 +1007,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[119.16%] left-[6.78%] max-w-none top-[-5.89%] w-[85.23%]" src={imgRectangle40088} />
+              <img alt="Преподаватель Полина Караева" decoding="async" loading="eager" className="absolute h-[119.16%] left-[6.78%] max-w-none top-[-5.89%] w-[85.23%]" src={imgRectangle40088} />
             </div>
           </div>
         </div>
@@ -1018,7 +1018,7 @@ function Frame94() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 302 324\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(9.2461e-16 16.2 -15.1 9.9196e-16 151 162)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="" decoding="async" loading="eager" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
+              <img alt="Преподаватель Лев Быков" decoding="async" loading="eager" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
             </div>
           </div>
         </div>
@@ -1409,10 +1409,10 @@ function Frame43() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+        <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );
@@ -1510,7 +1510,7 @@ function DesktopReviewCard({ review, initialActive = false }: { review: (typeof 
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[201px]">
           <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
             <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-              <img alt="" decoding="async" loading="eager" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
+              <img alt={`Фото ученика ${review.name}`} decoding="async" loading="eager" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
             </div>
             <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">{review.name}</p>
           </div>
@@ -1567,7 +1567,7 @@ function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
       <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-        <img alt="" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
+        <img alt="Преподаватель Полина Караева" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
       </div>
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">Анастасия</p>
     </div>
@@ -1605,7 +1605,7 @@ function Frame59() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0">
       <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[185px]">
-        <img alt="" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
+        <img alt="Преподаватель Полина Караева" decoding="async" loading="eager" className="absolute h-[132%] left-[-2%] max-w-none object-cover top-[-8%] w-[104%]" src={imgRectangle40088} />
       </div>
       <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] min-w-full relative shrink-0 text-[24px] text-black text-center w-[min-content]">Анастасия</p>
     </div>
@@ -2436,11 +2436,11 @@ function Group11() {
     <div className="absolute contents left-[calc(25%+64px)] top-[2658px]">
       <div className="absolute h-[534px] left-[calc(25%+64px)] top-[2658px] w-[973px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" decoding="async" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
+          <img alt="Ноутбук с учебной платформой ИННОПРОГ" decoding="async" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
       <div className="absolute h-[439px] left-[calc(25%+183px)] top-[2689px] w-[736px] site-smooth-photo site-smooth-photo--18" data-name="image 118">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
+        <img alt="Интерфейс учебной платформы ИННОПРОГ на ноутбуке" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
     </div>
   );
@@ -2450,7 +2450,7 @@ function Frame134() {
   return (
     <div className="absolute bg-[#f1ecff] content-stretch flex h-[644px] items-center left-[86px] p-[10px] rounded-[40px] top-[2560px]">
       <div className="h-[637px] relative rounded-[40px] shrink-0 w-[294px] site-smooth-photo site-smooth-photo--40" data-name="image 120">
-        <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage120} />
+        <img alt="Мобильная версия учебной платформы ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage120} />
       </div>
     </div>
   );
@@ -2528,7 +2528,7 @@ export default function Component() {
       </div>
       <div className="-translate-x-1/2 absolute h-[636px] left-[calc(43.75%+56px)] top-[177px] w-[798px]" data-name="IMG_2949 1">
         <div className="absolute inset-0 mix-blend-darken overflow-hidden pointer-events-none">
-          <img alt="" decoding="async" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
+          <img alt="Студент ИННОПРОГ за ноутбуком" decoding="async" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
         </div>
       </div>
       <div className="-translate-x-1/2 absolute content-stretch flex h-[88px] items-center justify-between left-[calc(50%-3px)] px-[24px] py-[16px] rounded-[40px] site-start-button top-[652px] w-[622px]" data-name="кнопки пд" data-node-id="3401:839">

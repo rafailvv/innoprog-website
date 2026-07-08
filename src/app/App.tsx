@@ -64,7 +64,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
 const DESKTOP_DESIGN = {
@@ -83,6 +83,8 @@ const MOBILE_BREAKPOINT = 768;
 
 type CourseReviewsDirection = Exclude<ReviewsDirectionKey, typeof ALL_REVIEWS_DIRECTION_KEY>;
 
+const courseReviewOriginalNodes = new WeakMap<HTMLAnchorElement, Node[]>();
+
 function getCourseReviewHref(review: StudentReview) {
   return getStudentReviewPath(review);
 }
@@ -90,9 +92,16 @@ function getCourseReviewHref(review: StudentReview) {
 function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
   const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
 
+  if (!courseReviewOriginalNodes.has(card)) {
+    courseReviewOriginalNodes.set(card, Array.from(card.childNodes));
+  }
+
   card.classList.add("site-course-review-card--dynamic");
   card.href = getCourseReviewHref(review);
   card.draggable = false;
+  card.hidden = false;
+  card.removeAttribute("aria-hidden");
+  card.removeAttribute("tabindex");
   card.setAttribute("aria-label", `Читать отзыв: ${review.name}, ${review.course}`);
 
   if (courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES) {
@@ -102,6 +111,12 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
     card.dataset.studentReview = review.id;
     delete card.dataset.courseReview;
   }
+
+  if (card.dataset.dynamicStudentReview === review.id) {
+    return;
+  }
+
+  card.dataset.dynamicStudentReview = review.id;
 
   const initial = review.name.trim().charAt(0).toUpperCase() || "И";
   const content = document.createElement("span");
@@ -151,6 +166,25 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
   card.replaceChildren(content);
 }
 
+function restoreCourseReviewDirection(canvas: HTMLElement) {
+  canvas
+    .querySelectorAll<HTMLAnchorElement>("a.site-course-review-card--dynamic")
+    .forEach((card) => {
+      const originalNodes = courseReviewOriginalNodes.get(card);
+
+      if (originalNodes) {
+        card.replaceChildren(...originalNodes);
+        courseReviewOriginalNodes.delete(card);
+      }
+
+      card.classList.remove("site-course-review-card--dynamic");
+      delete card.dataset.dynamicStudentReview;
+      card.hidden = false;
+      card.removeAttribute("aria-hidden");
+      card.removeAttribute("tabindex");
+    });
+}
+
 function applyCourseReviewDirection(canvas: HTMLElement, direction: CourseReviewsDirection) {
   const reviews = STUDENT_REVIEWS
     .filter((review) => review.direction === direction)
@@ -165,7 +199,9 @@ function applyCourseReviewDirection(canvas: HTMLElement, direction: CourseReview
       const review = reviews[index];
 
       if (!review) {
-        card.remove();
+        card.hidden = true;
+        card.setAttribute("aria-hidden", "true");
+        card.tabIndex = -1;
         return;
       }
 
@@ -178,7 +214,7 @@ function useCourseReviewDirection(
   courseCanvasRef: { current: HTMLDivElement | null },
   direction: CourseReviewsDirection,
 ) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const canvas = courseCanvasRef.current;
 
     if (!canvas) {
@@ -194,6 +230,7 @@ function useCourseReviewDirection(
 
     return () => {
       refreshIds.forEach((refreshId) => window.clearTimeout(refreshId));
+      restoreCourseReviewDirection(canvas);
     };
   }, [courseCanvasRef, direction]);
 }
@@ -462,6 +499,7 @@ const REVIEW_STORIES = {
     avatar: reviewKirillUrl,
     hero: reviewStoryKirillHeroUrl,
     name: "Кирилл",
+    storyTitleName: "Кирилла",
     course: "Python-разработчик",
     transition: "Из HR → в ИТ",
     city: "Москва",
@@ -499,7 +537,7 @@ const REVIEW_STORIES = {
         ],
       },
       {
-        title: "МОЙ ОТЗЫВ ОБ ИННОПРОГ",
+        title: "Мой отзыв об ИННОПРОГ",
         body: [
           "Понравился хорошо структурированный план обучения. Понятно, что именно нужно знать на каждом этапе и куда двигаться дальше. Еженедельные занятия с наставником подталкивали двигаться дальше, позволяя экономить большую кучу времени и нервов",
           "Тем, кто сейчас думает перейти в ИТ, но сомневается, я бы сказал: если хочется, то обязательно нужно пробовать. Даже если на старте кажется, что ничего не понятно, со временем знания начинают складываться в систему",
@@ -513,6 +551,7 @@ const REVIEW_STORIES = {
     avatar: reviewAnastasiaUrl,
     hero: reviewAnastasiaUrl,
     name: "Анастасия",
+    storyTitleName: "Анастасии",
     course: "Data Science",
     transition: "Из 1С → в Product",
     city: "Казань",
@@ -552,7 +591,7 @@ const REVIEW_STORIES = {
         ],
       },
       {
-        title: "Мой отзыв об INNOPROG",
+        title: "Мой отзыв об ИННОПРОГ",
         body: [
           "В ИННОПРОГ мне понравилось, что обучение было структурированным и при этом гибким. Программа помогала двигаться постепенно, не было резких скачков от понятного до супер непонятного. Для меня было особенно важно, что наставник объяснял материал простым языком и помогал связывать технические темы с реальными рабочими задачами. Благодаря этому обучение не ощущалось оторванным от жизни",
           "Тем, кто думает идти в ИТ, Data Science или продуктовую аналитику, но сомневается, я бы сказала так: сначала честно прислушайтесь к себе. Не стоит идти туда только из-за зарплат и красивых историй об успешном успехе. ИТ нужно много думать, разбираться, искать решения и иногда долго сидеть над задачей, которая сначала вообще непонятна",
@@ -566,6 +605,7 @@ const REVIEW_STORIES = {
     avatar: reviewMikhailUrl,
     hero: reviewMikhailUrl,
     name: "Михаил",
+    storyTitleName: "Михаила",
     course: "Python-разработчик",
     transition: "Веб-приложение для сервиса",
     city: "Иннополис",
@@ -588,7 +628,7 @@ const REVIEW_STORIES = {
         ],
       },
       {
-        title: "Как проходило обучение в INNOPROG",
+        title: "Как проходило обучение в ИННОПРОГ",
         body: [
           "На старте я не был программистом. Мог разобраться при помощи нейронки в настройках, но код писал очень мало. Поэтому обучение начали с основ",
           "Потом постепенно перешли к backend-разработке, базам данных, SQL, API, авторизации и структуре веб-приложения. Мне понравилось, что многие темы сразу разбирали на моём проекте. Например, как хранить заявки, как сделать статусы, как связать клиента с заказом, как добавить личный кабинет и как сохранять важные данные по источникам обращений",
@@ -1065,11 +1105,6 @@ function scrollCarousel(id: string, direction: number) {
 
   setCarouselActiveIndex(carousel, targetIndex);
 
-  if (carousel.dataset.carousel === "reviews") {
-    carousel.scrollLeft = normalizedTargetLeft;
-    return;
-  }
-
   carousel.scrollTo({
     left: normalizedTargetLeft,
     behavior: isLoopWrap ? "auto" : "smooth",
@@ -1407,7 +1442,7 @@ function getStorySections(story: ReviewStoryKey) {
 
   return [
     {
-      title: `История ${REVIEW_STORIES[story].name}`,
+      title: `История ${REVIEW_STORIES[story].storyTitleName}`,
       body: [REVIEW_STORIES[story].text],
     },
   ];
@@ -1454,7 +1489,7 @@ function SiteFooter({
 function LegacySiteFooter() {
   return (
     <footer className="site-review-page__footer">
-      <img alt="" className="site-review-page__footer-logo" src="/logo_education.png" />
+      <img alt="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
       <div className="site-review-page__footer-columns">
         <section>
           <h2>Контакты</h2>
@@ -1606,7 +1641,7 @@ function ReviewStyleCard({
       <span className="site-related-review-card__inner content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
         <span className="site-related-review-card__profile">
           <span className="site-related-review-card__avatar">
-            <img alt="" className={card.avatarClassName} loading="lazy" src={card.avatar} />
+            <img alt={`Фото ученика ${card.name}`} className={card.avatarClassName} loading="lazy" src={card.avatar} />
           </span>
           <span className="site-related-review-card__profile-copy">
             <strong>{card.name}</strong>
@@ -2035,20 +2070,20 @@ function ReviewStoryPage({
 
         <div className="site-review-page__title">
           <h1>
-            <span>{storyKey === "кирилл" ? "История Кирилла:" : `История ${story.name}:`}</span>
+            <span>{`История ${story.storyTitleName}:`}</span>
             <strong>{story.pageTitle}</strong>
           </h1>
         </div>
 
         <div className="site-review-page__hero">
-          <img alt="" src={story.hero} />
+          <img alt={`${story.name}, ученик ИННОПРОГ`} src={story.hero} />
         </div>
 
         <blockquote className="site-review-page__quote">{story.heroQuote}</blockquote>
 
         <div className="site-review-page__content">
           <aside className="site-review-page__summary" aria-label="Кратко о результате">
-            <h2>кратко о результате</h2>
+            <h2>Кратко о результате</h2>
             <dl>
               <div>
                 <dt>Город</dt>
@@ -2104,7 +2139,7 @@ function ReviewStoryPage({
         </button>
 
         <section className="site-review-page__other" aria-label="Другие истории">
-          <h2>другие истории</h2>
+          <h2>Другие истории</h2>
           <div className="site-review-page__other-grid">
             {otherStories.map((item) => (
               <RelatedReviewCard key={item} storyKey={item} />
@@ -2155,7 +2190,7 @@ function AboutPage({
 
         <section className="site-about-hero">
           <img
-            alt=""
+            alt="Команда и миссия онлайн-школы программирования ИННОПРОГ"
             decoding="async"
             fetchPriority="high"
             height={700}
@@ -5642,6 +5677,16 @@ export default function App({
 
   const handleSiteKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+    const carousel = target?.closest<HTMLElement>("[data-carousel]");
+
+    if (
+      carousel?.dataset.carousel &&
+      (event.key === "ArrowLeft" || event.key === "ArrowRight")
+    ) {
+      event.preventDefault();
+      scrollCarousel(carousel.dataset.carousel, event.key === "ArrowLeft" ? -1 : 1);
+      return;
+    }
 
     if (
       target?.closest("[data-carousel-action]") &&
@@ -5948,7 +5993,7 @@ export default function App({
       {shouldShowLoader || isReviewTransitionLoading ? (
         <div className="site-loader" aria-hidden={isReady && !isReviewTransitionLoading}>
           <img
-            alt=""
+            alt="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
             src="/logo_education.png"

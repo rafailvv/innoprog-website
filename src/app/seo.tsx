@@ -316,7 +316,7 @@ export const organizationJsonLd = {
     "@type": "Country",
     name: "Россия",
   },
-  sameAs: ["https://t.me/innoprog_admin"],
+  sameAs: ["https://t.me/innoprog"],
 };
 
 export const websiteJsonLd = {
