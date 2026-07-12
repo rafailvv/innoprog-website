@@ -9,12 +9,12 @@ import imgCourseUnreal from "../MainScreenDesktop/e6d0013835ce90ccca46f42fb5480d
 import imgCourseJava from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgCourseMl from "../MainScreenDesktop/c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.opt.webp";
-import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
-import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
-import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
-import imgPhoneFrame from "../MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
+import img70211AppleMockupProDriveAirLaptopsDisc1 from "./platform-laptop-mobile.webp";
+import imgImage118 from "./platform-screen-mobile.webp";
+import imgImage120 from "./platform-phone-screen-mobile.webp";
+import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
-import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
+const imgImage119 = "/videos/personal-mentor.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -33,7 +33,7 @@ import imgReviewMikhail from "../MainScreenDesktop/review-mikhail-high.webp";
 import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
-import imgImg29491 from "./hero-mobile.webp";
+import imgImg29491 from "./hero-mobile-640.webp";
 import {
   MOBILE_FEATURES_BG_HEIGHT,
   MOBILE_FEATURES_BG_TOP,
@@ -1427,7 +1427,7 @@ function Frame152() {
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame151 />
       <div className="h-[201px] relative shrink-0 w-[349px] site-smooth-photo site-smooth-photo--24" data-name="image 119">
-        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage119} />
+        <video aria-hidden="true" autoPlay loop muted playsInline preload="none" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage119} />
       </div>
     </div>
   );

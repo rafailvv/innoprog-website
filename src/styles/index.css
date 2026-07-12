@@ -12,7 +12,7 @@
   overflow: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-reviews-index-page__inner {
@@ -110,7 +110,7 @@
   background: #ffffff;
   color: #000000;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   text-align: left;
   text-decoration: none;
 }
@@ -252,7 +252,7 @@
   background: rgba(156, 120, 255, 0.6);
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
@@ -310,7 +310,7 @@
   background: rgba(156, 120, 255, 0.6);
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
@@ -360,7 +360,7 @@
 
   .site-reviews-index-page__title h1 {
     width: 100%;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-manrope), Arial, sans-serif;
     font-size: 32px;
     font-weight: 800;
     line-height: 32px;
@@ -473,7 +473,7 @@
 
   .site-reviews-index-page__directions h2 {
     max-width: 100%;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-manrope), Arial, sans-serif;
     font-size: 32px;
     font-weight: 800;
     line-height: 32px;
@@ -578,7 +578,7 @@
   overflow: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-course-mentor-media {
@@ -826,7 +826,7 @@
   border-radius: 50%;
   color: #ffffff;
   display: inline-flex;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
   height: 54px;
@@ -843,7 +843,7 @@
 
 .site-course-direction-review-card__person strong {
   color: #201838;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 22px;
   font-weight: 800;
   line-height: 25px;
@@ -852,7 +852,7 @@
 .site-course-direction-review-card__person span,
 .site-course-direction-review-card__course {
   color: rgba(32, 24, 56, 0.58);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 15px;
   font-weight: 500;
   line-height: 19px;
@@ -860,7 +860,7 @@
 
 .site-course-direction-review-card__rating {
   color: #201838;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 18px;
   font-weight: 800;
   line-height: 22px;
@@ -878,7 +878,7 @@
 
 .site-course-direction-review-card__title {
   color: #201838;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 29px;
@@ -887,7 +887,7 @@
 .site-course-direction-review-card__body {
   color: rgba(32, 24, 56, 0.78);
   display: -webkit-box;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 17px;
   font-weight: 500;
   line-height: 25px;
@@ -898,7 +898,7 @@
 
 .site-course-direction-review-card__read-more {
   color: #7c55e7;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.6px;
@@ -1117,7 +1117,7 @@
   background: rgba(156, 120, 255, 0.6);
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
@@ -1194,7 +1194,7 @@
   }
 
   .site-course-reviews-page__title h1 {
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-manrope), Arial, sans-serif;
     font-size: 32px;
     font-weight: 800;
     line-height: 32px;
@@ -1317,7 +1317,7 @@
 
   .site-course-reviews-page__other h2,
   .site-course-reviews-page__directions h2 {
-    font-family: "Manrope", sans-serif;
+    font-family: var(--font-manrope), Arial, sans-serif;
     font-size: 32px;
     font-weight: 800;
     line-height: 32px;
@@ -1814,8 +1814,8 @@ body {
   opacity: 1;
   pointer-events: auto;
   transition:
-    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 650ms step-end;
+    opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 350ms step-end;
 }
 
 .site-shell--ready .site-loader {
@@ -2278,7 +2278,7 @@ body {
   overflow-y: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-reviews-index-page.site-not-found a {
@@ -2357,7 +2357,7 @@ body {
   padding: 28px;
   border-radius: 40px;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
@@ -2482,7 +2482,7 @@ body {
 }
 
 [class*="Manrope"] {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 [class*="Raleway"] {
@@ -2593,7 +2593,7 @@ body {
 }
 
 .site-internship-title--mobile .site-internship-title__line--black {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 25px;
@@ -2605,7 +2605,7 @@ body {
 }
 
 .site-internship-title--mobile .site-internship-title__prefix {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 25px;
@@ -2978,7 +2978,7 @@ button,
 .site-course-program-description {
   margin: 0;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 300;
   line-height: 30px;
@@ -2992,7 +2992,7 @@ button,
   padding: 0;
   list-style: none;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 300;
   line-height: 30px;
@@ -3040,7 +3040,7 @@ button,
   border: 0;
   border-radius: 40px;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 22px;
@@ -3169,7 +3169,7 @@ button,
 }
 
 .site-course-program-list--mobile .site-course-program-title {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.48px;
@@ -3547,7 +3547,7 @@ button,
   height: 46px;
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.8);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -3558,7 +3558,7 @@ button,
   height: 79px;
   padding: 24px;
   background: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -3589,7 +3589,7 @@ button,
 .site-course-lead-input--desktop {
   height: 79px;
   padding: 24px;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -3598,7 +3598,7 @@ button,
 .site-course-lead-input--mobile {
   height: 46px;
   padding: 16px;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
@@ -3869,7 +3869,7 @@ button,
   background: transparent;
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
@@ -3892,7 +3892,7 @@ button,
   background: transparent;
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 22px;
@@ -3940,7 +3940,7 @@ button,
   padding-top: 24px;
   background: #9c78ff;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-review-page__bg {
@@ -4079,7 +4079,7 @@ button,
   background: #ffffff;
   color: #000000;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
@@ -4095,7 +4095,7 @@ button,
   align-items: center;
   gap: 8px;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -4314,7 +4314,7 @@ button,
 }
 
 .site-review-page__article p {
-  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -4728,7 +4728,7 @@ button,
   overflow: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-about-scale-shell {
@@ -5069,7 +5069,7 @@ button,
   overflow-y: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-tariffs-page__content-shell {
@@ -5295,7 +5295,7 @@ button,
   padding: 20px;
   background: rgba(156, 120, 255, 0.6);
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 35px;
@@ -5371,7 +5371,7 @@ button,
   overflow: visible;
   background: #ffffff;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
 }
 
 .site-python-course-page__content-shell {
@@ -5588,7 +5588,7 @@ button,
   justify-content: center !important;
   padding: 24px 24px 24px 32px !important;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
@@ -5864,7 +5864,7 @@ button,
   background: rgba(70, 74, 106, 0.94);
   box-shadow: 0 18px 48px rgba(23, 20, 52, 0.22);
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   transform: translateZ(0);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
@@ -5893,7 +5893,7 @@ button,
   background: #ffffff;
   color: #464a6a;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
@@ -5969,7 +5969,7 @@ button,
   border-radius: 32px;
   background: #464a6a;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 27px;
@@ -6006,7 +6006,7 @@ button,
 .site-desktop-direction-hover__title {
   margin: 0;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 38px;
@@ -6016,7 +6016,7 @@ button,
 .site-desktop-direction-hover__description {
   margin: 0;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 22px;
@@ -6032,7 +6032,7 @@ button,
   border-radius: 40px;
   background: #464a6a;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 27px;
@@ -6137,7 +6137,7 @@ button,
   background: #ffffff;
   color: #000000;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 30px;
@@ -6153,7 +6153,7 @@ button,
   align-items: center;
   gap: 8px;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -6226,7 +6226,7 @@ button,
   color: #464a6a;
   appearance: none;
   outline: 0;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -6253,7 +6253,7 @@ button,
   align-items: flex-start;
   gap: 24px;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -6266,7 +6266,7 @@ button,
 
 .site-lead-modal__error {
   margin: 0;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   text-align: center;
 }
 
@@ -6304,7 +6304,7 @@ button,
   background: transparent;
   color: #ffffff;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 31px;
@@ -6373,7 +6373,7 @@ button,
   background: #464a6a;
   color: #ffffff;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 18px;
   line-height: 1.35;
 }
@@ -7685,7 +7685,7 @@ button,
 }
 
 .site-course-faq-question--mobile {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 22px;
@@ -7719,7 +7719,7 @@ button,
   min-height: 0;
   overflow: visible;
   color: #000000;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-weight: 400;
   opacity: 0;
   transform: translateY(-6px);

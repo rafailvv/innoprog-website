@@ -28,7 +28,7 @@ import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-te
 import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.opt.webp";
 import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.opt.webp";
 import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.opt.webp";
-import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile.webp";
+import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile-640.webp";
 import {
   ALL_REVIEWS_DIRECTION_KEY,
   REVIEWS_DIRECTIONS,
@@ -248,12 +248,12 @@ const desktopScrollTargets = {
 
 const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 
-const LOADER_MIN_MS = 650;
+const LOADER_MIN_MS = 300;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
-const LOADER_EXIT_MS = 700;
+const LOADER_EXIT_MS = 400;
 const APPLICATION_REQUEST_URL = "/application/request";
 
 type LeadPayload = {
@@ -906,7 +906,9 @@ function getViewportSnapshot() {
 }
 
 function getServerViewportSnapshot() {
-  return String(DESKTOP_DESIGN.width);
+  // Start from the lightweight mobile tree. The loader covers hydration, and
+  // wider clients switch to the desktop tree before the page is revealed.
+  return String(MOBILE_DESIGN.width);
 }
 
 function getSafariSnapshot() {
@@ -946,8 +948,8 @@ function useViewportState() {
 
 function getCriticalAssets(isMobile: boolean) {
   return isMobile
-    ? ["/logo_education.png", heroMobileUrl]
-    : ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
+    ? ["/logo_education.webp", heroMobileUrl]
+    : ["/logo_education.webp", heroPersonUrl, heroBackgroundUrl];
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
@@ -1465,7 +1467,7 @@ function SiteFooter({
 function LegacySiteFooter() {
   return (
     <footer className="site-review-page__footer">
-      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
+      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.webp" />
       <div className="site-review-page__footer-columns">
         <section>
           <h2>Контакты</h2>
@@ -1502,7 +1504,7 @@ function LegacySiteFooter() {
 }
 
 function SitePageHeader({
-  logoSrc = "/logo_education.png",
+  logoSrc = "/logo_education.webp",
   onHome,
   scale = 1,
 }: {
@@ -3934,7 +3936,7 @@ function clearReturnScrollPosition() {
 function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
-  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
+  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.webp"));
 
   return Promise.all([
     ...getCriticalAssets(isMobile).map(preloadImage),
@@ -5835,7 +5837,7 @@ export default function App({
         >
           <div className="site-mobile-menu__top">
             <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
-              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.png" />
+              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.webp" />
             </button>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" data-mobile-menu-toggle type="button">
               <span aria-hidden="true" />
@@ -5882,7 +5884,7 @@ export default function App({
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
-            src="/logo_education.png"
+            src="/logo_education.webp"
           />
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />

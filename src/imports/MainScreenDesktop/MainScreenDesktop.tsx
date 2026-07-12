@@ -9,7 +9,7 @@ import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.opt.webp";
-import imgImage119 from "../PythonCourseDesktop/personal-mentor.gif";
+const imgImage119 = "/videos/personal-mentor.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
 import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.teacher.webp";
@@ -853,7 +853,7 @@ function Component1() {
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame30 />
       <div className="h-[735px] relative rounded-[40px] shrink-0 w-[1280px] site-smooth-photo site-smooth-photo--40" data-name="image 119">
-        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
+        <video aria-hidden="true" autoPlay loop muted playsInline preload="none" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
   );
@@ -1780,7 +1780,7 @@ function Frame50() {
 function Frame63() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <div className="flex items-center justify-center relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" role="button" tabIndex={0}>
+      <button aria-label="Предыдущие отзывы" className="bg-transparent border-0 flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" type="button">
         <div className="-scale-y-100 flex-none rotate-180">
           <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
             <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
@@ -1793,8 +1793,8 @@ function Frame63() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" role="button" tabIndex={0}>
+      </button>
+      <button aria-label="Следующие отзывы" className="bg-[rgba(255,255,255,0.8)] border-0 content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" type="button">
         <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
@@ -1803,7 +1803,7 @@ function Frame63() {
             </svg>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "../styles/index.css";
 import {
@@ -15,6 +16,16 @@ import {
 } from "./seo";
 
 const YANDEX_METRIKA_ID = 110454081;
+
+const manrope = localFont({
+  src: [
+    { path: "./fonts/manrope-cyrillic.woff2", weight: "200 800", style: "normal" },
+    { path: "./fonts/manrope-latin.woff2", weight: "200 800", style: "normal" },
+  ],
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -84,17 +95,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={manrope.variable}>
       <head>
         <meta name="yandex-verification" content="ca948d488c7e73d2" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body>
+      <body className={manrope.className}>
         <nav className="site-seo-navigation" aria-label="Основные страницы сайта">
           {KEY_SITE_LINKS.map((link) => (
             <a href={link.path} key={link.path}>
@@ -158,10 +163,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             (function(m,e,t,r,i,k,a){
               m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();
-              for (var j = 0; j < document.scripts.length; j++) {
-                if (document.scripts[j].src === r) { return; }
-              }
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+              var loaded=false;
+              var load=function(){
+                if(loaded){return;}
+                loaded=true;
+                for(var j=0;j<document.scripts.length;j++){
+                  if(document.scripts[j].src===r){return;}
+                }
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+              };
+              ['pointerdown','touchstart','keydown'].forEach(function(eventName){
+                m.addEventListener(eventName,load,{once:true,passive:true});
+              });
+              m.setTimeout(load,30000);
             })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}', 'ym');
 
             ym(${YANDEX_METRIKA_ID}, 'init', {

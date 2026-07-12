@@ -2,7 +2,7 @@ import { useState, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgFrontendHero from "../MainScreenDesktop/c6d3c38bc41dfc3341159f2554b64cfeaf3c7d6f.opt.webp";
-import imgImage119 from "./personal-mentor.gif";
+const imgImage119 = "/videos/personal-mentor.mp4";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
 import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
 import imgCollabration from "./0ddae1105f6319bcc13e96735e2d30ab76fbfe3d.png";
@@ -991,7 +991,7 @@ function Component2() {
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame14 />
       <div className="h-[735px] overflow-hidden relative rounded-[40px] shrink-0 w-[1280px] site-course-mentor-media" data-name="image 119">
-        <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
+        <video aria-hidden="true" autoPlay loop muted playsInline preload="none" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
   );

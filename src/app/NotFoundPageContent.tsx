@@ -6,7 +6,7 @@ export default function NotFoundPageContent() {
     <main className="site-reviews-index-page site-not-found">
       <header className="site-review-page__header site-not-found__header" aria-label="Навигация по сайту">
         <Link className="site-review-page__logo" href="/" aria-label="ИННОПРОГ, на главную">
-          <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.png" />
+          <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.webp" />
         </Link>
         <nav className="site-review-page__nav" aria-label="Основные разделы">
           <Link href="/">для взрослых</Link>
@@ -48,7 +48,7 @@ export default function NotFoundPageContent() {
       </div>
 
       <footer className="site-review-page__footer">
-        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
+        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.webp" />
         <div className="site-review-page__footer-columns">
           <section>
             <h2>Контакты</h2>

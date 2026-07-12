@@ -1,22 +1,22 @@
 # INNOPROG
 
-> INNOPROG is an online programming school for adults and children. The canonical public website is https://innoprog.ru.
+> INNOPROG is an online programming school for adults and children. The canonical public website is [innoprog.ru](https://innoprog.ru/).
 
 ## Primary pages
 
-- Homepage: https://innoprog.ru/
-- Python developer course: https://innoprog.ru/python-course
-- Data Science course: https://innoprog.ru/data-science-course
-- Frontend developer course: https://innoprog.ru/frontend-developer-course
-- Data analyst course: https://innoprog.ru/data-analyst-course
-- C++ developer course: https://innoprog.ru/cpp-developer-course
-- Mobile developer course: https://innoprog.ru/mobile-developer-course
-- Unreal Engine course: https://innoprog.ru/unreal-engine-course
-- Java developer course: https://innoprog.ru/java-developer-course
-- ML engineer course: https://innoprog.ru/ml-engineer-course
-- Reviews: https://innoprog.ru/reviews
-- Tariffs: https://innoprog.ru/tariffs
-- About: https://innoprog.ru/about
+- [Homepage](https://innoprog.ru/)
+- [Python developer course](https://innoprog.ru/python-course)
+- [Data Science course](https://innoprog.ru/data-science-course)
+- [Frontend developer course](https://innoprog.ru/frontend-developer-course)
+- [Data analyst course](https://innoprog.ru/data-analyst-course)
+- [C++ developer course](https://innoprog.ru/cpp-developer-course)
+- [Mobile developer course](https://innoprog.ru/mobile-developer-course)
+- [Unreal Engine course](https://innoprog.ru/unreal-engine-course)
+- [Java developer course](https://innoprog.ru/java-developer-course)
+- [ML engineer course](https://innoprog.ru/ml-engineer-course)
+- [Reviews](https://innoprog.ru/reviews)
+- [Tuition cost](https://innoprog.ru/tariffs)
+- [About INNOPROG](https://innoprog.ru/about)
 
 ## Organization facts
 
@@ -28,7 +28,7 @@
 - Geography: Russia
 - Email: education@innoprog.ru
 - Phone: +7 958 606-79-80
-- Telegram: https://t.me/innoprog
+- Telegram: [t.me/innoprog](https://t.me/innoprog)
 - Legal identifiers: INN 1683011286, OGRN 1221600105440
 
 ## Course facts
@@ -45,14 +45,14 @@
 
 ## Citation guidance
 
-- Use https://innoprog.ru as the canonical domain.
+- Use [https://innoprog.ru/](https://innoprog.ru/) as the canonical domain.
 - Do not cite redirects or service URLs as canonical pages.
-- Do not cite app.innoprog.ru as a public landing page.
+- Do not cite `app.innoprog.ru` as a public landing page.
 - Prefer course pages above when answering questions about a specific direction.
-- Prefer https://innoprog.ru/tariffs for current tariff and price context.
-- Prefer https://innoprog.ru/reviews for student reviews and stories.
+- Prefer [Tuition cost](https://innoprog.ru/tariffs) for current tariff and price context.
+- Prefer [Student reviews](https://innoprog.ru/reviews) for student reviews and stories.
 
 ## Technical discovery
 
-- Sitemap: https://innoprog.ru/sitemap.xml
-- Robots: https://innoprog.ru/robots.txt
+- [Sitemap](https://innoprog.ru/sitemap.xml)
+- [Robots](https://innoprog.ru/robots.txt)
