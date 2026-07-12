@@ -753,13 +753,10 @@ function Frame278() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] uppercase w-full">
-        <p className="leading-[20px] mb-0">ML-инженер строит модели, ML-сервисы</p>
-        <p className="leading-[20px]">и машинное обучение</p>
+        <p className="leading-[20px]"><span>ML-инженер строит модели, ML-сервисы</span><br /><span>и машинное обучение</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px] mb-0">На курсе вы проходите полный цикл работы с данными: сбор, очистку, исследование, статистику</p>
-        <p className="leading-[18px] mb-0">обучение моделей и подготовку результата для бизнеса</p>
-        <p className="leading-[18px]">Программа помогает собрать портфолио из 15 ML-проектов и подготовиться к первым инженерным задачам</p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл работы с данными: сбор, очистку, исследование, статистику</span><br /><span>обучение моделей и подготовку результата для бизнеса.</span><br /><span>Программа помогает собрать портфолио из 15 ML-проектов и подготовиться к первым инженерным задачам.</span></p>
       </div>
     </div>
   );

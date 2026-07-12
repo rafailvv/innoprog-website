@@ -738,13 +738,10 @@ function Frame278() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] uppercase w-full">
-        <p className="leading-[20px] mb-0">Frontend-разработчик создает интерфейсы, SPA-приложения</p>
-        <p className="leading-[20px]">и интеграции с API</p>
+        <p className="leading-[20px]"><span>Frontend-разработчик создает интерфейсы, SPA-приложения</span><br /><span>и интеграции с API</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px] mb-0">На курсе вы проходите полный цикл frontend-разработки: верстку, JavaScript, TypeScript, React</p>
-        <p className="leading-[18px] mb-0">работу с API, тестирование, доступность и подготовку проекта к деплою</p>
-        <p className="leading-[18px]">Программа помогает собрать портфолио и подготовиться к первым задачам frontend-разработчика</p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл frontend-разработки: верстку, JavaScript, TypeScript, React</span><br /><span>работу с API, тестирование, доступность и подготовку проекта к деплою.</span><br /><span>Программа помогает собрать портфолио и подготовиться к первым задачам frontend-разработчика.</span></p>
       </div>
     </div>
   );

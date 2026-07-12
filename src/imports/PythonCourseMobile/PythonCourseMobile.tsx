@@ -671,12 +671,14 @@ function Frame278() {
         </p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px] mb-0">Python активно применяют в разработке сайтов, приложений, автоматизации</p>
-        <p className="leading-[18px] mb-0">и аналитике. Язык остаётся одним</p>
-        <p className="leading-[18px] mb-0">{`из самых удобных для старта карьеры `}</p>
-        <p className="leading-[18px] mb-0">в ИТ и стабильно востребован в вакансиях</p>
-        <p className="leading-[18px] mb-0">Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior (начальный), Middle (средний)</p>
-        <p className="leading-[18px]">и Senior (старший)</p>
+        <p className="leading-[18px]">
+          <span>Python активно применяют в разработке сайтов, приложений, автоматизации</span><br />
+          <span>и аналитике. Язык остаётся одним</span><br />
+          <span>из самых удобных для старта карьеры</span><br />
+          <span>в ИТ и стабильно востребован в вакансиях.</span><br />
+          <span>Крупные продуктовые и технологические компании продолжают искать Python-разработчиков на уровнях Junior (начальный), Middle (средний)</span><br />
+          <span>и Senior (старший).</span>
+        </p>
       </div>
     </div>
   );

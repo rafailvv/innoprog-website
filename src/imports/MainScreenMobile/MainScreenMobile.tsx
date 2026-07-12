@@ -236,13 +236,16 @@ function Frame4() {
     <div className="font-['Manrope:Regular',sans-serif] font-normal h-[130px] leading-[20px] relative shrink-0 site-mobile-readable-copy text-[16px] text-white tracking-[0.48px] w-[351px]">
       <p className="relative shrink-0 w-full">
         <span className="font-['Manrope:Bold',sans-serif] font-bold text-[20px]">ИННОПРОГ</span>
-        <span>{` — это онлайн`}</span>
+        <span>{` — это онлайн-`}</span>
+        <br />
+        <span>образовательная платформа для изучения</span>
+        <br />
+        <span>ИТ-профессий. Пошаговое обучение, индивидуальные</span>
+        <br />
+        <span>занятия с преподавателями</span>
+        <br />
+        <span>и круглосуточная поддержка в чате.</span>
       </p>
-      <p className="relative shrink-0 w-full">образовательная платформа для изучения</p>
-      <p className="relative shrink-0 w-full">ИТ-профессий</p>
-      <p className="relative shrink-0 w-full">Пошаговое обучение, индивидуальные</p>
-      <p className="relative shrink-0 w-full">занятия с преподавателями</p>
-      <p className="relative shrink-0 w-full">и круглосуточная поддержка в чате</p>
     </div>
   );
 }

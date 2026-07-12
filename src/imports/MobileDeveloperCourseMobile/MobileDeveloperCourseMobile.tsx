@@ -753,13 +753,10 @@ function Frame278() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] uppercase w-full">
-        <p className="leading-[20px] mb-0">Мобильный разработчик создает приложения для Android и iOS, проектирует интерфейсы</p>
-        <p className="leading-[20px]">и подключает API, локальное хранение и нативные возможности</p>
+        <p className="leading-[20px]"><span>Мобильный разработчик создает приложения для Android и iOS, проектирует интерфейсы</span><br /><span>и подключает API, локальное хранение и нативные возможности</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px] mb-0">На курсе вы проходите полный цикл мобильной разработки: Dart, Flutter UI, архитектуру, API, локальное хранение и тестирование</p>
-        <p className="leading-[18px] mb-0">сборку, публикацию, аналитику и сопровождение приложения</p>
-        <p className="leading-[18px]">Программа помогает собрать портфолио из 15 мобильных проектов и подготовиться к первым задачам мобильного разработчика</p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл мобильной разработки: Dart, Flutter UI, архитектуру, API, локальное хранение и тестирование</span><br /><span>сборку, публикацию, аналитику и сопровождение приложения.</span><br /><span>Программа помогает собрать портфолио из 15 мобильных проектов и подготовиться к первым задачам мобильного разработчика.</span></p>
       </div>
     </div>
   );

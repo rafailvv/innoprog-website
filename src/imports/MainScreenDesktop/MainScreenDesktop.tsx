@@ -44,10 +44,13 @@ function Frame4() {
   return (
     <div className="h-[180px] relative shrink-0 text-white w-[790px]">
       <div className="absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-0 text-[24px] top-[7px] w-[806px] whitespace-pre-wrap">
-        <p className="leading-[35px] mb-0">{`                                       — это онлайн образовательная платформа`}</p>
-        <p className="leading-[35px]">для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и круглосуточная поддержка в чате</p>
+        <p className="leading-[35px]">
+          <span className="absolute font-['Raleway:SemiBold',sans-serif] font-semibold leading-[35px] left-0 text-[32px] top-[-7px] whitespace-nowrap">ИННОПРОГ</span>
+          <span>{`                                       — это онлайн-образовательная платформа`}</span>
+          <br />
+          <span>для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и круглосуточная поддержка в чате.</span>
+        </p>
       </div>
-      <p className="absolute font-['Raleway:SemiBold',sans-serif] font-semibold leading-[35px] left-0 text-[32px] top-0 whitespace-nowrap">ИННОПРОГ</p>
     </div>
   );
 }

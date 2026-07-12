@@ -133,6 +133,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/python_advanced",
+        destination: "/python-course",
+        permanent: true,
+      },
+      {
+        source: "/databases",
+        destination: "/python-course",
+        permanent: true,
+      },
+      {
         source: "/page34389955.html",
         destination: "/",
         permanent: true,

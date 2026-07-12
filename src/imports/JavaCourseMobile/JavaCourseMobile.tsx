@@ -753,13 +753,10 @@ function Frame278() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0 text-black w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[20px] uppercase w-full">
-        <p className="leading-[20px] mb-0">Java-разработчик создает приложения, backend-сервисы</p>
-        <p className="leading-[20px]">REST API, базы данных, безопасность и тесты</p>
+        <p className="leading-[20px]"><span>Java-разработчик создает приложения, backend-сервисы,</span><br /><span>REST API, базы данных, безопасность и тесты</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px] mb-0">На курсе вы проходите полный цикл Java-разработки: Java Core, ООП, SQL, JavaFX, Spring Boot, безопасность, тесты и деплой</p>
-        <p className="leading-[18px] mb-0">backend, базы данных, тесты и подготовку к деплою</p>
-        <p className="leading-[18px]">Программа помогает собрать портфолио из 15 Java-проектов и подготовиться к первым задачам Java-разработчика</p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл Java-разработки: Java Core, ООП, SQL, JavaFX, Spring Boot, безопасность, тесты и деплой</span><br /><span>backend, базы данных, тесты и подготовку к деплою.</span><br /><span>Программа помогает собрать портфолио из 15 Java-проектов и подготовиться к первым задачам Java-разработчика.</span></p>
       </div>
     </div>
   );
