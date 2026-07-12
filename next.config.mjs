@@ -78,6 +78,15 @@ const nextConfig = {
         ],
       },
       {
+        source: "/reviews/:story",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, follow",
+          },
+        ],
+      },
+      {
         source: "/api/:path*",
         headers: [
           {

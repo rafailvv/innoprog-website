@@ -523,44 +523,6 @@ export const tariffsOfferCatalogJsonLd = {
   })),
 };
 
-export const reviewsItemListJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "@id": `${absoluteUrl("/reviews")}#student-reviews`,
-  name: "Истории и отзывы учеников ИННОПРОГ",
-  description: "Отзывы учеников о курсах программирования ИННОПРОГ, наставниках, практике и результатах обучения",
-  url: absoluteUrl("/reviews"),
-  inLanguage: "ru-RU",
-  itemListElement: (Object.keys(REVIEW_META) as ReviewRoute[]).map((route, index) => {
-    const meta = REVIEW_META[route];
-
-    return {
-      "@type": "ListItem",
-      position: index + 1,
-      url: absoluteUrl(`/reviews/${route}`),
-      item: {
-        "@type": "Review",
-        "@id": `${absoluteUrl(`/reviews/${route}`)}#review`,
-        name: meta.title,
-        url: absoluteUrl(`/reviews/${route}`),
-        author: {
-          "@type": "Person",
-          name: meta.name,
-        },
-        itemReviewed: {
-          "@type": "Course",
-          "@id": courseEntityId(meta.coursePath),
-          name: meta.course,
-          url: absoluteUrl(meta.coursePath),
-          provider: {
-            "@id": `${SITE_URL}/#organization`,
-          },
-        },
-      },
-    };
-  }),
-};
-
 export const courseJsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -1190,35 +1152,5 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
-  };
-}
-
-export function reviewJsonLd(route: ReviewRoute) {
-  const meta = REVIEW_META[route];
-  const courseId = courseEntityId(meta.coursePath);
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "@id": `${absoluteUrl(`/reviews/${route}`)}#review`,
-    itemReviewed: {
-      "@type": "Course",
-      "@id": courseId,
-      name: meta.course,
-      url: absoluteUrl(meta.coursePath),
-      provider: {
-        "@id": `${SITE_URL}/#organization`,
-      },
-    },
-    author: {
-      "@type": "Person",
-      name: meta.name,
-    },
-    name: meta.title,
-    reviewBody: meta.reviewBody,
-    url: absoluteUrl(`/reviews/${route}`),
-    publisher: {
-      "@id": `${SITE_URL}/#organization`,
-    },
   };
 }

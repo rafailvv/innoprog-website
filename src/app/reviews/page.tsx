@@ -3,7 +3,6 @@ import {
   JsonLd,
   breadcrumbJsonLd,
   createPageMetadata,
-  reviewsItemListJsonLd,
   webPageJsonLd,
 } from "../seo";
 
@@ -34,10 +33,8 @@ export default function ReviewsPage() {
           name: REVIEWS_TITLE,
           description: REVIEWS_DESCRIPTION,
           pageType: "CollectionPage",
-          primaryEntityId: "https://innoprog.ru/reviews#student-reviews",
         })}
       />
-      <JsonLd data={reviewsItemListJsonLd} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Главная", path: "/" },
