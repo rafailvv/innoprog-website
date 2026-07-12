@@ -1,9 +1,12 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { CPP_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   CPP_COURSE_OG_IMAGE_PATH,
   COURSE_OG_IMAGE_SIZE,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   breadcrumbJsonLd,
   cppCourseJsonLd,
   createPageMetadata,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс C++ разработчик с нуля",
+  title:
+    "Курс C++ разработчик с нуля: онлайн-обучение программированию на C++ для начинающих — ИННОПРОГ",
   description:
-    "Курс C++ разработчик в ИННОПРОГ: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 проектов за 28 учебных недель",
+    "Онлайн-курс «C++ разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения C++, алгоритмам, ООП, CMake и Linux: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/cpp-developer-course",
-  keywords: [
-    "курс C++ разработчик",
-    "C++ разработчик с наставником",
-    "обучение C++ онлайн",
-    "курс CMake Linux",
-    "курс алгоритмы и структуры данных C++",
-  ],
+  keywords: CPP_COURSE_KEYWORDS,
   ogImage: CPP_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс C++ разработчик с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function CppCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс C++ разработчик с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={cppCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/cpp-developer-course")} />
       <JsonLd

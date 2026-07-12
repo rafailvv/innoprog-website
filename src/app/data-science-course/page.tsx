@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { DATA_SCIENCE_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   DATA_SCIENCE_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Data Science с нуля",
+  title:
+    "Курс Data Science с нуля: онлайн-обучение анализу данных и машинному обучению для начинающих — ИННОПРОГ",
   description:
-    "Курс Data Science в ИННОПРОГ: Python, SQL, статистика, машинное обучение, MLOps и 13 проектных работ с наставником за 28 учебных недель",
+    "Онлайн-курс «Data Science» с нуля от ИННОПРОГ. 10 месяцев обучения Python, SQL, анализу данных и машинному обучению: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/data-science-course",
-  keywords: [
-    "курс Data Science",
-    "Data Science с наставником",
-    "обучение Data Science онлайн",
-    "машинное обучение с нуля",
-    "Python для анализа данных",
-  ],
+  keywords: DATA_SCIENCE_COURSE_KEYWORDS,
   ogImage: DATA_SCIENCE_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Data Science с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function DataScienceCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс Data Science с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={dataScienceCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-science-course")} />
       <JsonLd

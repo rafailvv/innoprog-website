@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { JAVA_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   JAVA_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   javaCourseJsonLd,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Java-разработчик с нуля",
+  title:
+    "Курс Java-разработчик с нуля: онлайн-обучение программированию на Java для начинающих — ИННОПРОГ",
   description:
-    "Курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API, безопасность, тестирование и 15 проектов за 28 учебных недель",
+    "Онлайн-курс «Java-разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения Java Core, SQL, Spring Boot и backend-разработке: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/java-developer-course",
-  keywords: [
-    "курс Java",
-    "Java-разработчик с наставником",
-    "обучение Java онлайн",
-    "курс Spring Boot",
-    "курс Java backend",
-  ],
+  keywords: JAVA_COURSE_KEYWORDS,
   ogImage: JAVA_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Java-разработчик с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function JavaCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс Java-разработчик с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={javaCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/java-developer-course")} />
       <JsonLd

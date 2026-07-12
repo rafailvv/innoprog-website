@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { FRONTEND_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   FRONTEND_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Frontend-разработчик с нуля",
+  title:
+    "Курс Frontend-разработчик с нуля: онлайн-обучение веб-разработке для начинающих — ИННОПРОГ",
   description:
-    "Курс Frontend-разработчик в ИННОПРОГ: HTML, CSS, JavaScript, TypeScript, React, API, тесты и 15 проектных работ за 28 учебных недель",
+    "Онлайн-курс «Frontend-разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения HTML, CSS, JavaScript, TypeScript и React: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/frontend-developer-course",
-  keywords: [
-    "курс Frontend-разработчик",
-    "Frontend-разработчик с наставником",
-    "обучение frontend онлайн",
-    "курс React с нуля",
-    "курс JavaScript TypeScript",
-  ],
+  keywords: FRONTEND_COURSE_KEYWORDS,
   ogImage: FRONTEND_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Frontend-разработчик с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function FrontendCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс Frontend-разработчик с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={frontendCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/frontend-developer-course")} />
       <JsonLd

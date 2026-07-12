@@ -1,6 +1,9 @@
 import App, { type AppInitialRoute } from "../App";
 import {
   JsonLd,
+  REVIEWS_PAGE_KEYWORDS,
+  REVIEWS_SECTION_HEADINGS,
+  SeoSectionHeadings,
   breadcrumbJsonLd,
   createPageMetadata,
   webPageJsonLd,
@@ -14,12 +17,7 @@ export const metadata = createPageMetadata({
   title: REVIEWS_TITLE,
   description: REVIEWS_DESCRIPTION,
   path: "/reviews",
-  keywords: [
-    "отзывы ИННОПРОГ",
-    "отзывы онлайн школа программирования",
-    "отзывы курс Python-разработчик",
-    "истории учеников ИННОПРОГ",
-  ],
+  keywords: [...REVIEWS_PAGE_KEYWORDS],
 });
 
 const reviewsRoute: AppInitialRoute = { page: "reviews" };
@@ -27,6 +25,7 @@ const reviewsRoute: AppInitialRoute = { page: "reviews" };
 export default function ReviewsPage() {
   return (
     <>
+      <SeoSectionHeadings headings={REVIEWS_SECTION_HEADINGS} />
       <JsonLd
         data={webPageJsonLd({
           path: "/reviews",

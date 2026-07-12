@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import MainScreen, {
   MainScreenDesktopFooter,
   MainScreenDesktopHeader,
@@ -11,24 +12,6 @@ import MainScreenMobile, {
   MainScreenMobileFooter,
   MainScreenMobileHeader,
 } from "../imports/MainScreenMobile/MainScreenMobile";
-import PythonCourseDesktop from "../imports/PythonCourseDesktop/PythonCourseDesktop";
-import PythonCourseMobile from "../imports/PythonCourseMobile/PythonCourseMobile";
-import DataScienceCourseDesktop from "../imports/DataScienceCourseDesktop/DataScienceCourseDesktop";
-import DataScienceCourseMobile from "../imports/DataScienceCourseMobile/DataScienceCourseMobile";
-import FrontendCourseDesktop from "../imports/FrontendCourseDesktop/FrontendCourseDesktop";
-import FrontendCourseMobile from "../imports/FrontendCourseMobile/FrontendCourseMobile";
-import DataAnalystCourseDesktop from "../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop";
-import DataAnalystCourseMobile from "../imports/DataAnalystCourseMobile/DataAnalystCourseMobile";
-import CppCourseDesktop from "../imports/CppCourseDesktop/CppCourseDesktop";
-import CppCourseMobile from "../imports/CppCourseMobile/CppCourseMobile";
-import MobileDeveloperCourseDesktop from "../imports/MobileDeveloperCourseDesktop/MobileDeveloperCourseDesktop";
-import MobileDeveloperCourseMobile from "../imports/MobileDeveloperCourseMobile/MobileDeveloperCourseMobile";
-import UnrealEngineCourseDesktop from "../imports/UnrealEngineCourseDesktop/UnrealEngineCourseDesktop";
-import UnrealEngineCourseMobile from "../imports/UnrealEngineCourseMobile/UnrealEngineCourseMobile";
-import JavaCourseDesktop from "../imports/JavaCourseDesktop/JavaCourseDesktop";
-import JavaCourseMobile from "../imports/JavaCourseMobile/JavaCourseMobile";
-import MlEngineerCourseDesktop from "../imports/MlEngineerCourseDesktop/MlEngineerCourseDesktop";
-import MlEngineerCourseMobile from "../imports/MlEngineerCourseMobile/MlEngineerCourseMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -67,6 +50,33 @@ import {
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
+const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
+const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
+const DataScienceCourseDesktop = dynamic(() => import("../imports/DataScienceCourseDesktop/DataScienceCourseDesktop"));
+const DataScienceCourseMobile = dynamic(() => import("../imports/DataScienceCourseMobile/DataScienceCourseMobile"));
+const FrontendCourseDesktop = dynamic(() => import("../imports/FrontendCourseDesktop/FrontendCourseDesktop"));
+const FrontendCourseMobile = dynamic(() => import("../imports/FrontendCourseMobile/FrontendCourseMobile"));
+const DataAnalystCourseDesktop = dynamic(() => import("../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop"));
+const DataAnalystCourseMobile = dynamic(() => import("../imports/DataAnalystCourseMobile/DataAnalystCourseMobile"));
+const CppCourseDesktop = dynamic(() => import("../imports/CppCourseDesktop/CppCourseDesktop"));
+const CppCourseMobile = dynamic(() => import("../imports/CppCourseMobile/CppCourseMobile"));
+const MobileDeveloperCourseDesktop = dynamic(
+  () => import("../imports/MobileDeveloperCourseDesktop/MobileDeveloperCourseDesktop"),
+);
+const MobileDeveloperCourseMobile = dynamic(
+  () => import("../imports/MobileDeveloperCourseMobile/MobileDeveloperCourseMobile"),
+);
+const UnrealEngineCourseDesktop = dynamic(
+  () => import("../imports/UnrealEngineCourseDesktop/UnrealEngineCourseDesktop"),
+);
+const UnrealEngineCourseMobile = dynamic(
+  () => import("../imports/UnrealEngineCourseMobile/UnrealEngineCourseMobile"),
+);
+const JavaCourseDesktop = dynamic(() => import("../imports/JavaCourseDesktop/JavaCourseDesktop"));
+const JavaCourseMobile = dynamic(() => import("../imports/JavaCourseMobile/JavaCourseMobile"));
+const MlEngineerCourseDesktop = dynamic(() => import("../imports/MlEngineerCourseDesktop/MlEngineerCourseDesktop"));
+const MlEngineerCourseMobile = dynamic(() => import("../imports/MlEngineerCourseMobile/MlEngineerCourseMobile"));
+
 const DESKTOP_DESIGN = {
   width: 1440,
   height: 14457,
@@ -83,18 +93,12 @@ const MOBILE_BREAKPOINT = 768;
 
 type CourseReviewsDirection = Exclude<ReviewsDirectionKey, typeof ALL_REVIEWS_DIRECTION_KEY>;
 
-const courseReviewOriginalNodes = new WeakMap<HTMLAnchorElement, Node[]>();
-
 function getCourseReviewHref(review: StudentReview) {
   return getStudentReviewPath(review);
 }
 
 function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
   const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
-
-  if (!courseReviewOriginalNodes.has(card)) {
-    courseReviewOriginalNodes.set(card, Array.from(card.childNodes));
-  }
 
   card.classList.add("site-course-review-card--dynamic");
   card.href = getCourseReviewHref(review);
@@ -116,6 +120,7 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
     return;
   }
 
+  card.querySelector(":scope > .site-course-direction-review-card")?.remove();
   card.dataset.dynamicStudentReview = review.id;
 
   const initial = review.name.trim().charAt(0).toUpperCase() || "И";
@@ -163,20 +168,14 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
   readMore.textContent = "читать полностью";
 
   content.append(head, course, title, body, readMore);
-  card.replaceChildren(content);
+  card.append(content);
 }
 
 function restoreCourseReviewDirection(canvas: HTMLElement) {
   canvas
     .querySelectorAll<HTMLAnchorElement>("a.site-course-review-card--dynamic")
     .forEach((card) => {
-      const originalNodes = courseReviewOriginalNodes.get(card);
-
-      if (originalNodes) {
-        card.replaceChildren(...originalNodes);
-        courseReviewOriginalNodes.delete(card);
-      }
-
+      card.querySelector(":scope > .site-course-direction-review-card")?.remove();
       card.classList.remove("site-course-review-card--dynamic");
       delete card.dataset.dynamicStudentReview;
       card.hidden = false;
@@ -256,12 +255,6 @@ const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
 const LOADER_EXIT_MS = 700;
 const APPLICATION_REQUEST_URL = "/application/request";
-const TURNSTILE_TEST_KEY_PREFIX = "1x000";
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
-const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
-const IS_TURNSTILE_ENABLED =
-  !IS_TURNSTILE_TEMPORARILY_HIDDEN &&
-  Boolean(TURNSTILE_SITE_KEY) && !TURNSTILE_SITE_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
 
 type LeadPayload = {
   name: string;
@@ -271,8 +264,6 @@ type LeadPayload = {
 };
 
 type LeadDraft = Partial<LeadPayload>;
-
-type TurnstileStatus = "idle" | "loading" | "ready" | "verified" | "error";
 
 export type AppInitialRoute =
   | { page: "home" }
@@ -292,24 +283,8 @@ export type AppInitialRoute =
   | { page: "tariffs" }
   | { page: "review"; story: ReviewStoryKey };
 
-type TurnstileApi = {
-  render: (
-    container: HTMLElement,
-    options: {
-      sitekey: string;
-      theme?: "light" | "dark" | "auto";
-      size?: "normal" | "compact" | "flexible";
-      callback?: (token: string) => void;
-      "expired-callback"?: () => void;
-      "error-callback"?: () => void;
-    },
-  ) => string;
-  remove?: (widgetId: string) => void;
-};
-
 declare global {
   interface Window {
-    turnstile?: TurnstileApi;
     ym?: (
       counterId: number,
       method: "reachGoal" | "hit",
@@ -382,47 +357,6 @@ function trackLinkGoal(anchor: HTMLAnchorElement | null) {
   }
 }
 
-let turnstileScriptPromise: Promise<void> | null = null;
-
-function loadTurnstileScript() {
-  if (typeof window === "undefined") {
-    return Promise.resolve();
-  }
-
-  if (window.turnstile) {
-    return Promise.resolve();
-  }
-
-  if (turnstileScriptPromise) {
-    return turnstileScriptPromise;
-  }
-
-  turnstileScriptPromise = new Promise((resolve, reject) => {
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]',
-    );
-
-    if (existingScript) {
-      existingScript.addEventListener("load", () => resolve(), { once: true });
-      existingScript.addEventListener("error", () => reject(new Error("turnstile-load-error")), {
-        once: true,
-      });
-      return;
-    }
-
-    const script = document.createElement("script");
-
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("turnstile-load-error"));
-    document.head.appendChild(script);
-  });
-
-  return turnstileScriptPromise;
-}
-
 function normalizePhone(rawPhone: string) {
   const digits = rawPhone.replace(/\D/g, "");
 
@@ -480,18 +414,60 @@ function isLeadPayloadValid(payload: LeadPayload) {
   return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10 && isEmailValid;
 }
 
-async function sendLeadApplication(payload: LeadPayload, captchaToken?: string) {
+async function sendLeadApplication(
+  payload: LeadPayload,
+  successToken?: string,
+  captchaAttempt = 0,
+): Promise<void> {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ ...payload, captchaToken: captchaToken || "" }),
+    body: JSON.stringify({ ...payload, success_token: successToken || "" }),
   });
 
-  if (!response.ok) {
-    throw new Error(`lead-request-failed:${response.status}`);
+  const result = await response.json().catch(() => ({ error: null }));
+
+  if (response.ok && result.ok) {
+    return;
   }
+
+  const { checkCaptchaError, CheckCaptchaType } = await import("@vkid/captcha");
+  const { captchaType, captchaWidget } = checkCaptchaError({
+    responseHeaders: response.headers,
+    url: response.url,
+    responseError: result.error,
+    withWidget: true,
+  });
+
+  if (
+    captchaAttempt === 0 &&
+    captchaType &&
+    captchaType !== CheckCaptchaType.UNKNOWN &&
+    captchaWidget
+  ) {
+    let captchaToken: string;
+
+    try {
+      captchaToken = await captchaWidget.show({
+        container: document.body,
+        view: "popup",
+        scheme: "light",
+        lang: "ru",
+      });
+    } catch (error) {
+      throw new Error(error === "close" ? "captcha-closed" : "captcha-failed");
+    }
+
+    return sendLeadApplication(payload, captchaToken, captchaAttempt + 1);
+  }
+
+  throw new Error(
+    captchaType === CheckCaptchaType.UNKNOWN
+      ? "captcha-unsupported"
+      : `lead-request-failed:${response.status}`,
+  );
 }
 
 const REVIEW_STORIES = {
@@ -970,7 +946,7 @@ function useViewportState() {
 
 function getCriticalAssets(isMobile: boolean) {
   return isMobile
-    ? ["/logo_education.png", heroMobileUrl, platformLaptopUrl, platformScreenUrl, platformPhoneScreenUrl, platformPhoneFrameUrl]
+    ? ["/logo_education.png", heroMobileUrl]
     : ["/logo_education.png", heroPersonUrl, heroBackgroundUrl];
 }
 
@@ -1489,12 +1465,12 @@ function SiteFooter({
 function LegacySiteFooter() {
   return (
     <footer className="site-review-page__footer">
-      <img alt="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
+      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
       <div className="site-review-page__footer-columns">
         <section>
           <h2>Контакты</h2>
           <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
-          <a href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+          <a href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
           <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
         </section>
         <section>
@@ -1511,7 +1487,7 @@ function LegacySiteFooter() {
         </section>
       </div>
       <div className="site-review-page__socials" aria-label="Социальные сети">
-        <a aria-label="Написать на почту" href="mailto:educatio@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
+        <a aria-label="Написать на почту" href="mailto:education@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
         <a aria-label="Позвонить" href="tel:+79586067980"><img alt="" src={reviewStoryPhoneUrl} /></a>
         <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
         <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
@@ -1549,7 +1525,7 @@ function SitePageHeader({
         }}
         type="button"
       >
-        <img alt="ИННОПРОГ Education" src={logoSrc} />
+        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src={logoSrc} />
       </button>
       <nav className="site-review-page__nav" aria-label="Навигация">
         <button data-review-nav="adults" type="button">для взрослых</button>
@@ -1641,7 +1617,7 @@ function ReviewStyleCard({
       <span className="site-related-review-card__inner content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
         <span className="site-related-review-card__profile">
           <span className="site-related-review-card__avatar">
-            <img alt={`Фото ученика ${card.name}`} className={card.avatarClassName} loading="lazy" src={card.avatar} />
+            <img alt={`Фото ученика ${card.name}`} title={`Фото ученика ${card.name}`} className={card.avatarClassName} loading="lazy" src={card.avatar} />
           </span>
           <span className="site-related-review-card__profile-copy">
             <strong>{card.name}</strong>
@@ -2076,7 +2052,7 @@ function ReviewStoryPage({
         </div>
 
         <div className="site-review-page__hero">
-          <img alt={`${story.name}, ученик ИННОПРОГ`} src={story.hero} />
+          <img alt={`${story.name}, ученик ИННОПРОГ`} title={`${story.name}, ученик ИННОПРОГ`} src={story.hero} />
         </div>
 
         <blockquote className="site-review-page__quote">{story.heroQuote}</blockquote>
@@ -2190,7 +2166,7 @@ function AboutPage({
 
         <section className="site-about-hero">
           <img
-            alt="Команда и миссия онлайн-школы программирования ИННОПРОГ"
+            alt="Команда и миссия онлайн-школы программирования ИННОПРОГ" title="Команда и миссия онлайн-школы программирования ИННОПРОГ"
             decoding="async"
             fetchPriority="high"
             height={700}
@@ -2259,7 +2235,7 @@ function AboutPage({
             <h2>Мы из Иннополиса</h2>
             <div>
               <img
-                alt="Иннополис"
+                alt="Иннополис" title="Иннополис"
                 decoding="async"
                 height={468}
                 loading="lazy"
@@ -2366,7 +2342,7 @@ function TariffsPage({
   }, [headerScale, isMobile]);
 
   return (
-    <section className="site-tariffs-page" aria-label="Тарифы">
+    <section className="site-tariffs-page" aria-label="Стоимость обучения">
       <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
       <div className="site-tariffs-page__content-shell" style={tariffContentShellStyle}>
         <div
@@ -3967,79 +3943,6 @@ function waitForCriticalAssets(isMobile: boolean) {
   ]).then(() => undefined);
 }
 
-function TurnstileChallenge({
-  onStatusChange,
-  onTokenChange,
-}: {
-  onStatusChange: (status: TurnstileStatus) => void;
-  onTokenChange: (token: string) => void;
-}) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const statusRef = useRef(onStatusChange);
-  const tokenRef = useRef(onTokenChange);
-
-  useEffect(() => {
-    statusRef.current = onStatusChange;
-    tokenRef.current = onTokenChange;
-  }, [onStatusChange, onTokenChange]);
-
-  useEffect(() => {
-    if (!IS_TURNSTILE_ENABLED) {
-      statusRef.current("verified");
-      tokenRef.current("");
-      return;
-    }
-
-    let cancelled = false;
-    let widgetId: string | null = null;
-
-    statusRef.current("loading");
-    tokenRef.current("");
-
-    loadTurnstileScript()
-      .then(() => {
-        if (cancelled || !containerRef.current || !window.turnstile) {
-          return;
-        }
-
-        widgetId = window.turnstile.render(containerRef.current, {
-          sitekey: TURNSTILE_SITE_KEY,
-          theme: "light",
-          size: "flexible",
-          callback: (token) => {
-            tokenRef.current(token);
-            statusRef.current("verified");
-          },
-          "expired-callback": () => {
-            tokenRef.current("");
-            statusRef.current("ready");
-          },
-          "error-callback": () => {
-            tokenRef.current("");
-            statusRef.current("error");
-          },
-        });
-        statusRef.current("ready");
-      })
-      .catch(() => {
-        if (!cancelled) {
-          tokenRef.current("");
-          statusRef.current("error");
-        }
-      });
-
-    return () => {
-      cancelled = true;
-
-      if (widgetId && window.turnstile?.remove) {
-        window.turnstile.remove(widgetId);
-      }
-    };
-  }, []);
-
-  return <div className="site-turnstile" ref={containerRef} />;
-}
-
 export default function App({
   initialRoute = { page: "home" },
 }: {
@@ -4083,8 +3986,6 @@ export default function App({
   const [isReviewConsultPrimed, setIsReviewConsultPrimed] = useState(false);
   const [isReviewTransitionLoading, setIsReviewTransitionLoading] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
-  const [leadCaptchaToken, setLeadCaptchaToken] = useState("");
-  const [leadCaptchaStatus, setLeadCaptchaStatus] = useState<TurnstileStatus>("idle");
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
@@ -4638,8 +4539,6 @@ export default function App({
     setIsMobileMenuOpen(false);
     setIsConsentError(false);
     setLeadFormError("");
-    setLeadCaptchaToken("");
-    setLeadCaptchaStatus("idle");
   };
 
   const closeLeadModal = () => {
@@ -4647,8 +4546,6 @@ export default function App({
     setIsConsentError(false);
     setLeadFormError("");
     setLeadDraft({});
-    setLeadCaptchaToken("");
-    setLeadCaptchaStatus("idle");
     setIsLeadSubmitting(false);
   };
 
@@ -5192,22 +5089,11 @@ export default function App({
       return;
     }
 
-    if (IS_TURNSTILE_ENABLED && !leadCaptchaToken) {
-      trackMetrikaGoal("lead_form_captcha_missing");
-      setLeadFormError("Пройдите проверку и отправьте заявку еще раз");
-
-      if (leadModalState === "closed") {
-        setLeadModalState("form");
-      }
-
-      return;
-    }
-
     setIsLeadSubmitting(true);
     setLeadFormError("");
 
     try {
-      await sendLeadApplication(payload, leadCaptchaToken);
+      await sendLeadApplication(payload);
       trackMetrikaGoal("lead_form_submit_success", {
         source: leadModalState === "closed" ? "inline" : "modal",
         has_email: Boolean(payload.email),
@@ -5215,15 +5101,15 @@ export default function App({
       });
       setLeadModalState("success");
       setLeadDraft({});
-      setLeadCaptchaToken("");
-      setLeadCaptchaStatus("idle");
-    } catch {
+    } catch (error) {
       trackMetrikaGoal("lead_form_submit_error", {
         source: leadModalState === "closed" ? "inline" : "modal",
       });
-      setLeadFormError("Не удалось отправить заявку. Проверьте данные и попробуйте еще раз");
-      setLeadCaptchaToken("");
-      setLeadCaptchaStatus("ready");
+      setLeadFormError(
+        error instanceof Error && error.message === "captcha-closed"
+          ? "Проверка не завершена. Пройдите капчу и отправьте заявку ещё раз"
+          : "Не удалось отправить заявку. Проверьте данные и попробуйте еще раз",
+      );
     } finally {
       setIsLeadSubmitting(false);
     }
@@ -5637,7 +5523,7 @@ export default function App({
       return;
     }
 
-    if (text.includes("во всех тарифах") || text === "тарифы") {
+    if (text.includes("во всех тарифах") || text === "тарифы" || text === "стоимость обучения") {
       openTariffsPage();
       return;
     }
@@ -5949,7 +5835,7 @@ export default function App({
         >
           <div className="site-mobile-menu__top">
             <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
-              <img alt="ИННОПРОГ Education" src="/logo_education.png" />
+              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.png" />
             </button>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" data-mobile-menu-toggle type="button">
               <span aria-hidden="true" />
@@ -5993,7 +5879,7 @@ export default function App({
       {shouldShowLoader || isReviewTransitionLoading ? (
         <div className="site-loader" aria-hidden={isReady && !isReviewTransitionLoading}>
           <img
-            alt="ИННОПРОГ Education"
+            alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
             src="/logo_education.png"
@@ -6043,7 +5929,7 @@ export default function App({
               </div>
             </div>
 
-            <img alt="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
+            <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
 
             {leadModalState === "form" ? (
               <form className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
@@ -6124,14 +6010,6 @@ export default function App({
                     </a>
                   </span>
                 </div>
-                {IS_TURNSTILE_ENABLED ? (
-                  <div className="site-lead-modal__captcha">
-                    <TurnstileChallenge
-                      onStatusChange={setLeadCaptchaStatus}
-                      onTokenChange={setLeadCaptchaToken}
-                    />
-                  </div>
-                ) : null}
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">
                     {leadFormError}
@@ -6139,7 +6017,7 @@ export default function App({
                 ) : null}
                 <button
                   className="site-lead-modal__submit"
-                  disabled={!isConsentChecked || isLeadSubmitting || (IS_TURNSTILE_ENABLED && leadCaptchaStatus === "error")}
+                  disabled={!isConsentChecked || isLeadSubmitting}
                   type="submit"
                 >
                   {isLeadSubmitting ? "отправляем..." : "отправить заявку"}

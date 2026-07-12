@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { DATA_ANALYST_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   DATA_ANALYST_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Data-аналитик с нуля",
+  title:
+    "Курс Data-аналитик с нуля: онлайн-обучение анализу данных для начинающих — ИННОПРОГ",
   description:
-    "Курс Data-аналитик в ИННОПРОГ: SQL, Python, BI, статистика, A/B-тесты и 15 аналитических проектов за 28 учебных недель",
+    "Онлайн-курс «Data-аналитик» с нуля от ИННОПРОГ. 10 месяцев обучения SQL, Python, BI, статистике и A/B-тестированию: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/data-analyst-course",
-  keywords: [
-    "курс Data-аналитик",
-    "курс аналитик данных",
-    "обучение аналитике данных онлайн",
-    "курс SQL Python BI",
-    "Data-аналитик с наставником",
-  ],
+  keywords: DATA_ANALYST_COURSE_KEYWORDS,
   ogImage: DATA_ANALYST_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Data-аналитик с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function DataAnalystCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс Data-аналитик с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={dataAnalystCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-analyst-course")} />
       <JsonLd

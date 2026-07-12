@@ -8,7 +8,7 @@ import imgCourseMobile from "../MainScreenDesktop/e9d641090abdd6bedcdf1c20f81315
 import imgCourseUnreal from "../MainScreenDesktop/e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgCourseJava from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgCourseMl from "../MainScreenDesktop/c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
-import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.png";
+import imgCourseDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.opt.webp";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "../MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
 import imgImage118 from "../MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
 import imgImage120 from "../MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
@@ -185,7 +185,7 @@ export function MainScreenMobileHeader() {
     <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
       <button aria-label="На главную" className="site-main-header__logo-button" data-site-home type="button">
         <Group />
-        <img alt="ИННОПРОГ Education" className="site-main-header__course-logo" src="/logo_white_and_black.svg" />
+        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-main-header__course-logo" src="/logo_white_and_black.svg" />
       </button>
       <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
         <Frame5 />
@@ -460,18 +460,18 @@ function Group8() {
     <div className="h-[217px] leading-[0] relative shrink-0 translate-x-[18px] w-[350px]">
       <div className="absolute h-[148.743px] left-[49px] top-[68px] w-[274px]" data-name="70211-apple-mockup-pro-drive-air-laptops-disc 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="Ноутбук с учебной платформой ИННОПРОГ" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
+          <img alt="Ноутбук с учебной платформой ИННОПРОГ" title="Ноутбук с учебной платформой ИННОПРОГ" decoding="async" loading="lazy" className="absolute h-[155.61%] left-[-9.24%] max-w-none top-[-27.19%] w-[118.48%]" src={img70211AppleMockupProDriveAirLaptopsDisc1} />
         </div>
       </div>
       <div className="absolute h-[122.126px] left-[83px] top-[77px] w-[205.891px] site-smooth-photo site-smooth-photo--8" data-name="image 118">
-        <img alt="Интерфейс учебной платформы ИННОПРОГ на ноутбуке" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
+        <img alt="Интерфейс учебной платформы ИННОПРОГ на ноутбуке" title="Интерфейс учебной платформы ИННОПРОГ на ноутбуке" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage118} />
       </div>
       <div className="absolute h-[193.242px] left-[-3.14px] rounded-[8px] top-[4.14px] w-[89.157px] site-smooth-photo site-smooth-photo--8" data-name="image 120">
-        <img alt="Мобильная версия учебной платформы ИННОПРОГ" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[8px] size-full" src={imgImage120} />
+        <img alt="Мобильная версия учебной платформы ИННОПРОГ" title="Мобильная версия учебной платформы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[8px] size-full" src={imgImage120} />
       </div>
       <div className="absolute h-[197.383px] left-[-7px] top-0 w-[98px]" data-name="айфон">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.63%] left-[-111.41%] max-w-none top-[-4.2%] w-[322.52%]" src={imgPhoneFrame} />
+          <img alt="" decoding="async" loading="lazy" className="absolute h-[106.63%] left-[-111.41%] max-w-none top-[-4.2%] w-[322.52%]" src={imgPhoneFrame} />
         </div>
       </div>
     </div>
@@ -1517,7 +1517,7 @@ function Frame153() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Сергей Попкович" decoding="async" loading="lazy" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
+              <img alt="Преподаватель Сергей Попкович" title="Преподаватель Сергей Попкович" decoding="async" loading="lazy" className="absolute h-[112.27%] left-[-26.49%] max-w-none top-[-12.31%] w-[160.6%]" src={imgRectangle40082} />
             </div>
           </div>
         </div>
@@ -1528,7 +1528,7 @@ function Frame153() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Данила Дробышев" decoding="async" loading="lazy" className="absolute h-full left-[-3.59%] max-w-none top-[2.23%] w-[107.19%]" src={imgRectangle40083} />
+              <img alt="Преподаватель Данила Дробышев" title="Преподаватель Данила Дробышев" decoding="async" loading="lazy" className="absolute h-full left-[-3.59%] max-w-none top-[2.23%] w-[107.19%]" src={imgRectangle40083} />
             </div>
           </div>
         </div>
@@ -1539,7 +1539,7 @@ function Frame153() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Григорий Чепель" decoding="async" loading="lazy" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40084} />
+              <img alt="Преподаватель Григорий Чепель" title="Преподаватель Григорий Чепель" decoding="async" loading="lazy" className="absolute h-[134.96%] left-0 max-w-none top-[-13.66%] w-full" src={imgRectangle40084} />
             </div>
           </div>
         </div>
@@ -1550,7 +1550,7 @@ function Frame153() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Алан Агузаров" decoding="async" loading="lazy" className="absolute h-[121.53%] left-[2.4%] max-w-none top-[-18.12%] w-[97.68%]" src={imgRectangle40085} />
+              <img alt="Преподаватель Алан Агузаров" title="Преподаватель Алан Агузаров" decoding="async" loading="lazy" className="absolute h-[121.53%] left-[2.4%] max-w-none top-[-18.12%] w-[97.68%]" src={imgRectangle40085} />
             </div>
           </div>
         </div>
@@ -1615,7 +1615,7 @@ function Frame99() {
         <div className="h-[179px] relative rounded-[32px] shrink-0 w-[167px]">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="Преподаватель Павел Мягчилов" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40086} />
+            <img alt="Преподаватель Павел Мягчилов" title="Преподаватель Павел Мягчилов" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40086} />
           </div>
         </div>
         <Frame97 />
@@ -1624,7 +1624,7 @@ function Frame99() {
         <div className="h-[179px] relative rounded-[32px] shrink-0 w-[167px]">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
-            <img alt="Преподаватель Джамбулат Таджидинов" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40087} />
+            <img alt="Преподаватель Джамбулат Таджидинов" title="Преподаватель Джамбулат Таджидинов" decoding="async" loading="lazy" className="absolute max-w-none object-bottom rounded-[32px] size-full" src={imgRectangle40087} />
           </div>
         </div>
         <Frame98 />
@@ -1634,7 +1634,7 @@ function Frame99() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Полина Караева" decoding="async" loading="lazy" className="absolute h-[123.09%] left-[5.67%] max-w-none top-[-7.86%] w-[87.96%]" src={imgRectangle40088} />
+              <img alt="Преподаватель Полина Караева" title="Преподаватель Полина Караева" decoding="async" loading="lazy" className="absolute h-[123.09%] left-[5.67%] max-w-none top-[-7.86%] w-[87.96%]" src={imgRectangle40088} />
             </div>
           </div>
         </div>
@@ -1645,7 +1645,7 @@ function Frame99() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[32px]">
             <div className="absolute inset-0 rounded-[32px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 167 179\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(5.1129e-16 8.95 -8.35 5.4803e-16 83.5 89.5)\\'><stop stop-color=\\'rgba(151,71,255,0)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(151,71,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <img alt="Преподаватель Лев Быков" decoding="async" loading="lazy" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
+              <img alt="Преподаватель Лев Быков" title="Преподаватель Лев Быков" decoding="async" loading="lazy" className="absolute h-[139.81%] left-[-0.08%] max-w-none top-[-12.58%] w-full" src={imgRectangle40089} />
             </div>
           </div>
         </div>
@@ -2044,10 +2044,10 @@ function Frame68() {
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-[345px]">
       <div className="h-[110px] relative shrink-0 w-[165px]" data-name="Group 682 1">
-        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" title="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[110px] relative shrink-0 w-[164px]" data-name="diplom_prof 1">
-        <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+        <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );
@@ -2160,7 +2160,7 @@ function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] 
         <div className="content-stretch flex flex-col gap-[24px] items-center px-[16px] py-[24px] relative size-full">
           <div className="content-stretch flex gap-[32px] items-end relative shrink-0">
             <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
-              <img alt={`Фото ученика ${review.name}`} decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
+              <img alt={`Фото ученика ${review.name}`} title={`Фото ученика ${review.name}`} decoding="async" loading="lazy" className={`absolute inset-0 max-w-none object-cover size-full ${review.avatarClassName}`} src={review.avatar} />
             </div>
             <div className="content-stretch flex flex-col gap-[16px] items-start justify-end relative shrink-0">
               <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[35px] relative shrink-0 text-[19px] text-black text-center whitespace-nowrap">{review.name}</p>
@@ -2192,7 +2192,7 @@ function MobileReviewCard({ review }: { review: (typeof MOBILE_REVIEWS)[number] 
 function Frame72() {
   return (
     <div className="bg-[#e9e1ff] overflow-hidden relative rounded-full shrink-0 size-[89px]">
-      <img alt="Кирилл, ученик ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover size-full" src={imgReviewKirill} />
+      <img alt="Кирилл, ученик ИННОПРОГ" title="Кирилл, ученик ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover size-full" src={imgReviewKirill} />
     </div>
   );
 }
@@ -2602,7 +2602,7 @@ function WithUsArrow({ top }: { top: number }) {
     <div className="absolute flex h-[28px] items-center justify-center left-[75.5px] pointer-events-none w-[15.5px]" style={{ top }}>
       <div className="flex-none rotate-90">
         <div className="h-[15.5px] relative w-[28px]" data-name="image 112">
-          <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgWithUsArrow} />
+          <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgWithUsArrow} />
         </div>
       </div>
     </div>
@@ -2742,7 +2742,7 @@ function Frame117() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
       <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
-      <a className="no-underline relative shrink-0 w-full" href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+      <a className="no-underline relative shrink-0 w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
     </div>
   );
@@ -2860,7 +2860,7 @@ function MynauiTelegram() {
 function Frame123() {
   return (
     <div className="content-stretch flex gap-[16px] items-start mt-auto relative shrink-0">
-      <a aria-label="Написать на почту" className="block" href="mailto:educatio@innoprog.ru">
+      <a aria-label="Написать на почту" className="block" href="mailto:education@innoprog.ru">
         <MaterialSymbolsMailOutline />
       </a>
       <a aria-label="Позвонить" className="block" href="tel:+79586067980">
@@ -3003,7 +3003,7 @@ export default function Component() {
       <Frame147 />
       <Frame173 />
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
-        <img alt="Студент ИННОПРОГ за ноутбуком" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
+        <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
       </div>
       <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>

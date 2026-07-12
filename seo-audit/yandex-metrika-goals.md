@@ -15,7 +15,6 @@
 | `lead_form_validation_error` | пользователь попытался отправить некорректно заполненную форму |
 | `lead_form_consent_missing` | пользователь попытался отправить форму без согласия |
 | `lead_form_consent_accept` | пользователь поставил согласие на обработку данных |
-| `lead_form_captcha_missing` | captcha не пройдена, если она будет включена |
 
 Главная цель для рекламы и SEO-конверсий: `lead_form_submit_success`.
 

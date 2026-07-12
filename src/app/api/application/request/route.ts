@@ -8,9 +8,6 @@ const BOT_APPLICATION_TOKEN =
   process.env.AUTH_TOKEN ||
   "";
 const BOT_ALLOWED_ORIGIN = "https://innoprog.ru";
-const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const TURNSTILE_TEST_KEY_PREFIX = "1x000";
-const IS_TURNSTILE_TEMPORARILY_HIDDEN = true;
 
 export const runtime = "nodejs";
 
@@ -36,48 +33,19 @@ function normalizePhone(rawPhone: unknown) {
   return String(rawPhone || "").trim().startsWith("+") ? `+${digits}` : digits;
 }
 
-function getClientIp(req: NextRequest) {
-  const forwardedFor = req.headers.get("x-forwarded-for");
+function getCaptchaRedirect(response: Response, result: Record<string, any>) {
+  const responseRedirect = result?.error?.redirect_uri || result?.redirect_uri;
+  const challengeUrl = response.headers.get("x-challenge-url");
 
-  if (forwardedFor) {
-    return forwardedFor.split(",")[0]?.trim();
+  if (responseRedirect) {
+    return String(responseRedirect);
   }
 
-  return req.headers.get("x-real-ip") || undefined;
-}
-
-async function verifyTurnstileToken(token: string, req: NextRequest) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-
-  if (!secret || secret.startsWith(TURNSTILE_TEST_KEY_PREFIX)) {
-    return true;
+  if (!challengeUrl) {
+    return "";
   }
 
-  const params = new URLSearchParams({
-    secret,
-    response: token,
-  });
-  const remoteIp = getClientIp(req);
-
-  if (remoteIp) {
-    params.set("remoteip", remoteIp);
-  }
-
-  const response = await fetch(TURNSTILE_VERIFY_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: params,
-  });
-
-  if (!response.ok) {
-    return false;
-  }
-
-  const result = await response.json();
-
-  return Boolean(result.success);
+  return new URL(challengeUrl, BOT_APPLICATION_URL).toString();
 }
 
 export function OPTIONS() {
@@ -97,20 +65,13 @@ export async function POST(req: NextRequest) {
       phone: normalizePhone(body.phone),
       email: String(body.email || "").trim(),
       question: String(body.question || "").trim(),
+      ...(String(body.success_token || "").trim()
+        ? { success_token: String(body.success_token).trim() }
+        : {}),
     };
-    const captchaToken = String(body.captchaToken || "").trim();
 
     if (payload.name.length < 2 || payload.phone.replace(/\D/g, "").length < 10) {
       return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
-    }
-
-    const shouldVerifyCaptcha =
-      !IS_TURNSTILE_TEMPORARILY_HIDDEN &&
-      Boolean(process.env.TURNSTILE_SECRET_KEY) &&
-      !process.env.TURNSTILE_SECRET_KEY.startsWith(TURNSTILE_TEST_KEY_PREFIX);
-
-    if (shouldVerifyCaptcha && (!captchaToken || !(await verifyTurnstileToken(captchaToken, req)))) {
-      return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
     }
 
     const headers: Record<string, string> = {
@@ -130,6 +91,22 @@ export async function POST(req: NextRequest) {
     });
 
     if (!botResponse.ok) {
+      const result = await botResponse.json().catch(() => ({}));
+      const captchaRedirect = getCaptchaRedirect(botResponse, result);
+
+      if (captchaRedirect) {
+        return NextResponse.json(
+          {
+            ok: false,
+            error: {
+              error_code: 14,
+              redirect_uri: captchaRedirect,
+            },
+          },
+          { status: 403 },
+        );
+      }
+
       return NextResponse.json({ ok: false, error: "bot_request_failed" }, { status: 502 });
     }
 

@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { ML_ENGINEER_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   ML_ENGINEER_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   mlEngineerCourseJsonLd,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс ML-инженер с нуля",
+  title:
+    "Курс ML-инженер с нуля: онлайн-обучение машинному обучению для начинающих — ИННОПРОГ",
   description:
-    "Курс ML-инженер в ИННОПРОГ: Python, SQL, статистика, feature engineering, ML, DL, NLP, CV, MLOps, FastAPI, Docker и 15 проектов за 28 учебных недель",
+    "Онлайн-курс «ML-инженер» с нуля от ИННОПРОГ. 10 месяцев обучения Python, SQL, машинному обучению, MLOps и нейросетям: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/ml-engineer-course",
-  keywords: [
-    "курс ML-инженер",
-    "ML-инженер с наставником",
-    "обучение машинному обучению онлайн",
-    "курс Machine Learning",
-    "курс MLOps",
-  ],
+  keywords: ML_ENGINEER_COURSE_KEYWORDS,
   ogImage: ML_ENGINEER_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс ML-инженер с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function MlEngineerCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс ML-инженер с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={mlEngineerCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/ml-engineer-course")} />
       <JsonLd

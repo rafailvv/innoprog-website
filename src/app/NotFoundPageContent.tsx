@@ -6,13 +6,13 @@ export default function NotFoundPageContent() {
     <main className="site-reviews-index-page site-not-found">
       <header className="site-review-page__header site-not-found__header" aria-label="Навигация по сайту">
         <Link className="site-review-page__logo" href="/" aria-label="ИННОПРОГ, на главную">
-          <img alt="ИННОПРОГ Education" src="/logo_education.png" />
+          <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.png" />
         </Link>
         <nav className="site-review-page__nav" aria-label="Основные разделы">
           <Link href="/">для взрослых</Link>
           <Link href="/reviews">отзывы</Link>
           <Link href="/about">о нас</Link>
-          <Link href="/tariffs">тарифы</Link>
+          <Link href="/tariffs">стоимость обучения</Link>
         </nav>
         <Link className="site-review-page__header-cta" href="/#courses">
           подобрать курс
@@ -48,12 +48,12 @@ export default function NotFoundPageContent() {
       </div>
 
       <footer className="site-review-page__footer">
-        <img alt="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
+        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.png" />
         <div className="site-review-page__footer-columns">
           <section>
             <h2>Контакты</h2>
             <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
-            <a href="mailto:educatio@innoprog.ru">Email: educatio@innoprog.ru</a>
+            <a href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
             <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
           </section>
           <section>

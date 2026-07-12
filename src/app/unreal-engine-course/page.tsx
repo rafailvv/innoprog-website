@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { UNREAL_ENGINE_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   UNREAL_ENGINE_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   unrealEngineCourseJsonLd,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Unreal Engine с нуля",
+  title:
+    "Курс Unreal Engine с нуля: онлайн-обучение разработке игр для начинающих — ИННОПРОГ",
   description:
-    "Курс Unreal Engine в ИННОПРОГ: Unreal Engine 5, Blueprint, игровые механики, UMG, State Tree, оптимизация и 6 проектов за 28 учебных недель",
+    "Онлайн-курс «Unreal Engine» с нуля от ИННОПРОГ. 10 месяцев обучения Unreal Engine 5, Blueprint, игровым механикам и разработке игр: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/unreal-engine-course",
-  keywords: [
-    "курс Unreal Engine",
-    "Unreal Engine с наставником",
-    "обучение Unreal Engine онлайн",
-    "курс Unreal Engine 5 Blueprint",
-    "курс разработка игр Unreal Engine",
-  ],
+  keywords: UNREAL_ENGINE_COURSE_KEYWORDS,
   ogImage: UNREAL_ENGINE_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Unreal Engine с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function UnrealEngineCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс Unreal Engine с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={unrealEngineCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/unreal-engine-course")} />
       <JsonLd

@@ -9,8 +9,6 @@ services:
       NODE_ENV: production
       PORT: 3000
       HOSTNAME: 0.0.0.0
-      # Keep empty while Turnstile is temporarily hidden in the app.
-      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY:-}
     ports:
       - "127.0.0.1:8082:3000"
     healthcheck:

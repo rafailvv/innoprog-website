@@ -1,6 +1,9 @@
 import App from "./App";
 import {
   JsonLd,
+  HOME_SECTION_HEADINGS,
+  HOME_PAGE_KEYWORDS,
+  SeoSectionHeadings,
   breadcrumbJsonLd,
   courseCatalogJsonLd,
   courseJsonLd,
@@ -17,7 +20,7 @@ export const metadata = createPageMetadata({
   description:
     "Онлайн-школа программирования ИННОПРОГ: IT курсы с нуля Python, Data Science, Java, аналитика данных, Unreal Engine с наставником, диплом и трудоустройство",
   path: "/",
-  keywords: ["обучение Python", "курсы IT онлайн", "онлайн обучение программированию", "курсы программирования для детей"],
+  keywords: [...HOME_PAGE_KEYWORDS],
   absoluteTitle: true,
 });
 
@@ -25,6 +28,7 @@ export default function HomePage() {
   return (
     <>
       <h1 className="site-seo-heading">ИННОПРОГ - онлайн школа программирования</h1>
+      <SeoSectionHeadings headings={HOME_SECTION_HEADINGS} />
       <JsonLd data={organizationJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={siteNavigationJsonLd} />

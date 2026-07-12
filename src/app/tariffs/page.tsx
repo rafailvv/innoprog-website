@@ -1,25 +1,36 @@
 import App from "../App";
-import { JsonLd, breadcrumbJsonLd, courseJsonLd, createPageMetadata, tariffsOfferCatalogJsonLd, webPageJsonLd } from "../seo";
+import {
+  JsonLd,
+  SeoSectionHeadings,
+  TARIFFS_SECTION_HEADINGS,
+  TARIFFS_PAGE_KEYWORDS,
+  breadcrumbJsonLd,
+  courseJsonLd,
+  createPageMetadata,
+  tariffsOfferCatalogJsonLd,
+  webPageJsonLd,
+} from "../seo";
 
 const TARIFFS_DESCRIPTION =
-  "Тарифы обучения в ИННОПРОГ: форматы занятий с наставником, стоимость программирования онлайн и условия выбора подходящего курса";
+  "Стоимость обучения в ИННОПРОГ: форматы занятий с наставником, цены на курсы программирования онлайн и условия выбора подходящей программы";
 
 export const metadata = createPageMetadata({
-  title: "Тарифы",
+  title: "Стоимость обучения",
   description: TARIFFS_DESCRIPTION,
   path: "/tariffs",
-  keywords: ["тарифы ИННОПРОГ", "стоимость обучения программированию", "тарифы курса Python"],
+  keywords: [...TARIFFS_PAGE_KEYWORDS, "тарифы ИННОПРОГ", "тарифы курса Python"],
 });
 
 export default function TariffsPage() {
   return (
     <>
+      <SeoSectionHeadings headings={TARIFFS_SECTION_HEADINGS} />
       <JsonLd data={courseJsonLd} />
       <JsonLd data={tariffsOfferCatalogJsonLd} />
       <JsonLd
         data={webPageJsonLd({
           path: "/tariffs",
-          name: "Тарифы обучения",
+          name: "Стоимость обучения",
           description: TARIFFS_DESCRIPTION,
           primaryEntityId: "https://innoprog.ru/tariffs#course-offers",
         })}
@@ -27,7 +38,7 @@ export default function TariffsPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Главная", path: "/" },
-          { name: "Тарифы", path: "/tariffs" },
+          { name: "Стоимость обучения", path: "/tariffs" },
         ])}
       />
       <App initialRoute={{ page: "tariffs" }} />

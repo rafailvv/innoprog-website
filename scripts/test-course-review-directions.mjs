@@ -3,6 +3,14 @@ import { readFileSync } from "node:fs";
 const appSource = readFileSync("src/app/App.tsx", "utf8");
 const reviewsSource = readFileSync("src/app/studentReviewsData.ts", "utf8");
 
+if (appSource.includes("replaceChildren(")) {
+  throw new Error("Course review cards must not replace React-owned child nodes");
+}
+
+if (!appSource.includes("card.append(content)")) {
+  throw new Error("Dynamic course review content must be appended without replacing React nodes");
+}
+
 const expectedCourseDirections = {
   PythonCoursePage: "python",
   DataScienceCoursePage: "data-science",

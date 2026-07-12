@@ -1,8 +1,11 @@
 import App from "../App";
 import { courseFaqItems } from "../../imports/courseFaqData";
+import { MOBILE_DEVELOPER_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH,
   JsonLd,
+  COURSE_SECTION_HEADINGS,
+  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   mobileDeveloperCourseJsonLd,
@@ -12,17 +15,13 @@ import {
 } from "../seo";
 
 export const metadata = createPageMetadata({
-  title: "Курс Мобильный разработчик с нуля",
+  title:
+    "Курс мобильный разработчик с нуля: онлайн-обучение Flutter и Dart для начинающих — ИННОПРОГ",
   description:
-    "Курс Мобильный разработчик в ИННОПРОГ: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование и 15 проектов за 28 учебных недель",
+    "Онлайн-курс «Мобильный разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения Dart, Flutter, API и созданию приложений Android/iOS: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+  absoluteTitle: true,
   path: "/mobile-developer-course",
-  keywords: [
-    "курс мобильный разработчик",
-    "мобильный разработчик с наставником",
-    "обучение Flutter онлайн",
-    "курс Dart Flutter",
-    "курс мобильная разработка Flutter",
-  ],
+  keywords: MOBILE_DEVELOPER_COURSE_KEYWORDS,
   ogImage: MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH,
   ogImageAlt: "Курс Мобильный разработчик с нуля в ИННОПРОГ",
   ogImageSize: COURSE_OG_IMAGE_SIZE,
@@ -32,6 +31,7 @@ export default function MobileDeveloperCourseRoute() {
   return (
     <>
       <h1 className="site-seo-heading">Курс мобильный разработчик с наставником и проектами в портфолио</h1>
+      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={mobileDeveloperCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/mobile-developer-course")} />
       <JsonLd
