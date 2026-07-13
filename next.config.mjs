@@ -1,3 +1,60 @@
+const metrikaHosts = [
+  "https://mc.yandex.ru",
+  "https://mc.yandex.az",
+  "https://mc.yandex.by",
+  "https://mc.yandex.co.il",
+  "https://mc.yandex.com",
+  "https://mc.yandex.com.am",
+  "https://mc.yandex.com.ge",
+  "https://mc.yandex.com.tr",
+  "https://mc.yandex.ee",
+  "https://mc.yandex.fr",
+  "https://mc.yandex.kg",
+  "https://mc.yandex.kz",
+  "https://mc.yandex.lt",
+  "https://mc.yandex.lv",
+  "https://mc.yandex.md",
+  "https://mc.yandex.tj",
+  "https://mc.yandex.tm",
+  "https://mc.yandex.uz",
+  "https://mc.webvisor.com",
+  "https://mc.webvisor.org",
+];
+
+const metrikaWebSocketHosts = metrikaHosts.map((host) => host.replace("https://", "wss://"));
+
+const metrikaFrameAncestors = [
+  "https://metrika.yandex.ru",
+  "https://analytics.yandex.by",
+  "https://analytics.yandex.com",
+  "https://analytics.yandex.com.tr",
+  "https://analytics.yandex.kz",
+  "https://analytics.yandex.ru",
+  "https://metr.yandex.by",
+  "https://metr.yandex.com",
+  "https://metr.yandex.com.tr",
+  "https://metr.yandex.kz",
+  "https://metr.yandex.ru",
+  "https://metrica.ya.ru",
+  "https://metrica.yandex",
+  "https://metrica.yandex.by",
+  "https://metrica.yandex.com",
+  "https://metrica.yandex.com.tr",
+  "https://metrica.yandex.kz",
+  "https://metrica.yandex.ru",
+  "https://metrika.ya.ru",
+  "https://metrika.yandex",
+  "https://metrika.yandex.by",
+  "https://metrika.yandex.com",
+  "https://metrika.yandex.com.tr",
+  "https://metrika.yandex.kz",
+  "https://metrika.yandex.uz",
+];
+
+const metrikaSources = metrikaHosts.join(" ");
+const metrikaWebSocketSources = metrikaWebSocketHosts.join(" ");
+const metrikaFrameAncestorSources = metrikaFrameAncestors.join(" ");
+
 const securityHeaders = [
   {
     key: "Strict-Transport-Security",
@@ -18,15 +75,15 @@ const securityHeaders = [
       "base-uri 'self'",
       "object-src 'none'",
       "form-action 'self'",
-      "frame-ancestors 'self' https://yandex.ru https://*.yandex.ru https://yandex.com https://*.yandex.com https://yandex.by https://*.yandex.by https://yandex.kz https://*.yandex.kz https://yandex.com.tr https://*.yandex.com.tr https://yandex.uz https://*.yandex.uz https://ya.ru https://*.ya.ru https://metrica.yandex https://metrika.yandex https://webvisor.com https://*.webvisor.com https://webvisor.org https://*.webvisor.org",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://yastatic.net https://*.yastatic.net",
+      `frame-ancestors 'self' ${metrikaFrameAncestorSources}`,
+      `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${metrikaSources} https://yastatic.net https://*.yastatic.net`,
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self' data:",
-      "img-src 'self' data: blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://api.innoprog.ru",
+      `img-src 'self' data: blob: ${metrikaSources} https://yastatic.net https://*.yastatic.net https://api.innoprog.ru`,
       "media-src 'self' blob:",
-      "connect-src 'self' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org wss://mc.yandex.ru wss://*.mc.yandex.ru wss://mc.yandex.com wss://*.mc.yandex.com wss://mc.webvisor.com wss://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://api.innoprog.ru",
-      "child-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org",
-      "frame-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org",
+      `connect-src 'self' ${metrikaSources} ${metrikaWebSocketSources} https://yastatic.net https://*.yastatic.net https://api.innoprog.ru`,
+      `child-src 'self' blob: ${metrikaSources}`,
+      `frame-src 'self' blob: ${metrikaSources}`,
       "worker-src 'self' blob:",
       "manifest-src 'self'",
     ].join("; "),
