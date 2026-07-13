@@ -15,7 +15,7 @@ import imgImage120 from "./platform-phone-screen-mobile.webp";
 import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/personal-mentor.mp4";
+const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";

@@ -10,7 +10,7 @@ import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "./course-data-science-desktop.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/personal-mentor.mp4";
+const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
 import imgRectangle40084 from "./7acb4e33ed51de43d739015d7960455a7f71dbc8.teacher.webp";

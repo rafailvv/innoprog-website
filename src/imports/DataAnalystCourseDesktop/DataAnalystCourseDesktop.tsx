@@ -3,7 +3,7 @@ import svgPaths from "./svg-egdjewsyn7";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgDataAnalystHero from "../MainScreenDesktop/653b7bc37f655916fe3ab94dc7fa4c9a87a9cee1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/personal-mentor.mp4";
+const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
 import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
 import imgCollabration from "./0ddae1105f6319bcc13e96735e2d30ab76fbfe3d.png";

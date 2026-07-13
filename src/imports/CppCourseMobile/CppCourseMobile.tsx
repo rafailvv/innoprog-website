@@ -2,7 +2,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgCppHero from "../MainScreenDesktop/8f047d89405d2f6d6d082c02c38bf64691b762d4.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/personal-mentor.mp4";
+const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
