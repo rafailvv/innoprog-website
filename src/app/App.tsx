@@ -2413,7 +2413,7 @@ function PythonCoursePage({
       ? {
         width: `${courseDesignWidth}px`,
         transform: `scale(${headerScale})`,
-        transformOrigin: "top center",
+        transformOrigin: "top left",
       }
     : {
       width: `${courseDesignWidth}px`,
