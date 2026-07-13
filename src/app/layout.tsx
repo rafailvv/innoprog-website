@@ -15,8 +15,6 @@ import {
   absoluteUrl,
 } from "./seo";
 
-const YANDEX_METRIKA_ID = 110454081;
-
 const manrope = localFont({
   src: [
     { path: "./fonts/manrope-cyrillic.woff2", weight: "200 800", style: "normal" },
@@ -98,8 +96,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ru" className={manrope.variable}>
       <head>
         <meta name="yandex-verification" content="ca948d488c7e73d2" />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110454081', 'ym');
+
+ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`,
+          }}
+        />
       </head>
       <body className={manrope.className}>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: '<div><img src="https://mc.yandex.ru/watch/110454081" style="position:absolute; left:-9999px;" alt="" /></div>',
+          }}
+        />
         <nav className="site-seo-navigation" aria-label="Основные страницы сайта">
           {KEY_SITE_LINKS.map((link) => (
             <a href={link.path} key={link.path}>
@@ -158,27 +174,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();
           `}
         </Script>
-        <Script id="yandex-metrika" strategy="afterInteractive">
-          {`
-            (function(m,e,t,r,i,k,a){
-              m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-              m[i].l=1*new Date();
-              for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}', 'ym');
-
-            ym(${YANDEX_METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-          `}
-        </Script>
-        <noscript>
-          <div>
-            <img
-              src={`https://mc.yandex.ru/watch/${YANDEX_METRIKA_ID}`}
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
-            />
-          </div>
-        </noscript>
       </body>
     </html>
   );
