@@ -6164,6 +6164,12 @@ button[data-name="кнопки пд"] {
   animation: site-modal-overlay-in 220ms ease-out both;
 }
 
+.site-lead-modal--closed {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .site-lead-modal__card {
   position: relative;
   width: min(956px, calc(100vw - 48px));

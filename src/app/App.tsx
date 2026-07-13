@@ -5807,9 +5807,13 @@ export default function App({
           </div>
         </div>
       ) : null}
-      {leadModalState !== "closed" ? (
+      {
         <div
-          className="site-lead-modal"
+          aria-hidden={leadModalState === "closed"}
+          className={[
+            "site-lead-modal",
+            leadModalState === "closed" ? "site-lead-modal--closed" : "",
+          ].filter(Boolean).join(" ")}
           onClick={(event) => {
             if (event.target === event.currentTarget) {
               closeLeadModal();
@@ -5849,8 +5853,8 @@ export default function App({
 
             <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
 
-            {leadModalState === "form" ? (
-              <form className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
+            {leadModalState !== "success" ? (
+              <form key={leadModalState} className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
                 <h2 className="site-lead-modal__title">Записаться на обучение</h2>
                 <p className="site-lead-modal__subtitle">
                   Оставьте заявку, и мы свяжемся
@@ -5956,7 +5960,7 @@ export default function App({
             )}
           </section>
         </div>
-      ) : null}
+      }
       {shouldShowCookieBanner ? (
         <aside className="site-cookie-banner" aria-label="Уведомление о cookie">
           <p>
