@@ -329,14 +329,50 @@ function Group() {
 }
 
 function Frame58() {
+  const adultCourses = [
+    ["Python-разработчик", "/python-course"],
+    ["Data Science", "/data-science-course"],
+    ["Frontend-разработчик", "/frontend-developer-course"],
+    ["Data-аналитик", "/data-analyst-course"],
+    ["C++ разработчик", "/cpp-developer-course"],
+    ["Мобильный разработчик", "/mobile-developer-course"],
+    ["Unreal Engine", "/unreal-engine-course"],
+    ["Java-разработчик", "/java-developer-course"],
+    ["ML-инженер", "/ml-engineer-course"],
+  ] as const;
+  const childCourses = [
+    "Программирование на Python",
+    "Создание сайтов с нуля",
+    "Школьная информатика",
+    "Олимпиадное программирование",
+    "Разработка нейросетей",
+    "Игры своими руками",
+  ];
+
   return (
-    <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0">
-      <a className="h-[17px] relative shrink-0 w-[154px]" data-main-nav="adults" data-name="Text" href="/">
+    <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0 site-main-header__nav">
+      <div className="site-main-header__nav-group">
+        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[154px]" data-main-nav="adults" data-name="Text" href="/">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
-      </a>
-      <a className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
+          <span aria-hidden="true" className="site-main-header__nav-arrow" />
+        </a>
+        <div aria-label="Направления для взрослых" className="site-main-header__dropdown" role="menu">
+          {adultCourses.map(([label, href]) => (
+            <a href={href} key={href} role="menuitem">{label}</a>
+          ))}
+        </div>
+      </div>
+      <div className="site-main-header__nav-group">
+        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
-      </a>
+          <span aria-hidden="true" className="site-main-header__nav-arrow" />
+        </a>
+        <div aria-label="Направления для детей" className="site-main-header__dropdown site-main-header__dropdown--children" role="menu">
+          {childCourses.map((label) => (
+            <a href="https://pages.innoprog.ru/children/school" key={label} role="menuitem">{label}</a>
+          ))}
+        </div>
+      </div>
       <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="/reviews">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
       </a>

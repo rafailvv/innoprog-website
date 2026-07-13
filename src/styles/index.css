@@ -1714,6 +1714,83 @@ body {
   transition: color 180ms ease, opacity 180ms ease;
 }
 
+.site-main-header__nav-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.site-main-header__nav-arrow {
+  position: absolute;
+  top: 10px;
+  right: -13px;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.site-main-header__nav-group:hover .site-main-header__nav-arrow,
+.site-main-header__nav-group:focus-within .site-main-header__nav-arrow {
+  transform: translateY(2px) rotate(45deg);
+}
+
+.site-main-header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1300;
+  display: flex;
+  width: max-content;
+  min-width: 282px;
+  max-width: 340px;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  border: 1px solid rgba(70, 74, 106, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 16px 36px rgba(70, 74, 106, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -6px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+  visibility: hidden;
+}
+
+.site-main-header__dropdown--children {
+  min-width: 300px;
+}
+
+.site-main-header__nav-group:hover .site-main-header__dropdown,
+.site-main-header__nav-group:focus-within .site-main-header__dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  visibility: visible;
+}
+
+.site-main-header__dropdown a {
+  display: block;
+  border-radius: 10px;
+  color: #201c2d;
+  padding: 9px 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-main-header__dropdown a:hover,
+.site-main-header__dropdown a:focus-visible {
+  background: rgba(156, 120, 255, 0.14);
+  color: #464a6a;
+  outline: none;
+}
+
 .site-shell:not(.site-shell--review-route):not(.site-shell--course-review-route):not(.site-shell--reviews-index-route):not(.site-shell--about-route):not(.site-shell--python-course-route):not(.site-shell--tariffs-route) .site-main-header [data-main-nav="adults"] p,
 .site-shell--python-course-route .site-main-header [data-main-nav="adults"] p,
 .site-shell--review-route .site-main-header [data-main-nav="reviews"] p,
