@@ -34,7 +34,7 @@ import imgReviewMikhail from "../MainScreenDesktop/review-mikhail-high.webp";
 import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
-import imgImg29491 from "./hero-mobile-640.webp";
+import imgImg29491 from "../MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import {
   MOBILE_FEATURES_BG_HEIGHT,
   MOBILE_FEATURES_BG_TOP,

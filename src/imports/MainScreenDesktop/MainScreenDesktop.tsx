@@ -35,7 +35,7 @@ import imgReviewMikhail from "./review-mikhail-high.webp";
 import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
-import imgImg29491 from "./hero-person-desktop.webp";
+import imgImg29491 from "./a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "./platform-laptop-desktop.webp";
 import imgImage118 from "./platform-screen-desktop.webp";
 import imgImage120 from "./platform-phone-screen-desktop.webp";
