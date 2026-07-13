@@ -853,11 +853,31 @@ function getServerSafariSnapshot() {
   return "false";
 }
 
+function getMetrikaSelectorSnapshot() {
+  if (typeof window === "undefined") {
+    return "false";
+  }
+
+  return new URLSearchParams(window.location.search).get("_ym_debug") === "1" ? "true" : "false";
+}
+
+function getServerMetrikaSelectorSnapshot() {
+  return "false";
+}
+
 function useIsSafariBrowser() {
   return useSyncExternalStore(
     () => () => {},
     getSafariSnapshot,
     getServerSafariSnapshot,
+  ) === "true";
+}
+
+function useIsMetrikaSelectorMode() {
+  return useSyncExternalStore(
+    () => () => {},
+    getMetrikaSelectorSnapshot,
+    getServerMetrikaSelectorSnapshot,
   ) === "true";
 }
 
@@ -3878,6 +3898,7 @@ export default function App({
   const router = useRouter();
   const viewport = useViewportState();
   const isSafariBrowser = useIsSafariBrowser();
+  const isMetrikaSelectorMode = useIsMetrikaSelectorMode();
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
     initialRouteState.activeReviewStory,
@@ -5551,7 +5572,10 @@ export default function App({
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
-  const shouldUseSafariCanvasZoom = !viewport.isMobile && isSafariBrowser;
+  // Metrika's visual selector calculates incorrect hit areas for a canvas
+  // scaled with Safari's non-standard CSS zoom. Its debug mode uses the same
+  // transform-based scaling as other browsers so button outlines stay aligned.
+  const shouldUseSafariCanvasZoom = !viewport.isMobile && isSafariBrowser && !isMetrikaSelectorMode;
   const canvasStyle = shouldUseSafariCanvasZoom
     ? {
         width: `${activeDesign.width}px`,
@@ -5756,7 +5780,7 @@ export default function App({
           </button>
         </nav>
       ) : null}
-      {shouldShowLoader || isReviewTransitionLoading ? (
+      {!isMetrikaSelectorMode && (shouldShowLoader || isReviewTransitionLoading) ? (
         <div className="site-loader" aria-hidden={isReady && !isReviewTransitionLoading}>
           <img
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
