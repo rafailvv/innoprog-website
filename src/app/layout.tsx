@@ -163,31 +163,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             (function(m,e,t,r,i,k,a){
               m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();
-              var loaded=false;
-              var load=function(){
-                if(loaded){return;}
-                loaded=true;
-                for(var j=0;j<document.scripts.length;j++){
-                  if(document.scripts[j].src===r){return;}
-                }
-                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
-              };
-              ['pointerdown','touchstart','keydown'].forEach(function(eventName){
-                m.addEventListener(eventName,load,{once:true,passive:true});
-              });
-              m.setTimeout(load,30000);
+              for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
             })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}', 'ym');
 
-            ym(${YANDEX_METRIKA_ID}, 'init', {
-              ssr: true,
-              webvisor: true,
-              clickmap: true,
-              ecommerce: "dataLayer",
-              referrer: document.referrer,
-              url: location.href,
-              accurateTrackBounce: true,
-              trackLinks: true
-            });
+            ym(${YANDEX_METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
           `}
         </Script>
         <noscript>
