@@ -507,7 +507,7 @@ function Frame65() {
 function Frame181() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
-      <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
+      <button className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
@@ -522,7 +522,7 @@ function Frame181() {
             </div>
           </div>
         </div>
-      </div>
+      </button>
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer h-[46px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
         <div aria-hidden className="absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
@@ -4055,14 +4055,14 @@ function Frame156() {
     <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">Базовый</p>
       <Frame154 />
-      <div className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
+      <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
         <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }
@@ -4242,14 +4242,14 @@ function Frame158() {
     <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[#9c78ff] text-[32px] uppercase whitespace-nowrap">расширенный</p>
       <Frame155 />
-      <div className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
+      <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
         <div aria-hidden className="absolute border-2 border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[#9c78ff] text-[20px] whitespace-nowrap">начать обучение</p>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }
@@ -4425,14 +4425,14 @@ function Frame159() {
     <div className="content-stretch flex flex-col gap-[24px] items-center justify-center relative shrink-0 w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-center text-white uppercase w-[min-content]">пЕРСОНАЛЬНЫЙ</p>
       <Frame160 />
-      <div className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
+      <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
         <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

@@ -3509,9 +3509,21 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-start-button {
+  z-index: 30;
+  border: 0;
   background: rgba(156, 120, 255, 0.6);
   -webkit-backdrop-filter: blur(74px);
   backdrop-filter: blur(74px);
+  cursor: pointer;
+  appearance: none;
+}
+
+button[data-name="кнопки пд"] {
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
 }
 
 .site-start-button__icon {
