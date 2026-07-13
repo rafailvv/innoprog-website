@@ -716,13 +716,13 @@ function Frame269() {
 
 function Frame64() {
   return (
-    <div className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open role="button" tabIndex={0}>
+    <button className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open type="button">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase whitespace-nowrap">Открыт набор на обучение</p>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 

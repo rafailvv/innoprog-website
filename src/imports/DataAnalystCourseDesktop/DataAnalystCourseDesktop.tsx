@@ -461,13 +461,13 @@ function Frame209() {
 
 function Frame73() {
   return (
-    <div className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open role="button" tabIndex={0}>
+    <button className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open type="button">
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">Открыт набор на обучение</p>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -3773,9 +3773,9 @@ function Frame23() {
         <p className="leading-[31px] mb-0">Вдохновляйтесь историями успеха реальных людей</p>
         <p className="leading-[31px]">Их результат может стать вашим</p>
       </div>
-      <div className="bg-[#9c78ff] content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[362px]" data-name="Frame 40/дефолт/фиолетовый" data-reviews-all="python" role="button" tabIndex={0}>
+      <button className="bg-[#9c78ff] content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[362px]" data-name="Frame 40/дефолт/фиолетовый" data-reviews-all="python" type="button">
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-pre">{`смотреть все  отзывы`}</p>
-      </div>
+      </button>
     </div>
   );
 }

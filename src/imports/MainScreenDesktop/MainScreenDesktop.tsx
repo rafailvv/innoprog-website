@@ -407,7 +407,7 @@ function DirectionHoverOverlay({
           <p className="site-desktop-direction-hover__title">{title}</p>
           <p className="site-desktop-direction-hover__description">{description}</p>
         </div>
-        <div className="site-desktop-direction-hover__button" data-application-open role="button" tabIndex={0}>Получить консультацию</div>
+        <button className="site-desktop-direction-hover__button" data-application-open type="button">Получить консультацию</button>
       </div>
     </div>
   );
