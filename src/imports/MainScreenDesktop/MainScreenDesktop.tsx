@@ -1,14 +1,15 @@
 import svgPaths from "./svg-j2mtrggl1r";
-import imgGain from "./559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
+import imgGain from "./home-background.opt.webp";
 import imgImg29771 from "./3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
-import imgImg29772 from "./653b7bc37f655916fe3ab94dc7fa4c9a87a9cee1.opt.webp";
-import imgImg29773 from "./c6d3c38bc41dfc3341159f2554b64cfeaf3c7d6f.opt.webp";
-import imgImg29774 from "./8f047d89405d2f6d6d082c02c38bf64691b762d4.opt.webp";
-import imgImg29775 from "./e9d641090abdd6bedcdf1c20f8131589dc50f9cf.opt.webp";
+import imgImg29772 from "./course-data-analyst-desktop.webp";
+import imgImg29773 from "./course-frontend-desktop.webp";
+import imgImg29774 from "./course-cpp-desktop.webp";
+import imgImg29775 from "./course-mobile-desktop.webp";
 import imgImg29776 from "./e6d0013835ce90ccca46f42fb5480d9fab91d85f.opt.webp";
 import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
-import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.opt.webp";
+import imgDataScienceHero from "./course-data-science-desktop.webp";
+import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
@@ -34,11 +35,11 @@ import imgReviewMikhail from "./review-mikhail-high.webp";
 import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
-import imgImg29491 from "./a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
-import img70211AppleMockupProDriveAirLaptopsDisc1 from "./apple-mockup-pro-drive-air.opt.webp";
-import imgImage118 from "./8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
-import imgImage120 from "./7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
-import img from "./6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
+import imgImg29491 from "./hero-person-desktop.webp";
+import img70211AppleMockupProDriveAirLaptopsDisc1 from "./platform-laptop-desktop.webp";
+import imgImage118 from "./platform-screen-desktop.webp";
+import imgImage120 from "./platform-phone-screen-desktop.webp";
+import img from "./platform-phone-frame-desktop.webp";
 
 function Frame4() {
   return (
@@ -163,7 +164,7 @@ function Frame74() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
-        <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Стажировка</p>
+        <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#8058e8] text-[32px] w-full">Стажировка</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения лучших учеников мы рекомендуем нашим партнёрам для прохождения стажировки в ИТ-компаниях</p>
       </div>
     </div>
@@ -853,7 +854,7 @@ function Component1() {
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame30 />
       <div className="h-[735px] relative rounded-[40px] shrink-0 w-[1280px] site-smooth-photo site-smooth-photo--40" data-name="image 119">
-        <video aria-hidden="true" autoPlay loop muted playsInline preload="none" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
+        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
   );

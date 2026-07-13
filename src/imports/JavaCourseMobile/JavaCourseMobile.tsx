@@ -1,6 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgJavaHero from "../MainScreenDesktop/3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
+import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
@@ -952,7 +953,7 @@ function Frame173() {
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame172 />
       <div className="h-[201px] overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
-        <video aria-hidden="true" autoPlay loop muted playsInline preload="none" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImage119} />
+        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImage119} />
       </div>
     </div>
   );

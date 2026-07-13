@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://innoprog.ru";
 export const SITE_NAME = "ИННОПРОГ";
 export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
-export const SITE_LOGO_PATH = "/logo_education.webp";
+export const SITE_LOGO_PATH = "/logo-education-360.webp";
 export const SITE_FAVICON_PATH = "/favicon.png";
 export const DEFAULT_OG_IMAGE_PATH = "/og-brand.png";
 export const PYTHON_COURSE_OG_IMAGE_PATH = "/og/python-course.png";

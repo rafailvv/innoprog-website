@@ -783,10 +783,13 @@
 }
 
 .site-course-reviews-carousel .site-course-review-card--dynamic {
+  align-items: stretch !important;
   align-self: stretch;
+  box-sizing: border-box;
   display: flex !important;
   min-height: 360px;
   overflow: hidden;
+  padding: 0 !important;
 }
 
 .site-course-reviews-carousel .site-course-review-card--dynamic > :not(.site-course-direction-review-card) {

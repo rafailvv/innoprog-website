@@ -6,16 +6,16 @@ import MainScreen, {
   MainScreenDesktopFooter,
   MainScreenDesktopHeader,
 } from "../imports/MainScreenDesktop/MainScreenDesktop";
-import heroBackgroundUrl from "../imports/MainScreenDesktop/559076f97b29b552f98b8ef64abca31d3d16d281.opt.webp";
-import heroPersonUrl from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
+import heroBackgroundUrl from "../imports/MainScreenDesktop/home-background.opt.webp";
+import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
 import MainScreenMobile, {
   MainScreenMobileFooter,
   MainScreenMobileHeader,
 } from "../imports/MainScreenMobile/MainScreenMobile";
-import platformLaptopUrl from "../imports/MainScreenDesktop/apple-mockup-pro-drive-air.opt.webp";
-import platformScreenUrl from "../imports/MainScreenDesktop/8203cbb984ade08a409e3cb123b62173d36af946.opt.webp";
-import platformPhoneScreenUrl from "../imports/MainScreenDesktop/7e04d2ff334c194bc04be7de134120846fa4b54a.opt.webp";
-import platformPhoneFrameUrl from "../imports/MainScreenDesktop/6397a5e6c95741194ffcda7e9dcc26be72b64572.opt.webp";
+import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
+import platformScreenUrl from "../imports/MainScreenDesktop/platform-screen-desktop.webp";
+import platformPhoneScreenUrl from "../imports/MainScreenDesktop/platform-phone-screen-desktop.webp";
+import platformPhoneFrameUrl from "../imports/MainScreenDesktop/platform-phone-frame-desktop.webp";
 import reviewKirillUrl from "../imports/MainScreenDesktop/review-kirill.png";
 import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia-high.webp";
 import reviewMikhailUrl from "../imports/MainScreenDesktop/review-mikhail-high.webp";
@@ -948,8 +948,8 @@ function useViewportState() {
 
 function getCriticalAssets(isMobile: boolean) {
   return isMobile
-    ? ["/logo_education.webp", heroMobileUrl]
-    : ["/logo_education.webp", heroPersonUrl, heroBackgroundUrl];
+    ? ["/logo-education-360.webp", heroMobileUrl]
+    : ["/logo-education-360.webp", heroPersonUrl, heroBackgroundUrl];
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
@@ -1467,7 +1467,7 @@ function SiteFooter({
 function LegacySiteFooter() {
   return (
     <footer className="site-review-page__footer">
-      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo_education.webp" />
+      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo-education-360.webp" />
       <div className="site-review-page__footer-columns">
         <section>
           <h2>Контакты</h2>
@@ -1504,7 +1504,7 @@ function LegacySiteFooter() {
 }
 
 function SitePageHeader({
-  logoSrc = "/logo_education.webp",
+  logoSrc = "/logo-education-360.webp",
   onHome,
   scale = 1,
 }: {
@@ -3936,7 +3936,7 @@ function clearReturnScrollPosition() {
 function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
-  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.webp"));
+  const loaderLogo = images.find((image) => image.src.endsWith("/logo-education-360.webp"));
 
   return Promise.all([
     ...getCriticalAssets(isMobile).map(preloadImage),
@@ -5837,7 +5837,7 @@ export default function App({
         >
           <div className="site-mobile-menu__top">
             <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
-              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo_education.webp" />
+              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-education-360.webp" />
             </button>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" data-mobile-menu-toggle type="button">
               <span aria-hidden="true" />
@@ -5884,7 +5884,7 @@ export default function App({
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
-            src="/logo_education.webp"
+            src="/logo-education-360.webp"
           />
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />
