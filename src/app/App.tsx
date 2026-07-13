@@ -3893,7 +3893,7 @@ function clearReturnScrollPosition() {
 function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
-  const loaderLogo = images.find((image) => image.src.endsWith("/logo-education-360.webp"));
+  const loaderLogo = images.find((image) => image.src.endsWith("/logo_white_and_black.svg"));
 
   return Promise.all([
     ...getCriticalAssets(isMobile).map(preloadImage),
@@ -5800,7 +5800,8 @@ export default function App({
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
-            src="/logo-education-360.webp"
+            fetchPriority="high"
+            src="/logo_white_and_black.svg"
           />
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />

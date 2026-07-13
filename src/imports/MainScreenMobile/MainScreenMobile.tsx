@@ -500,7 +500,7 @@ function Frame147() {
 
 function MobilePlatformStartButton() {
   return (
-    <button className="bg-transparent border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
+    <button className="bg-[rgba(156,120,255,0.4)] border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full site-mobile-platform-start-button" data-name="кнопки пд" type="button">
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать бесплатно</p>
     </button>
   );
@@ -3004,7 +3004,7 @@ export default function Component() {
       <Frame147 />
       <Frame173 />
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
-        <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
+          <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
       </div>
       <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>

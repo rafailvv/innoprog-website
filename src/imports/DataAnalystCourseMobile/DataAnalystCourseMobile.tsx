@@ -121,7 +121,7 @@ function MobileProjectVisual({ index }: { index: number }) {
         alt={item.title} title={item.title}
         className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
         decoding="async"
-        loading="lazy"
+        loading={index < 2 ? "eager" : "lazy"}
         src={image}
       />
     </div>

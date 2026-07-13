@@ -1879,6 +1879,11 @@ body {
   backdrop-filter: blur(74px);
 }
 
+.site-mobile-platform-start-button {
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+}
+
 .site-loader {
   position: fixed;
   inset: 0;
@@ -2838,14 +2843,14 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-shell--mobile .site-course-projects-carousel {
-  width: calc(100% + 40px) !important;
+  width: 100% !important;
   max-width: none;
-  margin-left: -20px;
-  margin-right: -20px;
-  padding-right: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: 0;
   padding-left: 20px;
-  scroll-padding-left: 0;
-  scroll-padding-right: 20px;
+  scroll-padding-left: 20px;
+  scroll-padding-right: 0;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
   scroll-snap-type: none;
@@ -2870,18 +2875,19 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-shell--mobile .site-course-projects-carousel {
-  padding-left: 0;
-  scroll-padding-left: 0;
+  padding-left: 20px;
+  scroll-padding-left: 20px;
 }
 
 .site-shell--mobile .site-course-projects-carousel > div {
-  width: 390px !important;
-  flex: 0 0 390px;
+  width: 350px !important;
+  flex: 0 0 350px;
 }
 
 .site-shell--mobile .site-course-projects-carousel .site-course-mobile-project-visual {
-  width: 100% !important;
+  width: calc(100% - 40px) !important;
   height: auto !important;
+  margin-left: 20px;
   aspect-ratio: 4 / 3;
   border-radius: 32px;
 }
