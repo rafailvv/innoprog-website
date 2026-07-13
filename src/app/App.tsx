@@ -2384,9 +2384,11 @@ function PythonCourseHero({ isMobile }: { isMobile: boolean }) {
 function PythonCoursePage({
   headerScale,
   isMobile,
+  isMetrikaSelectorMode,
 }: {
   headerScale: number;
   isMobile: boolean;
+  isMetrikaSelectorMode: boolean;
 }) {
   const courseCanvasRef = useRef<HTMLDivElement | null>(null);
   const [courseCanvasHeight, setCourseCanvasHeight] = useState(0);
@@ -2396,12 +2398,23 @@ function PythonCoursePage({
       height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
       marginTop: 0,
     }
+    : isMetrikaSelectorMode
+      ? {
+        height: `${Math.ceil((courseCanvasHeight || 9400) * headerScale)}px`,
+        marginTop: 0,
+      }
     : undefined;
   const courseContentCanvasStyle = isMobile
     ? {
       width: `${courseDesignWidth}px`,
       transform: `scale(${headerScale})`,
     }
+    : isMetrikaSelectorMode
+      ? {
+        width: `${courseDesignWidth}px`,
+        transform: `scale(${headerScale})`,
+        transformOrigin: "top center",
+      }
     : {
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
@@ -2411,7 +2424,7 @@ function PythonCoursePage({
   useEffect(() => {
     const canvas = courseCanvasRef.current;
 
-    if (!canvas || !isMobile) {
+    if (!canvas || (!isMobile && !isMetrikaSelectorMode)) {
       return;
     }
 
@@ -2435,7 +2448,7 @@ function PythonCoursePage({
     return () => {
       observer.disconnect();
     };
-  }, [headerScale, isMobile]);
+  }, [headerScale, isMobile, isMetrikaSelectorMode]);
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -5672,6 +5685,7 @@ export default function App({
         <PythonCoursePage
           headerScale={viewport.scale}
           isMobile={viewport.isMobile}
+          isMetrikaSelectorMode={isMetrikaSelectorMode}
         />
       ) : isDataScienceCourseRoute ? (
         <DataScienceCoursePage
