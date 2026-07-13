@@ -18,7 +18,7 @@ const securityHeaders = [
       "base-uri 'self'",
       "object-src 'none'",
       "form-action 'self'",
-      "frame-ancestors 'self' https://metrika.yandex.ru https://analytics.yandex.ru https://metr.yandex.ru https://metrica.yandex.ru https://metrika.ya.ru https://metrica.ya.ru https://analytics.yandex.com https://metr.yandex.com https://metrica.yandex.com https://metrika.yandex.com https://analytics.yandex.by https://metr.yandex.by https://metrica.yandex.by https://metrika.yandex.by https://analytics.yandex.kz https://metr.yandex.kz https://metrica.yandex.kz https://metrika.yandex.kz https://analytics.yandex.com.tr https://metr.yandex.com.tr https://metrica.yandex.com.tr https://metrika.yandex.com.tr https://metrika.yandex.uz",
+      "frame-ancestors 'self' https://yandex.ru https://*.yandex.ru https://yandex.com https://*.yandex.com https://yandex.by https://*.yandex.by https://yandex.kz https://*.yandex.kz https://yandex.com.tr https://*.yandex.com.tr https://yandex.uz https://*.yandex.uz https://ya.ru https://*.ya.ru https://metrica.yandex https://metrika.yandex https://webvisor.com https://*.webvisor.com https://webvisor.org https://*.webvisor.org",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://yastatic.net https://*.yastatic.net",
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self' data:",
