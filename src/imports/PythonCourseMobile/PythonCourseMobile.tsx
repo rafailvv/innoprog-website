@@ -3060,11 +3060,12 @@ function MobileCourseProgramModuleCard({
       <button
         aria-expanded={isOpen}
         className="site-course-program-toggle"
+        data-name="программа обучения"
         onClick={onToggle}
         type="button"
       >
         <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
-        <span className="site-course-program-chevron" aria-hidden>
+        <span className="site-course-program-chevron" aria-hidden data-name="стрелка программы обучения">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.7295 28.7282">
             <path d={svgPaths.p16c30c80} stroke="currentColor" />
           </svg>
