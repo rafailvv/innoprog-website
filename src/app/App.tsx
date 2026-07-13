@@ -106,7 +106,6 @@ function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
   card.hidden = false;
   card.removeAttribute("aria-hidden");
   card.removeAttribute("tabindex");
-  card.setAttribute("aria-label", `Читать отзыв: ${review.name}, ${review.course}`);
 
   if (courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES) {
     card.dataset.courseReview = courseReviewKey;
@@ -1813,7 +1812,6 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
   );
   return (
     <a
-      aria-label={`Открыть отзыв: ${review.name}`}
       className="site-reviews-index-card"
       data-student-review={review.id}
       draggable={false}
@@ -5534,6 +5532,15 @@ export default function App({
     ) {
       event.preventDefault();
       toggleConsent();
+      return;
+    }
+
+    if (
+      target?.closest('[data-name="кнопки пд"][role="button"]') &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      target.closest<HTMLElement>('[data-name="кнопки пд"][role="button"]')?.click();
     }
   };
 

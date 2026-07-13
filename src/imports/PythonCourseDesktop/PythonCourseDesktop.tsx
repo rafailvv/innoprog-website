@@ -509,7 +509,7 @@ function Frame74() {
 function Frame76() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[465px]">
-      <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</p>
@@ -3901,7 +3901,7 @@ function Frame178() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
       <Frame176 />
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">записаться</p>
@@ -4147,7 +4147,7 @@ function Frame180() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
       <Frame177 />
-      <div className="bg-[rgba(156,120,255,0.6)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="bg-[rgba(156,120,255,0.6)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">записаться</p>
@@ -4411,7 +4411,7 @@ function Frame181() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
       <Frame182 />
-      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="bg-white relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[20px] relative size-full">
             <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">записаться</p>
@@ -5325,7 +5325,7 @@ function Frame232() {
         <Group />
         <Frame26 />
         <div className="flex flex-row items-center self-stretch">
-          <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
+          <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" role="button" tabIndex={0}>
             <div className="flex flex-row items-center justify-center size-full">
               <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
                 <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</p>

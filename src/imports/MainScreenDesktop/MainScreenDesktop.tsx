@@ -260,7 +260,7 @@ function Frame84() {
     <div className="absolute content-stretch flex flex-col gap-[60px] h-[1346px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
-      <div className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529">
+      <div className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" role="button" tabIndex={0} data-node-id="3401:529">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">получить консультацию</p>
       </div>
     </div>
@@ -355,7 +355,7 @@ export function MainScreenDesktopHeader() {
       </button>
       <Frame58 />
       <div className="flex flex-row items-center self-stretch">
-        <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд">
+        <div className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" role="button" tabIndex={0}>
           <div className="flex flex-row items-center justify-center size-full">
             <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
               <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
@@ -407,7 +407,7 @@ function DirectionHoverOverlay({
           <p className="site-desktop-direction-hover__title">{title}</p>
           <p className="site-desktop-direction-hover__description">{description}</p>
         </div>
-        <div className="site-desktop-direction-hover__button" data-application-open>Получить консультацию</div>
+        <div className="site-desktop-direction-hover__button" data-application-open role="button" tabIndex={0}>Получить консультацию</div>
       </div>
     </div>
   );
@@ -1823,7 +1823,7 @@ function Component6() {
   return (
     <div className="content-stretch flex flex-col gap-[60px] items-center py-[80px] relative rounded-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 1129\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(4.4087e-15 56.45 -72 3.4566e-15 720 564.5)\\'><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(115,99,182,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(94,88,145,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(73,77,108,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="отзывы">
       <Frame76 />
-      <div className="bg-white content-stretch flex items-center justify-center p-[28px] relative rounded-[40px] shrink-0" data-name="кнопки пд">
+      <div className="bg-white content-stretch flex items-center justify-center p-[28px] relative rounded-[40px] shrink-0" data-name="кнопки пд" role="button" tabIndex={0}>
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">подобрать курс</p>
       </div>
     </div>
@@ -2535,7 +2535,7 @@ export default function Component() {
           <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
         </div>
       </div>
-      <div className="-translate-x-1/2 absolute content-stretch flex h-[88px] items-center justify-between left-[calc(50%-3px)] px-[24px] py-[16px] rounded-[40px] site-start-button top-[652px] w-[622px]" data-name="кнопки пд" data-node-id="3401:839">
+      <div className="-translate-x-1/2 absolute content-stretch flex h-[88px] items-center justify-between left-[calc(50%-3px)] px-[24px] py-[16px] rounded-[40px] site-start-button top-[652px] w-[622px]" data-name="кнопки пд" role="button" tabIndex={0} data-node-id="3401:839">
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</p>
         <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
           <div className="relative shrink-0 size-[32px]">

@@ -1749,7 +1749,7 @@ function Frame64() {
 
 function ProblemSupportCta() {
   return (
-    <div className="bg-[#464a6a] h-[68px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+    <div className="bg-[#464a6a] h-[68px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
       <div className="flex flex-row items-center justify-center size-full">
         <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
           <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</p>
@@ -2709,7 +2709,7 @@ function Frame115() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame114 />
-      <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
+      <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" role="button" tabIndex={0}>
         <div aria-hidden="true" className="absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <div className="flex flex-row items-center justify-center size-full">
           <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
@@ -3006,7 +3006,7 @@ export default function Component() {
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
         <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgImg29491} />
       </div>
-      <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд">
+      <div className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" role="button" tabIndex={0}>
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
         <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
           <div className="relative shrink-0 size-[16px]">

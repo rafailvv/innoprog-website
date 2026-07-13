@@ -2664,6 +2664,16 @@ button,
   cursor: pointer;
 }
 
+/* Keep generated CTA internals from becoming separate click-map targets. */
+[data-name="кнопки пд"][role="button"] *,
+[data-application-open][role="button"] *,
+[data-reviews-all][role="button"] *,
+button[data-name="кнопки пд"] *,
+.site-course-lead-submit *,
+.site-lead-modal__submit * {
+  pointer-events: none;
+}
+
 .site-carousel {
   overflow-x: auto;
   overflow-y: hidden;
