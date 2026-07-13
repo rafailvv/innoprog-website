@@ -1723,8 +1723,8 @@ body {
 
 .site-main-header__nav-arrow {
   position: absolute;
-  top: 10px;
-  right: -13px;
+  top: 12px;
+  right: -18px;
   width: 7px;
   height: 7px;
   border-right: 1.5px solid currentColor;
@@ -7862,4 +7862,420 @@ button[data-name="кнопки пд"] {
 
 .site-course-faq-answer--mobile p + p {
   margin-top: 10px;
+}
+
+.site-application-page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: #464a6a;
+}
+
+.site-application-card {
+  position: relative;
+  width: min(1280px, 100%);
+  overflow: hidden;
+  padding: 48px 64px 64px;
+  border-radius: 40px;
+  background: #9c78ff;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
+}
+
+.site-application-card::before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  aspect-ratio: 1;
+  left: 8%;
+  bottom: -42%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.26), transparent 68%);
+  pointer-events: none;
+}
+
+.site-application-topline,
+.site-application-layout,
+.site-application-logo,
+.site-application-form,
+.site-application-success {
+  position: relative;
+  z-index: 1;
+}
+
+.site-application-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 52px;
+}
+
+.site-application-back,
+.site-application-crumb {
+  color: #000000;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-application-back {
+  border-radius: 16px;
+  padding: 8px 14px;
+  background: #ffffff;
+}
+
+.site-application-crumb {
+  opacity: 0.52;
+}
+
+.site-application-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.8fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.site-application-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  color: #ffffff;
+}
+
+.site-application-logo {
+  display: block;
+  width: min(360px, 72%);
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.site-application-intro h1,
+.site-application-form h2,
+.site-application-success h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.site-application-intro h1 {
+  max-width: 620px;
+  font-size: clamp(44px, 5vw, 76px);
+}
+
+.site-application-lead {
+  max-width: 620px;
+  margin: 0;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+.site-application-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.site-application-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.site-application-benefits li > span:first-child {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #9c78ff;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.site-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 40px;
+  border-radius: 40px;
+  background: #464a6a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.site-application-form h2 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.site-application-form > p {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.site-application-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.site-application-fields input,
+.site-application-fields textarea {
+  width: 100%;
+  border: 0;
+  border-radius: 40px;
+  padding: 20px 24px;
+  background: rgba(156, 120, 255, 0.6);
+  color: #ffffff;
+  outline: 0;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.site-application-fields input {
+  height: 64px;
+}
+
+.site-application-fields textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.site-application-fields input::placeholder,
+.site-application-fields textarea::placeholder {
+  color: rgba(255, 255, 255, 0.82);
+  opacity: 1;
+}
+
+.site-application-fields input:focus,
+.site-application-fields textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.54);
+}
+
+.site-application-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.site-application-consent input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  margin: 0;
+  accent-color: #9c78ff;
+}
+
+.site-application-consent a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.site-application-error {
+  margin: 0;
+  border-radius: 18px;
+  padding: 10px 14px;
+  background: #ffffff;
+  color: #b42318;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.site-application-submit {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
+  padding: 16px 24px;
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-application-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
+.site-application-page--success {
+  padding: 24px;
+}
+
+.site-application-card--success {
+  max-width: 956px;
+}
+
+.site-application-card--success .site-application-logo {
+  width: min(472px, 72%);
+  margin: 0 auto 56px;
+}
+
+.site-application-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  color: #ffffff;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.site-application-success h1 {
+  font-size: 42px;
+}
+
+.site-application-success p {
+  max-width: 720px;
+  margin: 0;
+}
+
+.site-application-success .site-application-submit {
+  width: min(440px, 100%);
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .site-application-page {
+    padding: 16px;
+  }
+
+  .site-application-card {
+    padding: 24px 20px 32px;
+    border-radius: 28px;
+  }
+
+  .site-application-topline {
+    margin-bottom: 32px;
+  }
+
+  .site-application-back,
+  .site-application-crumb {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .site-application-back {
+    border-radius: 12px;
+    padding: 6px 9px;
+  }
+
+  .site-application-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .site-application-intro {
+    gap: 18px;
+  }
+
+  .site-application-logo,
+  .site-application-card--success .site-application-logo {
+    width: 220px;
+    margin-bottom: 4px;
+  }
+
+  .site-application-intro h1 {
+    font-size: 40px;
+  }
+
+  .site-application-lead {
+    font-size: 18px;
+  }
+
+  .site-application-benefits {
+    gap: 12px;
+    font-size: 16px;
+  }
+
+  .site-application-form {
+    gap: 16px;
+    padding: 22px 16px 24px;
+    border-radius: 28px;
+  }
+
+  .site-application-form h2 {
+    font-size: 28px;
+  }
+
+  .site-application-form > p {
+    font-size: 16px;
+  }
+
+  .site-application-fields input,
+  .site-application-fields textarea {
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+
+  .site-application-fields input {
+    height: 50px;
+  }
+
+  .site-application-fields textarea {
+    min-height: 86px;
+  }
+
+  .site-application-consent {
+    font-size: 11px;
+  }
+
+  .site-application-submit {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .site-application-page--success {
+    padding: 16px;
+  }
+
+  .site-application-success {
+    font-size: 18px;
+  }
+
+  .site-application-success h1 {
+    font-size: 28px;
+  }
 }
