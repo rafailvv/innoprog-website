@@ -3893,7 +3893,7 @@ function clearReturnScrollPosition() {
 function waitForCriticalAssets(isMobile: boolean) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
-  const loaderLogo = images.find((image) => image.src.endsWith("/logo_white_and_black.svg"));
+  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
 
   return Promise.all([
     ...getCriticalAssets(isMobile).map(preloadImage),
@@ -5801,7 +5801,7 @@ export default function App({
             className="site-loader__logo"
             decoding="async"
             fetchPriority="high"
-            src="/logo_white_and_black.svg"
+            src="/logo_education.png"
           />
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />

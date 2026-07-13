@@ -1719,12 +1719,13 @@ body {
   display: flex;
   align-items: center;
   height: 30px;
+  margin-right: 8px;
 }
 
 .site-main-header__nav-arrow {
   position: absolute;
   top: 12px;
-  right: -18px;
+  right: -8px;
   width: 7px;
   height: 7px;
   border-right: 1.5px solid currentColor;
