@@ -10,6 +10,7 @@ import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "./course-data-science-desktop.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
+import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../../app/courseNavigation";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
@@ -329,47 +330,27 @@ function Group() {
 }
 
 function Frame58() {
-  const adultCourses = [
-    ["Python-разработчик", "/python-course"],
-    ["Data Science", "/data-science-course"],
-    ["Frontend-разработчик", "/frontend-developer-course"],
-    ["Data-аналитик", "/data-analyst-course"],
-    ["C++ разработчик", "/cpp-developer-course"],
-    ["Мобильный разработчик", "/mobile-developer-course"],
-    ["Unreal Engine", "/unreal-engine-course"],
-    ["Java-разработчик", "/java-developer-course"],
-    ["ML-инженер", "/ml-engineer-course"],
-  ] as const;
-  const childCourses = [
-    "Программирование на Python",
-    "Создание сайтов с нуля",
-    "Школьная информатика",
-    "Олимпиадное программирование",
-    "Разработка нейросетей",
-    "Игры своими руками",
-  ];
-
   return (
     <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0 site-main-header__nav">
       <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[154px]" data-main-nav="adults" data-name="Text" href="/">
+        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[166px]" data-main-nav="adults" data-name="Text" href="/">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
           <span aria-hidden="true" className="site-main-header__nav-arrow" />
         </a>
         <div aria-label="Направления для взрослых" className="site-main-header__dropdown" role="menu">
-          {adultCourses.map(([label, href]) => (
+          {ADULT_COURSE_LINKS.map(({ label, href }) => (
             <a href={href} key={href} role="menuitem">{label}</a>
           ))}
         </div>
       </div>
       <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[114px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
+        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[126px]" data-main-nav="children" data-name="Text" href="https://pages.innoprog.ru/children/school">
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
           <span aria-hidden="true" className="site-main-header__nav-arrow" />
         </a>
         <div aria-label="Направления для детей" className="site-main-header__dropdown site-main-header__dropdown--children" role="menu">
-          {childCourses.map((label) => (
-            <a href="https://pages.innoprog.ru/children/school" key={label} role="menuitem">{label}</a>
+          {CHILD_COURSE_LINKS.map(({ label, href }) => (
+            <a href={href} key={label} role="menuitem">{label}</a>
           ))}
         </div>
       </div>

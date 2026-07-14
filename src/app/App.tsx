@@ -47,6 +47,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
+import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 
@@ -3943,6 +3944,7 @@ export default function App({
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
+  const [openMobileNavGroup, setOpenMobileNavGroup] = useState<"adults" | "children" | null>(null);
   const [isReviewConsultPrimed, setIsReviewConsultPrimed] = useState(false);
   const [isReviewTransitionLoading, setIsReviewTransitionLoading] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
@@ -5053,7 +5055,19 @@ export default function App({
 
     if (mobileMenuToggle) {
       event.preventDefault();
+      if (isMobileMenuOpen) {
+        setOpenMobileNavGroup(null);
+      }
       setIsMobileMenuOpen((open) => !open);
+      return;
+    }
+
+    const mobileMenuExpand = target?.closest<HTMLElement>("[data-mobile-menu-expand]");
+
+    if (mobileMenuExpand?.dataset.mobileMenuExpand) {
+      event.preventDefault();
+      const group = mobileMenuExpand.dataset.mobileMenuExpand as "adults" | "children";
+      setOpenMobileNavGroup((currentGroup) => currentGroup === group ? null : group);
       return;
     }
 
@@ -5816,16 +5830,64 @@ export default function App({
             </button>
           </div>
           <div className="site-mobile-menu__links">
-            <button
-              aria-current={!isStandaloneRoute ? "page" : undefined}
-              data-active={!isStandaloneRoute ? "true" : undefined}
-              data-mobile-menu-link
-              data-scroll-target="adults"
-              type="button"
-            >
-              для взрослых
-            </button>
-            <button data-mobile-menu-link data-scroll-target="children" type="button">для детей</button>
+            <div className="site-mobile-menu__nav-group">
+              <div className="site-mobile-menu__nav-row">
+                <button
+                  aria-current={!isStandaloneRoute ? "page" : undefined}
+                  data-active={!isStandaloneRoute ? "true" : undefined}
+                  data-mobile-menu-link
+                  data-scroll-target="adults"
+                  type="button"
+                >
+                  для взрослых
+                </button>
+                <button
+                  aria-controls="mobile-adult-courses"
+                  aria-expanded={openMobileNavGroup === "adults"}
+                  aria-label="Показать направления для взрослых"
+                  className="site-mobile-menu__expand"
+                  data-mobile-menu-expand="adults"
+                  type="button"
+                >
+                  <span aria-hidden="true" />
+                </button>
+              </div>
+              <div
+                aria-hidden={openMobileNavGroup !== "adults"}
+                className="site-mobile-menu__submenu"
+                data-open={openMobileNavGroup === "adults"}
+                id="mobile-adult-courses"
+              >
+                {ADULT_COURSE_LINKS.map(({ label, href }) => (
+                  <a href={href} key={href}>{label}</a>
+                ))}
+              </div>
+            </div>
+            <div className="site-mobile-menu__nav-group">
+              <div className="site-mobile-menu__nav-row">
+                <button data-mobile-menu-link data-scroll-target="children" type="button">для детей</button>
+                <button
+                  aria-controls="mobile-child-courses"
+                  aria-expanded={openMobileNavGroup === "children"}
+                  aria-label="Показать направления для детей"
+                  className="site-mobile-menu__expand"
+                  data-mobile-menu-expand="children"
+                  type="button"
+                >
+                  <span aria-hidden="true" />
+                </button>
+              </div>
+              <div
+                aria-hidden={openMobileNavGroup !== "children"}
+                className="site-mobile-menu__submenu"
+                data-open={openMobileNavGroup === "children"}
+                id="mobile-child-courses"
+              >
+                {CHILD_COURSE_LINKS.map(({ label, href }) => (
+                  <a href={href} key={label}>{label}</a>
+                ))}
+              </div>
+            </div>
             <button
               aria-current={isReviewRoute || isStudentReviewRoute || isReviewsRoute ? "page" : undefined}
               data-active={isReviewRoute || isStudentReviewRoute || isReviewsRoute ? "true" : undefined}
