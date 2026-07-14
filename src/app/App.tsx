@@ -3949,6 +3949,8 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
+  const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
+  const homeCanvasRef = useRef<HTMLDivElement>(null);
   const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
   const reviewTransitionTimerRef = useRef<number | null>(null);
   const initialRouteKey = (() => {
@@ -5602,6 +5604,59 @@ export default function App({
         transform: `scale(${viewport.scale})`,
       } as CSSProperties;
 
+  useLayoutEffect(() => {
+    if (isStandaloneRoute) {
+      setHomeContentDesignHeight(null);
+      return;
+    }
+
+    const canvas = homeCanvasRef.current;
+
+    if (!canvas) {
+      return;
+    }
+
+    let animationFrame = 0;
+    let settleTimer = 0;
+
+    const measureContent = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(() => {
+        const content = canvas.firstElementChild as HTMLElement | null;
+        const measuredHeight = Math.ceil(Math.max(
+          activeDesign.height,
+          canvas.scrollHeight,
+          content?.scrollHeight || 0,
+          content?.offsetHeight || 0,
+        ));
+
+        setHomeContentDesignHeight((currentHeight) => (
+          currentHeight === measuredHeight ? currentHeight : measuredHeight
+        ));
+      });
+    };
+
+    const resizeObserver = new ResizeObserver(measureContent);
+    resizeObserver.observe(canvas);
+
+    if (canvas.firstElementChild) {
+      resizeObserver.observe(canvas.firstElementChild);
+    }
+
+    measureContent();
+    window.addEventListener("resize", measureContent, { passive: true });
+    window.addEventListener("load", measureContent, { once: true });
+    settleTimer = window.setTimeout(measureContent, 500);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(settleTimer);
+      window.removeEventListener("resize", measureContent);
+      window.removeEventListener("load", measureContent);
+      resizeObserver.disconnect();
+    };
+  }, [activeDesign.height, isStandaloneRoute, viewport.isMobile]);
+
   return (
     <main
       aria-busy={!isReady}
@@ -5633,7 +5688,7 @@ export default function App({
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
       style={isStandaloneRoute ? undefined : {
-        minHeight: `${Math.ceil(activeDesign.height * viewport.scale) + (shouldUseSafariCanvasZoom ? 8 : 0)}px`,
+        minHeight: `${Math.ceil((homeContentDesignHeight || activeDesign.height) * viewport.scale)}px`,
       }}
     >
       {isReviewRoute ? (
@@ -5734,6 +5789,7 @@ export default function App({
         />
       ) : (
         <div
+          ref={homeCanvasRef}
           className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
             .filter(Boolean)
             .join(" ")}

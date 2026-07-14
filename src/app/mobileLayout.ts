@@ -1,5 +1,5 @@
 export const MOBILE_DESIGN_WIDTH = 390;
-export const MOBILE_DESIGN_HEIGHT = 10582;
+export const MOBILE_DESIGN_HEIGHT = 10610;
 
 export const MOBILE_FEATURES_BG_TOP = 701;
 export const MOBILE_FEATURES_BG_HEIGHT = 1515;
