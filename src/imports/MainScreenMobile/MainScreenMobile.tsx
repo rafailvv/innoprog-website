@@ -197,10 +197,10 @@ export function MainScreenMobileHeader() {
 
 function Frame55() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[43px] relative shrink-0 uppercase w-full">
-      <p className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">обучаем</p>
-      <p className="relative shrink-0 text-[26px] text-center w-full">программированию</p>
-    </div>
+    <h1 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[43px] relative shrink-0 uppercase w-full">
+      <span className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">{`обучаем `}</span>
+      <span className="relative shrink-0 text-[26px] text-center w-full">программированию</span>
+    </h1>
   );
 }
 
@@ -569,7 +569,7 @@ function Frame185() {
 function Frame11() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Python разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Python разработчик</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов</p>
         <p className="leading-[18px] mb-0">и автоматизировать рабочие задачи</p>
@@ -642,7 +642,7 @@ function Frame186() {
 function Frame15() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Data Science</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Data Science</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Научитесь работать с данными, Python, статистикой и моделями ИИ, чтобы находить закономерности и решать бизнес-задачи</p>
     </div>
   );
@@ -711,7 +711,7 @@ function Frame187() {
 function Frame20() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[30px] whitespace-nowrap w-full">Фронтенд разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[30px] whitespace-nowrap w-full">Фронтенд разработчик</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Освойте современную фронтенд-разработку, React, TypeScript и работу</p>
         <p className="leading-[18px] mb-0">с API, чтобы создавать полноценные</p>
@@ -784,7 +784,7 @@ function Frame188() {
 function Frame25() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Data-аналитик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Data-аналитик</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Освойте анализ данных, SQL, Python, BI-отчеты и визуализацию,</p>
         <p className="leading-[18px] mb-0">чтобы находить закономерности</p>
@@ -857,7 +857,7 @@ function Frame189() {
 function Frame30() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Разработчик С++</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Разработчик С++</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Освойте C++, алгоритмы, структуры данных и принципы разработки быстрых программ, игр и технически сложных решений на практике</p>
     </div>
   );
@@ -926,7 +926,7 @@ function Frame190() {
 function Frame35() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Мобильный разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Мобильный разработчик</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Научитесь создавать мобильные приложения, проектировать экраны</p>
         <p className="leading-[18px]">и запускать удобные цифровые продукты для пользователей</p>
@@ -998,7 +998,7 @@ function Frame191() {
 function Frame40() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Unreal Engine</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Unreal Engine</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Освойте разработку игр и 3D-миров</p>
         <p className="leading-[18px]">на Unreal Engine, работая с визуальной логикой, объектами и игровыми механиками</p>
@@ -1070,7 +1070,7 @@ function Frame192() {
 function Frame45() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Java разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Java разработчик</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
         <p className="leading-[18px] mb-0">{`Изучите Java, ООП и backend-разработку, чтобы создавать приложения, сервисы `}</p>
         <p className="leading-[18px]">и надежную логику проектов на сервере</p>
@@ -1142,7 +1142,7 @@ function Frame193() {
 function Frame50() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">ML-инженер</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">ML-инженер</h3>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Разберитесь в машинном обучении</p>
         <p className="leading-[18px] mb-0">и нейросетях, научитесь обучать модели</p>
@@ -1284,7 +1284,7 @@ function Frame183() {
 function Frame171() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">курсы</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">курсы</h2>
       <Frame184 />
       <Frame183 />
     </div>
@@ -1301,10 +1301,10 @@ function Frame52() {
 
 function Frame53() {
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black text-center w-[355px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] uppercase w-full">{`Личный наставник `}</p>
-      <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">на всём пути обучения</p>
-    </div>
+    <h2 className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black text-center w-[355px]">
+      <span className="block font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] uppercase w-full">{`Личный наставник `}</span>
+      <span className="block font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[20px] w-full">на всём пути обучения</span>
+    </h2>
   );
 }
 
@@ -1454,10 +1454,10 @@ function Frame196() {
 function Component1() {
   return (
     <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-name="преподаватели">
-      <div className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
-        <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
-        <p className="leading-[40px] text-[36px]">преподаватели</p>
-      </div>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
+        <span className="block leading-[43px] text-[40px] text-[rgba(255,255,255,0.4)]">{`наши `}</span>
+        <span className="block leading-[40px] text-[36px]">преподаватели</span>
+      </h2>
     </div>
   );
 }
@@ -1762,10 +1762,10 @@ function ProblemSupportCta() {
 function Frame157() {
   return (
     <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
+      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
         <span className="text-black">Наши ученики </span>
         <span className="text-[#9c78ff]">никогда не остаются 1 на 1 с проблемой</span>
-      </p>
+      </h2>
       <Frame65 />
       <ProblemSupportImage />
       <Frame64 />
@@ -2011,13 +2011,13 @@ function Frame160() {
 function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
-      <div className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
-        <p className="mb-0">
+      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
+        <span className="block">
           <span className="leading-[32px] text-[#9c78ff]">Вас ждет более 40+ </span>
           <span className="leading-[32px]">персональных онлайн встреч</span>
-        </p>
-        <p className="leading-[32px]">с наставником:</p>
-      </div>
+        </span>
+        <span className="block leading-[32px]">с наставником:</span>
+      </h2>
       <Frame160 />
     </div>
   );
@@ -2034,10 +2034,10 @@ function Frame172() {
 
 function Frame85() {
   return (
-    <div className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[8px] items-end justify-center leading-[28px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
-      <p className="relative shrink-0">Что вы получите</p>
-      <p className="relative shrink-0 text-right">после обучения</p>
-    </div>
+    <h2 className="content-stretch flex flex-col font-['Manrope:ExtraBold',sans-serif] font-extrabold gap-[8px] items-end justify-center leading-[28px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">
+      <span className="block relative shrink-0">Что вы получите</span>
+      <span className="block relative shrink-0 text-right">после обучения</span>
+    </h2>
   );
 }
 
@@ -2115,7 +2115,7 @@ function Frame70() {
 function Frame69() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 text-center text-white w-full">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[40px] uppercase w-full">Отзывы:</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[40px] uppercase w-full">Отзывы:</h2>
       <Frame70 />
     </div>
   );
@@ -2637,7 +2637,7 @@ function Frame181() {
 function Component3() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="выбор за вами">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">Выбор за вами</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">Выбор за вами</h2>
     </div>
   );
 }
@@ -2654,10 +2654,10 @@ function Frame180() {
 
 function Frame142() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[39px] relative shrink-0 text-[40px] uppercase">
-      <p className="relative shrink-0">{`заявка `}</p>
-      <p className="relative shrink-0">на обучение</p>
-    </div>
+    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[39px] relative shrink-0 text-[40px] uppercase">
+      <span className="block relative shrink-0">{`заявка `}</span>
+      <span className="block relative shrink-0">на обучение</span>
+    </h2>
   );
 }
 
@@ -2752,7 +2752,7 @@ function Frame117() {
 function Frame103() {
   return (
     <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</p>
+      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</h2>
       <Frame117 />
     </div>
   );
@@ -2770,7 +2770,7 @@ function Frame119() {
 function Frame118() {
   return (
     <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</p>
+      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</h2>
       <Frame119 />
     </div>
   );
@@ -2790,7 +2790,7 @@ function Frame122() {
 function Frame120() {
   return (
     <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</p>
+      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</h2>
       <Frame122 />
     </div>
   );

@@ -4,8 +4,6 @@ import { ML_ENGINEER_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   ML_ENGINEER_COURSE_OG_IMAGE_PATH,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   mlEngineerCourseJsonLd,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function MlEngineerCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс ML-инженер с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={mlEngineerCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/ml-engineer-course")} />
       <JsonLd

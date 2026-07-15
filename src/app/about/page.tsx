@@ -1,10 +1,8 @@
 import App from "../App";
 import aboutHeroUrl from "../../imports/MainScreenDesktop/about-hero.opt.webp";
 import {
-  ABOUT_SECTION_HEADINGS,
   ABOUT_PAGE_KEYWORDS,
   JsonLd,
-  SeoSectionHeadings,
   breadcrumbJsonLd,
   createPageMetadata,
   organizationJsonLd,
@@ -25,7 +23,6 @@ export default function AboutPage() {
   return (
     <>
       <link rel="preload" as="image" href={aboutHeroUrl} fetchPriority="high" />
-      <SeoSectionHeadings headings={ABOUT_SECTION_HEADINGS} />
       <JsonLd data={organizationJsonLd} />
       <JsonLd
         data={webPageJsonLd({

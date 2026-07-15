@@ -4,8 +4,6 @@ import { JAVA_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   JAVA_COURSE_OG_IMAGE_PATH,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   javaCourseJsonLd,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function JavaCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс Java-разработчик с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={javaCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/java-developer-course")} />
       <JsonLd

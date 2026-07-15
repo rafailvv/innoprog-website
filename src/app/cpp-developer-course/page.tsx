@@ -5,8 +5,6 @@ import {
   CPP_COURSE_OG_IMAGE_PATH,
   COURSE_OG_IMAGE_SIZE,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   breadcrumbJsonLd,
   cppCourseJsonLd,
   createPageMetadata,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function CppCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс C++ разработчик с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={cppCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/cpp-developer-course")} />
       <JsonLd

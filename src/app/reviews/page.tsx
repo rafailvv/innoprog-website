@@ -2,8 +2,6 @@ import App, { type AppInitialRoute } from "../App";
 import {
   JsonLd,
   REVIEWS_PAGE_KEYWORDS,
-  REVIEWS_SECTION_HEADINGS,
-  SeoSectionHeadings,
   breadcrumbJsonLd,
   createPageMetadata,
   webPageJsonLd,
@@ -25,7 +23,6 @@ const reviewsRoute: AppInitialRoute = { page: "reviews" };
 export default function ReviewsPage() {
   return (
     <>
-      <SeoSectionHeadings headings={REVIEWS_SECTION_HEADINGS} />
       <JsonLd
         data={webPageJsonLd({
           path: "/reviews",

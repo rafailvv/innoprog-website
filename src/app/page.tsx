@@ -1,9 +1,7 @@
 import App from "./App";
 import {
   JsonLd,
-  HOME_SECTION_HEADINGS,
   HOME_PAGE_KEYWORDS,
-  SeoSectionHeadings,
   breadcrumbJsonLd,
   courseCatalogJsonLd,
   courseJsonLd,
@@ -27,8 +25,6 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
-      <h1 className="site-seo-heading">ИННОПРОГ - онлайн школа программирования</h1>
-      <SeoSectionHeadings headings={HOME_SECTION_HEADINGS} />
       <JsonLd data={organizationJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={siteNavigationJsonLd} />

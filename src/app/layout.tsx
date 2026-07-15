@@ -7,7 +7,6 @@ import {
   DEFAULT_OG_IMAGE_PATH,
   DEFAULT_KEYWORDS,
   DEFAULT_ROBOTS,
-  KEY_SITE_LINKS,
   SITE_FAVICON_PATH,
   SITE_LEGAL_NAME,
   SITE_NAME,
@@ -116,13 +115,6 @@ ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: documen
             __html: '<div><img src="https://mc.yandex.ru/watch/110454081" style="position:absolute; left:-9999px;" alt="" /></div>',
           }}
         />
-        <nav className="site-seo-navigation" aria-label="Основные страницы сайта">
-          {KEY_SITE_LINKS.map((link) => (
-            <a href={link.path} key={link.path}>
-              {link.name}
-            </a>
-          ))}
-        </nav>
         {children}
         <Script id="site-resize-bottom-anchor" strategy="afterInteractive">
           {`

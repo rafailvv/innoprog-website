@@ -3,8 +3,6 @@ import { courseFaqItems } from "../../imports/courseFaqData";
 import { PYTHON_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function PythonCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс Python-разработчик с наставником и практическими проектами</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={pythonCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/python-course")} />
       <JsonLd

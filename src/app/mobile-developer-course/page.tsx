@@ -4,8 +4,6 @@ import { MOBILE_DEVELOPER_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   MOBILE_DEVELOPER_COURSE_OG_IMAGE_PATH,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   mobileDeveloperCourseJsonLd,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function MobileDeveloperCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс мобильный разработчик с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={mobileDeveloperCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/mobile-developer-course")} />
       <JsonLd

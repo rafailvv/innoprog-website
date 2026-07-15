@@ -310,10 +310,10 @@ function Frame148() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white uppercase w-[350px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] pl-[2px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">Курс</p>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] w-full">
-        <p className="leading-[43px] mb-0">Java</p>
-        <p className="leading-[43px]">разработчик</p>
-      </div>
+      <h1 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[40px] w-full">
+        <span className="block leading-[43px]">{`Java `}</span>
+        <span className="block leading-[43px]">разработчик</span>
+      </h1>
     </div>
   );
 }
@@ -2866,10 +2866,10 @@ function Frame103() {
 function Frame202() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] min-w-full relative shrink-0 text-[40px] text-white uppercase w-[min-content]">
-        <p className="leading-[43px] mb-0">Программа</p>
-        <p className="leading-[43px]">обучения</p>
-      </div>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] min-w-full relative shrink-0 text-[40px] text-white uppercase w-[min-content]">
+        <span className="block leading-[43px]">{`Программа `}</span>
+        <span className="block leading-[43px]">обучения</span>
+      </h2>
       <Frame103 />
     </div>
   );
@@ -3101,23 +3101,36 @@ function MobileCourseProgramModuleCard({
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const buttonId = `mobile-course-program-toggle-${index}`;
+  const panelId = `mobile-course-program-panel-${index}`;
+
   return (
     <div className={`site-course-program-module site-course-program-module--mobile ${isOpen ? "is-open" : ""}`}>
-      <button
-        aria-expanded={isOpen}
-        className="site-course-program-toggle"
-        data-name="программа обучения"
-        onClick={onToggle}
-        type="button"
+      <h3 className="site-course-program-heading">
+        <button
+          aria-controls={panelId}
+          aria-expanded={isOpen}
+          className="site-course-program-toggle"
+          data-name="программа обучения"
+          id={buttonId}
+          onClick={onToggle}
+          type="button"
+        >
+          <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
+          <span className="site-course-program-chevron" aria-hidden data-name="стрелка программы обучения">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.7295 28.7282">
+              <path d={svgPaths.p16c30c80} stroke="currentColor" />
+            </svg>
+          </span>
+        </button>
+      </h3>
+      <div
+        aria-hidden={!isOpen}
+        aria-labelledby={buttonId}
+        className="site-course-program-panel-shell"
+        id={panelId}
+        role="region"
       >
-        <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
-        <span className="site-course-program-chevron" aria-hidden data-name="стрелка программы обучения">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28.7295 28.7282">
-            <path d={svgPaths.p16c30c80} stroke="currentColor" />
-          </svg>
-        </span>
-      </button>
-      <div aria-hidden={!isOpen} className="site-course-program-panel-shell">
         <div className="site-course-program-panel">
           <div className="site-course-program-panel-inner">
             <div className="site-course-program-tags">
@@ -3180,10 +3193,10 @@ function Frame280() {
 function Component2() {
   return (
     <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0 site-course-render-section site-course-teachers-section" data-name="преподаватели">
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
-        <p className="leading-[43px] mb-0 text-[40px] text-[rgba(255,255,255,0.4)]">наши</p>
-        <p className="leading-[40px] text-[36px]">преподаватели</p>
-      </div>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
+        <span className="block leading-[43px] text-[40px] text-[rgba(255,255,255,0.4)]">наши</span>
+        <span className="block leading-[40px] text-[36px]">преподаватели</span>
+      </h2>
     </div>
   );
 }
@@ -3431,7 +3444,7 @@ function Frame200() {
 function Frame222() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 uppercase w-[348px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white w-full">Отзывы учеников</p>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white w-full">Отзывы учеников</h2>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[0.48px] w-full">о курсе Python-разработчик</p>
     </div>
   );
@@ -4016,10 +4029,10 @@ function Frame157() {
 function Frame204() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-[350px]">
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[0px] text-black text-center uppercase w-[301px]">
-        <p className="leading-[32px] mb-0 relative text-[#9c78ff] text-[51px] top-[-6px]">Выгодные</p>
-        <p className="leading-[32px] text-[32px]">условия</p>
-      </div>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[0px] text-black text-center uppercase w-[301px]">
+        <span className="block leading-[32px] relative text-[#9c78ff] text-[51px] top-[-6px]">{`Выгодные `}</span>
+        <span className="block leading-[32px] text-[32px]">условия</span>
+      </h2>
       <Frame157 />
     </div>
   );
@@ -4761,10 +4774,10 @@ function Frame209() {
 
 function Frame118() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start relative shrink-0 uppercase w-[349px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-black top-[-8px] w-[min-content]">{`Часто задаваемые `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[#9c78ff] text-[40px] text-right whitespace-nowrap">вопросы</p>
-    </div>
+    <h2 className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start relative shrink-0 uppercase w-[349px]">
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-black top-[-8px] w-[min-content]">{`Часто задаваемые `}</span>
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[43px] relative shrink-0 text-[#9c78ff] text-[40px] text-right whitespace-nowrap">вопросы</span>
+    </h2>
   );
 }
 

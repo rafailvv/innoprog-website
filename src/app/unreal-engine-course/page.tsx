@@ -4,8 +4,6 @@ import { UNREAL_ENGINE_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   UNREAL_ENGINE_COURSE_OG_IMAGE_PATH,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   unrealEngineCourseJsonLd,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function UnrealEngineCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс Unreal Engine с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={unrealEngineCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/unreal-engine-course")} />
       <JsonLd

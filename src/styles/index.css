@@ -61,7 +61,7 @@
 }
 
 .site-reviews-index-page__title h1,
-.site-reviews-index-page__title p,
+.site-reviews-index-page__title h2,
 .site-reviews-index-page__directions h2 {
   margin: 0;
 }
@@ -75,7 +75,7 @@
   line-height: 97px;
 }
 
-.site-reviews-index-page__title p {
+.site-reviews-index-page__title h2 {
   margin-top: 16px;
   color: #464a6a;
   font-size: 40px;
@@ -366,7 +366,7 @@
     line-height: 32px;
   }
 
-  .site-reviews-index-page__title p {
+  .site-reviews-index-page__title h2 {
     margin-top: 16px;
     color: rgba(156, 120, 255, 0.6);
     font-size: 16px;
@@ -709,7 +709,7 @@
 }
 
 .site-course-reviews-page__title h1,
-.site-course-reviews-page__title p,
+.site-course-reviews-page__title h2,
 .site-course-review-feature h2,
 .site-course-review-feature h3,
 .site-course-review-feature p,
@@ -726,7 +726,7 @@
   line-height: 1.02;
 }
 
-.site-course-reviews-page__title p {
+.site-course-reviews-page__title h2 {
   margin-top: 10px;
   color: #464a6a;
   font-size: 40px;
@@ -1203,7 +1203,7 @@
     line-height: 32px;
   }
 
-  .site-course-reviews-page__title p {
+  .site-course-reviews-page__title h2 {
     margin-top: 8px;
     color: rgba(156, 120, 255, 0.6);
     font-size: 16px;
@@ -2585,32 +2585,6 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.site-seo-heading {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
-.site-seo-navigation {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
 .site-internship-title {
   gap: 0;
   font-family: "Raleway", sans-serif;
@@ -2996,6 +2970,12 @@ button[data-name="кнопки пд"] *,
 
 .site-course-program-module:last-child {
   border-bottom: 1px solid #ffffff;
+}
+
+.site-course-program-heading {
+  width: 100%;
+  margin: 0;
+  font: inherit;
 }
 
 .site-course-program-toggle {

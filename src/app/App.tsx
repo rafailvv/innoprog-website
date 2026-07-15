@@ -1769,7 +1769,7 @@ function ReviewsIndexPage({
 
         <header className="site-reviews-index-page__title">
           <h1>Отзывы учеников</h1>
-          <p>{currentDirection.title}</p>
+          <h2>{currentDirection.title}</h2>
         </header>
 
         <section className="site-reviews-index-page__directions site-reviews-index-page__directions--top" aria-label="Фильтр отзывов по направлению">
@@ -1825,7 +1825,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
         <CourseRating rating={review.rating} />
       </span>
       <span className="site-reviews-index-card__copy">
-        <span className="site-reviews-index-card__title">{review.title}</span>
+        <h3 className="site-reviews-index-card__title">{review.title}</h3>
         <span className="site-reviews-index-card__body">{review.body}</span>
       </span>
       <span className="site-reviews-index-card__read-more">читать полностью</span>
@@ -1898,7 +1898,7 @@ function StudentReviewPage({
 
         <header className="site-course-reviews-page__title">
           <h1>Отзывы учеников</h1>
-          <p>{currentDirection?.title || `о направлении ${review.course}`}</p>
+          <h2>{currentDirection?.title || `о направлении ${review.course}`}</h2>
         </header>
 
         <article className="site-course-review-feature">

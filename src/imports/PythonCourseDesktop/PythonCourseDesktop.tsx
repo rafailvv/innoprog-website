@@ -241,7 +241,7 @@ function Frame165() {
         <Frame67 />
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[42px] relative shrink-0 text-[40px] translate-x-[4px]">Курс</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">Python - разработчик</p>
+      <h1 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">Python - разработчик</h1>
     </div>
   );
 }
@@ -2769,7 +2769,7 @@ function Frame116() {
 function Frame172() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Программа обучения</p>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Программа обучения</h2>
       <Frame116 />
     </div>
   );
@@ -3023,23 +3023,36 @@ function CourseProgramModuleCard({
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const buttonId = `course-program-toggle-${index}`;
+  const panelId = `course-program-panel-${index}`;
+
   return (
     <div className={`site-course-program-module ${isOpen ? "is-open" : ""}`}>
-      <button
-        aria-expanded={isOpen}
-        className="site-course-program-toggle"
-        data-name="программа обучения"
-        onClick={onToggle}
-        type="button"
+      <h3 className="site-course-program-heading">
+        <button
+          aria-controls={panelId}
+          aria-expanded={isOpen}
+          className="site-course-program-toggle"
+          data-name="программа обучения"
+          id={buttonId}
+          onClick={onToggle}
+          type="button"
+        >
+          <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
+          <span className="site-course-program-chevron" aria-hidden data-name="стрелка программы обучения">
+            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
+              <path d={svgPaths.p3133300} stroke="currentColor" strokeWidth="2" />
+            </svg>
+          </span>
+        </button>
+      </h3>
+      <div
+        aria-hidden={!isOpen}
+        aria-labelledby={buttonId}
+        className="site-course-program-panel-shell"
+        id={panelId}
+        role="region"
       >
-        <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
-        <span className="site-course-program-chevron" aria-hidden data-name="стрелка программы обучения">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-            <path d={svgPaths.p3133300} stroke="currentColor" strokeWidth="2" />
-          </svg>
-        </span>
-      </button>
-      <div aria-hidden={!isOpen} className="site-course-program-panel-shell">
         <div className="site-course-program-panel">
           <div className="site-course-program-panel-inner">
             <div className="site-course-program-tags">
@@ -3321,10 +3334,10 @@ function CourseTeachersCarouselBlock() {
 function Component7() {
   return (
     <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-teachers-section" data-name="преподаватели">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[96px] text-center text-white uppercase w-[1280px] site-course-teachers-title">
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[96px] text-center text-white uppercase w-[1280px] site-course-teachers-title">
         <span className="leading-[97px] text-[rgba(255,255,255,0.4)]">наши</span>
         <span className="leading-[97px]">{` преподаватели`}</span>
-      </p>
+      </h2>
       <CourseTeachersCarouselBlock />
     </div>
   );
@@ -3333,7 +3346,7 @@ function Component7() {
 function Frame212() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start relative shrink-0 uppercase w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white w-full">Отзывы учеников</p>
+      <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white w-full">Отзывы учеников</h2>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-[rgba(255,255,255,0.6)] w-full">о курсе Python-разработчик</p>
     </div>
   );
@@ -3815,10 +3828,10 @@ function Component8() {
 
 function Frame203() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[16px] items-center relative shrink-0 text-center uppercase">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[97px] relative shrink-0 text-[#9c78ff] text-[96px] top-[-10px] w-[916px]">Выгодные</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[33px] relative shrink-0 text-[85px] text-black whitespace-nowrap">условия</p>
-    </div>
+    <h2 className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[16px] items-center relative shrink-0 text-center uppercase">
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[97px] relative shrink-0 text-[#9c78ff] text-[96px] top-[-10px] w-[916px]">{`Выгодные `}</span>
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[33px] relative shrink-0 text-[85px] text-black whitespace-nowrap">условия</span>
+    </h2>
   );
 }
 
@@ -4903,10 +4916,10 @@ function Component11() {
 
 function Frame132() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[29px] items-start leading-[97px] relative shrink-0 uppercase w-[1280px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[96px] text-black top-[-20px] w-full">{`Часто задаваемые `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[#9c78ff] text-[199px] text-right w-full">вопросы</p>
-    </div>
+    <h2 className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[29px] items-start leading-[97px] relative shrink-0 uppercase w-[1280px]">
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[96px] text-black top-[-20px] w-full">{`Часто задаваемые `}</span>
+      <span className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 text-[#9c78ff] text-[199px] text-right w-full">вопросы</span>
+    </h2>
   );
 }
 

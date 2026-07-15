@@ -1,8 +1,6 @@
 import App from "../App";
 import {
   JsonLd,
-  SeoSectionHeadings,
-  TARIFFS_SECTION_HEADINGS,
   TARIFFS_PAGE_KEYWORDS,
   breadcrumbJsonLd,
   courseJsonLd,
@@ -24,7 +22,6 @@ export const metadata = createPageMetadata({
 export default function TariffsPage() {
   return (
     <>
-      <SeoSectionHeadings headings={TARIFFS_SECTION_HEADINGS} />
       <JsonLd data={courseJsonLd} />
       <JsonLd data={tariffsOfferCatalogJsonLd} />
       <JsonLd

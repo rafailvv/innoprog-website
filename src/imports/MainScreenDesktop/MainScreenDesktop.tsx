@@ -270,10 +270,10 @@ function Frame84() {
 
 function Frame129() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[8px] items-start left-[80px] text-[#464a6a] top-[313px] uppercase w-[615px]">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">обучаем</p>
-      <p className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программированию</p>
-    </div>
+    <h1 className="absolute content-stretch flex flex-col gap-[8px] items-start left-[80px] text-[#464a6a] top-[313px] uppercase w-[615px]">
+      <span className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">{`обучаем `}</span>
+      <span className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программированию</span>
+    </h1>
   );
 }
 
@@ -387,7 +387,7 @@ export function MainScreenDesktopHeader() {
 function Frame17() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0 w-[1440px]">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-black text-center uppercase whitespace-nowrap">курсы</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-black text-center uppercase whitespace-nowrap">курсы</h2>
     </div>
   );
 }
@@ -433,7 +433,7 @@ function DirectionHoverOverlay({
 function Frame5() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Python разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Python разработчик</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов и автоматизировать рабочие задачи в проектах</p>
     </div>
   );
@@ -442,7 +442,7 @@ function Frame5() {
 function Frame6() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Data Science</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Data Science</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Научитесь работать с данными, Python, статистикой и моделями ИИ, чтобы находить закономерности и решать бизнес-задачи</p>
     </div>
   );
@@ -451,7 +451,7 @@ function Frame6() {
 function Frame7() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Фронтенд разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Фронтенд разработчик</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте современную фронтенд-разработку, React, TypeScript и работу с API, чтобы создавать полноценные веб-приложения</p>
     </div>
   );
@@ -533,7 +533,7 @@ function Frame14() {
 function Frame8() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Data-аналитик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Data-аналитик</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте анализ данных, отчеты и визуализацию, чтобы находить закономерности и делать обоснованные выводы для бизнеса</p>
     </div>
   );
@@ -542,7 +542,7 @@ function Frame8() {
 function Frame9() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Разработчик С++</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Разработчик С++</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте C++, алгоритмы, структуры данных и принципы разработки быстрых программ, игр и технически сложных решений на практике</p>
     </div>
   );
@@ -551,7 +551,7 @@ function Frame9() {
 function Frame10() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Мобильный разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Мобильный разработчик</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Научитесь создавать мобильные приложения, проектировать экраны и запускать удобные цифровые продукты для пользователей</p>
     </div>
   );
@@ -631,7 +631,7 @@ function Frame132() {
 function Frame11() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Unreal Engine</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Unreal Engine</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте разработку игр и 3D-миров на Unreal Engine, работая с визуальной логикой, объектами и игровыми механиками</p>
     </div>
   );
@@ -640,7 +640,7 @@ function Frame11() {
 function Frame12() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Java разработчик</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Java разработчик</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Изучите Java, ООП и backend-разработку, чтобы создавать приложения, сервисы и надежную логику проектов на сервере</p>
     </div>
   );
@@ -649,7 +649,7 @@ function Frame12() {
 function Frame13() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <p className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">ML-инженер</p>
+      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">ML-инженер</h3>
       <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Разберитесь в машинном обучении и нейросетях, научитесь обучать модели и применять их для прогнозирования</p>
     </div>
   );
@@ -755,10 +755,10 @@ function Frame18() {
 
 function Frame19() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[24px] items-center relative shrink-0 text-black text-center uppercase w-full">
-      <p className="leading-[97px] relative shrink-0 text-[96px] w-full">{`Личный наставник `}</p>
-      <p className="leading-[47px] relative shrink-0 text-[48px] w-full">на всём пути обучения</p>
-    </div>
+    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[24px] items-center relative shrink-0 text-black text-center uppercase w-full">
+      <span className="block leading-[97px] relative shrink-0 text-[96px] w-full">{`Личный наставник `}</span>
+      <span className="block leading-[47px] relative shrink-0 text-[48px] w-full">на всём пути обучения</span>
+    </h2>
   );
 }
 
@@ -1092,10 +1092,10 @@ function TeachersCarouselBlock() {
 function Component2() {
   return (
     <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center pb-[52px] pt-[80px] relative rounded-[40px] shrink-0 w-[1440px]" data-name="преподаватели">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[96px] text-center text-white uppercase w-[1280px]">
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[96px] text-center text-white uppercase w-[1280px]">
         <span className="leading-[97px] text-[rgba(255,255,255,0.4)]">наши</span>
         <span className="leading-[97px]">{` преподаватели`}</span>
-      </p>
+      </h2>
       <TeachersCarouselBlock />
     </div>
   );
@@ -1179,7 +1179,7 @@ function Frame41() {
 function Component3() {
   return (
     <div className="content-stretch flex flex-col gap-[208px] items-start relative shrink-0 w-[1280px]" data-name="3">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[48px] text-black uppercase w-full">Наши ученики никогда не остаются 1 на 1 с проблемой</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[48px] text-black uppercase w-full">Наши ученики никогда не остаются 1 на 1 с проблемой</h2>
       <Frame41 />
     </div>
   );
@@ -1187,17 +1187,17 @@ function Component3() {
 
 function Frame130() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
-      <p className="relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
+    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
+      <span className="block relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
         <span className="leading-[52px] text-[74px]">{`Вас ждет более `}</span>
         <span className="font-['Manrope:Bold',sans-serif] leading-[97px] text-[122px]">40+</span>
         <span className="leading-[52px] text-[74px]">{` `}</span>
-      </p>
-      <div className="relative shrink-0 text-[#464a6a] text-[48px] w-full">
-        <p className="leading-[52px] mb-0">персональных онлайн встреч</p>
-        <p className="leading-[52px]">с наставником</p>
-      </div>
-    </div>
+      </span>
+      <span className="block relative shrink-0 text-[#464a6a] text-[48px] w-full">
+        <span className="block leading-[52px]">персональных онлайн встреч</span>
+        <span className="block leading-[52px]">с наставником</span>
+      </span>
+    </h2>
   );
 }
 
@@ -1420,8 +1420,10 @@ function Frame80() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
       <Component5 />
-      <p className="font-['Raleway:Bold',sans-serif] font-bold h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Что вы получите</p>
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[64px] text-right text-white uppercase whitespace-nowrap">после обучения</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-white uppercase w-full">
+        <span className="block h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] w-[min-content]">Что вы получите</span>
+        <span className="block leading-[97px] relative shrink-0 text-[64px] text-right whitespace-nowrap">после обучения</span>
+      </h2>
     </div>
   );
 }
@@ -1484,7 +1486,7 @@ function Frame53() {
 function Frame54() {
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-center relative shrink-0 text-center text-white w-[842px]">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] uppercase w-full">Отзывы:</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] uppercase w-full">Отзывы:</h2>
       <Frame53 />
     </div>
   );
@@ -2068,17 +2070,17 @@ function Component7() {
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-[1280px]" data-name="выбор за вами">
       <Frame133 />
       <Frame121 />
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] min-w-full relative shrink-0 text-[#9c78ff] text-[96px] text-center uppercase w-[min-content]">Выбор за вами</p>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] min-w-full relative shrink-0 text-[#9c78ff] text-[96px] text-center uppercase w-[min-content]">Выбор за вами</h2>
     </div>
   );
 }
 
 function Frame125() {
   return (
-    <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold items-center justify-center leading-[92px] relative shrink-0 text-[96px] uppercase w-[1000px]">
-      <p className="relative shrink-0 whitespace-nowrap">заявка</p>
-      <p className="relative shrink-0 whitespace-nowrap">на обучение</p>
-    </div>
+    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold items-center justify-center leading-[92px] relative shrink-0 text-[96px] uppercase w-[1000px]">
+      <span className="block relative shrink-0 whitespace-nowrap">заявка</span>
+      <span className="block relative shrink-0 whitespace-nowrap">на обучение</span>
+    </h2>
   );
 }
 
@@ -2252,7 +2254,7 @@ function Frame64() {
 function Frame67() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start leading-[30px] relative shrink-0 w-[302px]">
-      <p className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</p>
+      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</h2>
       <Frame64 />
     </div>
   );
@@ -2270,7 +2272,7 @@ function Frame65() {
 function Frame66() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start leading-[30px] relative shrink-0 w-[302px]">
-      <p className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</p>
+      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</h2>
       <Frame65 />
     </div>
   );
@@ -2290,7 +2292,7 @@ function Frame78() {
 function Frame77() {
   return (
     <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[380px]">
-      <p className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</p>
+      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</h2>
       <Frame78 />
     </div>
   );

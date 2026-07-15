@@ -4,8 +4,6 @@ import { DATA_ANALYST_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   DATA_ANALYST_COURSE_OG_IMAGE_PATH,
   JsonLd,
-  COURSE_SECTION_HEADINGS,
-  SeoSectionHeadings,
   COURSE_OG_IMAGE_SIZE,
   breadcrumbJsonLd,
   createPageMetadata,
@@ -30,8 +28,6 @@ export const metadata = createPageMetadata({
 export default function DataAnalystCourseRoute() {
   return (
     <>
-      <h1 className="site-seo-heading">Курс Data-аналитик с наставником и проектами в портфолио</h1>
-      <SeoSectionHeadings headings={COURSE_SECTION_HEADINGS} />
       <JsonLd data={dataAnalystCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-analyst-course")} />
       <JsonLd
