@@ -2833,11 +2833,12 @@ button[data-name="кнопки пд"] *,
   margin-left: 0;
   margin-right: 0;
   padding-right: 0;
-  padding-left: 20px;
-  scroll-padding-left: 20px;
+  padding-left: 0;
+  scroll-padding-left: 0;
   scroll-padding-right: 0;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
+  scroll-behavior: auto;
   scroll-snap-type: none;
 }
 
@@ -2859,20 +2860,15 @@ button[data-name="кнопки пд"] *,
   height: 407px;
 }
 
-.site-shell--mobile .site-course-projects-carousel {
-  padding-left: 20px;
-  scroll-padding-left: 20px;
-}
-
 .site-shell--mobile .site-course-projects-carousel > div {
   width: 350px !important;
   flex: 0 0 350px;
 }
 
 .site-shell--mobile .site-course-projects-carousel .site-course-mobile-project-visual {
-  width: calc(100% - 40px) !important;
+  width: 100% !important;
   height: auto !important;
-  margin-left: 20px;
+  margin-left: 0;
   aspect-ratio: 4 / 3;
   border-radius: 32px;
 }
@@ -2884,8 +2880,8 @@ button[data-name="кнопки пд"] *,
 .site-shell--mobile .site-course-projects-carousel > div > :not(.site-course-mobile-project-visual) {
   box-sizing: border-box;
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .site-shell--mobile .site-course-reviews-carousel {

@@ -3714,7 +3714,13 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
   };
 
   const handlePointerDown = (event: PointerEvent) => {
-    if (event.button !== 0 || carousel.scrollWidth <= carousel.clientWidth) {
+    // Touchscreens already provide momentum scrolling. Running the desktop
+    // drag handler at the same time makes the first swipe feel delayed.
+    if (
+      (event.pointerType && event.pointerType !== "mouse") ||
+      event.button !== 0 ||
+      carousel.scrollWidth <= carousel.clientWidth
+    ) {
       return;
     }
 
