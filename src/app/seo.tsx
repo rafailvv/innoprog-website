@@ -335,7 +335,6 @@ export function createPageMetadata({
     category: "education",
     classification: "Online education",
     keywords: Array.from(new Set([...DEFAULT_KEYWORDS, ...keywords])),
-    referrer: "origin-when-cross-origin",
     robots,
     alternates: {
       canonical: url,
