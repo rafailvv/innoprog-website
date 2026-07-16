@@ -8,7 +8,10 @@
     "dev": "next dev",
     "start": "next start",
     "test:proxy": "node scripts/test-proxy-contracts.mjs",
-    "test:course-reviews": "node scripts/test-course-review-directions.mjs"
+    "test:course-reviews": "node scripts/test-course-review-directions.mjs",
+    "test": "npm run test:proxy && npm run test:course-reviews",
+    "test:coverage": "npm run test",
+    "test:ci": "npm run test"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
