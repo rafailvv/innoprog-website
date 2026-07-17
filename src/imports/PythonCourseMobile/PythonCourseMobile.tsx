@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useState, type CSSProperties } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
@@ -30,32 +30,92 @@ import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { courseProjectVisualImages } from "../courseProjectVisualImages";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
 
-const mobileProjectVisuals = [
-  { title: "Склад фруктов", code: "stock.py" },
-  { title: "HR база", code: "salary.py" },
-  { title: "Менеджер задач", code: "tasks.py" },
-  { title: "Telegram задачи", code: "bot.py" },
-  { title: "Бронирование поездок", code: "booking.py" },
-  { title: "Пассажирские перевозки", code: "fleet.py" },
-  { title: "Склад товаров", code: "warehouse.py" },
-  { title: "Key-Value storage", code: "tree.py" },
-  { title: "Прогноз погоды", code: "weather.py" },
-  { title: "Telegram погода", code: "weather_bot.py" },
-  { title: "Бронирование столиков", code: "tables_bot.py" },
-  { title: "Telegram-магазин", code: "shop_bot.py" },
-  { title: "Django каталог", code: "catalog/" },
-  { title: "Магазин с корзиной", code: "cart/" },
-  { title: "Production Django", code: "deploy.sh" },
-];
+const mobileProjectCards = [
+  {
+    title: "Система учёта фруктов на складе",
+    visualTitle: "Склад фруктов",
+    description: "Разработаете программу для учёта складских позиций, контроля остатков, обновления количества товаров и формирования понятного отчёта по всей доступной продукции.",
+  },
+  {
+    title: "База зарплат сотрудников",
+    visualTitle: "HR база",
+    description: "Создадите систему для хранения данных о сотрудниках, управления зарплатами и быстрого поиска информации, автоматизирующую основные HR- и бухгалтерские процессы.",
+  },
+  {
+    title: "Менеджер задач в консоли",
+    visualTitle: "Менеджер задач",
+    description: "Разработаете приложение для постановки, отслеживания и закрытия задач, которое поможет удобно управлять личными и рабочими делами в одном месте.",
+  },
+  {
+    title: "Telegram-бот для управления задачами",
+    visualTitle: "Telegram задачи",
+    description: "Создадите Telegram-бота, в котором пользователи смогут добавлять задачи, просматривать список дел и отмечать выполненные пункты прямо внутри мессенджера.",
+  },
+  {
+    title: "Сервис бронирования поездок",
+    visualTitle: "Бронирование поездок",
+    description: "Разработаете систему для оформления поездок, учёта клиентов и транспорта, которая автоматизирует бронирование и моделирует работу небольшого сервиса заказа машин.",
+  },
+  {
+    title: "Сервис управления пассажирскими перевозками",
+    visualTitle: "Пассажирские перевозки",
+    description: "Создадите приложение для учёта транспорта, вместимости и пассажиров, которое моделирует посадку, контролирует загрузку и показывает количество доступных мест.",
+  },
+  {
+    title: "Складской менеджер товаров",
+    visualTitle: "Склад товаров",
+    description: "Разработаете систему управления ассортиментом магазина с учётом остатков, цен и доступности, которая ускорит поиск товаров и контроль состояния склада.",
+  },
+  {
+    title: "Key-Value хранилище на дереве поиска",
+    visualTitle: "Key-Value storage",
+    description: "Создадите собственное хранилище с быстрым добавлением, поиском, обновлением и удалением записей, чтобы изучить алгоритмы и структуры данных на практике.",
+  },
+  {
+    title: "Веб-приложение прогноза погоды",
+    visualTitle: "Прогноз погоды",
+    description: "Разработаете сайт с актуальным прогнозом для выбранного города, подключите внешнее API и создадите удобное отображение погодных данных для пользователей.",
+  },
+  {
+    title: "Telegram-бот с прогнозом погоды",
+    visualTitle: "Telegram погода",
+    description: "Создадите бота, который по запросу показывает прогноз погоды, быстро выдаёт нужную информацию и демонстрирует интеграцию API с Telegram-интерфейсом.",
+  },
+  {
+    title: "Telegram-бот для бронирования столиков",
+    visualTitle: "Бронирование столиков",
+    description: "Разработаете бота, через которого гости смогут выбрать дату, время и количество мест, а ресторан — удобно принимать и обрабатывать заявки.",
+  },
+  {
+    title: "Telegram-магазин с каталогом и корзиной",
+    visualTitle: "Telegram-магазин",
+    description: "Создадите Telegram-магазин с каталогом, карточками товаров, корзиной и оформлением заказа, который позволит вести продажи непосредственно внутри мессенджера.",
+  },
+  {
+    title: "Django-приложение интернет-магазина",
+    visualTitle: "Django каталог",
+    description: "Разработаете интернет-магазин на Django с каталогом, карточками, изображениями и структурированной базой данных для удобного управления всем ассортиментом.",
+  },
+  {
+    title: "Интернет-магазин с регистрацией и корзиной",
+    visualTitle: "Магазин с корзиной",
+    description: "Создадите e-commerce проект с регистрацией пользователей, авторизацией, корзиной и управлением товарами, приближенный к задачам реальной коммерческой разработки.",
+  },
+  {
+    title: "Продакшн-версия интернет-магазина на Django",
+    visualTitle: "Production Django",
+    description: "Разработаете Django-проект с PostgreSQL, административной панелью, серверной настройкой и деплоем на Linux по требованиям современной коммерческой разработки.",
+  },
+] as const;
 
 function MobileProjectVisual({ index }: { index: number }) {
-  const item = mobileProjectVisuals[index] ?? mobileProjectVisuals[0];
+  const item = mobileProjectCards[index] ?? mobileProjectCards[0];
   const image = courseProjectVisualImages[index] ?? courseProjectVisualImages[0];
 
   return (
     <div className="bg-[#eee8ff] h-[195px] overflow-hidden relative rounded-[32px] shrink-0 w-full site-course-mobile-project-visual">
       <img
-        alt={item.title} title={item.title}
+        alt={item.visualTitle} title={item.visualTitle}
         className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
         decoding="async"
         loading={index < 2 ? "eager" : "lazy"}
@@ -65,12 +125,21 @@ function MobileProjectVisual({ index }: { index: number }) {
   );
 }
 
-function MobileProjectCard({ index, children }: { index: number; children: ReactNode }) {
+function MobileProjectCard({ index }: { index: number }) {
+  const project = mobileProjectCards[index] ?? mobileProjectCards[0];
+
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
+    <article className="site-course-mobile-project-card content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[351px]">
       <MobileProjectVisual index={index} />
-      {children}
-    </div>
+      <div className="site-course-mobile-project-copy text-black w-full">
+        <h3 className="site-course-mobile-project-title font-['Manrope:ExtraBold',sans-serif] font-extrabold text-[24px] uppercase">
+          {project.title}
+        </h3>
+        <p className="site-course-mobile-project-description font-['Manrope:Regular',sans-serif] font-normal text-[16px] tracking-[0.48px]">
+          {project.description}
+        </p>
+      </div>
+    </article>
   );
 }
 
@@ -94,8 +163,6 @@ function scrollCourseCarousel(id: string, direction: number) {
   }
 
   const isCenterAligned = carousel.dataset.carouselAlign === "center";
-  const isMobileFullBleedCarousel = carousel.classList.contains("site-course-projects-carousel")
-    || carousel.classList.contains("site-course-reviews-carousel");
   const paddingLeft = Number.parseFloat(window.getComputedStyle(carousel).paddingLeft) || 0;
   const activeAnchor = isCenterAligned ? carousel.clientWidth / 2 : 0;
   const activeIndex = items.reduce((nearestIndex, item, index) => {
@@ -125,9 +192,7 @@ function scrollCourseCarousel(id: string, direction: number) {
   const item = items[targetIndex];
   const targetLeft = isCenterAligned
     ? item.offsetLeft - ((carousel.clientWidth - item.offsetWidth) / 2)
-    : targetIndex === 0
-      ? item.offsetLeft - paddingLeft
-      : item.offsetLeft - (isMobileFullBleedCarousel ? 0 : paddingLeft);
+    : item.offsetLeft - paddingLeft;
 
   carousel.scrollTo({
     left: Math.max(0, Math.min(maxScrollLeft, targetLeft)),
@@ -2522,51 +2587,9 @@ function Frame82() {
 function Frame197() {
   return (
     <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full site-carousel site-course-projects-carousel" data-carousel="python-mobile-projects">
-      <MobileProjectCard index={0}>
-        <Frame68 />
-      </MobileProjectCard>
-      <MobileProjectCard index={1}>
-        <Frame69 />
-      </MobileProjectCard>
-      <MobileProjectCard index={2}>
-        <Frame70 />
-      </MobileProjectCard>
-      <MobileProjectCard index={3}>
-        <Frame71 />
-      </MobileProjectCard>
-      <MobileProjectCard index={4}>
-        <Frame72 />
-      </MobileProjectCard>
-      <MobileProjectCard index={5}>
-        <Frame73 />
-      </MobileProjectCard>
-      <MobileProjectCard index={6}>
-        <Frame74 />
-      </MobileProjectCard>
-      <MobileProjectCard index={7}>
-        <Frame75 />
-      </MobileProjectCard>
-      <MobileProjectCard index={8}>
-        <Frame76 />
-      </MobileProjectCard>
-      <MobileProjectCard index={9}>
-        <Frame77 />
-      </MobileProjectCard>
-      <MobileProjectCard index={10}>
-        <Frame78 />
-      </MobileProjectCard>
-      <MobileProjectCard index={11}>
-        <Frame79 />
-      </MobileProjectCard>
-      <MobileProjectCard index={12}>
-        <Frame80 />
-      </MobileProjectCard>
-      <MobileProjectCard index={13}>
-        <Frame81 />
-      </MobileProjectCard>
-      <MobileProjectCard index={14}>
-        <Frame82 />
-      </MobileProjectCard>
+      {mobileProjectCards.map((project, index) => (
+        <MobileProjectCard index={index} key={project.title} />
+      ))}
     </div>
   );
 }
@@ -4003,7 +4026,7 @@ function Frame270() {
 function Frame282() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">12 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center whitespace-nowrap">12 590 р./мес.</p>
       <Frame270 />
     </div>
   );
@@ -4013,7 +4036,7 @@ function Frame154() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame282 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">7 990 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">7 990 р./мес.</p>
     </div>
   );
 }
@@ -4190,7 +4213,7 @@ function Frame271() {
 function Frame283() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">23 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center whitespace-nowrap">23 590 р./мес.</p>
       <Frame271 />
     </div>
   );
@@ -4200,7 +4223,7 @@ function Frame155() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame283 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">14 390 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center whitespace-nowrap">14 390 р./мес.</p>
     </div>
   );
 }
@@ -4373,7 +4396,7 @@ function Frame272() {
 function Frame284() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">31 950 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center whitespace-nowrap">31 950 р./мес.</p>
       <Frame272 />
     </div>
   );
@@ -4383,7 +4406,7 @@ function Frame160() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame284 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white uppercase w-[312px]">18 890 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white w-[312px]">18 890 р./мес.</p>
     </div>
   );
 }

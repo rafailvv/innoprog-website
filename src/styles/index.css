@@ -1254,7 +1254,7 @@
 
   .site-course-direction-review-card__head {
     gap: 10px;
-    grid-template-columns: 42px 1fr;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
   }
 
   .site-course-direction-review-card__avatar {
@@ -1275,7 +1275,8 @@
   }
 
   .site-course-direction-review-card__rating {
-    grid-column: 1 / -1;
+    grid-column: auto;
+    justify-self: end;
     font-size: 15px;
     line-height: 18px;
   }
@@ -2840,6 +2841,8 @@ button[data-name="кнопки пд"] *,
   touch-action: pan-x pan-y;
   scroll-behavior: auto;
   scroll-snap-type: none;
+  contain: layout paint style;
+  overscroll-behavior-x: contain;
 }
 
 .site-shell--mobile .site-course-reviews-carousel {
@@ -2853,14 +2856,18 @@ button[data-name="кнопки пд"] *,
   scroll-padding-right: 20px;
   overscroll-behavior: auto;
   touch-action: pan-x pan-y;
+  scroll-behavior: auto;
   scroll-snap-type: none;
+  contain: layout paint style;
+  overscroll-behavior-x: contain;
 }
 
 .site-shell--mobile .site-course-reviews-carousel > a {
   height: 407px;
 }
 
-.site-shell--mobile .site-course-projects-carousel > div {
+.site-shell--mobile .site-course-projects-carousel > .site-course-mobile-project-card {
+  contain: layout paint style;
   width: 350px !important;
   flex: 0 0 350px;
 }
@@ -2877,11 +2884,32 @@ button[data-name="кнопки пд"] *,
   object-fit: cover !important;
 }
 
-.site-shell--mobile .site-course-projects-carousel > div > :not(.site-course-mobile-project-visual) {
+.site-shell--mobile .site-course-projects-carousel > .site-course-mobile-project-card > :not(.site-course-mobile-project-visual) {
   box-sizing: border-box;
   width: 100%;
   padding-right: 0;
   padding-left: 0;
+}
+
+.site-course-mobile-project-copy {
+  display: grid;
+  grid-template-rows: 84px 96px;
+  gap: 12px;
+}
+
+.site-course-mobile-project-title,
+.site-course-mobile-project-description {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.site-course-mobile-project-title {
+  line-height: 27px;
+}
+
+.site-course-mobile-project-description {
+  line-height: 18px;
 }
 
 .site-shell--mobile .site-course-reviews-carousel {
@@ -2889,6 +2917,7 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-shell--mobile .site-course-reviews-carousel > a.site-course-review-card--dynamic {
+  contain: layout paint style;
   width: 350px !important;
   height: 407px;
   border-radius: 40px !important;
@@ -2932,6 +2961,7 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-course-projects-carousel > div,
+.site-course-projects-carousel > article,
 .site-course-reviews-carousel > div {
   scroll-snap-align: start;
 }
@@ -3692,19 +3722,21 @@ button[data-name="кнопки пд"] {
 
 .site-course-lead-input--mobile {
   height: 46px;
-  padding: 16px;
+  padding: 13px 16px;
   font-family: var(--font-manrope), Arial, sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 20px;
 }
 
 .site-course-lead-input--question {
   height: 168px;
+  margin-top: -24px;
 }
 
 .site-course-lead-input--mobile.site-course-lead-input--question {
   height: 107px;
+  margin-top: -8px;
 }
 
 .site-course-consent .site-consent__box {
