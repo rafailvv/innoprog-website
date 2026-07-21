@@ -1,6 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
-import imgDataAnalystHero from "../MainScreenDesktop/653b7bc37f655916fe3ab94dc7fa4c9a87a9cee1.opt.webp";
+import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
+import imgDataAnalystHero from "../shared/course-heroes/data-analyst-dashboard.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -306,8 +307,12 @@ function Frame148() {
 function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
-      <div className="absolute h-[393px] left-[-127px] top-[72px] w-[407px]" data-name="ChatGPT Image 30 апр. 2026 г., 11_32_21_Nero_AI_Image_Upscaler_Photo_Face_Nero_AI_Background_Remover_transparent 1">
-        <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgDataAnalystHero} />
+      <div className="absolute h-[393px] left-[-160px] top-[72px] w-[616px]" data-name="Иллюстрация аналитической панели">
+        <img
+          alt="Панель аналитики с графиком данных"
+          className="block h-full max-w-none object-contain pointer-events-none w-full"
+          src={imgDataAnalystHero}
+        />
       </div>
     </div>
   );
@@ -761,9 +766,9 @@ function Frame275() {
 function Frame276() {
   return (
     <div className="[word-break:break-word] content-stretch flex font-['Manrope:ExtraBold',sans-serif] font-extrabold items-center justify-between leading-[20px] relative shrink-0 text-[#464a6a] text-[16px] text-center tracking-[0.48px] uppercase w-[350px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 81 200 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`от 108 600 ₽`}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 243 100 ₽`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 81 200 р.`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[114px]">{`от 108 600 р.`}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-[111px]">{`от 243 100 р.`}</p>
     </div>
   );
 }
@@ -1382,7 +1387,7 @@ function Frame87() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start leading-[20px] relative shrink-0 text-black text-right w-[128px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Light',sans-serif] font-light relative shrink-0 text-[10px] tracking-[0.3px] w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 81 200 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[14px] uppercase whitespace-nowrap w-full">от 81 200 р.</p>
     </div>
   );
 }
@@ -2136,20 +2141,11 @@ const mobileDataAnalystTechColors: Record<string, string> = {
   "Excel": "#007acc",
 };
 
-function MobileDataAnalystTechChip({ label, short }: { label: string; short: string }) {
-  const color = mobileDataAnalystTechColors[label] || "#9c78ff";
-  const textColor = label === "Python" || label === "BI" ? "#111827" : "#ffffff";
-
+function MobileDataAnalystTechChip({ label }: { label: string; short: string }) {
   return (
     <div className="content-stretch flex gap-[8px] items-center p-[8px] relative rounded-[16px] shrink-0">
       <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
-      <div
-        aria-hidden="true"
-        className="content-stretch flex items-center justify-center relative rounded-[5px] shrink-0 size-[16px]"
-        style={{ backgroundColor: color, color: textColor }}
-      >
-        <span className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[1] text-[6px]">{short}</span>
-      </div>
+      <CourseSkillIcon label={label} size={16} />
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-black tracking-[0.48px] whitespace-nowrap">{label}</p>
     </div>
   );
@@ -2203,7 +2199,7 @@ function Frame285() {
             <p className="leading-[43px] text-[40px]">после курса</p>
           </div>
           <Frame192 />
-          <Frame191 />
+          <CourseSkillList course="dataAnalyst" variant="mobile" />
         </div>
       </div>
     </div>
@@ -3423,7 +3419,7 @@ function Frame200() {
       <Frame112 />
       <Frame198 />
       <Frame280 />
-      <MainScreenMobileTeachersSection />
+      <MainScreenMobileTeachersSection preferredRole="Data-аналитик" />
       <div className="-translate-x-1/2 [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:Regular',sans-serif] font-normal leading-[0] left-[75.5px] text-[14px] text-center text-white top-[630px] tracking-[0.42px] w-[91px]">
         <p className="leading-[18px] mb-0">Junior</p>
         <p className="leading-[18px]">(начальный)</p>
@@ -4048,7 +4044,7 @@ function Frame270() {
 function Frame282() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">12 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">12 590 р./мес.</p>
       <Frame270 />
     </div>
   );
@@ -4058,7 +4054,7 @@ function Frame154() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame282 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">7 990 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">7 990 р./мес.</p>
     </div>
   );
 }
@@ -4235,7 +4231,7 @@ function Frame271() {
 function Frame283() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">23 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">23 590 р./мес.</p>
       <Frame271 />
     </div>
   );
@@ -4245,7 +4241,7 @@ function Frame155() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame283 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">14 390 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">14 390 р./мес.</p>
     </div>
   );
 }
@@ -4418,7 +4414,7 @@ function Frame272() {
 function Frame284() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">31 950 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">31 950 р./мес.</p>
       <Frame272 />
     </div>
   );
@@ -4428,7 +4424,7 @@ function Frame160() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame284 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white uppercase w-[312px]">18 890 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white uppercase w-[312px]">18 890 р./мес.</p>
     </div>
   );
 }
@@ -4572,7 +4568,7 @@ function Frame207() {
 
 function Frame208() {
   return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="тарифные карточки">
       <Frame205 />
       <Frame206 />
       <Frame207 />

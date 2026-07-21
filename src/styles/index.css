@@ -1581,6 +1581,14 @@ body {
   transform: translateZ(0);
 }
 
+.site-main-desktop-footer h2 {
+  line-height: 30px;
+}
+
+.site-shell--home-route .site-canvas .site-main-desktop-footer {
+  margin-top: -20px;
+}
+
 .site-canvas--mobile {
   left: 0;
   transform-origin: top left;
@@ -1858,6 +1866,10 @@ body {
   transform-origin: top center;
 }
 
+.site-shell--home-route .site-main-footer-surface--desktop {
+  margin-top: 0;
+}
+
 .site-main-footer-surface--mobile {
   width: 100%;
   max-width: 100vw;
@@ -1921,7 +1933,7 @@ body {
   pointer-events: none;
 }
 
-.site-shell--ready.site-shell--review-transition-loading .site-loader {
+.site-shell--ready.site-shell--page-transition-loading .site-loader {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -2798,6 +2810,23 @@ button[data-name="кнопки пд"] *,
   overflow-y: clip;
 }
 
+.site-course-projects-carousel,
+.site-course-projects-carousel * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.site-course-projects-carousel.site-carousel--dragging {
+  cursor: grabbing;
+  scroll-behavior: auto !important;
+  scroll-snap-type: none !important;
+}
+
+.site-course-projects-carousel.site-carousel--dragging * {
+  cursor: grabbing !important;
+}
+
 .site-course-reviews-carousel {
   overflow-y: visible;
 }
@@ -3175,24 +3204,87 @@ button[data-name="кнопки пд"] *,
 
 .site-course-tech-stack {
   align-content: flex-start;
-  align-items: stretch !important;
-  flex-direction: column !important;
-  flex-wrap: nowrap !important;
+  align-items: center !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
   gap: 8px !important;
   justify-content: flex-start !important;
+  max-width: 350px;
+  width: min(350px, calc(100vw - 52px)) !important;
 }
 
 .site-course-tech-row {
-  align-items: center;
-  display: flex;
-  gap: 0;
-  justify-content: space-between;
-  width: 100%;
+  display: contents;
 }
 
 .site-course-tech-row--last {
+  display: contents;
+}
+
+.site-course-tech-stack--desktop {
+  align-content: flex-start;
+  align-items: center !important;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  gap: 8px !important;
+  justify-content: flex-start;
+}
+
+.site-course-tech-stack--desktop > div,
+.site-course-tech-stack--desktop > div > div:not(:has(> p)) {
+  display: contents;
+}
+
+.site-course-skill-icon {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+}
+
+.site-course-skill-list {
+  align-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
   gap: 8px;
   justify-content: flex-start;
+  width: 100%;
+}
+
+.site-course-skill-chip {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.78);
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.site-course-skill-list--desktop .site-course-skill-chip {
+  border-radius: 16px;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  gap: 16px;
+  line-height: 30px;
+  min-height: 46px;
+  padding: 8px;
+}
+
+.site-course-skill-list--mobile {
+  max-width: 350px;
+  width: min(350px, calc(100vw - 52px));
+}
+
+.site-course-skill-list--mobile .site-course-skill-chip {
+  border-radius: 999px;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  gap: 8px;
+  line-height: 18px;
+  min-height: 34px;
+  padding: 6px 8px;
 }
 
 .site-course-tech-row > div,
@@ -3360,7 +3452,10 @@ button[data-name="кнопки пд"] *,
 }
 
 .site-teachers-carousel {
+  box-sizing: border-box;
   overflow-y: visible;
+  padding-inline: 80px;
+  scroll-padding-inline: 80px;
   contain: layout paint style;
   scroll-snap-type: none;
 }
@@ -3372,6 +3467,14 @@ button[data-name="кнопки пд"] *,
 .site-teachers-carousel img,
 .site-mobile-teachers-carousel img {
   backface-visibility: hidden;
+}
+
+.site-teachers-carousel,
+.site-teachers-carousel *,
+.site-mobile-teachers-carousel,
+.site-mobile-teachers-carousel * {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .site-teachers-carousel img[class*="rounded-[32px]"],
@@ -5509,6 +5612,43 @@ button[data-name="кнопки пд"] {
   font-weight: 500;
   line-height: 35px;
   cursor: pointer;
+  margin-top: auto;
+}
+
+[data-name="тариф"] div:has(> button[data-name="кнопки пд"]) {
+  display: contents;
+}
+
+[data-name="тариф"] button[data-name="кнопки пд"] {
+  order: 100;
+  margin-top: auto;
+}
+
+/* Generated mobile tariff cards group the CTA with the price. Flatten only
+   that group so the feature list stays before the CTA in every course. */
+[data-name="тарифные карточки"] > div > div > div:has(> button[data-name="кнопки пд"]) {
+  display: contents;
+}
+
+[data-name="тарифные карточки"] button[data-name="кнопки пд"] {
+  order: 100;
+  margin-top: 0;
+}
+
+/* Keep tariff prices centered independently from the discount badge. */
+[data-name="тариф"] [data-name="тариф/актив"] {
+  align-items: center !important;
+}
+
+[data-name="тариф"] [data-name="тариф/актив"] div:has(> p.line-through) {
+  position: relative;
+  width: 100%;
+  justify-content: center !important;
+}
+
+[data-name="тариф"] [data-name="тариф/актив"] div:has(> p.line-through) > :not(p) {
+  position: absolute;
+  left: calc(50% + 94px);
 }
 
 .site-tariffs-card--purple .site-tariffs-card__button {
@@ -5922,17 +6062,17 @@ button[data-name="кнопки пд"] {
 }
 
 .site-java-hero-image-wrap--desktop {
-  width: 760px !important;
-  height: 660px !important;
-  left: 34px !important;
-  top: -28px !important;
+  width: 925px !important;
+  height: 599px !important;
+  left: 0 !important;
+  top: 0 !important;
 }
 
 .site-java-hero-image-wrap--mobile {
-  width: 260px !important;
-  height: 390px !important;
-  left: 45px !important;
-  top: 84px !important;
+  width: 430px !important;
+  height: auto !important;
+  left: -40px !important;
+  top: 118px !important;
 }
 
 .site-java-hero-image-wrap img {

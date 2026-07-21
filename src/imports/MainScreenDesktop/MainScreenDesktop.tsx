@@ -1,4 +1,5 @@
 import svgPaths from "./svg-j2mtrggl1r";
+import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import imgGain from "./home-background.opt.webp";
 import imgImg29771 from "./3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgImg29772 from "./course-data-analyst-desktop.webp";
@@ -424,7 +425,7 @@ function DirectionHoverOverlay({
           <p className="site-desktop-direction-hover__title">{title}</p>
           <p className="site-desktop-direction-hover__description">{description}</p>
         </div>
-        <button className="site-desktop-direction-hover__button" data-application-open type="button">Получить консультацию</button>
+        <span className="site-desktop-direction-hover__button">Получить консультацию</span>
       </div>
     </div>
   );
@@ -1083,7 +1084,7 @@ function TeachersCarouselActions() {
 function TeachersCarouselBlock() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
-      <Frame94 />
+      <DesktopTeacherCarousel carouselId="teachers" />
       <TeachersCarouselActions />
     </div>
   );

@@ -251,6 +251,8 @@ const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 const LOADER_MIN_MS = 300;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
+const PAGE_TRANSITION_STORAGE_KEY = "innoprog-page-transition-until";
+const PAGE_TRANSITION_MIN_MS = 720;
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
 const LOADER_EXIT_MS = 400;
@@ -958,22 +960,9 @@ function setCarouselActiveIndex(carousel: HTMLElement, activeIndex: number) {
     });
 }
 
-function normalizeCarouselScrollLeft(carousel: HTMLElement, scrollLeft: number) {
+function clampCarouselScrollLeft(carousel: HTMLElement, scrollLeft: number) {
   const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-  if (!shouldLoopCarousel(carousel) || maxScrollLeft <= 1) {
-    return Math.max(0, Math.min(maxScrollLeft, scrollLeft));
-  }
-
-  if (scrollLeft < 0) {
-    return maxScrollLeft - (Math.abs(scrollLeft) % maxScrollLeft);
-  }
-
-  if (scrollLeft > maxScrollLeft) {
-    return scrollLeft % maxScrollLeft;
-  }
-
-  return scrollLeft;
+  return Math.max(0, Math.min(maxScrollLeft, scrollLeft));
 }
 
 function scrollCarousel(id: string, direction: number) {
@@ -2333,7 +2322,6 @@ function TariffsPage({
                     </div>
                     <strong>{tariff.price}</strong>
                   </div>
-                  <button className="site-tariffs-card__button" type="button">записаться</button>
                   <ul>
                     {tariff.features.map((feature) => (
                       <TariffFeature
@@ -2343,6 +2331,7 @@ function TariffsPage({
                       />
                     ))}
                   </ul>
+                  <button className="site-tariffs-card__button" type="button">записаться</button>
                 </article>
               ))}
             </section>
@@ -3705,7 +3694,10 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
   const isCourseSwipeCarousel =
     carousel.classList.contains("site-course-projects-carousel") ||
     carousel.classList.contains("site-course-reviews-carousel");
-  const dragThreshold = isCourseSwipeCarousel ? 4 : 18;
+  const isTeacherCarousel =
+    carousel.classList.contains("site-teachers-carousel") ||
+    carousel.classList.contains("site-mobile-teachers-carousel");
+  const dragThreshold = isCourseSwipeCarousel || isTeacherCarousel ? 4 : 18;
   const clickSuppressThreshold = isCourseSwipeCarousel ? 16 : 24;
 
   const clearDragState = () => {
@@ -3758,7 +3750,7 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
       carousel.setPointerCapture?.(event.pointerId);
     }
 
-    carousel.scrollLeft = normalizeCarouselScrollLeft(carousel, startScrollLeft - deltaX);
+    carousel.scrollLeft = clampCarouselScrollLeft(carousel, startScrollLeft - deltaX);
     event.preventDefault();
   };
 
@@ -3861,6 +3853,39 @@ function rememberLoadedInSession() {
   }
 }
 
+function rememberPageTransition() {
+  try {
+    window.sessionStorage.setItem(
+      PAGE_TRANSITION_STORAGE_KEY,
+      String(Date.now() + PAGE_TRANSITION_MIN_MS),
+    );
+  } catch {
+    // Storage can be unavailable in private or restricted contexts.
+  }
+}
+
+function getPageTransitionRemaining() {
+  try {
+    const deadline = Number(window.sessionStorage.getItem(PAGE_TRANSITION_STORAGE_KEY));
+
+    if (!Number.isFinite(deadline)) {
+      return 0;
+    }
+
+    return Math.max(0, deadline - Date.now());
+  } catch {
+    return 0;
+  }
+}
+
+function clearPageTransition() {
+  try {
+    window.sessionStorage.removeItem(PAGE_TRANSITION_STORAGE_KEY);
+  } catch {
+    // Storage can be unavailable in private or restricted contexts.
+  }
+}
+
 function readReturnScrollPosition(): { path: string; y: number } | null {
   try {
     const raw = window.sessionStorage.getItem(RETURN_SCROLL_STORAGE_KEY);
@@ -3952,7 +3977,7 @@ export default function App({
   const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
   const [openMobileNavGroup, setOpenMobileNavGroup] = useState<"adults" | "children" | null>(null);
   const [isReviewConsultPrimed, setIsReviewConsultPrimed] = useState(false);
-  const [isReviewTransitionLoading, setIsReviewTransitionLoading] = useState(false);
+  const [isPageTransitionLoading, setIsPageTransitionLoading] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
@@ -3960,7 +3985,7 @@ export default function App({
   const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
   const homeCanvasRef = useRef<HTMLDivElement>(null);
   const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
-  const reviewTransitionTimerRef = useRef<number | null>(null);
+  const pageTransitionTimerRef = useRef<number | null>(null);
   const initialRouteKey = (() => {
     if (initialRoute.page === "review") {
       return `${initialRoute.page}:${initialRoute.story}`;
@@ -4072,6 +4097,19 @@ export default function App({
   }, []);
 
   useEffect(() => {
+    const transitionRemaining = getPageTransitionRemaining();
+
+    if (transitionRemaining > 0) {
+      setIsPageTransitionLoading(true);
+      pageTransitionTimerRef.current = window.setTimeout(() => {
+        setIsPageTransitionLoading(false);
+        clearPageTransition();
+        pageTransitionTimerRef.current = null;
+      }, transitionRemaining);
+    } else {
+      clearPageTransition();
+    }
+
     if (hasLoadedInSession()) {
       setIsReady(true);
       setShouldShowLoader(false);
@@ -4140,8 +4178,8 @@ export default function App({
   }, [isReady, viewport.isMobile]);
 
   useEffect(() => () => {
-    if (reviewTransitionTimerRef.current !== null) {
-      window.clearTimeout(reviewTransitionTimerRef.current);
+    if (pageTransitionTimerRef.current !== null) {
+      window.clearTimeout(pageTransitionTimerRef.current);
     }
   }, []);
 
@@ -4537,6 +4575,15 @@ export default function App({
     }
   };
 
+  const pushInternalRouteAfterLoaderPaint = (nextPath: string) => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+        pushInternalRoute(nextPath);
+      });
+    });
+  };
+
   const saveReturnScrollPosition = () => {
     const value = {
       path: `${window.location.pathname}${window.location.search}`,
@@ -4547,16 +4594,18 @@ export default function App({
     writeReturnScrollPosition(value);
   };
 
-  const showReviewTransitionLoader = () => {
-    if (reviewTransitionTimerRef.current !== null) {
-      window.clearTimeout(reviewTransitionTimerRef.current);
+  const showPageTransitionLoader = () => {
+    if (pageTransitionTimerRef.current !== null) {
+      window.clearTimeout(pageTransitionTimerRef.current);
     }
 
-    setIsReviewTransitionLoading(true);
-    reviewTransitionTimerRef.current = window.setTimeout(() => {
-      setIsReviewTransitionLoading(false);
-      reviewTransitionTimerRef.current = null;
-    }, 720);
+    rememberPageTransition();
+    setIsPageTransitionLoading(true);
+    pageTransitionTimerRef.current = window.setTimeout(() => {
+      setIsPageTransitionLoading(false);
+      clearPageTransition();
+      pageTransitionTimerRef.current = null;
+    }, PAGE_TRANSITION_MIN_MS);
   };
 
   const openReviewStory = (story: string | undefined) => {
@@ -4586,7 +4635,6 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openReviewsPage = (direction?: ReviewsDirectionKey | string) => {
@@ -4629,7 +4677,7 @@ export default function App({
 
     const nextPath = getStudentReviewPath(studentReview);
     saveReturnScrollPosition();
-    showReviewTransitionLoader();
+    showPageTransitionLoader();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
@@ -4661,7 +4709,7 @@ export default function App({
 
     const nextPath = getStudentReviewPath(review);
     saveReturnScrollPosition();
-    showReviewTransitionLoader();
+    showPageTransitionLoader();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(null);
@@ -4740,7 +4788,8 @@ export default function App({
 
   const openPythonCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/python-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/python-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4758,12 +4807,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openDataScienceCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/data-science-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/data-science-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4781,12 +4830,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openFrontendCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/frontend-developer-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/frontend-developer-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4804,12 +4853,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openDataAnalystCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/data-analyst-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/data-analyst-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4827,12 +4876,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openCppCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/cpp-developer-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/cpp-developer-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4850,12 +4899,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openMobileDeveloperCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/mobile-developer-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/mobile-developer-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4873,12 +4922,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openUnrealEngineCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/unreal-engine-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/unreal-engine-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4896,12 +4945,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openJavaCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/java-developer-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/java-developer-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4919,12 +4968,12 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openMlEngineerCoursePage = () => {
     saveReturnScrollPosition();
-    pushInternalRoute("/ml-engineer-course");
+    showPageTransitionLoader();
+    pushInternalRouteAfterLoaderPaint("/ml-engineer-course");
 
     setActiveReviewStory(null);
     setActiveCourseReview(null);
@@ -4942,7 +4991,6 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openTariffsPage = () => {
@@ -5679,11 +5727,11 @@ export default function App({
 
   return (
     <main
-      aria-busy={!isReady}
+      aria-busy={!isReady || isPageTransitionLoading}
       className={[
         "site-shell",
         isReady ? "site-shell--ready" : "",
-        isReviewTransitionLoading ? "site-shell--review-transition-loading" : "",
+        isPageTransitionLoading ? "site-shell--page-transition-loading" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
         shouldUseSafariCanvasZoom ? "site-shell--safari-canvas-zoom" : "",
         isReviewRoute ? "site-shell--review-route" : "",
@@ -5918,8 +5966,8 @@ export default function App({
           </button>
         </nav>
       ) : null}
-      {!isMetrikaSelectorMode && (shouldShowLoader || isReviewTransitionLoading) ? (
-        <div className="site-loader" aria-hidden={isReady && !isReviewTransitionLoading}>
+      {!isMetrikaSelectorMode && (shouldShowLoader || isPageTransitionLoading) ? (
+        <div className="site-loader" aria-hidden={isReady && !isPageTransitionLoading}>
           <img
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"

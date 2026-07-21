@@ -1,4 +1,5 @@
 import svgPaths from "./svg-paths";
+import { MobileTeacherCarousel, type TeacherRole } from "../shared/TeacherCarousels";
 import imgGain from "../MainScreenDesktop/home-background.opt.webp";
 import imgCoursePython from "../MainScreenDesktop/3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgCourseDataScience from "../MainScreenDesktop/course-data-analyst-desktop.webp";
@@ -1665,11 +1666,11 @@ function Frame154() {
   );
 }
 
-function Frame155() {
+function Frame155({ preferredRole }: { preferredRole?: TeacherRole }) {
   return (
     <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[780px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
       <Component1 />
-      <Frame154 />
+      <MobileTeacherCarousel preferredRole={preferredRole} />
     </div>
   );
 }
@@ -2981,8 +2982,8 @@ export function MainScreenMobileMentorSection() {
   return <Frame196 />;
 }
 
-export function MainScreenMobileTeachersSection() {
-  return <Frame155 />;
+export function MainScreenMobileTeachersSection({ preferredRole }: { preferredRole?: TeacherRole } = {}) {
+  return <Frame155 preferredRole={preferredRole} />;
 }
 
 export function MainScreenMobileMeetingsSection() {

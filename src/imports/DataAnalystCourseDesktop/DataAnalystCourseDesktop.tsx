@@ -1,7 +1,9 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
+import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
+import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
-import imgDataAnalystHero from "../MainScreenDesktop/653b7bc37f655916fe3ab94dc7fa4c9a87a9cee1.opt.webp";
+import imgDataAnalystHero from "../shared/course-heroes/data-analyst-dashboard.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
@@ -485,8 +487,12 @@ function Frame229() {
     <div className="bg-[rgba(255,255,255,0.6)] h-[599px] relative rounded-[40px] shrink-0 w-full">
       <div className="flex flex-col items-end justify-center overflow-clip rounded-[inherit] size-full">
         <div className="content-stretch flex flex-col items-end justify-between p-[24px] relative size-full">
-          <div className="absolute h-[1012px] left-[-123px] top-[-258px] w-[1048px]" data-name="ChatGPT Image 30 апр. 2026 г., 11_32_21_Nero_AI_Image_Upscaler_Photo_Face_Nero_AI_Background_Remover_transparent 1">
-            <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgDataAnalystHero} />
+          <div className="absolute h-[599px] left-0 top-0 w-[938px]" data-name="Иллюстрация аналитической панели">
+            <img
+              alt="Панель аналитики с графиком данных"
+              className="block h-full max-w-none object-contain pointer-events-none w-full"
+              src={imgDataAnalystHero}
+            />
           </div>
           <Frame228 />
           <Frame227 />
@@ -800,7 +806,7 @@ function Frame255() {
     <div className="bg-gradient-to-b flex-[1_0_0] from-[rgba(191,167,255,0.6)] h-[162px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] shadow-[15px_0px_80px_0px_rgba(156,120,255,0.2)] to-[78.365%] to-[rgba(156,120,255,0.8)]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 81 200 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 81 200 р.`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Junior (начальный)</p>
         </div>
       </div>
@@ -813,7 +819,7 @@ function Frame256() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(156,120,255,0.2)] flex-[1_0_0] from-[#ae90ff] h-[342px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#8559ff]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 108 600 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 108 600 р.`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Middle (средний)</p>
         </div>
       </div>
@@ -826,7 +832,7 @@ function Frame257() {
     <div className="bg-gradient-to-b drop-shadow-[15px_0px_40px_rgba(70,74,106,0.2)] flex-[1_0_0] from-[#7f87cd] h-[562px] min-w-px relative rounded-tl-[30px] rounded-tr-[30px] to-[#464a6a]">
       <div className="flex flex-col items-center justify-end size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-end p-[24px] relative size-full text-white uppercase whitespace-nowrap">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 243 100 ₽`}</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px]">{`от 243 100 р.`}</p>
           <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px]">Senior (старший)</p>
         </div>
       </div>
@@ -1380,7 +1386,7 @@ function Frame98() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-right w-[290px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[24px] text-black w-full">{`Желаемая зарплата `}</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 81 200 ₽</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap w-full">от 81 200 р.</p>
     </div>
   );
 }
@@ -1509,20 +1515,11 @@ const dataAnalystTechColors: Record<string, string> = {
   "Excel": "#007acc",
 };
 
-function DataAnalystTechChip({ label, short }: { label: string; short: string }) {
-  const color = dataAnalystTechColors[label] || "#9c78ff";
-  const textColor = label === "Python" || label === "BI" ? "#111827" : "#ffffff";
-
+function DataAnalystTechChip({ label }: { label: string; short: string }) {
   return (
     <div className="content-stretch flex gap-[16px] items-center p-[8px] relative rounded-[16px] shrink-0">
       <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[16px]" />
-      <div
-        aria-hidden="true"
-        className="content-stretch flex items-center justify-center relative rounded-[7px] shrink-0 size-[24px]"
-        style={{ backgroundColor: color, color: textColor }}
-      >
-        <span className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[1] text-[9px]">{short}</span>
-      </div>
+      <CourseSkillIcon label={label} size={24} />
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-black whitespace-nowrap">{label}</p>
     </div>
   );
@@ -2119,7 +2116,7 @@ function Frame156() {
 
 function Frame157() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+    <div className="site-course-tech-stack--desktop content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <Frame154 />
       <Frame155 />
       <Frame156 />
@@ -2131,7 +2128,7 @@ function Frame158() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
       <Frame135 />
-      <Frame157 />
+      <CourseSkillList course="dataAnalyst" variant="desktop" />
     </div>
   );
 }
@@ -3403,7 +3400,7 @@ function CourseTeachersCarouselActions() {
 function CourseTeachersCarouselBlock() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
-      <Frame51 />
+      <DesktopTeacherCarousel carouselId="python-teachers" course preferredRole="Data-аналитик" />
       <CourseTeachersCarouselActions />
     </div>
   );
@@ -3974,7 +3971,7 @@ function Frame260() {
 function Frame261() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">12 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">12 590 р./мес.</p>
       <Frame260 />
     </div>
   );
@@ -3984,7 +3981,7 @@ function Frame176() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame261 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">7 990 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">7 990 р./мес.</p>
     </div>
   );
 }
@@ -4220,7 +4217,7 @@ function Frame264() {
 function Frame263() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">23 590 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">23 590 р./мес.</p>
       <Frame264 />
     </div>
   );
@@ -4230,7 +4227,7 @@ function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame263 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap">14 390 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap">14 390 р./мес.</p>
     </div>
   );
 }
@@ -4484,7 +4481,7 @@ function Frame266() {
 function Frame265() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">31 950 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">31 950 р./мес.</p>
       <Frame266 />
     </div>
   );
@@ -4494,7 +4491,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame265 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">18 890 ₽/мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">18 890 р./мес.</p>
     </div>
   );
 }
