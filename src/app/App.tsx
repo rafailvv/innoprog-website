@@ -696,9 +696,9 @@ const REVIEWS_INDEX_COPY: Record<(typeof REVIEWS_INDEX_ORDER)[number], {
 const TARIFFS = [
   {
     name: "Базовый",
-    oldPrice: "12 590 ₽/мес.",
+    oldPrice: "12 590 р./мес.",
     discount: "-36%",
-    price: "7 990 ₽/мес.",
+    price: "7 990 р./мес.",
     accent: "dark",
     features: [
       { text: "4 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЯ В МЕСЯЦ", included: true },
@@ -716,9 +716,9 @@ const TARIFFS = [
   },
   {
     name: "Расширенный",
-    oldPrice: "23 590 ₽/мес.",
+    oldPrice: "23 590 р./мес.",
     discount: "-38%",
-    price: "14 390 ₽/мес.",
+    price: "14 390 р./мес.",
     accent: "purple",
     features: [
       { text: "8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
@@ -736,9 +736,9 @@ const TARIFFS = [
   },
   {
     name: "Персональный",
-    oldPrice: "31 950 ₽/мес.",
+    oldPrice: "31 950 р./мес.",
     discount: "-41%",
-    price: "18 890 ₽/мес.",
+    price: "18 890 р./мес.",
     accent: "dark",
     features: [
       { text: "12 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
