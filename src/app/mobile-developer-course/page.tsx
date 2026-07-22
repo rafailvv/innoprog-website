@@ -45,7 +45,7 @@ export default function MobileDeveloperCourseRoute() {
           { name: "Мобильный разработчик", path: "/mobile-developer-course" },
         ])}
       />
-      <App initialRoute={{ page: "mobileDeveloperCourse" }} />
+      <App key="mobile-developer-course" initialRoute={{ page: "mobileDeveloperCourse" }} />
     </>
   );
 }

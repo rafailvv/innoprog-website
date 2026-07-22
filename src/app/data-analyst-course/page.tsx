@@ -45,7 +45,7 @@ export default function DataAnalystCourseRoute() {
           { name: "Data-аналитик", path: "/data-analyst-course" },
         ])}
       />
-      <App initialRoute={{ page: "dataAnalystCourse" }} />
+      <App key="data-analyst-course" initialRoute={{ page: "dataAnalystCourse" }} />
     </>
   );
 }

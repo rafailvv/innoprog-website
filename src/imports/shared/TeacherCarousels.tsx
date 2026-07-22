@@ -9,6 +9,7 @@ import levBykov from "./teachers/lev-bykov.webp";
 import annaNadymova from "./teachers/anna-nadymova.webp";
 import evgenyYurchenko from "./teachers/evgeny-yurchenko.webp";
 import egorPopikov from "./teachers/egor-popikov.webp";
+import artemyKorolev from "./teachers/artemy-korolev.webp";
 
 export type TeacherRole =
   | "Python-разработчик"
@@ -92,6 +93,12 @@ const teachers: Teacher[] = [
     nameLines: ["Егор", "Попиков"],
     role: "Frontend-разработчик",
     image: egorPopikov,
+  },
+  {
+    name: "Артемий Королев",
+    nameLines: ["Артемий", "Королев"],
+    role: "Python-разработчик",
+    image: artemyKorolev,
   },
 ];
 
@@ -192,15 +199,9 @@ function getOrderedTeachers(preferredRole?: TeacherRole) {
 }
 
 export function MobileTeacherCarousel({ preferredRole }: { preferredRole?: TeacherRole }) {
-  const orderedTeachers = [...getOrderedTeachers(preferredRole)];
-  const egorIndex = orderedTeachers.findIndex((teacher) => teacher.name === "Егор Попиков");
-
-  if (egorIndex >= 5) {
-    const [egor] = orderedTeachers.splice(egorIndex, 1);
-    orderedTeachers.splice(4, 0, egor);
-  }
-
-  const rows = [orderedTeachers.slice(0, 5), orderedTeachers.slice(5)];
+  const orderedTeachers = getOrderedTeachers(preferredRole);
+  const firstRowSize = Math.ceil(orderedTeachers.length / 2);
+  const rows = [orderedTeachers.slice(0, firstRowSize), orderedTeachers.slice(firstRowSize)];
 
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px] site-carousel site-mobile-teachers-carousel" data-carousel="mobile-teachers" data-carousel-loop="true">

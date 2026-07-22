@@ -45,7 +45,7 @@ export default function DataScienceCourseRoute() {
           { name: "Data Science", path: "/data-science-course" },
         ])}
       />
-      <App initialRoute={{ page: "dataScienceCourse" }} />
+      <App key="data-science-course" initialRoute={{ page: "dataScienceCourse" }} />
     </>
   );
 }

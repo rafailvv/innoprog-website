@@ -45,7 +45,7 @@ export default function MlEngineerCourseRoute() {
           { name: "ML-инженер", path: "/ml-engineer-course" },
         ])}
       />
-      <App initialRoute={{ page: "mlEngineerCourse" }} />
+      <App key="ml-engineer-course" initialRoute={{ page: "mlEngineerCourse" }} />
     </>
   );
 }

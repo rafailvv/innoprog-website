@@ -45,7 +45,7 @@ export default function JavaCourseRoute() {
           { name: "Java-разработчик", path: "/java-developer-course" },
         ])}
       />
-      <App initialRoute={{ page: "javaCourse" }} />
+      <App key="java-developer-course" initialRoute={{ page: "javaCourse" }} />
     </>
   );
 }

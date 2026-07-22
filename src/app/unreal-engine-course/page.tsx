@@ -45,7 +45,7 @@ export default function UnrealEngineCourseRoute() {
           { name: "Unreal Engine", path: "/unreal-engine-course" },
         ])}
       />
-      <App initialRoute={{ page: "unrealEngineCourse" }} />
+      <App key="unreal-engine-course" initialRoute={{ page: "unrealEngineCourse" }} />
     </>
   );
 }

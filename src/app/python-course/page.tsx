@@ -45,7 +45,7 @@ export default function PythonCourseRoute() {
           { name: "Python-разработчик", path: "/python-course" },
         ])}
       />
-      <App initialRoute={{ page: "pythonCourse" }} />
+      <App key="python-course" initialRoute={{ page: "pythonCourse" }} />
     </>
   );
 }

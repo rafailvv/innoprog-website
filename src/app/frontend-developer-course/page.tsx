@@ -45,7 +45,7 @@ export default function FrontendCourseRoute() {
           { name: "Frontend-разработчик", path: "/frontend-developer-course" },
         ])}
       />
-      <App initialRoute={{ page: "frontendCourse" }} />
+      <App key="frontend-developer-course" initialRoute={{ page: "frontendCourse" }} />
     </>
   );
 }

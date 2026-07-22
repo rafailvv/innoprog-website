@@ -285,6 +285,20 @@ export type AppInitialRoute =
   | { page: "tariffs" }
   | { page: "review"; story: ReviewStoryKey };
 
+function isCoursePageRoute(route: AppInitialRoute) {
+  return [
+    "pythonCourse",
+    "dataScienceCourse",
+    "frontendCourse",
+    "dataAnalystCourse",
+    "cppCourse",
+    "mobileDeveloperCourse",
+    "unrealEngineCourse",
+    "javaCourse",
+    "mlEngineerCourse",
+  ].includes(route.page);
+}
+
 function normalizePhone(rawPhone: string) {
   const digits = rawPhone.replace(/\D/g, "");
 
@@ -3940,6 +3954,7 @@ export default function App({
   initialRoute?: AppInitialRoute;
 }) {
   const initialRouteState = getRouteState(initialRoute);
+  const isInitialCoursePage = isCoursePageRoute(initialRoute);
   const router = useRouter();
   const viewport = useViewportState();
   const isSafariBrowser = useIsSafariBrowser();
@@ -3969,8 +3984,8 @@ export default function App({
   const [activeReviewsDirection, setActiveReviewsDirection] = useState<ReviewsDirectionKey>(
     initialRouteState.activeReviewsDirection,
   );
-  const [isReady, setIsReady] = useState(false);
-  const [shouldShowLoader, setShouldShowLoader] = useState(true);
+  const [isReady, setIsReady] = useState(isInitialCoursePage);
+  const [shouldShowLoader, setShouldShowLoader] = useState(!isInitialCoursePage);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -4575,15 +4590,6 @@ export default function App({
     }
   };
 
-  const pushInternalRouteAfterLoaderPaint = (nextPath: string) => {
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-        pushInternalRoute(nextPath);
-      });
-    });
-  };
-
   const saveReturnScrollPosition = () => {
     const value = {
       path: `${window.location.pathname}${window.location.search}`,
@@ -4786,212 +4792,13 @@ export default function App({
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
-  const openPythonCoursePage = () => {
+  const openCoursePage = (nextPath: string) => {
     saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/python-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(true);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
+    router.push(nextPath);
   };
 
-  const openDataScienceCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/data-science-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(true);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openFrontendCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/frontend-developer-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(true);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openDataAnalystCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/data-analyst-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(true);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openCppCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/cpp-developer-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(true);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openMobileDeveloperCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/mobile-developer-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(true);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openUnrealEngineCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/unreal-engine-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(true);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openJavaCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/java-developer-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(true);
-    setIsMlEngineerCourseRoute(false);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
-
-  const openMlEngineerCoursePage = () => {
-    saveReturnScrollPosition();
-    showPageTransitionLoader();
-    pushInternalRouteAfterLoaderPaint("/ml-engineer-course");
-
-    setActiveReviewStory(null);
-    setActiveCourseReview(null);
-    setActiveStudentReview(null);
-    setIsAboutRoute(false);
-    setIsPythonCourseRoute(false);
-    setIsDataScienceCourseRoute(false);
-    setIsFrontendCourseRoute(false);
-    setIsDataAnalystCourseRoute(false);
-    setIsCppCourseRoute(false);
-    setIsMobileDeveloperCourseRoute(false);
-    setIsUnrealEngineCourseRoute(false);
-    setIsJavaCourseRoute(false);
-    setIsMlEngineerCourseRoute(true);
-    setIsReviewsRoute(false);
-    setIsTariffsRoute(false);
-    setIsMobileMenuOpen(false);
-  };
+  const openPythonCoursePage = () => openCoursePage("/python-course");
 
   const openTariffsPage = () => {
     pushInternalRoute("/tariffs");
@@ -5308,75 +5115,17 @@ export default function App({
       return;
     }
 
-    const pythonCourseLink = target?.closest<HTMLAnchorElement>('a[href="/python-course"]');
+    const courseLink = target?.closest<HTMLAnchorElement>("a[href]");
+    const coursePath = courseLink?.getAttribute("href") || "";
+    const isCourseLink = ADULT_COURSE_LINKS.some(({ href }) => href === coursePath);
 
-    if (pythonCourseLink) {
+    if (courseLink && isCourseLink) {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
       event.preventDefault();
-      openPythonCoursePage();
-      return;
-    }
-
-    const dataScienceCourseLink = target?.closest<HTMLAnchorElement>('a[href="/data-science-course"]');
-
-    if (dataScienceCourseLink) {
-      event.preventDefault();
-      openDataScienceCoursePage();
-      return;
-    }
-
-    const frontendCourseLink = target?.closest<HTMLAnchorElement>('a[href="/frontend-developer-course"]');
-
-    if (frontendCourseLink) {
-      event.preventDefault();
-      openFrontendCoursePage();
-      return;
-    }
-
-    const dataAnalystCourseLink = target?.closest<HTMLAnchorElement>('a[href="/data-analyst-course"]');
-
-    if (dataAnalystCourseLink) {
-      event.preventDefault();
-      openDataAnalystCoursePage();
-      return;
-    }
-
-    const cppCourseLink = target?.closest<HTMLAnchorElement>('a[href="/cpp-developer-course"]');
-
-    if (cppCourseLink) {
-      event.preventDefault();
-      openCppCoursePage();
-      return;
-    }
-
-    const mobileDeveloperCourseLink = target?.closest<HTMLAnchorElement>('a[href="/mobile-developer-course"]');
-
-    if (mobileDeveloperCourseLink) {
-      event.preventDefault();
-      openMobileDeveloperCoursePage();
-      return;
-    }
-
-    const unrealEngineCourseLink = target?.closest<HTMLAnchorElement>('a[href="/unreal-engine-course"]');
-
-    if (unrealEngineCourseLink) {
-      event.preventDefault();
-      openUnrealEngineCoursePage();
-      return;
-    }
-
-    const javaCourseLink = target?.closest<HTMLAnchorElement>('a[href="/java-developer-course"]');
-
-    if (javaCourseLink) {
-      event.preventDefault();
-      openJavaCoursePage();
-      return;
-    }
-
-    const mlEngineerCourseLink = target?.closest<HTMLAnchorElement>('a[href="/ml-engineer-course"]');
-
-    if (mlEngineerCourseLink) {
-      event.preventDefault();
-      openMlEngineerCoursePage();
+      openCoursePage(coursePath);
       return;
     }
 

@@ -45,7 +45,7 @@ export default function CppCourseRoute() {
           { name: "C++ разработчик", path: "/cpp-developer-course" },
         ])}
       />
-      <App initialRoute={{ page: "cppCourse" }} />
+      <App key="cpp-developer-course" initialRoute={{ page: "cppCourse" }} />
     </>
   );
 }
