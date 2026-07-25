@@ -9,9 +9,12 @@
     "start": "next start",
     "test:proxy": "node scripts/test-proxy-contracts.mjs",
     "test:course-reviews": "node scripts/test-course-review-directions.mjs",
-    "test": "npm run test:proxy && npm run test:course-reviews",
-    "test:coverage": "npm run test",
-    "test:ci": "npm run test"
+    "test": "npm run test:unit",
+    "test:unit": "vitest run",
+    "test:contracts": "npm run test:proxy && npm run test:course-reviews",
+    "test:integration": "vitest run",
+    "test:coverage": "vitest run --coverage && node scripts/write-coverage-metadata.mjs",
+    "test:ci": "npm run test:contracts && npm run test:coverage && npm run build"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -76,10 +79,15 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^14.3.1",
     "@types/node": "^20.19.25",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
+    "@vitest/coverage-v8": "^3.2.7",
+    "jsdom": "^26.1.0",
     "tailwindcss": "4.1.12",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
   }
 }
