@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { COURSE_SEO_ITEMS } from "./seo";
+import { FooterLegalDetails } from "./FooterLegalDetails";
 
 export default function NotFoundPageContent() {
   return (
@@ -70,9 +71,7 @@ export default function NotFoundPageContent() {
           </section>
         </div>
         <p className="site-review-page__footer-company">
-          ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
-          <br aria-hidden="true" />
-          ОКВЭД: 62.09 (основной), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (основной), 1.01, 1.12
+          <FooterLegalDetails />
         </p>
       </footer>
     </main>

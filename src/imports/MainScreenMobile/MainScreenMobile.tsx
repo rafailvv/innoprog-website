@@ -16,6 +16,7 @@ import imgImage120 from "./platform-phone-screen-mobile.webp";
 import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
+import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
@@ -2946,9 +2947,7 @@ export function MainScreenMobileFooter() {
         <Frame92 />
         <Frame123 />
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[14px] min-w-full mt-[12px] relative shrink-0 text-[11px] text-center text-white tracking-[0.12px] w-[min-content]">
-          ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
-          <br aria-hidden="true" />
-          ОКВЭД: 62.09 (осн.), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (осн.), 1.01, 1.12
+          <FooterLegalDetails compactActivityCodes />
         </p>
         <Group3 />
       </div>

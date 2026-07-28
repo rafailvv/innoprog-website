@@ -5,6 +5,7 @@ import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgCppHero from "../shared/course-heroes/cpp-processor.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
+import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
 import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
@@ -5360,10 +5361,8 @@ function Group11() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group8 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[19px] ml-[180px] mt-[482px] relative row-1 text-[15px] text-center text-white tracking-[0.18px] w-[1080px]">
-        ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
-        <br aria-hidden />
-        ОКВЭД: 62.09 (основной), 62.02 · ИТ-коды: 16.01 (основной), 1.01, 1.12
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[19px] ml-[180px] mt-[466px] relative row-1 text-[15px] text-center text-white tracking-[0.18px] w-[1080px]">
+        <FooterLegalDetails />
       </p>
       <Frame35 />
     </div>

@@ -50,6 +50,7 @@ import {
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
+import { FooterLegalDetails } from "./FooterLegalDetails";
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
 const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
@@ -1444,9 +1445,7 @@ function LegacySiteFooter() {
         <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
       </div>
       <p className="site-review-page__footer-company">
-        ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
-        <br aria-hidden="true" />
-        ОКВЭД: 62.09 (основной), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (основной), 1.01, 1.12
+        <FooterLegalDetails />
       </p>
     </footer>
   );

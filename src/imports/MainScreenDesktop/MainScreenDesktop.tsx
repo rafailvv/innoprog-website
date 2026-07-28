@@ -12,6 +12,7 @@ import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "./course-data-science-desktop.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../../app/courseNavigation";
+import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
@@ -2394,10 +2395,8 @@ function Group8() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 site-main-desktop-footer">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group5 />
-      <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[480px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
-        ООО «ИННОПРОГ» · ИНН 1683011286 · ОГРН 1221600105440
-        <br aria-hidden="true" />
-        ОКВЭД: 62.09 (основной), 62.02 · Коды видов деятельности в области информационных технологий: 16.01 (основной), 1.01, 1.12
+      <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[468px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
+        <FooterLegalDetails />
       </p>
       <Frame69 />
     </div>
