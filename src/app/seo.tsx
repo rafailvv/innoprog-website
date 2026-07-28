@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://innoprog.ru";
 export const SITE_NAME = "ИННОПРОГ";
+export const HOME_PAGE_TITLE = `${SITE_NAME} - курсы программирования для взрослых и детей`;
 export const SITE_LEGAL_NAME = 'ООО "ИННОПРОГ"';
 export const SITE_LOGO_PATH = "/logo-education-360.webp";
 export const SITE_FAVICON_PATH = "/favicon.png";
