@@ -1662,6 +1662,10 @@ body {
   cursor: pointer;
 }
 
+.site-main-header [data-name="кнопки пд"] {
+  text-decoration: none;
+}
+
 .site-main-header__course-logo {
   display: none;
 }
@@ -1785,8 +1789,7 @@ body {
   min-width: 300px;
 }
 
-.site-main-header__dropdown--about,
-.sveden-site-header__about-menu {
+.site-main-header__dropdown--about {
   right: 0;
   left: auto;
   min-width: 360px;
@@ -1803,28 +1806,10 @@ body {
 }
 
 .site-main-header__nav-group:hover .site-main-header__dropdown--about,
-.site-main-header__nav-group:focus-within .site-main-header__dropdown--about,
-.site-main-header__nav-group:hover .sveden-site-header__about-menu,
-.site-main-header__nav-group:focus-within .sveden-site-header__about-menu {
+.site-main-header__nav-group:focus-within .site-main-header__dropdown--about {
   transform: translate(0, 0);
 }
 
-.sveden-site-header__nav > a,
-.sveden-site-header__nav > .site-main-header__nav-group > a {
-  color: #000000;
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 30px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.sveden-site-header__nav .site-main-header__nav-group > a {
-  position: relative;
-  padding-right: 14px;
-}
-
-.sveden-site-header__nav .site-main-header__nav-arrow,
 .site-review-page__nav button .site-main-header__nav-arrow {
   position: relative;
   top: -2px;
@@ -1892,6 +1877,20 @@ body {
 .site-main-header-surface__mobile-canvas {
   position: relative;
   transform-origin: top left;
+}
+
+.site-responsive-header--mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .site-responsive-header--desktop {
+    display: none;
+  }
+
+  .site-responsive-header--mobile {
+    display: block;
+  }
 }
 
 .site-main-footer-surface {

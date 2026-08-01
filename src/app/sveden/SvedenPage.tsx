@@ -1,5 +1,5 @@
 import React, { type ReactNode } from "react";
-import { SiteLegalFooter } from "../components/SiteLegalFooter";
+import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
 import { SvedenHeader } from "./SvedenHeader";
 import {
   EDUCATION_PROGRAMS,
@@ -16,6 +16,12 @@ import {
 import styles from "./SvedenPage.module.css";
 
 const NO_INFORMATION = "Отсутствует";
+const DYNAMIC_SECTIONS = new Set<SvedenSectionSlug>([
+  "education",
+  "employees",
+  "budget",
+  "vacant",
+]);
 
 const DOCUMENT_ITEMPROPS: Record<string, string> = {
   "Устав типовой №24": "ustavDocLink",
@@ -129,6 +135,7 @@ function DocumentSection() {
     <>
       <h3>Локальные нормативные акты и отчётность</h3>
       <p>Документы опубликованы в действующих редакциях. Предписания органов государственного контроля в сфере образования и отчёты об их исполнении отсутствуют.</p>
+      <p itemProp="collectiveDog">Коллективный договор отсутствует.</p>
       <span className={styles.visuallyHidden} itemProp="prescriptionDocLink">Предписания отсутствуют</span>
       <DocumentList documents={getSectionDocuments("document")} purpose="Нормативное регулирование образовательной деятельности" />
     </>
@@ -402,7 +409,9 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
         <nav aria-label="Хлебные крошки" className={styles.breadcrumbs}><a href="/">Главная</a><span aria-hidden="true">/</span><a href="/sveden/common">Сведения об образовательной организации</a><span aria-hidden="true">/</span><span>{current.shortTitle}</span></nav>
         <header className={styles.hero}>
           <h1 title="Сведения об образовательной организации">Сведения об образовательной организации</h1>
-          <p className={styles.updated}>Дата актуальности динамических сведений: <time dateTime="2026-08-01">{SVEDEN_UPDATED_AT}</time></p>
+          {DYNAMIC_SECTIONS.has(section) ? (
+            <p className={styles.updated}>Дата актуальности динамических сведений: <time dateTime="2026-08-01">{SVEDEN_UPDATED_AT}</time></p>
+          ) : null}
         </header>
         <div className={styles.layout}>
           <nav aria-label="Подразделы сведений об образовательной организации" className={styles.sectionNav}>
@@ -414,7 +423,7 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
           </article>
         </div>
       </main>
-      <SiteLegalFooter />
+      <ResponsiveSiteFooter />
     </div>
   );
 }

@@ -376,18 +376,18 @@ function Frame58() {
 export function MainScreenDesktopHeader() {
   return (
     <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
-      <button aria-label="На главную" className="site-main-header__logo-button" data-site-home type="button">
+      <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
         <Group />
-      </button>
+      </a>
       <Frame58 />
       <div className="flex flex-row items-center self-stretch">
-        <button className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" type="button">
+        <a className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" href="/application">
           <div className="flex flex-row items-center justify-center size-full">
             <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
               <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
             </div>
           </div>
-        </button>
+        </a>
       </div>
     </div>
   );

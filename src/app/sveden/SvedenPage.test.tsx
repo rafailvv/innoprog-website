@@ -10,8 +10,7 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Сведения об образовательной организации");
     expect(html).toContain(`href="/sveden/${section}"`);
     expect(html).toContain("itemProp=");
-    expect(html).toContain("01.08.2026");
-    expect(html).toContain("<h1>");
+    expect(html).toContain("<h1 ");
     expect(html).toContain("<h2>");
     expect(html).toContain("<h3>");
   });
@@ -31,6 +30,34 @@ describe("educational disclosure server HTML", () => {
   it("marks the license registry extract with the required property", () => {
     const html = renderToStaticMarkup(<SvedenPage section="common" />);
     expect(html).toContain('itemProp="licenseDocLink"');
+  });
+
+  it("uses the same generated header and footer surfaces as the main site", () => {
+    const html = renderToStaticMarkup(<SvedenPage section="common" />);
+    expect(html).toContain("site-main-header--mobile");
+    expect(html).toContain("site-main-header--desktop");
+    expect(html).toContain("site-main-footer-surface__mobile-canvas");
+    expect(html).toContain('href="/reviews"');
+    expect(html).toContain('href="/about"');
+    expect(html).toContain('href="/application"');
+    expect(html).toContain('aria-expanded="false"');
+    expect(html).toContain("<header");
+    expect(html).toContain("<footer");
+  });
+
+  it("publishes required negative document information", () => {
+    const html = renderToStaticMarkup(<SvedenPage section="document" />);
+    expect(html).toContain('itemProp="collectiveDog"');
+    expect(html).toContain("Коллективный договор отсутствует");
+    expect(html).toContain('itemProp="prescriptionDocLink"');
+  });
+
+  it("shows the freshness date only for dynamic disclosures", () => {
+    for (const section of ["education", "employees", "budget", "vacant"] as const) {
+      expect(renderToStaticMarkup(<SvedenPage section={section} />)).toContain("01.08.2026");
+    }
+    expect(renderToStaticMarkup(<SvedenPage section="common" />)).not.toContain("Дата актуальности динамических сведений");
+    expect(renderToStaticMarkup(<SvedenPage section="struct" />)).not.toContain("Дата актуальности динамических сведений");
   });
 
   it("renders all 47 vacancy rows and funding sources", () => {

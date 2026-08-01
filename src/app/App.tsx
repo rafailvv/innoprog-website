@@ -2,16 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import MainScreen, {
-  MainScreenDesktopFooter,
-  MainScreenDesktopHeader,
-} from "../imports/MainScreenDesktop/MainScreenDesktop";
+import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import heroBackgroundUrl from "../imports/MainScreenDesktop/home-background.opt.webp";
 import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
-import MainScreenMobile, {
-  MainScreenMobileFooter,
-  MainScreenMobileHeader,
-} from "../imports/MainScreenMobile/MainScreenMobile";
+import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/platform-screen-desktop.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/platform-phone-screen-desktop.webp";
@@ -46,7 +40,8 @@ import {
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
-import { SiteLegalFooter } from "./components/SiteLegalFooter";
+import { SiteFooter } from "./components/ResponsiveSiteFooter";
+import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
@@ -1373,48 +1368,6 @@ function getStorySections(story: ReviewStoryKey) {
   ];
 }
 
-function SiteFooter({
-  isMobile,
-  scale,
-}: {
-  isMobile: boolean;
-  scale: number;
-}) {
-  if (isMobile) {
-    const outerStyle = {
-      height: `${Math.ceil(940 * scale)}px`,
-    };
-    const innerStyle = {
-      width: `${MOBILE_DESIGN.width}px`,
-      height: "940px",
-      transform: `scale(${scale})`,
-    };
-
-    return (
-      <div className="site-main-footer-surface site-main-footer-surface--mobile" style={outerStyle}>
-        <div className="site-main-footer-surface__mobile-canvas" style={innerStyle}>
-          <MainScreenMobileFooter />
-        </div>
-      </div>
-    );
-  }
-
-  const footerStyle = {
-    width: `${DESKTOP_DESIGN.width}px`,
-    zoom: scale,
-  } as CSSProperties & { zoom?: number };
-
-  return (
-    <div className="site-main-footer-surface site-main-footer-surface--desktop" style={footerStyle}>
-      <MainScreenDesktopFooter />
-    </div>
-  );
-}
-
-function LegacySiteFooter() {
-  return <SiteLegalFooter />;
-}
-
 function SitePageHeader({
   logoSrc = "/logo-education-360.webp",
   onHome,
@@ -1462,44 +1415,6 @@ function SitePageHeader({
         <span aria-hidden="true" />
       </button>
     </header>
-  );
-}
-
-function MainScreenHeaderSurface({
-  isMobile,
-  scale,
-}: {
-  isMobile: boolean;
-  scale: number;
-}) {
-  if (isMobile) {
-    const outerStyle = {
-      height: `${Math.ceil(112 * scale)}px`,
-    };
-    const innerStyle = {
-      width: `${MOBILE_DESIGN.width}px`,
-      height: "112px",
-      transform: `scale(${scale})`,
-    };
-
-    return (
-      <div className="site-main-header-surface site-main-header-surface--mobile" style={outerStyle}>
-        <div className="site-main-header-surface__mobile-canvas" style={innerStyle}>
-          <MainScreenMobileHeader />
-        </div>
-      </div>
-    );
-  }
-
-  const surfaceStyle = {
-    width: `${DESKTOP_DESIGN.width}px`,
-    zoom: scale,
-  } as CSSProperties & { zoom?: number };
-
-  return (
-    <div className="site-main-header-surface site-main-header-surface--desktop" style={surfaceStyle}>
-      <MainScreenDesktopHeader />
-    </div>
   );
 }
 
@@ -1623,7 +1538,7 @@ function CourseReviewsPage({
 
   return (
     <section className="site-course-reviews-page site-student-review-page" aria-label="Отзывы учеников о курсе Python-разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-course-reviews-page__inner">
         <div className="site-course-reviews-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
@@ -1724,7 +1639,7 @@ function ReviewsIndexPage({
 
   return (
     <section className="site-reviews-index-page" aria-label="Отзывы учеников">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-reviews-index-page__inner">
         <div className="site-reviews-index-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
@@ -1853,7 +1768,7 @@ function StudentReviewPage({
 
   return (
     <section className="site-course-reviews-page site-student-review-page" aria-label={`Отзыв ${review.name}`}>
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-course-reviews-page__inner">
         <div className="site-course-reviews-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
@@ -1947,7 +1862,7 @@ function ReviewStoryPage({
   return (
     <section className="site-review-page" aria-label={`История ${story.name}`}>
       <img alt="" className="site-review-page__bg" src={reviewStoryCollaborationUrl} />
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
 
       <div className="site-review-page__inner">
         <div className="site-review-page__top">
@@ -2067,7 +1982,7 @@ function AboutPage({
 
   return (
     <>
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-about-scale-shell" style={aboutCanvasStyle}>
       <section className="site-about-page" aria-label="О нас">
         <div className="site-about-page__top">
@@ -2262,7 +2177,7 @@ function TariffsPage({
 
   return (
     <section className="site-tariffs-page" aria-label="Стоимость обучения">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-tariffs-page__content-shell" style={tariffContentShellStyle}>
         <div
           className="site-tariffs-page__content-canvas"
@@ -2560,7 +2475,7 @@ function PythonCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Python-разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2802,7 +2717,7 @@ function DataScienceCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Data Science">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2922,7 +2837,7 @@ function FrontendCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Frontend-разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3042,7 +2957,7 @@ function DataAnalystCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Data-аналитик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3162,7 +3077,7 @@ function CppCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="C++ разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3282,7 +3197,7 @@ function MobileDeveloperCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Мобильный разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3402,7 +3317,7 @@ function UnrealEngineCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Unreal Engine">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3515,7 +3430,7 @@ function JavaCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Курс Java-разработчик">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3628,7 +3543,7 @@ function MlEngineerCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Курс ML-инженер">
-      <MainScreenHeaderSurface isMobile={isMobile} scale={headerScale} />
+      <SiteHeader isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"

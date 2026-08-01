@@ -184,14 +184,14 @@ function Frame5() {
   );
 }
 
-export function MainScreenMobileHeader() {
+export function MainScreenMobileHeader({ menuOpen = false }: { menuOpen?: boolean } = {}) {
   return (
     <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
-      <button aria-label="На главную" className="site-main-header__logo-button" data-site-home type="button">
+      <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
         <Group />
         <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-main-header__course-logo" src="/logo_white_and_black.svg" />
-      </button>
-      <button aria-label="Открыть меню" className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
+      </a>
+      <button aria-expanded={menuOpen} aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
         <Frame5 />
       </button>
     </div>

@@ -3,6 +3,7 @@ import { SITE_URL } from "./seo";
 import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
 
 const UPDATED_AT = new Date("2026-07-13T00:00:00.000Z");
+const SVEDEN_UPDATED_AT = new Date("2026-08-01T00:00:00.000Z");
 
 const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
@@ -32,7 +33,7 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
-    lastModified: UPDATED_AT,
+    lastModified: route.path.startsWith("/sveden/") ? SVEDEN_UPDATED_AT : UPDATED_AT,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));

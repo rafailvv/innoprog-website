@@ -1,55 +1,73 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useSyncExternalStore, type MouseEvent } from "react";
+import { SiteHeader } from "../components/ResponsiveSiteHeader";
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../courseNavigation";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../legalLinks";
 
 type MenuGroup = "adults" | "children" | "about" | null;
 
+const MOBILE_BREAKPOINT = 768;
+const MOBILE_DESIGN_WIDTH = 390;
+const DESKTOP_DESIGN_WIDTH = 1440;
+
+function subscribeViewport(callback: () => void) {
+  window.addEventListener("resize", callback);
+  return () => window.removeEventListener("resize", callback);
+}
+
+function getViewportSnapshot() {
+  return String(window.innerWidth || document.documentElement.clientWidth);
+}
+
+function getServerViewportSnapshot() {
+  return String(MOBILE_DESIGN_WIDTH);
+}
+
 export function SvedenHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<MenuGroup>(null);
-
+  const viewportWidth = Number(useSyncExternalStore(
+    subscribeViewport,
+    getViewportSnapshot,
+    getServerViewportSnapshot,
+  ));
+  const isMobile = viewportWidth < MOBILE_BREAKPOINT;
+  const headerScale = viewportWidth / (isMobile ? MOBILE_DESIGN_WIDTH : DESKTOP_DESIGN_WIDTH);
   const toggleGroup = (group: Exclude<MenuGroup, null>) => {
     setOpenGroup((current) => (current === group ? null : group));
   };
 
+  const handleHeaderClick = (event: MouseEvent<HTMLElement>) => {
+    const target = event.target instanceof Element ? event.target : null;
+
+    if (target?.closest("[data-mobile-menu-toggle]")) {
+      event.preventDefault();
+      setMenuOpen((current) => !current);
+      return;
+    }
+
+    if (target?.closest("[data-site-home]")) {
+      event.preventDefault();
+      window.location.assign("/");
+      return;
+    }
+
+    if (target?.closest('[data-name="кнопки пд"]')) {
+      event.preventDefault();
+      window.location.assign("/application");
+    }
+  };
+
   return (
     <>
-      <header className="site-review-page__header site-main-header sveden-site-header">
-        <a aria-label="На главную" className="site-review-page__logo" href="/">
-          <img alt="ИННОПРОГ Education" src="/logo-education-360.webp" />
-        </a>
-        <nav className="site-review-page__nav sveden-site-header__nav" aria-label="Основная навигация">
-          <div className="site-main-header__nav-group">
-            <a aria-haspopup="menu" href="/">для взрослых<span aria-hidden="true" className="site-main-header__nav-arrow" /></a>
-            <div aria-label="Направления для взрослых" className="site-main-header__dropdown" role="menu">
-              {ADULT_COURSE_LINKS.map(({ label, href }) => <a href={href} key={href} role="menuitem">{label}</a>)}
-            </div>
-          </div>
-          <div className="site-main-header__nav-group">
-            <a aria-haspopup="menu" href="https://pages.innoprog.ru/children/school">для детей<span aria-hidden="true" className="site-main-header__nav-arrow" /></a>
-            <div aria-label="Направления для детей" className="site-main-header__dropdown site-main-header__dropdown--children" role="menu">
-              {CHILD_COURSE_LINKS.map(({ label, href }) => <a href={href} key={label} role="menuitem">{label}</a>)}
-            </div>
-          </div>
-          <a href="/reviews">отзывы</a>
-          <div className="site-main-header__nav-group">
-            <a aria-haspopup="menu" href="/about">о нас<span aria-hidden="true" className="site-main-header__nav-arrow" /></a>
-            <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown sveden-site-header__about-menu" role="menu">
-              <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
-            </div>
-          </div>
-        </nav>
-        <a className="site-review-page__header-cta" href="/application">подобрать курс</a>
-        <button
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
-          className="site-review-page__mobile-toggle"
-          onClick={() => setMenuOpen((current) => !current)}
-          type="button"
-        ><span aria-hidden="true" /></button>
-      </header>
+      <SiteHeader
+        isMobile={isMobile}
+        mobileMenuOpen={menuOpen}
+        onClickCapture={handleHeaderClick}
+        renderBoth
+        scale={headerScale}
+      />
 
       {menuOpen ? (
         <nav aria-label="Мобильное меню" className="site-mobile-menu site-mobile-menu--open sveden-mobile-menu">
