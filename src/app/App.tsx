@@ -21,10 +21,6 @@ import reviewAnastasiaUrl from "../imports/MainScreenDesktop/review-anastasia-hi
 import reviewMikhailUrl from "../imports/MainScreenDesktop/review-mikhail-high.webp";
 import reviewStoryKirillHeroUrl from "../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-story-collaboration.webp";
-import reviewStoryMailUrl from "../imports/MainScreenDesktop/review-story-mail.svg";
-import reviewStoryPhoneUrl from "../imports/MainScreenDesktop/review-story-phone.svg";
-import reviewStoryWhatsappUrl from "../imports/MainScreenDesktop/review-story-whatsapp.svg";
-import reviewStoryTelegramUrl from "../imports/MainScreenDesktop/review-story-telegram.svg";
 import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.opt.webp";
 import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.opt.webp";
 import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.opt.webp";
@@ -50,7 +46,8 @@ import {
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
-import { FooterLegalDetails } from "./FooterLegalDetails";
+import { SiteLegalFooter } from "./components/SiteLegalFooter";
+import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
 const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
@@ -1385,11 +1382,11 @@ function SiteFooter({
 }) {
   if (isMobile) {
     const outerStyle = {
-      height: `${Math.ceil(912 * scale)}px`,
+      height: `${Math.ceil(940 * scale)}px`,
     };
     const innerStyle = {
       width: `${MOBILE_DESIGN.width}px`,
-      height: "912px",
+      height: "940px",
       transform: `scale(${scale})`,
     };
 
@@ -1415,40 +1412,7 @@ function SiteFooter({
 }
 
 function LegacySiteFooter() {
-  return (
-    <footer className="site-review-page__footer">
-      <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo-education-360.webp" />
-      <div className="site-review-page__footer-columns">
-        <section>
-          <h2>Контакты</h2>
-          <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
-          <a href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
-          <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-        </section>
-        <section>
-          <h2>Адреса</h2>
-          <p>г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-          <p>420500 Республика Татарстан, Верхнеуслонский р-он</p>
-        </section>
-        <section>
-          <h2>Правовая информация</h2>
-          <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-          <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-          <a href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-          <a href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
-        </section>
-      </div>
-      <div className="site-review-page__socials" aria-label="Социальные сети">
-        <a aria-label="Написать на почту" href="mailto:education@innoprog.ru"><img alt="" src={reviewStoryMailUrl} /></a>
-        <a aria-label="Позвонить" href="tel:+79586067980"><img alt="" src={reviewStoryPhoneUrl} /></a>
-        <a aria-label="WhatsApp" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryWhatsappUrl} /></a>
-        <a aria-label="Telegram" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank"><img alt="" src={reviewStoryTelegramUrl} /></a>
-      </div>
-      <p className="site-review-page__footer-company">
-        <FooterLegalDetails />
-      </p>
-    </footer>
-  );
+  return <SiteLegalFooter />;
 }
 
 function SitePageHeader({
@@ -1481,7 +1445,12 @@ function SitePageHeader({
         <button data-review-nav="adults" type="button">для взрослых</button>
         <button data-review-nav="children" type="button">для детей</button>
         <button data-review-nav="reviews" type="button">отзывы</button>
-        <button data-review-nav="about" type="button">о нас</button>
+        <div className="site-main-header__nav-group">
+          <button aria-haspopup="menu" data-review-nav="about" type="button">о нас<span aria-hidden="true" className="site-main-header__nav-arrow" /></button>
+          <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown site-main-header__dropdown--about" role="menu">
+            <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
+          </div>
+        </div>
       </nav>
       <button className="site-review-page__header-cta" type="button">подобрать курс</button>
       <button
@@ -2202,16 +2171,17 @@ function AboutPage({
             <h2>правовая информация</h2>
             <div className="site-about-legal__links">
               <div>
-                <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
-                <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
-                <a href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
+                <a href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
+                <a href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
+                <a href={LEGAL_LINKS.consent} rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
               </div>
               <div>
-                <a href="https://api.innoprog.ru/files/documents/license.pdf" rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
-                <a href="https://api.innoprog.ru/files/documents/consent_advertising_and_information_mailings.pdf" rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
+                <a href={LEGAL_LINKS.license} rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+                <a href={LEGAL_LINKS.advertisingConsent} rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
               </div>
             </div>
             <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
+            <a className="site-about-legal__disclosure" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
           </section>
         </main>
       </section>
@@ -3989,7 +3959,7 @@ export default function App({
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
-  const [openMobileNavGroup, setOpenMobileNavGroup] = useState<"adults" | "children" | null>(null);
+  const [openMobileNavGroup, setOpenMobileNavGroup] = useState<"adults" | "children" | "about" | null>(null);
   const [isReviewConsultPrimed, setIsReviewConsultPrimed] = useState(false);
   const [isPageTransitionLoading, setIsPageTransitionLoading] = useState(false);
   const [leadDraft, setLeadDraft] = useState<LeadDraft>({});
@@ -4926,7 +4896,7 @@ export default function App({
 
     if (mobileMenuExpand?.dataset.mobileMenuExpand) {
       event.preventDefault();
-      const group = mobileMenuExpand.dataset.mobileMenuExpand as "adults" | "children";
+      const group = mobileMenuExpand.dataset.mobileMenuExpand as "adults" | "children" | "about";
       setOpenMobileNavGroup((currentGroup) => currentGroup === group ? null : group);
       return;
     }
@@ -5699,15 +5669,15 @@ export default function App({
             >
               отзывы
             </button>
-            <button
-              aria-current={isAboutRoute ? "page" : undefined}
-              data-active={isAboutRoute ? "true" : undefined}
-              data-mobile-menu-link
-              data-scroll-target="about"
-              type="button"
-            >
-              о нас
-            </button>
+            <div className="site-mobile-menu__nav-group">
+              <div className="site-mobile-menu__nav-row">
+                <button aria-current={isAboutRoute ? "page" : undefined} data-active={isAboutRoute ? "true" : undefined} data-mobile-menu-link data-scroll-target="about" type="button">о нас</button>
+                <button aria-controls="mobile-about-links" aria-expanded={openMobileNavGroup === "about"} aria-label="Показать информацию об ИННОПРОГ" className="site-mobile-menu__expand" data-mobile-menu-expand="about" type="button"><span aria-hidden="true" /></button>
+              </div>
+              <div aria-hidden={openMobileNavGroup !== "about"} className="site-mobile-menu__submenu" data-open={openMobileNavGroup === "about"} id="mobile-about-links">
+                <a href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
+              </div>
+            </div>
           </div>
           <button className="site-mobile-menu__cta" data-mobile-menu-link data-scroll-target="form" type="button">
             подобрать направление
@@ -5836,7 +5806,7 @@ export default function App({
                     Нажимая на кнопку, вы даете&nbsp;
                     <a
                       className="site-consent__link"
-                      href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf"
+                      href="/consent"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
@@ -5845,7 +5815,7 @@ export default function App({
                     &nbsp;и соглашаетесь с&nbsp;
                     <a
                       className="site-consent__link"
-                      href="https://api.innoprog.ru/files/documents/privacy_policy.pdf"
+                      href="/privacy"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
@@ -5889,7 +5859,7 @@ export default function App({
             аналитики и показа более подходящего контента. Продолжая пользоваться сайтом, вы соглашаетесь с их
             использованием по{" "}
             <a
-              href="https://api.innoprog.ru/files/documents/privacy_policy.pdf"
+              href="/privacy"
               rel="noopener noreferrer"
               target="_blank"
             >

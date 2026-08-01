@@ -17,6 +17,7 @@ import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
+import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
@@ -2695,11 +2696,11 @@ function Frame114() {
       </div>
       <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-white">
         <span className="leading-[15px] text-[12px]">Нажимая на кнопку, вы даете </span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="/consent" rel="noopener noreferrer" target="_blank">
           согласие на обработку персональных данных
         </a>
         <span className="leading-[15px] text-[12px]">{` и соглашаетесь с `}</span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[15px] site-consent__link text-[12px]" href="/privacy" rel="noopener noreferrer" target="_blank">
           политикой конфиденциальности
         </a>
       </p>
@@ -2747,6 +2748,7 @@ function Frame117() {
       <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="no-underline relative shrink-0 w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
+      <a className="site-education-disclosure-link relative shrink-0 w-full" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
     </div>
   );
 }
@@ -2781,10 +2783,10 @@ function Frame118() {
 function Frame122() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold gap-[16px] items-start relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase w-full">
-      <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
+      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта</a>
+      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.softwareOperationManual} rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
+      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.functionalCharacteristics} rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>
   );
 }

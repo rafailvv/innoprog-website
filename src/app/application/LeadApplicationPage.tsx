@@ -174,7 +174,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
             <label className="site-application-consent">
               <input checked={isConsentChecked} onChange={(event) => setIsConsentChecked(event.target.checked)} type="checkbox" />
               <span>
-                Нажимая на кнопку, вы даете <a href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a> и соглашаетесь с <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">политикой конфиденциальности</a>
+                Нажимая на кнопку, вы даете <a href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a> и соглашаетесь с <a href="/privacy" rel="noopener noreferrer" target="_blank">политикой конфиденциальности</a>
               </span>
             </label>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}

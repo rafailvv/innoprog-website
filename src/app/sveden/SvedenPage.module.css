@@ -1,0 +1,148 @@
+.page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background: #f6f5fb;
+  color: #1d1930;
+}
+
+.main {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 152px 0 72px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: #69647a;
+  font-size: 14px;
+}
+
+.breadcrumbs a { color: #5f45c8; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+
+.hero {
+  padding: 40px 0 48px;
+  border-top: 1px solid #dedbea;
+  border-bottom: 1px solid #dedbea;
+}
+
+.hero h1 {
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-size: clamp(30px, 4.1vw, 58px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.updated { margin: 20px 0 0; color: #69647a; font-size: 14px; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 48px;
+  padding-top: 48px;
+}
+
+.sectionNav {
+  position: sticky;
+  top: 128px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #d7d3e2;
+}
+
+.sectionNav a {
+  padding: 13px 10px;
+  border-bottom: 1px solid #d7d3e2;
+  color: #3b354c;
+  font-size: 14px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.sectionNav a:hover { color: #6d4ee8; }
+.sectionNav a[aria-current="page"] { color: #fff; background: #7250df; font-weight: 700; }
+
+.content { min-width: 0; }
+.content h2 { margin: 0; font-size: 38px; font-weight: 550; line-height: 1.15; }
+.content h3 { margin: 44px 0 18px; font-size: 24px; font-weight: 650; line-height: 1.25; }
+.content p { max-width: 920px; margin: 0 0 16px; color: #4d485b; font-size: 16px; line-height: 1.65; }
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #d8d4e3;
+  border-radius: 8px;
+  background: #fff;
+  scrollbar-gutter: stable;
+}
+
+.tableScroll:focus-visible { outline: 3px solid #8e6bff; outline-offset: 2px; }
+
+.detailsTable,
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.detailsTable th,
+.detailsTable td,
+.dataTable th,
+.dataTable td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #e4e1ea;
+  text-align: left;
+  vertical-align: top;
+}
+
+.detailsTable th { width: 34%; color: #302a42; background: #faf9fd; font-weight: 650; }
+.detailsTable tr:last-child > *, .dataTable tbody tr:last-child > * { border-bottom: 0; }
+.dataTable { min-width: 960px; }
+.dataTable thead th { color: #fff; background: #4c486b; font-weight: 650; }
+.dataTable tbody tr:nth-child(even) { background: #faf9fd; }
+.programTable { min-width: 1320px; }
+
+.documentLinks { min-width: 190px; }
+.documentLinks a, .documentLinks small { display: block; }
+.documentLinks a + a { margin-top: 6px; }
+.content a { color: #6544d9; text-underline-offset: 3px; }
+
+.sectionBlock { margin-top: 44px; }
+.sectionBlock h3 { margin-top: 0; }
+.documentList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.documentList li { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 16px; border: 1px solid #d8d4e3; border-radius: 8px; background: #fff; }
+.documentList a { overflow-wrap: anywhere; font-weight: 650; line-height: 1.35; }
+.documentList span { color: #716b7d; font-size: 13px; }
+
+.visuallyHidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 900px) {
+  .main { width: min(100% - 32px, 720px); padding: 108px 0 48px; }
+  .hero { padding: 28px 0 34px; }
+  .hero h1 { font-size: 34px; }
+  .layout { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; }
+  .sectionNav { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sectionNav a { border: 1px solid #d7d3e2; margin: -1px 0 0 -1px; }
+  .content h2 { font-size: 30px; }
+  .documentList { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .main { width: calc(100% - 24px); padding-top: 92px; }
+  .breadcrumbs { font-size: 12px; }
+  .hero h1 { font-size: 28px; }
+  .sectionNav { grid-template-columns: 1fr; }
+  .content h2 { font-size: 26px; }
+  .content h3 { margin-top: 36px; font-size: 21px; }
+  .detailsTable { min-width: 660px; }
+  .detailsTable th { width: 250px; }
+}

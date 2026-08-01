@@ -69,6 +69,17 @@ const nextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
       {
+        source: "/files/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex, noarchive" },
+        ],
+      },
+      {
+        source: "/(privacy|consent|advertising-consent|oferta|license|software-operation-manual|functional-characteristics)",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, noarchive" }],
+      },
+      {
         source: "/reviews",
         has: [
           {
@@ -141,6 +152,31 @@ const nextConfig = {
       {
         source: "/favicon.ico",
         destination: "/favicon.png",
+        permanent: true,
+      },
+      {
+        source: "/documents/privacy.pdf",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/documents/consent.pdf",
+        destination: "/consent",
+        permanent: true,
+      },
+      {
+        source: "/documents/offer.pdf",
+        destination: "/oferta",
+        permanent: true,
+      },
+      {
+        source: "/documents/software-operation-manual.pdf",
+        destination: "/software-operation-manual",
+        permanent: true,
+      },
+      {
+        source: "/documents/functional-characteristics.pdf",
+        destination: "/functional-characteristics",
         permanent: true,
       },
       {
@@ -267,18 +303,6 @@ const nextConfig = {
         source: "/machine-learning",
         destination: "/ml-engineer-course",
         permanent: true,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/oferta",
-        destination: "/documents/offer.pdf",
-      },
-      {
-        source: "/privacy",
-        destination: "/documents/privacy.pdf",
       },
     ];
   },

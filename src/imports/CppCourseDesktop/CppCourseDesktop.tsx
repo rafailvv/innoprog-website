@@ -4938,11 +4938,11 @@ function Frame58() {
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-white">
         <span className="leading-[20px] text-[16px]">Нажимая на кнопку, вы даете </span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="https://api.innoprog.ru/files/documents/consent_to_personal_data_processing.pdf" rel="noopener noreferrer" target="_blank">
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="/consent" rel="noopener noreferrer" target="_blank">
           <span>согласие на обработку персональных данных</span>
         </a>
         <span className="leading-[20px] text-[16px]">{` и соглашаетесь с `}</span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">
+        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="/privacy" rel="noopener noreferrer" target="_blank">
           <span>политикой конфиденциальности</span>
         </a>
       </p>

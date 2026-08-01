@@ -64,10 +64,10 @@ export default function NotFoundPageContent() {
           </section>
           <section>
             <h2>Правовая информация</h2>
-            <a href="https://api.innoprog.ru/files/documents/privacy_policy.pdf" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-            <a href="https://api.innoprog.ru/files/documents/contract_offer.pdf" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-            <a href="/documents/software-operation-manual.pdf" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-            <a href="/documents/functional-characteristics.pdf" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
+            <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+            <a href="/oferta" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
+            <a href="/software-operation-manual" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
+            <a href="/functional-characteristics" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
           </section>
         </div>
         <p className="site-review-page__footer-company">

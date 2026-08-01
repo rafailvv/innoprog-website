@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "./seo";
+import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
 
 const UPDATED_AT = new Date("2026-07-13T00:00:00.000Z");
 
@@ -19,7 +20,14 @@ const baseRoutes = [
   { path: "/reviews", changeFrequency: "monthly", priority: 0.75 },
 ] as const;
 
-const routes = [...baseRoutes];
+const routes = [
+  ...baseRoutes,
+  ...SVEDEN_SECTION_SLUGS.map((section) => ({
+    path: `/sveden/${section}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  })),
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
