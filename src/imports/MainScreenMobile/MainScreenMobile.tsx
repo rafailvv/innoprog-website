@@ -2748,7 +2748,6 @@ function Frame117() {
       <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="no-underline relative shrink-0 w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-      <a className="site-education-disclosure-link relative shrink-0 w-full" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
     </div>
   );
 }
@@ -2948,6 +2947,7 @@ export function MainScreenMobileFooter() {
       <div className="content-stretch flex flex-col gap-[22px] items-start pb-[28px] pt-[28px] px-[20px] relative size-full">
         <Frame92 />
         <Frame123 />
+        <a className="self-center site-education-disclosure-link" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[14px] min-w-full mt-[12px] relative shrink-0 text-[11px] text-center text-white tracking-[0.12px] w-[min-content]">
           <FooterLegalDetails compactActivityCodes />
         </p>

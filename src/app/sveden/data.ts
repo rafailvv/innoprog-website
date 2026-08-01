@@ -221,13 +221,18 @@ const PROGRAM_ROWS = [
 export type EducationProgram = {
   kind: "ДО" | "ДПО";
   name: string;
+  code: string;
+  educationLevel: string;
+  programDescription: string;
   volume: string;
   term: string;
   students: number;
+  foreignStudents: number;
   fileName: string;
   form: string;
   language: string;
-  modules: string[];
+  subjects: string[];
+  practice: string;
   document: SvedenDocument;
 };
 
@@ -243,13 +248,24 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
     return {
       kind,
       name,
+      code: "Код и шифр дополнительной образовательной программе не присваиваются",
+      educationLevel: kind === "ДО"
+        ? "Уровень образования не устанавливается; вид образования — дополнительное образование, подвид — дополнительное образование детей и взрослых"
+        : "Уровень образования не устанавливается; вид образования — дополнительное образование, подвид — дополнительное профессиональное образование",
+      programDescription: kind === "ДО"
+        ? `Дополнительная общеобразовательная общеразвивающая программа «${name}»`
+        : `Дополнительная профессиональная программа профессиональной переподготовки «${name}»`,
       volume,
       term,
       students,
+      foreignStudents: 0,
       fileName,
       form: "очная с применением электронного обучения и дистанционных образовательных технологий",
       language: "русский",
-      modules: kind === "ДПО" ? DPO_MODULES[name] || [name] : [name],
+      subjects: kind === "ДПО" ? DPO_MODULES[name] || [name] : [`Учебный курс «${name}»`],
+      practice: kind === "ДПО"
+        ? "Проектная практика"
+        : "Практика как отдельный раздел образовательной программы не предусмотрена",
       document,
     };
   },

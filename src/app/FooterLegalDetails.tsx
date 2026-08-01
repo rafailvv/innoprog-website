@@ -1,7 +1,7 @@
 import React from "react";
 
 export const SOFTWARE_REGISTRY_NOTICE =
-  'ПО "INNOPROG" зарегистрировано в реестре российского ПО (реестровая запись №34485 от 15.07.2026).';
+  'ПО "INNOPROG" зарегистрировано в реестре российского ПО (реестровая запись №34485 от 15.07.2026)';
 
 export function FooterLegalDetails({
   compactActivityCodes = false,

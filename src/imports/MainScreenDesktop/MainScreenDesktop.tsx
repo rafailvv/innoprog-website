@@ -361,7 +361,7 @@ function Frame58() {
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
       </a>
       <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[88px]" data-main-nav="about" data-name="Text" href="/about">
+        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[72px]" data-main-nav="about" data-name="Text" href="/about">
           <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">о нас</p>
           <span aria-hidden="true" className="site-main-header__nav-arrow" />
         </a>
@@ -2256,7 +2256,6 @@ function Frame64() {
       <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-      <a className="site-education-disclosure-link relative shrink-0 text-white w-full" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
     </div>
   );
 }
@@ -2403,6 +2402,7 @@ function Group8() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 site-main-desktop-footer">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group5 />
+      <a className="col-1 justify-self-center mt-[420px] relative row-1 site-education-disclosure-link" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
       <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[468px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
         <FooterLegalDetails />
       </p>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { COURSE_SEO_ITEMS } from "./seo";
 import { FooterLegalDetails } from "./FooterLegalDetails";
+import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
 export default function NotFoundPageContent() {
   return (
@@ -70,6 +71,7 @@ export default function NotFoundPageContent() {
             <a href="/functional-characteristics" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
           </section>
         </div>
+        <a className="site-education-disclosure-link site-review-page__education-disclosure" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
         <p className="site-review-page__footer-company">
           <FooterLegalDetails />
         </p>

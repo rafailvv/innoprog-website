@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useSyncExternalStore, type MouseEvent } from "react";
+import React, { useEffect, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../courseNavigation";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../legalLinks";
@@ -106,6 +106,29 @@ export function SvedenHeader() {
         </nav>
       ) : null}
     </>
+  );
+}
+
+export function SvedenAccessibilityToggle({ className }: { className?: string }) {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem("sveden-accessible") === "true";
+    setEnabled(stored);
+    document.documentElement.classList.toggle("sveden-accessible", stored);
+  }, []);
+
+  const toggle = () => {
+    const next = !enabled;
+    setEnabled(next);
+    document.documentElement.classList.toggle("sveden-accessible", next);
+    window.localStorage.setItem("sveden-accessible", String(next));
+  };
+
+  return (
+    <button aria-pressed={enabled} className={className} itemProp="copy" onClick={toggle} type="button">
+      {enabled ? "Обычная версия" : "Версия для слабовидящих"}
+    </button>
   );
 }
 

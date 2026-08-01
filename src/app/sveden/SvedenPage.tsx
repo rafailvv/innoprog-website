@@ -1,9 +1,10 @@
 import React, { type ReactNode } from "react";
 import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
-import { SvedenHeader } from "./SvedenHeader";
+import { SvedenAccessibilityToggle, SvedenHeader } from "./SvedenHeader";
 import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
+  SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
   SVEDEN_UPDATED_AT,
@@ -34,8 +35,9 @@ const DOCUMENT_ITEMPROPS: Record<string, string> = {
   "Положение о текущем контроле и аттестации": "tekKontrolDocLink",
   "Положение о переводе отчислении и восстановлении": "perevodDocLink",
   "Положение о возникновении приостановлении и прекращении отношений": "vozDocLink",
-  "Положение о специализированном структурном образовательном подразделении": "divisionClauseDo",
+  "Положение о специализированном структурном образовательном подразделении": "divisionClauseDocLink",
   "Положение об оказании платных образовательных услуг": "paidEdu",
+  "Приказ № ОБР-4-1 об утверждении стоимости обучения": "paidSt",
   "Публичная оферта редакция 08.04.2026": "paidDog",
 };
 
@@ -60,17 +62,17 @@ function DetailsTable({ rows, label }: { rows: Array<[string, ReactNode]>; label
   );
 }
 
-function DocumentList({ documents, purpose = "Публикация обязательных сведений" }: { documents: SvedenDocument[]; purpose?: string }) {
+function DocumentList({ documents, purpose = "Электронная версия сведений раздела" }: { documents: SvedenDocument[]; purpose?: string }) {
   if (!documents.length) return null;
   return (
     <section className={styles.sectionBlock} aria-labelledby="documents-heading">
-      <h3 id="documents-heading">Документы раздела</h3>
+      <h3 id="documents-heading">Электронные документы раздела</h3>
       <ul className={styles.documentList}>
         {documents.map((document) => (
           <li key={document.id}>
             <a
               href={document.href}
-              itemProp={DOCUMENT_ITEMPROPS[document.title] || "localAct"}
+              itemProp={DOCUMENT_ITEMPROPS[document.title]}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -99,7 +101,12 @@ function CommonSection() {
         ["Режим и график работы", <Value itemProp="workTime">Понедельник-пятница: 09:00-21:00 по московскому времени; суббота и воскресенье: выходные дни</Value>],
         ["Телефон", <a href="tel:+79586067980" itemProp="telephone">+7 (958) 606-79-80</a>],
         ["Электронная почта", <a href="mailto:education@innoprog.ru" itemProp="email">education@innoprog.ru</a>],
-        ["Места осуществления практической подготовки", <Value itemProp="addressPlacePrac">Практическая подготовка реализуется дистанционно с применением электронной информационно-образовательной среды</Value>],
+        ["Места осуществления образовательной деятельности при использовании сетевой формы", <Value itemProp="addressPlaceSet">Сетевая форма реализации образовательных программ не используется</Value>],
+        ["Места проведения практики", <Value itemProp="addressPlacePrac">Отдельные места проведения практики отсутствуют; предусмотренная программами практика проводится дистанционно в электронной информационно-образовательной среде</Value>],
+        ["Места проведения практической подготовки", <Value itemProp="addressPlacePodg">Практическая подготовка проводится дистанционно в электронной информационно-образовательной среде</Value>],
+        ["Места проведения государственной итоговой аттестации", <Value itemProp="addressPlaceGia">Государственная итоговая аттестация по реализуемым дополнительным образовательным программам не проводится</Value>],
+        ["Места осуществления образовательной деятельности по дополнительным профессиональным программам", <Value itemProp="addressPlaceDop">Образовательная деятельность осуществляется дистанционно с применением электронной информационно-образовательной среды ООО «ИННОПРОГ»</Value>],
+        ["Места осуществления образовательной деятельности по основным программам профессионального обучения", <Value itemProp="addressPlaceOppo">Основные программы профессионального обучения не реализуются</Value>],
         ["Филиалы и представительства", "Отсутствуют"],
       ]} />
       <h3>Лицензия на образовательную деятельность</h3>
@@ -117,10 +124,10 @@ function StructSection() {
         <DetailsTable label="Структура образовательной организации" rows={[
           ["Наименование", <Value itemProp="name">Специализированное структурное образовательное подразделение ООО «ИННОПРОГ»</Value>],
           ["Дата создания", "1 февраля 2025 года"],
-          ["Руководитель", <Value itemProp="fioPost">Венедиктов Рафаил Владимирович, генеральный директор</Value>],
+          ["Руководитель", <><Value itemProp="fio">Венедиктов Рафаил Владимирович</Value>, <Value itemProp="post">генеральный директор</Value></>],
           ["Место нахождения", <Value itemProp="addressStr">420500, Республика Татарстан, г. Иннополис, ул. Университетская, д. 5, помещ. 115, рабочее место 15/2</Value>],
           ["Адрес официального сайта", <a href="https://innoprog.ru" itemProp="site">innoprog.ru</a>],
-          ["Электронная почта", <a href="mailto:education@innoprog.ru">education@innoprog.ru</a>],
+          ["Электронная почта", <a href="mailto:education@innoprog.ru" itemProp="email">education@innoprog.ru</a>],
           ["Филиалы", <Value itemProp="filInfo">Отсутствуют</Value>],
           ["Представительства", <Value itemProp="repInfo">Отсутствуют</Value>],
         ]} />
@@ -131,13 +138,16 @@ function StructSection() {
 }
 
 function DocumentSection() {
+  const charter = SVEDEN_DOCUMENTS.find((document) => document.title === "Устав типовой №24");
+  if (!charter) throw new Error("The charter document is missing");
+
   return (
     <>
       <h3>Локальные нормативные акты и отчётность</h3>
-      <p>Документы опубликованы в действующих редакциях. Предписания органов государственного контроля в сфере образования и отчёты об их исполнении отсутствуют.</p>
-      <p itemProp="collectiveDog">Коллективный договор отсутствует.</p>
-      <span className={styles.visuallyHidden} itemProp="prescriptionDocLink">Предписания отсутствуют</span>
-      <DocumentList documents={getSectionDocuments("document")} purpose="Нормативное регулирование образовательной деятельности" />
+      <p>Документы опубликованы в действующих редакциях.</p>
+      <p itemProp="localActCollec">Коллективный договор отсутствует.</p>
+      <p itemProp="prescriptionDocLink">Предписания органов государственного контроля в сфере образования и отчёты об их исполнении отсутствуют.</p>
+      <DocumentList documents={[charter, ...getSectionDocuments("document")]} purpose="Нормативное регулирование образовательной деятельности" />
     </>
   );
 }
@@ -158,30 +168,37 @@ function EducationSection() {
         ["Формы обучения", "Очная с применением электронного обучения и дистанционных образовательных технологий"],
         ["Язык образования", <>Русский язык. <a href={languageDocument.href} itemProp="languageEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
         ["Общее количество программ", `${EDUCATION_TOTALS.programs}: ${EDUCATION_TOTALS.generalPrograms} дополнительных общеобразовательных и ${EDUCATION_TOTALS.professionalPrograms} дополнительных профессиональных`],
-        ["Общая численность обучающихся", <>72 человека: 68 по программам ДО и 4 по программам ДПО; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
-        ["Государственная аккредитация", <Value itemProp="eduAccred">Не предусмотрена для реализуемых дополнительных образовательных программ</Value>],
+        ["Общая численность обучающихся", <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
+        ["Государственная аккредитация", "Не предусмотрена для реализуемых дополнительных образовательных программ"],
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
       <h3>Реализуемые образовательные программы</h3>
-      <p>Для каждой программы приведены вид, форма, срок, объём, модули, язык, текущая численность и утверждённый документ.</p>
+      <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике и методические материалы.</p>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="47 образовательных программ">
         <table className={`${styles.dataTable} ${styles.programTable}`}>
-          <thead><tr><th>Код и направление</th><th>Уровень и программа</th><th>Форма, срок и объём</th><th>Модули</th><th>Язык</th><th>Численность</th><th>Электронные документы</th></tr></thead>
+          <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Численность обучающихся</th><th>Электронные документы</th></tr></thead>
           <tbody>
             {EDUCATION_PROGRAMS.map((program) => (
-              <tr itemProp="eduOp" key={`${program.kind}-${program.name}`}>
-                <td><span itemProp="eduCode">Не применяется</span><br /><span itemProp="eduName">Дополнительное образование</span></td>
-                <td><span itemProp="eduLevel">{program.kind}</span><br /><strong itemProp="eduProf">{program.name}</strong></td>
-                <td><span itemProp="eduForm">{program.form}</span>; <span itemProp="learningTerm">{program.term}</span>; {program.volume}</td>
-                <td>{program.modules.join("; ")}</td>
+              <tr itemProp="eduAccred eduOp" key={`${program.kind}-${program.name}`}>
+                <td itemProp="eduCode">{program.code}</td>
+                <th scope="row" itemProp="eduName">{program.name}</th>
+                <td itemProp="eduLevel">{program.educationLevel}</td>
+                <td itemProp="eduProf">{program.programDescription}</td>
+                <td itemProp="eduForm">{program.form}</td>
+                <td itemProp="learningTerm">{program.term}</td>
+                <td>{program.volume}</td>
+                <td itemProp="eduPred">{program.subjects.join("; ")}</td>
+                <td itemProp="eduPrac">{program.practice}</td>
                 <td>{program.language}</td>
-                <td>{program.students}</td>
+                <td>{program.students}, в том числе иностранных граждан — {program.foreignStudents}</td>
                 <td className={styles.documentLinks}>
                   <a href={program.document.href} itemProp="opMain" rel="noopener noreferrer" target="_blank">Описание программы</a>
                   <a href={program.document.href} itemProp="educationPlan" rel="noopener noreferrer" target="_blank">Учебный план</a>
                   <a href={program.document.href} itemProp="educationRpd" rel="noopener noreferrer" target="_blank">Рабочие программы и модули</a>
                   <a href={program.document.href} itemProp="educationShedule" rel="noopener noreferrer" target="_blank">Календарный учебный график</a>
+                  <a href={program.document.href} itemProp="eduPr" rel="noopener noreferrer" target="_blank">Сведения о практике</a>
+                  <a href={program.document.href} itemProp="methodology" rel="noopener noreferrer" target="_blank">Методические документы</a>
                   <small>PDF · {formatDocumentSize(program.document.sizeBytes)}</small>
                 </td>
               </tr>
@@ -217,11 +234,13 @@ const EMPLOYEES = [
   {
     fio: "Венедиктов Рафаил Владимирович",
     post: "Генеральный директор, преподаватель",
-    disciplines: "Программы ДПО: Python-разработчик, Data-аналитик, Data Science",
+    disciplines: "Дополнительные профессиональные программы: Python-разработчик, Data-аналитик, Data Science",
     education: "Высшее образование: бакалавриат по направлению «Информатика и вычислительная техника»; магистратура по направлению «Бизнес-информатика»",
     qualification: "Бакалавр; магистр",
-    training: "Повышение квалификации и профессиональная переподготовка: отсутствуют",
-    experience: "Общий стаж — 5 лет; стаж работы по специальности — 5 лет",
+    training: "Повышение квалификации отсутствует",
+    retraining: "Профессиональная переподготовка отсутствует",
+    experience: "5 лет работы в профессиональной сфере, соответствующей преподаваемым дисциплинам",
+    programs: "Дополнительные профессиональные программы: Python-разработчик, Data-аналитик, Data Science",
   },
   {
     fio: "Королев Артемий Александрович",
@@ -229,8 +248,10 @@ const EMPLOYEES = [
     disciplines: "Дополнительные общеобразовательные программы по Python",
     education: "Неоконченное профессиональное образование: Университет «Синергия», направление «Разработка программного обеспечения». Допущен к педагогической деятельности в соответствии с частью 4 статьи 46 Федерального закона № 273-ФЗ",
     qualification: "Проходит обучение; пройдены два профильных курса",
-    training: "Повышение квалификации и профессиональная переподготовка: отсутствуют",
-    experience: "Общий стаж — 3 года; стаж работы по специальности — 3 года",
+    training: "Повышение квалификации отсутствует",
+    retraining: "Профессиональная переподготовка отсутствует",
+    experience: "3 года работы в профессиональной сфере, соответствующей преподаваемым дисциплинам",
+    programs: "Дополнительные общеобразовательные общеразвивающие программы: «Python Начальный», «Python Продвинутый», «Turtle в Python», «Объектно-ориентированное программирование в Python», «Разработка игр на Python»",
   },
 ] as const;
 
@@ -240,20 +261,41 @@ function EmployeesSection() {
       <h3>Педагогические работники</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения о педагогическом составе">
         <table className={styles.dataTable}>
-          <thead><tr><th>ФИО и должность</th><th>Преподаваемые дисциплины</th><th>Образование и квалификация</th><th>Степень и звание</th><th>Повышение квалификации</th><th>Стаж</th></tr></thead>
-          <tbody itemProp="teachingStaff">
-            {EMPLOYEES.map((employee) => <tr key={employee.fio}>
-              <td><strong itemProp="fio">{employee.fio}</strong><br /><span itemProp="post">{employee.post}</span></td>
-              <td itemProp="teachingDisciplin">{employee.disciplines}</td>
-              <td><span itemProp="teachingLevel">{employee.education}</span><br /><span itemProp="employeeQualific">{employee.qualification}</span></td>
+          <thead><tr><th>ФИО и должность</th><th>Преподаваемые дисциплины</th><th>Образование и квалификация</th><th>Степень и звание</th><th>Повышение квалификации</th><th>Профессиональная переподготовка</th><th>Опыт работы</th><th>Образовательные программы</th></tr></thead>
+          <tbody>
+            {EMPLOYEES.map((employee) => <tr itemProp="teachingStaff" key={employee.fio}>
+              <th scope="row"><strong itemProp="fio">{employee.fio}</strong><br /><span itemProp="post">{employee.post}</span></th>
+              <td itemProp="teachingDiscipline">{employee.disciplines}</td>
+              <td itemProp="teachingLevel">{employee.education}<br />Квалификация: {employee.qualification}</td>
               <td><span itemProp="degree">Учёная степень отсутствует</span>; <span itemProp="academStat">учёное звание отсутствует</span></td>
-              <td itemProp="profDevelopment">{employee.training}</td>
-              <td><span itemProp="genExperience">{employee.experience}</span></td>
+              <td itemProp="qualification">{employee.training}</td>
+              <td itemProp="profDevelopment">{employee.retraining}</td>
+              <td itemProp="specExperience">{employee.experience}</td>
+              <td itemProp="teachingOp">{employee.programs}</td>
             </tr>)}
           </tbody>
         </table>
       </div>
       <DocumentList documents={getSectionDocuments("employees")} />
+    </>
+  );
+}
+
+function HostelTable() {
+  return (
+    <>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения об общежитии и интернате">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Показатель</th><th>Общежитие</th><th>Интернат</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Количество объектов</th><td itemProp="hosteInfo hostelInfo">0</td><td itemProp="interInfo">0</td></tr>
+            <tr><th scope="row">Количество мест</th><td itemProp="hostelNum">0</td><td itemProp="interNum">0</td></tr>
+            <tr><th scope="row">Количество жилых помещений, приспособленных для инвалидов и лиц с ОВЗ</th><td itemProp="hostelNumOvz">0</td><td itemProp="interNumOvz">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p itemProp="hostelInterOvz">Общежитие и интернат отсутствуют, поэтому условия для беспрепятственного доступа в них не создавались.</p>
+      <p itemProp="localActObSt">Плата за проживание не установлена. Документ о порядке предоставления жилых помещений не утверждался в связи с отсутствием общежития и интерната.</p>
     </>
   );
 }
@@ -266,16 +308,45 @@ function ObjectsSection() {
         ["Способ реализации", "Обучение проводится дистанционно с применением электронного обучения и дистанционных образовательных технологий"],
         ["Собственная электронная образовательная среда", <a href="https://app.innoprog.ru" itemProp="eoisOwn" rel="noopener noreferrer" target="_blank">app.innoprog.ru</a>],
         ["Состав платформы", <Value itemProp="purposeEios">17 модулей, 151 тема, 436 видеоматериалов, 393 урока с дополнительными материалами и 2008 заданий</Value>],
-        ["Учебные кабинеты", <Value itemProp="purposeCab">Собственные оборудованные учебные кабинеты отсутствуют; занятия проходят дистанционно</Value>],
-        ["Библиотека", <Value itemProp="purposeLibr">Отдельная библиотека отсутствует; электронные материалы предоставляются в образовательной среде</Value>],
-        ["Объекты спорта", <Value itemProp="purposeSport">Отсутствуют</Value>],
         ["Средства обучения и воспитания", <Value itemProp="purposeFacil">Электронные учебные материалы, видеолекции, практические задания, средства обратной связи и сопровождения наставником</Value>],
+        ["Приспособленные средства обучения и воспитания", <Value itemProp="purposeFacilOvz">Специально приспособленные средства отсутствуют; возможность использования электронных материалов определяется индивидуально</Value>],
         ["Доступ к информационным системам", <Value itemProp="comNet">Круглосуточный доступ через сеть Интернет по индивидуальной учётной записи</Value>],
+        ["Приспособленный доступ к информационным системам", <Value itemProp="comNetOvz">Специально приспособленные информационные системы отсутствуют</Value>],
+        ["Электронные образовательные ресурсы", <span itemProp="erList">Собственная образовательная платформа <a href="https://app.innoprog.ru" rel="noopener noreferrer" target="_blank">app.innoprog.ru</a>, видеоматериалы, задания и дополнительные учебные материалы</span>],
+        ["Приспособленные электронные образовательные ресурсы", <Value itemProp="erListOvz">Специально приспособленные электронные образовательные ресурсы отсутствуют</Value>],
+        ["Доступ в здания для инвалидов и лиц с ОВЗ", <Value itemProp="ovz">Здания для проведения занятий не используются, поскольку обучение проводится дистанционно</Value>],
         ["Специальные технические средства для инвалидов и лиц с ОВЗ", <Value itemProp="techOvz">Специальные технические средства отсутствуют; возможность обучения определяется индивидуально с учётом потребностей обучающегося</Value>],
       ]} />
+      <h3>Оборудованные учебные кабинеты</h3>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Оборудованные учебные кабинеты">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Адрес</th><th>Наименование</th><th>Оснащённость</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <tbody>
+            <tr itemProp="purposeCab"><td itemProp="addressCab">Отдельный объект отсутствует</td><td itemProp="nameCab">Отдельный объект отсутствует</td><td itemProp="osnCab">Оснащение отдельного кабинета отсутствует в связи с дистанционным форматом обучения</td><td itemProp="ovzCab">Специально приспособленный отдельный кабинет отсутствует</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Объекты для проведения практических занятий</h3>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Объекты для проведения практических занятий">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Адрес</th><th>Наименование</th><th>Оснащённость</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <tbody>
+            <tr itemProp="purposePrac"><td itemProp="addressPrac">Отдельный объект отсутствует</td><td itemProp="namePrac">Отдельный объект отсутствует</td><td itemProp="osnPrac">Практические задания выполняются дистанционно в электронной информационно-образовательной среде</td><td itemProp="ovzPrac">Специально приспособленный объект отсутствует</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Библиотеки и объекты спорта</h3>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Библиотеки и объекты спорта">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Вид объекта</th><th>Наименование</th><th>Адрес</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <tbody>
+            <tr itemProp="purposeLibr"><td>Библиотека</td><td itemProp="objName">Отдельная библиотека отсутствует; электронные материалы предоставляются в образовательной среде</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objOvz">Специально приспособленная отдельная библиотека отсутствует</td></tr>
+            <tr itemProp="purposeSport"><td>Объект спорта</td><td itemProp="objName">Отдельный объект отсутствует</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objOvz">Специально приспособленный объект спорта отсутствует</td></tr>
+          </tbody>
+        </table>
+      </div>
       <h3>Общежитие и интернат</h3>
-      <p itemProp="hostelInfo">Общежитие отсутствует. Количество жилых помещений, в том числе приспособленных для инвалидов и лиц с ОВЗ, — 0.</p>
-      <p itemProp="interInfo">Интернат отсутствует. Количество жилых помещений, в том числе приспособленных для инвалидов и лиц с ОВЗ, — 0.</p>
+      <HostelTable />
       <DocumentList documents={getSectionDocuments("objects")} />
     </>
   );
@@ -288,12 +359,12 @@ function PaidEducationSection() {
       <p>Тарифы применяются ко всем реализуемым образовательным программам, если отдельным распорядительным актом не утверждена иная стоимость.</p>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Стоимость платных образовательных услуг">
         <table className={styles.dataTable}><thead><tr><th>Тариф</th><th>Занятий в месяц</th><th>Стоимость в месяц</th></tr></thead><tbody>
-          <tr itemProp="paidSt"><td>Базовый</td><td>4</td><td>7 990 руб.</td></tr>
-          <tr itemProp="paidSt"><td>Расширенный</td><td>8</td><td>14 390 руб.</td></tr>
-          <tr itemProp="paidSt"><td>Персональный</td><td>12</td><td>18 890 руб.</td></tr>
+          <tr><td>Базовый</td><td>4</td><td>7 990 руб.</td></tr>
+          <tr><td>Расширенный</td><td>8</td><td>14 390 руб.</td></tr>
+          <tr><td>Персональный</td><td>12</td><td>18 890 руб.</td></tr>
         </tbody></table>
       </div>
-      <p itemProp="paidParent">Плата за присмотр и уход за детьми не взимается, поскольку соответствующие услуги не оказываются.</p>
+      <p itemProp="paidParents">Плата за присмотр и уход за детьми не взимается, поскольку соответствующие услуги не оказываются.</p>
       <DocumentList documents={getSectionDocuments("paid_edu")} />
     </>
   );
@@ -303,7 +374,7 @@ function BudgetSection() {
   return (
     <>
       <h3>Финансовые показатели за 2025 год</h3>
-      <DetailsTable label="Финансово-хозяйственная деятельность за 2025 год" rows={[
+      <div itemProp="volume"><DetailsTable label="Финансово-хозяйственная деятельность за 2025 год" rows={[
         ["Федеральный бюджет", <Value itemProp="finBFVolume">0 руб.</Value>],
         ["Бюджет субъекта Российской Федерации", <Value itemProp="finBRVolume">0 руб.</Value>],
         ["Местный бюджет", <Value itemProp="finBMVolume">0 руб.</Value>],
@@ -312,8 +383,8 @@ function BudgetSection() {
         ["Общий объём расходов", <Value itemProp="finRas">6 386 301,75 руб.</Value>],
         ["Финансовый год", <Value itemProp="finYear">2025</Value>],
         ["Материальная помощь обучающимся", "Не предоставлялась"],
-      ]} />
-      <p itemProp="finPlanDocLink">План финансово-хозяйственной деятельности не формируется: ООО «ИННОПРОГ» является коммерческой организацией.</p>
+      ]} /></div>
+      <p itemProp="fmPlanDocLink">План финансово-хозяйственной деятельности не формируется: ООО «ИННОПРОГ» является коммерческой организацией.</p>
       <DocumentList documents={getSectionDocuments("budget")} />
     </>
   );
@@ -324,9 +395,9 @@ function VacantSection() {
     <>
       <h3>Количество вакантных мест на 01.08.2026</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Вакантные места по образовательным программам">
-        <table className={styles.dataTable}><thead><tr><th>Код</th><th>Направление</th><th>Уровень</th><th>Программа</th><th>Курс</th><th>Форма</th><th>Федеральный бюджет</th><th>Региональный бюджет</th><th>Местный бюджет</th><th>По договорам об образовании</th></tr></thead>
+        <table className={styles.dataTable}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.name}`}>
-            <td itemProp="eduCode">Не применяется</td><td itemProp="eduName">Дополнительное образование</td><td itemProp="eduLevel">{program.kind}</td><td itemProp="eduProf">{program.name}</td><td itemProp="eduCourse">Не применяется</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
+            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы дополнительной образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
           </tr>)}</tbody>
         </table>
       </div>
@@ -342,25 +413,41 @@ function GrantsSection() {
       <DetailsTable label="Стипендии и меры поддержки" rows={[
         ["Стипендии", <Value itemProp="grant">Не предоставляются</Value>],
         ["Меры социальной поддержки", <Value itemProp="support">Не предоставляются</Value>],
-        ["Общежитие", <Value itemProp="hostelInfo">Отсутствует; жилых помещений — 0, в том числе приспособленных для инвалидов и лиц с ОВЗ — 0</Value>],
-        ["Интернат", <Value itemProp="interInfo">Отсутствует; жилых помещений — 0, в том числе приспособленных для инвалидов и лиц с ОВЗ — 0</Value>],
-        ["Плата за проживание", "Не установлена и не взимается"],
         ["Трудоустройство выпускников", "Обязательное распределение отсутствует"],
       ]} />
+      <h3>Общежитие и интернат</h3>
+      <HostelTable />
       <DocumentList documents={getSectionDocuments("grants")} />
     </>
   );
 }
 
 function InternationalSection() {
-  return <><h3>Международные договоры</h3><p itemProp="internationalDog">Заключённые и планируемые к заключению договоры с иностранными и международными организациями по вопросам образования и науки отсутствуют.</p><p itemProp="stateName">Международная аккредитация образовательных программ отсутствует.</p><DocumentList documents={getSectionDocuments("inter")} /></>;
+  return (
+    <>
+      <h3>Международные договоры</h3>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения о международных договорах">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Государство</th><th>Наименование организации</th><th>Реквизиты договора</th></tr></thead>
+          <tbody><tr itemProp="internationalDog"><td itemProp="stateName">Отсутствует</td><td itemProp="orgName">Отсутствует</td><td itemProp="dogReg">Отсутствует</td></tr></tbody>
+        </table>
+      </div>
+      <DocumentList documents={getSectionDocuments("inter")} />
+    </>
+  );
 }
 
 function CateringSection() {
   return (
     <>
       <h3>Условия питания и охраны здоровья</h3>
-      <p itemProp="meals">Питание обучающихся не организуется в связи с реализацией образовательных программ исключительно с применением электронного обучения и дистанционных образовательных технологий.</p>
+      <p>Питание обучающихся не организуется в связи с реализацией образовательных программ исключительно с применением электронного обучения и дистанционных образовательных технологий.</p>
+      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения об условиях питания">
+        <table className={styles.dataTable}>
+          <thead><tr><th>Наименование объекта</th><th>Адрес места нахождения</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <tbody><tr itemProp="meals"><td itemProp="objName">Объект питания отсутствует</td><td itemProp="objAddress">Отдельный объект питания отсутствует</td><td itemProp="objOvz">Специально приспособленный объект питания отсутствует</td></tr></tbody>
+        </table>
+      </div>
       <p itemProp="health">Охрана здоровья обеспечивается соблюдением режима занятий и перерывов, использованием безопасных цифровых технологий, информированием о требованиях к рабочему месту и возможностью обратиться к преподавателю или администрации. Медицинский кабинет отсутствует.</p>
       <DocumentList documents={getSectionDocuments("catering")} />
     </>
@@ -406,7 +493,10 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
     <div className={styles.page} itemScope itemType="https://schema.org/EducationalOrganization">
       <SvedenHeader />
       <main className={styles.main}>
-        <nav aria-label="Хлебные крошки" className={styles.breadcrumbs}><a href="/">Главная</a><span aria-hidden="true">/</span><a href="/sveden/common">Сведения об образовательной организации</a><span aria-hidden="true">/</span><span>{current.shortTitle}</span></nav>
+        <div className={styles.topline}>
+          <nav aria-label="Хлебные крошки" className={styles.breadcrumbs}><a href="/">Главная</a><span aria-hidden="true">/</span><a href="/sveden/common">Сведения об образовательной организации</a><span aria-hidden="true">/</span><span>{current.shortTitle}</span></nav>
+          <SvedenAccessibilityToggle className={styles.accessibilityToggle} />
+        </div>
         <header className={styles.hero}>
           <h1 title="Сведения об образовательной организации">Сведения об образовательной организации</h1>
           {DYNAMIC_SECTIONS.has(section) ? (
