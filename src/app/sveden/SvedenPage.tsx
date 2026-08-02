@@ -435,6 +435,7 @@ function InternationalSection() {
   return (
     <>
       <h3>Международные договоры</h3>
+      <p>Заключённые и планируемые к заключению договоры с иностранными и (или) международными организациями по вопросам образования и науки отсутствуют.</p>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения о международных договорах">
         <table className={`${styles.dataTable} ${styles.internationalTable}`}>
           <thead><tr><th>Государство</th><th>Наименование организации</th><th>Реквизиты договора</th></tr></thead>

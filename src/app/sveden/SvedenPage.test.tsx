@@ -111,6 +111,7 @@ describe("educational disclosure server HTML", () => {
     expect(international).toContain('itemProp="stateName"');
     expect(international).toContain('itemProp="orgName"');
     expect(international).toContain('itemProp="dogReg"');
+    expect(international).toContain("Заключённые и планируемые к заключению договоры с иностранными и (или) международными организациями по вопросам образования и науки отсутствуют.");
 
     const catering = renderToStaticMarkup(<SvedenPage section="catering" />);
     expect(catering).toContain('itemProp="meals"');
