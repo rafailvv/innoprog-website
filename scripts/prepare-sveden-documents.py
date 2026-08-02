@@ -59,10 +59,45 @@ SUPPLEMENTAL_DOCUMENT_FILES = {
         ),
 }
 
-EXPECTED_SECTION_PDFS = 91
+UPDATE_FILES = {
+    "ИНСТРУКЦИЯ_ПО_ЭКСПЛУАТАЦИИ_ПО_INNOPROG.pdf": [
+        ("technical/software-operation-manual.pdf", None, "technical", "Инструкция по эксплуатации ПО INNOPROG"),
+    ],
+    "ПОЛИТИКА_ОПЕРАТОРА_В_ОТНОШЕНИИ_ОБРАБОТКИ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf": [
+        ("legal/privacy.pdf", None, "legal", "Политика оператора в отношении обработки персональных данных"),
+    ],
+    "СОГЛАСИЕ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf": [
+        ("legal/consent.pdf", None, "legal", "Согласие на обработку персональных данных"),
+    ],
+    "СОГЛАСИЕ_НА_ПОЛУЧЕНИЕ_РЕКЛАМНОЙ И_ИНФОРМАЦИОННОЙ_РАССЫЛКИ.pdf": [
+        ("legal/advertising-consent.pdf", None, "legal", "Согласие на получение рекламной и информационной рассылки"),
+    ],
+    "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf": [
+        ("sveden/document/Положение_об_оказании_платных_образовательных_услуг.pdf", "document", "section", "Положение об оказании платных образовательных услуг"),
+        ("sveden/paid_edu/Положение_об_оказании_платных_образовательных_услуг.pdf", "paid_edu", "section", "Положение об оказании платных образовательных услуг"),
+    ],
+    "ПОЛОЖЕНИЕ_ОБ_ОРГАНИЗАЦИИ_ОБРАЗОВАТЕЛЬНОГО_ПРОЦЕССА.pdf": [
+        ("sveden/document/Положение_об_организации_образовательного_процесса.pdf", "document", "section", "Положение об организации образовательного процесса"),
+    ],
+    "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf": [
+        ("sveden/document/Положение_об_электронном_обучении_и_ДОТ.pdf", "document", "section", "Положение об электронном обучении и дистанционных образовательных технологиях"),
+        ("sveden/objects/Положение_об_электронном_обучении_и_ДОТ.pdf", "objects", "section", "Положение об электронном обучении и дистанционных образовательных технологиях"),
+    ],
+    "ПРАВИЛА_ВНУТРЕННЕГО_РАСПОРЯДКА_ОБУЧАЮЩИХСЯ.pdf": [
+        ("sveden/document/Правила_внутреннего_распорядка_обучающихся.pdf", "document", "section", "Правила внутреннего распорядка обучающихся"),
+    ],
+    "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf": [
+        ("sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf", "document", "section", "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий"),
+    ],
+    "ПРИКАЗ_№_ОБР-8_ОБ_УТВЕРЖДЕНИИ_НОВЫХ_РЕДАКЦИЙ_ЛОКАЛЬНЫХ_НОРМАТИВНЫХ_АКТОВ.pdf": [
+        ("sveden/document/Приказ_№_ОБР-8_об_утверждении_новых_редакций_локальных_нормативных_актов.pdf", "document", "section", "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов"),
+    ],
+}
+
+EXPECTED_SECTION_PDFS = 93
 EXPECTED_LEGAL_PDFS = 3
 EXPECTED_TECHNICAL_PDFS = 2
-EXPECTED_TOTAL_PDFS = 96
+EXPECTED_TOTAL_PDFS = 98
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 
 
@@ -126,6 +161,7 @@ def prepare(
     archive: Path,
     technical_dir: Path | None,
     supplemental_dir: Path,
+    updates_dir: Path,
     output_root: Path,
     manifest: Path,
 ) -> None:
@@ -216,6 +252,37 @@ def prepare(
         )
         technical_count += 1
 
+    entries_by_key = {str(entry["storageKey"]): entry for entry in entries}
+    for source_name, destinations in UPDATE_FILES.items():
+        source = updates_dir / source_name
+        if not source.is_file():
+            raise FileNotFoundError(f"Missing approved updated PDF: {source}")
+        data = source.read_bytes()
+        if not data.startswith(b"%PDF-"):
+            raise RuntimeError(f"Updated source is not a PDF: {source}")
+
+        for relative_key, section, category, title in destinations:
+            entry = write_pdf(
+                output_root,
+                Path(relative_key),
+                data,
+                section=section,
+                source_name=source_name,
+                category=category,
+            )
+            entry["title"] = title
+            storage_key = str(entry["storageKey"])
+            if storage_key not in entries_by_key:
+                if category == "section":
+                    section_count += 1
+                elif category == "legal":
+                    legal_count += 1
+                elif category == "technical":
+                    technical_count += 1
+            entries_by_key[storage_key] = entry
+
+    entries = list(entries_by_key.values())
+
     counts = {
         "section": section_count,
         "legal": legal_count,
@@ -234,7 +301,7 @@ def prepare(
     entries.sort(key=lambda item: (str(item["section"]), str(item["storageKey"])))
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(
-        json.dumps({"generatedAt": "2026-08-01", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
+        json.dumps({"generatedAt": "2026-08-02", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
     )
@@ -253,6 +320,12 @@ def main() -> None:
         required=True,
         help="Directory containing the approved credit-policy PDF and order No. OBR-7",
     )
+    parser.add_argument(
+        "--updates-dir",
+        type=Path,
+        required=True,
+        help="Directory containing the approved PDF revisions published on 02.08.2026",
+    )
     parser.add_argument("--output", type=Path, default=Path("/tmp/innoprog-sveden-upload"))
     parser.add_argument(
         "--manifest",
@@ -260,7 +333,7 @@ def main() -> None:
         default=Path("src/app/sveden/documents.generated.json"),
     )
     args = parser.parse_args()
-    prepare(args.archive, args.technical_dir, args.supplemental_dir, args.output, args.manifest)
+    prepare(args.archive, args.technical_dir, args.supplemental_dir, args.updates_dir, args.output, args.manifest)
 
 
 if __name__ == "__main__":

@@ -15,6 +15,16 @@ from urllib.request import Request, urlopen
 IMAGE_ONLY_SIGNED_DOCUMENTS = {
     "e24c8086bf6d7d9586b3efc52be197fd842d4eeb2dc00539cadc0c881bcc6ca3",
     "b8b6c6961fca3404604a47671f893d7d6bf3760ba0500e4a585d2508c0adafe3",
+    "fb6ddbecbb0366d6ca6820c41d54e3cea3197ef48a92cccd825d942e84c9fee5",
+    "064e706894b6350d0bfaf2d2eedb24648370f4d2ca19cda1f6b0f33802e43fc9",
+    "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967",
+    "0fb557b72876f25cf7785a5360058e2033a86cc91a5691f57a104bda59578105",
+    "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc",
+    "c020b916ed3c83856b1f62c3cbbe1de7ab58dd38652414bab7dac5f7165f3d81",
+    "33a4aff0305640172f0b838a376e5d715e132b45652d0139091463e799d5548c",
+    "de60a1be04dddbeaf9db5f0bde9bfa13550a79d5f7f7ce6be857f09e4f6e9f62",
+    "a4a38f50ca577402f9d11697843e50d7394965634d2279cbd95806e0258bc16e",
+    "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888",
 }
 
 
@@ -54,12 +64,12 @@ def main() -> None:
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     documents = manifest["documents"]
-    if manifest["counts"] != {"section": 91, "legal": 3, "technical": 2, "total": 96}:
+    if manifest["counts"] != {"section": 93, "legal": 3, "technical": 2, "total": 98}:
         raise RuntimeError(f"Unexpected counts: {manifest['counts']}")
 
     staged = sorted((args.root / "site-public").rglob("*.pdf"))
-    if len(staged) != 96:
-        raise RuntimeError(f"Expected 96 staged PDFs, found {len(staged)}")
+    if len(staged) != 98:
+        raise RuntimeError(f"Expected 98 staged PDFs, found {len(staged)}")
 
     by_key = {document["storageKey"]: document for document in documents}
     missing_text: list[str] = []

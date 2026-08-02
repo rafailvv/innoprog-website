@@ -1,44 +1,44 @@
 {
   "generatedAt": "2026-08-02",
   "counts": {
-    "section": 91,
+    "section": 93,
     "legal": 3,
     "technical": 2,
-    "total": 96
+    "total": 98
   },
   "documents": [
     {
-      "id": "7c91003fd86015b5",
-      "title": "Согласие на рекламную и информационную рассылку",
-      "sourceName": "Согласие_на_рекламную_и_информационную_рассылку.pdf",
+      "id": "9252ab9848f95778",
+      "title": "Согласие на получение рекламной и информационной рассылки",
+      "sourceName": "СОГЛАСИЕ_НА_ПОЛУЧЕНИЕ_РЕКЛАМНОЙ И_ИНФОРМАЦИОННОЙ_РАССЫЛКИ.pdf",
       "section": null,
       "category": "legal",
       "storageKey": "site-public/legal/advertising-consent.pdf",
       "href": "/files/legal/advertising-consent.pdf",
-      "sizeBytes": 82271,
-      "sha256": "7c91003fd86015b5e61fd77bdabdd494be095f8ed8b31f004b3d64bfe4c09dbf"
+      "sizeBytes": 82288,
+      "sha256": "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888"
     },
     {
-      "id": "230d074331f37f05",
+      "id": "a4a38f50ca577402",
       "title": "Согласие на обработку персональных данных",
-      "sourceName": "Согласие_на_обработку_персональных_данных.pdf",
+      "sourceName": "СОГЛАСИЕ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
       "section": null,
       "category": "legal",
       "storageKey": "site-public/legal/consent.pdf",
       "href": "/files/legal/consent.pdf",
-      "sizeBytes": 80847,
-      "sha256": "230d074331f37f05bba571f5f098c0b589da2e566d31881330b8ee1582cbe693"
+      "sizeBytes": 82209,
+      "sha256": "a4a38f50ca577402f9d11697843e50d7394965634d2279cbd95806e0258bc16e"
     },
     {
-      "id": "6ababc0baedda19b",
-      "title": "Политика обработки персональных данных",
-      "sourceName": "Политика_обработки_персональных_данных.pdf",
+      "id": "064e706894b6350d",
+      "title": "Политика оператора в отношении обработки персональных данных",
+      "sourceName": "ПОЛИТИКА_ОПЕРАТОРА_В_ОТНОШЕНИИ_ОБРАБОТКИ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
       "section": null,
       "category": "legal",
       "storageKey": "site-public/legal/privacy.pdf",
       "href": "/files/legal/privacy.pdf",
-      "sizeBytes": 121776,
-      "sha256": "6ababc0baedda19b9b0feb305d43190b9750e04d8d55c249467e37586a37e221"
+      "sizeBytes": 113731,
+      "sha256": "064e706894b6350d0bfaf2d2eedb24648370f4d2ca19cda1f6b0f33802e43fc9"
     },
     {
       "id": "c64d3f1f07855744",
@@ -52,15 +52,15 @@
       "sha256": "c64d3f1f078557445ab248988f4c4f43cef5c23adef58b762523eae7299945cb"
     },
     {
-      "id": "f3e9c3ba3a20b023",
-      "title": "software-operation-manual",
-      "sourceName": "software-operation-manual.pdf",
+      "id": "fb6ddbecbb0366d6",
+      "title": "Инструкция по эксплуатации ПО INNOPROG",
+      "sourceName": "ИНСТРУКЦИЯ_ПО_ЭКСПЛУАТАЦИИ_ПО_INNOPROG.pdf",
       "section": null,
       "category": "technical",
       "storageKey": "site-public/technical/software-operation-manual.pdf",
       "href": "/files/technical/software-operation-manual.pdf",
-      "sizeBytes": 527351,
-      "sha256": "f3e9c3ba3a20b023bcfb3ce8faded5c1be4cfe11f5fdf1eaf029e66e58349781"
+      "sizeBytes": 18280568,
+      "sha256": "fb6ddbecbb0366d6ca6820c41d54e3cea3197ef48a92cccd825d942e84c9fee5"
     },
     {
       "id": "73c6fd0aa7322bc3",
@@ -140,28 +140,6 @@
       "sha256": "1ce00c91390d59463ed8ebc9ec30644f77ecf7b65859f50f056a3ca4e6bfe348"
     },
     {
-      "id": "e24c8086bf6d7d95",
-      "title": "Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов",
-      "sourceName": "ПОЛОЖЕНИЕ_О_ПОРЯДКЕ_ЗАЧЕТА_РЕЗУЛЬТАТОВ_РАНЕЕ_ОСВОЕННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ПРОГРАММ_И_ИХ_КОМПОНЕНТОВ.pdf",
-      "section": "document",
-      "category": "section",
-      "storageKey": "site-public/sveden/document/Положение_о_порядке_зачета_результатов_ранее_освоенных_образовательных_программ_и_их_компонентов.pdf",
-      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D0%B7%D0%B0%D1%87%D0%B5%D1%82%D0%B0_%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D0%BE%D0%B2_%D1%80%D0%B0%D0%BD%D0%B5%D0%B5_%D0%BE%D1%81%D0%B2%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_%D0%B8_%D0%B8%D1%85_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.pdf",
-      "sizeBytes": 18036767,
-      "sha256": "e24c8086bf6d7d9586b3efc52be197fd842d4eeb2dc00539cadc0c881bcc6ca3"
-    },
-    {
-      "id": "b8b6c6961fca3404",
-      "title": "Приказ № ОБР-7 об утверждении Положения о порядке зачёта",
-      "sourceName": "ПРИКАЗ_№_ОБР-7_ОБ_УТВЕРЖДЕНИИ_ПОЛОЖЕНИЯ_О_ПОРЯДКЕ_ЗАЧЕТА.pdf",
-      "section": "document",
-      "category": "section",
-      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-7_об_утверждении_Положения_о_порядке_зачета.pdf",
-      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-7_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D0%B7%D0%B0%D1%87%D0%B5%D1%82%D0%B0.pdf",
-      "sizeBytes": 17902611,
-      "sha256": "b8b6c6961fca3404604a47671f893d7d6bf3760ba0500e4a585d2508c0adafe3"
-    },
-    {
       "id": "b8cd48c19988028a",
       "title": "Положение о внутренней системе оценки качества",
       "sourceName": "Положение_о_внутренней_системе_оценки_качества.pdf",
@@ -206,6 +184,17 @@
       "sha256": "c75ec6d3a387efad8a66e8def2de3635a077ba11e7efee18958175217077cbdf"
     },
     {
+      "id": "e24c8086bf6d7d95",
+      "title": "Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов",
+      "sourceName": "ПОЛОЖЕНИЕ_О_ПОРЯДКЕ_ЗАЧЕТА_РЕЗУЛЬТАТОВ_РАНЕЕ_ОСВОЕННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ПРОГРАММ_И_ИХ_КОМПОНЕНТОВ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Положение_о_порядке_зачета_результатов_ранее_освоенных_образовательных_программ_и_их_компонентов.pdf",
+      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D0%B7%D0%B0%D1%87%D0%B5%D1%82%D0%B0_%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D0%BE%D0%B2_%D1%80%D0%B0%D0%BD%D0%B5%D0%B5_%D0%BE%D1%81%D0%B2%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_%D0%B8_%D0%B8%D1%85_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.pdf",
+      "sizeBytes": 18036767,
+      "sha256": "e24c8086bf6d7d9586b3efc52be197fd842d4eeb2dc00539cadc0c881bcc6ca3"
+    },
+    {
       "id": "1c0048e504cbcb3c",
       "title": "Положение о режиме занятий обучающихся",
       "sourceName": "Положение_о_режиме_занятий_обучающихся.pdf",
@@ -239,26 +228,26 @@
       "sha256": "af5507e67e3bdbe4e33a227944dda4973fcd8420ffacacee8ec5b32b1511feef"
     },
     {
-      "id": "ceba3c647b6b31ee",
+      "id": "8dc92527cb1263b6",
       "title": "Положение об оказании платных образовательных услуг",
-      "sourceName": "Положение_об_оказании_платных_образовательных_услуг.pdf",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf",
       "section": "document",
       "category": "section",
       "storageKey": "site-public/sveden/document/Положение_об_оказании_платных_образовательных_услуг.pdf",
       "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B8_%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D1%83%D1%81%D0%BB%D1%83%D0%B3.pdf",
-      "sizeBytes": 17971060,
-      "sha256": "ceba3c647b6b31ee9b84d7361e42aff8dd283a8933c4bff47ec840c0beda3ba8"
+      "sizeBytes": 17905279,
+      "sha256": "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967"
     },
     {
-      "id": "8dc6591e7c564dcd",
+      "id": "0fb557b72876f25c",
       "title": "Положение об организации образовательного процесса",
-      "sourceName": "Положение_об_организации_образовательного_процесса.pdf",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОРГАНИЗАЦИИ_ОБРАЗОВАТЕЛЬНОГО_ПРОЦЕССА.pdf",
       "section": "document",
       "category": "section",
       "storageKey": "site-public/sveden/document/Положение_об_организации_образовательного_процесса.pdf",
       "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0.pdf",
-      "sizeBytes": 17959697,
-      "sha256": "8dc6591e7c564dcd3e182823c5ab030f6166cb0a2165bb4021cb28d56a086778"
+      "sizeBytes": 17898791,
+      "sha256": "0fb557b72876f25cf7785a5360058e2033a86cc91a5691f57a104bda59578105"
     },
     {
       "id": "5e1712e19f968f49",
@@ -272,26 +261,26 @@
       "sha256": "5e1712e19f968f49bf88c0107c3e55bc6dd2db61debb7e8b7f36cd804903d357"
     },
     {
-      "id": "e804d7046e5ce5b5",
-      "title": "Положение об электронном обучении и ДОТ",
-      "sourceName": "Положение_об_электронном_обучении_и_ДОТ.pdf",
+      "id": "104f82eb6d39d944",
+      "title": "Положение об электронном обучении и дистанционных образовательных технологиях",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf",
       "section": "document",
       "category": "section",
       "storageKey": "site-public/sveden/document/Положение_об_электронном_обучении_и_ДОТ.pdf",
       "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%BC_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
-      "sizeBytes": 17957532,
-      "sha256": "e804d7046e5ce5b5a64e7dc375423902e4ce7bfe398ad9f7932c16a70c846fef"
+      "sizeBytes": 17896064,
+      "sha256": "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc"
     },
     {
-      "id": "ab40ff24b3fc3478",
+      "id": "c020b916ed3c8385",
       "title": "Правила внутреннего распорядка обучающихся",
-      "sourceName": "Правила_внутреннего_распорядка_обучающихся.pdf",
+      "sourceName": "ПРАВИЛА_ВНУТРЕННЕГО_РАСПОРЯДКА_ОБУЧАЮЩИХСЯ.pdf",
       "section": "document",
       "category": "section",
       "storageKey": "site-public/sveden/document/Правила_внутреннего_распорядка_обучающихся.pdf",
       "href": "/files/sveden/document/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0_%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B5%D0%B3%D0%BE_%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0_%D0%BE%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D1%85%D1%81%D1%8F.pdf",
-      "sizeBytes": 17921639,
-      "sha256": "ab40ff24b3fc347891bcbe145ad337bc71b9668c1eac8e2b8b5a816b6ca5a1b8"
+      "sizeBytes": 88755,
+      "sha256": "c020b916ed3c83856b1f62c3cbbe1de7ab58dd38652414bab7dac5f7165f3d81"
     },
     {
       "id": "ceecdcbec02cc24a",
@@ -316,6 +305,17 @@
       "sha256": "765cbed5c80b6d8b967aed8c4c1077cddfd1c446a9119850870ba2431ce02a32"
     },
     {
+      "id": "33a4aff030564017",
+      "title": "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий",
+      "sourceName": "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%D0%BE%D0%B1_%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F_%D1%81_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
+      "sizeBytes": 306733,
+      "sha256": "33a4aff0305640172f0b838a376e5d715e132b45652d0139091463e799d5548c"
+    },
+    {
       "id": "7655bfd95998f4bd",
       "title": "Приказ № КАДР-1 об утверждении ПВТР",
       "sourceName": "Приказ_№_КАДР-1_об_утверждении_ПВТР.pdf",
@@ -336,6 +336,28 @@
       "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-2_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B0%D0%BA%D1%82%D0%BE%D0%B2.pdf",
       "sizeBytes": 17911675,
       "sha256": "c774bdd75f244abba6a0ec45767fb899519ea30040ab7cd8e266a4c5a21be8e7"
+    },
+    {
+      "id": "b8b6c6961fca3404",
+      "title": "Приказ № ОБР-7 об утверждении Положения о порядке зачёта",
+      "sourceName": "ПРИКАЗ_№_ОБР-7_ОБ_УТВЕРЖДЕНИИ_ПОЛОЖЕНИЯ_О_ПОРЯДКЕ_ЗАЧЕТА.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-7_об_утверждении_Положения_о_порядке_зачета.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-7_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D0%B7%D0%B0%D1%87%D0%B5%D1%82%D0%B0.pdf",
+      "sizeBytes": 17902611,
+      "sha256": "b8b6c6961fca3404604a47671f893d7d6bf3760ba0500e4a585d2508c0adafe3"
+    },
+    {
+      "id": "de60a1be04dddbea",
+      "title": "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов",
+      "sourceName": "ПРИКАЗ_№_ОБР-8_ОБ_УТВЕРЖДЕНИИ_НОВЫХ_РЕДАКЦИЙ_ЛОКАЛЬНЫХ_НОРМАТИВНЫХ_АКТОВ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-8_об_утверждении_новых_редакций_локальных_нормативных_актов.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-8_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BD%D0%BE%D0%B2%D1%8B%D1%85_%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D0%B9_%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BD%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D1%85_%D0%B0%D0%BA%D1%82%D0%BE%D0%B2.pdf",
+      "sizeBytes": 17859553,
+      "sha256": "de60a1be04dddbeaf9db5f0bde9bfa13550a79d5f7f7ce6be857f09e4f6e9f62"
     },
     {
       "id": "88064379286665e0",
@@ -932,15 +954,15 @@
       "sha256": "d5b64de64e7c71c94fe5c406b633477a5257d1c185f810578560e1dc8b4f3af1"
     },
     {
-      "id": "552ccdb4a11d6ba5",
+      "id": "f638cf328df2c6c9",
       "title": "СВЕДЕНИЯ О ПЕДАГОГИЧЕСКОМ СОСТАВЕ",
       "sourceName": "СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf",
       "section": "employees",
       "category": "section",
       "storageKey": "site-public/sveden/employees/СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf",
       "href": "/files/sveden/employees/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9F%D0%95%D0%94%D0%90%D0%93%D0%9E%D0%93%D0%98%D0%A7%D0%95%D0%A1%D0%9A%D0%9E%D0%9C_%D0%A1%D0%9E%D0%A1%D0%A2%D0%90%D0%92%D0%95.pdf",
-      "sizeBytes": 75281,
-      "sha256": "552ccdb4a11d6ba5ccd1148f8fdc76a714c70c494dfe8520bcfb5c6983ff4a94"
+      "sizeBytes": 48788,
+      "sha256": "f638cf328df2c6c96d537883dfd5e55725f16c9568793e21f2cd9341ad54d3d8"
     },
     {
       "id": "f85abf09a05e6fc4",
@@ -954,15 +976,15 @@
       "sha256": "f85abf09a05e6fc42ec20a86582b2a72bce8139c712353faf7b180aaf82378d8"
     },
     {
-      "id": "749388dc2542428e",
+      "id": "310a82181544a404",
       "title": "СВЕДЕНИЯ О МЕЖДУНАРОДНОМ СОТРУДНИЧЕСТВЕ",
       "sourceName": "СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf",
       "section": "inter",
       "category": "section",
       "storageKey": "site-public/sveden/inter/СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf",
       "href": "/files/sveden/inter/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9C%D0%95%D0%96%D0%94%D0%A3%D0%9D%D0%90%D0%A0%D0%9E%D0%94%D0%9D%D0%9E%D0%9C_%D0%A1%D0%9E%D0%A2%D0%A0%D0%A3%D0%94%D0%9D%D0%98%D0%A7%D0%95%D0%A1%D0%A2%D0%92%D0%95.pdf",
-      "sizeBytes": 22367,
-      "sha256": "749388dc2542428e31e44e7171f7ab28c9fa0ab786c216e46f54cc6821d539ee"
+      "sizeBytes": 24572,
+      "sha256": "310a82181544a4046990cc09d16026df750f46c126c66b3b91d554a4bc518159"
     },
     {
       "id": "30a001948ab6b101",
@@ -976,37 +998,37 @@
       "sha256": "30a001948ab6b1017d6f8dec21377f5d8ca87e08c34a75c7f995f6831f3f9536"
     },
     {
-      "id": "e804d7046e5ce5b5",
-      "title": "Положение об электронном обучении и ДОТ",
-      "sourceName": "Положение_об_электронном_обучении_и_ДОТ.pdf",
+      "id": "104f82eb6d39d944",
+      "title": "Положение об электронном обучении и дистанционных образовательных технологиях",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf",
       "section": "objects",
       "category": "section",
       "storageKey": "site-public/sveden/objects/Положение_об_электронном_обучении_и_ДОТ.pdf",
       "href": "/files/sveden/objects/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%BC_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
-      "sizeBytes": 17957532,
-      "sha256": "e804d7046e5ce5b5a64e7dc375423902e4ce7bfe398ad9f7932c16a70c846fef"
+      "sizeBytes": 17896064,
+      "sha256": "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc"
     },
     {
-      "id": "4b5dfc118136b3ff",
+      "id": "f9b2064cb270447f",
       "title": "СВЕДЕНИЯ О МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ ОБЕСПЕЧЕНИИ И ДОСТУПНОЙ СРЕДЕ",
       "sourceName": "СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf",
       "section": "objects",
       "category": "section",
       "storageKey": "site-public/sveden/objects/СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf",
       "href": "/files/sveden/objects/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9C%D0%90%D0%A2%D0%95%D0%A0%D0%98%D0%90%D0%9B%D0%AC%D0%9D%D0%9E-%D0%A2%D0%95%D0%A5%D0%9D%D0%98%D0%A7%D0%95%D0%A1%D0%9A%D0%9E%D0%9C_%D0%9E%D0%91%D0%95%D0%A1%D0%9F%D0%95%D0%A7%D0%95%D0%9D%D0%98%D0%98_%D0%98_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%9D%D0%9E%D0%99_%D0%A1%D0%A0%D0%95%D0%94%D0%95.pdf",
-      "sizeBytes": 53750,
-      "sha256": "4b5dfc118136b3ffe0870420b939a396e1bf0139f9bfdec9ab06ed69907faaa6"
+      "sizeBytes": 41972,
+      "sha256": "f9b2064cb270447f13d4f9c1383a30696ed381b320194166d379a4d13b72a43b"
     },
     {
-      "id": "ceba3c647b6b31ee",
+      "id": "8dc92527cb1263b6",
       "title": "Положение об оказании платных образовательных услуг",
-      "sourceName": "Положение_об_оказании_платных_образовательных_услуг.pdf",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf",
       "section": "paid_edu",
       "category": "section",
       "storageKey": "site-public/sveden/paid_edu/Положение_об_оказании_платных_образовательных_услуг.pdf",
       "href": "/files/sveden/paid_edu/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B8_%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D1%83%D1%81%D0%BB%D1%83%D0%B3.pdf",
-      "sizeBytes": 17971060,
-      "sha256": "ceba3c647b6b31ee9b84d7361e42aff8dd283a8933c4bff47ec840c0beda3ba8"
+      "sizeBytes": 17905279,
+      "sha256": "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967"
     },
     {
       "id": "591b12dd32e55b02",
