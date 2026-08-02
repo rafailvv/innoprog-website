@@ -67,6 +67,15 @@ SUPPLEMENTAL_DOCUMENT_FILES = {
             "Приказ_№_ОБР-9_об_утверждении_Положения_о_порядке_разработки_и_утверждения_ДПП.pdf",
             "Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ",
         ),
+    "ПРИКАЗ_№_ОБР-10_ОБ_УТВЕРЖДЕНИИ_КОЛИЧЕСТВА_ВАКАНТНЫХ_МЕСТ_С_ПРИЛОЖЕНИЕМ.pdf":
+        (
+            "Приказ_№_ОБР-10_об_утверждении_количества_вакантных_мест_с_приложением.pdf",
+            "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»",
+        ),
+}
+
+REPLACED_SECTION_FILES = {
+    ("vacant", "СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf"),
 }
 
 UPDATE_FILES = {
@@ -237,8 +246,11 @@ def prepare(
             if parent:
                 prefix = parent[:3]
                 section = SECTION_FOLDERS[prefix]
+                source_name = Path(member.filename).name
+                if (section, source_name) in REPLACED_SECTION_FILES:
+                    continue
                 data = bundle.read(member)
-                key = section_destination(parts, section, Path(member.filename).name)
+                key = section_destination(parts, section, source_name)
                 category = "program" if section == "education" and any(
                     source_folder in parts for source_folder in PROGRAM_FOLDERS
                 ) else "section"
@@ -248,7 +260,7 @@ def prepare(
                         key,
                         data,
                         section=section,
-                        source_name=Path(member.filename).name,
+                        source_name=source_name,
                         category=category,
                     )
                 )

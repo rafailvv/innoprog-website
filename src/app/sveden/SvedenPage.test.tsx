@@ -105,6 +105,7 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов");
     expect(html).toContain("Положение о порядке разработки и утверждения дополнительных профессиональных программ");
     expect(html).toContain("Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ");
+    expect(html).toContain("Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»");
     expect(html).toContain("Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий");
   });
 
@@ -117,9 +118,10 @@ describe("educational disclosure server HTML", () => {
   });
 
   it("shows the freshness date only for dynamic disclosures", () => {
-    for (const section of ["education", "employees", "budget", "vacant"] as const) {
+    for (const section of ["education", "employees", "budget"] as const) {
       expect(renderToStaticMarkup(<SvedenPage section={section} />)).toContain("01.08.2026");
     }
+    expect(renderToStaticMarkup(<SvedenPage section="vacant" />)).toContain("02.08.2026");
     expect(renderToStaticMarkup(<SvedenPage section="common" />)).not.toContain("Дата актуальности динамических сведений");
     expect(renderToStaticMarkup(<SvedenPage section="struct" />)).not.toContain("Дата актуальности динамических сведений");
   });
@@ -149,6 +151,9 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
     expect(html).toContain('aria-label="Вакантные места по образовательным программам"');
+    expect(html).toContain("Количество вакантных мест по состоянию на 02.08.2026");
+    expect(html).toContain("Python-разработчик");
+    expect(html).toContain('itemProp="numberPVacant">25</td>');
   });
 
   it("uses the recommended international cooperation and catering tables", () => {

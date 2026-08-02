@@ -9,6 +9,7 @@ import {
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
   SVEDEN_UPDATED_AT,
+  VACANT_UPDATED_AT,
   VACANT_PROGRAMS,
   formatDocumentSize,
   getSectionDocuments,
@@ -427,7 +428,7 @@ function BudgetSection() {
 function VacantSection() {
   return (
     <>
-      <h3>Количество вакантных мест на 01.08.2026</h3>
+      <h3>Количество вакантных мест по состоянию на 02.08.2026</h3>
       <ScrollableTableRegion ariaLabel="Вакантные места по образовательным программам" className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.name}`}>
@@ -529,6 +530,8 @@ function SectionContent({ section }: { section: SvedenSectionSlug }) {
 
 export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
   const current = SVEDEN_SECTIONS[section];
+  const updatedAt = section === "vacant" ? VACANT_UPDATED_AT : SVEDEN_UPDATED_AT;
+  const updatedAtIso = section === "vacant" ? "2026-08-02" : "2026-08-01";
   return (
     <div className={styles.page} itemScope itemType="https://schema.org/EducationalOrganization">
       <SvedenHeader />
@@ -540,7 +543,7 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
         <header className={styles.hero}>
           <h1 title="Сведения об образовательной организации">Сведения об образовательной организации</h1>
           {DYNAMIC_SECTIONS.has(section) ? (
-            <p className={styles.updated}>Дата актуальности динамических сведений: <time dateTime="2026-08-01">{SVEDEN_UPDATED_AT}</time></p>
+            <p className={styles.updated}>Дата актуальности динамических сведений: <time dateTime={updatedAtIso}>{updatedAt}</time></p>
           ) : null}
         </header>
         <div className={styles.layout}>

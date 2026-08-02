@@ -1,6 +1,7 @@
 import manifestData from "./documents.generated.json";
 
 export const SVEDEN_UPDATED_AT = "01.08.2026";
+export const VACANT_UPDATED_AT = "02.08.2026";
 
 export const SVEDEN_SECTION_SLUGS = [
   "common",
@@ -82,7 +83,7 @@ export const SVEDEN_SECTIONS: Record<SvedenSectionSlug, { title: string; shortTi
   vacant: {
     title: "Вакантные места для приёма (перевода) обучающихся",
     shortTitle: "Вакантные места",
-    description: "Количество вакантных мест по каждой образовательной программе на 1 августа 2026 года.",
+    description: "Количество вакантных мест по каждой образовательной программе по состоянию на 2 августа 2026 года.",
   },
   grants: {
     title: "Стипендии и меры поддержки обучающихся",
@@ -271,12 +272,75 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
   },
 );
 
+const GENERAL_VACANT_PLACES = {
+  "CI/CD": 5,
+  "Dart и Flutter": 5,
+  "Data Analysis": 12,
+  Django: 12,
+  Docker: 5,
+  FastAPI: 15,
+  "Linux для разработки и запуска приложений": 5,
+  MLOps: 5,
+  PostgreSQL: 5,
+  "Python Начальный": 25,
+  "Python Продвинутый": 20,
+  Qt: 5,
+  React: 8,
+  Redis: 5,
+  "Spring Boot": 8,
+  "Turtle в Python": 5,
+  "Unreal Engine": 12,
+  "Алгоритмы и структуры данных": 10,
+  "Брокер сообщений": 5,
+  ЕГЭ: 10,
+  "Искусственный интеллект": 8,
+  "Машинное обучение": 8,
+  Многопоточность: 5,
+  "Объектно-ориентированное программирование в C++": 5,
+  "Объектно-ориентированное программирование в Python": 12,
+  ОГЭ: 10,
+  "Олимпиадное программирование": 5,
+  "ООП в Java": 10,
+  "Основы C++": 10,
+  "Основы HTML, CSS и JavaScript": 5,
+  "Основы Java": 5,
+  "Основы SQL": 5,
+  Парсинг: 5,
+  "Разработка игр на Python": 5,
+  "Система контроля версий Git": 5,
+  "Создание Telegram-бота": 5,
+  Тестирование: 5,
+  "Управление памятью": 5,
+} as const;
+
+const PROFESSIONAL_VACANT_PLACES = {
+  "C++ разработчик": 10,
+  "Data Science": 15,
+  "Data-аналитик": 15,
+  "Frontend-разработчик": 10,
+  "Java-разработчик": 10,
+  "ML-инженер": 5,
+  "Python-разработчик": 25,
+  "Unreal Engine": 5,
+  "Мобильный разработчик": 5,
+} as const;
+
+function getPaidVacantPlaces(program: EducationProgram): number {
+  const places = program.kind === "ДО"
+    ? GENERAL_VACANT_PLACES[program.name as keyof typeof GENERAL_VACANT_PLACES]
+    : PROFESSIONAL_VACANT_PLACES[program.name as keyof typeof PROFESSIONAL_VACANT_PLACES];
+  if (places === undefined) {
+    throw new Error(`Missing vacant places for program: ${program.kind} ${program.name}`);
+  }
+  return places;
+}
+
 export const VACANT_PROGRAMS = EDUCATION_PROGRAMS.map((program) => ({
   ...program,
   federal: 0,
   regional: 0,
   municipal: 0,
-  paid: program.kind === "ДО" ? 300 : 100,
+  paid: getPaidVacantPlaces(program),
 }));
 
 export const EDUCATION_TOTALS = {

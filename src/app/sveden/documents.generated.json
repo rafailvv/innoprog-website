@@ -338,6 +338,17 @@
       "sha256": "7655bfd95998f4bd38b00846a96ccddd3783743e4dad12d682780d9a0ef53e1b"
     },
     {
+      "id": "bbdf696f1d796e04",
+      "title": "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»",
+      "sourceName": "ПРИКАЗ_№_ОБР-10_ОБ_УТВЕРЖДЕНИИ_КОЛИЧЕСТВА_ВАКАНТНЫХ_МЕСТ_С_ПРИЛОЖЕНИЕМ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-10_об_утверждении_количества_вакантных_мест_с_приложением.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-10_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0_%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D1%85_%D0%BC%D0%B5%D1%81%D1%82_%D1%81_%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC.pdf",
+      "sizeBytes": 18144112,
+      "sha256": "bbdf696f1d796e04971674e0a10456a132e15b273f28632a2c3d8ce1fd582032"
+    },
+    {
       "id": "c774bdd75f244abb",
       "title": "Приказ № ОБР-2 об утверждении локальных актов",
       "sourceName": "Приказ_№_ОБР-2_об_утверждении_локальных_актов.pdf",
@@ -1095,17 +1106,6 @@
       "href": "/files/sveden/struct/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-1_%D0%BE_%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8_%D0%BF%D0%BE%D0%B4%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
       "sizeBytes": 17888525,
       "sha256": "9bbecde71023af167f50e2b746715e5bc87a5e849a9892338655f3ed1aa5160a"
-    },
-    {
-      "id": "bd97ed5e33b750e3",
-      "title": "СВЕДЕНИЯ О ВАКАНТНЫХ МЕСТАХ НА 01.08.2026",
-      "sourceName": "СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf",
-      "section": "vacant",
-      "category": "section",
-      "storageKey": "site-public/sveden/vacant/СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf",
-      "href": "/files/sveden/vacant/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%92%D0%90%D0%9A%D0%90%D0%9D%D0%A2%D0%9D%D0%AB%D0%A5_%D0%9C%D0%95%D0%A1%D0%A2%D0%90%D0%A5_%D0%9D%D0%90_01.08.2026.pdf",
-      "sizeBytes": 125795,
-      "sha256": "bd97ed5e33b750e34e5997b97b1b56141cccd0e245777520bfacb0a21400c0e9"
     }
   ]
 }
