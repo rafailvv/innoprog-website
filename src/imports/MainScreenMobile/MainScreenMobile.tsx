@@ -2746,7 +2746,7 @@ function Component4() {
 function Frame117() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
-      <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
+      <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
       <a className="no-underline relative shrink-0 w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
     </div>

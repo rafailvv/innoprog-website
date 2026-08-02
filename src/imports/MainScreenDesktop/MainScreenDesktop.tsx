@@ -2254,7 +2254,7 @@ function Group5() {
 function Frame64() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
+      <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
     </div>

@@ -17,5 +17,7 @@ describe("main screen server markup", () => {
     expect(html).toContain('href="/software-operation-manual"');
     expect(html).toContain('href="/functional-characteristics"');
     expect(html).toContain("Сведения об образовательной организации");
+    expect(html).toContain('href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>');
+    expect(html).toContain('href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>');
   });
 });

@@ -5198,7 +5198,7 @@ function Group8() {
 function Frame27() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
+      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
       <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full">Telegram: @innoprog_admin</p>
     </div>

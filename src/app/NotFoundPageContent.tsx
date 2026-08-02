@@ -54,7 +54,7 @@ export default function NotFoundPageContent() {
         <div className="site-review-page__footer-columns">
           <section>
             <h2>Контакты</h2>
-            <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80</a>
+            <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80;</a>
             <a href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
             <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
           </section>
