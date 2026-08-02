@@ -10,14 +10,16 @@ import {
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(100);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(101);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(3);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(95);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(100);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(96);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(101);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
-    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий")).toBe(true);
+    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ")).toBe(true);
+    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.")).toBe(true);
+    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий")).toBe(false);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Положение о порядке разработки и утверждения дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»")).toBe(true);

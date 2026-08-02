@@ -72,6 +72,11 @@ SUPPLEMENTAL_DOCUMENT_FILES = {
             "Приказ_№_ОБР-10_об_утверждении_количества_вакантных_мест_с_приложением.pdf",
             "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»",
         ),
+    "ПРИКАЗ_№_ОБР-11_ОБ_УТВЕРЖДЕНИИ_НОВЫХ_РЕДАКЦИЙ_ДОПОЛНИТЕЛЬНЫХ_ПРОФЕССИОНАЛЬНЫХ_ПРОГРАММ.pdf":
+        (
+            "Приказ_№_ОБР-11_об_утверждении_новых_редакций_дополнительных_профессиональных_программ.pdf",
+            "Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ",
+        ),
 }
 
 REPLACED_SECTION_FILES = {
@@ -105,18 +110,25 @@ UPDATE_FILES = {
     "ПРАВИЛА_ВНУТРЕННЕГО_РАСПОРЯДКА_ОБУЧАЮЩИХСЯ.pdf": [
         ("sveden/document/Правила_внутреннего_распорядка_обучающихся.pdf", "document", "section", "Правила внутреннего распорядка обучающихся"),
     ],
-    "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf": [
-        ("sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf", "document", "section", "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий"),
+    "ОТЧЁТ_О_РЕЗУЛЬТАТАХ_САМООБСЛЕДОВАНИЯ_ЗА_2025_ГОД.pdf": [
+        ("sveden/document/Отчет_о_результатах_самообследования_за_2025_год.pdf", "document", "section", "Отчет о результатах самообследования за 2025 год"),
+    ],
+    "ПРИКАЗ_ОБР-12_ОБ_ОРГАНИЗАЦИИ_ОБУЧЕНИЯ_С_ЭО_И_ДОТ.pdf": [
+        ("sveden/document/Приказ_№_ОБР-12_об_организации_образовательной_деятельности_с_применением_электронного_обучения_и_ДОТ.pdf", "document", "section", "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий."),
     ],
     "ПРИКАЗ_№_ОБР-8_ОБ_УТВЕРЖДЕНИИ_НОВЫХ_РЕДАКЦИЙ_ЛОКАЛЬНЫХ_НОРМАТИВНЫХ_АКТОВ.pdf": [
         ("sveden/document/Приказ_№_ОБР-8_об_утверждении_новых_редакций_локальных_нормативных_актов.pdf", "document", "section", "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов"),
     ],
 }
 
-EXPECTED_SECTION_PDFS = 95
+REPLACED_PUBLIC_KEYS = {
+    "site-public/sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf",
+}
+
+EXPECTED_SECTION_PDFS = 96
 EXPECTED_LEGAL_PDFS = 3
 EXPECTED_TECHNICAL_PDFS = 2
-EXPECTED_TOTAL_PDFS = 100
+EXPECTED_TOTAL_PDFS = 101
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -315,6 +327,8 @@ def prepare(
         technical_count += 1
 
     entries_by_key = {str(entry["storageKey"]): entry for entry in entries}
+    for replaced_key in REPLACED_PUBLIC_KEYS:
+        entries_by_key.pop(replaced_key, None)
 
     # The source ZIP still contains older drafts of these three signed disclosures.
     # Preserve the approved public copies until a newer signed revision is supplied.
@@ -397,7 +411,7 @@ def prepare(
     entries.sort(key=lambda item: (str(item["section"]), str(item["storageKey"])))
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(
-        json.dumps({"generatedAt": "2026-08-02", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
+        json.dumps({"generatedAt": "2026-08-03", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
     )

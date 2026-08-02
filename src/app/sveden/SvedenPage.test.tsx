@@ -106,7 +106,13 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Положение о порядке разработки и утверждения дополнительных профессиональных программ");
     expect(html).toContain("Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ");
     expect(html).toContain("Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»");
-    expect(html).toContain("Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий");
+    expect(html).toContain("Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ");
+    expect(html).toContain("Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.");
+    const policyIndex = html.indexOf("Положение об электронном обучении и дистанционных образовательных технологиях");
+    const policyItemEnd = html.indexOf("</li>", policyIndex);
+    const orderIndex = html.indexOf("Приказ № ОБР-12", policyItemEnd);
+    expect(orderIndex).toBeGreaterThan(policyItemEnd);
+    expect(orderIndex).toBeLessThan(html.indexOf("</li>", policyItemEnd + 5));
   });
 
   it("links to the credit policy from the education section", () => {

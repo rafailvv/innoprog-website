@@ -168,6 +168,16 @@ function DocumentSection() {
   const localActs = sectionDocuments.filter(
     ({ title }) => !title.includes("самообследования"),
   );
+  const eLearningPolicyTitle = "Положение об электронном обучении и дистанционных образовательных технологиях";
+  const eLearningOrderTitle = "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.";
+  const orderedLocalActs = [...localActs];
+  const eLearningOrderIndex = orderedLocalActs.findIndex(({ title }) => title === eLearningOrderTitle);
+  const eLearningPolicyIndex = orderedLocalActs.findIndex(({ title }) => title === eLearningPolicyTitle);
+  if (eLearningOrderIndex !== -1 && eLearningPolicyIndex !== -1) {
+    const [eLearningOrder] = orderedLocalActs.splice(eLearningOrderIndex, 1);
+    const currentPolicyIndex = orderedLocalActs.findIndex(({ title }) => title === eLearningPolicyTitle);
+    orderedLocalActs.splice(currentPolicyIndex + 1, 0, eLearningOrder);
+  }
 
   return (
     <>
@@ -176,7 +186,7 @@ function DocumentSection() {
       <p itemProp="prescriptionDocLink">Предписания органов государственного контроля в сфере образования и отчёты об их исполнении отсутствуют.</p>
       <DocumentList documents={[charter]} heading="Учредительные документы" purpose="Учредительный документ" />
       <DocumentList
-        documents={localActs}
+        documents={orderedLocalActs}
         heading="Локальные нормативные акты по основным вопросам организации и осуществления образовательной деятельности"
         purpose="Нормативное регулирование образовательной деятельности"
       />
