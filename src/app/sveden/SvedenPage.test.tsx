@@ -128,6 +128,12 @@ describe("educational disclosure server HTML", () => {
       expect(html).toContain(`itemProp="${property}"`);
     }
     expect(html).not.toContain('itemProp="teachingDisciplin"');
+    expect(html).toContain("Руководитель преподавательского состава");
+    expect(html).toContain("Профессиональное образование не завершено. Обучается в Университете «Синергия» по направлению «Программная инженерия». Успешно прошёл промежуточную аттестацию не менее чем за два года обучения. Допущен к педагогической деятельности по дополнительным общеобразовательным программам в соответствии с частью 4 статьи 46 Федерального закона № 273-ФЗ.");
+    expect(html).not.toContain("Руководитель педагогического состава");
+    expect(html).not.toContain("Неоконченное профессиональное образование");
+    expect(html).not.toContain("пройдены два профильных курса");
+    expect(html).not.toContain("направлению «Разработка программного обеспечения»");
   });
 
   it("publishes the accessibility version control and paid education document property", () => {
