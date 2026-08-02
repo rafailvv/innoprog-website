@@ -4187,10 +4187,6 @@ function Frame194() {
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">Диплом ИТ-школы ИННОПРОГ</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full">
-        <Frame263 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-[rgba(0,0,0,0.6)] tracking-[0.48px]">Диплом о профессиональной переподготовке</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full">
         <Frame264 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-[rgba(0,0,0,0.6)] tracking-[0.48px]">Стажировка после обучения</p>
       </div>
@@ -4366,14 +4362,6 @@ function Frame195() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
           </svg>
         </div>
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">Диплом о профессиональной переподготовке</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <div className="relative shrink-0 size-[18px]" data-name="Vector">
-          <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
-            <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
-          </svg>
-        </div>
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">Стажировка после обучения</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full">
@@ -4515,14 +4503,6 @@ function Frame196() {
           </svg>
         </div>
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">2 тестовых собеседования</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <div className="relative shrink-0 size-[18px]" data-name="Vector">
-          <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
-            <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
-          </svg>
-        </div>
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">Диплом о профессиональной переподготовке</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">

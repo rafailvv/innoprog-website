@@ -2,6 +2,10 @@ import { readFileSync } from "node:fs";
 
 const appSource = readFileSync("src/app/App.tsx", "utf8");
 const reviewsSource = readFileSync("src/app/studentReviewsData.ts", "utf8");
+const tariffsSource = appSource.slice(
+  appSource.indexOf("const TARIFFS = ["),
+  appSource.indexOf("const REVIEW_STORY_CARD_TITLES"),
+);
 
 if (appSource.includes("replaceChildren(")) {
   throw new Error("Course review cards must not replace React-owned child nodes");
@@ -9,6 +13,10 @@ if (appSource.includes("replaceChildren(")) {
 
 if (!appSource.includes("card.append(content)")) {
   throw new Error("Dynamic course review content must be appended without replacing React nodes");
+}
+
+if (tariffsSource.includes("Диплом о профессиональной переподготовке")) {
+  throw new Error("The DPO diploma must not depend on the selected tariff");
 }
 
 const expectedCourseDirections = {
@@ -77,6 +85,10 @@ for (const [courseName, duration] of Object.entries(expectedCourseDurations)) {
 
     if (/За 28 недель освоите/.test(source)) {
       throw new Error(`${courseName}${viewport} contains the obsolete 28-week duration`);
+    }
+
+    if (source.includes(">Диплом о профессиональной переподготовке</p>")) {
+      throw new Error(`${courseName}${viewport} must not list the DPO diploma as a tariff feature`);
     }
   }
 }

@@ -4147,10 +4147,6 @@ function Frame186() {
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Диплом ИТ-школы ИННОПРОГ</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <Frame236 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-[rgba(0,0,0,0.6)]">Диплом о профессиональной переподготовке</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <Frame237 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-[rgba(0,0,0,0.6)]">Стажировка после обучения</p>
       </div>
@@ -4409,10 +4405,6 @@ function Frame187() {
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled13 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Диплом ИТ-школы ИННОПРОГ</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <WeuiDone2Filled14 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Диплом о профессиональной переподготовке</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled15 />
@@ -4691,10 +4683,6 @@ function Frame188() {
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled22 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Диплом ИТ-школы ИННОПРОГ</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <WeuiDone2Filled23 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Диплом о профессиональной переподготовке</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled24 />
