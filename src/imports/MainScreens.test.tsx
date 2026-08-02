@@ -19,5 +19,8 @@ describe("main screen server markup", () => {
     expect(html).toContain("Сведения об образовательной организации");
     expect(html).toContain('href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>');
     expect(html).toContain('href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>');
+    expect(html.match(/≈12 месяцев/g)).toHaveLength(2);
+    expect(html).toContain("(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве");
+    expect(html).toContain("(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению");
   });
 });

@@ -655,7 +655,7 @@ function Frame15() {
 function Frame17() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈10 месяцев</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈12 месяцев</p>
     </div>
   );
 }
@@ -1086,7 +1086,7 @@ function Frame45() {
 function Frame47() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈10 месяцев</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈12 месяцев</p>
     </div>
   );
 }
@@ -2062,13 +2062,10 @@ function Frame86() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
       <div className="relative shrink-0 w-[167px]">
-        <p className="leading-[16px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
-        <p className="leading-[16px]">в трудоустройстве</p>
+        <p className="leading-[16px]">(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве</p>
       </div>
       <div className="flex-[1_0_0] min-w-px relative">
-        <p className="leading-[16px] mb-0">(2) Удостоверение</p>
-        <p className="leading-[16px] mb-0">о повышении квалификации и диплом</p>
-        <p className="leading-[16px]">о профпереподготовке установленного образца</p>
+        <p className="leading-[16px]">(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению</p>
       </div>
     </div>
   );

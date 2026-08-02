@@ -405,10 +405,12 @@ function Frame17() {
 function DirectionHoverOverlay({
   title,
   description,
+  period = "≈10 месяцев",
   showArrow = false,
 }: {
   title: string;
   description: string;
+  period?: string;
   showArrow?: boolean;
 }) {
   return (
@@ -416,7 +418,7 @@ function DirectionHoverOverlay({
       <div className="site-desktop-direction-hover__top">
         <div className="site-desktop-direction-hover__tags">
           <div className="site-desktop-direction-hover__tag-column">
-            <span>≈10 месяцев</span>
+            <span>{period}</span>
             <span>Стажировка</span>
           </div>
           <span>С наставником</span>
@@ -513,6 +515,7 @@ function Frame14() {
         <DirectionHoverOverlay
           title="Data Science"
           description="Научитесь работать с данными, Python, статистикой и моделями ИИ, чтобы находить закономерности и решать бизнес-задачи"
+          period="≈12 месяцев"
           showArrow
         />
       </a>
@@ -730,6 +733,7 @@ function Frame15() {
         <DirectionHoverOverlay
           title="ML-инженер"
           description="Разберитесь в машинном обучении и нейросетях, научитесь обучать модели и применять их для прогнозирования"
+          period="≈12 месяцев"
         />
       </a>
     </div>
@@ -1455,12 +1459,10 @@ function Frame81() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between leading-[0] relative shrink-0 text-[24px] text-white w-full">
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
-        <p className="leading-[30px]">в трудоустройстве</p>
+        <p className="leading-[30px]">(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве</p>
       </div>
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(2) Удостоверение о повышении квалификации</p>
-        <p className="leading-[30px]">и диплом о профпереподготовке установленного образца</p>
+        <p className="leading-[30px]">(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению</p>
       </div>
     </div>
   );
