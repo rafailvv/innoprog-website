@@ -46,10 +46,23 @@ TECHNICAL_FILES = {
     "functional-characteristics.pdf": "functional-characteristics.pdf",
 }
 
-EXPECTED_SECTION_PDFS = 89
+SUPPLEMENTAL_DOCUMENT_FILES = {
+    "ПОЛОЖЕНИЕ_О_ПОРЯДКЕ_ЗАЧЕТА_РЕЗУЛЬТАТОВ_РАНЕЕ_ОСВОЕННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ПРОГРАММ_И_ИХ_КОМПОНЕНТОВ.pdf":
+        (
+            "Положение_о_порядке_зачета_результатов_ранее_освоенных_образовательных_программ_и_их_компонентов.pdf",
+            "Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов",
+        ),
+    "ПРИКАЗ_№_ОБР-7_ОБ_УТВЕРЖДЕНИИ_ПОЛОЖЕНИЯ_О_ПОРЯДКЕ_ЗАЧЕТА.pdf":
+        (
+            "Приказ_№_ОБР-7_об_утверждении_Положения_о_порядке_зачета.pdf",
+            "Приказ № ОБР-7 об утверждении Положения о порядке зачёта",
+        ),
+}
+
+EXPECTED_SECTION_PDFS = 91
 EXPECTED_LEGAL_PDFS = 3
 EXPECTED_TECHNICAL_PDFS = 2
-EXPECTED_TOTAL_PDFS = 94
+EXPECTED_TOTAL_PDFS = 96
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 
 
@@ -109,7 +122,13 @@ def read_technical_pdf(source_name: str, technical_dir: Path | None) -> bytes:
     return data
 
 
-def prepare(archive: Path, technical_dir: Path | None, output_root: Path, manifest: Path) -> None:
+def prepare(
+    archive: Path,
+    technical_dir: Path | None,
+    supplemental_dir: Path,
+    output_root: Path,
+    manifest: Path,
+) -> None:
     if output_root.exists():
         shutil.rmtree(output_root)
     output_root.mkdir(parents=True)
@@ -167,6 +186,22 @@ def prepare(archive: Path, technical_dir: Path | None, output_root: Path, manife
                 )
                 legal_count += 1
 
+    for source_name, (public_name, title) in SUPPLEMENTAL_DOCUMENT_FILES.items():
+        source = supplemental_dir / source_name
+        if not source.is_file():
+            raise FileNotFoundError(f"Missing supplemental disclosure PDF: {source}")
+        entry = write_pdf(
+            output_root,
+            Path("sveden") / "document" / public_name,
+            source.read_bytes(),
+            section="document",
+            source_name=source_name,
+            category="section",
+        )
+        entry["title"] = title
+        entries.append(entry)
+        section_count += 1
+
     technical_count = 0
     for source_name, public_name in TECHNICAL_FILES.items():
         entries.append(
@@ -212,6 +247,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("archive", type=Path)
     parser.add_argument("--technical-dir", type=Path, help="Optional directory containing the two technical source PDFs")
+    parser.add_argument(
+        "--supplemental-dir",
+        type=Path,
+        required=True,
+        help="Directory containing the approved credit-policy PDF and order No. OBR-7",
+    )
     parser.add_argument("--output", type=Path, default=Path("/tmp/innoprog-sveden-upload"))
     parser.add_argument(
         "--manifest",
@@ -219,7 +260,7 @@ def main() -> None:
         default=Path("src/app/sveden/documents.generated.json"),
     )
     args = parser.parse_args()
-    prepare(args.archive, args.technical_dir, args.output, args.manifest)
+    prepare(args.archive, args.technical_dir, args.supplemental_dir, args.output, args.manifest)
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SvedenPage } from "./SvedenPage";
-import { SVEDEN_SECTION_SLUGS } from "./data";
+import { SVEDEN_DOCUMENTS, SVEDEN_SECTION_SLUGS } from "./data";
 import itempropContract from "./itemprop-contract.json";
 
 function getItemProps(html: string) {
@@ -22,7 +22,7 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("itemProp=");
     expect(html).toContain("<h1 ");
     expect(html).toContain("<h2>");
-    expect(html).toContain("<h3>");
+    expect(html).toContain("<h3");
   });
 
   it.each(SVEDEN_SECTION_SLUGS)("renders the complete machine-readable contract for %s", (section) => {
@@ -99,6 +99,17 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Коллективный договор отсутствует");
     expect(html).toContain('itemProp="prescriptionDocLink"');
     expect(html).toContain('itemProp="ustavDocLink"');
+    expect(html).toContain("Локальные нормативные акты по основным вопросам организации и осуществления образовательной деятельности");
+    expect(html).toContain("Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов");
+    expect(html).toContain("Приказ № ОБР-7 об утверждении Положения о порядке зачёта");
+  });
+
+  it("links to the credit policy from the education section", () => {
+    const html = renderToStaticMarkup(<SvedenPage section="education" />);
+    const creditPolicy = SVEDEN_DOCUMENTS.find(({ title }) => title.startsWith("Положение о порядке зачёта"));
+    expect(creditPolicy).toBeDefined();
+    expect(html).toContain("Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен");
+    expect(html).toContain(creditPolicy!.href);
   });
 
   it("shows the freshness date only for dynamic disclosures", () => {

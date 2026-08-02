@@ -12,6 +12,11 @@ from urllib.error import HTTPError
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
+IMAGE_ONLY_SIGNED_DOCUMENTS = {
+    "e24c8086bf6d7d9586b3efc52be197fd842d4eeb2dc00539cadc0c881bcc6ca3",
+    "b8b6c6961fca3404604a47671f893d7d6bf3760ba0500e4a585d2508c0adafe3",
+}
+
 
 def verify_remote_document(origin: str, document: dict[str, object]) -> None:
     url = urljoin(origin, str(document["href"]))
@@ -49,12 +54,12 @@ def main() -> None:
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     documents = manifest["documents"]
-    if manifest["counts"] != {"section": 89, "legal": 3, "technical": 2, "total": 94}:
+    if manifest["counts"] != {"section": 91, "legal": 3, "technical": 2, "total": 96}:
         raise RuntimeError(f"Unexpected counts: {manifest['counts']}")
 
     staged = sorted((args.root / "site-public").rglob("*.pdf"))
-    if len(staged) != 94:
-        raise RuntimeError(f"Expected 94 staged PDFs, found {len(staged)}")
+    if len(staged) != 96:
+        raise RuntimeError(f"Expected 96 staged PDFs, found {len(staged)}")
 
     by_key = {document["storageKey"]: document for document in documents}
     missing_text: list[str] = []
@@ -72,7 +77,7 @@ def main() -> None:
         if not reader.pages:
             raise RuntimeError(f"PDF has no pages: {key}")
         text = "".join((page.extract_text() or "") for page in reader.pages[:5]).strip()
-        if not text:
+        if not text and document["sha256"] not in IMAGE_ONLY_SIGNED_DOCUMENTS:
             missing_text.append(key)
 
     if missing_text:
@@ -84,7 +89,12 @@ def main() -> None:
             list(executor.map(lambda document: verify_remote_document(args.remote_origin, document), documents))
         remote_verified = len(documents)
 
-    print(json.dumps({"verified": len(staged), "textLayer": len(staged), "sha256": len(staged), "remote": remote_verified}, ensure_ascii=False))
+    print(json.dumps({
+        "verified": len(staged),
+        "textLayerOrApprovedScan": len(staged),
+        "sha256": len(staged),
+        "remote": remote_verified,
+    }, ensure_ascii=False))
 
 
 if __name__ == "__main__":

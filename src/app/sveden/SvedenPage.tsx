@@ -71,11 +71,20 @@ function DetailsTable({ rows, label }: { rows: Array<[string, ReactNode]>; label
   );
 }
 
-function DocumentList({ documents, purpose = "Электронная версия сведений раздела" }: { documents: SvedenDocument[]; purpose?: string }) {
+function DocumentList({
+  documents,
+  purpose = "Электронная версия сведений раздела",
+  heading = "Электронные документы раздела",
+}: {
+  documents: SvedenDocument[];
+  purpose?: string;
+  heading?: string;
+}) {
   if (!documents.length) return null;
+  const headingId = `documents-heading-${documents[0].id}`;
   return (
-    <section className={styles.sectionBlock} aria-labelledby="documents-heading">
-      <h3 id="documents-heading">Электронные документы раздела</h3>
+    <section className={styles.sectionBlock} aria-labelledby={headingId}>
+      <h3 id={headingId}>{heading}</h3>
       <ul className={styles.documentList}>
         {documents.map((document) => (
           <li key={document.id}>
@@ -151,14 +160,26 @@ function StructSection() {
 function DocumentSection() {
   const charter = SVEDEN_DOCUMENTS.find((document) => document.title === "Устав типовой №24");
   if (!charter) throw new Error("The charter document is missing");
+  const sectionDocuments = getSectionDocuments("document");
+  const selfInspectionDocuments = sectionDocuments.filter(
+    ({ title }) => title.includes("самообследования"),
+  );
+  const localActs = sectionDocuments.filter(
+    ({ title }) => !title.includes("самообследования"),
+  );
 
   return (
     <>
-      <h3>Локальные нормативные акты и отчётность</h3>
       <p>Документы опубликованы в действующих редакциях.</p>
       <p itemProp="localActCollec">Коллективный договор отсутствует.</p>
       <p itemProp="prescriptionDocLink">Предписания органов государственного контроля в сфере образования и отчёты об их исполнении отсутствуют.</p>
-      <DocumentList documents={[charter, ...getSectionDocuments("document")]} purpose="Нормативное регулирование образовательной деятельности" />
+      <DocumentList documents={[charter]} heading="Учредительные документы" purpose="Учредительный документ" />
+      <DocumentList
+        documents={localActs}
+        heading="Локальные нормативные акты по основным вопросам организации и осуществления образовательной деятельности"
+        purpose="Нормативное регулирование образовательной деятельности"
+      />
+      <DocumentList documents={selfInspectionDocuments} heading="Самообследование" purpose="Отчётность образовательной организации" />
     </>
   );
 }
@@ -167,8 +188,11 @@ function EducationSection() {
   const documents = getSectionDocuments("education");
   const languageDocument = documents.find((document) => document.title === "Положение о языке образования");
   const studentsDocument = documents.find((document) => document.title.startsWith("Сведения о численности обучающихся"));
+  const creditPolicy = SVEDEN_DOCUMENTS.find(
+    (document) => document.title === "Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов",
+  );
 
-  if (!languageDocument || !studentsDocument) {
+  if (!languageDocument || !studentsDocument || !creditPolicy) {
     throw new Error("Required education disclosure documents are missing");
   }
 
@@ -186,6 +210,7 @@ function EducationSection() {
       ]} />
       <p itemProp="eduPriemEl">Приём на обучение осуществляется без вступительных испытаний.</p>
       <p itemProp="eduPerevodEl">Перевод, восстановление и отчисление обучающихся в отчётном периоде не осуществлялись.</p>
+      <p>Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен <a href={creditPolicy.href} rel="noopener noreferrer" target="_blank">локальным нормативным актом (PDF)</a>.</p>
       <h3>Реализуемые образовательные программы</h3>
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
       <ScrollableTableRegion ariaLabel="47 образовательных программ" className={styles.tableScroll}>

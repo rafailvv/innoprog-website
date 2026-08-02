@@ -10,11 +10,11 @@ import {
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(94);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(96);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(3);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(89);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(94);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(91);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(96);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
   });
 
