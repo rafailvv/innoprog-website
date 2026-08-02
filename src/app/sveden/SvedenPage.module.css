@@ -147,8 +147,7 @@
   overflow-wrap: break-word;
   white-space: normal;
 }
-.programTable tr > :first-child,
-.vacancyTable tr > :first-child {
+.programTable tr > :first-child {
   position: sticky;
   left: 0;
   z-index: 1;
@@ -158,14 +157,12 @@
   background: #fff;
   box-shadow: 8px 0 12px -12px #39334f;
 }
-.programTable thead tr > :first-child,
-.vacancyTable thead tr > :first-child {
+.programTable thead tr > :first-child {
   z-index: 3;
   color: #fff;
   background: #4c486b;
 }
-.programTable tbody tr:nth-child(even) > :first-child,
-.vacancyTable tbody tr:nth-child(even) > :first-child { background: #faf9fd; }
+.programTable tbody tr:nth-child(even) > :first-child { background: #faf9fd; }
 .vacancyTable th:last-child,
 .vacancyTable td:last-child { width: 400px; min-width: 400px; }
 .hostelTable { min-width: 820px; table-layout: fixed; }
@@ -222,8 +219,7 @@
   .topline { align-items: stretch; flex-direction: column; gap: 12px; }
   .breadcrumbs { font-size: 12px; }
   .accessibilityToggle { align-self: flex-start; }
-  .programTable tr > :first-child,
-  .vacancyTable tr > :first-child {
+  .programTable tr > :first-child {
     width: 160px;
     min-width: 160px;
     max-width: 160px;
