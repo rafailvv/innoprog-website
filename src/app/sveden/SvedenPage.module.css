@@ -132,6 +132,40 @@
 .dataTable thead th { color: #fff; background: #4c486b; font-weight: 650; }
 .dataTable tbody tr:nth-child(even) { background: #faf9fd; }
 .programTable { min-width: 2400px; }
+.vacancyTable { min-width: 2200px; }
+.programTable,
+.vacancyTable {
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+.programTable th,
+.programTable td,
+.vacancyTable th,
+.vacancyTable td {
+  min-width: 150px;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.programTable tr > :first-child,
+.vacancyTable tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 230px;
+  min-width: 230px;
+  max-width: 230px;
+  background: #fff;
+  box-shadow: 8px 0 12px -12px #39334f;
+}
+.programTable thead tr > :first-child,
+.vacancyTable thead tr > :first-child {
+  z-index: 3;
+  color: #fff;
+  background: #4c486b;
+}
+.programTable tbody tr:nth-child(even) > :first-child,
+.vacancyTable tbody tr:nth-child(even) > :first-child { background: #faf9fd; }
 .vacancyTable th:last-child,
 .vacancyTable td:last-child { width: 400px; min-width: 400px; }
 .hostelTable { min-width: 820px; table-layout: fixed; }
@@ -188,6 +222,20 @@
   .topline { align-items: stretch; flex-direction: column; gap: 12px; }
   .breadcrumbs { font-size: 12px; }
   .accessibilityToggle { align-self: flex-start; }
+  .programTable tr > :first-child,
+  .vacancyTable tr > :first-child {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+  .programTable th:last-child,
+  .programTable td:last-child,
+  .vacancyTable th:last-child,
+  .vacancyTable td:last-child {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
   .hero h1 { font-size: 28px; }
   .sectionNav { grid-template-columns: 1fr; }
   .content h2 { font-size: 26px; }

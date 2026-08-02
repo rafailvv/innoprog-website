@@ -36,6 +36,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Учебные предметы, курсы, дисциплины (модули)");
     expect(html).toContain("Код и шифр образовательной программе не присвоены");
     expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
+    expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
+    expect(html).toContain('aria-label="47 образовательных программ"');
     expect(html).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
 
@@ -112,6 +114,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
     expect(html).toContain("Деление на курсы образовательной программой не предусмотрено");
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
+    expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
+    expect(html).toContain('aria-label="Вакантные места по образовательным программам"');
   });
 
   it("uses the recommended international cooperation and catering tables", () => {

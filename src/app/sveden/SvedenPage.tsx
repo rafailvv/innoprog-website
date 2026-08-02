@@ -1,6 +1,7 @@
 import React, { type ReactNode } from "react";
 import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
 import { SvedenAccessibilityToggle, SvedenHeader } from "./SvedenHeader";
+import { ScrollableTableRegion } from "./ScrollableTableRegion";
 import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
@@ -185,7 +186,7 @@ function EducationSection() {
       ]} />
       <h3>Реализуемые образовательные программы</h3>
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
-      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="47 образовательных программ">
+      <ScrollableTableRegion ariaLabel="47 образовательных программ" className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.programTable}`}>
           <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Численность обучающихся</th><th>Электронные документы</th></tr></thead>
           <tbody>
@@ -210,7 +211,7 @@ function EducationSection() {
             ))}
           </tbody>
         </table>
-      </div>
+      </ScrollableTableRegion>
       <DocumentList documents={documents} />
     </>
   );
@@ -400,13 +401,13 @@ function VacantSection() {
   return (
     <>
       <h3>Количество вакантных мест на 01.08.2026</h3>
-      <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Вакантные места по образовательным программам">
+      <ScrollableTableRegion ariaLabel="Вакантные места по образовательным программам" className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.name}`}>
             <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
           </tr>)}</tbody>
         </table>
-      </div>
+      </ScrollableTableRegion>
       <DocumentList documents={getSectionDocuments("vacant")} />
     </>
   );
