@@ -183,7 +183,7 @@ function EducationSection() {
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
       <h3>Реализуемые образовательные программы</h3>
-      <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике и методические материалы.</p>
+      <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="47 образовательных программ">
         <table className={`${styles.dataTable} ${styles.programTable}`}>
           <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Численность обучающихся</th><th>Электронные документы</th></tr></thead>
@@ -202,12 +202,7 @@ function EducationSection() {
                 <td>{program.language}</td>
                 <td>{program.students}, в том числе иностранных граждан — {program.foreignStudents}</td>
                 <td className={styles.documentLinks}>
-                  <a href={program.document.href} itemProp="opMain" rel="noopener noreferrer" target="_blank">Описание программы</a>
-                  <a href={program.document.href} itemProp="educationPlan" rel="noopener noreferrer" target="_blank">Учебный план</a>
-                  <a href={program.document.href} itemProp="educationRpd" rel="noopener noreferrer" target="_blank">Рабочие программы и модули</a>
-                  <a href={program.document.href} itemProp="educationShedule" rel="noopener noreferrer" target="_blank">Календарный учебный график</a>
-                  <a href={program.document.href} itemProp="eduPr" rel="noopener noreferrer" target="_blank">Сведения о практике</a>
-                  <a href={program.document.href} itemProp="methodology" rel="noopener noreferrer" target="_blank">Методические документы</a>
+                  <a href={program.document.href} itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology" rel="noopener noreferrer" target="_blank">Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы.</a>
                   <small>PDF · {formatDocumentSize(program.document.sizeBytes)}</small>
                 </td>
               </tr>

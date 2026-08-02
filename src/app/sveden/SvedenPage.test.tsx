@@ -21,13 +21,10 @@ describe("educational disclosure server HTML", () => {
   it("renders all 47 education programs and approved totals", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
     expect(html.match(/itemProp="eduAccred eduOp"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="eduPr"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="methodology"/g)).toHaveLength(47);
     expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="opMain"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="educationPlan"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="educationRpd"/g)).toHaveLength(47);
-    expect(html.match(/itemProp="educationShedule"/g)).toHaveLength(47);
+    expect(html.match(/itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology"/g)).toHaveLength(47);
+    expect(html.match(/Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы\./g)).toHaveLength(47);
+    expect(html).not.toMatch(/>Описание программы<|>Учебный план<|>Рабочие программы и модули<|>Календарный учебный график<|>Сведения о практике<|>Методические документы</);
     expect(html.match(/itemProp="eduPred"/g)).toHaveLength(47);
     expect(html.match(/itemProp="eduPrac"/g)).toHaveLength(47);
     expect(html).toContain('itemProp="languageEl"');
