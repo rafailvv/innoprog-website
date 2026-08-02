@@ -256,6 +256,8 @@ type LeadPayload = {
   phone: string;
   email?: string;
   question?: string;
+  personal_data_consent?: boolean;
+  advertising_consent?: boolean;
 };
 
 type LeadDraft = Partial<LeadPayload>;
@@ -3868,6 +3870,7 @@ export default function App({
   const [isReady, setIsReady] = useState(isInitialCoursePage);
   const [shouldShowLoader, setShouldShowLoader] = useState(!isInitialCoursePage);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileMenuMounted, setIsMobileMenuMounted] = useState(false);
@@ -4363,6 +4366,12 @@ export default function App({
       .forEach((toggle) => toggle.setAttribute("aria-checked", String(isConsentChecked)));
 
     document
+      .querySelectorAll("[data-advertising-consent-toggle]")
+      .forEach((toggle) =>
+        toggle.setAttribute("aria-checked", String(isAdvertisingConsentChecked)),
+      );
+
+    document
       .querySelectorAll<HTMLElement>('[data-name="заявка"] [data-name="кнопки пд"]')
       .forEach((button) => {
         const isDisabled = !isConsentChecked || isLeadSubmitting;
@@ -4374,12 +4383,26 @@ export default function App({
           button.disabled = isDisabled;
         }
       });
-  }, [isConsentChecked, viewport.isMobile, leadModalState, isLeadSubmitting]);
+  }, [
+    isAdvertisingConsentChecked,
+    isConsentChecked,
+    viewport.isMobile,
+    leadModalState,
+    isLeadSubmitting,
+  ]);
 
   useEffect(() => {
     const handleConsentClick = (event: globalThis.MouseEvent) => {
       const target = event.target instanceof Element ? event.target : null;
+      const advertisingConsentToggle = target?.closest("[data-advertising-consent-toggle]");
       const consentToggle = target?.closest("[data-consent-toggle]");
+
+      if (advertisingConsentToggle && !target?.closest("a")) {
+        event.preventDefault();
+        event.stopPropagation();
+        setIsAdvertisingConsentChecked((checked) => !checked);
+        return;
+      }
 
       if (!consentToggle || target?.closest("a")) {
         return;
@@ -4400,6 +4423,16 @@ export default function App({
 
     const handleConsentKeyDown = (event: globalThis.KeyboardEvent) => {
       const target = event.target instanceof Element ? event.target : null;
+
+      if (
+        target?.closest("[data-advertising-consent-toggle]") &&
+        (event.key === "Enter" || event.key === " ")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        setIsAdvertisingConsentChecked((checked) => !checked);
+        return;
+      }
 
       if (
         !target?.closest("[data-consent-toggle]") ||
@@ -4730,7 +4763,11 @@ export default function App({
       return;
     }
 
-    const payload = getLeadPayload(source);
+    const payload = {
+      ...getLeadPayload(source),
+      personal_data_consent: true,
+      advertising_consent: isAdvertisingConsentChecked,
+    };
 
     setLeadDraft(payload);
 
@@ -4759,6 +4796,8 @@ export default function App({
       await sendLeadApplication(payload);
       setLeadModalState("success");
       setLeadDraft({});
+      setIsConsentChecked(false);
+      setIsAdvertisingConsentChecked(false);
     } catch (error) {
       setLeadFormError(
         error instanceof Error && error.message === "captcha-closed"
@@ -5381,6 +5420,7 @@ export default function App({
         isTariffsRoute ? "site-shell--tariffs-route" : "",
         !isStandaloneRoute ? "site-shell--home-route" : "",
         isConsentChecked ? "site-shell--consent-checked" : "",
+        isAdvertisingConsentChecked ? "site-shell--advertising-consent-checked" : "",
         isConsentError ? "site-shell--consent-error" : "",
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
@@ -5715,7 +5755,7 @@ export default function App({
                     </svg>
                   </span>
                   <span>
-                    Нажимая на кнопку, вы даете&nbsp;
+                    Я даю&nbsp;
                     <a
                       className="site-consent__link"
                       href="/consent"
@@ -5724,17 +5764,40 @@ export default function App({
                     >
                       согласие на обработку персональных данных
                     </a>
-                    &nbsp;и соглашаетесь с&nbsp;
+                  </span>
+                </div>
+                <div
+                  className="site-lead-modal__consent site-consent site-consent--advertising"
+                  data-advertising-consent-toggle
+                  role="checkbox"
+                  tabIndex={0}
+                >
+                  <span className="site-lead-modal__checkbox site-consent__box">
+                    <span className="site-lead-modal__checkbox-border site-consent__border" />
+                    <svg className="site-consent__check" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12.5 10 17l9-10" fill="none" />
+                    </svg>
+                  </span>
+                  <span>
+                    Я согласен(на) получать&nbsp;
                     <a
                       className="site-consent__link"
-                      href="/privacy"
+                      href="/advertising-consent"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      политикой конфиденциальности
+                      рекламные и информационные сообщения
                     </a>
+                    &nbsp;(необязательно)
                   </span>
                 </div>
+                <p className="site-lead-modal__policy-note">
+                  С&nbsp;
+                  <a href="/privacy" rel="noopener noreferrer" target="_blank">
+                    Политикой оператора в отношении обработки персональных данных
+                  </a>
+                  &nbsp;ознакомлен(а).
+                </p>
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">
                     {leadFormError}

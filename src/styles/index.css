@@ -3950,27 +3950,64 @@ button[data-name="кнопки пд"] {
     transform 180ms ease;
 }
 
-.site-shell--consent-checked .site-consent__box {
+.site-shell--consent-checked .site-consent:not(.site-consent--advertising) .site-consent__box {
   background: #9c78ff;
   box-shadow: 0 6px 16px rgba(70, 74, 106, 0.18);
 }
 
-.site-shell--consent-checked .site-consent__border {
+.site-shell--consent-checked .site-consent:not(.site-consent--advertising) .site-consent__border {
   border-color: #9c78ff;
 }
 
-.site-shell--consent-checked .site-consent__check {
+.site-shell--consent-checked .site-consent:not(.site-consent--advertising) .site-consent__check {
   opacity: 1;
   transform: scale(1);
 }
 
-.site-shell--consent-error .site-consent__box {
+.site-shell--advertising-consent-checked .site-consent--advertising .site-consent__box {
+  background: #9c78ff;
+  box-shadow: 0 6px 16px rgba(70, 74, 106, 0.18);
+}
+
+.site-shell--advertising-consent-checked .site-consent--advertising .site-consent__border {
+  border-color: #9c78ff;
+}
+
+.site-shell--advertising-consent-checked .site-consent--advertising .site-consent__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.site-consent-group {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-consent-policy-note,
+.site-lead-modal__policy-note,
+.site-application-policy-note {
+  margin: 0;
+}
+
+.site-consent-policy-note a,
+.site-lead-modal__policy-note a,
+.site-application-policy-note a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.site-shell--consent-error .site-consent:not(.site-consent--advertising) .site-consent__box {
   background: rgba(255, 59, 48, 0.14);
   box-shadow: 0 0 0 8px rgba(255, 59, 48, 0.12);
   transform: scale(1.04);
 }
 
-.site-shell--consent-error .site-consent__border {
+.site-shell--consent-error .site-consent:not(.site-consent--advertising) .site-consent__border {
   border-color: #ff3b30;
   border-width: 2px;
 }
@@ -6741,6 +6778,13 @@ button[data-name="кнопки пд"] {
   font-weight: 700;
 }
 
+.site-lead-modal__policy-note {
+  color: #ffffff;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+
 .site-lead-modal__error {
   margin: 0;
   font-family: var(--font-manrope), Arial, sans-serif;
@@ -8486,6 +8530,13 @@ button[data-name="кнопки пд"] {
   color: #ffffff;
   font-weight: 700;
   text-decoration: underline;
+}
+
+.site-application-policy-note {
+  color: #ffffff;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .site-application-error {

@@ -65,12 +65,18 @@ export async function POST(req: NextRequest) {
       phone: normalizePhone(body.phone),
       email: String(body.email || "").trim(),
       question: String(body.question || "").trim(),
+      personal_data_consent: body.personal_data_consent === true,
+      advertising_consent: body.advertising_consent === true,
       ...(String(body.success_token || "").trim()
         ? { success_token: String(body.success_token).trim() }
         : {}),
     };
 
-    if (payload.name.length < 2 || payload.phone.replace(/\D/g, "").length < 10) {
+    if (
+      payload.name.length < 2 ||
+      payload.phone.replace(/\D/g, "").length < 10 ||
+      !payload.personal_data_consent
+    ) {
       return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
     }
 

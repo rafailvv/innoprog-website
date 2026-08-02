@@ -4881,22 +4881,31 @@ function Frame57() {
 
 function Frame58() {
   return (
-    <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-course-consent" data-consent-toggle role="checkbox" tabIndex={0}>
-      <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
-        <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-        <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-          <path d="M5 12.5L10 17.5L19 7" />
-        </svg>
+    <div className="site-consent-group">
+      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-course-consent" data-consent-toggle role="checkbox" tabIndex={0}>
+        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
+          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
+          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
+            <path d="M5 12.5 10 17l9-10" />
+          </svg>
+        </div>
+        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
+          Я даю <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a>
+        </p>
       </div>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-px relative text-[0px] text-white">
-        <span className="leading-[20px] text-[16px]">Нажимая на кнопку, вы даете </span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="/consent" rel="noopener noreferrer" target="_blank">
-          <span>согласие на обработку персональных данных</span>
-        </a>
-        <span className="leading-[20px] text-[16px]">{` и соглашаетесь с `}</span>
-        <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold leading-[20px] site-consent__link text-[16px]" href="/privacy" rel="noopener noreferrer" target="_blank">
-          <span>политикой конфиденциальности</span>
-        </a>
+      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-consent--advertising site-course-consent" data-advertising-consent-toggle role="checkbox" tabIndex={0}>
+        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс рекламных сообщений">
+          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
+          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
+            <path d="M5 12.5 10 17l9-10" />
+          </svg>
+        </div>
+        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
+          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+        </p>
+      </div>
+      <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
+        С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
       </p>
     </div>
   );

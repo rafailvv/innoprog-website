@@ -22,5 +22,10 @@ describe("main screen server markup", () => {
     expect(html.match(/≈12 месяцев/g)).toHaveLength(2);
     expect(html).toContain("(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве");
     expect(html).toContain("(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению");
+    expect(html).toContain('href="/consent"');
+    expect(html).toContain('href="/advertising-consent"');
+    expect(html).toContain("Я даю");
+    expect(html).toContain("(необязательно)");
+    expect(html).not.toContain("Нажимая на кнопку, вы даете");
   });
 });

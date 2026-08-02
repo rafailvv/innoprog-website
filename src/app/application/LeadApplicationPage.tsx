@@ -10,6 +10,8 @@ type LeadPayload = {
   phone: string;
   email: string;
   question: string;
+  personal_data_consent: boolean;
+  advertising_consent: boolean;
 };
 
 function normalizePhone(value: string) {
@@ -83,6 +85,7 @@ const BENEFITS = [
 export default function LeadApplicationPage({ success = false }: { success?: boolean }) {
   const router = useRouter();
   const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
@@ -118,6 +121,8 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
       phone: String(formData.get("phone") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       question: String(formData.get("question") || "").trim(),
+      personal_data_consent: true,
+      advertising_consent: isAdvertisingConsentChecked,
     };
 
     if (!isValidLead(payload)) {
@@ -129,6 +134,8 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
 
     try {
       await sendApplication(payload);
+      setIsConsentChecked(false);
+      setIsAdvertisingConsentChecked(false);
       router.push("/application/success");
     } catch (submitError) {
       setError(
@@ -174,9 +181,18 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
             <label className="site-application-consent">
               <input checked={isConsentChecked} onChange={(event) => setIsConsentChecked(event.target.checked)} type="checkbox" />
               <span>
-                Нажимая на кнопку, вы даете <a href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a> и соглашаетесь с <a href="/privacy" rel="noopener noreferrer" target="_blank">политикой конфиденциальности</a>
+                Я даю <a href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a>
               </span>
             </label>
+            <label className="site-application-consent">
+              <input checked={isAdvertisingConsentChecked} onChange={(event) => setIsAdvertisingConsentChecked(event.target.checked)} type="checkbox" />
+              <span>
+                Я согласен(на) получать <a href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+              </span>
+            </label>
+            <p className="site-application-policy-note">
+              С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
+            </p>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}
             <button className="site-application-submit" disabled={!isConsentChecked || isSubmitting} type="submit">
               {isSubmitting ? "отправляем..." : "отправить заявку"}
