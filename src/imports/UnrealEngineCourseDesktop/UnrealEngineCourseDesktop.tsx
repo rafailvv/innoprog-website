@@ -583,7 +583,7 @@ function Frame77() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[628px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[40px] text-white uppercase w-[min-content]">
-        <p className="leading-[42px] mb-0">За 28 недель освоите</p>
+        <p className="leading-[42px] mb-0">За 10 месяцев освоите</p>
         <p className="leading-[42px]">Blueprint, UMG, State Tree и игровые механики</p>
       </div>
       <Frame76 />

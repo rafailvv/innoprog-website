@@ -52,4 +52,33 @@ for (const direction of requiredDirections) {
   }
 }
 
+const expectedCourseDurations = {
+  CppCourse: "10 месяцев",
+  DataAnalystCourse: "10 месяцев",
+  DataScienceCourse: "12 месяцев",
+  FrontendCourse: "10 месяцев",
+  JavaCourse: "10 месяцев",
+  MlEngineerCourse: "12 месяцев",
+  MobileDeveloperCourse: "10 месяцев",
+  PythonCourse: "10 месяцев",
+  UnrealEngineCourse: "10 месяцев",
+};
+
+for (const [courseName, duration] of Object.entries(expectedCourseDurations)) {
+  for (const viewport of ["Desktop", "Mobile"]) {
+    const source = readFileSync(
+      `src/imports/${courseName}${viewport}/${courseName}${viewport}.tsx`,
+      "utf8",
+    );
+
+    if (!source.includes(`За ${duration} освоите`)) {
+      throw new Error(`${courseName}${viewport} must show the approved duration: ${duration}`);
+    }
+
+    if (/За 28 недель освоите/.test(source)) {
+      throw new Error(`${courseName}${viewport} contains the obsolete 28-week duration`);
+    }
+  }
+}
+
 console.log("innoprog-website course review direction contracts ok");

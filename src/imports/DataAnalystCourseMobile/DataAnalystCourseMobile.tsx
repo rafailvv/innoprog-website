@@ -529,7 +529,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[20px] text-center text-white uppercase w-[350px]">
-        <p className="leading-[20px] mb-0">За 28 недель освоите с нуля</p>
+        <p className="leading-[20px] mb-0">За 10 месяцев освоите с нуля</p>
         <p className="leading-[20px] mb-0">анализ данных</p>
         <p className="leading-[20px]">SQL, Python и BI</p>
       </div>
