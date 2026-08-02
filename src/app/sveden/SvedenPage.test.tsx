@@ -152,5 +152,10 @@ describe("educational disclosure server HTML", () => {
     for (const property of ["purposeCab", "addressCab", "nameCab", "osnCab", "ovzCab", "purposePrac", "addressPrac", "namePrac", "osnPrac", "ovzPrac", "purposeLibr", "purposeSport", "hostelNumOvz", "interNum", "interNumOvz", "hostelInterOvz", "localActObSt"]) {
       expect(html).toContain(`itemProp="${property}"`);
     }
+    expect(html).toContain("При поступлении обращения специальные условия обучения определяются и организуются индивидуально с учётом потребностей обучающегося, рекомендаций ПМПК и (или) индивидуальной программы реабилитации или абилитации инвалида, а также возможностей электронной информационно-образовательной среды.");
+    expect(html).toContain("Посещение обучающимися помещений организации образовательным процессом не предусмотрено. Программы реализуются в очной форме с применением электронного обучения и дистанционных образовательных технологий.");
+    expect(html).not.toContain("возможность обучения определяется индивидуально");
+    expect(html).not.toContain("возможность использования электронных материалов определяется индивидуально");
+    expect(html).not.toContain("Здания для проведения занятий не используются");
   });
 });
