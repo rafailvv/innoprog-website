@@ -34,6 +34,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Дополнительная профессиональная программа профессиональной переподготовки");
     expect(html).toContain("Нормативный срок обучения");
     expect(html).toContain("Учебные предметы, курсы, дисциплины (модули)");
+    expect(html).toContain("Код и шифр образовательной программе не присвоены");
+    expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
     expect(html).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
 
@@ -106,7 +108,8 @@ describe("educational disclosure server HTML", () => {
     expect(html.match(/itemProp="numberBMVacant"/g)).toHaveLength(47);
     expect(html.match(/itemProp="numberPVacant"/g)).toHaveLength(47);
     expect(html).not.toMatch(/itemProp="number(?:BF|BR|BM|P)Vac"/);
-    expect(html).toContain("Код и шифр образовательной программе не присваиваются");
+    expect(html).toContain("Код и шифр образовательной программе не присвоены");
+    expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
     expect(html).toContain("Деление на курсы образовательной программой не предусмотрено");
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
   });
