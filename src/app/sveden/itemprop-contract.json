@@ -1,0 +1,53 @@
+{
+  "common": [
+    "copy", "fullName", "shortName", "regDate", "uchredLaw", "nameUchred", "address", "workTime", "telephone", "email",
+    "licenseDocLink", "addressPlaceSet", "addressPlacePrac", "addressPlacePodg", "addressPlaceGia", "addressPlaceDop", "addressPlaceOppo"
+  ],
+  "struct": [
+    "copy", "structOrgUprav", "name", "fio", "post", "addressStr", "site", "email", "divisionClauseDocLink", "filInfo", "repInfo"
+  ],
+  "document": [
+    "copy", "ustavDocLink", "localActStud", "localActOrder", "localActCollec", "reportEduDocLink", "prescriptionDocLink",
+    "priemDocLink", "modeDocLink", "tekKontrolDocLink", "perevodDocLink", "vozDocLink"
+  ],
+  "education": [
+    "copy", "eduAccred", "eduCode", "eduName", "eduProf", "eduLevel", "eduForm", "learningTerm", "eduPred", "eduPrac",
+    "languageEl", "eduChislenEl", "eduPriemEl", "eduPerevodEl", "eduOp", "opMain", "educationPlan", "educationRpd",
+    "educationShedule", "eduPr", "methodology", "eduNir", "graduateJob"
+  ],
+  "managers": [
+    "copy", "rucovodstvo", "fio", "post", "telephone", "email", "rucovodstvoZam", "rucovodstvoFil", "rucovodstvoRep"
+  ],
+  "employees": [
+    "copy", "teachingStaff", "fio", "post", "teachingDiscipline", "teachingLevel", "degree", "academStat", "qualification",
+    "profDevelopment", "specExperience", "teachingOp"
+  ],
+  "objects": [
+    "copy", "purposeCab", "addressCab", "nameCab", "osnCab", "ovzCab", "purposePrac", "addressPrac", "namePrac", "osnPrac",
+    "ovzPrac", "purposeLibr", "purposeSport", "objName", "objAddress", "objSq", "objCnt", "objOvz", "ovz", "purposeFacil",
+    "purposeFacilOvz", "comNet", "comNetOvz", "purposeEios", "erList", "erListOvz", "techOvz", "hostelInfo", "interInfo",
+    "hostelNum", "hostelNumOvz", "interNum", "interNumOvz", "hostelInterOvz", "localActObSt"
+  ],
+  "paid_edu": [
+    "copy", "paidEdu", "paidDog", "paidSt", "paidParents"
+  ],
+  "budget": [
+    "copy", "finBFVolume", "finBRVolume", "finBMVolume", "finPVolume", "volume", "finYear", "finPost", "finRas", "finPlanDocLink"
+  ],
+  "vacant": [
+    "copy", "vacant", "eduCode", "eduName", "eduLevel", "eduProf", "eduCourse", "eduForm", "numberBFVacant", "numberBRVacant",
+    "numberBMVacant", "numberPVacant"
+  ],
+  "grants": [
+    "copy", "localAct", "grant", "support", "hostelInfo", "interInfo", "hostelNum", "hostelNumOvz", "interNum", "interNumOvz", "localActObSt"
+  ],
+  "inter": [
+    "copy", "internationalDog", "stateName", "orgName", "dogReg"
+  ],
+  "catering": [
+    "copy", "meals", "health", "objName", "objAddress", "objSq", "objCnt", "objOvz"
+  ],
+  "eduStandarts": [
+    "copy", "eduFedDoc", "eduStandartDoc", "eduFedTreb", "eduStandartTreb"
+  ]
+}

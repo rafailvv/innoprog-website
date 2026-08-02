@@ -3,6 +3,13 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SvedenPage } from "./SvedenPage";
 import { SVEDEN_SECTION_SLUGS } from "./data";
+import itempropContract from "./itemprop-contract.json";
+
+function getItemProps(html: string) {
+  return new Set(
+    [...html.matchAll(/itemProp="([^"]+)"/g)].flatMap((match) => match[1].split(/\s+/)),
+  );
+}
 
 describe("educational disclosure server HTML", () => {
   const educationDeliveryText = "Образовательные программы реализуются в очной форме обучения с применением электронного обучения и дистанционных образовательных технологий. Взаимодействие обучающихся и педагогических работников осуществляется преимущественно на расстоянии с использованием электронной информационно-образовательной среды.";
@@ -16,6 +23,17 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("<h1 ");
     expect(html).toContain("<h2>");
     expect(html).toContain("<h3>");
+  });
+
+  it.each(SVEDEN_SECTION_SLUGS)("renders the complete machine-readable contract for %s", (section) => {
+    const html = renderToStaticMarkup(<SvedenPage section={section} />);
+    const actual = getItemProps(html);
+
+    for (const property of itempropContract[section]) {
+      expect(actual, `${section}: missing itemprop=${property}`).toContain(property);
+    }
+    expect(actual).not.toContain("fmPlanDocLink");
+    expect(actual).not.toContain("hosteInfo");
   });
 
   it("renders all 47 education programs and approved totals", () => {

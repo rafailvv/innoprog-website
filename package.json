@@ -9,12 +9,13 @@
     "start": "next start",
     "test:proxy": "node scripts/test-proxy-contracts.mjs",
     "test:course-reviews": "node scripts/test-course-review-directions.mjs",
+    "test:sveden-html": "node scripts/test-sveden-source-html.mjs",
     "test": "npm run test:unit",
     "test:unit": "vitest run",
     "test:contracts": "npm run test:proxy && npm run test:course-reviews",
     "test:integration": "vitest run",
     "test:coverage": "vitest run --coverage && node scripts/write-coverage-metadata.mjs",
-    "test:ci": "npm run test:contracts && npm run test:coverage && npm run build"
+    "test:ci": "npm run test:contracts && npm run test:coverage && npm run build && npm run test:sveden-html"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

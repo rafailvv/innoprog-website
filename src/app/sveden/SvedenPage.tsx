@@ -184,6 +184,8 @@ function EducationSection() {
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
+      <p itemProp="eduPriemEl">Приём на обучение осуществляется без вступительных испытаний.</p>
+      <p itemProp="eduPerevodEl">Перевод, восстановление и отчисление обучающихся в отчётном периоде не осуществлялись.</p>
       <h3>Реализуемые образовательные программы</h3>
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
       <ScrollableTableRegion ariaLabel="47 образовательных программ" className={styles.tableScroll}>
@@ -294,7 +296,7 @@ function HostelTable() {
         <table className={`${styles.dataTable} ${styles.hostelTable}`}>
           <thead><tr><th>Показатель</th><th>Общежитие</th><th>Интернат</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Количество объектов</th><td itemProp="hosteInfo hostelInfo">0</td><td itemProp="interInfo">0</td></tr>
+            <tr><th scope="row">Количество объектов</th><td itemProp="hostelInfo">0</td><td itemProp="interInfo">0</td></tr>
             <tr><th scope="row">Количество мест</th><td itemProp="hostelNum">0</td><td itemProp="interNum">0</td></tr>
             <tr><th scope="row">Количество жилых помещений, приспособленных для инвалидов и лиц с ОВЗ</th><td itemProp="hostelNumOvz">0</td><td itemProp="interNumOvz">0</td></tr>
           </tbody>
@@ -344,10 +346,10 @@ function ObjectsSection() {
       <h3>Библиотеки и объекты спорта</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Библиотеки и объекты спорта">
         <table className={styles.dataTable}>
-          <thead><tr><th>Вид объекта</th><th>Наименование</th><th>Адрес</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <thead><tr><th>Вид объекта</th><th>Наименование</th><th>Адрес</th><th>Площадь</th><th>Количество мест</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
           <tbody>
-            <tr itemProp="purposeLibr"><td>Библиотека</td><td itemProp="objName">Отдельная библиотека отсутствует; электронные материалы предоставляются в образовательной среде</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objOvz">Специально приспособленная отдельная библиотека отсутствует</td></tr>
-            <tr itemProp="purposeSport"><td>Объект спорта</td><td itemProp="objName">Отдельный объект отсутствует</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objOvz">Специально приспособленный объект спорта отсутствует</td></tr>
+            <tr itemProp="purposeLibr"><td>Библиотека</td><td itemProp="objName">Отдельная библиотека отсутствует; электронные материалы предоставляются в образовательной среде</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objSq">0 кв. м</td><td itemProp="objCnt">0</td><td itemProp="objOvz">Специально приспособленная отдельная библиотека отсутствует</td></tr>
+            <tr itemProp="purposeSport"><td>Объект спорта</td><td itemProp="objName">Отдельный объект отсутствует</td><td itemProp="objAddress">Отдельный объект отсутствует</td><td itemProp="objSq">0 кв. м</td><td itemProp="objCnt">0</td><td itemProp="objOvz">Специально приспособленный объект спорта отсутствует</td></tr>
           </tbody>
         </table>
       </div>
@@ -391,7 +393,7 @@ function BudgetSection() {
         ["Финансовый год", <Value itemProp="finYear">2025</Value>],
         ["Материальная помощь обучающимся", "Не предоставлялась"],
       ]} /></div>
-      <p itemProp="fmPlanDocLink">План финансово-хозяйственной деятельности не формируется: ООО «ИННОПРОГ» является коммерческой организацией.</p>
+      <p itemProp="finPlanDocLink">План финансово-хозяйственной деятельности не формируется: ООО «ИННОПРОГ» является коммерческой организацией.</p>
       <DocumentList documents={getSectionDocuments("budget")} />
     </>
   );
@@ -418,6 +420,7 @@ function GrantsSection() {
     <>
       <h3>Стипендии и меры социальной поддержки</h3>
       <DetailsTable label="Стипендии и меры поддержки" rows={[
+        ["Локальный нормативный акт о стипендиях", <Value itemProp="localAct">Не утверждался, поскольку стипендии не предоставляются</Value>],
         ["Стипендии", <Value itemProp="grant">Не предоставляются</Value>],
         ["Меры социальной поддержки", <Value itemProp="support">Не предоставляются</Value>],
         ["Трудоустройство выпускников", "Обязательное распределение отсутствует"],
@@ -453,11 +456,14 @@ function CateringSection() {
       <p>Питание обучающихся не организуется, поскольку взаимодействие обучающихся и педагогических работников осуществляется преимущественно на расстоянии.</p>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения об условиях питания">
         <table className={styles.dataTable}>
-          <thead><tr><th>Наименование объекта</th><th>Адрес места нахождения</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
-          <tbody><tr itemProp="meals"><td itemProp="objName">Объект питания отсутствует</td><td itemProp="objAddress">Отдельный объект питания отсутствует</td><td itemProp="objOvz">Специально приспособленный объект питания отсутствует</td></tr></tbody>
+          <thead><tr><th>Назначение</th><th>Наименование объекта</th><th>Адрес места нахождения</th><th>Площадь</th><th>Количество мест</th><th>Приспособленность для инвалидов и лиц с ОВЗ</th></tr></thead>
+          <tbody>
+            <tr itemProp="meals"><th scope="row">Организация питания</th><td itemProp="objName">Объект питания отсутствует</td><td itemProp="objAddress">Отдельный объект питания отсутствует</td><td itemProp="objSq">0 кв. м</td><td itemProp="objCnt">0</td><td itemProp="objOvz">Специально приспособленный объект питания отсутствует</td></tr>
+            <tr itemProp="health"><th scope="row">Охрана здоровья</th><td itemProp="objName">Медицинский кабинет отсутствует</td><td itemProp="objAddress">Отдельный объект охраны здоровья отсутствует</td><td itemProp="objSq">0 кв. м</td><td itemProp="objCnt">0</td><td itemProp="objOvz">Специально приспособленный объект охраны здоровья отсутствует</td></tr>
+          </tbody>
         </table>
       </div>
-      <p itemProp="health">Охрана здоровья обеспечивается соблюдением режима занятий и перерывов, использованием безопасных цифровых технологий, информированием о требованиях к рабочему месту и возможностью обратиться к преподавателю или администрации. Медицинский кабинет отсутствует.</p>
+      <p>Охрана здоровья обеспечивается соблюдением режима занятий и перерывов, использованием безопасных цифровых технологий, информированием о требованиях к рабочему месту и возможностью обратиться к преподавателю или администрации.</p>
       <DocumentList documents={getSectionDocuments("catering")} />
     </>
   );
