@@ -42,7 +42,12 @@ export async function proxyPdf(request: Request, storageKey: string) {
     const value = upstream.headers.get(name);
     if (value) responseHeaders.set(name, value);
   }
-  responseHeaders.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+  responseHeaders.set(
+    "Cache-Control",
+    storageKey === PDF_STORAGE_KEYS.offer
+      ? "no-store, max-age=0, must-revalidate"
+      : "public, max-age=3600, stale-while-revalidate=86400",
+  );
   responseHeaders.set("Content-Disposition", "inline");
   responseHeaders.set("Content-Type", upstream.ok ? "application/pdf" : "text/plain; charset=utf-8");
   responseHeaders.set("X-Robots-Tag", "noindex, noarchive");

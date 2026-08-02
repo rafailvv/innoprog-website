@@ -44,4 +44,18 @@ describe("PDF proxy", () => {
     expect(response.headers.get("x-robots-tag")).toContain("noindex");
     expect(fetchMock).not.toHaveBeenCalled();
   });
+
+  it("does not cache the public offer between revisions", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("%PDF-", {
+      status: 200,
+      headers: { "Content-Type": "application/pdf" },
+    }));
+
+    const response = await proxyPdf(
+      new Request("https://innoprog.ru/oferta"),
+      PDF_STORAGE_KEYS.offer,
+    );
+
+    expect(response.headers.get("cache-control")).toBe("no-store, max-age=0, must-revalidate");
+  });
 });
