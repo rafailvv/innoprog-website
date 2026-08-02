@@ -90,6 +90,15 @@ describe("educational disclosure server HTML", () => {
     expect(renderToStaticMarkup(<SvedenPage section="struct" />)).not.toContain("Дата актуальности динамических сведений");
   });
 
+  it("publishes information about received financial and material resources", () => {
+    const html = renderToStaticMarkup(<SvedenPage section="budget" />);
+    expect(html).toContain('itemProp="volume"');
+    expect(html).toContain('itemProp="finPost"');
+    expect(html).toContain('itemProp="finRas"');
+    expect(html).toContain("Безвозмездно полученные материальные средства");
+    expect(html).toContain("Не поступали");
+  });
+
   it("renders all 47 vacancy rows and funding sources", () => {
     const html = renderToStaticMarkup(<SvedenPage section="vacant" />);
     expect(html.match(/itemProp="vacant"/g)).toHaveLength(47);
