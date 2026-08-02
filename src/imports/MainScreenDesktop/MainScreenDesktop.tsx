@@ -2244,7 +2244,7 @@ function Group7() {
 
 function Group5() {
   return (
-    <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[81px] mt-[210px] opacity-30 place-items-start relative row-1" data-name="Group">
+    <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[81px] mt-[210px] opacity-30 place-items-start pointer-events-none relative row-1" data-name="Group" aria-hidden="true">
       <Group6 />
       <Group7 />
     </div>
@@ -2391,7 +2391,7 @@ function Frame79() {
 
 function Frame69() {
   return (
-    <div className="col-1 content-stretch flex gap-[159px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 w-[1280px]">
+    <div className="col-1 content-stretch flex gap-[159px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
       <Frame68 />
       <Frame79 />
     </div>

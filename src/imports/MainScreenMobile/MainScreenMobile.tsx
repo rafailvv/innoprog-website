@@ -2926,7 +2926,7 @@ function Group5() {
 
 function Group3() {
   return (
-    <div className="absolute contents inset-[87.27%_5.13%_1.72%_5.13%]" data-name="Group">
+    <div className="absolute contents inset-[87.27%_5.13%_1.72%_5.13%] pointer-events-none" data-name="Group" aria-hidden="true">
       <Group4 />
       <Group5 />
     </div>

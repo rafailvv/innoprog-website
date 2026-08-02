@@ -1581,6 +1581,14 @@ body {
   transform: translateZ(0);
 }
 
+.site-main-desktop-footer__content {
+  pointer-events: none;
+}
+
+.site-main-desktop-footer__content a {
+  pointer-events: auto;
+}
+
 .site-main-desktop-footer h2 {
   line-height: 30px;
 }
@@ -4995,6 +5003,7 @@ button[data-name="кнопки пд"] {
   width: 1278px;
   max-width: none;
   opacity: 0.3;
+  pointer-events: none;
 }
 
 .site-review-page__footer-columns {
@@ -5092,6 +5101,11 @@ button[data-name="кнопки пд"] {
 }
 
 .site-education-disclosure-link {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: fit-content !important;
   max-width: 100%;
   padding: 9px 13px !important;
@@ -5103,13 +5117,23 @@ button[data-name="кнопки пд"] {
   font-weight: 650 !important;
   line-height: 18px !important;
   text-decoration: none !important;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
-.site-education-disclosure-link:hover,
+.site-education-disclosure-link:hover {
+  border-color: #9c78ff;
+  background: #9c78ff;
+  color: #ffffff !important;
+}
+
 .site-education-disclosure-link:focus-visible {
-  border-color: #ffffff;
-  background: #ffffff;
-  color: #464a6a !important;
+  border-color: #9c78ff;
+  background: #9c78ff;
+  color: #ffffff !important;
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 .site-about-page {
