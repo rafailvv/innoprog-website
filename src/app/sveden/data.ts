@@ -67,7 +67,7 @@ export const SVEDEN_SECTIONS: Record<SvedenSectionSlug, { title: string; shortTi
   objects: {
     title: "Материально-техническое обеспечение и оснащённость образовательного процесса. Доступная среда",
     shortTitle: "Материально-техническое обеспечение",
-    description: "Сведения о дистанционной образовательной среде, средствах обучения и доступности.",
+    description: "Сведения об электронной информационно-образовательной среде, средствах обучения и доступности.",
   },
   paid_edu: {
     title: "Платные образовательные услуги",
@@ -97,7 +97,7 @@ export const SVEDEN_SECTIONS: Record<SvedenSectionSlug, { title: string; shortTi
   catering: {
     title: "Организация питания в образовательной организации",
     shortTitle: "Организация питания",
-    description: "Сведения об организации питания и охране здоровья при дистанционном обучении.",
+    description: "Сведения об организации питания и охране здоровья при реализации образовательных программ.",
   },
   eduStandarts: {
     title: "Образовательные стандарты и требования",
@@ -260,7 +260,7 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
       students,
       foreignStudents: 0,
       fileName,
-      form: "очная с применением электронного обучения и дистанционных образовательных технологий",
+      form: "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий",
       language: "русский",
       subjects: kind === "ДПО" ? DPO_MODULES[name] || [name] : [`Учебный курс «${name}»`],
       practice: kind === "ДПО"

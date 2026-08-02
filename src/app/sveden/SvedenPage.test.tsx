@@ -5,6 +5,9 @@ import { SvedenPage } from "./SvedenPage";
 import { SVEDEN_SECTION_SLUGS } from "./data";
 
 describe("educational disclosure server HTML", () => {
+  const educationDeliveryText = "Образовательные программы реализуются в очной форме обучения с применением электронного обучения и дистанционных образовательных технологий. Взаимодействие обучающихся и педагогических работников осуществляется преимущественно на расстоянии с использованием электронной информационно-образовательной среды.";
+  const educationalActivityPlace = "Местом осуществления образовательной деятельности является место нахождения ООО «ИННОПРОГ»: 420500, Республика Татарстан, г. Иннополис, ул. Университетская, д. 5, помещ. 115, рабочее место 15/2, независимо от места нахождения обучающихся.";
+
   it.each(SVEDEN_SECTION_SLUGS)("renders the %s section without client-side data loading", (section) => {
     const html = renderToStaticMarkup(<SvedenPage section={section} />);
     expect(html).toContain("Сведения об образовательной организации");
@@ -40,6 +43,22 @@ describe("educational disclosure server HTML", () => {
   it("marks the license registry extract with the required property", () => {
     const html = renderToStaticMarkup(<SvedenPage section="common" />);
     expect(html).toContain('itemProp="licenseDocLink"');
+  });
+
+  it("distinguishes the full-time form from distance education technologies", () => {
+    const common = renderToStaticMarkup(<SvedenPage section="common" />);
+    const objects = renderToStaticMarkup(<SvedenPage section="objects" />);
+    const catering = renderToStaticMarkup(<SvedenPage section="catering" />);
+    const combined = `${common}${objects}${catering}`;
+
+    expect(common).toContain(educationalActivityPlace);
+    for (const html of [common, objects, catering]) {
+      expect(html).toContain(educationDeliveryText);
+    }
+    expect(combined).not.toMatch(/образовательная деятельность осуществляется дистанционно/i);
+    expect(combined).not.toMatch(/обучение проводится дистанционно/i);
+    expect(combined).not.toMatch(/программы реализуются исключительно с применением/i);
+    expect(combined).not.toMatch(/дистанционн(?:ой|ом|ым) форм/i);
   });
 
   it("uses the same generated header and footer surfaces as the main site", () => {
