@@ -27,7 +27,7 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.students, 0)).toBe(4);
     expect(EDUCATION_TOTALS).toMatchObject({ programs: 47, students: 72, generalStudents: 68, professionalStudents: 4 });
     expect(VACANT_PROGRAMS).toHaveLength(47);
-    expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр дополнительной образовательной программе не присваиваются")).toBe(true);
+    expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присваиваются")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ subjects, practice }) => subjects.length > 0 && practice.length > 0)).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ foreignStudents }) => foreignStudents === 0)).toBe(true);

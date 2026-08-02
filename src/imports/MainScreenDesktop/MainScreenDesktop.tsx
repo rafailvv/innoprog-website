@@ -11,6 +11,7 @@ import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "./course-data-science-desktop.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
+import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
 import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../../app/courseNavigation";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
@@ -2402,7 +2403,7 @@ function Group8() {
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 site-main-desktop-footer">
       <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
       <Group5 />
-      <a className="col-1 justify-self-center mt-[420px] relative row-1 site-education-disclosure-link" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
+      <EducationDisclosureLink className="col-1 justify-self-center mt-[420px] relative row-1 site-education-disclosure-link" />
       <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[468px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
         <FooterLegalDetails />
       </p>

@@ -16,8 +16,9 @@ import imgImage120 from "./platform-phone-screen-mobile.webp";
 import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
+import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
-import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
+import { LEGAL_LINKS } from "../../app/legalLinks";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
@@ -2947,7 +2948,7 @@ export function MainScreenMobileFooter() {
       <div className="content-stretch flex flex-col gap-[22px] items-start pb-[28px] pt-[28px] px-[20px] relative size-full">
         <Frame92 />
         <Frame123 />
-        <a className="self-center site-education-disclosure-link" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
+        <EducationDisclosureLink className="self-center site-education-disclosure-link" />
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[14px] min-w-full mt-[12px] relative shrink-0 text-[11px] text-center text-white tracking-[0.12px] w-[min-content]">
           <FooterLegalDetails compactActivityCodes />
         </p>

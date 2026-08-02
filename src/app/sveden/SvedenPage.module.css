@@ -132,6 +132,20 @@
 .dataTable thead th { color: #fff; background: #4c486b; font-weight: 650; }
 .dataTable tbody tr:nth-child(even) { background: #faf9fd; }
 .programTable { min-width: 2400px; }
+.vacancyTable th:last-child,
+.vacancyTable td:last-child { width: 400px; min-width: 400px; }
+.hostelTable { min-width: 820px; table-layout: fixed; }
+.hostelTable th:first-child,
+.hostelTable td:first-child { width: 44%; }
+.hostelTable th:not(:first-child),
+.hostelTable td:not(:first-child) { width: 28%; }
+.internationalTable { min-width: 700px; table-layout: fixed; }
+.internationalTable th:first-child,
+.internationalTable td:first-child { width: 34%; }
+.internationalTable th:nth-child(2),
+.internationalTable td:nth-child(2) { width: 33%; }
+.internationalTable th:last-child,
+.internationalTable td:last-child { width: 33%; }
 
 .documentLinks { min-width: 190px; }
 .documentLinks a, .documentLinks small { display: block; }

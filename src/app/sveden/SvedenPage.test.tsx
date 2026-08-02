@@ -81,8 +81,8 @@ describe("educational disclosure server HTML", () => {
     expect(html.match(/itemProp="numberBMVacant"/g)).toHaveLength(47);
     expect(html.match(/itemProp="numberPVacant"/g)).toHaveLength(47);
     expect(html).not.toMatch(/itemProp="number(?:BF|BR|BM|P)Vac"/);
-    expect(html).toContain("Код и шифр дополнительной образовательной программе не присваиваются");
-    expect(html).toContain("Деление на курсы дополнительной образовательной программой не предусмотрено");
+    expect(html).toContain("Код и шифр образовательной программе не присваиваются");
+    expect(html).toContain("Деление на курсы образовательной программой не предусмотрено");
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
   });
 
@@ -116,7 +116,9 @@ describe("educational disclosure server HTML", () => {
     expect(common).toContain('itemProp="copy"');
 
     const paid = renderToStaticMarkup(<SvedenPage section="paid_edu" />);
+    expect(paid.match(/itemProp="paidDog"/g)).toHaveLength(1);
     expect(paid.match(/itemProp="paidSt"/g)).toHaveLength(1);
+    expect(paid).toContain("Публичная оферта на заключение договора об оказании платных образовательных услуг (редакция от 08.04.2026)");
     expect(paid).not.toContain('itemProp="localAct"');
   });
 

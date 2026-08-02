@@ -41,6 +41,10 @@ const DOCUMENT_ITEMPROPS: Record<string, string> = {
   "Публичная оферта редакция 08.04.2026": "paidDog",
 };
 
+const DOCUMENT_DISPLAY_TITLES: Record<string, string> = {
+  "Публичная оферта редакция 08.04.2026": "Публичная оферта на заключение договора об оказании платных образовательных услуг (редакция от 08.04.2026)",
+};
+
 function Value({ itemProp, children }: { itemProp?: string; children: ReactNode }) {
   return <span itemProp={itemProp}>{children}</span>;
 }
@@ -76,7 +80,7 @@ function DocumentList({ documents, purpose = "Электронная верси�
               rel="noopener noreferrer"
               target="_blank"
             >
-              {document.title}
+              {DOCUMENT_DISPLAY_TITLES[document.title] ?? document.title}
             </a>
             <span>{purpose} · PDF · {formatDocumentSize(document.sizeBytes)}</span>
           </li>
@@ -285,7 +289,7 @@ function HostelTable() {
   return (
     <>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения об общежитии и интернате">
-        <table className={styles.dataTable}>
+        <table className={`${styles.dataTable} ${styles.hostelTable}`}>
           <thead><tr><th>Показатель</th><th>Общежитие</th><th>Интернат</th></tr></thead>
           <tbody>
             <tr><th scope="row">Количество объектов</th><td itemProp="hosteInfo hostelInfo">0</td><td itemProp="interInfo">0</td></tr>
@@ -395,9 +399,9 @@ function VacantSection() {
     <>
       <h3>Количество вакантных мест на 01.08.2026</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Вакантные места по образовательным программам">
-        <table className={styles.dataTable}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
+        <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.name}`}>
-            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы дополнительной образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
+            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
           </tr>)}</tbody>
         </table>
       </div>
@@ -427,7 +431,7 @@ function InternationalSection() {
     <>
       <h3>Международные договоры</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения о международных договорах">
-        <table className={styles.dataTable}>
+        <table className={`${styles.dataTable} ${styles.internationalTable}`}>
           <thead><tr><th>Государство</th><th>Наименование организации</th><th>Реквизиты договора</th></tr></thead>
           <tbody><tr itemProp="internationalDog"><td itemProp="stateName">Отсутствует</td><td itemProp="orgName">Отсутствует</td><td itemProp="dogReg">Отсутствует</td></tr></tbody>
         </table>
