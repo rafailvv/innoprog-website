@@ -99,6 +99,32 @@ EXPECTED_LEGAL_PDFS = 3
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_TOTAL_PDFS = 98
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
+PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
+
+PRESERVED_REMOTE_FILES = {
+    "sveden/employees/СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf": {
+        "sha256": "552ccdb4a11d6ba5ccd1148f8fdc76a714c70c494dfe8520bcfb5c6983ff4a94",
+        "section": "employees",
+        "source_name": "СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf",
+        "category": "section",
+    },
+    "sveden/inter/СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf": {
+        "sha256": "749388dc2542428e31e44e7171f7ab28c9fa0ab786c216e46f54cc6821d539ee",
+        "section": "inter",
+        "source_name": "СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf",
+        "category": "section",
+    },
+    "sveden/objects/СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf": {
+        "sha256": "4b5dfc118136b3ffe0870420b939a396e1bf0139f9bfdec9ab06ed69907faaa6",
+        "section": "objects",
+        "source_name": "СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf",
+        "category": "section",
+    },
+}
+
+OLD_OFFER_KEY = "site-public/sveden/paid_edu/Публичная_оферта_редакция_08.04.2026.pdf"
+NEW_OFFER_PATH = Path("sveden/paid_edu/Публичная_оферта_INNOPROG_от_02.08.2026.pdf")
+NEW_OFFER_TITLE = "Публичная оферта INNOPROG от 02.08.2026"
 
 
 def sha256(data: bytes) -> str:
@@ -157,11 +183,25 @@ def read_technical_pdf(source_name: str, technical_dir: Path | None) -> bytes:
     return data
 
 
+def read_public_pdf(relative_key: str, expected_sha256: str) -> bytes:
+    url = PUBLIC_SOURCE_BASE_URL + "/".join(quote(part) for part in Path(relative_key).parts)
+    with urlopen(url, timeout=60) as response:
+        data = response.read()
+    actual_sha256 = sha256(data)
+    if not data.startswith(b"%PDF-") or actual_sha256 != expected_sha256:
+        raise RuntimeError(
+            f"Published PDF differs from the approved version: {relative_key} "
+            f"({actual_sha256} != {expected_sha256})"
+        )
+    return data
+
+
 def prepare(
     archive: Path,
     technical_dir: Path | None,
     supplemental_dir: Path,
     updates_dir: Path,
+    offer_file: Path,
     output_root: Path,
     manifest: Path,
 ) -> None:
@@ -253,6 +293,20 @@ def prepare(
         technical_count += 1
 
     entries_by_key = {str(entry["storageKey"]): entry for entry in entries}
+
+    # The source ZIP still contains older drafts of these three signed disclosures.
+    # Preserve the approved public copies until a newer signed revision is supplied.
+    for relative_key, metadata in PRESERVED_REMOTE_FILES.items():
+        entry = write_pdf(
+            output_root,
+            Path(relative_key),
+            read_public_pdf(relative_key, str(metadata["sha256"])),
+            section=str(metadata["section"]),
+            source_name=str(metadata["source_name"]),
+            category=str(metadata["category"]),
+        )
+        entries_by_key[str(entry["storageKey"])] = entry
+
     for source_name, destinations in UPDATE_FILES.items():
         source = updates_dir / source_name
         if not source.is_file():
@@ -280,6 +334,26 @@ def prepare(
                 elif category == "technical":
                     technical_count += 1
             entries_by_key[storage_key] = entry
+
+    if not offer_file.is_file():
+        raise FileNotFoundError(f"Missing approved public offer PDF: {offer_file}")
+    offer_data = offer_file.read_bytes()
+    if not offer_data.startswith(b"%PDF-"):
+        raise RuntimeError(f"Public offer source is not a PDF: {offer_file}")
+    entries_by_key.pop(OLD_OFFER_KEY, None)
+    old_offer_file = output_root / OLD_OFFER_KEY
+    if old_offer_file.exists():
+        old_offer_file.unlink()
+    offer_entry = write_pdf(
+        output_root,
+        NEW_OFFER_PATH,
+        offer_data,
+        section="paid_edu",
+        source_name=offer_file.name,
+        category="section",
+    )
+    offer_entry["title"] = NEW_OFFER_TITLE
+    entries_by_key[str(offer_entry["storageKey"])] = offer_entry
 
     entries = list(entries_by_key.values())
 
@@ -326,6 +400,12 @@ def main() -> None:
         required=True,
         help="Directory containing the approved PDF revisions published on 02.08.2026",
     )
+    parser.add_argument(
+        "--offer-file",
+        type=Path,
+        required=True,
+        help="Approved public offer PDF that replaces the previous revision",
+    )
     parser.add_argument("--output", type=Path, default=Path("/tmp/innoprog-sveden-upload"))
     parser.add_argument(
         "--manifest",
@@ -333,7 +413,15 @@ def main() -> None:
         default=Path("src/app/sveden/documents.generated.json"),
     )
     args = parser.parse_args()
-    prepare(args.archive, args.technical_dir, args.supplemental_dir, args.updates_dir, args.output, args.manifest)
+    prepare(
+        args.archive,
+        args.technical_dir,
+        args.supplemental_dir,
+        args.updates_dir,
+        args.offer_file,
+        args.output,
+        args.manifest,
+    )
 
 
 if __name__ == "__main__":

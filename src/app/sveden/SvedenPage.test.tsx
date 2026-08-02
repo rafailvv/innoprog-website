@@ -190,7 +190,7 @@ describe("educational disclosure server HTML", () => {
     expect(paid.match(/itemProp="paidSt"/g)).toHaveLength(1);
     expect(paid).toContain("Приказ № ОБР-4/1 об утверждении стоимости обучения");
     expect(paid).not.toContain(">Приказ № ОБР-4-1 об утверждении стоимости обучения<");
-    expect(paid).toContain("Публичная оферта на заключение договора об оказании платных образовательных услуг (редакция от 08.04.2026)");
+    expect(paid).toContain("Публичная оферта на заключение договора об оказании платных образовательных услуг (редакция от 02.08.2026)");
     expect(paid).not.toContain('itemProp="localAct"');
   });
 

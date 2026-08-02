@@ -7,10 +7,11 @@ python3 -m venv .venv-sveden
 .venv-sveden/bin/pip install -r scripts/requirements-sveden.txt
 .venv-sveden/bin/python scripts/prepare-sveden-documents.py /path/to/source.zip \
   --supplemental-dir /path/to/approved-credit-policy-files \
-  --updates-dir /path/to/approved-2026-08-02-pdf-files
+  --updates-dir /path/to/approved-2026-08-02-pdf-files \
+  --offer-file /path/to/ПУБЛИЧНАЯ_ОФЕРТА_INNOPROG_ОТ_02.08.2026.pdf
 .venv-sveden/bin/python scripts/verify-sveden-documents.py
 ```
 
-В `--supplemental-dir` должны находиться два исходных подписанных PDF с названиями, указанными в `SUPPLEMENTAL_DOCUMENT_FILES`. В `--updates-dir` должны находиться десять утверждённых PDF с именами из `UPDATE_FILES`; они заменяют прежние редакции по стабильным URL и добавляют два приказа в подраздел «Документы». При необходимости два технических оригинала можно передать локально через `--technical-dir`. Без этого параметра они загружаются из публичного S3-префикса до применения обновления инструкции. Для проверки только локального комплекта используется `--skip-remote`; по умолчанию дополнительно проверяются все 98 URL на `innoprog.ru`, размер, PDF Content-Type, `X-Robots-Tag: noindex` и Range-ответ `206`.
+В `--supplemental-dir` должны находиться два исходных подписанных PDF с названиями, указанными в `SUPPLEMENTAL_DOCUMENT_FILES`. В `--updates-dir` должны находиться десять утверждённых PDF с именами из `UPDATE_FILES`; они заменяют прежние редакции по стабильным URL и добавляют два приказа в подраздел «Документы». Параметр `--offer-file` принимает действующую редакцию публичной оферты и заменяет предыдущую редакцию в разделе платных услуг и по адресу `/oferta`. При необходимости два технических оригинала можно передать локально через `--technical-dir`. Без этого параметра они загружаются из публичного S3-префикса до применения обновления инструкции. Для проверки только локального комплекта используется `--skip-remote`; по умолчанию дополнительно проверяются все 98 URL на `innoprog.ru`, размер, PDF Content-Type, `X-Robots-Tag: noindex` и Range-ответ `206`.
 
 ZIP, DOCX, RTF, матрица, техническое задание, подписи и иные служебные файлы в staging и S3 не попадают. Папки `00` и `99` не обрабатываются.

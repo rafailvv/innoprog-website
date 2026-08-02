@@ -7,7 +7,7 @@ export const PDF_STORAGE_KEYS = {
   privacy: "site-public/legal/privacy.pdf",
   consent: "site-public/legal/consent.pdf",
   advertisingConsent: "site-public/legal/advertising-consent.pdf",
-  offer: "site-public/sveden/paid_edu/Публичная_оферта_редакция_08.04.2026.pdf",
+  offer: "site-public/sveden/paid_edu/Публичная_оферта_INNOPROG_от_02.08.2026.pdf",
   license: "site-public/sveden/common/Выписка_из_реестра_лицензий_от_15.07.2026.pdf",
   softwareOperationManual: "site-public/technical/software-operation-manual.pdf",
   functionalCharacteristics: "site-public/technical/functional-characteristics.pdf",

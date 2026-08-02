@@ -954,15 +954,15 @@
       "sha256": "d5b64de64e7c71c94fe5c406b633477a5257d1c185f810578560e1dc8b4f3af1"
     },
     {
-      "id": "f638cf328df2c6c9",
+      "id": "552ccdb4a11d6ba5",
       "title": "СВЕДЕНИЯ О ПЕДАГОГИЧЕСКОМ СОСТАВЕ",
       "sourceName": "СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf",
       "section": "employees",
       "category": "section",
       "storageKey": "site-public/sveden/employees/СВЕДЕНИЯ_О_ПЕДАГОГИЧЕСКОМ_СОСТАВЕ.pdf",
       "href": "/files/sveden/employees/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9F%D0%95%D0%94%D0%90%D0%93%D0%9E%D0%93%D0%98%D0%A7%D0%95%D0%A1%D0%9A%D0%9E%D0%9C_%D0%A1%D0%9E%D0%A1%D0%A2%D0%90%D0%92%D0%95.pdf",
-      "sizeBytes": 48788,
-      "sha256": "f638cf328df2c6c96d537883dfd5e55725f16c9568793e21f2cd9341ad54d3d8"
+      "sizeBytes": 75281,
+      "sha256": "552ccdb4a11d6ba5ccd1148f8fdc76a714c70c494dfe8520bcfb5c6983ff4a94"
     },
     {
       "id": "f85abf09a05e6fc4",
@@ -976,15 +976,15 @@
       "sha256": "f85abf09a05e6fc42ec20a86582b2a72bce8139c712353faf7b180aaf82378d8"
     },
     {
-      "id": "310a82181544a404",
+      "id": "749388dc2542428e",
       "title": "СВЕДЕНИЯ О МЕЖДУНАРОДНОМ СОТРУДНИЧЕСТВЕ",
       "sourceName": "СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf",
       "section": "inter",
       "category": "section",
       "storageKey": "site-public/sveden/inter/СВЕДЕНИЯ_О_МЕЖДУНАРОДНОМ_СОТРУДНИЧЕСТВЕ.pdf",
       "href": "/files/sveden/inter/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9C%D0%95%D0%96%D0%94%D0%A3%D0%9D%D0%90%D0%A0%D0%9E%D0%94%D0%9D%D0%9E%D0%9C_%D0%A1%D0%9E%D0%A2%D0%A0%D0%A3%D0%94%D0%9D%D0%98%D0%A7%D0%95%D0%A1%D0%A2%D0%92%D0%95.pdf",
-      "sizeBytes": 24572,
-      "sha256": "310a82181544a4046990cc09d16026df750f46c126c66b3b91d554a4bc518159"
+      "sizeBytes": 22367,
+      "sha256": "749388dc2542428e31e44e7171f7ab28c9fa0ab786c216e46f54cc6821d539ee"
     },
     {
       "id": "30a001948ab6b101",
@@ -1009,15 +1009,15 @@
       "sha256": "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc"
     },
     {
-      "id": "f9b2064cb270447f",
+      "id": "4b5dfc118136b3ff",
       "title": "СВЕДЕНИЯ О МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ ОБЕСПЕЧЕНИИ И ДОСТУПНОЙ СРЕДЕ",
       "sourceName": "СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf",
       "section": "objects",
       "category": "section",
       "storageKey": "site-public/sveden/objects/СВЕДЕНИЯ_О_МАТЕРИАЛЬНО-ТЕХНИЧЕСКОМ_ОБЕСПЕЧЕНИИ_И_ДОСТУПНОЙ_СРЕДЕ.pdf",
       "href": "/files/sveden/objects/%D0%A1%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%98%D0%AF_%D0%9E_%D0%9C%D0%90%D0%A2%D0%95%D0%A0%D0%98%D0%90%D0%9B%D0%AC%D0%9D%D0%9E-%D0%A2%D0%95%D0%A5%D0%9D%D0%98%D0%A7%D0%95%D0%A1%D0%9A%D0%9E%D0%9C_%D0%9E%D0%91%D0%95%D0%A1%D0%9F%D0%95%D0%A7%D0%95%D0%9D%D0%98%D0%98_%D0%98_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%9D%D0%9E%D0%99_%D0%A1%D0%A0%D0%95%D0%94%D0%95.pdf",
-      "sizeBytes": 41972,
-      "sha256": "f9b2064cb270447f13d4f9c1383a30696ed381b320194166d379a4d13b72a43b"
+      "sizeBytes": 53750,
+      "sha256": "4b5dfc118136b3ffe0870420b939a396e1bf0139f9bfdec9ab06ed69907faaa6"
     },
     {
       "id": "8dc92527cb1263b6",
@@ -1042,15 +1042,15 @@
       "sha256": "591b12dd32e55b02139deaf53eb1c3351fc87058cc49eda106ffdf914a9c3ed4"
     },
     {
-      "id": "3eafb311c1e31168",
-      "title": "Публичная оферта редакция 08.04.2026",
-      "sourceName": "Публичная_оферта_редакция_08.04.2026.pdf",
+      "id": "f336c63f59dca196",
+      "title": "Публичная оферта INNOPROG от 02.08.2026",
+      "sourceName": "ПУБЛИЧНАЯ_ОФЕРТА_INNOPROG_ОТ_02.08.2026.pdf",
       "section": "paid_edu",
       "category": "section",
-      "storageKey": "site-public/sveden/paid_edu/Публичная_оферта_редакция_08.04.2026.pdf",
-      "href": "/files/sveden/paid_edu/%D0%9F%D1%83%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D0%BE%D1%84%D0%B5%D1%80%D1%82%D0%B0_%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F_08.04.2026.pdf",
-      "sizeBytes": 158346,
-      "sha256": "3eafb311c1e3116818b69a275c46589b2860c4f08696e660040ff99299f254b4"
+      "storageKey": "site-public/sveden/paid_edu/Публичная_оферта_INNOPROG_от_02.08.2026.pdf",
+      "href": "/files/sveden/paid_edu/%D0%9F%D1%83%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D0%BE%D1%84%D0%B5%D1%80%D1%82%D0%B0_INNOPROG_%D0%BE%D1%82_02.08.2026.pdf",
+      "sizeBytes": 183511,
+      "sha256": "f336c63f59dca1965a50438ceb1d8c5a95ce3559b5e13aa3620178ee070eabd8"
     },
     {
       "id": "8da9d8067ee54c2d",
