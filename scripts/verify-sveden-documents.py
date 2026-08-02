@@ -64,12 +64,12 @@ def main() -> None:
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     documents = manifest["documents"]
-    if manifest["counts"] != {"section": 93, "legal": 3, "technical": 2, "total": 98}:
+    if manifest["counts"] != {"section": 95, "legal": 3, "technical": 2, "total": 100}:
         raise RuntimeError(f"Unexpected counts: {manifest['counts']}")
 
     staged = sorted((args.root / "site-public").rglob("*.pdf"))
-    if len(staged) != 98:
-        raise RuntimeError(f"Expected 98 staged PDFs, found {len(staged)}")
+    if len(staged) != 100:
+        raise RuntimeError(f"Expected 100 staged PDFs, found {len(staged)}")
 
     by_key = {document["storageKey"]: document for document in documents}
     missing_text: list[str] = []

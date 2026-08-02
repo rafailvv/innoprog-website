@@ -1,10 +1,10 @@
 {
   "generatedAt": "2026-08-02",
   "counts": {
-    "section": 93,
+    "section": 95,
     "legal": 3,
     "technical": 2,
-    "total": 98
+    "total": 100
   },
   "documents": [
     {
@@ -195,6 +195,17 @@
       "sha256": "e24c8086bf6d7d9586b3efc52be197fd842d4eeb2dc00539cadc0c881bcc6ca3"
     },
     {
+      "id": "e25dffc936ac0ea0",
+      "title": "Положение о порядке разработки и утверждения дополнительных профессиональных программ",
+      "sourceName": "ПОЛОЖЕНИЕ_О_ПОРЯДКЕ_РАЗРАБОТКИ_И_УТВЕРЖДЕНИЯ_ДОПОЛНИТЕЛЬНЫХ_ПРОФЕССИОНАЛЬНЫХ_ПРОГРАММ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Положение_о_порядке_разработки_и_утверждения_дополнительных_профессиональных_программ.pdf",
+      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B8_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC.pdf",
+      "sizeBytes": 17976962,
+      "sha256": "e25dffc936ac0ea0f1d6c30d78a6364965fa7fcbb233ecf16cc0a7633d54d899"
+    },
+    {
       "id": "1c0048e504cbcb3c",
       "title": "Положение о режиме занятий обучающихся",
       "sourceName": "Положение_о_режиме_занятий_обучающихся.pdf",
@@ -358,6 +369,17 @@
       "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-8_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BD%D0%BE%D0%B2%D1%8B%D1%85_%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D0%B9_%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BD%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D1%85_%D0%B0%D0%BA%D1%82%D0%BE%D0%B2.pdf",
       "sizeBytes": 17859553,
       "sha256": "de60a1be04dddbeaf9db5f0bde9bfa13550a79d5f7f7ce6be857f09e4f6e9f62"
+    },
+    {
+      "id": "f7ab1a898964b32d",
+      "title": "Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ",
+      "sourceName": "ПРИКАЗ_№_ОБР-9_ОБ_УТВЕРЖДЕНИИ_ПОЛОЖЕНИЯ_О_ПОРЯДКЕ_РАЗРАБОТКИ_И_УТВЕРЖДЕНИЯ_ДПП.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-9_об_утверждении_Положения_о_порядке_разработки_и_утверждения_ДПП.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-9_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BE_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%B8_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%94%D0%9F%D0%9F.pdf",
+      "sizeBytes": 17904933,
+      "sha256": "f7ab1a898964b32d066090280e04987d4df7ceae113a810def8597cbcbea77ae"
     },
     {
       "id": "88064379286665e0",
