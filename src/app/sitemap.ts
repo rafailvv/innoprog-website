@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "./seo";
 import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
 
-const UPDATED_AT = new Date("2026-07-13T00:00:00.000Z");
+const UPDATED_AT = new Date("2026-08-02T00:00:00.000Z");
 const SVEDEN_UPDATED_AT = new Date("2026-08-01T00:00:00.000Z");
 
 const baseRoutes = [
