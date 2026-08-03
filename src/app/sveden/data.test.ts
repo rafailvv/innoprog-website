@@ -6,20 +6,34 @@ import {
   SVEDEN_SECTION_SLUGS,
   VACANT_PROGRAMS,
 } from "./data";
+import {
+  cppCourseJsonLd,
+  dataAnalystCourseJsonLd,
+  dataScienceCourseJsonLd,
+  frontendCourseJsonLd,
+  javaCourseJsonLd,
+  mlEngineerCourseJsonLd,
+  mobileDeveloperCourseJsonLd,
+  pythonCourseJsonLd,
+  unrealEngineCourseJsonLd,
+} from "../seo";
 
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(101);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(3);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(103);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(1);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(96);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(101);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(103);
+    expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий")).toBe(false);
+    expect(SVEDEN_DOCUMENTS.some(({ storageKey, category }) => category === "archive" && storageKey.startsWith("site-public/sveden/archive/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Положение о порядке разработки и утверждения дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»")).toBe(true);
@@ -47,5 +61,51 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ subjects, practice }) => subjects.length > 0 && practice.length > 0)).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ foreignStudents }) => foreignStudents === 0)).toBe(true);
+  });
+
+  it("uses the nine professional program revisions approved on 02.08.2026", () => {
+    const approvedHashes = new Map([
+      ["C++ разработчик программа обучения.pdf", "483faaa7a8f82061a15c522ce1abf310c980ee7e193056bed077d73dea37c822"],
+      ["Data Science программа обучения.pdf", "745a221a6069126fafe98ad51d618aca354a4834723cb8534ae50e63f7a60264"],
+      ["Data-аналитик программа обучения.pdf", "35f7166145f6e67ec004d85a7bce88ec647058866b27df4bdd8a44de282fed51"],
+      ["Frontend-разработчик программа обучения.pdf", "5e607dfed40c967c98ccbf0ec7c3129d44dd145a64aa9e95db94eb5030b16672"],
+      ["Java-разработчик программа обучения.pdf", "48af24b0c2126d867874215539ed3da95649071f8b9f378f80accab9a3bfa7ca"],
+      ["ML-инженер программа обучения.pdf", "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"],
+      ["Python-разработчик программа обучения.pdf", "2f9689c8987ff8a684fa762de4988051901b8941ffcdbfb5b88991cf4a4a6cbd"],
+      ["Unreal Engine программа обучения.pdf", "f6c73820b08d77a2a98066f4693a2cb0e2546c79a8adefd38082a84a4c81c494"],
+      ["Мобильный разработчик программа обучения.pdf", "76429da557ea95b746ba0c10a70db933b10850d2abfa7211cea56793ea7c1d88"],
+    ]);
+    const professionalDocuments = SVEDEN_DOCUMENTS.filter(
+      ({ category, storageKey }) => category === "program" && storageKey.includes("/professional/"),
+    );
+
+    expect(professionalDocuments).toHaveLength(9);
+    for (const document of professionalDocuments) {
+      expect(document.sha256, document.sourceName).toBe(approvedHashes.get(document.sourceName));
+    }
+  });
+
+  it("keeps public course schema durations aligned with approved DPO programs", () => {
+    const courseSchemaByProgram = new Map([
+      ["C++ разработчик", cppCourseJsonLd],
+      ["Data Science", dataScienceCourseJsonLd],
+      ["Data-аналитик", dataAnalystCourseJsonLd],
+      ["Frontend-разработчик", frontendCourseJsonLd],
+      ["Java-разработчик", javaCourseJsonLd],
+      ["ML-инженер", mlEngineerCourseJsonLd],
+      ["Python-разработчик", pythonCourseJsonLd],
+      ["Unreal Engine", unrealEngineCourseJsonLd],
+      ["Мобильный разработчик", mobileDeveloperCourseJsonLd],
+    ]);
+
+    for (const program of EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")) {
+      const schema = courseSchemaByProgram.get(program.name);
+      const hours = Number.parseInt(program.volume, 10);
+      const weeks = Number.parseInt(program.term.match(/\((\d+) учебных недель\)/)?.[1] ?? "", 10);
+
+      expect(schema, program.name).toBeDefined();
+      expect(schema?.totalTime, program.name).toBe(`PT${hours}H`);
+      expect(schema?.timeRequired, program.name).toBe(`P${weeks}W`);
+    }
   });
 });

@@ -6,6 +6,7 @@ const PUBLIC_KEYS = new Set(manifest.documents.map((document) => document.storag
 export const PDF_STORAGE_KEYS = {
   privacy: "site-public/legal/privacy.pdf",
   consent: "site-public/legal/consent.pdf",
+  representativeConsent: "site-public/legal/consent-representative.pdf",
   advertisingConsent: "site-public/legal/advertising-consent.pdf",
   offer: "site-public/sveden/paid_edu/Публичная_оферта_INNOPROG_от_02.08.2026.pdf",
   license: "site-public/sveden/common/Выписка_из_реестра_лицензий_от_15.07.2026.pdf",

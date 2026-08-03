@@ -58,4 +58,11 @@ describe("PDF proxy", () => {
 
     expect(response.headers.get("cache-control")).toBe("no-store, max-age=0, must-revalidate");
   });
+
+  it("publishes separate adult and representative consent documents", () => {
+    expect(PDF_STORAGE_KEYS.consent).toBe("site-public/legal/consent.pdf");
+    expect(PDF_STORAGE_KEYS.representativeConsent).toBe(
+      "site-public/legal/consent-representative.pdf",
+    );
+  });
 });

@@ -108,6 +108,9 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»");
     expect(html).toContain("Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ");
     expect(html).toContain("Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.");
+    expect(html).toContain("Архив документов");
+    expect(html).toContain("Приказ об организации дистанционного обучения (архивная редакция)");
+    expect(html).toContain("Утратил силу с 02.08.2026 на основании приказа № ОБР-12.");
     const policyIndex = html.indexOf("Положение об электронном обучении и дистанционных образовательных технологиях");
     const policyItemEnd = html.indexOf("</li>", policyIndex);
     const orderIndex = html.indexOf("Приказ № ОБР-12", policyItemEnd);
@@ -192,6 +195,10 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toContain("Неоконченное профессиональное образование");
     expect(html).not.toContain("пройдены два профильных курса");
     expect(html).not.toContain("направлению «Разработка программного обеспечения»");
+    expect(html).toContain("Приглашённые отраслевые эксперты");
+    expect(html).toContain("Они не осуществляют самостоятельную реализацию учебных дисциплин (модулей), не проводят промежуточную и итоговую аттестацию и не принимают решений об освоении обучающимися образовательных программ.");
+    expect(html.indexOf("Приглашённые отраслевые эксперты")).toBeGreaterThan(html.lastIndexOf('itemProp="teachingStaff"'));
+    expect(html.match(/itemProp="teachingStaff"/g)).toHaveLength(2);
   });
 
   it("publishes the accessibility version control and paid education document property", () => {

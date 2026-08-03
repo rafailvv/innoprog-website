@@ -110,6 +110,14 @@ UPDATE_FILES = {
             "Согласие совершеннолетнего субъекта на обработку персональных данных",
         ),
     ],
+    "СОГЛАСИЕ_ЗАКОННОГО_ПРЕДСТАВИТЕЛЯ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ_НЕСОВЕРШЕННОЛЕТНЕГО_И_ПРЕДСТАВИТЕЛЯ.pdf": [
+        (
+            "legal/consent-representative.pdf",
+            None,
+            "legal",
+            "Согласие законного представителя на обработку персональных данных несовершеннолетнего и представителя",
+        ),
+    ],
     "СОГЛАСИЕ_НА_ПОЛУЧЕНИЕ_РЕКЛАМНОЙ И_ИНФОРМАЦИОННОЙ_РАССЫЛКИ.pdf": [
         ("legal/advertising-consent.pdf", None, "legal", "Согласие на получение рекламной и информационной рассылки"),
     ],
@@ -152,10 +160,10 @@ REPLACED_PUBLIC_KEYS = {
 }
 
 EXPECTED_SECTION_PDFS = 96
-EXPECTED_LEGAL_PDFS = 3
+EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_ARCHIVE_PDFS = 1
-EXPECTED_TOTAL_PDFS = 102
+EXPECTED_TOTAL_PDFS = 103
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 

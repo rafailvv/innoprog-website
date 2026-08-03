@@ -12,6 +12,7 @@ import {
   VACANT_UPDATED_AT,
   VACANT_PROGRAMS,
   formatDocumentSize,
+  getArchivedDocuments,
   getSectionDocuments,
   type SvedenDocument,
   type SvedenSectionSlug,
@@ -191,6 +192,11 @@ function DocumentSection() {
         purpose="Нормативное регулирование образовательной деятельности"
       />
       <DocumentList documents={selfInspectionDocuments} heading="Самообследование" purpose="Отчётность образовательной организации" />
+      <DocumentList
+        documents={getArchivedDocuments()}
+        heading="Архив документов"
+        purpose="Утратил силу с 02.08.2026 на основании приказа № ОБР-12."
+      />
     </>
   );
 }
@@ -320,6 +326,10 @@ function EmployeesSection() {
           </tbody>
         </table>
       </div>
+      <section className={styles.informationBlock} aria-labelledby="industry-experts-title">
+        <h3 id="industry-experts-title">Приглашённые отраслевые эксперты</h3>
+        <p>Указанные специалисты привлекаются к отдельным практико-ориентированным, консультационным и профориентационным мероприятиям. Они не осуществляют самостоятельную реализацию учебных дисциплин (модулей), не проводят промежуточную и итоговую аттестацию и не принимают решений об освоении обучающимися образовательных программ. Реализацию образовательных программ обеспечивают педагогические работники, сведения о которых размещены в разделе «Педагогический состав».</p>
+      </section>
       <DocumentList documents={getSectionDocuments("employees")} />
     </>
   );

@@ -27,7 +27,7 @@ export type SvedenDocument = {
   title: string;
   sourceName: string;
   section: SvedenSectionSlug | null;
-  category: "section" | "program" | "legal" | "technical";
+  category: "section" | "program" | "legal" | "technical" | "archive";
   storageKey: string;
   href: string;
   sizeBytes: number;
@@ -118,7 +118,13 @@ export function formatDocumentSize(sizeBytes: number) {
 }
 
 export function getSectionDocuments(section: SvedenSectionSlug) {
-  return SVEDEN_DOCUMENTS.filter((document) => document.section === section && document.category !== "program");
+  return SVEDEN_DOCUMENTS.filter(
+    (document) => document.section === section && document.category !== "program" && document.category !== "archive",
+  );
+}
+
+export function getArchivedDocuments() {
+  return SVEDEN_DOCUMENTS.filter((document) => document.category === "archive");
 }
 
 const DPO_MODULES: Record<string, string[]> = {

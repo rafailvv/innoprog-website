@@ -1,6 +1,7 @@
 export const LEGAL_LINKS = {
   privacy: "/privacy",
   consent: "/consent",
+  representativeConsent: "/consent-representative",
   advertisingConsent: "/advertising-consent",
   offer: "/oferta",
   license: "/license",

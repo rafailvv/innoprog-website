@@ -718,7 +718,6 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
       { text: "Стажировка после обучения", included: false },
       { text: "2 тестовых технических собеседования", included: false },
       { text: "Подготовка резюме с HR-специалистом", included: false },
@@ -737,7 +736,6 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
       { text: "Стажировка после обучения", included: true },
       { text: "2 тестовых технических собеседования", included: false },
       { text: "Подготовка резюме с HR-специалистом", included: false },
@@ -756,7 +754,6 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ", included: true },
       { text: "Стажировка после обучения", included: true },
       { text: "2 тестовых технических собеседования", included: true },
       { text: "Подготовка резюме с HR-специалистом", included: true },
@@ -2087,7 +2084,8 @@ function AboutPage({
               <div>
                 <a href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта на заключение договора оказания платных образовательных услуг</a>
                 <a href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a>
-                <a href={LEGAL_LINKS.consent} rel="noopener noreferrer" target="_blank">Согласие на обработку персональных данных</a>
+                <a href={LEGAL_LINKS.consent} rel="noopener noreferrer" target="_blank">Согласие совершеннолетнего субъекта на обработку персональных данных</a>
+                <a href={LEGAL_LINKS.representativeConsent} rel="noopener noreferrer" target="_blank">Согласие законного представителя на обработку персональных данных несовершеннолетнего и представителя</a>
               </div>
               <div>
                 <a href={LEGAL_LINKS.license} rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
@@ -2513,8 +2511,8 @@ function DataScienceCourseHero({ isMobile }: { isMobile: boolean }) {
       </div>
       <div className="site-python-course-hero__facts" aria-label="Ключевые особенности курса">
         {(isMobile
-          ? ["560 академических часов", "28 учебных недель", "13 проектных работ"]
-          : ["560 академических часов", "28 учебных недель", "13 проектных работ"]
+          ? ["960 академических часов", "48 учебных недель", "13 проектных работ"]
+          : ["960 академических часов", "48 учебных недель", "13 проектных работ"]
         ).map((fact) => (
           <span key={fact}>{fact}</span>
         ))}

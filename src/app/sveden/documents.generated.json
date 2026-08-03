@@ -2,10 +2,10 @@
   "generatedAt": "2026-08-03",
   "counts": {
     "section": 96,
-    "legal": 3,
+    "legal": 4,
     "technical": 2,
     "archive": 1,
-    "total": 102
+    "total": 103
   },
   "documents": [
     {
@@ -29,6 +29,17 @@
       "href": "/files/legal/consent.pdf",
       "sizeBytes": 120204,
       "sha256": "5490b58d510d3803d17b86823da0167c71a89e6d9cdd649cb450ac3505a9f70e"
+    },
+    {
+      "id": "145933b70f29a879",
+      "title": "Согласие законного представителя на обработку персональных данных несовершеннолетнего и представителя",
+      "sourceName": "СОГЛАСИЕ_ЗАКОННОГО_ПРЕДСТАВИТЕЛЯ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ_НЕСОВЕРШЕННОЛЕТНЕГО_И_ПРЕДСТАВИТЕЛЯ.pdf",
+      "section": null,
+      "category": "legal",
+      "storageKey": "site-public/legal/consent-representative.pdf",
+      "href": "/files/legal/consent-representative.pdf",
+      "sizeBytes": 128740,
+      "sha256": "145933b70f29a879afaa407cf94eb3a22a36c1186b3754df78dae8aba381a602"
     },
     {
       "id": "064e706894b6350d",

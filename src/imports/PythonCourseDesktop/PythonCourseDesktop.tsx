@@ -4108,10 +4108,6 @@ function Frame186() {
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <WeuiDone2Filled6 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Диплом ИТ-школы ИННОПРОГ</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <Frame237 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-[rgba(0,0,0,0.6)]">Стажировка после обучения</p>
       </div>
@@ -4366,10 +4362,6 @@ function Frame187() {
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled12 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <WeuiDone2Filled13 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Диплом ИТ-школы ИННОПРОГ</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled15 />
@@ -4646,10 +4638,6 @@ function Frame188() {
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-        <WeuiDone2Filled22 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Диплом ИТ-школы ИННОПРОГ</p>
-      </div>
-      <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled24 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Стажировка после обучения</p>
       </div>
@@ -4789,7 +4777,7 @@ function Frame199() {
 function Frame200() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">560</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">800</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
         <p className="leading-[30px] mb-0 whitespace-pre">{`академических `}</p>
         <p className="leading-[30px] whitespace-pre">часов</p>
