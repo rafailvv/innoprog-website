@@ -12,7 +12,6 @@ import {
   VACANT_UPDATED_AT,
   VACANT_PROGRAMS,
   formatDocumentSize,
-  getArchivedDocuments,
   getSectionDocuments,
   type SvedenDocument,
   type SvedenSectionSlug,
@@ -192,11 +191,6 @@ function DocumentSection() {
         purpose="Нормативное регулирование образовательной деятельности"
       />
       <DocumentList documents={selfInspectionDocuments} heading="Самообследование" purpose="Отчётность образовательной организации" />
-      <DocumentList
-        documents={getArchivedDocuments()}
-        heading="Архив документов"
-        purpose="Утратил силу с 02.08.2026 на основании приказа № ОБР-12."
-      />
     </>
   );
 }

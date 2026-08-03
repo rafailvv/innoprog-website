@@ -21,7 +21,6 @@ IMAGE_ONLY_SIGNED_DOCUMENTS = {
     "0fb557b72876f25cf7785a5360058e2033a86cc91a5691f57a104bda59578105",
     "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc",
     "c020b916ed3c83856b1f62c3cbbe1de7ab58dd38652414bab7dac5f7165f3d81",
-    "33a4aff0305640172f0b838a376e5d715e132b45652d0139091463e799d5548c",
     "de60a1be04dddbeaf9db5f0bde9bfa13550a79d5f7f7ce6be857f09e4f6e9f62",
     "a4a38f50ca577402f9d11697843e50d7394965634d2279cbd95806e0258bc16e",
     "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888",
@@ -64,7 +63,7 @@ def main() -> None:
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     documents = manifest["documents"]
-    if manifest["counts"] != {"section": 96, "legal": 3, "technical": 2, "archive": 1, "total": 102}:
+    if manifest["counts"] != {"section": 96, "legal": 4, "technical": 2, "archive": 0, "total": 102}:
         raise RuntimeError(f"Unexpected counts: {manifest['counts']}")
 
     staged = sorted((args.root / "site-public").rglob("*.pdf"))

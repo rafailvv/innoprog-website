@@ -146,13 +146,6 @@ UPDATE_FILES = {
     ],
 }
 
-ARCHIVE_FILES = {
-    "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf": (
-        "sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
-        "Приказ об организации дистанционного обучения (архивная редакция)",
-    ),
-}
-
 REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf",
     "site-public/sveden/document/Приказ_об_организации_дистанционного_обучения.pdf",
@@ -162,8 +155,8 @@ REPLACED_PUBLIC_KEYS = {
 EXPECTED_SECTION_PDFS = 96
 EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
-EXPECTED_ARCHIVE_PDFS = 1
-EXPECTED_TOTAL_PDFS = 103
+EXPECTED_ARCHIVE_PDFS = 0
+EXPECTED_TOTAL_PDFS = 102
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -378,24 +371,6 @@ def prepare(
         technical_count += 1
 
     archive_count = 0
-    for source_name, (relative_key, title) in ARCHIVE_FILES.items():
-        source = updates_dir / source_name
-        if not source.is_file():
-            raise FileNotFoundError(f"Missing archived disclosure PDF: {source}")
-        data = source.read_bytes()
-        if not data.startswith(b"%PDF-"):
-            raise RuntimeError(f"Archived source is not a PDF: {source}")
-        entry = write_pdf(
-            output_root,
-            Path(relative_key),
-            data,
-            section=None,
-            source_name=source_name,
-            category="archive",
-        )
-        entry["title"] = title
-        entries.append(entry)
-        archive_count += 1
 
     entries_by_key = {str(entry["storageKey"]): entry for entry in entries}
     for replaced_key in REPLACED_PUBLIC_KEYS:

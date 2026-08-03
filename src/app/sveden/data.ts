@@ -123,10 +123,6 @@ export function getSectionDocuments(section: SvedenSectionSlug) {
   );
 }
 
-export function getArchivedDocuments() {
-  return SVEDEN_DOCUMENTS.filter((document) => document.category === "archive");
-}
-
 const DPO_MODULES: Record<string, string[]> = {
   "C++ разработчик": [
     "Введение в профессию", "Основы C++", "Алгоритмы и структуры данных", "Современный C++ и стандартная библиотека",
