@@ -8,7 +8,7 @@ const legacyFilenames = [
 ];
 
 describe("legacy educational document redirect", () => {
-  it.each([GET, HEAD])("redirects old order URLs to the archived document", async (handler) => {
+  it.each([GET, HEAD])("redirects old order URLs to the current order", async (handler) => {
     const legacyPath = ["sveden", "document", legacyFilenames[0]];
     const response = await handler(
       new Request("https://innoprog.ru/files/legacy-order.pdf"),
@@ -17,7 +17,7 @@ describe("legacy educational document redirect", () => {
 
     expect(response.status).toBe(301);
     expect(decodeURI(response.headers.get("location") ?? "")).toBe(
-      "https://innoprog.ru/files/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
+      "https://innoprog.ru/files/sveden/document/Приказ_№_ОБР-12_об_организации_образовательной_деятельности_с_применением_электронного_обучения_и_ДОТ.pdf",
     );
   });
 
@@ -28,6 +28,15 @@ describe("legacy educational document redirect", () => {
     );
 
     expect(response.status).toBe(301);
-    expect(decodeURI(response.headers.get("location") ?? "")).toContain("/files/sveden/archive/document/");
+    expect(decodeURI(response.headers.get("location") ?? "")).toContain("/files/sveden/document/Приказ_№_ОБР-12_");
+  });
+
+  it.each([GET, HEAD])("does not expose the internal archive", async (handler) => {
+    const response = await handler(
+      new Request("https://innoprog.ru/files/sveden/archive/document/legacy.pdf"),
+      { params: Promise.resolve({ path: ["sveden", "archive", "document", "legacy.pdf"] }) },
+    );
+
+    expect(response.status).toBe(404);
   });
 });

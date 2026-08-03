@@ -150,6 +150,7 @@ REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf",
     "site-public/sveden/document/Приказ_об_организации_дистанционного_обучения.pdf",
     "site-public/sveden/document/ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf",
+    "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
 }
 
 EXPECTED_SECTION_PDFS = 96

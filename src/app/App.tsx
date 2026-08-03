@@ -2092,7 +2092,7 @@ function AboutPage({
                 <a href={LEGAL_LINKS.advertisingConsent} rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
               </div>
             </div>
-            <p>Локальные нормативные документы и иные документы, связанные с образовательной деятельностью, предоставляются для ознакомления по запросу, направленному на электронную почту: <strong>education@innoprog.ru</strong></p>
+            <p>Локальные нормативные акты и сведения об образовательной организации опубликованы в открытом доступе в разделе «Сведения об образовательной организации».</p>
             <a className="site-about-legal__disclosure" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
           </section>
         </main>
