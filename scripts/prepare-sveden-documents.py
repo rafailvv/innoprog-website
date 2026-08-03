@@ -35,6 +35,18 @@ PROGRAM_FOLDERS = {
     "Дополнительные_профессиональные_программы": "professional",
 }
 
+PROGRAM_UPDATE_FILES = {
+    "C++ разработчик программа обучения.pdf": "cpp_developer.pdf",
+    "Data Science программа обучения.pdf": "data_science.pdf",
+    "Data-аналитик программа обучения.pdf": "data_analyst.pdf",
+    "Frontend-разработчик программа обучения.pdf": "frontend_developer.pdf",
+    "Java-разработчик программа обучения.pdf": "java_developer.pdf",
+    "ML-инженер программа обучения.pdf": "ml_engineer.pdf",
+    "Python-разработчик программа обучения.pdf": "python_developer.pdf",
+    "Unreal Engine программа обучения.pdf": "unreal_engine.pdf",
+    "Мобильный разработчик программа обучения.pdf": "mobile_developer.pdf",
+}
+
 LEGAL_FILES = {
     "Политика_обработки_персональных_данных.pdf": "privacy.pdf",
     "Согласие_на_обработку_персональных_данных.pdf": "consent.pdf",
@@ -90,8 +102,13 @@ UPDATE_FILES = {
     "ПОЛИТИКА_ОПЕРАТОРА_В_ОТНОШЕНИИ_ОБРАБОТКИ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf": [
         ("legal/privacy.pdf", None, "legal", "Политика оператора в отношении обработки персональных данных"),
     ],
-    "СОГЛАСИЕ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf": [
-        ("legal/consent.pdf", None, "legal", "Согласие на обработку персональных данных"),
+    "СОГЛАСИЕ_СОВЕРШЕННОЛЕТНЕГО_СУБЪЕКТА_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf": [
+        (
+            "legal/consent.pdf",
+            None,
+            "legal",
+            "Согласие совершеннолетнего субъекта на обработку персональных данных",
+        ),
     ],
     "СОГЛАСИЕ_НА_ПОЛУЧЕНИЕ_РЕКЛАМНОЙ И_ИНФОРМАЦИОННОЙ_РАССЫЛКИ.pdf": [
         ("legal/advertising-consent.pdf", None, "legal", "Согласие на получение рекламной и информационной рассылки"),
@@ -121,14 +138,24 @@ UPDATE_FILES = {
     ],
 }
 
+ARCHIVE_FILES = {
+    "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf": (
+        "sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
+        "Приказ об организации дистанционного обучения (архивная редакция)",
+    ),
+}
+
 REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/document/Приказ_об_организации_обучения_с_применением_электронного_обучения_и_ДОТ.pdf",
+    "site-public/sveden/document/Приказ_об_организации_дистанционного_обучения.pdf",
+    "site-public/sveden/document/ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf",
 }
 
 EXPECTED_SECTION_PDFS = 96
 EXPECTED_LEGAL_PDFS = 3
 EXPECTED_TECHNICAL_PDFS = 2
-EXPECTED_TOTAL_PDFS = 101
+EXPECTED_ARCHIVE_PDFS = 1
+EXPECTED_TOTAL_PDFS = 102
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -232,6 +259,7 @@ def prepare(
     technical_dir: Path | None,
     supplemental_dir: Path,
     updates_dir: Path,
+    program_updates_dir: Path,
     offer_file: Path,
     output_root: Path,
     manifest: Path,
@@ -243,6 +271,7 @@ def prepare(
     entries: list[dict[str, object]] = []
     section_count = 0
     legal_count = 0
+    replaced_programs: set[str] = set()
 
     with ZipFile(archive) as bundle:
         for member in bundle.infolist():
@@ -261,11 +290,21 @@ def prepare(
                 source_name = Path(member.filename).name
                 if (section, source_name) in REPLACED_SECTION_FILES:
                     continue
-                data = bundle.read(member)
                 key = section_destination(parts, section, source_name)
                 category = "program" if section == "education" and any(
                     source_folder in parts for source_folder in PROGRAM_FOLDERS
                 ) else "section"
+                is_professional_program = "Дополнительные_профессиональные_программы" in parts
+                if is_professional_program and source_name in PROGRAM_UPDATE_FILES:
+                    replacement = program_updates_dir / PROGRAM_UPDATE_FILES[source_name]
+                    if not replacement.is_file():
+                        raise FileNotFoundError(f"Missing approved program PDF: {replacement}")
+                    data = replacement.read_bytes()
+                    if not data.startswith(b"%PDF-"):
+                        raise RuntimeError(f"Program source is not a PDF: {replacement}")
+                    replaced_programs.add(source_name)
+                else:
+                    data = bundle.read(member)
                 entries.append(
                     write_pdf(
                         output_root,
@@ -296,6 +335,10 @@ def prepare(
                 )
                 legal_count += 1
 
+    missing_programs = set(PROGRAM_UPDATE_FILES) - replaced_programs
+    if missing_programs:
+        raise RuntimeError(f"Programs from the source ZIP were not replaced: {sorted(missing_programs)}")
+
     for source_name, (public_name, title) in SUPPLEMENTAL_DOCUMENT_FILES.items():
         source = supplemental_dir / source_name
         if not source.is_file():
@@ -325,6 +368,26 @@ def prepare(
             )
         )
         technical_count += 1
+
+    archive_count = 0
+    for source_name, (relative_key, title) in ARCHIVE_FILES.items():
+        source = updates_dir / source_name
+        if not source.is_file():
+            raise FileNotFoundError(f"Missing archived disclosure PDF: {source}")
+        data = source.read_bytes()
+        if not data.startswith(b"%PDF-"):
+            raise RuntimeError(f"Archived source is not a PDF: {source}")
+        entry = write_pdf(
+            output_root,
+            Path(relative_key),
+            data,
+            section=None,
+            source_name=source_name,
+            category="archive",
+        )
+        entry["title"] = title
+        entries.append(entry)
+        archive_count += 1
 
     entries_by_key = {str(entry["storageKey"]): entry for entry in entries}
     for replaced_key in REPLACED_PUBLIC_KEYS:
@@ -397,12 +460,14 @@ def prepare(
         "section": section_count,
         "legal": legal_count,
         "technical": technical_count,
+        "archive": archive_count,
         "total": len(entries),
     }
     expected = {
         "section": EXPECTED_SECTION_PDFS,
         "legal": EXPECTED_LEGAL_PDFS,
         "technical": EXPECTED_TECHNICAL_PDFS,
+        "archive": EXPECTED_ARCHIVE_PDFS,
         "total": EXPECTED_TOTAL_PDFS,
     }
     if counts != expected:
@@ -437,6 +502,12 @@ def main() -> None:
         help="Directory containing the approved PDF revisions published on 02.08.2026",
     )
     parser.add_argument(
+        "--program-updates-dir",
+        type=Path,
+        required=True,
+        help="Directory containing the nine approved professional program PDFs",
+    )
+    parser.add_argument(
         "--offer-file",
         type=Path,
         required=True,
@@ -454,6 +525,7 @@ def main() -> None:
         args.technical_dir,
         args.supplemental_dir,
         args.updates_dir,
+        args.program_updates_dir,
         args.offer_file,
         args.output,
         args.manifest,

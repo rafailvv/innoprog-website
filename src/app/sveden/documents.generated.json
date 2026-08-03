@@ -4,7 +4,8 @@
     "section": 96,
     "legal": 3,
     "technical": 2,
-    "total": 101
+    "archive": 1,
+    "total": 102
   },
   "documents": [
     {
@@ -19,15 +20,15 @@
       "sha256": "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888"
     },
     {
-      "id": "a4a38f50ca577402",
-      "title": "Согласие на обработку персональных данных",
-      "sourceName": "СОГЛАСИЕ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
+      "id": "5490b58d510d3803",
+      "title": "Согласие совершеннолетнего субъекта на обработку персональных данных",
+      "sourceName": "СОГЛАСИЕ_СОВЕРШЕННОЛЕТНЕГО_СУБЪЕКТА_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
       "section": null,
       "category": "legal",
       "storageKey": "site-public/legal/consent.pdf",
       "href": "/files/legal/consent.pdf",
-      "sizeBytes": 82209,
-      "sha256": "a4a38f50ca577402f9d11697843e50d7394965634d2279cbd95806e0258bc16e"
+      "sizeBytes": 120204,
+      "sha256": "5490b58d510d3803d17b86823da0167c71a89e6d9cdd649cb450ac3505a9f70e"
     },
     {
       "id": "064e706894b6350d",
@@ -39,6 +40,17 @@
       "href": "/files/legal/privacy.pdf",
       "sizeBytes": 113731,
       "sha256": "064e706894b6350d0bfaf2d2eedb24648370f4d2ca19cda1f6b0f33802e43fc9"
+    },
+    {
+      "id": "33a4aff030564017",
+      "title": "Приказ об организации дистанционного обучения (архивная редакция)",
+      "sourceName": "ПРИКАЗ_ОБ_ОРГАНИЗАЦИИ_ДИСТАНЦИОННОГО_ОБУЧЕНИЯ.pdf",
+      "section": null,
+      "category": "archive",
+      "storageKey": "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
+      "href": "/files/sveden/archive/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%D0%BE%D0%B1_%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%B4%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 306733,
+      "sha256": "33a4aff0305640172f0b838a376e5d715e132b45652d0139091463e799d5548c"
     },
     {
       "id": "c64d3f1f07855744",
@@ -844,103 +856,103 @@
       "sha256": "e9cd81705973c99acc4f44fa91769ecc939cc0e181defb2a3dd93fd1d7512a41"
     },
     {
-      "id": "4c515ca71842fdb6",
+      "id": "483faaa7a8f82061",
       "title": "C++ разработчик программа обучения",
       "sourceName": "C++ разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/C++ разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/C%2B%2B%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18152413,
-      "sha256": "4c515ca71842fdb61e7a3ac710fb4dbca938e2569e13a81e681ded1ebd360581"
+      "sizeBytes": 18152425,
+      "sha256": "483faaa7a8f82061a15c522ce1abf310c980ee7e193056bed077d73dea37c822"
     },
     {
-      "id": "91207c9fdd92ec31",
+      "id": "745a221a6069126f",
       "title": "Data Science программа обучения",
       "sourceName": "Data Science программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Data Science программа обучения.pdf",
       "href": "/files/sveden/education/professional/Data%20Science%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18132655,
-      "sha256": "91207c9fdd92ec312f23c18892c351edec1034a79eb54eba4bedf0201e1a425d"
+      "sizeBytes": 18132666,
+      "sha256": "745a221a6069126fafe98ad51d618aca354a4834723cb8534ae50e63f7a60264"
     },
     {
-      "id": "f394b25e4fe0c1d4",
+      "id": "35f7166145f6e67e",
       "title": "Data-аналитик программа обучения",
       "sourceName": "Data-аналитик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Data-аналитик программа обучения.pdf",
       "href": "/files/sveden/education/professional/Data-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18141179,
-      "sha256": "f394b25e4fe0c1d4c622609ad722fc1d83af55d6c366e52430476f1301add2f6"
+      "sizeBytes": 18141189,
+      "sha256": "35f7166145f6e67ec004d85a7bce88ec647058866b27df4bdd8a44de282fed51"
     },
     {
-      "id": "c65f09854ee2b409",
+      "id": "5e607dfed40c967c",
       "title": "Frontend-разработчик программа обучения",
       "sourceName": "Frontend-разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Frontend-разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/Frontend-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18125772,
-      "sha256": "c65f09854ee2b40921e810a50e5a815edb04934546602b9505ec7892831f4db1"
+      "sizeBytes": 18125790,
+      "sha256": "5e607dfed40c967c98ccbf0ec7c3129d44dd145a64aa9e95db94eb5030b16672"
     },
     {
-      "id": "ed970fa21e492aa6",
+      "id": "48af24b0c2126d86",
       "title": "Java-разработчик программа обучения",
       "sourceName": "Java-разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Java-разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/Java-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18124338,
-      "sha256": "ed970fa21e492aa6056d74dadf4ba630cdbd39a237f9f9063a965378d7a9bd90"
+      "sizeBytes": 18124344,
+      "sha256": "48af24b0c2126d867874215539ed3da95649071f8b9f378f80accab9a3bfa7ca"
     },
     {
-      "id": "2d516c38c65805e7",
+      "id": "8f749ad3e53842c9",
       "title": "ML-инженер программа обучения",
       "sourceName": "ML-инженер программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/ML-инженер программа обучения.pdf",
       "href": "/files/sveden/education/professional/ML-%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18140098,
-      "sha256": "2d516c38c65805e7ff532f1a230c00ef66c17e551f2037e862635832962295bf"
+      "sizeBytes": 18140111,
+      "sha256": "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"
     },
     {
-      "id": "6d5c22f70b192b1d",
+      "id": "2f9689c8987ff8a6",
       "title": "Python-разработчик программа обучения",
       "sourceName": "Python-разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Python-разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18140248,
-      "sha256": "6d5c22f70b192b1d1266e6cb2d5bbe03c53e4116d8567fb5ae30b30f1a744b7f"
+      "sizeBytes": 18140245,
+      "sha256": "2f9689c8987ff8a684fa762de4988051901b8941ffcdbfb5b88991cf4a4a6cbd"
     },
     {
-      "id": "a036b2973db52d63",
+      "id": "f6c73820b08d77a2",
       "title": "Unreal Engine программа обучения",
       "sourceName": "Unreal Engine программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Unreal Engine программа обучения.pdf",
       "href": "/files/sveden/education/professional/Unreal%20Engine%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18112022,
-      "sha256": "a036b2973db52d6319b07c71871ed9fb545f087fdbdf9ffda7fb2ffd8c42a2e8"
+      "sizeBytes": 18112044,
+      "sha256": "f6c73820b08d77a2a98066f4693a2cb0e2546c79a8adefd38082a84a4c81c494"
     },
     {
-      "id": "94c3bd0b157e913b",
+      "id": "76429da557ea95b7",
       "title": "Мобильный разработчик программа обучения",
       "sourceName": "Мобильный разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Мобильный разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 18152452,
-      "sha256": "94c3bd0b157e913b092ff18b285e66a725ec63e4fb37ca2cff4199e63c36a0e6"
+      "sizeBytes": 18152441,
+      "sha256": "76429da557ea95b746ba0c10a70db933b10850d2abfa7211cea56793ea7c1d88"
     },
     {
       "id": "af5507e67e3bdbe4",
