@@ -2709,7 +2709,7 @@ function Frame114() {
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[12px] leading-[15px]">
-        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>. Форма защищена SmartCaptcha от Яндекса. <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">Условия обработки данных</a>
+        Форма защищена Yandex SmartCaptcha
       </p>
     </div>
   );

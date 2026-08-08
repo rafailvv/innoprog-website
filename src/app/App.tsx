@@ -5758,13 +5758,7 @@ export default function App({
                   </span>
                 </div>
                 <p className="site-lead-modal__policy-note">
-                  <a href="/privacy" rel="noopener noreferrer" target="_blank">
-                    Политика конфиденциальности
-                  </a>
-                  . Форма защищена SmartCaptcha от Яндекса.&nbsp;
-                  <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">
-                    Условия обработки данных
-                  </a>
+                  Форма защищена Yandex SmartCaptcha
                 </p>
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">

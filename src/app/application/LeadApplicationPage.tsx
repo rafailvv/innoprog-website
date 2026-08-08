@@ -176,7 +176,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
               </span>
             </label>
             <p className="site-application-policy-note">
-              <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>. Форма защищена SmartCaptcha от Яндекса. <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">Условия обработки данных</a>
+              Форма защищена Yandex SmartCaptcha
             </p>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}
             <button className="site-application-submit" disabled={!isConsentChecked || isSubmitting} type="submit">

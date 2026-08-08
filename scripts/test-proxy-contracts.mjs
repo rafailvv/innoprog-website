@@ -91,8 +91,8 @@ assert.match(
 );
 assert.match(
   standaloneApplication,
-  /href="\/consent"[\s\S]*href="\/advertising-consent"[\s\S]*href="\/privacy"/,
-  "standalone application must separate consent, advertising and policy links",
+  /href="\/consent"[\s\S]*href="\/advertising-consent"[\s\S]*Форма защищена Yandex SmartCaptcha/,
+  "standalone application must separate consent, advertising and captcha notices",
 );
 assert.doesNotMatch(
   standaloneApplication,
@@ -106,7 +106,7 @@ for (const file of generatedFormFiles) {
   assert.match(source, /href="\/consent"/, `${file} must link the separate consent document`);
   assert.match(source, /data-advertising-consent-toggle/, `${file} must expose optional advertising consent`);
   assert.match(source, /href="\/advertising-consent"/, `${file} must link advertising consent`);
-  assert.match(source, /href="\/privacy"/, `${file} must link the operator policy`);
+  assert.match(source, /Форма защищена Yandex SmartCaptcha/, `${file} must display the captcha notice`);
   assert.doesNotMatch(source, /Нажимая на кнопку, вы даете/, `${file} must require an explicit choice`);
 }
 
