@@ -172,11 +172,11 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
             <label className="site-application-consent">
               <input checked={isAdvertisingConsentChecked} onChange={(event) => setIsAdvertisingConsentChecked(event.target.checked)} type="checkbox" />
               <span>
-                Я согласен(на) получать <a href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+                Я согласен(на) получать <a href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
               </span>
             </label>
             <p className="site-application-policy-note">
-              С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
+              <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
             </p>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}
             <button className="site-application-submit" disabled={!isConsentChecked || isSubmitting} type="submit">

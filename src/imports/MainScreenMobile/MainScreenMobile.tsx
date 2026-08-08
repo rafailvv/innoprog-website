@@ -2705,11 +2705,11 @@ function Frame114() {
           </svg>
         </div>
         <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[12px] leading-[15px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[12px] leading-[15px]">
-        С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
+        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
       </p>
     </div>
   );
@@ -2742,7 +2742,7 @@ function Frame116() {
 
 function Component4() {
   return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[515px] items-center justify-center pb-[56px] pt-[64px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
+    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[640px] items-center justify-center pb-[56px] pt-[64px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
       <Frame113 />
       <Frame116 />
     </div>

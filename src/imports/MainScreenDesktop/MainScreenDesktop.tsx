@@ -2147,11 +2147,11 @@ function Frame100() {
           </svg>
         </div>
         <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
-        С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
+        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
       </p>
     </div>
   );
@@ -2193,7 +2193,7 @@ function Frame103() {
 
 function Component8() {
   return (
-    <div className="content-stretch flex flex-col gap-[104px] h-[885px] items-center justify-center mb-[-40px] overflow-clip p-[80px] relative rounded-tl-[60px] rounded-tr-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 885\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'0.800000011920929\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(1.35 51.815 -84.309 5.8136 720 442.5)\\'><stop stop-color=\\'rgba(255,255,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(206,188,255,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(181,154,255,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="заявка">
+    <div className="content-stretch flex flex-col gap-[104px] h-[925px] items-center justify-center overflow-clip p-[80px] relative rounded-tl-[60px] rounded-tr-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 885\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'0.800000011920929\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(1.35 51.815 -84.309 5.8136 720 442.5)\\'><stop stop-color=\\'rgba(255,255,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(206,188,255,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(181,154,255,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="заявка">
       <div className="absolute flex h-[3281.282px] items-center justify-center left-[-883px] top-[-1728px] w-[3443.535px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
         <div className="flex-none rotate-[-27.04deg]">
           <div className="h-[2313.375px] opacity-70 relative w-[2685.416px]" data-name="Circle_Stack_Swirl">

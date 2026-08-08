@@ -4905,11 +4905,11 @@ function Frame58() {
           </svg>
         </div>
         <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a> (необязательно)
+          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
-        С <a href="/privacy" rel="noopener noreferrer" target="_blank">Политикой оператора в отношении обработки персональных данных</a> ознакомлен(а).
+        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
       </p>
     </div>
   );

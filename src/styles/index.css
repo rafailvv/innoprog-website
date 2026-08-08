@@ -3985,10 +3985,15 @@ button[data-name="кнопки пд"] {
   gap: 12px;
 }
 
+.site-consent-group + [data-name="кнопки пд"] {
+  margin-top: 12px;
+}
+
 .site-consent-policy-note,
 .site-lead-modal__policy-note,
 .site-application-policy-note {
   margin: 0;
+  opacity: 0.82;
 }
 
 .site-consent-policy-note a,

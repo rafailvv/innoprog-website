@@ -77,13 +77,12 @@ export const YandexSmartCaptcha = forwardRef<YandexSmartCaptchaHandle>(
     return (
       <InvisibleSmartCaptcha
         host="smartcaptcha.yandexcloud.net"
-        hideShield={false}
+        hideShield
         language="ru"
         onChallengeHidden={() => finish(undefined, new Error("captcha-closed"))}
         onJavascriptError={() => finish(undefined, new Error("captcha-failed"))}
         onNetworkError={() => finish(undefined, new Error("captcha-failed"))}
         onSuccess={(token) => finish(token)}
-        shieldPosition="bottom-right"
         sitekey={SMARTCAPTCHA_SITE_KEY}
         visible={visible}
       />

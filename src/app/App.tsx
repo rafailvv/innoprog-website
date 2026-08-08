@@ -5755,15 +5755,16 @@ export default function App({
                     >
                       рекламные и информационные сообщения
                     </a>
-                    &nbsp;(необязательно)
                   </span>
                 </div>
                 <p className="site-lead-modal__policy-note">
-                  С&nbsp;
                   <a href="/privacy" rel="noopener noreferrer" target="_blank">
-                    Политикой оператора в отношении обработки персональных данных
+                    Политика оператора в отношении обработки персональных данных
                   </a>
-                  &nbsp;ознакомлен(а).
+                  &nbsp;· Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в&nbsp;
+                  <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">
+                    уведомлении Яндекса
+                  </a>
                 </p>
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">
