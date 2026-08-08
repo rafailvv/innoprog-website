@@ -129,7 +129,7 @@ describe("educational disclosure server HTML", () => {
     for (const section of ["employees", "budget"] as const) {
       expect(renderToStaticMarkup(<SvedenPage section={section} />)).toContain("01.08.2026");
     }
-    expect(renderToStaticMarkup(<SvedenPage section="vacant" />)).toContain("02.08.2026");
+    expect(renderToStaticMarkup(<SvedenPage section="vacant" />)).toContain("05.08.2026");
     expect(renderToStaticMarkup(<SvedenPage section="common" />)).not.toContain("Дата актуальности динамических сведений");
     expect(renderToStaticMarkup(<SvedenPage section="struct" />)).not.toContain("Дата актуальности динамических сведений");
   });
@@ -159,7 +159,7 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
     expect(html).toContain('aria-label="Вакантные места по образовательным программам"');
-    expect(html).toContain("Количество вакантных мест по состоянию на 02.08.2026");
+    expect(html).toContain("Количество вакантных мест по состоянию на 05.08.2026");
     expect(html).toContain("Python-разработчик");
     expect(html).toContain('itemProp="numberPVacant">25</td>');
   });

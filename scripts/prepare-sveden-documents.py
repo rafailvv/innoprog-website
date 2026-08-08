@@ -57,6 +57,7 @@ CHILD_PROGRAM_FILES = {
 }
 
 CHILD_PROGRAM_ORDER = "ПРИКАЗ_№_ОБР-13_ОБ_УТВЕРЖДЕНИИ_ДЕТСКИХ_ПРОГРАММ.pdf"
+CHILD_VACANCY_ORDER = "ПРИКАЗ_№_ОБР-14_О_ВНЕСЕНИИ_ИЗМЕНЕНИЙ_В_ПРИКАЗ_№_ОБР-10_И_УСТАНОВЛЕНИИ_ВАКАНТНЫХ_МЕСТ_ПО_ДЕТСКИМ_ПРОГРАММАМ.pdf"
 
 LEGAL_FILES = {
     "Политика_обработки_персональных_данных.pdf": "privacy.pdf",
@@ -164,11 +165,11 @@ REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
 }
 
-EXPECTED_SECTION_PDFS = 103
+EXPECTED_SECTION_PDFS = 104
 EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_ARCHIVE_PDFS = 0
-EXPECTED_TOTAL_PDFS = 109
+EXPECTED_TOTAL_PDFS = 110
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -387,6 +388,21 @@ def prepare(
     entries.append(order_entry)
     section_count += 1
 
+    vacancy_order_source = child_programs_dir / CHILD_VACANCY_ORDER
+    if not vacancy_order_source.is_file():
+        raise FileNotFoundError(f"Missing child vacancy order: {vacancy_order_source}")
+    vacancy_order_entry = write_pdf(
+        output_root,
+        Path("sveden") / "document" / "Приказ_№_ОБР-14_о_внесении_изменений_в_приказ_№_ОБР-10_и_установлении_вакантных_мест_по_детским_программам.pdf",
+        vacancy_order_source.read_bytes(),
+        section="document",
+        source_name=CHILD_VACANCY_ORDER,
+        category="section",
+    )
+    vacancy_order_entry["title"] = "Приказ № ОБР-14 о внесении изменений в приказ № ОБР-10 и установлении вакантных мест по детским образовательным программам"
+    entries.append(vacancy_order_entry)
+    section_count += 1
+
     for source_name, (public_name, title) in SUPPLEMENTAL_DOCUMENT_FILES.items():
         source = supplemental_dir / source_name
         if not source.is_file():
@@ -541,7 +557,7 @@ def main() -> None:
         "--child-programs-dir",
         type=Path,
         required=True,
-        help="Directory containing the six child program PDFs and approval order No. OBR-13",
+        help="Directory containing the six child program PDFs and orders No. OBR-13 and OBR-14",
     )
     parser.add_argument(
         "--offer-file",

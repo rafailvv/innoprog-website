@@ -24,6 +24,7 @@ IMAGE_ONLY_SIGNED_DOCUMENTS = {
     "de60a1be04dddbeaf9db5f0bde9bfa13550a79d5f7f7ce6be857f09e4f6e9f62",
     "a4a38f50ca577402f9d11697843e50d7394965634d2279cbd95806e0258bc16e",
     "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888",
+    "925784c8d3dc1cae23d838e53c5ed6b874e0b1b7c57fbeb9f3cc5b857e3423c2",
 }
 
 
@@ -63,12 +64,12 @@ def main() -> None:
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     documents = manifest["documents"]
-    if manifest["counts"] != {"section": 103, "legal": 4, "technical": 2, "archive": 0, "total": 109}:
+    if manifest["counts"] != {"section": 104, "legal": 4, "technical": 2, "archive": 0, "total": 110}:
         raise RuntimeError(f"Unexpected counts: {manifest['counts']}")
 
     staged = sorted((args.root / "site-public").rglob("*.pdf"))
-    if len(staged) != 109:
-        raise RuntimeError(f"Expected 109 staged PDFs, found {len(staged)}")
+    if len(staged) != 110:
+        raise RuntimeError(f"Expected 110 staged PDFs, found {len(staged)}")
 
     by_key = {document["storageKey"]: document for document in documents}
     missing_text: list[str] = []

@@ -1,11 +1,11 @@
 {
   "generatedAt": "2026-08-08",
   "counts": {
-    "section": 103,
+    "section": 104,
     "legal": 4,
     "technical": 2,
     "archive": 0,
-    "total": 109
+    "total": 110
   },
   "documents": [
     {
@@ -370,6 +370,17 @@
       "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-12_%D0%BE%D0%B1_%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%B4%D0%B5%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%81_%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
       "sizeBytes": 17915988,
       "sha256": "c4799c40d8eed32c30d0e1102a11f9914ae1df768a5b75723c64d158add3ce53"
+    },
+    {
+      "id": "925784c8d3dc1cae",
+      "title": "Приказ № ОБР-14 о внесении изменений в приказ № ОБР-10 и установлении вакантных мест по детским образовательным программам",
+      "sourceName": "ПРИКАЗ_№_ОБР-14_О_ВНЕСЕНИИ_ИЗМЕНЕНИЙ_В_ПРИКАЗ_№_ОБР-10_И_УСТАНОВЛЕНИИ_ВАКАНТНЫХ_МЕСТ_ПО_ДЕТСКИМ_ПРОГРАММАМ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-14_о_внесении_изменений_в_приказ_№_ОБР-10_и_установлении_вакантных_мест_по_детским_программам.pdf",
+      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-14_%D0%BE_%D0%B2%D0%BD%D0%B5%D1%81%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9_%D0%B2_%D0%BF%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-10_%D0%B8_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D1%85_%D0%BC%D0%B5%D1%81%D1%82_%D0%BF%D0%BE_%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%BC_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D0%BC.pdf",
+      "sizeBytes": 17919035,
+      "sha256": "925784c8d3dc1cae23d838e53c5ed6b874e0b1b7c57fbeb9f3cc5b857e3423c2"
     },
     {
       "id": "c774bdd75f244abb",

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { pythonCourseProgramModules } from "../imports/courseProgramData";
 
 const courseComponents = [
   ["Cpp", 800, 40],
@@ -36,5 +37,10 @@ describe("public course duration facts", () => {
       expect(source).toContain("12 месяцев обучения");
       expect(source).not.toContain("10 месяцев обучения");
     }
+  });
+
+  it("describes the introductory Python module as eight academic hours in total", () => {
+    expect(pythonCourseProgramModules[0].tags).toContain("8 академических часов");
+    expect(pythonCourseProgramModules[0].tags).not.toContain("8 академических часов в неделю");
   });
 });
