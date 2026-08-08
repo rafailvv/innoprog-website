@@ -4893,7 +4893,7 @@ function Frame58() {
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
-        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
+        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>. Форма защищена SmartCaptcha от Яндекса. <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">Условия обработки данных</a>
       </p>
     </div>
   );

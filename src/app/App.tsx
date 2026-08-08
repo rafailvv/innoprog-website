@@ -5759,11 +5759,11 @@ export default function App({
                 </div>
                 <p className="site-lead-modal__policy-note">
                   <a href="/privacy" rel="noopener noreferrer" target="_blank">
-                    Политика оператора в отношении обработки персональных данных
+                    Политика конфиденциальности
                   </a>
-                  &nbsp;· Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в&nbsp;
+                  . Форма защищена SmartCaptcha от Яндекса.&nbsp;
                   <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">
-                    уведомлении Яндекса
+                    Условия обработки данных
                   </a>
                 </p>
                 {leadFormError ? (

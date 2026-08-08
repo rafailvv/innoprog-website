@@ -25,8 +25,8 @@ describe("main screen server markup", () => {
     expect(html).toContain('href="/consent"');
     expect(html).toContain('href="/advertising-consent"');
     expect(html).toContain("Я даю");
-    expect(html).toContain("Политика оператора в отношении обработки персональных данных");
-    expect(html).toContain("уведомлении Яндекса");
+    expect(html).toContain("Форма защищена SmartCaptcha от Яндекса");
+    expect(html).toContain("Условия обработки данных");
     expect(html).not.toContain("(необязательно)");
     expect(html).not.toContain("Нажимая на кнопку, вы даете");
   });

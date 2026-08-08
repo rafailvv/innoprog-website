@@ -2709,7 +2709,7 @@ function Frame114() {
         </p>
       </div>
       <p className="site-consent-policy-note text-white text-[12px] leading-[15px]">
-        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика оператора в отношении обработки персональных данных</a> · Для защиты от автоматических отправок SmartCaptcha обрабатывает технические данные. Подробности в <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">уведомлении Яндекса</a>
+        <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>. Форма защищена SmartCaptcha от Яндекса. <a href="https://yandex.com/legal/smartcaptcha_notice/" rel="noopener noreferrer" target="_blank">Условия обработки данных</a>
       </p>
     </div>
   );
@@ -2742,7 +2742,7 @@ function Frame116() {
 
 function Component4() {
   return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[640px] items-center justify-center pb-[56px] pt-[64px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
+    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[590px] items-center justify-center pb-[56px] pt-[64px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
       <Frame113 />
       <Frame116 />
     </div>
