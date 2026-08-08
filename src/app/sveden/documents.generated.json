@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-03",
+  "generatedAt": "2026-08-08",
   "counts": {
-    "section": 96,
+    "section": 103,
     "legal": 4,
     "technical": 2,
     "archive": 0,
-    "total": 102
+    "total": 109
   },
   "documents": [
     {
@@ -20,17 +20,6 @@
       "sha256": "9252ab9848f95778a2b70ceca9bc95741b9afbc4541db12659ada31100c35888"
     },
     {
-      "id": "5490b58d510d3803",
-      "title": "Согласие совершеннолетнего субъекта на обработку персональных данных",
-      "sourceName": "СОГЛАСИЕ_СОВЕРШЕННОЛЕТНЕГО_СУБЪЕКТА_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
-      "section": null,
-      "category": "legal",
-      "storageKey": "site-public/legal/consent.pdf",
-      "href": "/files/legal/consent.pdf",
-      "sizeBytes": 120204,
-      "sha256": "5490b58d510d3803d17b86823da0167c71a89e6d9cdd649cb450ac3505a9f70e"
-    },
-    {
       "id": "145933b70f29a879",
       "title": "Согласие законного представителя на обработку персональных данных несовершеннолетнего и представителя",
       "sourceName": "СОГЛАСИЕ_ЗАКОННОГО_ПРЕДСТАВИТЕЛЯ_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ_НЕСОВЕРШЕННОЛЕТНЕГО_И_ПРЕДСТАВИТЕЛЯ.pdf",
@@ -40,6 +29,17 @@
       "href": "/files/legal/consent-representative.pdf",
       "sizeBytes": 128740,
       "sha256": "145933b70f29a879afaa407cf94eb3a22a36c1186b3754df78dae8aba381a602"
+    },
+    {
+      "id": "5490b58d510d3803",
+      "title": "Согласие совершеннолетнего субъекта на обработку персональных данных",
+      "sourceName": "СОГЛАСИЕ_СОВЕРШЕННОЛЕТНЕГО_СУБЪЕКТА_НА_ОБРАБОТКУ_ПЕРСОНАЛЬНЫХ_ДАННЫХ.pdf",
+      "section": null,
+      "category": "legal",
+      "storageKey": "site-public/legal/consent.pdf",
+      "href": "/files/legal/consent.pdf",
+      "sizeBytes": 120204,
+      "sha256": "5490b58d510d3803d17b86823da0167c71a89e6d9cdd649cb450ac3505a9f70e"
     },
     {
       "id": "064e706894b6350d",
@@ -438,6 +438,17 @@
       "sha256": "890d3f5b59c3db114522a5fa473258c2b8174d5ab8a3cec0b964b53ff7711649"
     },
     {
+      "id": "1e9ef29e1b92e117",
+      "title": "C++-разработчик для детей программа обучения",
+      "sourceName": "C++-разработчик для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/C++-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/C%2B%2B-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17953245,
+      "sha256": "1e9ef29e1b92e117c287438df57c60a359014590bc1ae6a32b4f789caa9e5be9"
+    },
+    {
       "id": "2dbfec772d4d6c07",
       "title": "CI-CD программа обучения",
       "sourceName": "CI-CD программа обучения.pdf",
@@ -504,6 +515,28 @@
       "sha256": "80c645c2e8f828262aeff8b7b49c46bdca44f9629337ebf1d8261b26f32e887c"
     },
     {
+      "id": "45f2e3b04fd36134",
+      "title": "Frontend-разработчик для детей программа обучения",
+      "sourceName": "Frontend-разработчик для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Frontend-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/Frontend-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17954650,
+      "sha256": "45f2e3b04fd3613461bcd7ae33a68b5ac82e8d75983c05f63284eb433bb45e48"
+    },
+    {
+      "id": "d46c9cd79b7b3c56",
+      "title": "Java-разработчик для детей программа обучения",
+      "sourceName": "Java-разработчик для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Java-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/Java-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17953153,
+      "sha256": "d46c9cd79b7b3c5608e9473f460330587f2221657c08dc9c43c9a87505bb4e64"
+    },
+    {
       "id": "3147e75cab342d6d",
       "title": "Linux для разработки и запуска приложений программа обучения",
       "sourceName": "Linux для разработки и запуска приложений программа обучения.pdf",
@@ -557,6 +590,17 @@
       "href": "/files/sveden/education/general/Python%20%D0%9F%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%BD%D1%83%D1%82%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
       "sizeBytes": 18019839,
       "sha256": "7ef2c1454509c45188edcce111dd371308881886c8718600da260dd0e92b69ea"
+    },
+    {
+      "id": "563988a9ef19f20a",
+      "title": "Python-разработчик для детей программа обучения",
+      "sourceName": "Python-разработчик для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Python-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17956636,
+      "sha256": "563988a9ef19f20a221ee904ef48ed4577ec798bc56fbd3b4137c94676493d0b"
     },
     {
       "id": "1d3a6dcd41517dfb",
@@ -691,6 +735,17 @@
       "sha256": "e4c08b8f92c944f52ad02519fe711a8c70ce44937354ad2b639f8c4a102db530"
     },
     {
+      "id": "e3163f0383569d83",
+      "title": "Мобильный разработчик для детей программа обучения",
+      "sourceName": "Мобильный разработчик для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Мобильный разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17953524,
+      "sha256": "e3163f0383569d83b20ec9618881948b1c8616081599a30e86d79e131608f9cb"
+    },
+    {
       "id": "5d90a4b732c53287",
       "title": "ОГЭ программа обучения",
       "sourceName": "ОГЭ программа обучения.pdf",
@@ -810,6 +865,17 @@
       "href": "/files/sveden/education/general/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%B8%D0%B3%D1%80%20%D0%BD%D0%B0%20Python%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
       "sizeBytes": 18013270,
       "sha256": "6fbae2502a286dffba0a7714c7c3cf57efa4af68612a2baebd4c92efda472f9f"
+    },
+    {
+      "id": "4f50c58fa32463a8",
+      "title": "Разработчик игр на Unreal Engine для детей программа обучения",
+      "sourceName": "Разработчик игр на Unreal Engine для детей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Разработчик игр на Unreal Engine для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B8%D0%B3%D1%80%20%D0%BD%D0%B0%20Unreal%20Engine%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 17955287,
+      "sha256": "4f50c58fa32463a8b67e34f76f3fca185ba7ccad51536768f80654054bf9bb18"
     },
     {
       "id": "53e17ff3c13ea663",
@@ -964,6 +1030,17 @@
       "href": "/files/sveden/education/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B5_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.pdf",
       "sizeBytes": 17947660,
       "sha256": "af5507e67e3bdbe4e33a227944dda4973fcd8420ffacacee8ec5b32b1511feef"
+    },
+    {
+      "id": "c02f7eb9c87de6c2",
+      "title": "Приказ № ОБР-13 об утверждении детских образовательных программ",
+      "sourceName": "ПРИКАЗ_№_ОБР-13_ОБ_УТВЕРЖДЕНИИ_ДЕТСКИХ_ПРОГРАММ.pdf",
+      "section": "education",
+      "category": "section",
+      "storageKey": "site-public/sveden/education/Приказ_№_ОБР-13_об_утверждении_детских_программ.pdf",
+      "href": "/files/sveden/education/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-13_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC.pdf",
+      "sizeBytes": 17912631,
+      "sha256": "c02f7eb9c87de6c2dc38f5c77abfd7ca7f1f8f2e59cd4b368123e99c23c301ab"
     },
     {
       "id": "4ed9ede9d178d610",

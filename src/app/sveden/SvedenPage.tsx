@@ -5,6 +5,7 @@ import { ScrollableTableRegion } from "./ScrollableTableRegion";
 import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
+  EDUCATION_UPDATED_AT,
   SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
@@ -224,7 +225,7 @@ function EducationSection() {
       <p>Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен <a href={creditPolicy.href} rel="noopener noreferrer" target="_blank">локальным нормативным актом (PDF)</a>.</p>
       <h3>Реализуемые образовательные программы</h3>
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
-      <ScrollableTableRegion ariaLabel="47 образовательных программ" className={styles.tableScroll}>
+      <ScrollableTableRegion ariaLabel={`${EDUCATION_TOTALS.programs} образовательных программ`} className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.programTable}`}>
           <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Численность обучающихся</th><th>Электронные документы</th></tr></thead>
           <tbody>
@@ -544,8 +545,12 @@ function SectionContent({ section }: { section: SvedenSectionSlug }) {
 
 export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
   const current = SVEDEN_SECTIONS[section];
-  const updatedAt = section === "vacant" ? VACANT_UPDATED_AT : SVEDEN_UPDATED_AT;
-  const updatedAtIso = section === "vacant" ? "2026-08-02" : "2026-08-01";
+  const updatedAt = section === "education"
+    ? EDUCATION_UPDATED_AT
+    : section === "vacant"
+      ? VACANT_UPDATED_AT
+      : SVEDEN_UPDATED_AT;
+  const updatedAtIso = section === "education" || section === "vacant" ? "2026-08-05" : "2026-08-01";
   return (
     <div className={styles.page} itemScope itemType="https://schema.org/EducationalOrganization">
       <SvedenHeader />

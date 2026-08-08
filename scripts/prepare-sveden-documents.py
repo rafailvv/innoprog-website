@@ -47,6 +47,17 @@ PROGRAM_UPDATE_FILES = {
     "Мобильный разработчик программа обучения.pdf": "mobile_developer.pdf",
 }
 
+CHILD_PROGRAM_FILES = {
+    "Python_разработчик_для_детей.pdf": "Python-разработчик для детей программа обучения.pdf",
+    "Frontend_разработчик_для_детей.pdf": "Frontend-разработчик для детей программа обучения.pdf",
+    "C++_разработчик_для_детей.pdf": "C++-разработчик для детей программа обучения.pdf",
+    "Java_разработчик_для_детей.pdf": "Java-разработчик для детей программа обучения.pdf",
+    "Мобильный_разработчик_для_детей.pdf": "Мобильный разработчик для детей программа обучения.pdf",
+    "Разработчик_игр_на_Unreal_Engine_для_детей.pdf": "Разработчик игр на Unreal Engine для детей программа обучения.pdf",
+}
+
+CHILD_PROGRAM_ORDER = "ПРИКАЗ_№_ОБР-13_ОБ_УТВЕРЖДЕНИИ_ДЕТСКИХ_ПРОГРАММ.pdf"
+
 LEGAL_FILES = {
     "Политика_обработки_персональных_данных.pdf": "privacy.pdf",
     "Согласие_на_обработку_персональных_данных.pdf": "consent.pdf",
@@ -153,11 +164,11 @@ REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
 }
 
-EXPECTED_SECTION_PDFS = 96
+EXPECTED_SECTION_PDFS = 103
 EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_ARCHIVE_PDFS = 0
-EXPECTED_TOTAL_PDFS = 102
+EXPECTED_TOTAL_PDFS = 109
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -262,6 +273,7 @@ def prepare(
     supplemental_dir: Path,
     updates_dir: Path,
     program_updates_dir: Path,
+    child_programs_dir: Path,
     offer_file: Path,
     output_root: Path,
     manifest: Path,
@@ -340,6 +352,40 @@ def prepare(
     missing_programs = set(PROGRAM_UPDATE_FILES) - replaced_programs
     if missing_programs:
         raise RuntimeError(f"Programs from the source ZIP were not replaced: {sorted(missing_programs)}")
+
+    for source_name, public_name in CHILD_PROGRAM_FILES.items():
+        source = child_programs_dir / source_name
+        if not source.is_file():
+            raise FileNotFoundError(f"Missing approved child program PDF: {source}")
+        data = source.read_bytes()
+        if not data.startswith(b"%PDF-"):
+            raise RuntimeError(f"Child program source is not a PDF: {source}")
+        entries.append(
+            write_pdf(
+                output_root,
+                Path("sveden") / "education" / "general" / public_name,
+                data,
+                section="education",
+                source_name=public_name,
+                category="program",
+            )
+        )
+        section_count += 1
+
+    order_source = child_programs_dir / CHILD_PROGRAM_ORDER
+    if not order_source.is_file():
+        raise FileNotFoundError(f"Missing child program approval order: {order_source}")
+    order_entry = write_pdf(
+        output_root,
+        Path("sveden") / "education" / "Приказ_№_ОБР-13_об_утверждении_детских_программ.pdf",
+        order_source.read_bytes(),
+        section="education",
+        source_name=CHILD_PROGRAM_ORDER,
+        category="section",
+    )
+    order_entry["title"] = "Приказ № ОБР-13 об утверждении детских образовательных программ"
+    entries.append(order_entry)
+    section_count += 1
 
     for source_name, (public_name, title) in SUPPLEMENTAL_DOCUMENT_FILES.items():
         source = supplemental_dir / source_name
@@ -460,7 +506,7 @@ def prepare(
     entries.sort(key=lambda item: (str(item["section"]), str(item["storageKey"])))
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(
-        json.dumps({"generatedAt": "2026-08-03", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
+        json.dumps({"generatedAt": "2026-08-08", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
     )
@@ -492,6 +538,12 @@ def main() -> None:
         help="Directory containing the nine approved professional program PDFs",
     )
     parser.add_argument(
+        "--child-programs-dir",
+        type=Path,
+        required=True,
+        help="Directory containing the six child program PDFs and approval order No. OBR-13",
+    )
+    parser.add_argument(
         "--offer-file",
         type=Path,
         required=True,
@@ -510,6 +562,7 @@ def main() -> None:
         args.supplemental_dir,
         args.updates_dir,
         args.program_updates_dir,
+        args.child_programs_dir,
         args.offer_file,
         args.output,
         args.manifest,
