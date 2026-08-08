@@ -16,6 +16,7 @@ services:
       NODE_ENV: production
       PORT: 3000
       HOSTNAME: 0.0.0.0
+      SMARTCAPTCHA_SERVER_KEY: ${SMARTCAPTCHA_SERVER_KEY:-}
     ports:
       - "127.0.0.1:8082:3000"
     healthcheck:

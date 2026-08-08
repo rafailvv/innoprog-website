@@ -8,6 +8,8 @@ const BOT_APPLICATION_TOKEN =
   process.env.AUTH_TOKEN ||
   "";
 const BOT_ALLOWED_ORIGIN = "https://innoprog.ru";
+const SMARTCAPTCHA_SERVER_KEY = process.env.SMARTCAPTCHA_SERVER_KEY || "";
+const SMARTCAPTCHA_VALIDATE_URL = "https://smartcaptcha.cloud.yandex.ru/validate";
 
 export const runtime = "nodejs";
 
@@ -33,19 +35,39 @@ function normalizePhone(rawPhone: unknown) {
   return String(rawPhone || "").trim().startsWith("+") ? `+${digits}` : digits;
 }
 
-function getCaptchaRedirect(response: Response, result: Record<string, any>) {
-  const responseRedirect = result?.error?.redirect_uri || result?.redirect_uri;
-  const challengeUrl = response.headers.get("x-challenge-url");
+function getClientIp(req: NextRequest) {
+  return (
+    req.headers.get("x-real-ip")?.trim() ||
+    req.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim() ||
+    ""
+  );
+}
 
-  if (responseRedirect) {
-    return String(responseRedirect);
+async function validateCaptcha(token: string, ip: string) {
+  if (!SMARTCAPTCHA_SERVER_KEY) {
+    return { ok: false, error: "captcha_not_configured" };
   }
 
-  if (!challengeUrl) {
-    return "";
-  }
+  const body = new URLSearchParams({ secret: SMARTCAPTCHA_SERVER_KEY, token });
+  if (ip) body.set("ip", ip);
 
-  return new URL(challengeUrl, BOT_APPLICATION_URL).toString();
+  try {
+    const response = await fetch(SMARTCAPTCHA_VALIDATE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+      signal: AbortSignal.timeout(2_000),
+      cache: "no-store",
+    });
+    if (!response.ok) return { ok: false, error: "captcha_service_error" };
+
+    const result = await response.json().catch(() => ({}));
+    return result.status === "ok"
+      ? { ok: true, error: "" }
+      : { ok: false, error: "captcha_failed" };
+  } catch {
+    return { ok: false, error: "captcha_service_error" };
+  }
 }
 
 export function OPTIONS() {
@@ -67,10 +89,8 @@ export async function POST(req: NextRequest) {
       question: String(body.question || "").trim(),
       personal_data_consent: body.personal_data_consent === true,
       advertising_consent: body.advertising_consent === true,
-      ...(String(body.success_token || "").trim()
-        ? { success_token: String(body.success_token).trim() }
-        : {}),
     };
+    const captchaToken = String(body.captcha_token || "").trim();
 
     if (
       payload.name.length < 2 ||
@@ -78,6 +98,16 @@ export async function POST(req: NextRequest) {
       !payload.personal_data_consent
     ) {
       return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
+    }
+
+    if (!captchaToken) {
+      return NextResponse.json({ ok: false, error: "captcha_required" }, { status: 400 });
+    }
+
+    const captcha = await validateCaptcha(captchaToken, getClientIp(req));
+    if (!captcha.ok) {
+      const status = captcha.error === "captcha_not_configured" ? 503 : 403;
+      return NextResponse.json({ ok: false, error: captcha.error }, { status });
     }
 
     const headers: Record<string, string> = {
@@ -97,22 +127,6 @@ export async function POST(req: NextRequest) {
     });
 
     if (!botResponse.ok) {
-      const result = await botResponse.json().catch(() => ({}));
-      const captchaRedirect = getCaptchaRedirect(botResponse, result);
-
-      if (captchaRedirect) {
-        return NextResponse.json(
-          {
-            ok: false,
-            error: {
-              error_code: 14,
-              redirect_uri: captchaRedirect,
-            },
-          },
-          { status: 403 },
-        );
-      }
-
       return NextResponse.json({ ok: false, error: "bot_request_failed" }, { status: 502 });
     }
 

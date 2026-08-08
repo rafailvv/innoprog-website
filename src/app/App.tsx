@@ -42,6 +42,7 @@ import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } fr
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
+import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
@@ -353,15 +354,14 @@ function isLeadPayloadValid(payload: LeadPayload) {
 
 async function sendLeadApplication(
   payload: LeadPayload,
-  successToken?: string,
-  captchaAttempt = 0,
+  captchaToken: string,
 ): Promise<void> {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ ...payload, success_token: successToken || "" }),
+    body: JSON.stringify({ ...payload, captcha_token: captchaToken }),
   });
 
   const result = await response.json().catch(() => ({ error: null }));
@@ -370,41 +370,7 @@ async function sendLeadApplication(
     return;
   }
 
-  const { checkCaptchaError, CheckCaptchaType } = await import("@vkid/captcha");
-  const { captchaType, captchaWidget } = checkCaptchaError({
-    responseHeaders: response.headers,
-    url: response.url,
-    responseError: result.error,
-    withWidget: true,
-  });
-
-  if (
-    captchaAttempt === 0 &&
-    captchaType &&
-    captchaType !== CheckCaptchaType.UNKNOWN &&
-    captchaWidget
-  ) {
-    let captchaToken: string;
-
-    try {
-      captchaToken = await captchaWidget.show({
-        container: document.body,
-        view: "popup",
-        scheme: "light",
-        lang: "ru",
-      });
-    } catch (error) {
-      throw new Error(error === "close" ? "captcha-closed" : "captcha-failed");
-    }
-
-    return sendLeadApplication(payload, captchaToken, captchaAttempt + 1);
-  }
-
-  throw new Error(
-    captchaType === CheckCaptchaType.UNKNOWN
-      ? "captcha-unsupported"
-      : `lead-request-failed:${response.status}`,
-  );
+  throw new Error(result.error || `lead-request-failed:${response.status}`);
 }
 
 const REVIEW_STORIES = {
@@ -3881,6 +3847,7 @@ export default function App({
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
   const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
   const homeCanvasRef = useRef<HTMLDivElement>(null);
+  const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
   const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
   const pageTransitionTimerRef = useRef<number | null>(null);
   const initialRouteKey = (() => {
@@ -4791,7 +4758,9 @@ export default function App({
     setLeadFormError("");
 
     try {
-      await sendLeadApplication(payload);
+      const captchaToken = await smartCaptchaRef.current?.requestToken();
+      if (!captchaToken) throw new Error("captcha-failed");
+      await sendLeadApplication(payload, captchaToken);
       setLeadModalState("success");
       setLeadDraft({});
       setIsConsentChecked(false);
@@ -5825,6 +5794,7 @@ export default function App({
           </section>
         </div>
       }
+      <YandexSmartCaptcha ref={smartCaptchaRef} />
       {shouldShowCookieBanner ? (
         <aside className="site-cookie-banner" aria-label="Уведомление о cookie">
           <p>

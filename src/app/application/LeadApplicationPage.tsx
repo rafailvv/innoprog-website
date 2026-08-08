@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "../components/YandexSmartCaptcha";
 
 const APPLICATION_REQUEST_URL = "/application/request";
 
@@ -40,11 +41,11 @@ function isValidLead(payload: LeadPayload) {
   );
 }
 
-async function sendApplication(payload: LeadPayload, successToken = "", attempt = 0): Promise<void> {
+async function sendApplication(payload: LeadPayload, captchaToken: string): Promise<void> {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...payload, phone: normalizePhone(payload.phone), success_token: successToken }),
+    body: JSON.stringify({ ...payload, phone: normalizePhone(payload.phone), captcha_token: captchaToken }),
   });
   const result = await response.json().catch(() => ({ error: null }));
 
@@ -52,27 +53,7 @@ async function sendApplication(payload: LeadPayload, successToken = "", attempt 
     return;
   }
 
-  const { checkCaptchaError, CheckCaptchaType } = await import("@vkid/captcha");
-  const { captchaType, captchaWidget } = checkCaptchaError({
-    responseHeaders: response.headers,
-    url: response.url,
-    responseError: result.error,
-    withWidget: true,
-  });
-
-  if (attempt === 0 && captchaType && captchaType !== CheckCaptchaType.UNKNOWN && captchaWidget) {
-    let captchaToken: string;
-
-    try {
-      captchaToken = await captchaWidget.show({ container: document.body, view: "popup", scheme: "light", lang: "ru" });
-    } catch (error) {
-      throw new Error(error === "close" ? "captcha-closed" : "captcha-failed");
-    }
-
-    return sendApplication(payload, captchaToken, attempt + 1);
-  }
-
-  throw new Error("application-request-failed");
+  throw new Error(result.error || "application-request-failed");
 }
 
 const BENEFITS = [
@@ -84,6 +65,7 @@ const BENEFITS = [
 
 export default function LeadApplicationPage({ success = false }: { success?: boolean }) {
   const router = useRouter();
+  const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -133,7 +115,9 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
     setIsSubmitting(true);
 
     try {
-      await sendApplication(payload);
+      const captchaToken = await smartCaptchaRef.current?.requestToken();
+      if (!captchaToken) throw new Error("captcha-failed");
+      await sendApplication(payload, captchaToken);
       setIsConsentChecked(false);
       setIsAdvertisingConsentChecked(false);
       router.push("/application/success");
@@ -150,6 +134,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
 
   return (
     <main className="site-application-page">
+      <YandexSmartCaptcha ref={smartCaptchaRef} />
       <section className="site-application-card" aria-labelledby="application-title">
         <div className="site-application-topline">
           <a className="site-application-back" href="/">← главная</a>

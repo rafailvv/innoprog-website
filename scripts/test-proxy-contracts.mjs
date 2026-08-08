@@ -21,18 +21,18 @@ assert.match(
 );
 assert.match(
   app,
-  /(?:import \{ checkCaptchaError, CheckCaptchaType \} from|await import\()"@vkid\/captcha"\)?;/,
-  "website forms must use the official VK ID Captcha SDK",
+  /YandexSmartCaptcha/,
+  "website forms must use the Yandex SmartCaptcha component",
 );
 assert.match(
   app,
-  /captchaWidget\.show\(\{[\s\S]*view: "popup"/,
-  "website forms must render VK ID Captcha as a popup challenge",
+  /smartCaptchaRef\.current\?\.requestToken\(\)/,
+  "website forms must request a Yandex SmartCaptcha token before submission",
 );
 assert.match(
   app,
-  /success_token: successToken \|\| ""/,
-  "website forms must repeat the request with the VK captcha success token",
+  /captcha_token: captchaToken/,
+  "website forms must send the Yandex SmartCaptcha token",
 );
 assert.match(
   route,
@@ -51,13 +51,23 @@ assert.match(
 );
 assert.match(
   route,
-  /error_code: 14,[\s\S]*redirect_uri: captchaRedirect/,
-  "application request API route must normalize upstream VK captcha challenges",
+  /https:\/\/smartcaptcha\.cloud\.yandex\.ru\/validate/,
+  "application request API route must validate Yandex SmartCaptcha server-side",
 );
 assert.match(
   route,
-  /\{ success_token: String\(body\.success_token\)\.trim\(\) \}/,
-  "application request API route must forward the VK captcha success token",
+  /process\.env\.SMARTCAPTCHA_SERVER_KEY/,
+  "application request API route must load the SmartCaptcha secret only from server environment",
+);
+assert.match(
+  route,
+  /String\(body\.captcha_token \|\| ""\)\.trim\(\)/,
+  "application request API route must require the Yandex SmartCaptcha token",
+);
+assert.doesNotMatch(
+  `${app}\n${standaloneApplication}\n${route}`,
+  /@vkid\/captcha|checkCaptchaError|success_token/,
+  "VK CAPTCHA integration must be removed",
 );
 assert.match(
   publicRoute,
