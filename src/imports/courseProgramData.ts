@@ -1359,7 +1359,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Spring Data JPA, PostgreSQL и Spring Security",
       "JUnit, Mockito, интеграционные тесты, Docker, Nginx и CI/CD",
     ],
-    tags: ["72 академических часа", "Spring Boot", "Backend"],
+    tags: ["80 академических часов", "Spring Boot", "Backend"],
   },
   {
     title: "Проектная практика и консультации",
