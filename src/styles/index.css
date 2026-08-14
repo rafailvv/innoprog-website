@@ -5,6 +5,66 @@
   box-sizing: border-box;
 }
 
+.site-course-tariff-diploma-feature {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  width: 100%;
+}
+
+.site-course-tariff-diploma-feature__check {
+  align-items: center;
+  background: #9c78ff;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-flex;
+  flex: 0 0 24px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+}
+
+.site-course-tariff-diploma-feature p {
+  color: inherit;
+  flex: 1 1 0;
+  font-family: Manrope, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  min-width: 0;
+}
+
+.site-course-tariff-diploma-feature--light {
+  color: #fff;
+}
+
+.site-course-tariff-diploma-feature--dark {
+  color: #464a6a;
+}
+
+@media (max-width: 767px) {
+  .site-course-tariff-diploma-feature {
+    align-items: flex-start;
+  }
+
+  .site-course-tariff-diploma-feature__check {
+    flex-basis: 18px;
+    font-size: 12px;
+    height: 18px;
+  }
+
+  .site-course-tariff-diploma-feature p {
+    font-size: 16px;
+    letter-spacing: 0.48px;
+    line-height: 18px;
+  }
+}
+
 .site-reviews-index-page {
   width: 100%;
   min-height: 100vh;

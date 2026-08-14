@@ -156,9 +156,9 @@ function Frame72() {
       <div className="content-stretch flex flex-col gap-[24px] items-start px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Два диплома</p>
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
-          <p className="leading-[30px] mb-0">Диплом о профпереподготовке</p>
-          <p className="leading-[30px] mb-0">и диплом ИННОПРОГ. Сведения вносятся</p>
-          <p className="leading-[30px]">в государственный реестр</p>
+          <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом</p>
+          <p className="leading-[30px] mb-0">о профпереподготовке. Данные</p>
+          <p className="leading-[30px]">о профпереподготовке вносятся в ФИС ФРДО.</p>
         </div>
       </div>
     </div>
@@ -1446,7 +1446,7 @@ function Frame43() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" title="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
         <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
@@ -1459,10 +1459,10 @@ function Frame81() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between leading-[0] relative shrink-0 text-[24px] text-white w-full">
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px]">(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве</p>
+        <p className="leading-[30px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px]">(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению</p>
+        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
       </div>
     </div>
   );

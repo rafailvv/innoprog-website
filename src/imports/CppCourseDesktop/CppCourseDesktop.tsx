@@ -2,6 +2,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
+import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgCppHero from "../shared/course-heroes/cpp-processor.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
@@ -707,8 +708,8 @@ function Frame38() {
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-end relative rounded-[40px] shrink-0 w-[482px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[32px] w-full">Два диплома</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
-        <p className="leading-[30px] mb-0">Диплом о профпереподготовке и диплом ИННОПРОГ, сведения вносятся</p>
-        <p className="leading-[30px]">в государственный реестр</p>
+        <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом о профпереподготовке.</p>
+        <p className="leading-[30px]">Данные о профпереподготовке вносятся в ФИС ФРДО.</p>
       </div>
     </div>
   );
@@ -2677,7 +2678,7 @@ function Frame21() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" title="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
         <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
@@ -2690,12 +2691,10 @@ function Frame43() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal items-center justify-between leading-[0] relative shrink-0 text-[24px] text-white w-full">
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
-        <p className="leading-[30px]">в трудоустройстве</p>
+        <p className="leading-[30px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px] mb-0">(2) Удостоверение о повышении квалификации</p>
-        <p className="leading-[30px]">и диплом о профпереподготовке установленного образца</p>
+        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
       </div>
     </div>
   );
@@ -4178,6 +4177,7 @@ function Frame186() {
         <WeuiDone2Filled5 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="light" />
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <Frame237 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-[rgba(0,0,0,0.6)]">Стажировка после обучения</p>
@@ -4434,6 +4434,7 @@ function Frame187() {
         <WeuiDone2Filled12 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="dark" />
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled15 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Стажировка после обучения</p>
@@ -4708,6 +4709,7 @@ function Frame188() {
         <WeuiDone2Filled21 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="light" />
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled24 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Стажировка после обучения</p>

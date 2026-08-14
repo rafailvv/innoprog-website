@@ -355,13 +355,19 @@ function isLeadPayloadValid(payload: LeadPayload) {
 async function sendLeadApplication(
   payload: LeadPayload,
   captchaToken: string,
+  formId: string,
 ): Promise<void> {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ ...payload, captcha_token: captchaToken }),
+    body: JSON.stringify({
+      ...payload,
+      captcha_token: captchaToken,
+      source_page: window.location.href,
+      form_id: formId,
+    }),
   });
 
   const result = await response.json().catch(() => ({ error: null }));
@@ -684,6 +690,8 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: true },
       { text: "Стажировка после обучения", included: false },
       { text: "2 тестовых технических собеседования", included: false },
       { text: "Подготовка резюме с HR-специалистом", included: false },
@@ -702,6 +710,8 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: true },
       { text: "Стажировка после обучения", included: true },
       { text: "2 тестовых технических собеседования", included: false },
       { text: "Подготовка резюме с HR-специалистом", included: false },
@@ -720,6 +730,8 @@ const TARIFFS = [
       { text: "Домашние задания и проверка кода преподавателем", included: true },
       { text: "Ежедневная поддержка куратора в чате", included: true },
       { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
+      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
+      { text: "Диплом о профессиональной переподготовке", included: true },
       { text: "Стажировка после обучения", included: true },
       { text: "2 тестовых технических собеседования", included: true },
       { text: "Подготовка резюме с HR-специалистом", included: true },
@@ -4718,7 +4730,10 @@ export default function App({
     }, 0);
   };
 
-  const submitLeadApplication = async (source?: ParentNode | null) => {
+  const submitLeadApplication = async (
+    source?: ParentNode | null,
+    formId = "ordinary-application",
+  ) => {
     if (isLeadSubmitting) {
       return;
     }
@@ -4760,7 +4775,7 @@ export default function App({
     try {
       const captchaToken = await smartCaptchaRef.current?.requestToken();
       if (!captchaToken) throw new Error("captcha-failed");
-      await sendLeadApplication(payload, captchaToken);
+      await sendLeadApplication(payload, captchaToken, formId);
       setLeadModalState("success");
       setLeadDraft({});
       setIsConsentChecked(false);
@@ -4780,7 +4795,7 @@ export default function App({
 
   const handleLeadFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    void submitLeadApplication(event.currentTarget);
+    void submitLeadApplication(event.currentTarget, "lead-modal");
   };
 
   const toggleConsent = () => {
@@ -4919,7 +4934,7 @@ export default function App({
 
       const leadSection = courseLeadSubmit.closest<HTMLElement>('[data-name="заявка"]');
 
-      void submitLeadApplication(leadSection || event.currentTarget);
+      void submitLeadApplication(leadSection || event.currentTarget, "course-inline-application");
       return;
     }
 
@@ -5168,7 +5183,7 @@ export default function App({
 
       const leadSection = target?.closest<HTMLElement>('[data-name="заявка"]');
 
-      void submitLeadApplication(leadSection || event.currentTarget);
+      void submitLeadApplication(leadSection || event.currentTarget, "inline-application");
     }
   };
 

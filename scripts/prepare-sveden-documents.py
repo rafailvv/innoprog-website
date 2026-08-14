@@ -12,6 +12,8 @@ from urllib.parse import quote
 from urllib.request import urlopen
 from zipfile import ZipFile
 
+from pdf_lossless import optimize_pdf_bytes
+
 
 SECTION_FOLDERS = {
     "01_": "common",
@@ -104,8 +106,14 @@ SUPPLEMENTAL_DOCUMENT_FILES = {
 }
 
 REPLACED_SECTION_FILES = {
+    ("education", "Сведения_о_численности_обучающихся_по_реализуемым_образовательным_программам.pdf"),
     ("vacant", "СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf"),
 }
+
+STUDENT_COUNT_PUBLIC_PATH = Path(
+    "sveden/education/Сведения_о_численности_обучающихся_по_состоянию_на_05.08.2026.pdf"
+)
+STUDENT_COUNT_TITLE = "Сведения о численности обучающихся по состоянию на 05.08.2026"
 
 UPDATE_FILES = {
     "ИНСТРУКЦИЯ_ПО_ЭКСПЛУАТАЦИИ_ПО_INNOPROG.pdf": [
@@ -151,7 +159,7 @@ UPDATE_FILES = {
         ("sveden/document/Отчет_о_результатах_самообследования_за_2025_год.pdf", "document", "section", "Отчет о результатах самообследования за 2025 год"),
     ],
     "ПРИКАЗ_ОБР-12_ОБ_ОРГАНИЗАЦИИ_ОБУЧЕНИЯ_С_ЭО_И_ДОТ.pdf": [
-        ("sveden/document/Приказ_№_ОБР-12_об_организации_образовательной_деятельности_с_применением_электронного_обучения_и_ДОТ.pdf", "document", "section", "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий."),
+        ("sveden/document/Приказ_№_ОБР-12_об_организации_образовательной_деятельности_с_применением_электронного_обучения_и_ДОТ.pdf", "document", "section", "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий"),
     ],
     "ПРИКАЗ_№_ОБР-8_ОБ_УТВЕРЖДЕНИИ_НОВЫХ_РЕДАКЦИЙ_ЛОКАЛЬНЫХ_НОРМАТИВНЫХ_АКТОВ.pdf": [
         ("sveden/document/Приказ_№_ОБР-8_об_утверждении_новых_редакций_локальных_нормативных_актов.pdf", "document", "section", "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов"),
@@ -216,6 +224,8 @@ def write_pdf(
     source_name: str,
     category: str,
 ) -> dict[str, object]:
+    source_sha256 = sha256(data)
+    data = optimize_pdf_bytes(data)
     destination = output_root / "site-public" / relative_key
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_bytes(data)
@@ -230,6 +240,7 @@ def write_pdf(
         "href": public_href(relative_key),
         "sizeBytes": len(data),
         "sha256": sha256(data),
+        "sourceSha256": source_sha256,
     }
 
 
@@ -276,6 +287,7 @@ def prepare(
     program_updates_dir: Path,
     child_programs_dir: Path,
     offer_file: Path,
+    student_count_file: Path,
     output_root: Path,
     manifest: Path,
 ) -> None:
@@ -500,6 +512,23 @@ def prepare(
     offer_entry["title"] = NEW_OFFER_TITLE
     entries_by_key[str(offer_entry["storageKey"])] = offer_entry
 
+    if not student_count_file.is_file():
+        raise FileNotFoundError(f"Missing approved student count PDF: {student_count_file}")
+    student_count_data = student_count_file.read_bytes()
+    if not student_count_data.startswith(b"%PDF-"):
+        raise RuntimeError(f"Student count source is not a PDF: {student_count_file}")
+    student_count_entry = write_pdf(
+        output_root,
+        STUDENT_COUNT_PUBLIC_PATH,
+        student_count_data,
+        section="education",
+        source_name=student_count_file.name,
+        category="section",
+    )
+    student_count_entry["title"] = STUDENT_COUNT_TITLE
+    entries_by_key[str(student_count_entry["storageKey"])] = student_count_entry
+    section_count += 1
+
     entries = list(entries_by_key.values())
 
     counts = {
@@ -565,6 +594,12 @@ def main() -> None:
         required=True,
         help="Approved public offer PDF that replaces the previous revision",
     )
+    parser.add_argument(
+        "--student-count-file",
+        type=Path,
+        required=True,
+        help="Approved student count PDF that replaces the previous revision",
+    )
     parser.add_argument("--output", type=Path, default=Path("/tmp/innoprog-sveden-upload"))
     parser.add_argument(
         "--manifest",
@@ -580,6 +615,7 @@ def main() -> None:
         args.program_updates_dir,
         args.child_programs_dir,
         args.offer_file,
+        args.student_count_file,
         args.output,
         args.manifest,
     )

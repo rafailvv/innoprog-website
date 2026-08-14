@@ -1,6 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
+import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
@@ -568,7 +569,7 @@ function Frame29() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start justify-end min-w-px relative rounded-[40px] text-black">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[16px] uppercase w-full">Два диплома</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">Диплом о профпереподготовке и диплом ИННОПРОГ. Сведения вносятся в государственный реестр</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[12px] tracking-[0.36px] w-full">Диплом ИННОПРОГ и диплом о профпереподготовке. Данные о профпереподготовке вносятся в ФИС ФРДО.</p>
     </div>
   );
 }
@@ -2682,7 +2683,7 @@ function Frame14() {
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-[345px]">
       <div className="h-[110px] relative shrink-0 w-[165px]" data-name="Group 682 1">
-        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" title="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[110px] relative shrink-0 w-[164px]" data-name="diplom_prof 1">
         <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
@@ -2695,13 +2696,10 @@ function Frame34() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
       <div className="relative shrink-0 w-[167px]">
-        <p className="leading-[16px] mb-0">(1) Официальный диплом ИТ-школы ИННОПРОГ подтверждает уровень квалификации и помогает</p>
-        <p className="leading-[16px]">в трудоустройстве</p>
+        <p className="leading-[16px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="flex-[1_0_0] min-w-px relative">
-        <p className="leading-[16px] mb-0">(2) Удостоверение</p>
-        <p className="leading-[16px] mb-0">о повышении квалификации и диплом</p>
-        <p className="leading-[16px]">о профпереподготовке установленного образца</p>
+        <p className="leading-[16px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
       </div>
     </div>
   );
@@ -4178,6 +4176,7 @@ function Frame194() {
         </div>
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">Записи ваших индивидуальных занятий с преподавателем навсегда</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="light" />
       <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full">
         <Frame264 />
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-[rgba(0,0,0,0.6)] tracking-[0.48px]">Стажировка после обучения</p>
@@ -4340,6 +4339,7 @@ function Frame195() {
         </div>
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">2 тестовых собеседования</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="dark" />
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">
@@ -4480,6 +4480,7 @@ function Frame196() {
         </div>
         <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">2 тестовых собеседования</p>
       </div>
+      <CourseTariffDiplomaFeatures tone="light" />
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18 18">

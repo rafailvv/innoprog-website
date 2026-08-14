@@ -336,11 +336,11 @@ function Frame76() {
       <div className="content-stretch flex flex-col gap-[16px] items-start p-[24px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[18px] relative shrink-0 text-[#9c78ff] text-[20px] w-full">Два диплома</p>
         <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[16px] text-black tracking-[0.48px] w-full">
-          Диплом о профпереподготовке
+          Диплом ИННОПРОГ и диплом
           <br aria-hidden="true" />
-          и диплом ИННОПРОГ. Сведения
+          о профпереподготовке. Данные
           <br aria-hidden="true" />
-          вносятся в государственный реестр
+          о профпереподготовке вносятся в ФИС ФРДО.
         </p>
       </div>
     </div>
@@ -2049,7 +2049,7 @@ function Frame68() {
   return (
     <div className="content-stretch flex items-center justify-between relative shrink-0 w-[345px]">
       <div className="h-[110px] relative shrink-0 w-[165px]" data-name="Group 682 1">
-        <img alt="Официальный диплом ИТ-школы ИННОПРОГ" title="Официальный диплом ИТ-школы ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[110px] relative shrink-0 w-[164px]" data-name="diplom_prof 1">
         <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
@@ -2062,10 +2062,10 @@ function Frame86() {
   return (
     <div className="content-stretch flex font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[0] relative shrink-0 text-[12px] text-white tracking-[0.36px] w-full">
       <div className="relative shrink-0 w-[167px]">
-        <p className="leading-[16px]">(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве</p>
+        <p className="leading-[16px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="flex-[1_0_0] min-w-px relative">
-        <p className="leading-[16px]">(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению</p>
+        <p className="leading-[16px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
       </div>
     </div>
   );

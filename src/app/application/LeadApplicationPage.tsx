@@ -45,7 +45,13 @@ async function sendApplication(payload: LeadPayload, captchaToken: string): Prom
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...payload, phone: normalizePhone(payload.phone), captcha_token: captchaToken }),
+    body: JSON.stringify({
+      ...payload,
+      phone: normalizePhone(payload.phone),
+      captcha_token: captchaToken,
+      source_page: window.location.href,
+      form_id: "standalone-application",
+    }),
   });
   const result = await response.json().catch(() => ({ error: null }));
 

@@ -31,7 +31,7 @@ describe("educational disclosure contracts", () => {
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-11 об утверждении новых редакций дополнительных профессиональных программ")).toBe(true);
-    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий.")).toBe(true);
+    expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-12 об организации образовательной деятельности с применением электронного обучения и дистанционных образовательных технологий")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-13 об утверждении детских образовательных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-14 о внесении изменений в приказ № ОБР-10 и установлении вакантных мест по детским образовательным программам")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ об организации обучения с применением электронного обучения и дистанционных образовательных технологий")).toBe(false);
@@ -40,6 +40,12 @@ describe("educational disclosure contracts", () => {
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-9 об утверждении Положения о порядке разработки и утверждения дополнительных профессиональных программ")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»")).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ sourceName }) => sourceName === "СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf")).toBe(false);
+    expect(SVEDEN_DOCUMENTS).toContainEqual(expect.objectContaining({
+      title: "Сведения о численности обучающихся по состоянию на 05.08.2026",
+      sourceName: "СВЕДЕНИЯ_О_ЧИСЛЕННОСТИ_ОБУЧАЮЩИХСЯ_ПО_СОСТОЯНИЮ_НА_05.08.2026.pdf",
+      sourceSha256: "29dc3e5ed523b73d1b6676e6e8a4cdbd23a628104c1ab1cf2678cd6c9ff5a3b2",
+    }));
+    expect(SVEDEN_DOCUMENTS.some(({ sourceName }) => sourceName === "Сведения_о_численности_обучающихся_по_реализуемым_образовательным_программам.pdf")).toBe(false);
   });
 
   it("keeps the approved program and student totals", () => {
@@ -81,7 +87,7 @@ describe("educational disclosure contracts", () => {
       expect(program.volume).toBe("160 академических часов");
       expect(program.term).toContain("10 месяцев (40 учебных недель)");
       expect(program.students).toBe(0);
-      expect(program.document.sha256, program.name).toBe(approvedHashes.get(program.fileName));
+      expect(program.document.sourceSha256, program.name).toBe(approvedHashes.get(program.fileName));
     }
   });
 
@@ -103,7 +109,7 @@ describe("educational disclosure contracts", () => {
 
     expect(professionalDocuments).toHaveLength(9);
     for (const document of professionalDocuments) {
-      expect(document.sha256, document.sourceName).toBe(approvedHashes.get(document.sourceName));
+      expect(document.sourceSha256, document.sourceName).toBe(approvedHashes.get(document.sourceName));
     }
   });
 

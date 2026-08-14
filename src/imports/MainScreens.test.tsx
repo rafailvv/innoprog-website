@@ -20,8 +20,11 @@ describe("main screen server markup", () => {
     expect(html).toContain('href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>');
     expect(html).toContain('href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>');
     expect(html.match(/≈12 месяцев/g)).toHaveLength(2);
-    expect(html).toContain("(1) Диплом о профпереподготовке ИННОПРОГ подтверждает присвоение квалификации и может помочь при трудоустройстве");
-    expect(html).toContain("(2) Диплом о профпереподготовке установленного образца с присвоением квалификации по выбранному направлению");
+    expect(html).toContain("(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению");
+    expect(html).toContain("(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.");
+    expect(html).toContain('alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса"');
+    expect(html).not.toContain("Официальный диплом ИТ-школы ИННОПРОГ");
+    expect(html).not.toContain("государственный реестр");
     expect(html).toContain('href="/consent"');
     expect(html).toContain('href="/advertising-consent"');
     expect(html).toContain("Я даю");

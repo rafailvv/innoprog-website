@@ -33,6 +33,7 @@ export type SvedenDocument = {
   href: string;
   sizeBytes: number;
   sha256: string;
+  sourceSha256: string;
 };
 
 export const SVEDEN_SECTIONS: Record<SvedenSectionSlug, { title: string; shortTitle: string; description: string }> = {

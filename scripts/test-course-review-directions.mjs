@@ -15,8 +15,15 @@ if (!appSource.includes("card.append(content)")) {
   throw new Error("Dynamic course review content must be appended without replacing React nodes");
 }
 
-if (tariffsSource.includes("Диплом о профессиональной переподготовке")) {
-  throw new Error("The DPO diploma must not depend on the selected tariff");
+for (const diploma of [
+  "Диплом ИТ-школы ИННОПРОГ о прохождении курса",
+  "Диплом о профессиональной переподготовке",
+]) {
+  const occurrences = tariffsSource.split(diploma).length - 1;
+
+  if (occurrences !== 3) {
+    throw new Error(`${diploma} must be included in all three tariffs`);
+  }
 }
 
 const expectedCourseDirections = {
@@ -87,8 +94,10 @@ for (const [courseName, duration] of Object.entries(expectedCourseDurations)) {
       throw new Error(`${courseName}${viewport} contains the obsolete 28-week duration`);
     }
 
-    if (source.includes(">Диплом о профессиональной переподготовке</p>")) {
-      throw new Error(`${courseName}${viewport} must not list the DPO diploma as a tariff feature`);
+    const diplomaFeatureGroups = source.split("<CourseTariffDiplomaFeatures tone=").length - 1;
+
+    if (diplomaFeatureGroups !== 3) {
+      throw new Error(`${courseName}${viewport} must include both diploma documents in all tariffs`);
     }
   }
 }

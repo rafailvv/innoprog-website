@@ -16,6 +16,8 @@ function request(body: Record<string, unknown>) {
       "Content-Type": "application/json",
       "X-Forwarded-For": "203.0.113.7, 127.0.0.1",
       "X-Real-IP": "198.51.100.9",
+      "User-Agent": "Mozilla/5.0 Consent Test",
+      Referer: "https://innoprog.ru/python-course?utm_source=test",
     },
     body: JSON.stringify(body),
   });
@@ -72,7 +74,14 @@ describe("application request SmartCaptcha protection", () => {
       name: "Иван Иванов",
       phone: "+79991234567",
       personal_data_consent: true,
+      source_page: "https://innoprog.ru/python-course?utm_source=test",
+      form_id: "ordinary-application",
     });
     expect(forwardedBody).not.toHaveProperty("captcha_token");
+    expect(fetchMock.mock.calls[1][1]?.headers).toMatchObject({
+      "X-Real-IP": "198.51.100.9",
+      "X-Forwarded-For": "198.51.100.9",
+      "User-Agent": "Mozilla/5.0 Consent Test",
+    });
   });
 });

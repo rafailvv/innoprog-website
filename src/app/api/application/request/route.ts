@@ -43,6 +43,27 @@ function getClientIp(req: NextRequest) {
   );
 }
 
+function normalizeSourcePage(rawValue: unknown, fallback: string) {
+  const value = String(rawValue || fallback || "").trim();
+  if (!value) return BOT_ALLOWED_ORIGIN;
+
+  try {
+    const url = new URL(value, BOT_ALLOWED_ORIGIN);
+    if (url.hostname !== "innoprog.ru" && url.hostname !== "www.innoprog.ru" && url.hostname !== "localhost" && url.hostname !== "127.0.0.1") {
+      return BOT_ALLOWED_ORIGIN;
+    }
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return BOT_ALLOWED_ORIGIN;
+  }
+}
+
+function normalizeFormId(rawValue: unknown) {
+  const value = String(rawValue || "ordinary-application").trim().slice(0, 80);
+  return /^[a-z0-9][a-z0-9_-]*$/i.test(value) ? value : "ordinary-application";
+}
+
 async function validateCaptcha(token: string, ip: string) {
   if (!SMARTCAPTCHA_SERVER_KEY) {
     return { ok: false, error: "captcha_not_configured" };
@@ -89,6 +110,8 @@ export async function POST(req: NextRequest) {
       question: String(body.question || "").trim(),
       personal_data_consent: body.personal_data_consent === true,
       advertising_consent: body.advertising_consent === true,
+      source_page: normalizeSourcePage(body.source_page, req.headers.get("referer") || ""),
+      form_id: normalizeFormId(body.form_id),
     };
     const captchaToken = String(body.captcha_token || "").trim();
 
@@ -115,6 +138,13 @@ export async function POST(req: NextRequest) {
       Origin: BOT_ALLOWED_ORIGIN,
       Referer: `${BOT_ALLOWED_ORIGIN}/`,
     };
+    const clientIp = getClientIp(req);
+    const userAgent = req.headers.get("user-agent")?.trim();
+    if (clientIp) {
+      headers["X-Real-IP"] = clientIp;
+      headers["X-Forwarded-For"] = clientIp;
+    }
+    if (userAgent) headers["User-Agent"] = userAgent;
     const normalizedToken = BOT_APPLICATION_TOKEN.replace(/^Bearer\s+/i, "").trim();
     if (normalizedToken) {
       headers.Authorization = `Bearer ${normalizedToken}`;

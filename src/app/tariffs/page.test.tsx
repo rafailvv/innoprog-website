@@ -22,4 +22,11 @@ describe("tariffs contact details", () => {
     expect(html).toContain("Email: education@innoprog.ru");
     expect(html).not.toContain("educatio@innoprog.ru");
   });
+
+  it("includes both diploma documents in every tariff", () => {
+    const html = renderToStaticMarkup(<TariffsPage />);
+
+    expect(html.match(/Диплом ИТ-школы ИННОПРОГ о прохождении курса/g)).toHaveLength(3);
+    expect(html.match(/Диплом о профессиональной переподготовке/g)).toHaveLength(3);
+  });
 });
