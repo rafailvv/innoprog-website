@@ -26,6 +26,7 @@ assert.match(nginx, /website-http\.conf/);
 
 const deploy = read("deploy/deploy-blue-green.sh");
 assert.match(deploy, /wait_healthy "\$CANDIDATE_CONTAINER"/);
+assert.match(deploy, /"\$status" == "healthy" \|\| "\$status" == "running"/);
 assert.match(deploy, /switch_upstream "\$CANDIDATE_PORT"/);
 assert.match(deploy, /switch_upstream "\$STABLE_PORT"/);
 assert.match(deploy, /docker cp .*\.next\/static/);

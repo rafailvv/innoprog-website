@@ -38,7 +38,12 @@ wait_healthy() {
   local attempt status
   for ((attempt = 1; attempt <= HEALTH_ATTEMPTS; attempt++)); do
     status="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$container" 2>/dev/null || true)"
-    if [[ "$status" == "healthy" ]] && curl -fsS --max-time 3 "http://127.0.0.1:${port}${HEALTH_PATH}" >/dev/null; then
+    # docker compose supplies a container healthcheck for the stable release,
+    # while the isolated candidate is started with plain `docker run`. In both
+    # cases the process must be running and its application health endpoint
+    # must answer successfully before traffic can be switched.
+    if [[ "$status" == "healthy" || "$status" == "running" ]] && \
+      curl -fsS --max-time 3 "http://127.0.0.1:${port}${HEALTH_PATH}" >/dev/null; then
       return 0
     fi
     sleep 1
