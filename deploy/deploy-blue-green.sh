@@ -155,6 +155,10 @@ docker create --name "$asset_container" "$IMAGE" >/dev/null
 asset_temp="$(mktemp -d)"
 docker cp "${asset_container}:/app/.next/static/." "$asset_temp/"
 cp -a "$asset_temp/." "$STATIC_ROOT/"
+# `cp -a source/. destination/` also copies the temporary directory mode.
+# mktemp creates that directory as 0700, so restore traversal for nginx after
+# the additive copy while keeping the files themselves read-only to it.
+chmod 0755 "$STATIC_ROOT"
 rm -rf "$asset_temp"
 docker rm "$asset_container" >/dev/null
 asset_container=""
