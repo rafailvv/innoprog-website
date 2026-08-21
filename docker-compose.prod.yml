@@ -6,7 +6,9 @@ services:
       dockerfile: Dockerfile
       labels:
         org.opencontainers.image.revision: ${IMAGE_REVISION:-local}
-    container_name: innoprog-website
+      args:
+        NEXT_DEPLOYMENT_ID: ${IMAGE_REVISION:-local}
+    container_name: ${CONTAINER_NAME:-innoprog-website}
     labels:
       org.opencontainers.image.revision: ${IMAGE_REVISION:-local}
     restart: unless-stopped
@@ -18,7 +20,7 @@ services:
       HOSTNAME: 0.0.0.0
       SMARTCAPTCHA_SERVER_KEY: ${SMARTCAPTCHA_SERVER_KEY:-}
     ports:
-      - "127.0.0.1:8082:3000"
+      - "127.0.0.1:${HOST_PORT:-8082}:3000"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/healthz"]
       interval: 30s

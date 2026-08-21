@@ -33,8 +33,22 @@ const securityHeaders = [
   },
 ];
 
+const deploymentId = process.env.NEXT_DEPLOYMENT_ID?.trim() || null;
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  ...(deploymentId
+    ? {
+        deploymentId,
+        generateBuildId: async () => deploymentId,
+        experimental: {
+          // Mark rendered documents with the release that produced them. This
+          // makes release skew observable and keeps the application ready for
+          // sticky multi-release routing if Server Actions are introduced.
+          useSkewCookie: true,
+        },
+      }
+    : {}),
   htmlLimitedBots: /.*/,
   images: {
     disableStaticImages: true,
@@ -44,6 +58,16 @@ const nextConfig = {
   trailingSlash: false,
   async headers() {
     return [
+      {
+        source:
+          "/((?!_next/static|_next/image|favicon.png|logo-education-360.webp|og/|videos/|documents/|files/).*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
       {
         source: "/:path*",
         headers: securityHeaders,

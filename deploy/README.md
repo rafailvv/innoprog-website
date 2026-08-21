@@ -51,3 +51,22 @@ docker compose -f docker-compose.prod.yml up -d --build
 ```txt
 http://127.0.0.1:8082
 ```
+
+## Atomic production updates
+
+Production updates use `deploy/deploy-blue-green.sh <git-sha>` rather than a
+direct `docker compose up --build`. The script builds an immutable release,
+starts it on port `18082`, waits for health, switches nginx to that candidate,
+recreates the stable container on `8082`, verifies it, and switches nginx back.
+Any failure restores the stable upstream and removes the candidate container.
+
+Nginx must include `deploy/nginx/website-release-routing.conf` inside the
+`innoprog.ru` HTTPS server. The active `proxy_pass` lives in
+`/etc/nginx/innoprog-upstreams/website-http.conf` and is replaced atomically by
+the deployment script.
+
+Hashed files from every deployed release are copied additively to
+`/opt/innoprog/data/website-static` and served directly by nginx with an
+immutable one-year cache. HTML is always returned with `Cache-Control:
+no-store`, so a browser or intermediary cannot pair an old document with a new
+backend. Next.js also receives the Git SHA as its build/deployment ID.
