@@ -29,6 +29,7 @@ fi
 IMAGE="${IMAGE_REPOSITORY}:${RELEASE}"
 previous_image="$(docker inspect -f '{{.Config.Image}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
 switched=0
+stable_replaced=0
 asset_container=""
 asset_temp=""
 
@@ -53,6 +54,21 @@ wait_healthy() {
   return 1
 }
 
+wait_public_header() {
+  local url="$1"
+  local pattern="$2"
+  local attempt headers
+  for ((attempt = 1; attempt <= 15; attempt++)); do
+    if headers="$(curl -fsSI --max-time 10 "$url" 2>/dev/null)" && grep -qi "$pattern" <<<"$headers"; then
+      printf '%s' "$headers"
+      return 0
+    fi
+    sleep 1
+  done
+  echo "public smoke failed for $url" >&2
+  return 1
+}
+
 switch_upstream() {
   local port="$1"
   local temp
@@ -66,8 +82,25 @@ switch_upstream() {
 
 cleanup() {
   local exit_code=$?
-  if ((exit_code != 0)) && ((switched == 1)); then
-    switch_upstream "$STABLE_PORT" || true
+  local rollback_ok=0 previous_tag previous_revision
+  trap - EXIT
+  set +e
+  if ((exit_code != 0)) && ((stable_replaced == 1)) && [[ "$previous_image" == "${IMAGE_REPOSITORY}:"* ]]; then
+    # Keep serving the healthy candidate while the previous immutable image is
+    # restored on the stable port, then atomically return traffic to stable.
+    switch_upstream "$CANDIDATE_PORT"
+    previous_tag="${previous_image#${IMAGE_REPOSITORY}:}"
+    previous_revision="$(docker image inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$previous_image" 2>/dev/null || true)"
+    IMAGE_TAG="$previous_tag" IMAGE_REVISION="${previous_revision:-$previous_tag}" \
+      CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
+      docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
+    if wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT" && switch_upstream "$STABLE_PORT"; then
+      rollback_ok=1
+    fi
+  elif ((exit_code != 0)) && ((switched == 1)); then
+    if switch_upstream "$STABLE_PORT"; then
+      rollback_ok=1
+    fi
   fi
   if [[ -n "$asset_container" ]]; then
     docker rm -f "$asset_container" >/dev/null 2>&1 || true
@@ -75,7 +108,11 @@ cleanup() {
   if [[ -n "$asset_temp" ]]; then
     rm -rf "$asset_temp"
   fi
-  docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
+  if ((exit_code == 0 || stable_replaced == 0 || rollback_ok == 1)); then
+    docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
+  else
+    echo "rollback failed; healthy candidate retained on port ${CANDIDATE_PORT}" >&2
+  fi
   exit "$exit_code"
 }
 trap cleanup EXIT
@@ -129,17 +166,17 @@ curl -fsS --max-time 10 -H 'Host: innoprog.ru' "http://127.0.0.1:${CANDIDATE_POR
 
 IMAGE_TAG="$RELEASE" IMAGE_REVISION="$RELEASE" CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
   docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
+stable_replaced=1
 wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT"
 
 switch_upstream "$STABLE_PORT"
 switched=0
 
-curl -fsS --max-time 15 https://innoprog.ru/healthz >/dev/null
-html_headers="$(curl -fsSI --max-time 15 https://innoprog.ru/)"
-grep -qi '^cache-control:.*no-store' <<<"$html_headers"
-asset_path="$(curl -fsS --max-time 15 https://innoprog.ru/ | grep -o '/_next/static/[^\" ]*\.js[^\" ]*' | head -1)"
+wait_public_header 'https://innoprog.ru/healthz' '^HTTP/.* 200' >/dev/null
+html_headers="$(wait_public_header 'https://innoprog.ru/' '^cache-control:.*no-store')"
+asset_path="$(curl -fsS --retry 5 --retry-all-errors --retry-delay 1 --max-time 15 https://innoprog.ru/ | grep -o '/_next/static/[^\" ]*\.js[^\" ]*' | head -1)"
 [[ -n "$asset_path" ]]
-curl -fsSI --max-time 15 "https://innoprog.ru${asset_path}" | grep -qi '^cache-control:.*immutable'
+wait_public_header "https://innoprog.ru${asset_path}" '^cache-control:.*immutable' >/dev/null
 
 docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
 trap - EXIT
