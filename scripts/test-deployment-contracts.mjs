@@ -34,6 +34,7 @@ assert.match(deploy, /wait_public_header/);
 assert.match(deploy, /stable_replaced=1/);
 assert.match(deploy, /previous_image#\$\{IMAGE_REPOSITORY\}/);
 assert.match(deploy, /docker cp .*\.next\/static/);
+assert.match(deploy, /install -d -o root -g root -m 0755 "\$STATIC_ROOT"/);
 assert.match(deploy, /server-reference-manifest\.json/);
 assert.match(deploy, /cache-control:\.\*no-store/i);
 assert.match(deploy, /cache-control:\.\*immutable/i);

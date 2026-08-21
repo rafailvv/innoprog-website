@@ -148,7 +148,7 @@ wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT"
 
 # Hashed chunks from earlier releases remain available to already-open pages.
 # copy is additive: only an explicit maintenance job may remove old assets.
-mkdir -p "$STATIC_ROOT"
+install -d -o root -g root -m 0755 "$STATIC_ROOT"
 asset_container="${CANDIDATE_CONTAINER}-assets"
 docker rm -f "$asset_container" >/dev/null 2>&1 || true
 docker create --name "$asset_container" "$IMAGE" >/dev/null
