@@ -20,6 +20,7 @@ assert.match(compose, /HOST_PORT:-8082/);
 
 const nginx = read("deploy/nginx/website-release-routing.conf");
 assert.match(nginx, /location \^~ \/_next\/static\//);
+assert.doesNotMatch(nginx, /try_files \$uri/);
 assert.match(nginx, /max-age=31536000, immutable/);
 assert.match(nginx, /\$http_next_action != ""/);
 assert.match(nginx, /website-http\.conf/);
