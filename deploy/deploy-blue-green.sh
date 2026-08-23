@@ -118,7 +118,11 @@ smoke_release_html() {
     [[ -n "$asset" ]] || continue
     wait_public_header "https://innoprog.ru${asset}" '^cache-control:.*immutable' >/dev/null
     count=$((count + 1))
-  done < <(grep -oE '/_next/static/[^"'"'"'<> ]+' "$html" | sed 's/&amp;/\&/g' | LC_ALL=C sort -u)
+  done < <(
+    grep -oE '/_next/static/[^"'"'"'<> ]+' "$html" |
+      sed -e 's/\\$//' -e 's/&amp;/\&/g' |
+      LC_ALL=C sort -u
+  )
   (( count > 0 )) || {
     echo "no static assets found in release HTML: $html" >&2
     return 1

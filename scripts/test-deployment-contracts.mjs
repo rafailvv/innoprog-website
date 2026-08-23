@@ -43,6 +43,7 @@ assert.match(deploy, /cache-control:\.\*no-store/i);
 assert.match(deploy, /cache-control:\.\*immutable/i);
 assert.match(deploy, /capture_release_html "\$previous_release"/);
 assert.match(deploy, /smoke_release_html "\$previous_release"/);
+assert.match(deploy, /s\/\\\\\$\//);
 assert.match(deploy, /deploy\/prune-static-assets\.sh/);
 
 const prune = read("deploy/prune-static-assets.sh");
