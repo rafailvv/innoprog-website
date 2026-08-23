@@ -9,7 +9,7 @@
     "start": "next start",
     "test:proxy": "node scripts/test-proxy-contracts.mjs",
     "test:course-reviews": "node scripts/test-course-review-directions.mjs",
-    "test:deployment": "node scripts/test-deployment-contracts.mjs",
+    "test:deployment": "node scripts/test-deployment-contracts.mjs && node scripts/test-static-asset-retention.mjs",
     "test:sveden-html": "node scripts/test-sveden-source-html.mjs",
     "test": "npm run test:unit",
     "test:unit": "vitest run",

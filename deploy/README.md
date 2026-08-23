@@ -65,8 +65,15 @@ Nginx must include `deploy/nginx/website-release-routing.conf` inside the
 `/etc/nginx/innoprog-upstreams/website-http.conf` and is replaced atomically by
 the deployment script.
 
-Hashed files from every deployed release are copied additively to
+Hashed files from deployed releases are copied additively to
 `/opt/innoprog/data/website-static` and served directly by nginx with an
 immutable one-year cache. HTML is always returned with `Cache-Control:
 no-store`, so a browser or intermediary cannot pair an old document with a new
-backend. Next.js also receives the Git SHA as its build/deployment ID.
+backend. The current and previous release manifests are always retained. Assets
+not referenced by either release are removed only after seven days, and the
+post-deploy smoke validates both the new HTML and the saved previous HTML.
+Next.js also receives the Git SHA as its build/deployment ID.
+
+The `/files/` Object Storage proxy resolves only IPv4 addresses because the
+edge host does not have an IPv6 route. DNS is resolved at request time, with a
+short connect timeout and a retry on another IPv4 endpoint.

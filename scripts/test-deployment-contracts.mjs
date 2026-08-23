@@ -22,6 +22,8 @@ const nginx = read("deploy/nginx/website-release-routing.conf");
 assert.match(nginx, /location \^~ \/_next\/static\//);
 assert.doesNotMatch(nginx, /try_files \$uri/);
 assert.match(nginx, /max-age=31536000, immutable/);
+assert.match(nginx, /resolver 127\.0\.0\.53 valid=300s ipv6=off/);
+assert.match(nginx, /proxy_next_upstream_tries 2/);
 assert.match(nginx, /\$http_next_action != ""/);
 assert.match(nginx, /website-http\.conf/);
 
@@ -39,5 +41,14 @@ assert.match(deploy, /cp -a "\$asset_temp\/\." "\$STATIC_ROOT\/"[\s\S]*chmod 075
 assert.match(deploy, /server-reference-manifest\.json/);
 assert.match(deploy, /cache-control:\.\*no-store/i);
 assert.match(deploy, /cache-control:\.\*immutable/i);
+assert.match(deploy, /capture_release_html "\$previous_release"/);
+assert.match(deploy, /smoke_release_html "\$previous_release"/);
+assert.match(deploy, /deploy\/prune-static-assets\.sh/);
+
+const prune = read("deploy/prune-static-assets.sh");
+assert.match(prune, /CURRENT_RELEASE/);
+assert.match(prune, /PREVIOUS_RELEASE/);
+assert.match(prune, /STATIC_TTL_DAYS/);
+assert.match(prune, /unsafe asset path/);
 
 console.log("innoprog-website deployment contracts ok");

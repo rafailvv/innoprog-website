@@ -10,6 +10,8 @@ STABLE_PORT="${STABLE_PORT:-8082}"
 CANDIDATE_PORT="${CANDIDATE_PORT:-18082}"
 UPSTREAM_FILE="${UPSTREAM_FILE:-/etc/nginx/innoprog-upstreams/website-http.conf}"
 STATIC_ROOT="${STATIC_ROOT:-/opt/innoprog/data/website-static}"
+RELEASE_ROOT="${RELEASE_ROOT:-/opt/innoprog/data/website-releases}"
+STATIC_TTL_DAYS="${STATIC_TTL_DAYS:-7}"
 HEALTH_PATH="${HEALTH_PATH:-/healthz}"
 HEALTH_ATTEMPTS="${HEALTH_ATTEMPTS:-60}"
 RELEASE="${1:-}"
@@ -28,6 +30,7 @@ fi
 
 IMAGE="${IMAGE_REPOSITORY}:${RELEASE}"
 previous_image="$(docker inspect -f '{{.Config.Image}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
+previous_release="$(docker inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
 switched=0
 stable_replaced=0
 asset_container=""
@@ -67,6 +70,59 @@ wait_public_header() {
   done
   echo "public smoke failed for $url" >&2
   return 1
+}
+
+capture_release_assets() {
+  local image="$1" release="$2" copy_assets="$3" manifest_temp
+  [[ "$release" =~ ^[0-9a-f]{12,64}$ ]] || return 0
+  install -d -o root -g root -m 0755 "$STATIC_ROOT" "$RELEASE_ROOT"
+  asset_container="${CANDIDATE_CONTAINER}-assets"
+  docker rm -f "$asset_container" >/dev/null 2>&1 || true
+  docker create --name "$asset_container" "$image" >/dev/null
+  asset_temp="$(mktemp -d)"
+  docker cp "${asset_container}:/app/.next/static/." "$asset_temp/"
+  manifest_temp="$(mktemp "${RELEASE_ROOT}/${release}.assets.XXXXXX")"
+  find "$asset_temp" -type f -printf '%P\n' | LC_ALL=C sort >"$manifest_temp"
+  [[ -s "$manifest_temp" ]]
+  chmod 0644 "$manifest_temp"
+  mv -f "$manifest_temp" "${RELEASE_ROOT}/${release}.assets"
+  if [[ "$copy_assets" == "1" ]]; then
+    cp -a "$asset_temp/." "$STATIC_ROOT/"
+    chmod 0755 "$STATIC_ROOT"
+  fi
+  rm -rf "$asset_temp"
+  docker rm "$asset_container" >/dev/null
+  asset_container=""
+  asset_temp=""
+}
+
+capture_release_html() {
+  local release="$1" port="$2" html_temp
+  [[ "$release" =~ ^[0-9a-f]{12,64}$ ]] || return 0
+  html_temp="$(mktemp "${RELEASE_ROOT}/${release}.html.XXXXXX")"
+  curl -fsS --max-time 15 -H 'Host: innoprog.ru' "http://127.0.0.1:${port}/" >"$html_temp"
+  grep -q '/_next/static/' "$html_temp"
+  chmod 0644 "$html_temp"
+  mv -f "$html_temp" "${RELEASE_ROOT}/${release}.html"
+}
+
+smoke_release_html() {
+  local release="$1" html asset count=0
+  [[ -n "$release" ]] || return 0
+  html="${RELEASE_ROOT}/${release}.html"
+  [[ -s "$html" ]] || {
+    echo "release HTML is missing: $html" >&2
+    return 1
+  }
+  while IFS= read -r asset; do
+    [[ -n "$asset" ]] || continue
+    wait_public_header "https://innoprog.ru${asset}" '^cache-control:.*immutable' >/dev/null
+    count=$((count + 1))
+  done < <(grep -oE '/_next/static/[^"'"'"'<> ]+' "$html" | sed 's/&amp;/\&/g' | LC_ALL=C sort -u)
+  (( count > 0 )) || {
+    echo "no static assets found in release HTML: $html" >&2
+    return 1
+  }
 }
 
 switch_upstream() {
@@ -118,6 +174,17 @@ cleanup() {
 trap cleanup EXIT
 
 cd "$APP_DIR"
+
+# Capture the currently served release before building the replacement. Its
+# complete asset manifest and HTML are used by the post-deploy compatibility
+# smoke and remain protected from TTL cleanup as the rollback release.
+if [[ "$previous_release" =~ ^[0-9a-f]{12,64}$ && -n "$previous_image" ]]; then
+  capture_release_assets "$previous_image" "$previous_release" 0
+  capture_release_html "$previous_release" "$STABLE_PORT"
+else
+  previous_release=""
+fi
+
 docker build \
   --build-arg "NEXT_DEPLOYMENT_ID=${RELEASE}" \
   --label "org.opencontainers.image.revision=${RELEASE}" \
@@ -146,23 +213,11 @@ docker run -d \
   "$IMAGE" >/dev/null
 wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT"
 
-# Hashed chunks from earlier releases remain available to already-open pages.
-# copy is additive: only an explicit maintenance job may remove old assets.
-install -d -o root -g root -m 0755 "$STATIC_ROOT"
-asset_container="${CANDIDATE_CONTAINER}-assets"
-docker rm -f "$asset_container" >/dev/null 2>&1 || true
-docker create --name "$asset_container" "$IMAGE" >/dev/null
-asset_temp="$(mktemp -d)"
-docker cp "${asset_container}:/app/.next/static/." "$asset_temp/"
-cp -a "$asset_temp/." "$STATIC_ROOT/"
-# `cp -a source/. destination/` also copies the temporary directory mode.
-# mktemp creates that directory as 0700, so restore traversal for nginx after
-# the additive copy while keeping the files themselves read-only to it.
-chmod 0755 "$STATIC_ROOT"
-rm -rf "$asset_temp"
-docker rm "$asset_container" >/dev/null
-asset_container=""
-asset_temp=""
+# Hashed chunks are copied additively. A per-release manifest allows the
+# maintenance step to retain current and rollback assets while pruning only
+# unreferenced files after the compatibility TTL.
+capture_release_assets "$IMAGE" "$RELEASE" 1
+capture_release_html "$RELEASE" "$CANDIDATE_PORT"
 
 switch_upstream "$CANDIDATE_PORT"
 switched=1
@@ -181,6 +236,13 @@ html_headers="$(wait_public_header 'https://innoprog.ru/' '^cache-control:.*no-s
 asset_path="$(curl -fsS --retry 5 --retry-all-errors --retry-delay 1 --max-time 15 https://innoprog.ru/ | grep -o '/_next/static/[^\" ]*\.js[^\" ]*' | head -1)"
 [[ -n "$asset_path" ]]
 wait_public_header "https://innoprog.ru${asset_path}" '^cache-control:.*immutable' >/dev/null
+smoke_release_html "$RELEASE"
+smoke_release_html "$previous_release"
+
+CURRENT_RELEASE="$RELEASE" PREVIOUS_RELEASE="$previous_release" \
+  STATIC_ROOT="$STATIC_ROOT" RELEASE_ROOT="$RELEASE_ROOT" \
+  STATIC_TTL_DAYS="$STATIC_TTL_DAYS" \
+  bash deploy/prune-static-assets.sh
 
 docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
 trap - EXIT
