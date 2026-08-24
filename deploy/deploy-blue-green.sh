@@ -28,13 +28,27 @@ if [[ ! -f "$ENV_FILE" ]]; then
   exit 2
 fi
 
+head_release="$(git -C "$APP_DIR" rev-parse HEAD)"
+resolved_release="$(git -C "$APP_DIR" rev-parse "${RELEASE}^{commit}" 2>/dev/null || true)"
+if [[ -z "$resolved_release" || "$resolved_release" != "$head_release" ]]; then
+  echo "release must resolve to the checked-out Git commit ${head_release}" >&2
+  exit 2
+fi
+if [[ -n "$(git -C "$APP_DIR" status --porcelain --untracked-files=normal)" ]]; then
+  echo "working tree changes must be committed before deployment" >&2
+  exit 2
+fi
+RELEASE="$head_release"
+
 IMAGE="${IMAGE_REPOSITORY}:${RELEASE}"
-previous_image="$(docker inspect -f '{{.Config.Image}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
+previous_image_id="$(docker inspect -f '{{.Image}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
 previous_release="$(docker inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
+previous_rollback_image=""
 switched=0
 stable_replaced=0
 asset_container=""
 asset_temp=""
+build_context=""
 
 wait_healthy() {
   local container="$1"
@@ -142,20 +156,23 @@ switch_upstream() {
 
 cleanup() {
   local exit_code=$?
-  local rollback_ok=0 previous_tag previous_revision
+  local rollback_ok=0 previous_revision
   trap - EXIT
   set +e
-  if ((exit_code != 0)) && ((stable_replaced == 1)) && [[ "$previous_image" == "${IMAGE_REPOSITORY}:"* ]]; then
+  if ((exit_code != 0)) && ((stable_replaced == 1)) && [[ -n "$previous_rollback_image" ]]; then
     # Keep serving the healthy candidate while the previous immutable image is
     # restored on the stable port, then atomically return traffic to stable.
-    switch_upstream "$CANDIDATE_PORT"
-    previous_tag="${previous_image#${IMAGE_REPOSITORY}:}"
-    previous_revision="$(docker image inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$previous_image" 2>/dev/null || true)"
-    IMAGE_TAG="$previous_tag" IMAGE_REVISION="${previous_revision:-$previous_tag}" \
-      CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
-      docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
-    if wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT" && switch_upstream "$STABLE_PORT"; then
-      rollback_ok=1
+    if wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT" && switch_upstream "$CANDIDATE_PORT"; then
+      previous_revision="$(docker image inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$previous_rollback_image" 2>/dev/null || true)"
+      IMAGE_TAG="${previous_rollback_image#${IMAGE_REPOSITORY}:}" \
+        IMAGE_REVISION="${previous_revision:-$previous_release}" \
+        CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
+        docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
+      if wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT" && switch_upstream "$STABLE_PORT"; then
+        rollback_ok=1
+      fi
+    else
+      echo "rollback did not replace stable because candidate traffic switch failed" >&2
     fi
   elif ((exit_code != 0)) && ((switched == 1)); then
     if switch_upstream "$STABLE_PORT"; then
@@ -168,6 +185,9 @@ cleanup() {
   if [[ -n "$asset_temp" ]]; then
     rm -rf "$asset_temp"
   fi
+  if [[ -n "$build_context" ]]; then
+    rm -rf "$build_context"
+  fi
   if ((exit_code == 0 || stable_replaced == 0 || rollback_ok == 1)); then
     docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
   else
@@ -179,11 +199,25 @@ trap cleanup EXIT
 
 cd "$APP_DIR"
 
+# Docker must never read a mutable checkout after release validation. Export
+# the exact commit into an isolated context so concurrent edits or pulls cannot
+# change bytes published under this immutable release ID.
+build_context="$(mktemp -d)"
+git archive --format=tar "$RELEASE" | tar -xf - -C "$build_context"
+
+# Pin rollback to the exact image ID before the new build can move a mutable
+# release tag. The unique local tag is intentionally retained for rollback.
+if [[ "$previous_release" =~ ^[0-9a-f]{12,64}$ && "$previous_image_id" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+  previous_digest="${previous_image_id#sha256:}"
+  previous_rollback_image="${IMAGE_REPOSITORY}:rollback-${previous_release:0:12}-${previous_digest:0:12}"
+  docker image tag "$previous_image_id" "$previous_rollback_image"
+fi
+
 # Capture the currently served release before building the replacement. Its
 # complete asset manifest and HTML are used by the post-deploy compatibility
 # smoke and remain protected from TTL cleanup as the rollback release.
-if [[ "$previous_release" =~ ^[0-9a-f]{12,64}$ && -n "$previous_image" ]]; then
-  capture_release_assets "$previous_image" "$previous_release" 0
+if [[ "$previous_release" =~ ^[0-9a-f]{12,64}$ && -n "${previous_rollback_image:-$previous_image_id}" ]]; then
+  capture_release_assets "${previous_rollback_image:-$previous_image_id}" "$previous_release" 1
   capture_release_html "$previous_release" "$STABLE_PORT"
 else
   previous_release=""
@@ -192,7 +226,9 @@ fi
 docker build \
   --build-arg "NEXT_DEPLOYMENT_ID=${RELEASE}" \
   --label "org.opencontainers.image.revision=${RELEASE}" \
-  -t "$IMAGE" .
+  -t "$IMAGE" "$build_context"
+rm -rf "$build_context"
+build_context=""
 
 # The edge rejects Next-Action because this website currently has no Server
 # Actions. Fail deployment if that assumption ever becomes false so a future
@@ -252,6 +288,6 @@ docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
 trap - EXIT
 
 printf 'Website release %s is healthy on stable port %s\n' "$RELEASE" "$STABLE_PORT"
-if [[ -n "$previous_image" && "$previous_image" != "$IMAGE" ]]; then
-  printf 'Rollback image retained: %s\n' "$previous_image"
+if [[ -n "$previous_rollback_image" ]]; then
+  printf 'Rollback image retained: %s\n' "$previous_rollback_image"
 fi

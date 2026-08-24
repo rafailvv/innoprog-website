@@ -4,6 +4,7 @@ import {
   existsSync,
   mkdirSync,
   mkdtempSync,
+  readFileSync,
   rmSync,
   utimesSync,
   writeFileSync,
@@ -18,6 +19,30 @@ const current = "aaaaaaaaaaaa";
 const previous = "bbbbbbbbbbbb";
 const expired = "cccccccccccc";
 const oldDate = new Date(Date.now() - 10 * 86400 * 1000);
+
+// The deployment exports the validated commit before Docker builds it. Prove
+// that a concurrent worktree mutation cannot alter that isolated build input.
+const archiveRepo = join(root, "archive-repo");
+const archiveContext = join(root, "archive-context");
+mkdirSync(archiveRepo, { recursive: true });
+mkdirSync(archiveContext, { recursive: true });
+execFileSync("git", ["init", "-q"], { cwd: archiveRepo });
+execFileSync("git", ["config", "user.email", "deploy-test@innoprog.test"], { cwd: archiveRepo });
+execFileSync("git", ["config", "user.name", "Deploy Test"], { cwd: archiveRepo });
+writeFileSync(join(archiveRepo, "release.txt"), "committed\n");
+execFileSync("git", ["add", "release.txt"], { cwd: archiveRepo });
+execFileSync("git", ["commit", "-qm", "release"], { cwd: archiveRepo });
+const releaseSha = execFileSync("git", ["rev-parse", "HEAD"], {
+  cwd: archiveRepo,
+  encoding: "utf8",
+}).trim();
+writeFileSync(join(archiveRepo, "release.txt"), "mutated\n");
+execFileSync(
+  "bash",
+  ["-lc", `git archive --format=tar ${releaseSha} | tar -xf - -C ${JSON.stringify(archiveContext)}`],
+  { cwd: archiveRepo },
+);
+assert.equal(readFileSync(join(archiveContext, "release.txt"), "utf8"), "committed\n");
 
 const asset = (path, old = true) => {
   const absolute = join(staticRoot, path);
@@ -81,4 +106,3 @@ try {
 }
 
 console.log("innoprog-website static asset retention contracts ok");
-
