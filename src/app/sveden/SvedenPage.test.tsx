@@ -36,15 +36,15 @@ describe("educational disclosure server HTML", () => {
     expect(actual).not.toContain("hosteInfo");
   });
 
-  it("renders all 53 education programs and approved totals", () => {
+  it("renders all 62 education programs and approved totals", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
-    expect(html.match(/itemProp="eduAccred eduOp"/g)).toHaveLength(53);
-    expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology"/g)).toHaveLength(53);
-    expect(html.match(/Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы\./g)).toHaveLength(53);
+    expect(html.match(/itemProp="eduAccred eduOp"/g)).toHaveLength(62);
+    expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology"/g)).toHaveLength(62);
+    expect(html.match(/Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы\./g)).toHaveLength(62);
     expect(html).not.toMatch(/>Описание программы<|>Учебный план<|>Рабочие программы и модули<|>Календарный учебный график<|>Сведения о практике<|>Методические документы</);
-    expect(html.match(/itemProp="eduPred"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="eduPrac"/g)).toHaveLength(53);
+    expect(html.match(/itemProp="eduPred"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="eduPrac"/g)).toHaveLength(62);
     expect(html).toContain('itemProp="languageEl"');
     expect(html).toContain('itemProp="eduChislenEl"');
     expect(html).toContain("72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам");
@@ -55,7 +55,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Код и шифр образовательной программе не присвоены");
     expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
-    expect(html).toContain('aria-label="53 образовательных программ"');
+    expect(html).toContain('aria-label="62 образовательных программ"');
+    expect(html).toContain("Приказ № ОБР-5 о дополнении перечня образовательных программ");
     expect(html).toContain("Приказ № ОБР-13 об утверждении детских образовательных программ");
     expect(html).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
@@ -130,11 +131,11 @@ describe("educational disclosure server HTML", () => {
   });
 
   it("shows the freshness date only for dynamic disclosures", () => {
-    expect(renderToStaticMarkup(<SvedenPage section="education" />)).toContain("05.08.2026");
+    expect(renderToStaticMarkup(<SvedenPage section="education" />)).toContain("26.08.2026");
     for (const section of ["employees", "budget"] as const) {
       expect(renderToStaticMarkup(<SvedenPage section={section} />)).toContain("01.08.2026");
     }
-    expect(renderToStaticMarkup(<SvedenPage section="vacant" />)).toContain("05.08.2026");
+    expect(renderToStaticMarkup(<SvedenPage section="vacant" />)).toContain("26.08.2026");
     expect(renderToStaticMarkup(<SvedenPage section="common" />)).not.toContain("Дата актуальности динамических сведений");
     expect(renderToStaticMarkup(<SvedenPage section="struct" />)).not.toContain("Дата актуальности динамических сведений");
   });
@@ -148,15 +149,15 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("Не поступали");
   });
 
-  it("renders all 53 vacancy rows and funding sources", () => {
+  it("renders all 62 vacancy rows and funding sources", () => {
     const html = renderToStaticMarkup(<SvedenPage section="vacant" />);
-    expect(html.match(/itemProp="vacant"/g)).toHaveLength(53);
-    expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="eduCourse"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="numberBFVacant"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="numberBRVacant"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="numberBMVacant"/g)).toHaveLength(53);
-    expect(html.match(/itemProp="numberPVacant"/g)).toHaveLength(53);
+    expect(html.match(/itemProp="vacant"/g)).toHaveLength(62);
+    expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="eduCourse"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="numberBFVacant"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="numberBRVacant"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="numberBMVacant"/g)).toHaveLength(62);
+    expect(html.match(/itemProp="numberPVacant"/g)).toHaveLength(62);
     expect(html).not.toMatch(/itemProp="number(?:BF|BR|BM|P)Vac"/);
     expect(html).toContain("Код и шифр образовательной программе не присвоены");
     expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
@@ -164,7 +165,7 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
     expect(html).toContain('aria-label="Вакантные места по образовательным программам"');
-    expect(html).toContain("Количество вакантных мест по состоянию на 05.08.2026");
+    expect(html).toContain("Количество вакантных мест по состоянию на 26.08.2026");
     expect(html).toContain("Python-разработчик");
     expect(html).toContain('itemProp="numberPVacant">25</td>');
   });

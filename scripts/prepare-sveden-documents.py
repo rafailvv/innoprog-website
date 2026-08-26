@@ -61,6 +61,21 @@ CHILD_PROGRAM_FILES = {
 CHILD_PROGRAM_ORDER = "ПРИКАЗ_№_ОБР-13_ОБ_УТВЕРЖДЕНИИ_ДЕТСКИХ_ПРОГРАММ.pdf"
 CHILD_VACANCY_ORDER = "ПРИКАЗ_№_ОБР-14_О_ВНЕСЕНИИ_ИЗМЕНЕНИЙ_В_ПРИКАЗ_№_ОБР-10_И_УСТАНОВЛЕНИИ_ВАКАНТНЫХ_МЕСТ_ПО_ДЕТСКИМ_ПРОГРАММАМ.pdf"
 
+GENERAL_12PLUS_PROGRAM_FILES = {
+    "cpp_developer_do_12plus.pdf": "C++ разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+    "data_science_do_12plus.pdf": "Data Science программа обучения для детей от 12 лет и взрослых.pdf",
+    "data_analyst_do_12plus.pdf": "Data-аналитик программа обучения для детей от 12 лет и взрослых.pdf",
+    "frontend_developer_do_12plus.pdf": "Frontend-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+    "java_developer_do_12plus.pdf": "Java-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+    "ml_engineer_do_12plus.pdf": "ML-инженер программа обучения для детей от 12 лет и взрослых.pdf",
+    "python_development_do_12plus.pdf": "Python-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+    "unreal_engine_do_12plus.pdf": "Unreal Engine программа обучения для детей от 12 лет и взрослых.pdf",
+    "mobile_developer_do_12plus.pdf": "Мобильный разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+}
+GENERAL_12PLUS_ORDER_PUBLIC_PATH = Path(
+    "sveden/education/Приказ_№_ОБР-5_о_дополнении_перечня_образовательных_программ.pdf"
+)
+
 LEGAL_FILES = {
     "Политика_обработки_персональных_данных.pdf": "privacy.pdf",
     "Согласие_на_обработку_персональных_данных.pdf": "consent.pdf",
@@ -173,11 +188,11 @@ REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
 }
 
-EXPECTED_SECTION_PDFS = 104
+EXPECTED_SECTION_PDFS = 113
 EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_ARCHIVE_PDFS = 0
-EXPECTED_TOTAL_PDFS = 110
+EXPECTED_TOTAL_PDFS = 119
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -286,6 +301,8 @@ def prepare(
     updates_dir: Path,
     program_updates_dir: Path,
     child_programs_dir: Path,
+    general_12plus_programs_dir: Path,
+    general_12plus_order_file: Path,
     offer_file: Path,
     student_count_file: Path,
     output_root: Path,
@@ -384,6 +401,38 @@ def prepare(
             )
         )
         section_count += 1
+
+    for source_name, public_name in GENERAL_12PLUS_PROGRAM_FILES.items():
+        source = general_12plus_programs_dir / source_name
+        if not source.is_file():
+            raise FileNotFoundError(f"Missing approved general 12+ program PDF: {source}")
+        data = source.read_bytes()
+        if not data.startswith(b"%PDF-"):
+            raise RuntimeError(f"General 12+ program source is not a PDF: {source}")
+        entries.append(
+            write_pdf(
+                output_root,
+                Path("sveden") / "education" / "general" / public_name,
+                data,
+                section="education",
+                source_name=public_name,
+                category="program",
+            )
+        )
+        section_count += 1
+
+    if not general_12plus_order_file.is_file():
+        raise FileNotFoundError(f"Missing approved order No. OBR-5: {general_12plus_order_file}")
+    general_12plus_order_entry = write_pdf(
+        output_root,
+        GENERAL_12PLUS_ORDER_PUBLIC_PATH,
+        general_12plus_order_file.read_bytes(),
+        section="education",
+        source_name=GENERAL_12PLUS_ORDER_PUBLIC_PATH.name,
+        category="section",
+    )
+    general_12plus_order_entry["title"] = "Приказ № ОБР-5 о дополнении перечня образовательных программ"
+    entries.append(general_12plus_order_entry)
 
     order_source = child_programs_dir / CHILD_PROGRAM_ORDER
     if not order_source.is_file():
@@ -551,7 +600,7 @@ def prepare(
     entries.sort(key=lambda item: (str(item["section"]), str(item["storageKey"])))
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(
-        json.dumps({"generatedAt": "2026-08-08", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
+        json.dumps({"generatedAt": "2026-08-26", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
     )
@@ -589,6 +638,18 @@ def main() -> None:
         help="Directory containing the six child program PDFs and orders No. OBR-13 and OBR-14",
     )
     parser.add_argument(
+        "--general-12plus-programs-dir",
+        type=Path,
+        required=True,
+        help="Directory containing the nine general programs for children aged 12+ and adults",
+    )
+    parser.add_argument(
+        "--general-12plus-order-file",
+        type=Path,
+        required=True,
+        help="Approved order No. OBR-5 PDF",
+    )
+    parser.add_argument(
         "--offer-file",
         type=Path,
         required=True,
@@ -614,6 +675,8 @@ def main() -> None:
         args.updates_dir,
         args.program_updates_dir,
         args.child_programs_dir,
+        args.general_12plus_programs_dir,
+        args.general_12plus_order_file,
         args.offer_file,
         args.student_count_file,
         args.output,

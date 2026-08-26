@@ -21,12 +21,12 @@ import {
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(110);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(119);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(0);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(104);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(110);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(113);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(119);
     expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
@@ -49,26 +49,34 @@ describe("educational disclosure contracts", () => {
   });
 
   it("keeps the approved program and student totals", () => {
-    expect(EDUCATION_PROGRAMS).toHaveLength(53);
-    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО")).toHaveLength(44);
+    expect(EDUCATION_PROGRAMS).toHaveLength(62);
+    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО")).toHaveLength(53);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")).toHaveLength(9);
     expect(EDUCATION_PROGRAMS.reduce((total, program) => total + program.students, 0)).toBe(72);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.students, 0)).toBe(68);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.students, 0)).toBe(4);
-    expect(EDUCATION_TOTALS).toMatchObject({ programs: 53, generalPrograms: 44, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
-    expect(VACANT_PROGRAMS).toHaveLength(53);
+    expect(EDUCATION_TOTALS).toMatchObject({ programs: 62, generalPrograms: 53, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
+    expect(VACANT_PROGRAMS).toHaveLength(62);
     expect(VACANT_PROGRAMS.every(({ federal, regional, municipal }) => federal === 0 && regional === 0 && municipal === 0)).toBe(true);
     expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(420);
     expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.paid, 0)).toBe(100);
     expect(VACANT_PROGRAMS.map(({ paid }) => paid)).toEqual([
       5, 5, 12, 12, 5, 15, 5, 5, 5, 25, 20, 5, 8, 5, 8, 5, 12, 10, 5,
       10, 8, 8, 5, 5, 12, 10, 5, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-      20, 20, 20, 20, 20, 20, 10, 15, 15, 10, 10, 5, 25, 5, 5,
+      20, 20, 20, 20, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
     ]);
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ subjects, practice }) => subjects.length > 0 && practice.length > 0)).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ foreignStudents }) => foreignStudents === 0)).toBe(true);
+  });
+
+  it("publishes the nine general programs approved by order No. OBR-5 with zero students", () => {
+    const programs = EDUCATION_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых"));
+    expect(programs).toHaveLength(9);
+    expect(programs.every(({ kind, students, foreignStudents }) => kind === "ДО" && students === 0 && foreignStudents === 0)).toBe(true);
+    expect(programs.every(({ document }) => document.storageKey.includes("/general/"))).toBe(true);
+    expect(VACANT_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых")).every(({ paid }) => paid === 0)).toBe(true);
   });
 
   it("uses the six child programs approved by order No. OBR-13 on 05.08.2026", () => {

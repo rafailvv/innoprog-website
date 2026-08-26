@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-08",
+  "generatedAt": "2026-08-26",
   "counts": {
-    "section": 104,
+    "section": 113,
     "legal": 4,
     "technical": 2,
     "archive": 0,
-    "total": 110
+    "total": 119
   },
   "documents": [
     {
@@ -1017,6 +1017,114 @@
       "sourceSha256": "e9cd81705973c99acc4f44fa91769ecc939cc0e181defb2a3dd93fd1d7512a41"
     },
     {
+      "id": "5caee87f45b9da4d",
+      "title": "C++ разработчик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "C++ разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/C++ разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/C%2B%2B%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1061721,
+      "sha256": "5caee87f45b9da4da5bcedcb249bede017623d353f87b8380fe9cc4f4eb10a6e",
+      "sourceSha256": "b7aa3c87500b55a09e632def85fd24c9aaf4006f2b63cc1d37ddab43c046deef"
+    },
+    {
+      "id": "1680dc55a45effaf",
+      "title": "Data Science программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Data Science программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Data Science программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Data%20Science%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1056413,
+      "sha256": "1680dc55a45effaf5bf6a281dc907d47818c3213db9d8165d6b6889d3f01fd5b",
+      "sourceSha256": "cc04c430d2058260e17ceaa3fb5043b43881592ef37dfeaf4751c5ededcc29bb"
+    },
+    {
+      "id": "c64ca7ce6a3998e9",
+      "title": "Data-аналитик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Data-аналитик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Data-аналитик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Data-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1051026,
+      "sha256": "c64ca7ce6a3998e920674134c9be3486cf7bcf7bdd8c71783a6785e49f1bbcf4",
+      "sourceSha256": "fef8a082ebf75e98e098fadf8c4a70b1c5f759308519c8e60235128f962471e9"
+    },
+    {
+      "id": "102930dc60962435",
+      "title": "Frontend-разработчик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Frontend-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Frontend-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Frontend-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1038490,
+      "sha256": "102930dc609624353b42a8758bcdc770ed3bb2f3eeab83febb58f68d035862a3",
+      "sourceSha256": "b2229a42530614b6d70f5fbe978a84895bc78c756e5a3cf9e08b481fca75a44a"
+    },
+    {
+      "id": "aebb84efd2b4226d",
+      "title": "Java-разработчик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Java-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Java-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Java-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1044504,
+      "sha256": "aebb84efd2b4226d07ed3448d90cb28cd780428ae7c87cbfe6e48c87176327a0",
+      "sourceSha256": "5200f297ae2997bd323279411fba34266f84008242a1a130c38cedd785cb52df"
+    },
+    {
+      "id": "f0973d52a21fc9fc",
+      "title": "ML-инженер программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "ML-инженер программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/ML-инженер программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/ML-%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1061692,
+      "sha256": "f0973d52a21fc9fcbc70292480bc39d75d84f3abc63ade4d3fc349531398ce48",
+      "sourceSha256": "1150b22cdf117afca97e415c43f294eb8bcdb0c4bbaaf3864d44038335703802"
+    },
+    {
+      "id": "6e6a6509307d7b09",
+      "title": "Python-разработчик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Python-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Python-разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1057190,
+      "sha256": "6e6a6509307d7b09e3d64b3f78d91aba7b3bde17c36dec39ccab3421f907297f",
+      "sourceSha256": "9330e50536ed2687048db0fd44865188546e5922af7637e443bd8973583bb230"
+    },
+    {
+      "id": "cbf7732a733342b7",
+      "title": "Unreal Engine программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Unreal Engine программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Unreal Engine программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/Unreal%20Engine%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1031251,
+      "sha256": "cbf7732a733342b77d8e0f0b110f4822617ac734a2af5b30ed91a59be92eb9be",
+      "sourceSha256": "bd812d302085a45b973c28c2b6eb1822756440fa6efff3ff25acb5d338ce5f93"
+    },
+    {
+      "id": "21091588077fa900",
+      "title": "Мобильный разработчик программа обучения для детей от 12 лет и взрослых",
+      "sourceName": "Мобильный разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Мобильный разработчик программа обучения для детей от 12 лет и взрослых.pdf",
+      "href": "/files/sveden/education/general/%D0%9C%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BE%D1%82%2012%20%D0%BB%D0%B5%D1%82%20%D0%B8%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85.pdf",
+      "sizeBytes": 1064754,
+      "sha256": "21091588077fa900af13a7136024ee393ef26a4e2f7d67fa2e16dda09069db1c",
+      "sourceSha256": "7d68d0639bf4f1ff14fe26627ee44aadb65496a439d9244b6de4cee850ecfaf4"
+    },
+    {
       "id": "2b30e817606f579e",
       "title": "C++ разработчик программа обучения",
       "sourceName": "C++ разработчик программа обучения.pdf",
@@ -1161,16 +1269,16 @@
       "sourceSha256": "4ed9ede9d178d61057d1196b425de168a2a08fac364e86dd5a86e7185e149ab7"
     },
     {
-      "id": "f1edc838ac25a32a",
+      "id": "ad1a16c40f34437d",
       "title": "Приказ № ОБР-5 о дополнении перечня образовательных программ",
       "sourceName": "Приказ_№_ОБР-5_о_дополнении_перечня_образовательных_программ.pdf",
       "section": "education",
       "category": "section",
       "storageKey": "site-public/sveden/education/Приказ_№_ОБР-5_о_дополнении_перечня_образовательных_программ.pdf",
       "href": "/files/sveden/education/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-5_%D0%BE_%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BF%D0%B5%D1%80%D0%B5%D1%87%D0%BD%D1%8F_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC.pdf",
-      "sizeBytes": 958088,
-      "sha256": "f1edc838ac25a32a8f95f92c9dcce7951db9f288f793ec612901dba6c725a889",
-      "sourceSha256": "244507d3a9cc046c4720575048756c09860743ecdf541ad6aa841d0e93f536d3"
+      "sizeBytes": 958942,
+      "sha256": "ad1a16c40f34437da8001c8713b03a5e35e3152f1c0abde7cd4ff692792b9af8",
+      "sourceSha256": "54cc62feeb0cda8d92e808a7be7ecfaebd8d8e799516d3538333f5c605d385bc"
     },
     {
       "id": "f53e40178a2392a9",
