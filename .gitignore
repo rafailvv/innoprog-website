@@ -5,5 +5,7 @@ coverage/
 .DS_Store
 *.log
 .vercel/
+.agents/
+skills-lock.json
 .env*
 !.env.example
