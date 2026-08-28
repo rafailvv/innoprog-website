@@ -28,6 +28,8 @@ assert.match(nginx, /\$http_next_action != ""/);
 assert.match(nginx, /website-http\.conf/);
 
 const deploy = read("deploy/deploy-blue-green.sh");
+assert.match(deploy, /production-maintenance\.lock/);
+assert.match(deploy, /flock -n 8/);
 assert.match(deploy, /wait_healthy "\$CANDIDATE_CONTAINER"/);
 assert.match(deploy, /"\$status" == "healthy" \|\| "\$status" == "running"/);
 assert.match(deploy, /switch_upstream "\$CANDIDATE_PORT"/);

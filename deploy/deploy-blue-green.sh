@@ -15,6 +15,13 @@ STATIC_TTL_DAYS="${STATIC_TTL_DAYS:-7}"
 HEALTH_PATH="${HEALTH_PATH:-/healthz}"
 HEALTH_ATTEMPTS="${HEALTH_ATTEMPTS:-60}"
 RELEASE="${1:-}"
+MAINTENANCE_LOCK="/run/lock/innoprog/production-maintenance.lock"
+
+exec 8>"$MAINTENANCE_LOCK"
+if ! flock -n 8; then
+  echo "Production maintenance or another deployment is running" >&2
+  exit 75
+fi
 
 if [[ -z "$RELEASE" ]]; then
   RELEASE="$(git -C "$APP_DIR" rev-parse HEAD)"
