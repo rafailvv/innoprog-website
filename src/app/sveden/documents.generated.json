@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26",
+  "generatedAt": "2026-08-29",
   "counts": {
     "section": 113,
     "legal": 4,
@@ -1197,16 +1197,16 @@
       "sourceSha256": "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"
     },
     {
-      "id": "7f31eb5df3553b41",
+      "id": "a2d22ca41529e9e9",
       "title": "Python-разработчик программа обучения",
       "sourceName": "Python-разработчик программа обучения.pdf",
       "section": "education",
       "category": "program",
       "storageKey": "site-public/sveden/education/professional/Python-разработчик программа обучения.pdf",
       "href": "/files/sveden/education/professional/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 1073742,
-      "sha256": "7f31eb5df3553b4198df929d2a110fdd8e21b7ea9f718b882f80ae9012bffc8e",
-      "sourceSha256": "2f9689c8987ff8a684fa762de4988051901b8941ffcdbfb5b88991cf4a4a6cbd"
+      "sizeBytes": 1146164,
+      "sha256": "a2d22ca41529e9e9f118829a9234d20d41fb036a274cddb4a9c2ccaca6fd723a",
+      "sourceSha256": "02e774a5e831eaef523cfa7b20ec8d059190a15db9e2a55ad0ed934e5282e9ba"
     },
     {
       "id": "7b88915a11813337",

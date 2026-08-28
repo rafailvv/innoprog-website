@@ -131,7 +131,7 @@ describe("educational disclosure server HTML", () => {
   });
 
   it("shows the freshness date only for dynamic disclosures", () => {
-    expect(renderToStaticMarkup(<SvedenPage section="education" />)).toContain("26.08.2026");
+    expect(renderToStaticMarkup(<SvedenPage section="education" />)).toContain("29.08.2026");
     for (const section of ["employees", "budget"] as const) {
       expect(renderToStaticMarkup(<SvedenPage section={section} />)).toContain("01.08.2026");
     }

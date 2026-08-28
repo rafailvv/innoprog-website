@@ -513,7 +513,7 @@ function MobilePlatformStartButton() {
 function Frame7() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈10 месяцев</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈12 месяцев</p>
     </div>
   );
 }

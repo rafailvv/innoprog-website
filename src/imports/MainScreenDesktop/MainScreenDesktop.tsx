@@ -492,6 +492,7 @@ function Frame14() {
         <DirectionHoverOverlay
           title="Python разработчик"
           description="Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов и автоматизировать рабочие задачи в проектах"
+          period="≈12 месяцев"
           showArrow
         />
       </a>

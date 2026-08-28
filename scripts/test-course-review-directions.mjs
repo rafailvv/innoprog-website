@@ -75,7 +75,7 @@ const expectedCourseDurations = {
   JavaCourse: "10 месяцев",
   MlEngineerCourse: "12 месяцев",
   MobileDeveloperCourse: "10 месяцев",
-  PythonCourse: "10 месяцев",
+  PythonCourse: "12 месяцев",
   UnrealEngineCourse: "10 месяцев",
 };
 

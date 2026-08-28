@@ -517,7 +517,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[20px] text-center text-white uppercase w-[350px]">
-        <p className="leading-[20px] mb-0">За 10 месяцев освоите с нуля</p>
+        <p className="leading-[20px] mb-0">За 12 месяцев освоите с нуля</p>
         <p className="leading-[20px] mb-0">backend-разработку</p>
         <p className="leading-[20px]">на Python и Django</p>
       </div>
@@ -4596,7 +4596,7 @@ function Frame166() {
 function Frame162() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">10</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">12</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">месяцев обучения</p>
     </div>
   );
@@ -4605,7 +4605,7 @@ function Frame162() {
 function Frame163() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">800</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">960</p>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">академических часов</p>
     </div>
   );

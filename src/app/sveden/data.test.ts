@@ -107,7 +107,7 @@ describe("educational disclosure contracts", () => {
       ["Frontend-разработчик программа обучения.pdf", "5e607dfed40c967c98ccbf0ec7c3129d44dd145a64aa9e95db94eb5030b16672"],
       ["Java-разработчик программа обучения.pdf", "48af24b0c2126d867874215539ed3da95649071f8b9f378f80accab9a3bfa7ca"],
       ["ML-инженер программа обучения.pdf", "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"],
-      ["Python-разработчик программа обучения.pdf", "2f9689c8987ff8a684fa762de4988051901b8941ffcdbfb5b88991cf4a4a6cbd"],
+      ["Python-разработчик программа обучения.pdf", "02e774a5e831eaef523cfa7b20ec8d059190a15db9e2a55ad0ed934e5282e9ba"],
       ["Unreal Engine программа обучения.pdf", "f6c73820b08d77a2a98066f4693a2cb0e2546c79a8adefd38082a84a4c81c494"],
       ["Мобильный разработчик программа обучения.pdf", "76429da557ea95b746ba0c10a70db933b10850d2abfa7211cea56793ea7c1d88"],
     ]);

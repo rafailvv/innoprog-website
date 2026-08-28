@@ -644,8 +644,8 @@ export const pythonCourseJsonLd = {
   courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P40W",
-  totalTime: "PT800H",
+  timeRequired: "P48W",
+  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
