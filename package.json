@@ -11,12 +11,13 @@
     "test:course-reviews": "node scripts/test-course-review-directions.mjs",
     "test:deployment": "node scripts/test-deployment-contracts.mjs && node scripts/test-static-asset-retention.mjs",
     "test:sveden-html": "node scripts/test-sveden-source-html.mjs",
+    "test:sveden-routing": "node scripts/test-sveden-routing.mjs",
     "test": "npm run test:unit",
     "test:unit": "vitest run",
     "test:contracts": "npm run test:proxy && npm run test:course-reviews && npm run test:deployment",
     "test:integration": "vitest run",
     "test:coverage": "vitest run --coverage && node scripts/write-coverage-metadata.mjs",
-    "test:ci": "npm run test:contracts && npm run test:coverage && npm run build && npm run test:sveden-html"
+    "test:ci": "npm run test:contracts && npm run test:coverage && npm run build && npm run test:sveden-html && npm run test:sveden-routing"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

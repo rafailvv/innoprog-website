@@ -93,6 +93,18 @@ wait_public_header() {
   return 1
 }
 
+smoke_sveden_routes() {
+  local container="$1" since logs
+  since="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  docker exec -i "$container" node --input-type=module - \
+    --base-url=http://127.0.0.1:3000 < scripts/test-sveden-routing.mjs
+  logs="$(docker logs --since "$since" "$container" 2>&1)"
+  if grep -Eq 'NoFallbackError|Error:|unhandledRejection|uncaughtException' <<<"$logs"; then
+    echo "Sveden routing smoke emitted a server error in $container" >&2
+    return 1
+  fi
+}
+
 capture_release_assets() {
   local image="$1" release="$2" copy_assets="$3" manifest_temp
   [[ "$release" =~ ^[0-9a-f]{12,64}$ ]] || return 0
@@ -259,6 +271,7 @@ docker run -d \
   -p "127.0.0.1:${CANDIDATE_PORT}:3000" \
   "$IMAGE" >/dev/null
 wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT"
+smoke_sveden_routes "$CANDIDATE_CONTAINER"
 
 # Hashed chunks are copied additively. A per-release manifest allows the
 # maintenance step to retain current and rollback assets while pruning only
@@ -274,6 +287,7 @@ IMAGE_TAG="$RELEASE" IMAGE_REVISION="$RELEASE" CONTAINER_NAME="$STABLE_CONTAINER
   docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
 stable_replaced=1
 wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT"
+smoke_sveden_routes "$STABLE_CONTAINER"
 
 switch_upstream "$STABLE_PORT"
 switched=0

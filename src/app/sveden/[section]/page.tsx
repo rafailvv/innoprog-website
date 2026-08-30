@@ -4,7 +4,9 @@ import { SITE_NAME, SITE_URL } from "../../seo";
 import { SvedenPage } from "../SvedenPage";
 import { SVEDEN_SECTIONS, SVEDEN_SECTION_SLUGS, type SvedenSectionSlug } from "../data";
 
-export const dynamicParams = false;
+// Keep known sections prerendered, but let unknown slugs reach notFound().
+// Next 15's static-only fallback otherwise logs an internal NoFallbackError.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return SVEDEN_SECTION_SLUGS.map((section) => ({ section }));
@@ -16,7 +18,7 @@ function isSection(value: string): value is SvedenSectionSlug {
 
 export async function generateMetadata({ params }: { params: Promise<{ section: string }> }): Promise<Metadata> {
   const { section } = await params;
-  if (!isSection(section)) return {};
+  if (!isSection(section)) notFound();
   const info = SVEDEN_SECTIONS[section];
   const url = `${SITE_URL}/sveden/${section}`;
   return {

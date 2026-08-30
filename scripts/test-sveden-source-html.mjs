@@ -27,6 +27,12 @@ async function readSectionHtml(section) {
 const report = [];
 for (const [section, requiredProperties] of Object.entries(contract)) {
   const html = await readSectionHtml(section);
+  // Check actual URL attributes, not nullable values in React's flight data.
+  for (const [, value] of html.matchAll(/(?:href|src|action)="([^"]*)"/gi)) {
+    if (/(?:^|\/)\s*(?:null|undefined)(?:[/?#]|$)/i.test(value)) {
+      throw new Error(`${section}: invalid URL attribute ${value}`);
+    }
+  }
   const actualProperties = extractItemProps(html);
   const missing = requiredProperties.filter((property) => !actualProperties.has(property));
   const forbidden = ["fmPlanDocLink", "hosteInfo"].filter((property) => actualProperties.has(property));
