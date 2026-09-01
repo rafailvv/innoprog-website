@@ -137,11 +137,25 @@ describe("educational disclosure contracts", () => {
     for (const program of EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")) {
       const schema = courseSchemaByProgram.get(program.name);
       const hours = Number.parseInt(program.volume, 10);
-      const weeks = Number.parseInt(program.term.match(/(\d+) учебных недель/)?.[1] ?? "", 10);
+      const explicitWeeks = Number.parseInt(
+        program.term.match(/(\d+) учебных недель/)?.[1] ?? "",
+        10,
+      );
+      const months = Number.parseInt(program.term.match(/(\d+) месяцев/)?.[1] ?? "", 10);
+      const weeks = Number.isNaN(explicitWeeks) ? months * 4 : explicitWeeks;
 
       expect(schema, program.name).toBeDefined();
       expect(schema?.totalTime, program.name).toBe(`PT${hours}H`);
       expect(schema?.timeRequired, program.name).toBe(`P${weeks}W`);
+    }
+  });
+
+  it("publishes the Data analyst duration as exactly ten months", () => {
+    const programs = EDUCATION_PROGRAMS.filter(({ name }) => name === "Data-аналитик");
+
+    expect(programs).toHaveLength(2);
+    for (const program of programs) {
+      expect(program.term).toBe("10 месяцев");
     }
   });
 });
