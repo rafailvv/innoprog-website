@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { pythonCourseProgramModules } from "../imports/courseProgramData";
+import { dataAnalystCourseProgramModules, pythonCourseProgramModules } from "../imports/courseProgramData";
 import { EDUCATION_PROGRAMS } from "./sveden/data";
 
 const approvedPythonModules = [
@@ -22,6 +22,27 @@ const approvedPythonModules = [
   ["Тестирование", 64],
   ["Docker", 64],
   ["CI/CD", 40],
+] as const;
+
+const approvedDataAnalystBlocks = [
+  ["Введение в профессию и организация обучения", 12],
+  ["Excel, Google Таблицы и Power Query для аналитика данных", 40],
+  ["Python Начальный", 80],
+  ["Python Продвинутый", 56],
+  ["Git", 24],
+  ["Основы SQL", 24],
+  ["PostgreSQL", 48],
+  ["SQL для аналитика: сложные запросы и оконные функции", 48],
+  ["Data Analysis", 80],
+  ["Источники, API и качество данных", 40],
+  ["Прикладная статистика для аналитика", 48],
+  ["BI и дашборды в Power BI", 72],
+  ["Бизнес- и продуктовая аналитика", 48],
+  ["A/B-тестирование и экспериментальная аналитика", 32],
+  ["Аналитические витрины и Data Engineering для аналитика", 32],
+  ["Проектная практика", 60],
+  ["Карьерная подготовка", 24],
+  ["Итоговая аттестация", 32],
 ] as const;
 
 const courseComponents = [
@@ -69,6 +90,18 @@ describe("public course duration facts", () => {
 
     expect(publishedModules).toEqual(approvedPythonModules);
     expect(publishedModules.reduce((total, [, hours]) => total + hours, 0)).toBe(880);
+  });
+
+  it("publishes all 18 approved Data analyst blocks in order with 800 total hours", () => {
+    const publishedBlocks = dataAnalystCourseProgramModules.map(({ title, tags }) => {
+      const hours = Number.parseInt(tags[0], 10);
+      expect(Number.isNaN(hours), title).toBe(false);
+      return [title, hours] as const;
+    });
+
+    expect(publishedBlocks).toEqual(approvedDataAnalystBlocks);
+    expect(publishedBlocks.slice(1, 15).reduce((total, [, hours]) => total + hours, 0)).toBe(672);
+    expect(publishedBlocks.reduce((total, [, hours]) => total + hours, 0)).toBe(800);
   });
 
   it("keeps the 960-hour DPO program separate from the 800-hour general Python program", () => {

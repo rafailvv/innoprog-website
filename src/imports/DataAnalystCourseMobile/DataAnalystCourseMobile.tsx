@@ -32,6 +32,8 @@ import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataAnalystProjectVisualImages } from "../dataAnalystProjectVisualImages";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
 
+const dataAnalystProgramPdfHref = "/files/sveden/education/professional/Data-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf?v=326ef5718c508ba3";
+
 const mobileProjectVisuals = [
   { title: "Sales analytics", code: "sales-analytics/" },
   { title: "Operations dashboard", code: "operations-dashboard/" },
@@ -2737,9 +2739,9 @@ function Component1() {
 
 function Frame66() {
   return (
-    <div className="site-course-pdf-download--hidden bg-[#9c78ff] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
+    <a className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 no-underline" href={dataAnalystProgramPdfHref}>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">скачать полную версию в PDF</p>
-    </div>
+    </a>
   );
 }
 

@@ -103,7 +103,7 @@ describe("educational disclosure contracts", () => {
     const approvedHashes = new Map([
       ["C++ разработчик программа обучения.pdf", "483faaa7a8f82061a15c522ce1abf310c980ee7e193056bed077d73dea37c822"],
       ["Data Science программа обучения.pdf", "745a221a6069126fafe98ad51d618aca354a4834723cb8534ae50e63f7a60264"],
-      ["Data-аналитик программа обучения.pdf", "35f7166145f6e67ec004d85a7bce88ec647058866b27df4bdd8a44de282fed51"],
+      ["Data-аналитик программа обучения.pdf", "326ef5718c508ba33ed5256fff74a924f2098a392c8be8cab2d2363c310c364f"],
       ["Frontend-разработчик программа обучения.pdf", "5e607dfed40c967c98ccbf0ec7c3129d44dd145a64aa9e95db94eb5030b16672"],
       ["Java-разработчик программа обучения.pdf", "48af24b0c2126d867874215539ed3da95649071f8b9f378f80accab9a3bfa7ca"],
       ["ML-инженер программа обучения.pdf", "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"],
@@ -137,7 +137,7 @@ describe("educational disclosure contracts", () => {
     for (const program of EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")) {
       const schema = courseSchemaByProgram.get(program.name);
       const hours = Number.parseInt(program.volume, 10);
-      const weeks = Number.parseInt(program.term.match(/\((\d+) учебных недель\)/)?.[1] ?? "", 10);
+      const weeks = Number.parseInt(program.term.match(/(\d+) учебных недель/)?.[1] ?? "", 10);
 
       expect(schema, program.name).toBeDefined();
       expect(schema?.totalTime, program.name).toBe(`PT${hours}H`);
