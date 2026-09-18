@@ -68,11 +68,11 @@ for (const direction of requiredDirections) {
 }
 
 const expectedCourseDurations = {
-  CppCourse: "10 месяцев",
+  CppCourse: "12 месяцев",
   DataAnalystCourse: "10 месяцев",
   DataScienceCourse: "12 месяцев",
   FrontendCourse: "10 месяцев",
-  JavaCourse: "10 месяцев",
+  JavaCourse: "12 месяцев",
   MlEngineerCourse: "12 месяцев",
   MobileDeveloperCourse: "10 месяцев",
   PythonCourse: "12 месяцев",

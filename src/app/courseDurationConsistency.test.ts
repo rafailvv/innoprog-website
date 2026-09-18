@@ -46,11 +46,11 @@ const approvedDataAnalystBlocks = [
 ] as const;
 
 const courseComponents = [
-  ["Cpp", 800, 40],
+  ["Cpp", 960, 48],
   ["DataAnalyst", 800, 40],
   ["DataScience", 960, 48],
   ["Frontend", 800, 40],
-  ["Java", 800, 40],
+  ["Java", 960, 48],
   ["MlEngineer", 960, 48],
   ["MobileDeveloper", 800, 40],
   ["Python", 960, null],
@@ -74,7 +74,7 @@ describe("public course duration facts", () => {
   });
 
   it("publishes twelve months in Python, Data Science and ML metadata", () => {
-    for (const route of ["python-course", "data-science-course", "ml-engineer-course"]) {
+    for (const route of ["cpp-developer-course", "java-developer-course", "python-course", "data-science-course", "ml-engineer-course"]) {
       const source = readFileSync(resolve(process.cwd(), "src", "app", route, "page.tsx"), "utf8");
       expect(source).toContain("12 месяцев обучения");
       expect(source).not.toContain("10 месяцев обучения");

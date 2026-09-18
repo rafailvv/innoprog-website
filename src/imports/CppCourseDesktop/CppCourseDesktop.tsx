@@ -638,7 +638,7 @@ function Frame77() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[628px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[40px] text-white uppercase w-[min-content]">
-        <p className="leading-[42px] mb-0">За 10 месяцев освоите</p>
+        <p className="leading-[42px] mb-0">За 12 месяцев освоите</p>
         <p className="leading-[42px]">C++, алгоритмы, CMake и Linux</p>
       </div>
       <Frame76 />
@@ -4838,7 +4838,7 @@ function Frame198() {
 function Frame199() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">40</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">48</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
         <p className="leading-[30px] mb-0 whitespace-pre">{`учебных `}</p>
         <p className="leading-[30px] whitespace-pre">недель</p>
@@ -4850,7 +4850,7 @@ function Frame199() {
 function Frame200() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">800</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">960</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
         <p className="leading-[30px] mb-0 whitespace-pre">{`академических `}</p>
         <p className="leading-[30px] whitespace-pre">часов</p>

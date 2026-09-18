@@ -259,7 +259,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Структура учебного репозитория и README",
       "Индивидуальная траектория итогового проекта",
     ],
-    tags: ["8 академических часов", "Организационный старт", "Индивидуальная траектория"],
+    tags: ["12 академических часов", "Организационный старт", "Индивидуальная траектория"],
   },
   {
     title: "Python для анализа данных",
@@ -273,7 +273,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Группировки, агрегации, фильтрация и подготовка данных",
       "Notebook с расчетами, графиками и выводами",
     ],
-    tags: ["48 академических часов", "pandas и NumPy", "Аналитический отчет"],
+    tags: ["84 академических часа", "pandas и NumPy", "Аналитический отчет"],
   },
   {
     title: "Продвинутый Python и ООП для Data Science",
@@ -287,7 +287,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Логирование, исключения и обработка ошибок",
       "Тесты и воспроизводимый запуск пайплайна",
     ],
-    tags: ["36 академических часов", "Python-проект", "Тестирование"],
+    tags: ["64 академических часа", "Python-проект", "Тестирование"],
   },
   {
     title: "Git, Linux и воспроизводимая среда",
@@ -301,7 +301,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "README, команды запуска и проверка проекта на другом компьютере",
       "Секреты, временные файлы и базовая безопасность",
     ],
-    tags: ["24 академических часа", "Git и Linux", "Docker"],
+    tags: ["40 академических часов", "Git и Linux", "Docker"],
   },
   {
     title: "SQL и PostgreSQL для аналитики",
@@ -315,7 +315,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Контроль дублей и логика объединения таблиц",
       "Выгрузка данных для анализа и моделирования",
     ],
-    tags: ["44 академических часа", "SQL и PostgreSQL", "Аналитические витрины"],
+    tags: ["76 академических часов", "SQL и PostgreSQL", "Аналитические витрины"],
   },
   {
     title: "Математика, статистика и продуктовые метрики",
@@ -329,7 +329,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Продуктовые и бизнес-метрики",
       "Ограничения выборки и практическая значимость",
     ],
-    tags: ["52 академических часа", "Статистика", "A/B-тесты"],
+    tags: ["88 академических часов", "Статистика", "A/B-тесты"],
   },
   {
     title: "Подготовка, очистка и исследовательский анализ данных",
@@ -343,7 +343,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Feature engineering и подготовка признаков",
       "Карта рисков данных и выводы для моделирования",
     ],
-    tags: ["56 академических часов", "EDA", "Feature engineering"],
+    tags: ["96 академических часов", "EDA", "Feature engineering"],
   },
   {
     title: "Машинное обучение",
@@ -357,7 +357,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Кластеризация и интерпретация сегментов",
       "Важность признаков, SHAP и анализ ошибок",
     ],
-    tags: ["80 академических часов", "Модели ML", "Интерпретация"],
+    tags: ["136 академических часов", "Модели ML", "Интерпретация"],
   },
   {
     title: "Глубокое обучение, NLP, компьютерное зрение и генеративный ИИ",
@@ -371,7 +371,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Генеративный ИИ в прикладных сценариях",
       "Метрики, анализ ошибок, этические и правовые ограничения",
     ],
-    tags: ["72 академических часа", "NLP и CV", "Генеративный ИИ"],
+    tags: ["124 академических часа", "NLP и CV", "Генеративный ИИ"],
   },
   {
     title: "MLOps, API, деплой и мониторинг моделей",
@@ -385,7 +385,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Логирование, базовый мониторинг и деградация качества",
       "Документация сервиса и ограничения применения",
     ],
-    tags: ["36 академических часов", "FastAPI и Docker", "MLOps"],
+    tags: ["64 академических часа", "FastAPI и Docker", "MLOps"],
   },
   {
     title: "Проектная практика и портфолио",
@@ -399,7 +399,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Интерпретация, ограничения и рекомендации",
       "Репозиторий, отчет, презентация и демонстрация",
     ],
-    tags: ["80 академических часов", "Портфолио", "End-to-end проект"],
+    tags: ["136 академических часов", "Портфолио", "End-to-end проект"],
   },
   {
     title: "Итоговая аттестация",
@@ -413,7 +413,7 @@ export const dataScienceCourseProgramModules: CourseProgramModule[] = [
       "Оценка практической ценности и ограничений решения",
       "План дальнейшего развития проекта",
     ],
-    tags: ["24 академических часа", "Защита проекта", "Итоговая аттестация"],
+    tags: ["40 академических часов", "Защита проекта", "Итоговая аттестация"],
   },
 ];
 
@@ -430,7 +430,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Требования к репозиторию, README и сдаче работ",
       "Выбор направления итогового frontend-проекта",
     ],
-    tags: ["8 академических часов", "Старт обучения", "Индивидуальная траектория"],
+    tags: ["12 академических часов", "Старт обучения", "Индивидуальная траектория"],
   },
   {
     title: "HTML, CSS и адаптивная верстка",
@@ -445,7 +445,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Mobile-first, медиазапросы, адаптивные изображения и breakpoints",
       "БЭМ, Sass, CSS Modules, Tailwind CSS, токены и базовая доступность",
     ],
-    tags: ["72 академических часа", "HTML и CSS", "Адаптивная верстка"],
+    tags: ["104 академических часа", "HTML и CSS", "Адаптивная верстка"],
   },
   {
     title: "JavaScript и TypeScript для frontend-разработки",
@@ -460,7 +460,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Promise, async/await, fetch, состояния загрузки и обработка ошибок",
       "TypeScript: типы, интерфейсы, union-типы, generics и строгий режим",
     ],
-    tags: ["88 академических часов", "JavaScript", "TypeScript"],
+    tags: ["124 академических часа", "JavaScript", "TypeScript"],
   },
   {
     title: "Git, командная разработка и качество кода",
@@ -474,7 +474,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Naming, структура проекта, линтеры, форматирование и документация",
       "README, скриншоты, чек-лист проверки и исправление замечаний",
     ],
-    tags: ["40 академических часов", "Git и code review", "Качество кода"],
+    tags: ["56 академических часов", "Git и code review", "Качество кода"],
   },
   {
     title: "Инструменты разработки, сборка и Linux",
@@ -488,7 +488,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Базовые Linux-команды, файловая система и терминал",
       "Статический хостинг, Nginx, Docker-окружение для проверки и элементы CI/CD",
     ],
-    tags: ["40 академических часов", "Vite и Node.js", "Linux и деплой"],
+    tags: ["56 академических часов", "Vite и Node.js", "Linux и деплой"],
   },
   {
     title: "React и компонентная архитектура",
@@ -502,7 +502,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Декомпозиция компонентов, composition, children и переиспользование логики",
       "Типизация props, моделей данных и состояний в React + TypeScript",
     ],
-    tags: ["104 академических часа", "React", "Компонентная архитектура"],
+    tags: ["148 академических часов", "React", "Компонентная архитектура"],
   },
   {
     title: "Маршрутизация, управление состоянием и работа с API",
@@ -516,7 +516,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Фильтры, поиск, пагинация и сохранение параметров в URL",
       "Авторизационные сценарии и защищенные маршруты",
     ],
-    tags: ["72 академических часа", "Routing", "State и API"],
+    tags: ["104 академических часа", "Routing", "State и API"],
   },
   {
     title: "Тестирование, доступность, производительность и безопасность",
@@ -530,7 +530,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Безопасная работа с пользовательским вводом, токенами и env",
       "Поиск дефектов, оформление чек-листа и исправление замечаний",
     ],
-    tags: ["48 академических часов", "Тесты", "A11y и performance"],
+    tags: ["68 академических часов", "Тесты", "A11y и performance"],
   },
   {
     title: "Дизайн-системы, UI-kit и командная frontend-практика",
@@ -544,7 +544,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Storybook-сценарии или аналогичная витрина компонентов",
       "Командная практика, code review и согласование интерфейсных решений",
     ],
-    tags: ["24 академических часа", "UI-kit", "Дизайн-система"],
+    tags: ["36 академических часов", "UI-kit", "Дизайн-система"],
   },
   {
     title: "Проектная практика и консультации",
@@ -558,7 +558,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Тестирование, доступность, производительность и исправление дефектов",
       "README, скриншоты, деплой и подготовка к защите",
     ],
-    tags: ["40 академических часов", "Портфолио", "Итоговый проект"],
+    tags: ["56 академических часов", "Портфолио", "Итоговый проект"],
   },
   {
     title: "Итоговая аттестация",
@@ -572,7 +572,7 @@ export const frontendCourseProgramModules: CourseProgramModule[] = [
       "Оформление репозитория, README и демонстрационных материалов",
       "Защита проекта, ответы на вопросы и оценочный лист",
     ],
-    tags: ["24 академических часа", "Защита проекта", "Итоговая аттестация"],
+    tags: ["36 академических часов", "Защита проекта", "Итоговая аттестация"],
   },
 ];
 
@@ -773,7 +773,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Настройка редактора, компилятора и базовой среды",
       "Выбор предварительной темы проектной работы",
     ],
-    tags: ["8 академических часов", "Старт обучения", "Настройка среды"],
+    tags: ["12 академических часов", "Старт обучения", "Настройка среды"],
   },
   {
     title: "Основы программирования на C++",
@@ -787,7 +787,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Обработка ошибок ввода и проверка данных",
       "Набор консольных программ с понятным выводом результата",
     ],
-    tags: ["96 академических часов", "C++", "Консольные программы"],
+    tags: ["144 академических часа", "C++", "Консольные программы"],
   },
   {
     title: "Алгоритмы и структуры данных на C++",
@@ -801,7 +801,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Разбор ошибок и тестирование алгоритмических решений",
       "Мини-проект с применением выбранной структуры данных",
     ],
-    tags: ["72 академических часа", "Алгоритмы", "Структуры данных"],
+    tags: ["112 академических часов", "Алгоритмы", "Структуры данных"],
   },
   {
     title: "Современный C++ и стандартная библиотека",
@@ -815,7 +815,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Модульная структура библиотеки",
       "C++ библиотека с тестовыми сценариями",
     ],
-    tags: ["72 академических часа", "STL", "Современный C++"],
+    tags: ["128 академических часов", "STL", "Современный C++"],
   },
   {
     title: "Объектно-ориентированное программирование и архитектура C++ приложений",
@@ -829,7 +829,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Разделение заголовочных и исходных файлов",
       "ООП-приложение с документацией архитектуры",
     ],
-    tags: ["80 академических часов", "ООП", "Архитектура"],
+    tags: ["128 академических часов", "ООП", "Архитектура"],
   },
   {
     title: "Инструменты разработки, Git, CMake и отладка",
@@ -843,7 +843,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Диагностика дефектов и исправление ошибок",
       "README, инструкция сборки и сценарии проверки",
     ],
-    tags: ["56 академических часов", "Git и CMake", "Отладка"],
+    tags: ["96 академических часов", "Git и CMake", "Отладка"],
   },
   {
     title: "SQL и PostgreSQL для C++ разработчика",
@@ -857,7 +857,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Безопасная работа с параметрами подключения",
       "C++ приложение с хранением данных и SQL-скриптами",
     ],
-    tags: ["48 академических часов", "SQL", "PostgreSQL"],
+    tags: ["72 академических часа", "SQL", "PostgreSQL"],
   },
   {
     title: "Linux, системное окружение и эксплуатация C++ приложений",
@@ -871,7 +871,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Bash-скрипты для запуска и проверки",
       "Инструкция эксплуатации учебного приложения",
     ],
-    tags: ["40 академических часов", "Linux", "Эксплуатация"],
+    tags: ["88 академических часов", "Linux", "Эксплуатация"],
   },
   {
     title: "Тестирование, качество и безопасная разработка на C++",
@@ -885,7 +885,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Безопасность C++: ввод, память и обработка данных",
       "Отчет о найденных дефектах и исправлениях",
     ],
-    tags: ["40 академических часов", "Тесты", "Безопасность"],
+    tags: ["84 академических часа", "Тесты", "Безопасность"],
   },
   {
     title: "Проектная практика",
@@ -899,7 +899,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Оформление репозитория и документации",
       "Предзащита, обратная связь и доработка",
     ],
-    tags: ["24 академических часа", "Проектная практика", "Портфолио"],
+    tags: ["64 академических часа", "Проектная практика", "Портфолио"],
   },
   {
     title: "Итоговая аттестация",
@@ -913,7 +913,7 @@ export const cppCourseProgramModules: CourseProgramModule[] = [
       "Фиксация итоговой оценки",
       "Итоговая защита выпускного проекта",
     ],
-    tags: ["24 академических часа", "Защита проекта", "Итоговая аттестация"],
+    tags: ["32 академических часа", "Защита проекта", "Итоговая аттестация"],
   },
 ];
 
@@ -930,7 +930,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Создание учебного репозитория и структуры мобильного проекта",
       "Выбор предварительной темы итогового приложения",
     ],
-    tags: ["8 академических часов", "Старт обучения", "Flutter SDK"],
+    tags: ["12 академических часов", "Старт обучения", "Flutter SDK"],
   },
   {
     title: "Основы Dart и алгоритмизация",
@@ -944,7 +944,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Решение прикладных задач для мобильных сценариев",
       "Мини-проект на Dart с проверкой результата",
     ],
-    tags: ["64 академических часа", "Dart", "Алгоритмизация"],
+    tags: ["92 академических часа", "Dart", "Алгоритмизация"],
   },
   {
     title: "Объектно-ориентированное и асинхронное программирование на Dart",
@@ -958,7 +958,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Декомпозиция бизнес-логики приложения",
       "Подготовка моделей для Flutter-интерфейса",
     ],
-    tags: ["48 академических часов", "ООП", "Async Dart"],
+    tags: ["68 академических часов", "ООП", "Async Dart"],
   },
   {
     title: "Git, командная разработка и инструменты мобильного разработчика",
@@ -972,7 +972,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Подготовка фрагмента проекта к code review",
       "Исправление замечаний и фиксация результата",
     ],
-    tags: ["24 академических часа", "Git", "Flutter CLI"],
+    tags: ["36 академических часов", "Git", "Flutter CLI"],
   },
   {
     title: "Основы SQL и моделирование данных мобильных приложений",
@@ -986,7 +986,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Проектирование схемы для локального хранения",
       "Подготовка моделей к Flutter-приложению",
     ],
-    tags: ["32 академических часа", "SQL", "Модели данных"],
+    tags: ["48 академических часов", "SQL", "Модели данных"],
   },
   {
     title: "Flutter: основы интерфейса, виджеты и адаптивная верстка",
@@ -1000,7 +1000,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "UI-проект с несколькими экранами",
       "Подготовка интерфейса к интеграции с данными",
     ],
-    tags: ["72 академических часа", "Flutter UI", "Адаптивность"],
+    tags: ["104 академических часа", "Flutter UI", "Адаптивность"],
   },
   {
     title: "Навигация, состояние и архитектура Flutter-приложения",
@@ -1014,7 +1014,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Рефакторинг крупного Flutter-проекта",
       "Архитектурная документация и проверочные сценарии",
     ],
-    tags: ["56 академических часов", "Навигация", "State management"],
+    tags: ["80 академических часов", "Навигация", "State management"],
   },
   {
     title: "Работа с API, JSON, HTTP и backend-интеграциями",
@@ -1028,7 +1028,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Mock API, тестовые данные и конфигурация окружений",
       "Интеграционный проект с внешним API",
     ],
-    tags: ["48 академических часов", "API", "HTTP и JSON"],
+    tags: ["68 академических часов", "API", "HTTP и JSON"],
   },
   {
     title: "Локальное хранение данных и offline-first подход",
@@ -1042,7 +1042,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Миграции и контроль целостности данных",
       "Фрагмент приложения с локальным хранением",
     ],
-    tags: ["40 академических часов", "Offline-first", "Локальное хранение"],
+    tags: ["56 академических часов", "Offline-first", "Локальное хранение"],
   },
   {
     title: "Платформенные возможности и нативные интеграции",
@@ -1056,7 +1056,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Нативные ограничения и обработка недоступных функций",
       "Интеграция платформенной возможности в проект",
     ],
-    tags: ["40 академических часов", "Android и iOS", "Нативные интеграции"],
+    tags: ["56 академических часов", "Android и iOS", "Нативные интеграции"],
   },
   {
     title: "Тестирование, отладка, качество и безопасность мобильных приложений",
@@ -1070,7 +1070,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Чек-лист качества итогового проекта",
       "Исправление дефектов перед защитой",
     ],
-    tags: ["40 академических часов", "Тестирование", "Безопасность"],
+    tags: ["56 академических часов", "Тестирование", "Безопасность"],
   },
   {
     title: "Сборка, публикация, аналитика и сопровождение приложений",
@@ -1084,7 +1084,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "README, скриншоты и демонстрационный сценарий",
       "Подготовка релизной конфигурации",
     ],
-    tags: ["32 академических часа", "Сборка", "Публикация"],
+    tags: ["44 академических часа", "Сборка", "Публикация"],
   },
   {
     title: "Проектная практика и консультации",
@@ -1098,7 +1098,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Тестирование, документация и подготовка материалов",
       "Предзащита и доработка по обратной связи",
     ],
-    tags: ["32 академических часа", "Проектная практика", "Итоговое приложение"],
+    tags: ["44 академических часа", "Проектная практика", "Итоговое приложение"],
   },
   {
     title: "Итоговая аттестация",
@@ -1112,7 +1112,7 @@ export const mobileDeveloperCourseProgramModules: CourseProgramModule[] = [
       "Ответы на вопросы комиссии",
       "Фиксация итоговой оценки",
     ],
-    tags: ["24 академических часа", "Защита проекта", "Итоговая аттестация"],
+    tags: ["36 академических часов", "Защита проекта", "Итоговая аттестация"],
   },
 ];
 
@@ -1128,7 +1128,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Организация обучения и проектной траектории",
       "Идея простого игрового прототипа",
     ],
-    tags: ["8 академических часов", "Game design", "Старт проекта"],
+    tags: ["12 академических часов", "Game design", "Старт проекта"],
   },
   {
     title: "Знакомство с Unreal Engine 5",
@@ -1141,7 +1141,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Actors, components и transform",
       "Работа с уровнями, камерой, светом и assets",
     ],
-    tags: ["40 академических часов", "Unreal Engine 5", "Учебная сцена"],
+    tags: ["56 академических часов", "Unreal Engine 5", "Учебная сцена"],
   },
   {
     title: "Визуальное программирование Blueprint",
@@ -1154,7 +1154,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Blueprint Interfaces, Casting и ссылки",
       "Event Dispatchers, Actor Components и Blueprint Debugging",
     ],
-    tags: ["64 академических часа", "Blueprint", "Игровая логика"],
+    tags: ["92 академических часа", "Blueprint", "Игровая логика"],
   },
   {
     title: "Разработка базовых механик игры",
@@ -1167,7 +1167,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Условия победы, поражения и рестарта",
       "Проверка механики по чек-листу",
     ],
-    tags: ["48 академических часов", "Gameplay", "Механики"],
+    tags: ["68 академических часов", "Gameplay", "Механики"],
   },
   {
     title: "Моделирование, свет и базовый шейдер",
@@ -1180,7 +1180,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Материалы, textures и простой shader",
       "Визуальная полировка учебной сцены",
     ],
-    tags: ["48 академических часов", "Level design", "Materials"],
+    tags: ["68 академических часов", "Level design", "Materials"],
   },
   {
     title: "Кастомный персонаж, управление и камера",
@@ -1193,7 +1193,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Настройка скорости, поворотов и ощущений управления",
       "Проверка управляемого игрового объекта",
     ],
-    tags: ["56 академических часов", "Character", "Camera"],
+    tags: ["80 академических часов", "Character", "Camera"],
   },
   {
     title: "Коллизии и взаимодействие объектов",
@@ -1206,7 +1206,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Правила взаимодействия объектов",
       "Отладка коллизий и типовых ошибок",
     ],
-    tags: ["40 академических часов", "Collision", "Interaction"],
+    tags: ["56 академических часов", "Collision", "Interaction"],
   },
   {
     title: "Основы AI с использованием State Tree",
@@ -1219,7 +1219,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "AI-цели и реакция на игрока",
       "Проверка поведения противника",
     ],
-    tags: ["40 академических часов", "State Tree", "AI"],
+    tags: ["56 академических часов", "State Tree", "AI"],
   },
   {
     title: "UMG и User Widget",
@@ -1232,7 +1232,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Меню паузы и кнопки повторной игры",
       "Связь UI с Blueprint-логикой",
     ],
-    tags: ["32 академических часа", "UMG", "User Widget"],
+    tags: ["48 академических часов", "UMG", "User Widget"],
   },
   {
     title: "Профилирование и оптимизация в Unreal Engine",
@@ -1245,7 +1245,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Проверка результата на тех же условиях",
       "Отчет с показателями и выводом",
     ],
-    tags: ["32 академических часа", "Profiling", "Optimization"],
+    tags: ["48 академических часов", "Profiling", "Optimization"],
   },
   {
     title: "Проект Collect the coin",
@@ -1258,7 +1258,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Счет, прогресс и состояние игры",
       "Тестирование, полировка и демонстрация проекта",
     ],
-    tags: ["40 академических часов", "Проект", "Collect the coin"],
+    tags: ["56 академических часов", "Проект", "Collect the coin"],
   },
   {
     title: "Проект: шутер с летающим дроном",
@@ -1271,7 +1271,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "AI-цели и State Tree",
       "Оптимизация, сборка, README и демонстрация",
     ],
-    tags: ["56 академических часов", "Проект", "Drone shooter"],
+    tags: ["80 академических часов", "Проект", "Drone shooter"],
   },
   {
     title: "Проектная практика и портфолио",
@@ -1284,7 +1284,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Страница проекта на itch.io",
       "Портфолио-кейс, README, видео и скриншоты",
     ],
-    tags: ["32 академических часа", "Portfolio", "itch.io"],
+    tags: ["44 академических часа", "Portfolio", "itch.io"],
   },
   {
     title: "Итоговая аттестация",
@@ -1297,7 +1297,7 @@ export const unrealEngineCourseProgramModules: CourseProgramModule[] = [
       "Проверка сборки и инструкции запуска",
       "Ответы на вопросы комиссии",
     ],
-    tags: ["24 академических часа", "Защита", "Итоговый проект"],
+    tags: ["36 академических часов", "Защита", "Итоговый проект"],
   },
 ];
 
@@ -1313,7 +1313,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Требования к практическим работам и защите",
       "Выбор проектной траектории",
     ],
-    tags: ["8 академических часов", "Старт обучения", "JDK"],
+    tags: ["12 академических часов", "Старт обучения", "JDK"],
   },
   {
     title: "Java Core",
@@ -1326,7 +1326,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Условия, циклы, массивы и методы",
       "Строки, StringBuilder, stacktrace и мини-проект Java Core",
     ],
-    tags: ["80 академических часов", "Java Core", "Консольные программы"],
+    tags: ["128 академических часов", "Java Core", "Консольные программы"],
   },
   {
     title: "Объектно-ориентированное программирование на Java",
@@ -1339,7 +1339,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Пакеты, слои приложения и архитектура проекта",
       "Диаграмма классов и объектный мини-проект",
     ],
-    tags: ["56 академических часов", "ООП", "Архитектура"],
+    tags: ["88 академических часов", "ООП", "Архитектура"],
   },
   {
     title: "Коллекции, обобщения, исключения и Stream API",
@@ -1352,7 +1352,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Stream API: фильтрация, сортировка и преобразования",
       "Файловое хранение и практическое приложение",
     ],
-    tags: ["40 академических часов", "Collections", "Stream API"],
+    tags: ["72 академических часа", "Collections", "Stream API"],
   },
   {
     title: "Инструменты Java-разработчика: Git, Maven, Gradle и отладка",
@@ -1365,7 +1365,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Gradle: задачи, плагины и сборка проекта",
       "Breakpoints, watch expressions, codestyle и README",
     ],
-    tags: ["24 академических часа", "Git", "Maven/Gradle"],
+    tags: ["40 академических часов", "Git", "Maven/Gradle"],
   },
   {
     title: "Основы SQL",
@@ -1378,7 +1378,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Группировка, агрегаты и HAVING",
       "INSERT, UPDATE, DELETE и простая схема данных",
     ],
-    tags: ["24 академических часа", "SQL", "Реляционные БД"],
+    tags: ["40 академических часов", "SQL", "Реляционные БД"],
   },
   {
     title: "Алгоритмы и структуры данных",
@@ -1391,7 +1391,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Собственные структуры данных",
       "Тестовые наборы и объяснение решения",
     ],
-    tags: ["48 академических часов", "Алгоритмы", "Структуры данных"],
+    tags: ["72 академических часа", "Алгоритмы", "Структуры данных"],
   },
   {
     title: "Web-основы, HTTP, JSON и клиентская часть",
@@ -1404,7 +1404,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Основы HTML, CSS и JavaScript для backend",
       "Проектирование REST API и интеграция клиента с сервисом",
     ],
-    tags: ["40 академических часов", "HTTP/JSON", "REST API"],
+    tags: ["56 академических часов", "HTTP/JSON", "REST API"],
   },
   {
     title: "Linux и среда исполнения Java-приложений",
@@ -1417,7 +1417,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Логи и диагностика запуска",
       "Dockerfile или compose-сценарий на базовом уровне",
     ],
-    tags: ["32 академических часа", "Linux", "Deploy basics"],
+    tags: ["64 академических часа", "Linux", "Deploy basics"],
   },
   {
     title: "PostgreSQL, JDBC, JPA и Hibernate",
@@ -1430,10 +1430,10 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "DAO и repository-подход",
       "JPA, Hibernate, связи, транзакции и миграции",
     ],
-    tags: ["48 академических часов", "PostgreSQL", "JPA/Hibernate"],
+    tags: ["88 академических часов", "PostgreSQL", "JPA/Hibernate"],
   },
   {
-    title: "JavaFX и клиентские приложения на Java",
+    title: "Spring Framework и Spring Boot: REST API и архитектура backend-приложений",
     description:
       "Создадите настольное JavaFX-приложение с формами, таблицами, навигацией, контроллерами, валидацией и связью с сервисным слоем или базой данных",
     topics: [
@@ -1443,10 +1443,10 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Табличные данные, формы и валидация",
       "Интеграция интерфейса с сервисным слоем и БД",
     ],
-    tags: ["40 академических часов", "JavaFX", "Desktop UI"],
+    tags: ["112 академических часов", "Spring Boot", "REST API и backend"],
   },
   {
-    title: "Spring Boot: REST API, безопасность, тестирование и деплой",
+    title: "Тестирование, Docker, CI/CD и эксплуатация Java-приложений",
     description:
       "Разработаете backend-сервис на Spring Boot: REST-контроллеры, DTO, валидацию, ошибки, сервисный слой, Spring Data JPA, Security, тесты и деплой",
     topics: [
@@ -1456,7 +1456,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Spring Data JPA, PostgreSQL и Spring Security",
       "JUnit, Mockito, интеграционные тесты, Docker, Nginx и CI/CD",
     ],
-    tags: ["160 академических часов", "Spring Boot", "Backend"],
+    tags: ["80 академических часов", "Тестирование", "Docker и CI/CD"],
   },
   {
     title: "Проектная практика и консультации",
@@ -1469,7 +1469,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Исправление замечаний предзащиты",
       "Подготовка демонстрации и материалов портфолио",
     ],
-    tags: ["24 академических часа", "Практика", "Портфолио"],
+    tags: ["76 академических часов", "Практика", "Портфолио"],
   },
   {
     title: "Итоговая аттестация",
@@ -1482,7 +1482,7 @@ export const javaCourseProgramModules: CourseProgramModule[] = [
       "Объяснение архитектуры, БД, тестов и ключевого кода",
       "Ответы на вопросы и экспертная оценка результата",
     ],
-    tags: ["24 академических часа", "Защита", "Итоговый проект"],
+    tags: ["32 академических часа", "Защита", "Итоговый проект"],
   },
 ];
 
@@ -1497,7 +1497,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Требования к проектам, данным, отчетам и защите",
       "Входная диагностика по Python, математике и ML-мышлению",
     ],
-    tags: ["8 академических часов", "Старт обучения", "Портфолио"],
+    tags: ["12 академических часов", "Старт обучения", "Портфолио"],
   },
   {
     title: "Python для инженерии машинного обучения",
@@ -1509,7 +1509,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Загрузка, очистка и первичный анализ данных",
       "Визуализация, расчет показателей и первый baseline-прогноз",
     ],
-    tags: ["48 академических часов", "Python", "pandas"],
+    tags: ["84 академических часа", "Python", "pandas"],
   },
   {
     title: "Продвинутый Python, ООП и структура ML-проекта",
@@ -1521,7 +1521,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Логирование, обработка ошибок и CLI-сценарии",
       "Тесты для preprocessing и расчетных функций",
     ],
-    tags: ["36 академических часов", "ООП", "Тесты"],
+    tags: ["64 академических часа", "ООП", "Тесты"],
   },
   {
     title: "Git, Linux и воспроизводимая ML-среда",
@@ -1533,7 +1533,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Зависимости, виртуальные окружения и requirements",
       "Docker или воспроизводимая инструкция запуска",
     ],
-    tags: ["24 академических часа", "Git", "Linux"],
+    tags: ["40 академических часов", "Git", "Linux"],
   },
   {
     title: "SQL и PostgreSQL для ML-задач",
@@ -1545,7 +1545,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Оконные функции и подготовка выборок",
       "Контроль дублей, пропусков, типов данных и утечек",
     ],
-    tags: ["44 академических часа", "SQL", "PostgreSQL"],
+    tags: ["76 академических часов", "SQL", "PostgreSQL"],
   },
   {
     title: "Математические основы ML и метрики моделей",
@@ -1557,7 +1557,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Метрики классификации, регрессии и ранжирования",
       "Baseline, критерии успеха и интерпретация результата",
     ],
-    tags: ["52 академических часа", "Статистика", "Метрики"],
+    tags: ["88 академических часов", "Статистика", "Метрики"],
   },
   {
     title: "Подготовка данных, feature engineering и контроль качества",
@@ -1569,7 +1569,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Кодирование категорий, даты, тексты и числовые признаки",
       "Проверка утечек и воспроизводимый preprocessing",
     ],
-    tags: ["56 академических часов", "EDA", "Feature engineering"],
+    tags: ["96 академических часов", "EDA", "Feature engineering"],
   },
   {
     title: "Машинное обучение и валидация моделей",
@@ -1581,7 +1581,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Подбор гиперпараметров и настройка порога",
       "Анализ ошибок, важность признаков и интерпретация",
     ],
-    tags: ["80 академических часов", "scikit-learn", "Валидация"],
+    tags: ["136 академических часов", "scikit-learn", "Валидация"],
   },
   {
     title: "Глубокое обучение, NLP, компьютерное зрение и генеративный ИИ",
@@ -1593,7 +1593,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Computer Vision, аугментации и transfer learning",
       "Генеративные сценарии, ограничения и этика",
     ],
-    tags: ["72 академических часа", "NLP", "Computer Vision"],
+    tags: ["124 академических часа", "NLP", "Computer Vision"],
   },
   {
     title: "MLOps, ML API, деплой и мониторинг моделей",
@@ -1605,7 +1605,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Docker, README и контейнерный запуск",
       "Мониторинг дрейфа данных, качества и план переобучения",
     ],
-    tags: ["36 академических часов", "MLOps", "FastAPI"],
+    tags: ["64 академических часа", "MLOps", "FastAPI"],
   },
   {
     title: "Проектная практика ML-инженера и портфолио",
@@ -1617,7 +1617,7 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Улучшение модели, анализ ошибок и model card",
       "Отчет, README, презентация, предзащита и доработка",
     ],
-    tags: ["80 академических часов", "Проектная практика", "Портфолио"],
+    tags: ["136 академических часов", "Проектная практика", "Портфолио"],
   },
   {
     title: "Итоговая аттестация",
@@ -1629,6 +1629,6 @@ export const mlEngineerCourseProgramModules: CourseProgramModule[] = [
       "Публичная защита, вопросы комиссии и разбор решений",
       "Оформление решения комиссии и итоговой ведомости",
     ],
-    tags: ["24 академических часа", "Защита проекта", "Диплом"],
+    tags: ["40 академических часов", "Защита проекта", "Диплом"],
   },
 ];
