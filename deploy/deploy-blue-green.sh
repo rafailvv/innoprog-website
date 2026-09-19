@@ -16,12 +16,16 @@ HEALTH_PATH="${HEALTH_PATH:-/healthz}"
 HEALTH_ATTEMPTS="${HEALTH_ATTEMPTS:-60}"
 RELEASE="${1:-}"
 MAINTENANCE_LOCK="/run/lock/innoprog/production-maintenance.lock"
+POST_DEPLOY_MAINTENANCE_REQUEST="/run/lock/innoprog/post-deploy-maintenance.requested"
 
 exec 8>"$MAINTENANCE_LOCK"
 if ! flock -n 8; then
   echo "Production maintenance or another deployment is running" >&2
   exit 75
 fi
+DEPLOYMENT_ID="${INNOPROG_DEPLOYMENT_ID:-website-$(date -u +%Y%m%dT%H%M%SZ)-$$}"
+export INNOPROG_DEPLOYMENT_ID="$DEPLOYMENT_ID"
+echo "deployment_id=$DEPLOYMENT_ID service=website stage=started"
 
 if [[ -z "$RELEASE" ]]; then
   RELEASE="$(git -C "$APP_DIR" rev-parse HEAD)"
@@ -312,3 +316,5 @@ printf 'Website release %s is healthy on stable port %s\n' "$RELEASE" "$STABLE_P
 if [[ -n "$previous_rollback_image" ]]; then
   printf 'Rollback image retained: %s\n' "$previous_rollback_image"
 fi
+printf '%s\n' "$DEPLOYMENT_ID" >"$POST_DEPLOY_MAINTENANCE_REQUEST"
+echo "deployment_id=$DEPLOYMENT_ID service=website stage=completed cleanup=requested"
