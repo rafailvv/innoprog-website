@@ -160,9 +160,10 @@ const DPO_MODULES: Record<string, string[]> = {
     "MLOps, API и мониторинг", "Проектная практика", "Итоговая аттестация",
   ],
   "Python-разработчик": [
-    "Python Начальный", "Python Продвинутый", "ООП в Python", "Git", "Linux", "Алгоритмы и структуры данных",
+    "Введение в обучение и профессию", "Python Начальный", "Python Продвинутый", "ООП в Python", "Git", "Linux", "Алгоритмы и структуры данных",
     "Основы SQL", "PostgreSQL", "Основы HTML, CSS и JavaScript", "HTTP, REST API и асинхронный Python", "Django",
     "Redis, Celery и очереди сообщений", "Создание Telegram-бота", "FastAPI", "Тестирование", "Docker", "CI/CD",
+    "Проектная практика и консультации", "Итоговая аттестация",
   ],
   "Unreal Engine": [
     "Принципы создания игр", "Unreal Engine 5", "Blueprint", "Базовые игровые механики", "Моделирование и материалы",

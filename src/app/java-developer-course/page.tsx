@@ -35,7 +35,7 @@ export default function JavaCourseRoute() {
           path: "/java-developer-course",
           name: "Курс Java-разработчик с нуля",
           description:
-            "Практический онлайн-курс Java-разработчик с Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API, тестированием, деплоем и 15 проектами",
+            "Практический онлайн-курс Java-разработчик с Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестированием, Docker, CI/CD и 15 проектами",
           primaryEntityId: "https://innoprog.ru/java-developer-course#course",
         })}
       />

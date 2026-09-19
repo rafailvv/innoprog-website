@@ -41,8 +41,8 @@ const mobileProjectVisuals = [
   { title: "Key-value storage", code: "key-value-storage/" },
   { title: "Library catalog", code: "library-catalog/" },
   { title: "SQL product catalog", code: "sql-product-catalog/" },
-  { title: "Personal finance JavaFX", code: "personal-finance-javafx/" },
-  { title: "Room booking JavaFX", code: "room-booking-javafx/" },
+  { title: "Personal finance REST API", code: "personal-finance-api/" },
+  { title: "Room booking REST API", code: "room-booking-api/" },
   { title: "Task manager REST API", code: "task-manager-rest-api/" },
   { title: "Orders service", code: "orders-service/" },
   { title: "Spring Boot shop", code: "spring-boot-shop/" },
@@ -84,7 +84,7 @@ const javaMobileProjects = [
   {
     title: "Файловый каталог книг и читателей",
     description:
-      "Соберете консольное или JavaFX-приложение для учета книг, читателей, выдачи, возврата и просроченных записей",
+      "Соберете консольное приложение для учета книг, читателей, выдачи, возврата и просроченных записей",
   },
   {
     title: "SQL-каталог товаров",
@@ -92,14 +92,14 @@ const javaMobileProjects = [
       "Разработаете Java-приложение с PostgreSQL, CRUD-операциями, фильтрацией, сортировкой и отчетами по ассортименту",
   },
   {
-    title: "JavaFX-приложение для личных финансов",
+    title: "Сервис личных финансов на Spring Boot",
     description:
-      "Создадите настольное приложение с формами, таблицами, категориями расходов, диаграммами и сохранением данных",
+      "Разработаете REST API для категорий расходов и операций с PostgreSQL, валидацией запросов и автоматическими тестами",
   },
   {
-    title: "JavaFX-система бронирования кабинетов",
+    title: "Сервис бронирования кабинетов на Spring Boot",
     description:
-      "Соберете клиентское приложение для выбора даты, времени, помещения, ответственного лица и статуса заявки",
+      "Создадите backend для бронирования помещений: слоты, проверки доступности, статусы заявок и интеграционные тесты",
   },
   {
     title: "REST API менеджера задач на Spring Boot",
@@ -763,7 +763,7 @@ function Frame278() {
         <p className="leading-[20px]"><span>Java-разработчик создает приложения, backend-сервисы,</span><br /><span>REST API, базы данных, безопасность и тесты</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл Java-разработки: Java Core, ООП, SQL, JavaFX, Spring Boot, безопасность, тесты и деплой</span><br /><span>backend, базы данных, тесты и подготовку к деплою.</span><br /><span>Программа помогает собрать портфолио из 15 Java-проектов и подготовиться к первым задачам Java-разработчика.</span></p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл Java backend-разработки: Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование и CI/CD</span><br /><span>Вы научитесь проектировать backend-сервисы, подключать базы данных и проверять качество приложений.</span><br /><span>Программа помогает собрать портфолио из 15 Java-проектов и подготовиться к первым задачам Java-разработчика.</span></p>
       </div>
     </div>
   );
@@ -2144,7 +2144,6 @@ const mobileJavaTechColors: Record<string, string> = {
   "Spring Boot": "#6db33f",
   PostgreSQL: "#336791",
   Hibernate: "#59666c",
-  JavaFX: "#2563eb",
   Maven: "#c71a36",
   Gradle: "#02303a",
   Git: "#f05032",
@@ -2172,7 +2171,7 @@ function Frame191() {
       </div>
       <div className="site-course-tech-row relative shrink-0">
         <MobileJavaTechChip label="Hibernate" short="HB" />
-        <MobileJavaTechChip label="JavaFX" short="FX" />
+        <MobileJavaTechChip label="JUnit" short="JU" />
         <MobileJavaTechChip label="Maven" short="MV" />
       </div>
       <div className="site-course-tech-row relative shrink-0">
@@ -3068,7 +3067,7 @@ function Frame111() {
 function Frame113() {
   return (
     <div className="content-stretch flex flex-[1_0_0] items-center justify-between min-w-px relative">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-left text-white tracking-[0.48px] uppercase whitespace-nowrap">(11) JavaFX и клиентские приложения</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-left text-white tracking-[0.48px] uppercase whitespace-nowrap">(11) Spring Framework и Spring Boot</p>
       <div className="flex items-center justify-center relative shrink-0 size-[28px]">
         <div className="flex-none rotate-90">
           <div className="relative size-[28px]">

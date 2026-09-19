@@ -51,8 +51,8 @@ const projectVisuals = [
   { title: "Key-value storage", code: "key-value-storage/" },
   { title: "Library catalog", code: "library-catalog/" },
   { title: "SQL product catalog", code: "sql-product-catalog/" },
-  { title: "Personal finance JavaFX", code: "personal-finance-javafx/" },
-  { title: "Room booking JavaFX", code: "room-booking-javafx/" },
+  { title: "Personal finance REST API", code: "personal-finance-api/" },
+  { title: "Room booking REST API", code: "room-booking-api/" },
   { title: "Task manager REST API", code: "task-manager-rest-api/" },
   { title: "Orders service", code: "orders-service/" },
   { title: "Spring Boot shop", code: "spring-boot-shop/" },
@@ -94,7 +94,7 @@ const javaProjects = [
   {
     title: "Файловый каталог книг и читателей",
     description:
-      "Соберете консольное или JavaFX-приложение для учета книг, читателей, выдачи, возврата и просроченных записей",
+      "Соберете консольное приложение для учета книг, читателей, выдачи, возврата и просроченных записей",
   },
   {
     title: "SQL-каталог товаров",
@@ -102,14 +102,14 @@ const javaProjects = [
       "Разработаете Java-приложение с PostgreSQL, CRUD-операциями, фильтрацией, сортировкой и отчетами по ассортименту",
   },
   {
-    title: "JavaFX-приложение для личных финансов",
+    title: "Сервис личных финансов на Spring Boot",
     description:
-      "Создадите настольное приложение с формами, таблицами, категориями расходов, диаграммами и сохранением данных",
+      "Разработаете REST API для категорий расходов и операций с PostgreSQL, валидацией запросов и автоматическими тестами",
   },
   {
-    title: "JavaFX-система бронирования кабинетов",
+    title: "Сервис бронирования кабинетов на Spring Boot",
     description:
-      "Соберете клиентское приложение для выбора даты, времени, помещения, ответственного лица и статуса заявки",
+      "Создадите backend для бронирования помещений: слоты, проверки доступности, статусы заявок и интеграционные тесты",
   },
   {
     title: "REST API менеджера задач на Spring Boot",
@@ -780,7 +780,7 @@ function Frame191() {
         <a className="site-course-inline-link" href="https://career.hh.ru/profession/38" rel="noopener noreferrer" target="_blank">hh.ru</a>
       </p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
-        <p className="leading-[30px] mb-0">На курсе вы проходите полный цикл Java-разработки: Java Core, ООП, коллекции, SQL, PostgreSQL, JavaFX, Spring Boot, безопасность, тесты и деплой</p>
+        <p className="leading-[30px] mb-0">На курсе вы проходите полный цикл Java backend-разработки: Java Core, ООП, коллекции, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование и CI/CD</p>
         <p className="leading-[30px]">Программа помогает собрать портфолио из 15 Java-проектов и подготовиться к первым задачам Java-разработчика</p>
       </div>
     </div>
@@ -1504,7 +1504,6 @@ const javaTechColors: Record<string, string> = {
   "Spring Boot": "#6db33f",
   PostgreSQL: "#336791",
   Hibernate: "#59666c",
-  JavaFX: "#2563eb",
   Maven: "#c71a36",
   Gradle: "#02303a",
   Git: "#f05032",
@@ -1776,7 +1775,7 @@ function Frame154() {
       <JavaTechChip label="Spring Boot" short="SB" />
       <JavaTechChip label="PostgreSQL" short="PG" />
       <JavaTechChip label="Hibernate" short="HB" />
-      <JavaTechChip label="JavaFX" short="FX" />
+      <JavaTechChip label="JUnit" short="JU" />
       <JavaTechChip label="Maven" short="MV" />
     </div>
   );

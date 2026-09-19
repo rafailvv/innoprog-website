@@ -1,10 +1,11 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { dataAnalystCourseProgramModules, pythonCourseProgramModules } from "../imports/courseProgramData";
+import { dataAnalystCourseProgramModules, javaCourseProgramModules, pythonCourseProgramModules } from "../imports/courseProgramData";
 import { EDUCATION_PROGRAMS } from "./sveden/data";
 
 const approvedPythonModules = [
+  ["Введение в обучение и профессию", 12],
   ["Python Начальный", 80],
   ["Python Продвинутый", 80],
   ["ООП в Python", 40],
@@ -22,6 +23,8 @@ const approvedPythonModules = [
   ["Тестирование", 64],
   ["Docker", 64],
   ["CI/CD", 40],
+  ["Проектная практика и консультации", 36],
+  ["Итоговая аттестация", 32],
 ] as const;
 
 const approvedDataAnalystBlocks = [
@@ -81,7 +84,7 @@ describe("public course duration facts", () => {
     }
   });
 
-  it("publishes all 17 approved Python modules in order with 880 module hours", () => {
+  it("publishes all 20 approved Python program blocks in order with 960 total hours", () => {
     const publishedModules = pythonCourseProgramModules.map(({ title, tags }) => {
       const hours = Number.parseInt(tags[0], 10);
       expect(Number.isNaN(hours), title).toBe(false);
@@ -89,7 +92,17 @@ describe("public course duration facts", () => {
     });
 
     expect(publishedModules).toEqual(approvedPythonModules);
-    expect(publishedModules.reduce((total, [, hours]) => total + hours, 0)).toBe(880);
+    expect(publishedModules.reduce((total, [, hours]) => total + hours, 0)).toBe(960);
+  });
+
+  it("describes the Java backend modules consistently with their approved titles", () => {
+    const springModule = javaCourseProgramModules.find(({ title }) => title.startsWith("Spring Framework"));
+    const testingModule = javaCourseProgramModules.find(({ title }) => title.startsWith("Тестирование"));
+
+    expect(springModule?.description).toContain("Spring Framework");
+    expect(springModule?.topics.join(" ")).toContain("REST-контроллеры");
+    expect(testingModule?.topics.join(" ")).toContain("JUnit");
+    expect(JSON.stringify([springModule, testingModule])).not.toContain("JavaFX");
   });
 
   it("publishes all 18 approved Data analyst blocks in order with 800 total hours", () => {

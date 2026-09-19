@@ -101,15 +101,15 @@ describe("educational disclosure contracts", () => {
 
   it("uses the nine professional program revisions approved on 02.08.2026", () => {
     const approvedHashes = new Map([
-      ["C++ разработчик программа обучения.pdf", "483faaa7a8f82061a15c522ce1abf310c980ee7e193056bed077d73dea37c822"],
-      ["Data Science программа обучения.pdf", "745a221a6069126fafe98ad51d618aca354a4834723cb8534ae50e63f7a60264"],
-      ["Data-аналитик программа обучения.pdf", "326ef5718c508ba33ed5256fff74a924f2098a392c8be8cab2d2363c310c364f"],
-      ["Frontend-разработчик программа обучения.pdf", "5e607dfed40c967c98ccbf0ec7c3129d44dd145a64aa9e95db94eb5030b16672"],
-      ["Java-разработчик программа обучения.pdf", "48af24b0c2126d867874215539ed3da95649071f8b9f378f80accab9a3bfa7ca"],
-      ["ML-инженер программа обучения.pdf", "8f749ad3e53842c9d07eed7e7bcaa802e9790c424232d350ef1315fe69aeffc5"],
-      ["Python-разработчик программа обучения.pdf", "02e774a5e831eaef523cfa7b20ec8d059190a15db9e2a55ad0ed934e5282e9ba"],
-      ["Unreal Engine программа обучения.pdf", "f6c73820b08d77a2a98066f4693a2cb0e2546c79a8adefd38082a84a4c81c494"],
-      ["Мобильный разработчик программа обучения.pdf", "76429da557ea95b746ba0c10a70db933b10850d2abfa7211cea56793ea7c1d88"],
+      ["C++ разработчик программа обучения.pdf", "f8875a162ff8d229de870164196523101e1e990a8db883fa31ed94426aa926fe"],
+      ["Data Science программа обучения.pdf", "431a6def2c509dce7990594cbfecd06d7fb199433ffb360dabecf8b00524d68e"],
+      ["Data-аналитик программа обучения.pdf", "e49dcee60330d4ce0bd5b9b2b8305f365283f61239967216d4ae76607ccb3445"],
+      ["Frontend-разработчик программа обучения.pdf", "1db2f498b5b4da89d7597307daa9f65915f141827cecc1052b8a0349acae37dd"],
+      ["Java-разработчик программа обучения.pdf", "68d6253281ed70427ca4ac5e778dba9edf09b3c6223b6f6fbe354fbd3a36e5eb"],
+      ["ML-инженер программа обучения.pdf", "de970ab1a25c3ca0351ccb96dac00f81cc42114f264daf193f9378927ca46350"],
+      ["Python-разработчик программа обучения.pdf", "628076454721465c468de459b3bbba8535ff4d7eaacab3776711d5aeb73d0402"],
+      ["Unreal Engine программа обучения.pdf", "758656e03876052eec84c1f215c8e2ad43d228a725eff0766dff46413d3bf88e"],
+      ["Мобильный разработчик программа обучения.pdf", "8b9ecd1ff4f22ff7c4c9c3c7b908c3eaca0230b1b326a2593ed946f4d5f64287"],
     ]);
     const professionalDocuments = SVEDEN_DOCUMENTS.filter(
       ({ category, storageKey }) => category === "program" && storageKey.includes("/professional/"),

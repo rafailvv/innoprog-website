@@ -126,7 +126,7 @@ export const courseSkills = {
   cpp: ["C++", "CMake", "STL", "Git", "Linux", "PostgreSQL", "Unit tests", "ООП", "Алгоритмы", "Многопоточность", "Проектная практика", "Отладка", "Санитайзеры", "SQL", "Bash"],
   mobile: ["Dart", "Flutter", "Android", "iOS", "REST API", "JSON", "SQLite", "Firebase", "Git", "Flutter tests"],
   unreal: ["Blueprint", "Unreal Engine 5", "UMG", "State Tree", "Collision", "Actors", "Level Design", "itch.io", "Git", "Profiling"],
-  java: ["Java", "Spring Boot", "PostgreSQL", "Hibernate", "JavaFX", "Maven", "Gradle", "Docker", "Git", "JUnit"],
+  java: ["Java", "Spring Boot", "PostgreSQL", "Hibernate", "Maven", "Gradle", "Docker", "Git", "JUnit", "REST API"],
   mlEngineer: ["Python", "PostgreSQL", "Git", "pandas", "PyCharm", "Matplotlib", "SQL", "NumPy", "Docker", "MLflow", "Linux", "scikit-learn", "Rest API", "FastAPI", "VS Code", "Nginx", "Bash"],
 } as const;
 

@@ -53,7 +53,6 @@ export const DEFAULT_KEYWORDS = [
   "курс Java",
   "Spring Boot",
   "Hibernate",
-  "JavaFX",
   "Maven",
   "Gradle",
   "ML-инженер",
@@ -199,7 +198,7 @@ export const COURSE_SEO_ITEMS = [
   {
     name: "Java-разработчик",
     path: "/java-developer-course",
-    description: "Онлайн-курс Java-разработчик: Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API и 15 проектов",
+    description: "Онлайн-курс Java-разработчик: Java Core, ООП, SQL, PostgreSQL, Spring Boot, REST API, тестирование и 15 проектов",
   },
   {
     name: "ML-инженер",
@@ -1040,7 +1039,7 @@ export const javaCourseJsonLd = {
   "@id": `${SITE_URL}/java-developer-course#course`,
   name: "Java-разработчик",
   description:
-    "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, JavaFX, Spring Boot, REST API, безопасность, тестирование, деплой и 15 Java-проектов с наставником",
+    "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование, Docker и CI/CD, 15 Java-проектов с наставником",
   url: absoluteUrl("/java-developer-course"),
   provider: {
     "@id": `${SITE_URL}/#organization`,
@@ -1061,7 +1060,6 @@ export const javaCourseJsonLd = {
     "коллекции, исключения и Stream API",
     "SQL и PostgreSQL",
     "JDBC, JPA и Hibernate",
-    "JavaFX",
     "Spring Boot",
     "REST API и Spring Security",
     "JUnit, Mockito и тестирование",
