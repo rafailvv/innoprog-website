@@ -14,18 +14,15 @@
 }
 
 .site-course-tariff-diploma-feature__check {
-  align-items: center;
-  background: #9c78ff;
-  border-radius: 50%;
-  color: #fff;
   display: inline-flex;
-  flex: 0 0 24px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  height: 24px;
-  justify-content: center;
-  line-height: 1;
+  flex: 0 0 26px;
+  height: 26px;
+}
+
+.site-course-tariff-diploma-feature__check svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .site-course-tariff-diploma-feature p {
@@ -54,7 +51,6 @@
 
   .site-course-tariff-diploma-feature__check {
     flex-basis: 18px;
-    font-size: 12px;
     height: 18px;
   }
 
