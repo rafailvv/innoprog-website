@@ -7,8 +7,8 @@ import dzhambulatTadzhidinov from "./teachers/dzhambulat-tadzhidinov.webp";
 import polinaKaraeva from "./teachers/polina-karaeva.webp";
 import levBykov from "./teachers/lev-bykov.webp";
 import annaNadymova from "./teachers/anna-nadymova.webp";
-import evgenyYurchenko from "./teachers/evgeny-yurchenko.webp";
-import egorPopikov from "./teachers/egor-popikov.webp";
+import pavelKrotov from "./teachers/pavel-krotov.png";
+import ilyaKochenkov from "./teachers/ilya-kochenkov.png";
 import artemyKorolev from "./teachers/artemy-korolev.webp";
 
 export type TeacherRole =
@@ -83,16 +83,16 @@ const teachers: Teacher[] = [
     image: annaNadymova,
   },
   {
-    name: "Евгений Юрченко",
-    nameLines: ["Евгений", "Юрченко"],
+    name: "Павел Кротов",
+    nameLines: ["Павел", "Кротов"],
     role: "Python-разработчик",
-    image: evgenyYurchenko,
+    image: pavelKrotov,
   },
   {
-    name: "Егор Попиков",
-    nameLines: ["Егор", "Попиков"],
-    role: "Frontend-разработчик",
-    image: egorPopikov,
+    name: "Илья Коченков",
+    nameLines: ["Илья", "Коченков"],
+    role: "Data Scientist",
+    image: ilyaKochenkov,
   },
   {
     name: "Артемий Королев",
