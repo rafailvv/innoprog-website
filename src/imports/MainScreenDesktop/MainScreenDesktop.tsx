@@ -616,6 +616,7 @@ function Frame132() {
         <DirectionHoverOverlay
           title="Разработчик С++"
           description="Освойте C++, алгоритмы, структуры данных и принципы разработки быстрых программ, игр и технически сложных решений на практике"
+          period="≈12 месяцев"
         />
       </a>
       <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/mobile-developer-course">
@@ -712,6 +713,7 @@ function Frame15() {
         <DirectionHoverOverlay
           title="Java разработчик"
           description="Изучите Java, ООП и backend-разработку, чтобы создавать приложения, сервисы и надежную логику проектов на сервере"
+          period="≈12 месяцев"
         />
       </a>
       <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/ml-engineer-course">
