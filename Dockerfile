@@ -26,9 +26,11 @@ ENV HOSTNAME=0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NEXT_DEPLOYMENT_ID=${NEXT_DEPLOYMENT_ID}
 
-COPY --from=build /app/public ./public
-COPY --from=build /app/.next/standalone ./
-COPY --from=build /app/.next/static ./.next/static
+COPY --from=build --chown=0:0 /app/public ./public
+COPY --from=build --chown=0:0 /app/.next/standalone ./
+COPY --from=build --chown=0:0 /app/.next/static ./.next/static
+
+USER node
 
 EXPOSE 3000
 

@@ -17,6 +17,15 @@ HEALTH_ATTEMPTS="${HEALTH_ATTEMPTS:-60}"
 RELEASE="${1:-}"
 MAINTENANCE_LOCK="/run/lock/innoprog/production-maintenance.lock"
 POST_DEPLOY_MAINTENANCE_REQUEST="/run/lock/innoprog/post-deploy-maintenance.requested"
+WEBSITE_RUNTIME_DOCKER_ARGS=(
+  --user 1000:1000
+  --read-only
+  --cap-drop ALL
+  --security-opt no-new-privileges=true
+  --pids-limit 256
+  --tmpfs /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000,mode=1777
+  --tmpfs /app/.next/cache:rw,noexec,nosuid,size=256m,uid=1000,gid=1000,mode=0755
+)
 
 exec 8>"$MAINTENANCE_LOCK"
 if ! flock -n 8; then
@@ -55,6 +64,8 @@ IMAGE="${IMAGE_REPOSITORY}:${RELEASE}"
 previous_image_id="$(docker inspect -f '{{.Image}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
 previous_release="$(docker inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$STABLE_CONTAINER" 2>/dev/null || true)"
 previous_rollback_image=""
+previous_runtime=""
+rollback_override=""
 switched=0
 stable_replaced=0
 asset_container=""
@@ -82,6 +93,49 @@ wait_healthy() {
   return 1
 }
 
+assert_runtime_hardening() {
+  local container="$1" user readonly cap_drop security_opts pids_limit tmpfs
+  user="$(docker inspect -f '{{.Config.User}}' "$container")"
+  readonly="$(docker inspect -f '{{.HostConfig.ReadonlyRootfs}}' "$container")"
+  cap_drop="$(docker inspect -f '{{json .HostConfig.CapDrop}}' "$container")"
+  security_opts="$(docker inspect -f '{{json .HostConfig.SecurityOpt}}' "$container")"
+  pids_limit="$(docker inspect -f '{{.HostConfig.PidsLimit}}' "$container")"
+  tmpfs="$(docker inspect -f '{{json .HostConfig.Tmpfs}}' "$container")"
+  if [[ "$user" != "1000:1000" || "$readonly" != "true" || "$cap_drop" != *ALL* || \
+    ! "$security_opts" =~ \"no-new-privileges[:=]true\" || "$pids_limit" != "256" || \
+    "$tmpfs" != *"/tmp"* || "$tmpfs" != *"/app/.next/cache"* ]]; then
+    echo "$container is missing required Website runtime hardening" >&2
+    echo "user=$user readonly=$readonly cap_drop=$cap_drop security_opts=$security_opts pids_limit=$pids_limit tmpfs=$tmpfs" >&2
+    return 1
+  fi
+}
+
+runtime_compose_override() {
+  # Capture only the runtime settings changed by hardening, never container Env.
+  # !override replaces lists, including empty legacy lists, instead of merging
+  # the new release's restrictions into the previous immutable image.
+  docker inspect -f 'services:
+  website:
+    user: {{json .Config.User}}
+    read_only: {{.HostConfig.ReadonlyRootfs}}
+    cap_drop: !override {{if .HostConfig.CapDrop}}{{json .HostConfig.CapDrop}}{{else}}[]{{end}}
+    cap_add: !override {{if .HostConfig.CapAdd}}{{json .HostConfig.CapAdd}}{{else}}[]{{end}}
+    security_opt: !override {{if .HostConfig.SecurityOpt}}{{json .HostConfig.SecurityOpt}}{{else}}[]{{end}}
+    pids_limit: {{if .HostConfig.PidsLimit}}{{.HostConfig.PidsLimit}}{{else}}-1{{end}}
+    tmpfs: !override {{if .HostConfig.Tmpfs}}{{range $path, $options := .HostConfig.Tmpfs}}
+      - {{json (printf "%s:%s" $path $options)}}{{end}}{{else}}[]{{end}}' "$1"
+}
+
+assert_previous_runtime() {
+  local runtime image_id
+  runtime="$(runtime_compose_override "$STABLE_CONTAINER")" || return 1
+  image_id="$(docker inspect -f '{{.Image}}' "$STABLE_CONTAINER")" || return 1
+  if [[ "$runtime" != "$previous_runtime" || "$image_id" != "$previous_image_id" ]]; then
+    echo "Rollback container does not match the previous image and runtime settings" >&2
+    return 1
+  fi
+}
+
 wait_public_header() {
   local url="$1"
   local pattern="$2"
@@ -101,8 +155,8 @@ smoke_sveden_routes() {
   local container="$1" since logs
   since="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   docker exec -i "$container" node --input-type=module - \
-    --base-url=http://127.0.0.1:3000 < scripts/test-sveden-routing.mjs
-  logs="$(docker logs --since "$since" "$container" 2>&1)"
+    --base-url=http://127.0.0.1:3000 < scripts/test-sveden-routing.mjs || return 1
+  logs="$(docker logs --since "$since" "$container" 2>&1)" || return 1
   if grep -Eq 'NoFallbackError|Error:|unhandledRejection|uncaughtException' <<<"$logs"; then
     echo "Sveden routing smoke emitted a server error in $container" >&2
     return 1
@@ -187,17 +241,18 @@ cleanup() {
     # restored on the stable port, then atomically return traffic to stable.
     if wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT" && switch_upstream "$CANDIDATE_PORT"; then
       previous_revision="$(docker image inspect -f '{{index .Config.Labels "org.opencontainers.image.revision"}}' "$previous_rollback_image" 2>/dev/null || true)"
-      IMAGE_TAG="${previous_rollback_image#${IMAGE_REPOSITORY}:}" \
+      if IMAGE_TAG="${previous_rollback_image#${IMAGE_REPOSITORY}:}" \
         IMAGE_REVISION="${previous_revision:-$previous_release}" \
         CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
-        docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
-      if wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT" && switch_upstream "$STABLE_PORT"; then
+        docker compose -f docker-compose.prod.yml -f "$rollback_override" up -d --no-build --force-recreate website && \
+        assert_previous_runtime && wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT" && \
+        smoke_sveden_routes "$STABLE_CONTAINER" && switch_upstream "$STABLE_PORT"; then
         rollback_ok=1
       fi
     else
       echo "rollback did not replace stable because candidate traffic switch failed" >&2
     fi
-  elif ((exit_code != 0)) && ((switched == 1)); then
+  elif ((exit_code != 0)) && ((switched == 1)) && ((stable_replaced == 0)); then
     if switch_upstream "$STABLE_PORT"; then
       rollback_ok=1
     fi
@@ -210,6 +265,9 @@ cleanup() {
   fi
   if [[ -n "$build_context" ]]; then
     rm -rf "$build_context"
+  fi
+  if [[ -n "$rollback_override" ]]; then
+    rm -f "$rollback_override"
   fi
   if ((exit_code == 0 || stable_replaced == 0 || rollback_ok == 1)); then
     docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
@@ -234,6 +292,12 @@ if [[ "$previous_release" =~ ^[0-9a-f]{12,64}$ && "$previous_image_id" =~ ^sha25
   previous_digest="${previous_image_id#sha256:}"
   previous_rollback_image="${IMAGE_REPOSITORY}:rollback-${previous_release:0:12}-${previous_digest:0:12}"
   docker image tag "$previous_image_id" "$previous_rollback_image"
+  previous_runtime="$(runtime_compose_override "$STABLE_CONTAINER")"
+  rollback_override="$(mktemp)"
+  printf '%s\n' "$previous_runtime" >"$rollback_override"
+  # Validate !override support and the captured configuration before replacing
+  # either running container or switching traffic.
+  docker compose -f docker-compose.prod.yml -f "$rollback_override" config --quiet
 fi
 
 # Capture the currently served release before building the replacement. Its
@@ -268,12 +332,14 @@ docker run --rm --entrypoint node "$IMAGE" -e '
 docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
 docker run -d \
   --name "$CANDIDATE_CONTAINER" \
+  "${WEBSITE_RUNTIME_DOCKER_ARGS[@]}" \
   --env-file "$ENV_FILE" \
   --restart no \
   --memory 768m \
   --cpus 1.0 \
   -p "127.0.0.1:${CANDIDATE_PORT}:3000" \
   "$IMAGE" >/dev/null
+assert_runtime_hardening "$CANDIDATE_CONTAINER"
 wait_healthy "$CANDIDATE_CONTAINER" "$CANDIDATE_PORT"
 smoke_sveden_routes "$CANDIDATE_CONTAINER"
 
@@ -287,9 +353,12 @@ switch_upstream "$CANDIDATE_PORT"
 switched=1
 curl -fsS --max-time 10 -H 'Host: innoprog.ru' "http://127.0.0.1:${CANDIDATE_PORT}${HEALTH_PATH}" >/dev/null
 
+# Compose can stop or remove stable before returning an error. From this point
+# cleanup must restore and verify it, or keep traffic on the healthy candidate.
+stable_replaced=1
 IMAGE_TAG="$RELEASE" IMAGE_REVISION="$RELEASE" CONTAINER_NAME="$STABLE_CONTAINER" HOST_PORT="$STABLE_PORT" \
   docker compose -f docker-compose.prod.yml up -d --no-build --force-recreate website
-stable_replaced=1
+assert_runtime_hardening "$STABLE_CONTAINER"
 wait_healthy "$STABLE_CONTAINER" "$STABLE_PORT"
 smoke_sveden_routes "$STABLE_CONTAINER"
 
@@ -310,6 +379,9 @@ CURRENT_RELEASE="$RELEASE" PREVIOUS_RELEASE="$previous_release" \
   bash deploy/prune-static-assets.sh
 
 docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
+if [[ -n "$rollback_override" ]]; then
+  rm -f "$rollback_override"
+fi
 trap - EXIT
 
 printf 'Website release %s is healthy on stable port %s\n' "$RELEASE" "$STABLE_PORT"

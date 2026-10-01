@@ -1,6 +1,16 @@
 services:
   website:
     image: innoprog-website:${IMAGE_TAG:-local}
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges=true
+    pids_limit: 256
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000,mode=1777
+      - /app/.next/cache:rw,noexec,nosuid,size=256m,uid=1000,gid=1000,mode=0755
     build:
       context: .
       dockerfile: Dockerfile

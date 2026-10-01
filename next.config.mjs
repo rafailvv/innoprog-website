@@ -41,14 +41,15 @@ const nextConfig = {
     ? {
         deploymentId,
         generateBuildId: async () => deploymentId,
-        experimental: {
-          // Mark rendered documents with the release that produced them. This
-          // makes release skew observable and keeps the application ready for
-          // sticky multi-release routing if Server Actions are introduced.
-          useSkewCookie: true,
-        },
       }
     : {}),
+  experimental: {
+    // Runtime prerender entries stay in Next's bounded memory cache. The image's
+    // prebuilt pages remain readable without writing into .next/server/app.
+    isrFlushToDisk: false,
+    // Mark rendered documents with the release that produced them.
+    ...(deploymentId ? { useSkewCookie: true } : {}),
+  },
   htmlLimitedBots: /.*/,
   images: {
     disableStaticImages: true,

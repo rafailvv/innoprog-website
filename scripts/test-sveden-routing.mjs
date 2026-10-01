@@ -63,6 +63,17 @@ try {
   assert.equal(redirect.status, 308);
   assert.equal(new URL(redirect.headers.get("location"), baseUrl).pathname, "/sveden/common");
 
+  // This valid legacy alias is rendered on demand, unlike the prerendered
+  // "andrey" slug, and exercises the cache under the read-only deployment.
+  for (let repeat = 0; repeat < 2; repeat++) {
+    const legacyRedirect = await request("/python-course/reviews/andrey-python");
+    await legacyRedirect.text();
+    assert.equal(legacyRedirect.status, 308);
+    // Node may combine duplicate Location headers emitted by Next redirects.
+    const location = legacyRedirect.headers.get("location")?.split(", ")[0];
+    assert.equal(location, "/reviews?direction=python&review=andrey");
+  }
+
   for (const userAgent of ["Mozilla/5.0", "meta-externalagent/1.1"]) {
     // Repeat to cover both cold fallback handling and cached 404 responses.
     for (let repeat = 0; repeat < 2; repeat++) {
@@ -86,4 +97,4 @@ try {
 
 // Inspect drained stdout AND stderr: a successful 404 alone missed the bug.
 assert.doesNotMatch(output, /NoFallbackError|Error:|unhandledRejection|uncaughtException/i);
-console.log(`Sveden production routing verified: valid sections, invalid-section 404/noindex${server ? ", clean server logs" : ""}`);
+console.log(`Production routing verified: Sveden sections, invalid-section 404/noindex, legacy review redirect${server ? ", clean server logs" : ""}`);
