@@ -1,7 +1,7 @@
 "use client";
 import ChildrenMobileMenu from "./ChildrenMobileMenu";
 import { childrenCourseNavigation } from "./courses/course-paths";
-import { useState, useSyncExternalStore, type ReactNode } from "react";
+import { useState, useSyncExternalStore, type ReactNode, type CSSProperties } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../components/ResponsiveSiteFooter";
 import styles from "./school/school.module.css";
@@ -27,7 +27,7 @@ export default function ChildrenShell({
   const scale = width / (isMobile ? 390 : 1440);
   const [menu, setMenu] = useState(false);
   return (
-    <div className={`${styles.page} ${className}`}>
+    <div className={`${styles.page} ${className}`} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={styles.header}>
         <SiteHeader
           childrenHref="/children"

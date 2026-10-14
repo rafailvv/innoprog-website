@@ -1579,3 +1579,22 @@
     transition: none;
   }
 }
+
+/* Match the adult canvas scale on wide screens, with compact outer gutters. */
+@media (min-width: 1101px) {
+  .container { width: calc(100% - 96px); }
+  .course[id="exam"] > img { transform: scale(1.25); transform-origin: center; }
+  .course[id="olympiad"] > img { width: 29%; transform: scale(1.25); }
+  .teacherCard { padding-inline: 20px; }
+}
+@media (min-width: 1440px) {
+  .page > main {
+    width: 1440px;
+    zoom: var(--children-desktop-scale, 1);
+  }
+  .container { width: 1280px; }
+}
+@media (max-width: 1100px) {
+  .course[id="exam"] > img { transform: scale(1.15); }
+  .course[id="olympiad"] > img { width: 28%; transform: scale(1.15); }
+}

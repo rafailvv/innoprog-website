@@ -168,6 +168,7 @@ export default async function Page({ params }: Props) {
                 </a>
               </div>
               <img
+                className={course.asset === "exam" || course.asset === "olympiad" ? styles.enlargedArtwork : undefined}
                 src={source.assets[course.asset]}
                 alt={course.title}
                 width={320}

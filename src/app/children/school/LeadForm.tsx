@@ -33,6 +33,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
   const [phone, setPhone] = useState("");
+  const [personalConsent, setPersonalConsent] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -133,7 +134,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" autoComplete="tel" inputMode="tel" maxLength={30} required disabled={pending} value={phone} onChange={(event) => setPhone(event.target.value)} onBlur={() => setPhone(formatChildrenPhone(phone))} />
         </label>
         <label className={formStyles.field}>
-          <span>Электронная почта <small>необязательно</small></span>
+          <span>Электронная почта</span>
           <input type="email" name="email" placeholder="name@example.ru" autoComplete="email" maxLength={254} disabled={pending} />
         </label>
         <label className={formStyles.field}>
@@ -146,20 +147,20 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           )}
         </label>
         <label className={`${formStyles.field} ${formStyles.fullWidth}`}>
-          <span>Пожелания или вопрос <small>необязательно</small></span>
+          <span>Пожелания или вопрос</span>
           <textarea name="message" rows={3} maxLength={1500} placeholder="Что интересно ребёнку? Есть ли опыт? Когда удобно заниматься?" disabled={pending} />
         </label>
       </div>
       <label className={formStyles.consent}>
-        <input type="checkbox" name="consent" required disabled={pending} />
+        <input type="checkbox" name="consent" required checked={personalConsent} onChange={(event) => setPersonalConsent(event.target.checked)} disabled={pending} />
         <span>Я даю <a href="/consent" target="_blank" rel="noreferrer">согласие на обработку персональных данных</a> и принимаю <a href="/privacy" target="_blank" rel="noreferrer">политику конфиденциальности</a></span>
       </label>
       <label className={formStyles.consent}>
         <input type="checkbox" name="advertising_consent" disabled={pending} />
-        <span>Я согласен(на) получать <a href="/advertising-consent" target="_blank" rel="noreferrer">рекламные и информационные сообщения</a> <span className={formStyles.optional}>(необязательно)</span></span>
+        <span>Я согласен(на) получать <a href="/advertising-consent" target="_blank" rel="noreferrer">рекламные и информационные сообщения</a></span>
       </label>
       {error ? <p id={`${id}-error`} role="alert" className={formStyles.error}>{error}{" "}<a href="https://t.me/innoprog_admin" target="_blank" rel="noreferrer">Написать в Telegram</a></p> : null}
-      <button className={`${styles.button} ${formStyles.submit}`} type="submit" disabled={pending} aria-describedby={error ? `${id}-error` : undefined}>{pending ? "Отправляем…" : "Отправить"}</button>
+      <button className={`${styles.button} ${formStyles.submit}`} type="submit" disabled={pending || !personalConsent} aria-describedby={error ? `${id}-error` : undefined}>{pending ? "Отправляем…" : "Отправить"}</button>
     </form>
   );
 }

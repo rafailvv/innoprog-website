@@ -2,7 +2,7 @@
 import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import { childrenCourseNavigation } from "../courses/course-paths";
 
-import { useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
+import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
 import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
@@ -142,7 +142,7 @@ export default function SchoolPage() {
     }
   };
   return (
-    <div className={styles.page}>
+    <div className={styles.page} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={styles.header}>
         <SiteHeader
           childrenHref="/children"

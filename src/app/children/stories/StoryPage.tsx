@@ -2,7 +2,7 @@
 import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import { childrenCourseNavigation } from "../courses/course-paths";
 import Link from "next/link";
-import { useState, useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore, type CSSProperties } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../../components/ResponsiveSiteFooter";
@@ -31,7 +31,7 @@ export default function StoryPage({ index }: { index: number }) {
   const [photo, setPhoto] = useState<number | null>(null);
   const paragraphs = item.text.split(/(?<=\.)\s+(?=[А-ЯЁ])/u);
   return (
-    <div className={school.page}>
+    <div className={school.page} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={school.header}>
         <SiteHeader
           childrenHref="/children"

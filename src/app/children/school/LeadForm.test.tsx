@@ -150,3 +150,39 @@ describe("captcha and duplicate submission", () => {
     expect(fetch).toHaveBeenCalledOnce();
   });
 });
+
+
+describe("required personal consent controls submission", () => {
+  it("keeps submit disabled until personal consent is checked and disables again when revoked", () => {
+    render(<LeadForm />);
+    const button = screen.getByRole("button", { name: "Отправить" }) as HTMLButtonElement;
+    const consent = screen.getByRole("checkbox", { name: /обработку персональных данных/ });
+    expect(screen.queryByText(/необязательно/)).toBeNull();
+    fireEvent.change(screen.getByLabelText("Электронная почта"), { target: { value: "" } });
+    expect((screen.getByLabelText("Электронная почта") as HTMLInputElement).required).toBe(false);
+    expect((screen.getByLabelText("Пожелания или вопрос") as HTMLTextAreaElement).required).toBe(false);
+    expect(button.disabled).toBe(true);
+    fireEvent.click(consent);
+    expect(button.disabled).toBe(false);
+    fireEvent.click(consent);
+    expect(button.disabled).toBe(true);
+    expect(requestToken).not.toHaveBeenCalled();
+  });
+
+  it("does not enable submit through advertising consent alone", () => {
+    const fetch = vi.spyOn(globalThis, "fetch");
+    render(<LeadForm />);
+    const advertising = screen.getByRole("checkbox", { name: /рекламные и информационные сообщения/ });
+    expect(advertising.closest("label")?.textContent).not.toContain("необязательно");
+    fireEvent.click(advertising);
+    const button = screen.getByRole("button", { name: "Отправить" }) as HTMLButtonElement;
+    expect(button.disabled).toBe(true);
+    fireEvent.click(button);
+    expect(requestToken).not.toHaveBeenCalled();
+    expect(fetch).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("checkbox", { name: /обработку персональных данных/ }));
+    expect(button.disabled).toBe(false);
+    fireEvent.click(advertising);
+    expect(button.disabled).toBe(false);
+  });
+});
