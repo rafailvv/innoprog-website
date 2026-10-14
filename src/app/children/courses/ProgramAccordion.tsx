@@ -19,7 +19,7 @@ export default function ProgramAccordion({ modules }: { modules: ChildrenCourse[
             <b aria-hidden="true">+</b>
           </summary>
           <div>
-            <p>{module.description}</p>
+            <p>{module.description.replace(/\.$/, "")}</p>
             <ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
           </div>
         </details>

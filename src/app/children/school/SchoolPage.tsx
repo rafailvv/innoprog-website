@@ -586,8 +586,8 @@ export default function SchoolPage() {
               <div className={styles.price}>
                 <span className={styles.discount}>−27%</span>
                 <h2>Стоимость обучения</h2>
-                <del>9 990 руб/мес.</del>
-                <p>7 290 руб/мес.</p>
+                <del>9 990 руб/мес</del>
+                <p>7 290 руб/мес</p>
               </div>
               <ul>
                 <li>
@@ -665,7 +665,7 @@ export default function SchoolPage() {
             <Dialog.Title>{application}</Dialog.Title>
             <Dialog.Description>
               Оставьте заявку, и мы поможем подобрать направление и удобное
-              время занятий.
+              время занятий
             </Dialog.Description>
             <LeadForm key={application} context={application ?? undefined} />
           </Dialog.Content>

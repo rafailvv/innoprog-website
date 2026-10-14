@@ -238,7 +238,7 @@
 }
 .modules details[open] summary b {
   transform: rotate(45deg);
-  color: #cab3ff;
+  color: #fff;
 }
 .modules details > div {
   padding: 0 0 26px 60px;
@@ -887,9 +887,12 @@
 .faq summary:hover {
   color: #b797ff;
 }
-.modules summary:focus-visible {
-  outline: 3px solid #c6b0ff;
-  outline-offset: 5px;
+.main .modules summary:focus-visible {
+  outline: none;
+}
+.modules summary:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 .modules summary b,
 .faq summary span {

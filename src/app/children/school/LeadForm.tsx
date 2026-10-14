@@ -107,7 +107,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
     <div className={formStyles.success} role="status">
       <span className={formStyles.successIcon} aria-hidden="true">✓</span>
       <h3>Заявка отправлена!</h3>
-      <p>Спасибо! Мы свяжемся с вами и подберём удобное время занятия.</p>
+      <p>Спасибо! Мы свяжемся с вами и подберём удобное время занятия</p>
     </div>
   );
   return (

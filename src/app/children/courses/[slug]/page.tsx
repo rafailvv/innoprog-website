@@ -141,7 +141,7 @@ export default async function Page({ params }: Props) {
                   <span>Онлайн</span>
                   <span>Практика и свои проекты</span>
                 </div>
-                <p>{course.lead}</p>
+                <p>{course.lead.replace(/\.$/, "")}</p>
                 <div className={styles.heroActions}>
                   <a className={school.button} href="#application">
                     Записаться на бесплатное занятие
@@ -173,12 +173,12 @@ export default async function Page({ params }: Props) {
               </h2>
             </div>
             <div className={styles.audience}>
-              <p>{course.audience}</p>
+              <p>{course.audience.replace(/\.$/, "")}</p>
               <div>
                 <b>Начнём с ребёнка, а не с шаблона</b>
                 <p>
                   На бесплатном вводном занятии узнаем об интересах, посмотрим
-                  на текущие навыки и выберем подходящий маршрут.
+                  на текущие навыки и выберем подходящий маршрут
                 </p>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default async function Page({ params }: Props) {
             </div>
             <p className={styles.programIntro}>
               Основные темы направления. Глубину, порядок и темп прохождения
-              подбираем после вводного занятия под уровень ребёнка.
+              подбираем после вводного занятия под уровень ребёнка
             </p>
             <ProgramAccordion modules={course.modules} />
           </div>
@@ -234,13 +234,13 @@ export default async function Page({ params }: Props) {
                 <article key={example.title}>
                   <span className={styles.exampleNumber}>({i + 1})</span>
                   <h3>{example.title}</h3>
-                  <p>{example.description}</p>
+                  <p>{example.description.replace(/\.$/, "")}</p>
                 </article>
               ))}
             </div>
             <p className={styles.note}>
               Конкретные задания и проекты преподаватель подбирает по подготовке
-              и интересам ученика.
+              и интересам ученика
             </p>
           </section>
           <section className={styles.format}>
@@ -255,7 +255,7 @@ export default async function Page({ params }: Props) {
               </h2>
               <p>
                 Ребёнок занимается с преподавателем один на один, сразу задаёт
-                вопросы и получает обратную связь по своей работе.
+                вопросы и получает обратную связь по своей работе
               </p>
               <ul>
                 <li>Расписание подстраиваем под школу и другие занятия</li>
@@ -279,8 +279,8 @@ export default async function Page({ params }: Props) {
                 <br />
                 останутся с ребёнком
               </h2>
-              <p>{course.result}</p>
-              <p>После успешного окончания ИТ-курса — сертификат ИННОПРОГ.</p>
+              <p>{course.result.replace(/\.$/, "")}</p>
+              <p>После успешного окончания ИТ-курса — сертификат ИННОПРОГ</p>
             </div>
             <img
               src={source.assets.certificate}
@@ -333,20 +333,20 @@ export default async function Page({ params }: Props) {
                 Начните с бесплатного занятия
               </span>
               <h2 className={styles.sectionTitle}>
-                Попробуйте.
+                Попробуйте
                 <br />
-                Разберитесь.
+                Разберитесь
                 <br />
-                <em>Выберите своё.</em>
+                <em>Выберите своё</em>
               </h2>
               <p>
                 Оставьте заявку на курс «{course.title}». Обсудим ваши цели,
-                познакомимся с ребёнком и подберём удобное время.
+                познакомимся с ребёнком и подберём удобное время
               </p>
               <div className={styles.price}>
                 <span>Стоимость обучения</span>
-                <del>9 990 ₽/мес.</del>
-                <b>7 290 ₽/мес.</b>
+                <del>9 990 ₽/мес</del>
+                <b>7 290 ₽/мес</b>
               </div>
             </div>
             <div className={styles.formCard}>
