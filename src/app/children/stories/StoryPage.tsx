@@ -106,17 +106,19 @@ export default function StoryPage({ index }: { index: number }) {
               ))}
             </div>
           </section>
-          <section className={styles.cta}>
+          <section className={styles.cta} id="intro-lesson">
             <div>
+              <span className={styles.ctaLabel}>Бесплатное вводное занятие</span>
               <h2>
-                Первый проект вашего ребёнка —<br /> уже на вводном занятии
+                Первый проект вашего ребёнка — <span>уже на вводном занятии</span>
               </h2>
               <p>
-              Познакомимся, выберем интересное направление и начнём создавать
+                Познакомимся, выберем интересное направление и начнём создавать
               </p>
             </div>
             <Link className={school.button} href="/children#tariff">
-              Записаться на бесплатное занятие
+              <span>Записаться на бесплатное занятие</span>
+              <span className={styles.ctaArrow} aria-hidden="true">↗</span>
             </Link>
           </section>
           <section className={styles.other}>

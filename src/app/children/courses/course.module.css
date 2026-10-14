@@ -72,7 +72,9 @@
   background: #fff;
   border: 1px solid #c7aeff;
   border-radius: 25px;
-  font-size: 14px;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 1.4;
 }
 .heroCard p {
   font-size: 26px;
@@ -150,7 +152,7 @@
   color: #8052db;
 }
 .audience > div p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
   margin: 14px 0 0;
 }
@@ -223,13 +225,14 @@
   font-size: 25px;
 }
 .examples p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
   margin-bottom: 0;
 }
 .note {
   color: #877c94;
-  font-size: 15px !important;
+  font-size: 17px !important;
+  line-height: 1.5;
 }
 .format {
   padding-top: 0;
@@ -274,7 +277,7 @@
   font-size: 35px;
 }
 .result p {
-  font-size: 19px;
+  font-size: 20px;
 }
 .result img {
   width: 100%;
@@ -297,13 +300,14 @@
   font-size: 34px;
 }
 .story p {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.6;
 }
 .story a {
   color: #8a5de5;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 .faq {
   max-width: 1000px;
@@ -339,7 +343,7 @@
   color: #9c78ff;
 }
 .faq details p {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.6;
   color: #736780;
 }
@@ -407,7 +411,8 @@
   font-size: 31px;
 }
 .formCard > p {
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.5;
   color: #82738e;
   margin: 15px 0 0;
 }
@@ -433,7 +438,8 @@
   padding: 16px 20px;
   color: #7147c2;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.4;
 }
 .related a:hover {
   background: #eaddff;
@@ -451,7 +457,7 @@
     font-size: 22px;
   }
   .heroActions a:first-child {
-    font-size: 17px;
+    font-size: 18px;
   }
   .hero h1 {
     font-size: 53px;
@@ -542,7 +548,7 @@
     gap: 7px;
   }
   .tags span {
-    font-size: 11px;
+    font-size: 16px;
     padding: 6px 9px;
   }
   .heroActions {
@@ -550,12 +556,12 @@
     gap: 18px;
   }
   .heroActions a:first-child {
-    font-size: 16px;
+    font-size: 18px;
     padding: 16px 12px;
     text-align: center;
   }
   .heroActions a:nth-child(2) {
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
   }
   .license {
@@ -596,7 +602,7 @@
     font-size: 19px;
   }
   .audience > div p {
-    font-size: 16px;
+    font-size: 18px;
   }
   .skillsSection {
     padding: 5px 0 42px;
@@ -644,11 +650,11 @@
     font-size: 22px;
   }
   .examples p {
-    font-size: 17px;
+    font-size: 18px;
     margin-top: 18px;
   }
   .note {
-    font-size: 13px !important;
+    font-size: 16px !important;
   }
   .format {
     grid-template-columns: 1fr;
@@ -661,7 +667,7 @@
     line-height: 1.55;
   }
   .format ul {
-    font-size: 16px;
+    font-size: 18px;
   }
   .format img {
     height: auto;
@@ -693,17 +699,17 @@
     font-size: 28px;
   }
   .story p {
-    font-size: 17px;
+    font-size: 18px;
   }
   .story a {
-    font-size: 16px;
+    font-size: 17px;
   }
   .faq summary {
     font-size: 19px;
     line-height: 1.35;
   }
   .faq details p {
-    font-size: 17px;
+    font-size: 18px;
   }
   .application {
     padding: 38px 0;
@@ -739,7 +745,7 @@
     font-size: 28px;
   }
   .related a {
-    font-size: 15px;
+    font-size: 16px;
     padding: 14px 17px;
     border-radius: 18px;
   }
@@ -903,3 +909,8 @@
 }
 
 .heroCard > img.enlargedArtwork { transform: scale(1.15); }
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .examples { grid-template-columns: minmax(0, 1fr); }
+  .examples article { min-height: 0; }
+}

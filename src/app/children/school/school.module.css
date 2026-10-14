@@ -201,6 +201,7 @@
 }
 .futureGrid p {
   font-size: 20px;
+  line-height: 1.5;
   padding: 0 30px;
 }
 .futureGrid img {
@@ -270,12 +271,15 @@
 }
 .course ul {
   padding-left: 18px;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 18px;
+  line-height: 1.5;
   max-width: 90%;
   margin: 0 0 22px;
   position: relative;
   z-index: 1;
+}
+.course li + li {
+  margin-top: 6px;
 }
 .course .button {
   margin-top: auto;
@@ -340,8 +344,8 @@
   padding-right: 40px;
 }
 .step p {
-  font-size: 18px;
-  line-height: 1.25;
+  font-size: 20px;
+  line-height: 1.5;
   margin: 24px 0 0;
 }
 .stepNumber {
@@ -478,6 +482,7 @@
 .innopolisGrid p {
   margin: 0 0 24px;
   font-size: 20px;
+  line-height: 1.55;
 }
 .partnerLogos {
   display: flex;
@@ -520,6 +525,11 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 38px;
 }
+.reviews article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .reviews article > img {
   width: 100%;
   height: 205px;
@@ -528,7 +538,8 @@
   margin-bottom: 24px;
 }
 .reviews article > span {
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.4;
   color: var(--purple);
   font-weight: 700;
 }
@@ -538,14 +549,14 @@
 }
 .reviews p {
   color: #666;
-  font-size: 17px;
-  line-height: 1.5;
-  min-height: 130px;
+  font-size: 18px;
+  line-height: 1.6;
   margin: 12px 0 20px;
 }
 .reviews .button {
-  font-size: 16px;
+  font-size: 18px;
   padding: 12px 28px;
+  margin-top: auto;
 }
 .faq {
   padding-inline: 28px;
@@ -587,7 +598,7 @@
   background: var(--purple, #9c78ff);
 }
 .faq details p {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.6;
   color: #666;
   max-width: 1000px;
@@ -891,7 +902,7 @@
     width: 30%;
   }
   .course ul {
-    font-size: 13px;
+    font-size: 18px;
   }
   .guarantee {
     font-size: 31px !important;
@@ -900,7 +911,7 @@
     font-size: 23px;
   }
   .futureGrid p {
-    font-size: 17px;
+    font-size: 18px;
     padding: 0 20px;
   }
   .teacherGrid {
@@ -929,7 +940,7 @@
     font-size: 21px;
   }
   .step p {
-    font-size: 16px;
+    font-size: 18px;
   }
   .mainStep img {
     height: 310px;
@@ -974,7 +985,7 @@
     height: 155px;
   }
   .reviews p {
-    min-height: 180px;
+    min-height: 0;
   }
 }
 @media (max-width: 767px) {
@@ -1082,7 +1093,7 @@
     border-radius: 30px;
   }
   .course .age {
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px 16px;
   }
   .course h3 {
@@ -1102,8 +1113,8 @@
     width: 22%;
   }
   .course ul {
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.55;
     max-width: 100%;
     padding-left: 14px;
     margin-bottom: 20px;
@@ -1138,7 +1149,8 @@
     font-size: 23px;
   }
   .certificate a {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 18px;
   }
   .certificate img {
@@ -1161,9 +1173,9 @@
     padding-right: 30px;
   }
   .step p {
-    font-size: 16px;
+    font-size: 17px;
     margin-top: 16px;
-    line-height: 1.3;
+    line-height: 1.5;
   }
   .stepNumber {
     width: 40px;
@@ -1252,8 +1264,8 @@
     border-radius: 17px;
   }
   .innopolisGrid p {
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: 17px;
+    line-height: 1.55;
   }
   .partnerLogos {
     gap: 30px;
@@ -1301,14 +1313,14 @@
     margin-bottom: 20px;
   }
   .reviews p {
-    font-size: 16px;
-    min-height: 165px;
+    font-size: 17px;
+    min-height: 0;
   }
   .reviews h3 {
     font-size: 19px;
   }
   .reviews .button {
-    font-size: 16px;
+    font-size: 17px;
     padding: 12px 34px;
   }
   .faq {
@@ -1332,8 +1344,8 @@
     padding: 14px 0;
   }
   .faq details p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.6;
   }
   .trial {
     grid-template-columns: 1fr;
@@ -1446,7 +1458,7 @@
     font-size: 24px;
   }
   .course ul {
-    font-size: 12px;
+    font-size: 16px;
   }
   .guarantee {
     font-size: 24px !important;
@@ -1599,4 +1611,8 @@
 /* Use the header's 104px design gutters for the introductory block. */
 @media (min-width: 768px) {
   .heroInner { width: calc(100% * 1232 / 1440); }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .course[id="olympiad"] h3 { font-size: 24px; }
 }

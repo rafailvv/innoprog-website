@@ -48,7 +48,7 @@
 }
 .hero p:last-child {
   color: #81758e;
-  font-size: 17px;
+  font-size: 20px;
   margin-top: 8px;
 }
 .story {
@@ -59,16 +59,16 @@
   padding: 65px 0;
 }
 .story h2 {
-  font-size: 32px !important;
+  font-size: 36px !important;
 }
 .story > div p {
-  font-size: 17px;
+  font-size: 20px;
   color: #80728d;
 }
 .story blockquote {
   margin: 0;
-  font-size: 21px;
-  line-height: 1.7;
+  font-size: 23px;
+  line-height: 1.65;
   border-left: 4px solid #9c78ff;
   padding-left: 32px;
 }
@@ -124,28 +124,60 @@
   font-weight: 800;
 }
 .cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 350px);
+  align-items: center;
+  gap: 48px;
+  background: #464a6a;
+  color: #fff;
+  border-radius: 40px;
+  padding: 48px;
+  margin: 30px 0 70px;
+}
+.ctaLabel {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #c5afff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.cta h2 {
+  font-size: 42px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -1px;
+}
+.cta h2 span { display: block; color: #c5afff; }
+.cta p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 24px 0 0 !important;
+  max-width: 42ch;
+}
+.cta a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  background: #9c78ff;
-  color: #fff;
-  border-radius: 30px;
-  padding: 40px;
-  margin: 30px 0 70px;
-}
-.cta h2 {
-  font-size: 30px !important;
-}
-.cta p {
-  font-size: 17px;
-}
-.cta a {
-  background: white !important;
-  color: #8057d9;
-  flex: 0 0 30%;
+  gap: 20px;
+  background: #fff !important;
+  color: #464a6a;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.35;
+  border-radius: 28px;
+  padding: 20px 24px;
+}
+.ctaArrow {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eee7ff;
+  color: #7650bf;
+  font-size: 28px;
+  font-weight: 400;
 }
 .other > div {
   display: grid;
@@ -218,18 +250,19 @@
     gap: 30px;
   }
   .story blockquote {
-    font-size: 19px;
+    font-size: 21px;
   }
   .photoGrid img {
     height: 330px;
   }
   .cta {
-    padding: 28px;
-    gap: 25px;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px;
+    gap: 28px;
   }
-  .cta h2 {
-    font-size: 26px !important;
-  }
+  .cta h2 { font-size: 36px !important; }
+  .cta a { justify-self: start; max-width: 390px; }
+
 }
 @media (max-width: 767px) {
   .breadcrumb {
@@ -263,7 +296,7 @@
     font-size: 28px !important;
   }
   .story blockquote {
-    font-size: 18px;
+    font-size: 19px;
     padding-left: 20px;
   }
   .story > div p {
@@ -292,21 +325,17 @@
     object-fit: contain;
   }
   .cta {
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 24px;
-    padding: 25px;
+    border-radius: 28px;
+    padding: 28px 22px;
     margin: 25px 0 45px;
+    gap: 26px;
   }
-  .cta h2 {
-    font-size: 26px !important;
-  }
-  .cta h2 br {
-    display: none;
-  }
-  .cta a {
-    font-size: 17px;
-  }
+  .ctaLabel { font-size: 12px; margin-bottom: 16px; }
+  .cta h2 { font-size: 30px !important; letter-spacing: -.5px; }
+  .cta p { font-size: 18px; margin-top: 18px !important; }
+  .cta a { font-size: 17px; padding: 16px 18px; width: 100%; gap: 12px; }
+  .ctaArrow { flex-basis: 32px; height: 32px; font-size: 24px; }
+
   .other > div {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -324,4 +353,11 @@
   .photoGrid img {
     transition: none;
   }
+}
+
+.hero p:last-child, .story > div p, .other p { line-height: 1.55; }
+.tag, .galleryHeading span, .other span { font-size: 18px; }
+@media (max-width: 767px) {
+  .hero p:last-child, .story > div p, .other p { font-size: 18px; }
+  .tag, .galleryHeading span, .other span { font-size: 16px; }
 }
