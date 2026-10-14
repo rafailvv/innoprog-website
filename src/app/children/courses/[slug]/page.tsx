@@ -372,9 +372,6 @@ export default async function Page({ params }: Props) {
                 course={`Запись на курс «${course.title}»`}
                 formId={`children-${course.slug}`}
               />
-              <p className={styles.captchaNote}>
-                Форма защищена Yandex SmartCaptcha
-              </p>
             </div>
           </div>
         </section>
