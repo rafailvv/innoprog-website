@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { REVIEW_ROUTE_TO_KEY, SITE_URL } from "./seo";
+import { childrenCoursePaths } from "./children/courses/course-paths";
 import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
 
 const SVEDEN_UPDATED_AT = new Date("2026-08-01T00:00:00.000Z");
@@ -10,10 +11,18 @@ const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/python-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/data-science-course", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/frontend-developer-course", changeFrequency: "weekly", priority: 0.9 },
+  {
+    path: "/frontend-developer-course",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
   { path: "/data-analyst-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/cpp-developer-course", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/mobile-developer-course", changeFrequency: "weekly", priority: 0.9 },
+  {
+    path: "/mobile-developer-course",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
   { path: "/unreal-engine-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/java-developer-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/ml-engineer-course", changeFrequency: "weekly", priority: 0.9 },
@@ -24,6 +33,21 @@ const baseRoutes = [
 
 const routes = [
   ...baseRoutes,
+  {
+    path: "/children",
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  },
+  ...Object.values(childrenCoursePaths).map((path) => ({
+    path,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  })),
+  ...["amir", "eldar", "almaz"].map((slug) => ({
+    path: `/children/stories/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  })),
   ...Object.keys(REVIEW_ROUTE_TO_KEY).map((story) => ({
     path: `/reviews/${story}`,
     changeFrequency: "monthly" as const,

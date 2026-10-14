@@ -4715,7 +4715,7 @@ export default function App({
   };
 
   const openChildrenPage = () => {
-    window.location.href = "https://pages.innoprog.ru/children/school";
+    window.location.href = "/children";
   };
 
   const closeCurrentPageAndScroll = (key: keyof typeof desktopScrollTargets) => {
@@ -5577,7 +5577,7 @@ export default function App({
             </div>
             <div className="site-mobile-menu__nav-group">
               <div className="site-mobile-menu__nav-row">
-                <button data-mobile-menu-link data-scroll-target="children" type="button">для детей</button>
+                <a data-mobile-menu-link href="/children">для детей</a>
                 <button
                   aria-controls="mobile-child-courses"
                   aria-expanded={openMobileNavGroup === "children"}

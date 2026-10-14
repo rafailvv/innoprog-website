@@ -1,3 +1,5 @@
+import { childrenCourseNavigation } from "./children/courses/course-paths";
+
 export const ADULT_COURSE_LINKS = [
   { label: "Python-разработчик", href: "/python-course" },
   { label: "Data Science", href: "/data-science-course" },
@@ -10,14 +12,4 @@ export const ADULT_COURSE_LINKS = [
   { label: "ML-инженер", href: "/ml-engineer-course" },
 ] as const;
 
-export const CHILD_COURSE_LINKS = [
-  "Программирование на Python",
-  "Создание сайтов с нуля",
-  "Информатика ОГЭ/ЕГЭ",
-  "Олимпиадное программирование",
-  "Разработка нейросетей",
-  "Игры своими руками",
-].map((label) => ({
-  label,
-  href: "https://pages.innoprog.ru/children/school",
-}));
+export const CHILD_COURSE_LINKS = childrenCourseNavigation;

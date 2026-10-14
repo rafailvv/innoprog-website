@@ -103,6 +103,8 @@ export function OPTIONS() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
+    const sourcePage = normalizeSourcePage(body.source_page, req.headers.get("referer") || "");
+    const sourcePath = new URL(sourcePage).pathname;
     const payload = {
       name: String(body.name || "").trim(),
       phone: normalizePhone(body.phone),
@@ -110,7 +112,8 @@ export async function POST(req: NextRequest) {
       question: String(body.question || "").trim(),
       personal_data_consent: body.personal_data_consent === true,
       advertising_consent: body.advertising_consent === true,
-      source_page: normalizeSourcePage(body.source_page, req.headers.get("referer") || ""),
+      source_page: sourcePage,
+      site_audience: sourcePath === "/children" || sourcePath.startsWith("/children/") ? "children" : "adults",
       form_id: normalizeFormId(body.form_id),
     };
     const captchaToken = String(body.captcha_token || "").trim();

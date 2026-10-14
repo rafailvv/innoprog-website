@@ -111,7 +111,7 @@ try {
       if (route === "/" || route.endsWith("-course")) {
         assert.ok(document.querySelector('a[href="/tariffs"]'), `${route}: tariffs must be linked in server HTML`);
       }
-      if (route.endsWith("-course")) {
+      if (route.endsWith("-course") || route.startsWith("/children/courses/")) {
         const course = structuredData.find((item) => item["@type"] === "Course");
         assert.equal(course?.url, url, route);
         assert.equal(course.provider.name, "ИННОПРОГ", route);

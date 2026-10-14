@@ -1,0 +1,108 @@
+{
+  "assets": {
+    "hero": "/children/school/hero.webp",
+    "hero-mobile": "/children/school/hero-mobile.webp",
+    "hero-wave": "/children/school/hero-wave.svg",
+    "hero-wave-right": "/children/school/hero-wave-right.svg",
+    "laptop": "/children/school/laptop.svg",
+    "code-cubes": "/children/school/code-cubes.svg",
+    "python": "/children/school/python.webp",
+    "web": "/children/school/web.webp",
+    "exam": "/children/school/exam.webp",
+    "olympiad": "/children/school/olympiad.webp",
+    "ai": "/children/school/ai.webp",
+    "games": "/children/school/games.webp",
+    "certificate": "/children/school/certificate.webp",
+    "lesson": "/children/school/lesson.webp",
+    "rafael": "/children/school/rafael.webp",
+    "grigory": "/children/school/grigory.webp",
+    "pavel": "/children/school/pavel.webp",
+    "trial": "/children/school/trial.webp",
+    "gift": "/children/school/gift.webp",
+    "telegram": "/children/school/telegram.webp",
+    "innopolis-logo": "/children/school/innopolis-logo.svg",
+    "innoprog-logo": "/children/school/innoprog-logo.webp",
+    "price-wave": "/children/school/price-wave.webp",
+    "innopolis": "/children/school/innopolis.webp",
+    "review-1": "/children/school/review-1.webp",
+    "review-2": "/children/school/review-2.webp",
+    "review-3": "/children/school/review-3.webp",
+    "review-1-gallery-1": "/children/school/review-1-gallery-1.webp",
+    "review-1-gallery-2": "/children/school/review-1-gallery-2.webp",
+    "review-1-gallery-3": "/children/school/review-1-gallery-3.webp",
+    "review-1-gallery-4": "/children/school/review-1-gallery-4.webp",
+    "review-1-gallery-5": "/children/school/review-1-gallery-5.webp",
+    "review-2-gallery-1": "/children/school/review-2-gallery-1.webp",
+    "review-2-gallery-2": "/children/school/review-2-gallery-2.webp",
+    "review-2-gallery-3": "/children/school/review-2-gallery-3.webp",
+    "review-2-gallery-4": "/children/school/review-2-gallery-4.webp",
+    "review-3-gallery-1": "/children/school/review-3-gallery-1.webp",
+    "review-3-gallery-2": "/children/school/review-3-gallery-2.webp",
+    "review-3-gallery-3": "/children/school/review-3-gallery-3.webp",
+    "review-3-gallery-4": "/children/school/review-3-gallery-4.webp",
+    "review-3-gallery-5": "/children/school/review-3-gallery-5.webp",
+    "review-3-gallery-6": "/children/school/review-3-gallery-6.webp",
+    "future-1": "/children/school/future-1.webp",
+    "future-2": "/children/school/future-2.webp",
+    "future-3": "/children/school/future-3.webp"
+  },
+  "faq": [
+    [
+      "Сколько длятся курсы?",
+      "Продолжительность зависит от выбранного курса и интересов ребенка. В среднем, каждый курс рассчитан на 6 и более месяцев в зависимости от выбранного направления, предоставляя глубокое погружение в мир ИТ для детей и школьников."
+    ],
+    [
+      "По какому расписанию проходят занятия?",
+      "Расписание уроков по программированию для детей формируется индивидуально, учитывая ваше удобство и график ребенка."
+    ],
+    [
+      "Что нужно для занятий?",
+      "Для участия в онлайн-занятиях на нашей платформе достаточно иметь компьютер или ноутбук (Windows или macOS) и доступ к интернету."
+    ],
+    [
+      "Как проходят занятия?",
+      "Каждый урок длится 45-60 минут и проходит в формате индивидуального обучения с преподавателем на нашей онлайн-платформе, обеспечивая эффективное погружение в программирование для школьников."
+    ]
+  ],
+  "reviews": [
+    {
+      "name": "Амир, 15 лет",
+      "course": "Python",
+      "text": "Я пришёл в INNOPROG подтянуть школьную информатику, но вскоре решил глубже изучать Python. Сначала было сложно, но уже через пару занятий стало проще. За год обучения я создал свой проект — Telegram-бота для анонимного общения. Самое интересное было придумывать решения для сложных задач, например подключение ИИ для обработки голосовых сообщений. Эти знания помогают мне уже сейчас и точно пригодятся в будущем",
+      "image": "/children/school/review-1.webp",
+      "gallery": [
+        "/children/school/review-1-gallery-1.webp",
+        "/children/school/review-1-gallery-2.webp",
+        "/children/school/review-1-gallery-3.webp",
+        "/children/school/review-1-gallery-4.webp",
+        "/children/school/review-1-gallery-5.webp"
+      ]
+    },
+    {
+      "name": "Эльдар, 12 лет",
+      "course": "Создание игр",
+      "text": "Я решил учиться программированию, потому что у меня есть мечта — создать свою игру. На первых занятиях самым сложным для меня было следить за мелкими деталями в коде: запятыми, двоеточиями, скобками. Зато самым приятным оказалось запускать проект и смотреть, как он работает и меняется. За время занятий я узнал много нового про написание кода и даже научился работать с файлами. Больше всего мне нравится находить и изучать новые команды в Python. Если вы хотите попробовать себя в программировании, но сомневаетесь, то главное начните и сомнения развеются",
+      "image": "/children/school/review-2.webp",
+      "gallery": [
+        "/children/school/review-2-gallery-1.webp",
+        "/children/school/review-2-gallery-2.webp",
+        "/children/school/review-2-gallery-3.webp",
+        "/children/school/review-2-gallery-4.webp"
+      ]
+    },
+    {
+      "name": "Алмаз, 12 лет",
+      "course": "Школьная информатика",
+      "text": "Мне всегда было интересно программирование, я люблю разбираться в компьютерах. В INNOPROG я начал учить Python и уже за год смог сделать своего первого бота в Телеграме. Этот бот помогает в магазине моей мамы, через него люди заказывают чак-чак онлайн, а админ получает сообщение и берёт заказ в работу. Мне очень нравится писать программы и особенно создавать проекты, которые работают в реальной жизни. Мне нравится смотреть, как мой проект помогает другим людям. Теперь я хочу учиться дальше и делать ещё более интересные проекты",
+      "image": "/children/school/review-3.webp",
+      "gallery": [
+        "/children/school/review-3-gallery-1.webp",
+        "/children/school/review-3-gallery-2.webp",
+        "/children/school/review-3-gallery-3.webp",
+        "/children/school/review-3-gallery-4.webp",
+        "/children/school/review-3-gallery-5.webp",
+        "/children/school/review-3-gallery-6.webp"
+      ]
+    }
+  ]
+}

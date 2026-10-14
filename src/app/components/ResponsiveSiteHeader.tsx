@@ -8,12 +8,18 @@ const DESKTOP_WIDTH = 1440;
 const MOBILE_WIDTH = 390;
 
 export function SiteHeader({
+  childrenHref,
+  childrenLinks,
+  applicationHref,
   isMobile,
   mobileMenuOpen = false,
   onClickCapture,
   renderBoth = false,
   scale,
 }: {
+  childrenHref?: string;
+  childrenLinks?: readonly { label: string; href: string }[];
+  applicationHref?: string;
   isMobile: boolean;
   mobileMenuOpen?: boolean;
   onClickCapture?: MouseEventHandler<HTMLElement>;
@@ -23,15 +29,39 @@ export function SiteHeader({
   if (renderBoth) {
     return (
       <>
-        <DesktopHeaderSurface onClickCapture={onClickCapture} scale={scale} responsive />
-        <MobileHeaderSurface menuOpen={mobileMenuOpen} onClickCapture={onClickCapture} scale={scale} responsive />
+        <DesktopHeaderSurface
+          childrenHref={childrenHref}
+          childrenLinks={childrenLinks}
+          applicationHref={applicationHref}
+          onClickCapture={onClickCapture}
+          scale={scale}
+          responsive
+        />
+        <MobileHeaderSurface
+          menuOpen={mobileMenuOpen}
+          onClickCapture={onClickCapture}
+          scale={scale}
+          responsive
+        />
       </>
     );
   }
 
-  return isMobile
-    ? <MobileHeaderSurface menuOpen={mobileMenuOpen} onClickCapture={onClickCapture} scale={scale} />
-    : <DesktopHeaderSurface onClickCapture={onClickCapture} scale={scale} />;
+  return isMobile ? (
+    <MobileHeaderSurface
+      menuOpen={mobileMenuOpen}
+      onClickCapture={onClickCapture}
+      scale={scale}
+    />
+  ) : (
+    <DesktopHeaderSurface
+      childrenHref={childrenHref}
+      childrenLinks={childrenLinks}
+      applicationHref={applicationHref}
+      onClickCapture={onClickCapture}
+      scale={scale}
+    />
+  );
 }
 
 function MobileHeaderSurface({
@@ -53,7 +83,11 @@ function MobileHeaderSurface({
     >
       <div
         className="site-main-header-surface__mobile-canvas"
-        style={{ height: "112px", transform: `scale(${scale})`, width: `${MOBILE_WIDTH}px` }}
+        style={{
+          height: "112px",
+          transform: `scale(${scale})`,
+          width: `${MOBILE_WIDTH}px`,
+        }}
       >
         <MainScreenMobileHeader menuOpen={menuOpen} />
       </div>
@@ -62,10 +96,16 @@ function MobileHeaderSurface({
 }
 
 function DesktopHeaderSurface({
+  childrenHref,
+  childrenLinks,
+  applicationHref,
   onClickCapture,
   responsive = false,
   scale,
 }: {
+  childrenHref?: string;
+  childrenLinks?: readonly { label: string; href: string }[];
+  applicationHref?: string;
   onClickCapture?: MouseEventHandler<HTMLElement>;
   responsive?: boolean;
   scale: number;
@@ -81,7 +121,11 @@ function DesktopHeaderSurface({
       onClickCapture={onClickCapture}
       style={surfaceStyle}
     >
-      <MainScreenDesktopHeader />
+      <MainScreenDesktopHeader
+        childrenHref={childrenHref}
+        childrenLinks={childrenLinks}
+        applicationHref={applicationHref}
+      />
     </header>
   );
 }

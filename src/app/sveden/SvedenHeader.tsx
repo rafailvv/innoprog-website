@@ -85,7 +85,7 @@ export function SvedenHeader() {
               onToggle={() => toggleGroup("adults")}
             />
             <MobileGroup
-              href="https://pages.innoprog.ru/children/school"
+              href="/children"
               id="sveden-mobile-children"
               label="для детей"
               links={CHILD_COURSE_LINKS}

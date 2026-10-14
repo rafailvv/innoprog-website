@@ -34,7 +34,9 @@ describe("application request SmartCaptcha protection", () => {
     process.env.SMARTCAPTCHA_SERVER_KEY = "server-secret";
     const { POST } = await import("./route");
 
-    const response = await POST(request({ ...validPayload, captcha_token: "" }));
+    const response = await POST(
+      request({ ...validPayload, captcha_token: "" }),
+    );
 
     expect(response.status).toBe(400);
     expect(await response.json()).toMatchObject({ error: "captcha_required" });
@@ -46,12 +48,15 @@ describe("application request SmartCaptcha protection", () => {
     const response = await POST(request(validPayload));
 
     expect(response.status).toBe(503);
-    expect(await response.json()).toMatchObject({ error: "captcha_not_configured" });
+    expect(await response.json()).toMatchObject({
+      error: "captcha_not_configured",
+    });
   });
 
   it("validates the token and forwards only the normalized lead payload", async () => {
     process.env.SMARTCAPTCHA_SERVER_KEY = "server-secret";
-    const fetchMock = vi.spyOn(globalThis, "fetch")
+    const fetchMock = vi
+      .spyOn(globalThis, "fetch")
       .mockResolvedValueOnce(Response.json({ status: "ok" }))
       .mockResolvedValueOnce(Response.json({ ok: true }));
     const { POST } = await import("./route");
@@ -82,6 +87,35 @@ describe("application request SmartCaptcha protection", () => {
       "X-Real-IP": "198.51.100.9",
       "X-Forwarded-For": "198.51.100.9",
       "User-Agent": "Mozilla/5.0 Consent Test",
+    });
+  });
+});
+
+describe("Telegram application audience", () => {
+  it.each([
+    ["https://innoprog.ru/children/school", "children"],
+    ["http://localhost:3210/children/stories/amir", "children"],
+    ["https://innoprog.ru/children", "children"],
+    ["https://innoprog.ru/python-course", "adults"],
+    ["https://innoprog.ru/children-other", "adults"],
+    ["https://example.com/children/school", "adults"],
+  ])("classifies %s on the server as %s", async (source, expected) => {
+    process.env.SMARTCAPTCHA_SERVER_KEY = "test-key";
+    const mock = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(Response.json({ status: "ok" }))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    const { POST } = await import("./route");
+    const response = await POST(
+      request({
+        ...validPayload,
+        source_page: source,
+        site_audience: "untrusted-client-label",
+      }),
+    );
+    expect(response.status).toBe(200);
+    expect(JSON.parse(String(mock.mock.calls[1][1]?.body))).toMatchObject({
+      site_audience: expected,
     });
   });
 });
