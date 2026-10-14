@@ -79,7 +79,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           name,
           phone: normalizedPhone,
           email,
-          question: [context, direction, `Имя ребёнка: ${childName}`, `Возраст ребёнка: ${age}`, message && `Пожелания: ${message}`].filter(Boolean).join("\n"),
+          question: [context, course ? direction : `Направление: ${direction}`, `Имя ребёнка: ${childName}`, `Возраст ребёнка: ${age}`, message && `Пожелания: ${message}`].filter(Boolean).join("\n"),
           personal_data_consent: true,
           advertising_consent: values.get("advertising_consent") === "on",
           captcha_token: token,

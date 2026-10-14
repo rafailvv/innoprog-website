@@ -3,10 +3,24 @@ import path from "node:path";
 import sharp from "sharp";
 import ts from "typescript";
 const root = process.cwd();
+const moduleUrls = new Map();
+async function typedModuleUrl(file) {
+  const absolute = path.resolve(root, file);
+  if (moduleUrls.has(absolute)) return moduleUrls.get(absolute);
+  const source = await fs.readFile(absolute, "utf8");
+  let { outputText } = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } });
+  const imports = [...outputText.matchAll(/(^import\s+[^;\n]+\s+from\s+)(["'])(\.[^"']+)\2/gm)];
+  for (const match of imports) {
+    const dependency = path.resolve(path.dirname(absolute), `${match[3]}.ts`);
+    const url = await typedModuleUrl(dependency);
+    outputText = outputText.replace(match[0], `${match[1]}${JSON.stringify(url)}`);
+  }
+  const url = "data:text/javascript;base64," + Buffer.from(outputText).toString("base64");
+  moduleUrls.set(absolute, url);
+  return url;
+}
 async function loadTypedData(file) {
-  const source = await fs.readFile(path.join(root, file), "utf8");
-  const { outputText } = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } });
-  return import("data:text/javascript;base64," + Buffer.from(outputText).toString("base64"));
+  return import(await typedModuleUrl(file));
 }
 const { childrenCourses } = await loadTypedData("src/app/children/courses/course-data.ts");
 const { storySlugs, storySeo } = await loadTypedData("src/app/children/stories/story-data.ts");

@@ -120,7 +120,7 @@ describe("children phone formatting and validation", () => {
     fireEvent.click(screen.getByRole("checkbox", { name: /рекламные/ }));
     fireEvent.submit(screen.getByRole("form"));
     await waitFor(() => expect(fetch).toHaveBeenCalledOnce());
-    expect(JSON.parse(String(fetch.mock.calls[0][1]?.body))).toMatchObject({ advertising_consent: true, email: "parent@example.ru", question: "Создание сайтов с нуля\nИмя ребёнка: Александр\nВозраст ребёнка: 12\nПожелания: По субботам" });
+    expect(JSON.parse(String(fetch.mock.calls[0][1]?.body))).toMatchObject({ advertising_consent: true, email: "parent@example.ru", question: "Направление: Создание сайтов с нуля\nИмя ребёнка: Александр\nВозраст ребёнка: 12\nПожелания: По субботам" });
   });
 });
 

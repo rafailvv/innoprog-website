@@ -38,7 +38,18 @@ for (const path of paths) {
   assert.ok(find('WebPage') || find('FAQPage') || find('Article'), `${path}: page schema`);
   if (path.includes('/courses/')) {
     assert.ok(find('Course') && find('FAQPage'), `${path}: course and FAQ schema`);
-    assert.equal(d.querySelectorAll('#program details[open]').length, 0, `${path}: program initially collapsed`);
+    const modules = [...d.querySelectorAll('#program .site-course-program-module')];
+    assert.equal(modules.length, ({ python: 20, 'web-development': 11, 'informatics-exams': 12, 'olympiad-programming': 12, 'neural-networks': 12, 'game-development': 14 }[path.split('/').pop()]), `${path}: complete program`);
+    for (const module of modules) {
+      const toggle = module.querySelector('button[aria-expanded]');
+      const panel = module.querySelector('[role="region"]');
+      assert.equal(toggle?.getAttribute('aria-expanded'), 'false', `${path}: initially collapsed`);
+      assert.equal(panel?.getAttribute('aria-hidden'), 'true', `${path}: collapsed panel accessible state`);
+      assert.equal(toggle?.getAttribute('aria-controls'), panel?.id, `${path}: connected control`);
+      assert.ok(panel.querySelectorAll('li').length >= 8, `${path}: detailed topics and practice in server HTML`);
+      assert.match(panel.textContent, /Практика/);
+      assert.match(panel.textContent, /Результат модуля/);
+    }
     for (const question of find('FAQPage').mainEntity) {
       assert.ok(text(d.body.textContent).includes(text(question.name)), `${path}: visible FAQ question`);
       assert.ok(text(d.body.textContent).includes(text(question.acceptedAnswer.text)), `${path}: visible FAQ answer`);

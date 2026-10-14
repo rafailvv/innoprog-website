@@ -1,5 +1,7 @@
 .shell {
   --navy: #464a6a;
+  /* Keep the header seam purple without changing the white footer spacing. */
+  background: linear-gradient(#9c78ff 0 160px, #fff 160px 100%);
 }
 .shell > div:first-child {
   background: #9c78ff;
@@ -10,7 +12,8 @@
   border-radius: 40px;
 }
 .main {
-  background: #fff;
+  /* Purple underpainting prevents a white subpixel seam below the header. */
+  background: linear-gradient(#9c78ff 0 2px, #fff 2px 100%);
 }
 .hero {
   background: #9c78ff;
@@ -195,65 +198,6 @@
   color: #e2deed;
   line-height: 1.6;
   margin: 28px 0 38px !important;
-}
-.modules details {
-  border-top: 1px solid #ffffff40;
-}
-.modules details:last-child {
-  border-bottom: 1px solid #ffffff40;
-}
-.modules summary {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  cursor: pointer;
-  padding: 22px 0;
-}
-.modules summary::-webkit-details-marker {
-  display: none;
-}
-.modules summary > span {
-  color: #b797ff;
-  font-size: 24px;
-}
-.modules summary h3 {
-  font-size: 25px;
-  text-transform: uppercase;
-  flex: 1;
-  min-width: 0;
-  margin: 0;
-  line-height: 1.25 !important;
-}
-.modules summary b {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #ffffff88;
-  border-radius: 50%;
-  font-size: 26px;
-  font-weight: 400;
-  flex-shrink: 0;
-}
-.modules details[open] summary b {
-  transform: rotate(45deg);
-  color: #fff;
-}
-.modules details > div {
-  padding: 0 0 26px 60px;
-  max-width: 850px;
-  color: #efebf6;
-}
-.modules details p {
-  margin: 0 0 20px;
-  font-size: 20px;
-}
-.modules ul {
-  list-style: disc;
-  padding-left: 20px;
-  font-size: 18px;
-  line-height: 1.7;
 }
 .examples {
   display: grid;
@@ -563,9 +507,6 @@
   .price b {
     font-size: 37px;
   }
-  .modules summary h3 {
-    font-size: 25px;
-  }
 }
 @media (max-width: 767px) {
   .hero {
@@ -689,31 +630,6 @@
   .programIntro {
     font-size: 17px;
     margin: 22px 0 25px !important;
-  }
-  .modules summary {
-    gap: 15px;
-    padding: 18px 0;
-  }
-  .modules summary > span {
-    font-size: 18px;
-  }
-  .modules summary h3 {
-    font-size: 20px;
-  }
-  .modules summary b {
-    width: 34px;
-    height: 34px;
-    font-size: 22px;
-  }
-  .modules details > div {
-    padding: 0 0 23px 0;
-  }
-  .modules details p {
-    font-size: 17px;
-  }
-  .modules ul {
-    font-size: 16px;
-    padding-left: 20px;
   }
   .examples {
     grid-template-columns: 1fr;
@@ -857,12 +773,6 @@
   .skills h3 {
     font-size: 18px;
   }
-  .modules summary {
-    gap: 10px;
-  }
-  .modules summary h3 {
-    font-size: 18px;
-  }
   .application .sectionTitle {
     font-size: 31px;
   }
@@ -878,31 +788,15 @@
   }
 }
 
-.modules summary,
 .faq summary {
   min-height: 44px;
   border-radius: 8px;
 }
-.modules summary:hover h3,
 .faq summary:hover {
   color: #b797ff;
 }
-.main .modules summary:focus-visible {
-  outline: none;
-}
-.modules summary:focus-visible h3 {
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-.modules summary b,
 .faq summary span {
   transition: transform 180ms ease, color 180ms ease;
-}
-.modules details > div {
-  line-height: 1.6;
-}
-.modules li + li {
-  margin-top: 6px;
 }
 .faq summary span {
   flex: 0 0 34px;
@@ -913,15 +807,6 @@
   outline-offset: 4px;
 }
 @media (max-width: 767px) {
-  .modules summary {
-    align-items: flex-start;
-  }
-  .modules summary > span {
-    padding-top: 2px;
-  }
-  .modules summary b {
-    margin-top: -4px;
-  }
   .heroCard {
     width: 100%;
   }
@@ -931,7 +816,6 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .modules summary b,
   .faq summary span {
     transition: none;
   }
@@ -945,4 +829,80 @@
     background: #fff;
     border-radius: 40px;
   }
+}
+
+/* Original adult course module markup and visuals, fitted to the fluid child container. */
+.modules :global(.site-course-program-heading) {
+  font: inherit;
+  margin: 0;
+}
+.modules :global(.site-course-program-toggle) {
+  padding-inline: 0;
+}
+.modules :global(.site-course-program-toggle):focus-visible {
+  outline: none;
+}
+.modules :global(.site-course-program-toggle):focus-visible :global(.site-course-program-chevron) {
+  border-radius: 50%;
+  outline: 1px solid #ffffffb3;
+  outline-offset: 4px;
+}
+.modules :global(.site-course-program-panel) {
+  margin-inline: 0;
+}
+.modules :global(.site-course-program-description) {
+  margin: 0 !important;
+}
+.modules :global(.site-course-program-topics-column) {
+  list-style: none;
+}
+.modules :global(.site-course-program-panel-shell) {
+  /* Contents vary by course and viewport; do not clip expanded modules. */
+  max-height: none;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 420ms cubic-bezier(.22, 1, .36, 1), opacity 260ms ease, transform 320ms ease, visibility 420ms;
+}
+.modules :global(.site-course-program-panel-shell) > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.modules :global(.is-open) > :global(.site-course-program-panel-shell) {
+  max-height: none;
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+@media (max-width: 1100px) {
+  .modules :global(.site-course-program-title) { font-size: 30px; }
+  .modules :global(.site-course-program-topics) { font-size: 20px; line-height: 1.5; gap: 28px; }
+  .modules :global(.site-course-program-description) { font-size: 20px; line-height: 1.5; }
+}
+@media (max-width: 767px) {
+  .modules :global(.site-course-program-toggle) { gap: 14px; padding: 16px 0; }
+  .modules :global(.is-open) :global(.site-course-program-toggle) { padding-bottom: 0; }
+  .modules :global(.site-course-program-title) {
+    font-family: var(--font-manrope), Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .48px;
+    line-height: 1.25;
+  }
+  .modules :global(.site-course-program-chevron) { width: 28px; height: 28px; flex-basis: 28px; }
+  .modules :global(.site-course-program-panel) { margin: 20px 0 24px; }
+  .modules :global(.site-course-program-panel-inner) { gap: 20px; }
+  .modules :global(.site-course-program-description) { font-size: 16px; font-weight: 300; line-height: 21px; }
+  .modules :global(.site-course-program-topics) { grid-template-columns: 1fr; gap: 8px; font-size: 14px; font-weight: 300; line-height: 19px; }
+  .modules :global(.site-course-program-topics-column) { gap: 8px; }
+  .modules :global(.site-course-program-topics) li { padding-left: 18px; }
+  .modules :global(.site-course-program-topics) li::before { top: .62em; width: 5px; height: 5px; }
+  .modules :global(.site-course-program-tags) { gap: 8px; }
+  .modules :global(.site-course-program-tag) { min-height: 42px; font-size: 16px; font-weight: 400; letter-spacing: .48px; line-height: 18px; padding: 10px 12px; gap: 12px; }
+  .modules :global(.site-course-program-tag-icon) { width: 22px !important; height: 22px !important; flex-basis: 22px; font-size: 22px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modules :global(.site-course-program-panel-shell),
+  .modules :global(.site-course-program-panel-inner),
+  .modules :global(.site-course-program-chevron),
+  .modules :global(.site-course-program-toggle) { transition: none; }
 }
