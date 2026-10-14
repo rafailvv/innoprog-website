@@ -2,7 +2,7 @@
   --navy: #464a6a;
 }
 .shell > div:first-child {
-  background: #9c78ff;
+  background: #fff;
 }
 .shell :global(.site-main-header--desktop) {
   background: #fff;
