@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
-import heroBackgroundUrl from "../imports/MainScreenDesktop/home-background.opt.webp";
+import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
 import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
@@ -18,7 +18,6 @@ import reviewStoryCollaborationUrl from "../imports/MainScreenDesktop/review-sto
 import aboutHeroUrl from "../imports/MainScreenDesktop/about-hero.opt.webp";
 import aboutSwirlUrl from "../imports/MainScreenDesktop/about-swirl.opt.webp";
 import aboutInnopolisUrl from "../imports/MainScreenDesktop/about-innopolis.opt.webp";
-import heroMobileUrl from "../imports/MainScreenMobile/hero-mobile-640.webp";
 import {
   ALL_REVIEWS_DIRECTION_KEY,
   REVIEWS_DIRECTIONS,
@@ -875,10 +874,12 @@ function useViewportState() {
   return getViewportStateFromWidth(viewportWidth);
 }
 
-function getCriticalAssets(isMobile: boolean) {
-  return isMobile
-    ? ["/logo-education-360.webp", heroMobileUrl]
-    : ["/logo-education-360.webp", heroPersonUrl, heroBackgroundUrl];
+function getCriticalAssets(route: AppInitialRoute) {
+  const logo = "/logo-education-360.webp";
+  if (route.page === "home") return [logo, ...HOME_CRITICAL_IMAGE_URLS];
+  if (route.page === "about") return [logo, aboutHeroUrl];
+  if (route.page === "review") return [logo, REVIEW_STORIES[route.story].hero];
+  return [logo];
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
@@ -1859,7 +1860,7 @@ function ReviewStoryPage({
         </div>
 
         <div className="site-review-page__hero">
-          <img alt={`${story.name}, ученик ИННОПРОГ`} title={`${story.name}, ученик ИННОПРОГ`} src={story.hero} />
+          <img alt={`${story.name}, ученик ИННОПРОГ`} title={`${story.name}, ученик ИННОПРОГ`} decoding="async" fetchPriority="high" loading="eager" src={story.hero} />
         </div>
 
         <blockquote className="site-review-page__quote">{story.heroQuote}</blockquote>
@@ -3795,13 +3796,13 @@ function clearReturnScrollPosition() {
   }
 }
 
-function waitForCriticalAssets(isMobile: boolean) {
+function waitForCriticalAssets(route: AppInitialRoute) {
   const images = Array.from(document.images);
   const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
   const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
 
   return Promise.all([
-    ...getCriticalAssets(isMobile).map(preloadImage),
+    ...getCriticalAssets(route).map(preloadImage),
     loaderLogo && !loaderLogo.complete ? preloadImage(loaderLogo.src) : Promise.resolve(),
     fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
   ]).then(() => undefined);
@@ -4035,7 +4036,7 @@ export default function App({
       }
     }, LOADER_MAX_MS);
 
-    waitForCriticalAssets(viewport.isMobile).then(() => {
+    waitForCriticalAssets(initialRoute).then(() => {
       const elapsed = performance.now() - startedAt;
       const delay = Math.max(0, LOADER_MIN_MS - elapsed);
 
@@ -4051,7 +4052,7 @@ export default function App({
       cancelled = true;
       window.clearTimeout(maxTimer);
     };
-  }, [isReady, viewport.isMobile]);
+  }, [isReady, initialRoute]);
 
   useEffect(() => () => {
     if (pageTransitionTimerRef.current !== null) {
@@ -4812,6 +4813,11 @@ export default function App({
 
   const handleSiteClick = (event: MouseEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
+
+    if (target?.closest("a[href]") &&
+      (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) {
+      return;
+    }
 
     const activeScrollTargets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
     const mobileMenuToggle = target?.closest<HTMLElement>("[data-mobile-menu-toggle]");

@@ -3,7 +3,6 @@ import {
   JsonLd,
   TARIFFS_PAGE_KEYWORDS,
   breadcrumbJsonLd,
-  courseJsonLd,
   createPageMetadata,
   tariffsOfferCatalogJsonLd,
   webPageJsonLd,
@@ -22,7 +21,6 @@ export const metadata = createPageMetadata({
 export default function TariffsPage() {
   return (
     <>
-      <JsonLd data={courseJsonLd} />
       <JsonLd data={tariffsOfferCatalogJsonLd} />
       <JsonLd
         data={webPageJsonLd({

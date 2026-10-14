@@ -1,23 +1,21 @@
 import App from "./App";
+import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 import {
   JsonLd,
   HOME_PAGE_KEYWORDS,
   HOME_PAGE_TITLE,
   breadcrumbJsonLd,
   courseCatalogJsonLd,
-  courseJsonLd,
   createPageMetadata,
   keyPagesJsonLd,
-  organizationJsonLd,
   siteNavigationJsonLd,
   webPageJsonLd,
-  websiteJsonLd,
 } from "./seo";
 
 export const metadata = createPageMetadata({
   title: HOME_PAGE_TITLE,
   description:
-    "Онлайн-школа программирования ИННОПРОГ: IT курсы с нуля Python, Data Science, Java, аналитика данных, Unreal Engine с наставником, диплом и трудоустройство",
+    "Онлайн-школа программирования ИННОПРОГ: IT курсы с нуля Python, Data Science, Java, аналитика данных, Unreal Engine с наставником, диплом и карьерная поддержка",
   path: "/",
   keywords: [...HOME_PAGE_KEYWORDS],
   absoluteTitle: true,
@@ -26,12 +24,12 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={organizationJsonLd} />
-      <JsonLd data={websiteJsonLd} />
+      {HOME_CRITICAL_IMAGE_URLS.map((href) => (
+        <link key={href} rel="preload" as="image" href={href} fetchPriority="high" />
+      ))}
       <JsonLd data={siteNavigationJsonLd} />
       <JsonLd data={keyPagesJsonLd} />
       <JsonLd data={courseCatalogJsonLd} />
-      <JsonLd data={courseJsonLd} />
       <JsonLd
         data={webPageJsonLd({
           path: "/",

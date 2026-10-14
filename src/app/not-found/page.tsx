@@ -1,4 +1,4 @@
-import NotFoundPageContent from "../NotFoundPageContent";
+import { notFound } from "next/navigation";
 import { createPageMetadata } from "../seo";
 
 export const metadata = createPageMetadata({
@@ -10,5 +10,5 @@ export const metadata = createPageMetadata({
 });
 
 export default function NotFoundRoutePage() {
-  return <NotFoundPageContent />;
+  notFound();
 }

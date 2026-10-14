@@ -3,6 +3,10 @@ import App, { type AppInitialRoute } from "../../App";
 import {
   REVIEW_META,
   REVIEW_ROUTE_TO_KEY,
+  JsonLd,
+  breadcrumbJsonLd,
+  reviewStoryJsonLd,
+  webPageJsonLd,
   type ReviewRoute,
   createPageMetadata,
 } from "../../seo";
@@ -29,9 +33,6 @@ export async function generateMetadata({ params }: { params: Promise<{ story: st
     description: meta.description,
     path: `/reviews/${story}`,
     keywords: [`отзыв ${meta.name} ИННОПРОГ`, `история ${meta.name}`, `отзывы ИННОПРОГ`, meta.course],
-    // Individual stories stay available to visitors, while /reviews remains the sole indexable reviews page.
-    noIndex: true,
-    follow: true,
   });
 }
 
@@ -47,5 +48,25 @@ export default async function ReviewPage({ params }: { params: Promise<{ story: 
     story: REVIEW_ROUTE_TO_KEY[story],
   };
 
-  return <App initialRoute={route} />;
+  const meta = REVIEW_META[story];
+  const path = `/reviews/${story}`;
+
+  return (
+    <>
+      <JsonLd data={reviewStoryJsonLd(story)} />
+      <JsonLd data={webPageJsonLd({
+        path,
+        name: meta.title,
+        description: meta.description,
+        primaryEntityId: `https://innoprog.ru${path}#review`,
+        significantLinks: [meta.coursePath, "/reviews", "/tariffs"],
+      })} />
+      <JsonLd data={breadcrumbJsonLd([
+        { name: "Главная", path: "/" },
+        { name: "Отзывы", path: "/reviews" },
+        { name: meta.title, path },
+      ])} />
+      <App initialRoute={route} />
+    </>
+  );
 }

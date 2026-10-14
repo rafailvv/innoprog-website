@@ -135,15 +135,6 @@ const nextConfig = {
         ],
       },
       {
-        source: "/reviews/:story",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex, follow",
-          },
-        ],
-      },
-      {
         source: "/api/:path*",
         headers: [
           {
@@ -174,6 +165,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.innoprog.ru" }],
+        destination: "https://innoprog.ru/:path*",
+        permanent: true,
+      },
       {
         source: "/favicon.ico",
         destination: "/favicon.png",

@@ -14,7 +14,7 @@ import {
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Unreal Engine с нуля: онлайн-обучение разработке игр для начинающих — ИННОПРОГ",
+    "Курс Unreal Engine с нуля: разработка игр онлайн — ИННОПРОГ",
   description:
     "Онлайн-курс «Unreal Engine» с нуля от ИННОПРОГ. 10 месяцев обучения Unreal Engine 5, Blueprint, игровым механикам и разработке игр: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
   absoluteTitle: true,

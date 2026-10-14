@@ -14,7 +14,7 @@ import {
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Frontend-разработчик с нуля: онлайн-обучение веб-разработке для начинающих — ИННОПРОГ",
+    "Курс Frontend с нуля: JavaScript, React, TypeScript — ИННОПРОГ",
   description:
     "Онлайн-курс «Frontend-разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения HTML, CSS, JavaScript, TypeScript и React: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
   absoluteTitle: true,

@@ -5,7 +5,6 @@ import {
   JsonLd,
   breadcrumbJsonLd,
   createPageMetadata,
-  organizationJsonLd,
   webPageJsonLd,
 } from "../seo";
 
@@ -23,7 +22,6 @@ export default function AboutPage() {
   return (
     <>
       <link rel="preload" as="image" href={aboutHeroUrl} fetchPriority="high" />
-      <JsonLd data={organizationJsonLd} />
       <JsonLd
         data={webPageJsonLd({
           path: "/about",

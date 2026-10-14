@@ -17,8 +17,10 @@ describe("ScrollableTableRegion", () => {
       scrollLeft: { configurable: true, value: 0, writable: true },
       scrollWidth: { configurable: true, value: 1200 },
     });
-    region.scrollTo = vi.fn(({ left }: ScrollToOptions) => {
-      region.scrollLeft = Number(left);
+    region.scrollTo = vi.fn((optionsOrX?: ScrollToOptions | number, _y?: number) => {
+      region.scrollLeft = typeof optionsOrX === "number"
+        ? optionsOrX
+        : Number(optionsOrX?.left ?? region.scrollLeft);
     });
 
     region.focus();

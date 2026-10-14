@@ -795,7 +795,7 @@ function Frame184() {
 function Frame3() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">Во всех тарифах</p>
+      <a className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Во всех тарифах</a>
     </div>
   );
 }

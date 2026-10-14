@@ -765,7 +765,7 @@ function Frame127() {
 function Frame18() {
   return (
     <div className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[24px] relative rounded-[40px] shrink-0">
-      <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">Во всех тарифах</p>
+      <a className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Во всех тарифах</a>
     </div>
   );
 }

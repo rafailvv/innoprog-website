@@ -18,7 +18,7 @@ const APPROVED_LANDING_PERIODS = [
   ["/ml-engineer-course", "≈12 месяцев"],
 ] as const;
 
-const APPROVED_COURSES = APPROVED_LANDING_PERIODS.map(([course]) => course);
+const APPROVED_COURSES: readonly string[] = APPROVED_LANDING_PERIODS.map(([course]) => course);
 
 function publishedLandingPeriods(html: string) {
   const ordered = [...html.matchAll(/href="(\/[a-z-]+-course)"/g)]

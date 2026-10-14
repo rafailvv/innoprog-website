@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "../styles/index.css";
 import {
+  JsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
   DEFAULT_DESCRIPTION,
   DEFAULT_OG_IMAGE_PATH,
   DEFAULT_KEYWORDS,
@@ -115,6 +118,8 @@ ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: documen
             __html: '<div><img src="https://mc.yandex.ru/watch/110454081" style="position:absolute; left:-9999px;" alt="" /></div>',
           }}
         />
+        <JsonLd data={organizationJsonLd} />
+        <JsonLd data={websiteJsonLd} />
         {children}
         <Script id="site-resize-bottom-anchor" strategy="afterInteractive">
           {`

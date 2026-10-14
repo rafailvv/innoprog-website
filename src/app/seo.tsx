@@ -216,36 +216,36 @@ export const REVIEW_ROUTE_TO_KEY = {
 export const REVIEW_META = {
   kirill: {
     name: "Кирилл",
-    title: "История Кирилла",
+    title: "Из HR в ИТ: история Кирилла об обучении Python",
     description:
       "История Кирилла о переходе из HR в Python-разработку: обучение в ИННОПРОГ, практика с наставником и первые уверенные шаги в ИТ",
     course: "Python-разработчик",
     coursePath: "/python-course",
     result: "Из HR в ИТ",
     reviewBody:
-      "Обучение проходило постепенно, от базовых тем к более сложным задачам. Через сложные задания лучше всего начинаешь понимать программирование",
+      "Обучение проходило постепенно, от базовых тем к более сложным задачам. Больше всего мне запомнились именно сложные задания, потому что через них лучше всего начинаешь понимать программирование",
   },
   anastasia: {
     name: "Анастасия",
-    title: "История Анастасии",
+    title: "Из 1С в аналитику: история Анастасии об обучении Data Science",
     description:
       "История Анастасии о переходе из 1С в продуктовую аналитику: обучение Data Science, практика с данными и поддержка наставника",
     course: "Data Science",
     coursePath: "/data-science-course",
     result: "Из 1C в Product",
     reviewBody:
-      "Обучение выстроено так, чтобы почти каждую тему можно было привязать к практике, анализировать результат и понимать, какую пользу дает модель",
+      "Больше всего мне запомнилось, что обучение было сбалансированным. Почти каждую тему мы старались привязать к реальным задачам, по типу как анализировать данные, как искать зависимости, как оценивать результат, как не тупо построить модель, а понять, зачем она нужна и какую пользу может дать продукту",
   },
   mikhail: {
     name: "Михаил",
-    title: "История Михаила",
+    title: "Веб-приложение на Python: история обучения Михаила",
     description:
       "История Михаила о разработке веб-приложения в ИННОПРОГ: как обучение, практика и обратная связь помогли собрать рабочий проект",
     course: "Python-разработчик",
     coursePath: "/python-course",
     result: "От идеи к проекту",
     reviewBody:
-      "Во время обучения получилось собрать рабочее веб-приложение, закрепить практику и увидеть, как знания складываются в реальный проект",
+      "Очень помогали разборы с наставником. Когда код ломался, мы вместе находили причину ошибки и разбирали, как её избежать в следующий раз. Постепенно я начал меньше паниковать при ошибках и адекватно искать решение",
   },
 } as const;
 
@@ -334,7 +334,7 @@ export function createPageMetadata({
     publisher: SITE_LEGAL_NAME,
     category: "education",
     classification: "Online education",
-    keywords: Array.from(new Set([...DEFAULT_KEYWORDS, ...keywords])),
+    keywords: Array.from(new Set([SITE_NAME, "INNOPROG", ...keywords])),
     robots,
     alternates: {
       canonical: url,
@@ -424,25 +424,7 @@ export const organizationJsonLd = {
     name: "Россия",
   },
   hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    "@id": `${SITE_URL}/#course-offer-catalog`,
-    name: "Онлайн-курсы программирования ИННОПРОГ",
-    itemListElement: COURSE_SEO_ITEMS.map((course) => ({
-      "@type": "Offer",
-      "@id": offerEntityId(course.path),
-      name: `Обучение на курсе ${course.name}`,
-      url: absoluteUrl("/tariffs"),
-      category: "Paid online course",
-      availability: "https://schema.org/InStock",
-      price: "7990",
-      priceCurrency: "RUB",
-      itemOffered: {
-        "@type": "Course",
-        "@id": courseEntityId(course.path),
-        name: course.name,
-        url: absoluteUrl(course.path),
-      },
-    })),
+    "@id": `${absoluteUrl("/tariffs")}#course-offers`,
   },
   sameAs: ["https://t.me/innoprog"],
 };
@@ -525,9 +507,11 @@ export const courseCatalogJsonLd = {
       description: course.description,
       url: absoluteUrl(course.path),
       provider: {
+        "@type": "EducationalOrganization",
         "@id": `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
       },
-      courseMode: "online",
       inLanguage: "ru-RU",
       isAccessibleForFree: false,
     },
@@ -567,7 +551,10 @@ export const tariffsOfferCatalogJsonLd = {
   description: "Стоимость и форматы обучения на онлайн-курсах программирования ИННОПРОГ",
   url: absoluteUrl("/tariffs"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   itemListElement: COURSE_SEO_ITEMS.map((course, index) => ({
     "@type": "ListItem",
@@ -595,39 +582,6 @@ export const tariffsOfferCatalogJsonLd = {
   })),
 };
 
-export const courseJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "@id": `${SITE_URL}/#courses`,
-  name: "Курсы программирования ИННОПРОГ",
-  description: DEFAULT_DESCRIPTION,
-  url: SITE_URL,
-  provider: {
-    "@id": `${SITE_URL}/#organization`,
-  },
-  inLanguage: "ru-RU",
-  courseMode: "online",
-  isAccessibleForFree: false,
-  audience: {
-    "@type": "EducationalAudience",
-    educationalRole: "student",
-  },
-  teaches: [
-    "Python",
-    "Data Science",
-    "Frontend-разработка",
-    "Data-аналитика",
-    "C++",
-    "мобильная разработка",
-    "Unreal Engine",
-    "Java",
-    "машинное обучение",
-    "программирование",
-    "аналитика данных",
-    "разработка приложений",
-  ],
-};
-
 export const pythonCourseJsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -637,10 +591,12 @@ export const pythonCourseJsonLd = {
     "Практический онлайн-курс Python-разработчик с нуля в ИННОПРОГ с наставником, платформой, проектами в портфолио и документами после обучения",
   url: absoluteUrl("/python-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
@@ -691,10 +647,12 @@ export const dataScienceCourseJsonLd = {
     "Практический онлайн-курс Data Science в ИННОПРОГ: Python, SQL, статистика, машинное обучение, MLOps и 13 проектных работ с наставником",
   url: absoluteUrl("/data-science-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
@@ -748,10 +706,12 @@ export const frontendCourseJsonLd = {
     "Практический онлайн-курс Frontend-разработчик в ИННОПРОГ: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и 15 проектных работ с наставником",
   url: absoluteUrl("/frontend-developer-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
@@ -807,10 +767,12 @@ export const dataAnalystCourseJsonLd = {
     "Практический онлайн-курс Data-аналитик в ИННОПРОГ: SQL, Python, BI, статистика, A/B-тестирование и 15 аналитических проектов с наставником",
   url: absoluteUrl("/data-analyst-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
@@ -866,10 +828,12 @@ export const cppCourseJsonLd = {
     "Практический онлайн-курс C++ разработчик в ИННОПРОГ: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 C++ проектов с наставником",
   url: absoluteUrl("/cpp-developer-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
@@ -924,10 +888,12 @@ export const mobileDeveloperCourseJsonLd = {
     "Практический онлайн-курс Мобильный разработчик в ИННОПРОГ: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование, публикация и 15 мобильных проектов с наставником",
   url: absoluteUrl("/mobile-developer-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
@@ -983,10 +949,12 @@ export const unrealEngineCourseJsonLd = {
     "Практический онлайн-курс Unreal Engine в ИННОПРОГ: Unreal Engine 5, Blueprint, игровые механики, персонажи, UMG, State Tree, оптимизация, публикация и 6 игровых проектов с наставником",
   url: absoluteUrl("/unreal-engine-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
@@ -1042,10 +1010,12 @@ export const javaCourseJsonLd = {
     "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование, Docker и CI/CD, 15 Java-проектов с наставником",
   url: absoluteUrl("/java-developer-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
@@ -1101,10 +1071,12 @@ export const mlEngineerCourseJsonLd = {
     "Практический онлайн-курс ML-инженер в ИННОПРОГ: Python, SQL, статистика, feature engineering, machine learning, deep learning, NLP, CV, MLOps, FastAPI, Docker и 15 ML-проектов с наставником",
   url: absoluteUrl("/ml-engineer-course"),
   provider: {
+    "@type": "EducationalOrganization",
     "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
   },
   inLanguage: "ru-RU",
-  courseMode: "online",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
@@ -1209,7 +1181,7 @@ export function webPageJsonLd({
       "@id": `${SITE_URL}/#organization`,
     },
     ...(significantLinkUrls.length > 0 ? { significantLink: significantLinkUrls } : {}),
-    ...(primaryEntityId ? { primaryEntity: { "@id": primaryEntityId } } : {}),
+    ...(primaryEntityId ? { mainEntity: { "@id": primaryEntityId } } : {}),
   };
 }
 
@@ -1223,5 +1195,29 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+// Published interview excerpts; no invented stars, counts or publication dates.
+export function reviewStoryJsonLd(story: ReviewRoute) {
+  const meta = REVIEW_META[story];
+  const url = absoluteUrl(`/reviews/${story}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": `${url}#review`,
+    url,
+    name: meta.title,
+    inLanguage: "ru-RU",
+    author: { "@type": "Person", name: meta.name },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    reviewBody: meta.reviewBody,
+    itemReviewed: {
+      "@type": "Course",
+      "@id": courseEntityId(meta.coursePath),
+      name: meta.course,
+      url: absoluteUrl(meta.coursePath),
+      provider: { "@id": `${SITE_URL}/#organization` },
+    },
   };
 }
