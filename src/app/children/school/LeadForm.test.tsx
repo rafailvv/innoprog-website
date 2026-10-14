@@ -108,7 +108,6 @@ describe("children phone formatting and validation", () => {
   it.each([
     ["Возраст ребёнка", "19", "возраст ребёнка"],
     ["Номер телефона", "+799912345678", "номер телефона"],
-    ["Электронная почта", "invalid@", "адрес электронной почты"],
   ])("rejects invalid %s before sending", async (label, value, message) => {
     const fetch = vi.spyOn(globalThis, "fetch"); render(<LeadForm />); fill();
     fireEvent.change(screen.getByLabelText(new RegExp(label)), { target: { value } });
@@ -116,16 +115,15 @@ describe("children phone formatting and validation", () => {
     expect(screen.getByRole("alert").textContent).toContain(message);
     expect(fetch).not.toHaveBeenCalled();
   });
-  it("sends direction, optional email, goals and separate advertising consent", async () => {
+  it("sends direction and goals without email, with separate advertising consent", async () => {
     const fetch = vi.spyOn(globalThis, "fetch").mockResolvedValue(Response.json({ ok: true }));
     render(<LeadForm />); fill();
     fireEvent.change(screen.getByLabelText("Направление"), { target: { value: "Создание сайтов с нуля" } });
-    fireEvent.change(screen.getByLabelText(/Электронная почта/), { target: { value: "parent@example.ru" } });
     fireEvent.change(screen.getByLabelText(/Пожелания или вопрос/), { target: { value: "По субботам" } });
     fireEvent.click(screen.getByRole("checkbox", { name: /рекламные/ }));
     fireEvent.submit(screen.getByRole("form"));
     await waitFor(() => expect(fetch).toHaveBeenCalledOnce());
-    expect(JSON.parse(String(fetch.mock.calls[0][1]?.body))).toMatchObject({ advertising_consent: true, email: "parent@example.ru", question: "Направление: Создание сайтов с нуля\nИмя ребёнка: Александр\nВозраст ребёнка: 12\nПожелания: По субботам" });
+    expect(JSON.parse(String(fetch.mock.calls[0][1]?.body))).toMatchObject({ advertising_consent: true, email: "", question: "Направление: Создание сайтов с нуля\nИмя ребёнка: Александр\nВозраст ребёнка: 12\nПожелания: По субботам" });
   });
 });
 
@@ -158,8 +156,7 @@ describe("required personal consent controls submission", () => {
     const button = screen.getByRole("button", { name: "Отправить" }) as HTMLButtonElement;
     const consent = screen.getByRole("checkbox", { name: /обработку персональных данных/ });
     expect(screen.queryByText(/необязательно/)).toBeNull();
-    fireEvent.change(screen.getByLabelText("Электронная почта"), { target: { value: "" } });
-    expect((screen.getByLabelText("Электронная почта") as HTMLInputElement).required).toBe(false);
+    expect(screen.queryByLabelText("Электронная почта")).toBeNull();
     expect((screen.getByLabelText("Пожелания или вопрос") as HTMLTextAreaElement).required).toBe(false);
     expect(button.disabled).toBe(true);
     fireEvent.click(consent);

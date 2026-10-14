@@ -43,7 +43,6 @@ export default function LeadForm({ course, formId, context }: { course?: string;
     const name = String(values.get("name") || "").trim();
     const childName = String(values.get("child_name") || "").trim();
     const age = String(values.get("child_age") || "").trim();
-    const email = String(values.get("email") || "").trim();
     const normalizedPhone = normalizeChildrenPhone(String(values.get("phone") || ""));
     const digits = normalizedPhone.slice(1);
     if (name.length < 2 || childName.length < 2) {
@@ -56,10 +55,6 @@ export default function LeadForm({ course, formId, context }: { course?: string;
     }
     if (digits.length < 10 || digits.length > 15 || (/^[78]/.test(digits) && digits.length !== 11)) {
       setError("Проверьте номер телефона. Для российского номера нужно 11 цифр, включая +7.");
-      return;
-    }
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Проверьте адрес электронной почты или оставьте это поле пустым.");
       return;
     }
     if (values.get("consent") !== "on") {
@@ -80,7 +75,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
         body: JSON.stringify({
           name,
           phone: normalizedPhone,
-          email,
+          email: "",
           question: [context, course ? direction : `Направление: ${direction}`, `Имя ребёнка: ${childName}`, `Возраст ребёнка: ${age}`, message && `Пожелания: ${message}`].filter(Boolean).join("\n"),
           personal_data_consent: true,
           advertising_consent: values.get("advertising_consent") === "on",
@@ -133,11 +128,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           <span>Номер телефона <span aria-hidden="true">*</span></span>
           <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" autoComplete="tel" inputMode="tel" maxLength={30} required disabled={pending} value={phone} onChange={(event) => setPhone(event.target.value)} onBlur={() => setPhone(formatChildrenPhone(phone))} />
         </label>
-        <label className={formStyles.field}>
-          <span>Электронная почта</span>
-          <input type="email" name="email" placeholder="name@example.ru" autoComplete="email" maxLength={254} disabled={pending} />
-        </label>
-        <label className={formStyles.field}>
+        <label className={`${formStyles.field} ${formStyles.fullWidth}`}>
           <span>Направление</span>
           {course ? <input name="direction" value={course.replace(/^Запись на курс\s*/, "")} readOnly /> : (
             <select name="direction" defaultValue="Помогите подобрать курс" disabled={pending}>
