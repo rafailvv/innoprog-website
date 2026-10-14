@@ -1,4 +1,5 @@
 "use client";
+import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import { childrenCourseNavigation } from "../courses/course-paths";
 import Link from "next/link";
 import { useState, useSyncExternalStore } from "react";
@@ -111,7 +112,7 @@ export default function StoryPage({ index }: { index: number }) {
                 Первый проект вашего ребёнка —<br /> уже на вводном занятии
               </h2>
               <p>
-                Познакомимся, выберем интересное направление и начнём создавать.
+              Познакомимся, выберем интересное направление и начнём создавать
               </p>
             </div>
             <Link className={school.button} href="/children#tariff">
@@ -145,26 +146,7 @@ export default function StoryPage({ index }: { index: number }) {
         </div>
       </main>
       <SiteFooter isMobile={isMobile} scale={scale} />
-      <Dialog.Root open={menu} onOpenChange={setMenu}>
-        <Dialog.Portal>
-          <Dialog.Overlay className={school.overlay} />
-          <Dialog.Content className={`${school.modal} ${school.menu}`}>
-            <Dialog.Title>ИННОПРОГ</Dialog.Title>
-            <Dialog.Description>
-              Навигация по школе программирования
-            </Dialog.Description>
-            <Dialog.Close className={school.close} aria-label="Закрыть меню">
-              ×
-            </Dialog.Close>
-            <nav>
-              <Link href="/">Для взрослых</Link>
-              <Link href="/children">Для детей</Link>
-              <Link href="/children#reviews">Отзывы учеников</Link>
-              <Link href="/about">О нас</Link>
-            </nav>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      <ChildrenMobileMenu open={menu} onOpenChange={setMenu} applicationHref="/children#tariff" />
       <Dialog.Root
         open={photo !== null}
         onOpenChange={(open) => {

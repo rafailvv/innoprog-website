@@ -1,8 +1,7 @@
 "use client";
+import ChildrenMobileMenu from "./ChildrenMobileMenu";
 import { childrenCourseNavigation } from "./courses/course-paths";
-import Link from "next/link";
 import { useState, useSyncExternalStore, type ReactNode } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../components/ResponsiveSiteFooter";
 import styles from "./school/school.module.css";
@@ -48,27 +47,7 @@ export default function ChildrenShell({
       </div>
       {children}
       <SiteFooter isMobile={isMobile} scale={scale} />
-      <Dialog.Root open={menu} onOpenChange={setMenu}>
-        <Dialog.Portal>
-          <Dialog.Overlay className={styles.overlay} />
-          <Dialog.Content className={`${styles.modal} ${styles.menu}`}>
-            <Dialog.Title>ИННОПРОГ</Dialog.Title>
-            <Dialog.Description className={styles.srOnly}>
-              Навигация по школе программирования
-            </Dialog.Description>
-            <Dialog.Close className={styles.close} aria-label="Закрыть меню">
-              ×
-            </Dialog.Close>
-            <nav>
-              <Link href="/">Для взрослых</Link>
-              <Link href="/children">Для детей</Link>
-              <Link href="/children#professions">Все направления</Link>
-              <Link href="/children#reviews">Истории учеников</Link>
-              <Link href="/about">О нас</Link>
-            </nav>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      <ChildrenMobileMenu open={menu} onOpenChange={setMenu} />
     </div>
   );
 }

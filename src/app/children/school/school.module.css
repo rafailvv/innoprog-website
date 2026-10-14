@@ -1559,21 +1559,6 @@
   }
 }
 
-/* Keep generated shared header proportions independent of main-page typography. */
-.page :global(.site-main-header--desktop) > div:last-child {
-  align-self: center;
-}
-.page :global(.site-main-header--desktop) [data-name="кнопки пд"] {
-  height: 56px;
-  border-radius: 28px;
-}
-.page :global(.site-main-header--desktop) [data-name="кнопки пд"] > div > div {
-  padding-block: 10px;
-}
-.page :global(.site-main-header--desktop) [data-name="кнопки пд"] p {
-  margin: 0;
-  line-height: 1.4;
-}
 .faq details {
   border-bottom: 1px solid #ece5f6;
 }

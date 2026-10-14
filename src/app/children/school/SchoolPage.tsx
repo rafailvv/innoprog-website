@@ -1,4 +1,5 @@
 "use client";
+import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
@@ -605,44 +606,7 @@ export default function SchoolPage() {
         </section>
       </main>
       <SiteFooter isMobile={isMobile} scale={scale} />
-      <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
-        <Dialog.Portal>
-          <Dialog.Overlay className={styles.overlay} />
-          <Dialog.Content className={`${styles.modal} ${styles.menu}`}>
-            <Dialog.Title>ИННОПРОГ</Dialog.Title>
-            <Dialog.Description className={styles.srOnly}>
-              Навигация по школе программирования
-            </Dialog.Description>
-            <Dialog.Close className={styles.close} aria-label="Закрыть меню">
-              ×
-            </Dialog.Close>
-            <nav>
-              {[
-                ["/", "Для взрослых"],
-                ["#professions", "Для детей"],
-                ["#training", "Обучение"],
-                ["#teachers", "Преподаватели"],
-                ["#reviews", "Отзывы"],
-                ["#tariff", "Стоимость"],
-                ["/about", "О нас"],
-              ].map(([href, label]) => (
-                <a href={href} key={label} onClick={() => setMenuOpen(false)}>
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <button
-              className={styles.button}
-              onClick={() => {
-                setMenuOpen(false);
-                setApplication("Подобрать курс для ребёнка");
-              }}
-            >
-              Подобрать курс
-            </button>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      <ChildrenMobileMenu open={menuOpen} onOpenChange={setMenuOpen} onApplication={() => setApplication("Подобрать курс для ребёнка")} />
       <Dialog.Root
         open={application !== null}
         onOpenChange={(open) => {
