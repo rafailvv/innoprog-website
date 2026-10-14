@@ -157,8 +157,6 @@ export default function SchoolPage() {
       <main id="school-main">
         <section className={styles.hero}>
           <div className={`${styles.container} ${styles.heroInner}`}>
-            <img src={a.laptop} alt="" className={styles.laptop} />
-            <img src={a["code-cubes"]} alt="" className={styles.cubes} />
             <div className={styles.heroText}>
               <span className={styles.age}>для детей от 9 до 17 лет</span>
               <h1>
