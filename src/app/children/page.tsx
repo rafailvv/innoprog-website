@@ -1,3 +1,4 @@
+import { childrenTeachers } from "./school/teacher-data";
 import SchoolPage from "./school/SchoolPage";
 import source from "./school/source-data.json";
 import { childrenCourses, childrenCoursePath } from "./courses/course-data";
@@ -7,6 +8,7 @@ import {
   breadcrumbJsonLd,
   faqPageJsonLd,
   absoluteUrl,
+  webPageJsonLd,
 } from "../seo";
 
 export const metadata = createPageMetadata({
@@ -26,6 +28,12 @@ export const metadata = createPageMetadata({
 export default function Page() {
   return (
     <>
+      <JsonLd data={{
+        ...webPageJsonLd({ path: "/children", name: "Программирование для детей от 9 до 17 лет", description: "Индивидуальные онлайн-занятия программированием для школьников", primaryEntityId: `${absoluteUrl("/children")}#course-catalog` }),
+        mentions: childrenTeachers.map((teacher) => ({
+          "@type": "Person", name: teacher.name, image: absoluteUrl(teacher.image), description: teacher.bullets.join(". "),
+        })),
+      }} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Главная", path: "/" },
@@ -45,6 +53,7 @@ export default function Page() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
+          "@id": `${absoluteUrl("/children")}#course-catalog`,
           name: "Курсы программирования для детей",
           numberOfItems: childrenCourses.length,
           itemListOrder: "https://schema.org/ItemListOrderAscending",

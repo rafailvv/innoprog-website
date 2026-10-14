@@ -101,6 +101,21 @@ export default async function Page({ params }: Props) {
             url: "https://innoprog.ru",
           },
           teaches: course.skills,
+          isAccessibleForFree: false,
+          typicalAgeRange: course.age.replace(" лет", "").replace("–", "-"),
+          offers: {
+            "@type": "Offer",
+            url: `${absoluteUrl(path)}#application`,
+            price: "7290",
+            priceCurrency: "RUB",
+            seller: { "@id": "https://innoprog.ru/#organization" },
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: "7290",
+              priceCurrency: "RUB",
+              unitText: "месяц",
+            },
+          },
           hasCourseInstance: {
             "@type": "CourseInstance",
             courseMode: "online",

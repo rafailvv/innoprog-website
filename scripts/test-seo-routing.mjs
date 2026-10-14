@@ -132,6 +132,21 @@ try {
         assert.ok(!Object.hasOwn(course, "courseMode"), `${route}: courseMode belongs to CourseInstance`);
         assert.ok(!Object.hasOwn(course, "totalTime"), `${route}: totalTime is a HowTo property`);
         if (route.endsWith("-course")) {
+          const direction = ({ "/python-course": "python", "/data-science-course": "data-science", "/data-analyst-course": "data-science", "/frontend-developer-course": "frontend", "/cpp-developer-course": "cpp", "/java-developer-course": "java", "/unreal-engine-course": "unreal", "/mobile-developer-course": "mobile", "/ml-engineer-course": "ml" })[route];
+          const cards = [...document.querySelectorAll('.site-course-reviews-carousel a.site-course-review-card--dynamic')];
+          assert.equal(cards.length, 4, `${route}: four reviews must be rendered without JavaScript`);
+          for (const card of cards) {
+            assert.equal(new URL(card.getAttribute("href"), origin).searchParams.get("direction"), direction, `${route}: wrong review direction in initial HTML`);
+            assert.ok(card.querySelector('.site-course-direction-review-card__body')?.textContent.length > 50, `${route}: missing review text`);
+          }
+          if (!["data-science", "data-analyst"].some((name) => route === `/${name}-course`)) {
+            assert.equal(course.review?.length, 4, `${route}: published course reviews schema`);
+            for (const review of course.review) {
+              assert.ok(bodyText.includes(normalizeText(review.author.name)), `${route}: review author must be visible`);
+              assert.ok(bodyText.includes(normalizeText(review.reviewBody)), `${route}: review must match server-visible content`);
+              assert.ok(!review.reviewRating, `${route}: no additional rating claims`);
+            }
+          }
           assert.match(course.hasCourseInstance.courseWorkload, /^(800|960) академических часов$/, `${route}: approved academic workload`);
           for (const person of course.hasCourseInstance.instructor || []) {
             assert.equal(person["@type"], "Person", `${route}: instructor must be a person`);
@@ -159,7 +174,14 @@ try {
     } finally { window.close(); }
   }
 
-  for (const route of ["/", "/python-course?utm_source=seo-test&ref=example", "/reviews/kirill"]) {
+  const discovery = await request("/llms.txt");
+  assert.equal(discovery.status, 200);
+  const discoveryText = await discovery.text();
+  for (const url of urls.filter((url) => new URL(url).pathname.startsWith("/children"))) {
+    assert.ok(discoveryText.includes(url), `Missing children page in llms.txt: ${url}`);
+  }
+
+  for (const route of ["/", "/python-course?utm_source=seo-test&ref=example", "/reviews/kirill", "/children/courses/python?utm_source=seo-test", "/children/stories/amir"]) {
     const response = await requestWithHost(route, "www.innoprog.ru");
     assert.equal(response.status, 308, `www redirect: ${route}`);
     assert.equal(new URL(response.location).href, new URL(`${origin}${route}`).href, `www path and query: ${route}`);

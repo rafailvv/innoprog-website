@@ -1,3 +1,4 @@
+import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
@@ -3420,7 +3421,7 @@ function Frame212() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start relative shrink-0 uppercase w-full">
       <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white w-full">Отзывы учеников</h2>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-[rgba(255,255,255,0.6)] w-full">о курсе Python-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-[rgba(255,255,255,0.6)] w-full">о курсе C++ разработчик</p>
     </div>
   );
 }
@@ -3813,37 +3814,10 @@ function Frame22() {
 function Component9() {
   return (
     <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-reviews" data-name="сами отзывы">
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="vildan" draggable={false} href="/reviews?direction=python#review-vildan">
-        <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
-          <Frame206 />
-          <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:ExtraLight',sans-serif] font-extralight inset-0 leading-[20px] text-[16px] text-black text-right">{`читать полностью `}</p>
-          </span>
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
-      </a>
-      <a className="bg-white content-stretch cursor-pointer flex flex-col items-end no-underline p-[32px] relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="veniamin" draggable={false} href="/reviews?direction=python#review-veniamin">
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <Frame207 />
-      </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="ilya" draggable={false} href="/reviews?direction=python#review-ilya">
-        <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
-          <Frame216 />
-          <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:ExtraLight',sans-serif] font-extralight inset-0 leading-[20px] text-[16px] text-black text-right">{`читать полностью `}</p>
-          </span>
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
-      </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" data-course-review="andrey" draggable={false} href="/reviews?direction=python#review-andrey">
-        <div className="content-stretch flex flex-col gap-[20px] items-end overflow-clip p-[32px] relative rounded-[inherit] size-full">
-          <Frame221 />
-          <span className="bg-transparent border-0 cursor-pointer block h-[12px] p-0 relative shrink-0 w-[417px]" data-name="читать полностью">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] absolute font-['Manrope:ExtraLight',sans-serif] font-extralight inset-0 leading-[20px] text-[16px] text-black text-right">{`читать полностью `}</p>
-          </span>
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
-      </a>
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" direction="cpp" index={0} />
+      <CourseReviewCard className="bg-white content-stretch cursor-pointer flex flex-col items-end no-underline p-[32px] relative rounded-[40px] shrink-0 text-inherit w-[465px]" direction="cpp" index={1} />
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" direction="cpp" index={2} />
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[40px] shrink-0 text-inherit w-[465px]" direction="cpp" index={3} />
       <Frame22 />
     </div>
   );

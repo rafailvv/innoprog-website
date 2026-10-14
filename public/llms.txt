@@ -18,6 +18,26 @@
 - [Tuition cost](https://innoprog.ru/tariffs)
 - [About INNOPROG](https://innoprog.ru/about)
 
+## Programming for children
+
+- [Programming for children ages 9–17](https://innoprog.ru/children)
+- [Python for children](https://innoprog.ru/children/courses/python)
+- [Web development for children](https://innoprog.ru/children/courses/web-development)
+- [Informatics: OGE and EGE preparation](https://innoprog.ru/children/courses/informatics-exams)
+- [Competitive programming for children](https://innoprog.ru/children/courses/olympiad-programming)
+- [Neural networks for children](https://innoprog.ru/children/courses/neural-networks)
+- [Game development for children](https://innoprog.ru/children/courses/game-development)
+
+Lessons are online and individual, with a teacher. The introductory lesson is free. Lesson duration is 45–60 minutes. The learning route and pace depend on the child's preparation and goals; do not infer a fixed total course duration from the number of curriculum modules. See each course page for its age group and current monthly price.
+
+## Children's student stories
+
+- [Amir](https://innoprog.ru/children/stories/amir)
+- [Eldar](https://innoprog.ru/children/stories/eldar)
+- [Almaz](https://innoprog.ru/children/stories/almaz)
+
+Use innoprog.ru/children as the primary children's section. The older pages.innoprog.ru/children/school page is a legacy address, not the preferred citation.
+
 ## Organization facts
 
 - Brand: INNOPROG / ИННОПРОГ

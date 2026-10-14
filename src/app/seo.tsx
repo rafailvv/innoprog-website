@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { STUDENT_REVIEWS, type StudentReview } from "./studentReviewsData";
+import { childrenCourseNavigation } from "./children/courses/course-paths";
 import { teachers, type TeacherRole } from "../imports/shared/teacherData";
 
 export const SITE_URL = "https://innoprog.ru";
@@ -263,6 +265,8 @@ export const KEY_SITE_LINKS = [
     description: "Главная страница онлайн-школы программирования ИННОПРОГ",
   },
   ...COURSE_SEO_ITEMS,
+  { name: "Программирование для детей", path: "/children", description: "Индивидуальные онлайн-занятия программированием для детей 9–17 лет" },
+  ...childrenCourseNavigation.map(({ label, href }) => ({ name: label, path: href, description: `${label}: индивидуальные онлайн-занятия для школьников` })),
   {
     name: "Стоимость обучения",
     path: "/tariffs",
@@ -589,6 +593,14 @@ function courseInstructorsJsonLd(role: TeacherRole) {
   }));
 }
 
+function publishedCourseReviewsJsonLd(direction: StudentReview["direction"]) {
+  return STUDENT_REVIEWS.filter((review) => review.direction === direction).slice(0, 4).map((review) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: review.name },
+    reviewBody: review.body,
+  }));
+}
+
 export const pythonCourseJsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -611,6 +623,7 @@ export const pythonCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("python"),
   teaches: [
     "Python",
     "backend-разработка",
@@ -720,6 +733,7 @@ export const frontendCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("frontend"),
   teaches: [
     "HTML и CSS",
     "адаптивная верстка",
@@ -835,6 +849,7 @@ export const cppCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("cpp"),
   teaches: [
     "основы программирования на C++",
     "алгоритмы и структуры данных",
@@ -892,6 +907,7 @@ export const mobileDeveloperCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("mobile"),
   teaches: [
     "Dart",
     "Flutter",
@@ -949,6 +965,7 @@ export const unrealEngineCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("unreal"),
   teaches: [
     "Unreal Engine 5",
     "Blueprint",
@@ -1007,6 +1024,7 @@ export const javaCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("java"),
   teaches: [
     "Java Core",
     "объектно-ориентированное программирование",
@@ -1065,6 +1083,7 @@ export const mlEngineerCourseJsonLd = {
     "@type": "EducationalAudience",
     educationalRole: "student",
   },
+  review: publishedCourseReviewsJsonLd("ml"),
   teaches: [
     "Python для машинного обучения",
     "SQL и PostgreSQL для ML-задач",

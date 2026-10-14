@@ -7,14 +7,6 @@ const tariffsSource = appSource.slice(
   appSource.indexOf("const REVIEW_STORY_CARD_TITLES"),
 );
 
-if (appSource.includes("replaceChildren(")) {
-  throw new Error("Course review cards must not replace React-owned child nodes");
-}
-
-if (!appSource.includes("card.append(content)")) {
-  throw new Error("Dynamic course review content must be appended without replacing React nodes");
-}
-
 for (const diploma of [
   "Диплом ИТ-школы ИННОПРОГ о прохождении курса",
   "Диплом о профессиональной переподготовке",
@@ -39,21 +31,13 @@ const expectedCourseDirections = {
 };
 
 for (const [componentName, direction] of Object.entries(expectedCourseDirections)) {
-  const componentStart = appSource.indexOf(`function ${componentName}(`);
-  const nextComponentStart = appSource.indexOf("\nfunction ", componentStart + 1);
-  const componentSource = appSource.slice(
-    componentStart,
-    nextComponentStart === -1 ? undefined : nextComponentStart,
-  );
-
-  if (componentStart === -1) {
-    throw new Error(`Missing course component: ${componentName}`);
-  }
-
-  const expectedHook = `useCourseReviewDirection(courseCanvasRef, "${direction}")`;
-
-  if (!componentSource.includes(expectedHook)) {
-    throw new Error(`${componentName} must render only "${direction}" reviews`);
+  const courseName = componentName.replace(/Page$/, "");
+  for (const viewport of ["Desktop", "Mobile"]) {
+    const source = readFileSync(`src/imports/${courseName}${viewport}/${courseName}${viewport}.tsx`, "utf8");
+    if ((source.match(/<CourseReviewCard /g) || []).length !== 4 ||
+        !source.includes(`direction="${direction}"`)) {
+      throw new Error(`${courseName}${viewport} must render four server-visible ${direction} reviews`);
+    }
   }
 }
 

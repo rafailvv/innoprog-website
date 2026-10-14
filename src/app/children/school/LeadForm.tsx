@@ -1,4 +1,5 @@
 "use client";
+import { trackApplicationSuccess } from "../../analytics";
 
 import { useId, useRef, useState, type FormEvent } from "react";
 import {
@@ -89,6 +90,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || !result.ok) throw new Error("request-failed");
+      trackApplicationSuccess(formId || (course ? "children-course-application" : "children-school-application"));
       setSent(true);
       form.reset();
       setPhone("");

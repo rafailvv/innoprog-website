@@ -1,4 +1,5 @@
 "use client";
+import { trackApplicationSuccess } from "../analytics";
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useRef, useState } from "react";
@@ -56,6 +57,7 @@ async function sendApplication(payload: LeadPayload, captchaToken: string): Prom
   const result = await response.json().catch(() => ({ error: null }));
 
   if (response.ok && result.ok) {
+    trackApplicationSuccess("standalone-application");
     return;
   }
 

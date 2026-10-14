@@ -122,7 +122,7 @@ describe("educational disclosure contracts", () => {
   });
 
   it("keeps public course schema durations aligned with approved DPO programs", () => {
-    const courseSchemaByProgram = new Map([
+    const courseSchemaByProgram = new Map<string, { timeRequired: string; hasCourseInstance: { courseWorkload: string } }>([
       ["C++ разработчик", cppCourseJsonLd],
       ["Data Science", dataScienceCourseJsonLd],
       ["Data-аналитик", dataAnalystCourseJsonLd],

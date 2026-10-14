@@ -1,4 +1,5 @@
 "use client";
+import { trackApplicationSuccess } from "./analytics";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -84,148 +85,6 @@ const MOBILE_DESIGN = {
 };
 
 const MOBILE_BREAKPOINT = 768;
-
-type CourseReviewsDirection = Exclude<ReviewsDirectionKey, typeof ALL_REVIEWS_DIRECTION_KEY>;
-
-function getCourseReviewHref(review: StudentReview) {
-  return getStudentReviewPath(review);
-}
-
-function setCourseReviewCard(card: HTMLAnchorElement, review: StudentReview) {
-  const courseReviewKey = review.courseReviewKey as CourseReviewKey | undefined;
-
-  card.classList.add("site-course-review-card--dynamic");
-  card.href = getCourseReviewHref(review);
-  card.draggable = false;
-  card.hidden = false;
-  card.removeAttribute("aria-hidden");
-  card.removeAttribute("tabindex");
-
-  if (courseReviewKey && courseReviewKey in COURSE_REVIEW_ROUTES) {
-    card.dataset.courseReview = courseReviewKey;
-    delete card.dataset.studentReview;
-  } else {
-    card.dataset.studentReview = review.id;
-    delete card.dataset.courseReview;
-  }
-
-  if (card.dataset.dynamicStudentReview === review.id) {
-    return;
-  }
-
-  card.querySelector(":scope > .site-course-direction-review-card")?.remove();
-  card.dataset.dynamicStudentReview = review.id;
-
-  const initial = review.name.trim().charAt(0).toUpperCase() || "И";
-  const content = document.createElement("span");
-  content.className = "site-course-direction-review-card";
-
-  const head = document.createElement("span");
-  head.className = "site-course-direction-review-card__head";
-
-  const avatar = document.createElement("span");
-  avatar.className = "site-course-direction-review-card__avatar";
-  avatar.textContent = initial;
-
-  const person = document.createElement("span");
-  person.className = "site-course-direction-review-card__person";
-
-  const name = document.createElement("strong");
-  name.textContent = review.name;
-
-  const meta = document.createElement("span");
-  meta.textContent = review.age;
-
-  person.append(name, meta);
-
-  const rating = document.createElement("span");
-  rating.className = "site-course-direction-review-card__rating";
-  rating.textContent = `${review.rating} ★`;
-
-  head.append(avatar, person, rating);
-
-  const course = document.createElement("span");
-  course.className = "site-course-direction-review-card__course";
-  course.textContent = `Курс: ${review.course}`;
-
-  const title = document.createElement("span");
-  title.className = "site-course-direction-review-card__title";
-  title.textContent = review.title;
-
-  const body = document.createElement("span");
-  body.className = "site-course-direction-review-card__body";
-  body.textContent = review.body;
-
-  const readMore = document.createElement("span");
-  readMore.className = "site-course-direction-review-card__read-more";
-  readMore.textContent = "читать полностью";
-
-  content.append(head, course, title, body, readMore);
-  card.append(content);
-}
-
-function restoreCourseReviewDirection(canvas: HTMLElement) {
-  canvas
-    .querySelectorAll<HTMLAnchorElement>("a.site-course-review-card--dynamic")
-    .forEach((card) => {
-      card.querySelector(":scope > .site-course-direction-review-card")?.remove();
-      card.classList.remove("site-course-review-card--dynamic");
-      delete card.dataset.dynamicStudentReview;
-      card.hidden = false;
-      card.removeAttribute("aria-hidden");
-      card.removeAttribute("tabindex");
-    });
-}
-
-function applyCourseReviewDirection(canvas: HTMLElement, direction: CourseReviewsDirection) {
-  const reviews = STUDENT_REVIEWS
-    .filter((review) => review.direction === direction)
-    .slice(0, 4);
-
-  canvas.querySelectorAll<HTMLElement>(".site-course-reviews-carousel").forEach((carousel) => {
-    const cards = Array.from(
-      carousel.querySelectorAll<HTMLAnchorElement>("a[data-course-review], a[data-student-review]"),
-    );
-
-    cards.forEach((card, index) => {
-      const review = reviews[index];
-
-      if (!review) {
-        card.hidden = true;
-        card.setAttribute("aria-hidden", "true");
-        card.tabIndex = -1;
-        return;
-      }
-
-      setCourseReviewCard(card, review);
-    });
-  });
-}
-
-function useCourseReviewDirection(
-  courseCanvasRef: { current: HTMLDivElement | null },
-  direction: CourseReviewsDirection,
-) {
-  useLayoutEffect(() => {
-    const canvas = courseCanvasRef.current;
-
-    if (!canvas) {
-      return;
-    }
-
-    applyCourseReviewDirection(canvas, direction);
-
-    const refreshIds = [
-      window.setTimeout(() => applyCourseReviewDirection(canvas, direction), 100),
-      window.setTimeout(() => applyCourseReviewDirection(canvas, direction), 500),
-    ];
-
-    return () => {
-      refreshIds.forEach((refreshId) => window.clearTimeout(refreshId));
-      restoreCourseReviewDirection(canvas);
-    };
-  }, [courseCanvasRef, direction]);
-}
 
 const desktopScrollTargets = {
   adults: 3436,
@@ -372,6 +231,7 @@ async function sendLeadApplication(
   const result = await response.json().catch(() => ({ error: null }));
 
   if (response.ok && result.ok) {
+    trackApplicationSuccess(formId);
     return;
   }
 
@@ -2283,7 +2143,6 @@ function PythonCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "python");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -2525,7 +2384,6 @@ function DataScienceCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "data-science");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -2739,7 +2597,6 @@ function FrontendCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "frontend");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -2859,7 +2716,6 @@ function DataAnalystCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "data-science");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -2979,7 +2835,6 @@ function CppCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "cpp");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -3099,7 +2954,6 @@ function MobileDeveloperCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "mobile");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -3219,7 +3073,6 @@ function UnrealEngineCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "unreal");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -3339,7 +3192,6 @@ function JavaCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "java");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;
@@ -3452,7 +3304,6 @@ function MlEngineerCoursePage({
       width: `${courseDesignWidth}px`,
       zoom: headerScale,
     } as CSSProperties & { zoom?: number };
-  useCourseReviewDirection(courseCanvasRef, "ml");
 
   useEffect(() => {
     const canvas = courseCanvasRef.current;

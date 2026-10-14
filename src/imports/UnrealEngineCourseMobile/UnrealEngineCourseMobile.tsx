@@ -1,3 +1,4 @@
+import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
@@ -3385,7 +3386,7 @@ function Frame222() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start relative shrink-0 uppercase w-[348px]">
       <h2 className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white w-full">Отзывы учеников</h2>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[0.48px] w-full">о курсе Python-разработчик</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.6)] tracking-[0.48px] w-full">о курсе Unreal Engine</p>
     </div>
   );
 }
@@ -3837,30 +3838,10 @@ function Frame15() {
 function Frame248() {
   return (
     <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full site-carousel site-course-reviews-carousel" data-carousel="python-mobile-reviews">
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="vildan" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-vildan">
-        <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
-          <Frame216 />
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="veniamin" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-veniamin">
-        <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
-          <Frame217 />
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="ilya" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-ilya">
-        <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
-          <Frame226 />
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </a>
-      <a className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" data-course-review="andrey" data-name="отзвывы все" draggable={false} href="/reviews?direction=python#review-andrey">
-        <div className="content-stretch flex flex-col items-end overflow-clip px-[20px] py-[24px] relative rounded-[inherit] size-full">
-          <Frame231 />
-        </div>
-        <div aria-hidden className="absolute border border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[32px]" />
-      </a>
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" direction="unreal" index={0} />
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" direction="unreal" index={1} />
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" direction="unreal" index={2} />
+      <CourseReviewCard className="bg-white cursor-pointer no-underline relative rounded-[32px] shrink-0 text-inherit w-[258px]" direction="unreal" index={3} />
       <div className="flex flex-row items-center self-stretch">
         <Frame15 />
       </div>

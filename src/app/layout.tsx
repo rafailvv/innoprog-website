@@ -1,3 +1,4 @@
+import { ConversionTracking } from "./components/ConversionTracking";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
@@ -121,6 +122,7 @@ ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: documen
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         {children}
+        <ConversionTracking />
         <Script id="site-resize-bottom-anchor" strategy="afterInteractive">
           {`
             (function() {

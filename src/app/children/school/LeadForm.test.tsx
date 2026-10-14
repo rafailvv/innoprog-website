@@ -8,6 +8,7 @@ import {
 } from "@testing-library/react";
 import { forwardRef, useImperativeHandle } from "react";
 import LeadForm, { formatChildrenPhone, normalizeChildrenPhone } from "./LeadForm";
+import * as analytics from "../../analytics";
 const { requestToken } = vi.hoisted(() => ({ requestToken: vi.fn(async () => "test-captcha-token") }));
 vi.mock("../../components/YandexSmartCaptcha", () => ({
   YandexSmartCaptcha: forwardRef(function Captcha(_props, ref) {
@@ -36,6 +37,7 @@ function fill() {
 }
 describe("children lead submission", () => {
   it("sends the selected course with captcha and confirms only after success", async () => {
+    const track = vi.spyOn(analytics, "trackApplicationSuccess");
     const fetch = vi
       .spyOn(globalThis, "fetch")
       .mockResolvedValue(Response.json({ ok: true }));
@@ -59,8 +61,10 @@ describe("children lead submission", () => {
       captcha_token: "test-captcha-token",
       form_id: "children-python",
     });
+    expect(track).toHaveBeenCalledExactlyOnceWith("children-python");
   });
   it("keeps entered values and offers retry when the backend fails", async () => {
+    const track = vi.spyOn(analytics, "trackApplicationSuccess");
     vi.spyOn(globalThis, "fetch").mockResolvedValue(
       Response.json({ ok: false }, { status: 502 }),
     );
@@ -76,6 +80,7 @@ describe("children lead submission", () => {
       "Тестовый родитель",
     );
     expect(screen.queryByRole("status")).toBeNull();
+    expect(track).not.toHaveBeenCalled();
     expect(
       (screen.getByRole("button", { name: "Отправить" }) as HTMLButtonElement)
         .disabled,

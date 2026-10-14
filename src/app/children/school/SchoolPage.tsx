@@ -10,6 +10,7 @@ import { SiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "./source-data.json";
 import styles from "./school.module.css";
 import LeadForm from "./LeadForm";
+import { childrenTeachers as teachers } from "./teacher-data";
 import { childrenCoursePaths } from "../courses/course-paths";
 
 const a = data.assets;
@@ -101,35 +102,7 @@ const steps = [
     "Собираем обратную связь от преподавателей об успеваемости ребёнка и регулярно делимся результатами с родителями",
   ],
 ];
-const teachers = [
-  {
-    name: "Венедиктов Рафаил",
-    image: a.rafael,
-    bullets: [
-      "Опыт преподавания 6 лет",
-      "Экс-педагог дополнительного образования в Университете Иннополис",
-      "Проводит комплексную подготовку детей к поступлению в вузы на ИТ-специальности",
-    ],
-  },
-  {
-    name: "Чепель Григорий",
-    image: a.grigory,
-    bullets: [
-      "Опыт преподавания 4 года",
-      "Специалист по Python-разработке и IoT-проектам на CircuitPython и Raspberry Pi",
-      "Готовит к олимпиадам и ИТ-конференциям, обучает актуальным навыкам ИТ-профессии",
-    ],
-  },
-  {
-    name: "Кротов Павел",
-    image: a.pavel,
-    bullets: [
-      "Опыт преподавания 4 года",
-      "Сдал ЕГЭ по информатике на 96 баллов, 2× полуфиналист международной олимпиады ICPC",
-      "Готовит к ОГЭ, ЕГЭ на 90+ баллов и олимпиадам по информатике, включая поступление по БВИ",
-    ],
-  },
-];
+
 function subscribeViewport(callback: () => void) {
   window.addEventListener("resize", callback);
   return () => window.removeEventListener("resize", callback);
