@@ -1595,3 +1595,8 @@
 }
 
 .heroText > .age { display: table; margin-left: 0; margin-right: auto; }
+
+/* Use the header's 104px design gutters for the introductory block. */
+@media (min-width: 768px) {
+  .heroInner { width: calc(100% * 1232 / 1440); }
+}
