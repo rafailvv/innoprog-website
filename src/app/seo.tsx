@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { teachers, type TeacherRole } from "../imports/shared/teacherData";
 
 export const SITE_URL = "https://innoprog.ru";
 export const SITE_NAME = "ИННОПРОГ";
@@ -492,10 +493,6 @@ export const courseCatalogJsonLd = {
   "@id": `${SITE_URL}/#course-catalog`,
   name: "Направления обучения ИННОПРОГ",
   description: "Каталог онлайн-курсов программирования ИННОПРОГ для взрослых и детей",
-  inLanguage: "ru-RU",
-  publisher: {
-    "@id": `${SITE_URL}/#organization`,
-  },
   itemListElement: COURSE_SEO_ITEMS.map((course, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -524,7 +521,6 @@ export const keyPagesJsonLd = {
   "@id": `${SITE_URL}/#key-pages`,
   name: "Основные страницы ИННОПРОГ",
   description: "Главные страницы сайта ИННОПРОГ: курсы, стоимость обучения, отзывы учеников и информация о школе",
-  inLanguage: "ru-RU",
   itemListElement: KEY_SITE_LINKS.map((link, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -550,12 +546,6 @@ export const tariffsOfferCatalogJsonLd = {
   name: "Стоимость обучения в ИННОПРОГ",
   description: "Стоимость и форматы обучения на онлайн-курсах программирования ИННОПРОГ",
   url: absoluteUrl("/tariffs"),
-  provider: {
-    "@type": "EducationalOrganization",
-    "@id": `${SITE_URL}/#organization`,
-    name: SITE_NAME,
-    url: SITE_URL,
-  },
   itemListElement: COURSE_SEO_ITEMS.map((course, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -568,6 +558,13 @@ export const tariffsOfferCatalogJsonLd = {
       availability: "https://schema.org/InStock",
       price: "7990",
       priceCurrency: "RUB",
+      seller: { "@id": `${SITE_URL}/#organization` },
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "7990",
+        priceCurrency: "RUB",
+        unitText: "месяц",
+      },
       itemOffered: {
         "@type": "Course",
         "@id": courseEntityId(course.path),
@@ -581,6 +578,16 @@ export const tariffsOfferCatalogJsonLd = {
     },
   })),
 };
+
+// Share the same published teacher records with the visible course carousels.
+function courseInstructorsJsonLd(role: TeacherRole) {
+  return teachers.filter((teacher) => teacher.role === role).map((teacher) => ({
+    "@type": "Person",
+    name: teacher.name,
+    jobTitle: teacher.role,
+    image: absoluteUrl(teacher.image),
+  }));
+}
 
 export const pythonCourseJsonLd = {
   "@context": "https://schema.org",
@@ -600,7 +607,6 @@ export const pythonCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
-  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -630,11 +636,9 @@ export const pythonCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/python-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "960 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("Python-разработчик"),
   },
 };
 
@@ -656,7 +660,6 @@ export const dataScienceCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
-  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -689,11 +692,9 @@ export const dataScienceCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/data-science-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "960 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("Data Scientist"),
   },
 };
 
@@ -715,7 +716,6 @@ export const frontendCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
-  totalTime: "PT800H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -750,11 +750,8 @@ export const frontendCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/frontend-developer-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "800 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
   },
 };
 
@@ -776,7 +773,6 @@ export const dataAnalystCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
-  totalTime: "PT800H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -811,11 +807,9 @@ export const dataAnalystCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/data-analyst-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "800 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("Data-аналитик"),
   },
 };
 
@@ -837,7 +831,6 @@ export const cppCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
-  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -871,11 +864,9 @@ export const cppCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/cpp-developer-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "960 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("C++ разработчик"),
   },
 };
 
@@ -897,7 +888,6 @@ export const mobileDeveloperCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
-  totalTime: "PT800H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -932,11 +922,8 @@ export const mobileDeveloperCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/mobile-developer-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "800 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
   },
 };
 
@@ -958,7 +945,6 @@ export const unrealEngineCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P40W",
-  totalTime: "PT800H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -993,11 +979,9 @@ export const unrealEngineCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/unreal-engine-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "800 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("Unreal Engine разработчик"),
   },
 };
 
@@ -1019,7 +1003,6 @@ export const javaCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
-  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -1054,11 +1037,9 @@ export const javaCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/java-developer-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "960 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
+    instructor: courseInstructorsJsonLd("Java-разработчик"),
   },
 };
 
@@ -1080,7 +1061,6 @@ export const mlEngineerCourseJsonLd = {
   educationalLevel: "beginner",
   isAccessibleForFree: false,
   timeRequired: "P48W",
-  totalTime: "PT960H",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -1117,11 +1097,8 @@ export const mlEngineerCourseJsonLd = {
     "@type": "CourseInstance",
     "@id": `${SITE_URL}/ml-engineer-course#course-instance`,
     courseMode: "online",
+    courseWorkload: "960 академических часов",
     inLanguage: "ru-RU",
-    instructor: {
-      "@type": "Organization",
-      name: SITE_NAME,
-    },
   },
 };
 

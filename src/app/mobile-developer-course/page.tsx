@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс мобильной разработки с нуля: Dart и Flutter — ИННОПРОГ",
   description:
-    "Онлайн-курс «Мобильный разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения Dart, Flutter, API и созданию приложений Android/iOS: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс мобильной разработки с нуля: 10 месяцев обучения с наставником, Dart, Flutter и приложения Android/iOS. От 7 990 ₽ в месяц в ИННОПРОГ.",
   absoluteTitle: true,
   path: "/mobile-developer-course",
   keywords: MOBILE_DEVELOPER_COURSE_KEYWORDS,

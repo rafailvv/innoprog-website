@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс Data Science с нуля онлайн с наставником — ИННОПРОГ",
   description:
-    "Онлайн-курс «Data Science» с нуля от ИННОПРОГ. 12 месяцев обучения Python, SQL, анализу данных и машинному обучению: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс Data Science с нуля: 12 месяцев обучения с наставником, Python, SQL, статистика, машинное обучение и 13 проектов. От 7 990 ₽ в месяц в ИННОПРОГ.",
   absoluteTitle: true,
   path: "/data-science-course",
   keywords: DATA_SCIENCE_COURSE_KEYWORDS,

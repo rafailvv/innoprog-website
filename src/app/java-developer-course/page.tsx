@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс Java с нуля онлайн с наставником — ИННОПРОГ",
   description:
-    "Онлайн-курс «Java-разработчик» с нуля от ИННОПРОГ. 12 месяцев обучения Java Core, SQL, Spring Boot и backend-разработке: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс Java с нуля: 12 месяцев обучения с наставником, Java Core, SQL, Spring Boot и REST API. Практика и проекты в портфолио. От 7 990 ₽ в месяц в ИННОПРОГ.",
   absoluteTitle: true,
   path: "/java-developer-course",
   keywords: JAVA_COURSE_KEYWORDS,

@@ -103,8 +103,21 @@ try {
         assert.doesNotMatch(meta.content, /noindex/i, route);
       }
       assert.ok(document.querySelector("h1"), `${route}: missing heading in server HTML`);
+      const heading = document.querySelector("h1").textContent;
+      assert.doesNotMatch(heading, /Выгодныеусловия|мы\?наша|История [^:]+:[^\s]/, `${route}: joined heading words`);
       assert.equal(structuredData.filter((item) => item["@type"] === "EducationalOrganization").length, 1, `${route}: school entity`);
       assert.equal(structuredData.filter((item) => item["@type"] === "WebSite").length, 1, `${route}: website entity`);
+      const checkListSchema = (node) => {
+        if (!node || typeof node !== "object") return;
+        if (node["@type"] === "ItemList") {
+          assert.ok(!Object.hasOwn(node, "inLanguage") && !Object.hasOwn(node, "publisher"), `${route}: ItemList is not a CreativeWork`);
+        }
+        if (node["@type"] === "OfferCatalog") {
+          assert.ok(!Object.hasOwn(node, "provider"), `${route}: seller belongs to the offers, not OfferCatalog`);
+        }
+        for (const child of Object.values(node)) checkListSchema(child);
+      };
+      structuredData.forEach(checkListSchema);
       for (const image of document.querySelectorAll("img")) {
         assert.ok(image.hasAttribute("alt"), `${route}: image has no alt attribute`);
       }
@@ -117,6 +130,17 @@ try {
         assert.equal(course.provider.name, "ИННОПРОГ", route);
         assert.ok(course.hasCourseInstance?.courseMode === "online", route);
         assert.ok(!Object.hasOwn(course, "courseMode"), `${route}: courseMode belongs to CourseInstance`);
+        assert.ok(!Object.hasOwn(course, "totalTime"), `${route}: totalTime is a HowTo property`);
+        if (route.endsWith("-course")) {
+          assert.match(course.hasCourseInstance.courseWorkload, /^(800|960) академических часов$/, `${route}: approved academic workload`);
+          for (const person of course.hasCourseInstance.instructor || []) {
+            assert.equal(person["@type"], "Person", `${route}: instructor must be a person`);
+            assert.ok(bodyText.includes(normalizeText(person.name)), `${route}: instructor must be published on this page`);
+            assert.ok(bodyText.includes(normalizeText(person.jobTitle)), `${route}: instructor role must be published`);
+          }
+          assert.ok(document.querySelectorAll('img[loading="lazy"]').length >= 18, `${route}: defer images in initial HTML`);
+          assert.ok(document.querySelector('img[loading="eager"][fetchpriority="high"]'), `${route}: preserve hero image priority`);
+        }
         const faq = structuredData.find((item) => item["@type"] === "FAQPage");
         assert.ok(faq?.mainEntity.length, `${route}: missing FAQ data`);
         for (const question of faq.mainEntity) {

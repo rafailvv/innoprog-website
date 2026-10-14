@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс Python с нуля онлайн с наставником — ИННОПРОГ",
   description:
-    "Онлайн-курс «Python-разработчик» с нуля от ИННОПРОГ. 12 месяцев обучения, 960 академических часов по Python и backend-разработке: программа, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс Python с нуля в ИННОПРОГ: 12 месяцев обучения с наставником, Python и Django, практика и проекты в портфолио. От 7 990 ₽ в месяц. Программа и тарифы.",
   absoluteTitle: true,
   path: "/python-course",
   keywords: PYTHON_COURSE_KEYWORDS,

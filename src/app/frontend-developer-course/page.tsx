@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс Frontend с нуля: JavaScript, React, TypeScript — ИННОПРОГ",
   description:
-    "Онлайн-курс «Frontend-разработчик» с нуля от ИННОПРОГ. 10 месяцев обучения HTML, CSS, JavaScript, TypeScript и React: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс frontend-разработки с нуля: 10 месяцев обучения с наставником, HTML, CSS, JavaScript, TypeScript и React. От 7 990 ₽ в месяц в ИННОПРОГ.",
   absoluteTitle: true,
   path: "/frontend-developer-course",
   keywords: FRONTEND_COURSE_KEYWORDS,

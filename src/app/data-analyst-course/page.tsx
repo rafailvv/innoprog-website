@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс аналитика данных с нуля: SQL, Python и BI — ИННОПРОГ",
   description:
-    "Онлайн-курс «Data-аналитик» с нуля от ИННОПРОГ. 10 месяцев обучения SQL, Python, BI, статистике и A/B-тестированию: программа обучения, цены, диплом о профессиональной переподготовке и помощь в трудоустройстве.",
+    "Курс аналитика данных с нуля: 10 месяцев обучения с наставником, SQL, Python, BI, статистика и A/B-тестирование. От 7 990 ₽ в месяц в ИННОПРОГ.",
   absoluteTitle: true,
   path: "/data-analyst-course",
   keywords: DATA_ANALYST_COURSE_KEYWORDS,

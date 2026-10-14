@@ -1854,7 +1854,7 @@ function ReviewStoryPage({
 
         <div className="site-review-page__title">
           <h1>
-            <span>{`История ${story.storyTitleName}:`}</span>
+            <span>{`История ${story.storyTitleName}:`}</span>{" "}
             <strong>{story.pageTitle}</strong>
           </h1>
         </div>
@@ -1982,7 +1982,7 @@ function AboutPage({
             width={1280}
           />
           <h1>
-            <span>Кто мы?</span>
+            <span>Кто мы?</span>{" "}
             <span>наша миссия?</span>
           </h1>
         </section>
@@ -2163,7 +2163,7 @@ function TariffsPage({
           <div className="site-tariffs-page__inner">
             <header className="site-tariffs-page__title">
               <h1>
-                <span>Выгодные</span>
+                <span>Выгодные</span>{" "}
                 <strong>условия оплаты</strong>
               </h1>
             </header>

@@ -145,7 +145,7 @@ describe("educational disclosure contracts", () => {
       const weeks = Number.isNaN(explicitWeeks) ? months * 4 : explicitWeeks;
 
       expect(schema, program.name).toBeDefined();
-      expect(schema?.totalTime, program.name).toBe(`PT${hours}H`);
+      expect(schema?.hasCourseInstance.courseWorkload, program.name).toBe(`${hours} академических часов`);
       expect(schema?.timeRequired, program.name).toBe(`P${weeks}W`);
     }
   });
