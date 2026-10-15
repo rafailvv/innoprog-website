@@ -1,13 +1,11 @@
 "use client";
 import { trackApplicationSuccess } from "./analytics";
-import { cookieBannerBottom } from "./cookieBannerPosition";
+import { observeCookieBannerPosition } from "./cookieBannerPosition";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
-import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/platform-screen-desktop.webp";
 import platformPhoneScreenUrl from "../imports/MainScreenDesktop/platform-phone-screen-desktop.webp";
@@ -45,6 +43,10 @@ import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
+
+// Preserve SSR while keeping the home-only screens out of course-page JavaScript.
+const MainScreen = dynamic(() => import("../imports/MainScreenDesktop/MainScreenDesktop"));
+const MainScreenMobile = dynamic(() => import("../imports/MainScreenMobile/MainScreenMobile"));
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
 const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
@@ -4646,7 +4648,11 @@ export default function App({
       setIsAdvertisingConsentChecked(false);
     } catch (error) {
       setLeadFormError(
-        error instanceof Error && error.message === "captcha-closed"
+        error instanceof Error && error.message === "captcha-script-failed"
+          ? "Не удалось загрузить проверку безопасности. Обновите страницу и попробуйте снова"
+          : error instanceof Error && error.message === "captcha-timeout"
+          ? "Проверка безопасности не завершена. Попробуйте снова или обновите страницу"
+          : error instanceof Error && error.message === "captcha-closed"
           ? "Проверка не завершена. Пройдите капчу и отправьте заявку ещё раз"
           : "Не удалось отправить заявку. Проверьте данные и попробуйте еще раз",
       );
@@ -5173,38 +5179,15 @@ export default function App({
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
-  useEffect(() => {
-    if (!shouldShowCookieBanner || !isReady || isStandaloneRoute) return;
+  useLayoutEffect(() => {
+    // Position the first visible notice before paint, rather than moving it
+    // after the home loader finishes (which contributes a layout shift).
+    if (!shouldShowCookieBanner || isStandaloneRoute) return;
     const banner = cookieBannerRef.current;
-    const cta = document.querySelector<HTMLElement>(".site-shell--home-route .site-start-button, .site-shell--home-route .site-mobile-hero-start-button");
-    if (!banner) return;
-    banner.style.removeProperty("bottom");
-    if (!cta) return;
-    let frame = 0;
-    const position = () => {
-      banner.style.removeProperty("bottom");
-      if (!cta.isConnected) return;
-      const bottom = cookieBannerBottom(banner.getBoundingClientRect(), cta.getBoundingClientRect(), window.innerHeight);
-      if (bottom !== undefined) banner.style.bottom = `${bottom}px`;
-    };
-    const schedule = () => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(position);
-    };
-    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(schedule);
-    observer?.observe(banner);
-    observer?.observe(cta);
-    window.addEventListener("resize", schedule);
-    window.addEventListener("scroll", schedule, { passive: true });
-    position();
-    return () => {
-      banner.style.removeProperty("bottom");
-      observer?.disconnect();
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("resize", schedule);
-      window.removeEventListener("scroll", schedule);
-    };
-  }, [shouldShowCookieBanner, isReady, viewport.isMobile, isStandaloneRoute]);
+    const canvas = homeCanvasRef.current;
+    if (!banner || !canvas) return;
+    return observeCookieBannerPosition(banner, canvas);
+  }, [shouldShowCookieBanner, viewport.isMobile, isStandaloneRoute]);
 
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;

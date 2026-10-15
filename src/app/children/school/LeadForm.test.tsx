@@ -88,6 +88,20 @@ describe("children lead submission", () => {
   });
 });
 
+describe("children CAPTCHA load failure", () => {
+  it("never sends an application without a token and explains page reload", async () => {
+    const fetch = vi.spyOn(globalThis, "fetch");
+    requestToken.mockRejectedValue(new Error("captcha-script-failed"));
+    render(<LeadForm />);
+    fill();
+    fireEvent.click(screen.getByRole("button", { name: "Отправить" }));
+    await waitFor(() => expect(screen.getByRole("alert")).toHaveTextContent("Обновите страницу"));
+    expect(fetch).not.toHaveBeenCalled();
+    expect(screen.queryByRole("status")).toBeNull();
+    expect(screen.getByRole("button", { name: "Отправить" })).not.toBeDisabled();
+  });
+});
+
 describe("children phone formatting and validation", () => {
   it("normalizes pasted Russian numbers and preserves international numbers", () => {
     expect(normalizeChildrenPhone("8 (999) 123-45-67")).toBe("+79991234567");

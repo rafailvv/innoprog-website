@@ -92,7 +92,11 @@ export default function LeadForm({ course, formId, context }: { course?: string;
       setPhone("");
     } catch (cause) {
       setError(
-        cause instanceof Error && cause.message.startsWith("captcha-")
+        cause instanceof Error && cause.message === "captcha-script-failed"
+          ? "Не удалось загрузить проверку безопасности. Обновите страницу и попробуйте снова."
+          : cause instanceof Error && cause.message === "captcha-timeout"
+          ? "Проверка безопасности не завершена. Попробуйте снова или обновите страницу."
+          : cause instanceof Error && cause.message.startsWith("captcha-")
           ? "Проверка безопасности не завершена. Пройдите капчу и попробуйте снова."
           : "Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.",
       );
