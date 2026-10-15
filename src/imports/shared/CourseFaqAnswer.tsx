@@ -6,6 +6,9 @@ export function CourseFaqAnswer({ item, isOpen }: { item: CourseFaqItem; isOpen:
       {item.answer.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>
       ))}
+      {item.links?.map((link) => (
+        <p key={link.href + link.text}><a className="underline underline-offset-4" href={link.href} tabIndex={isOpen ? undefined : -1}>{link.text}</a></p>
+      ))}
       {item.tariffsLink ? (
         <p><a className="underline underline-offset-4" href="/tariffs" tabIndex={isOpen ? undefined : -1}>Сравнить тарифы и состав услуг</a></p>
       ) : null}

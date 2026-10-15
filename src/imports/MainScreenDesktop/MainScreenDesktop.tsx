@@ -54,7 +54,7 @@ function Frame4() {
           <span className="absolute font-['Raleway:SemiBold',sans-serif] font-semibold leading-[35px] left-0 text-[32px] top-[-7px] whitespace-nowrap">ИННОПРОГ</span>
           <span>{`                                       — это онлайн-образовательная платформа`}</span>
           <br />
-          <span>для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и круглосуточная поддержка в чате.</span>
+          <span>для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и обратная связь в чате.</span>
         </p>
       </div>
     </div>
@@ -170,7 +170,7 @@ function Frame74() {
     <div className="bg-[rgba(255,255,255,0.8)] h-[210px] relative rounded-[40px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[24px] items-start leading-[30px] px-[32px] pb-[40px] pt-[32px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#8058e8] text-[32px] w-full">Стажировка</p>
-        <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">По окончании обучения лучших учеников мы рекомендуем нашим партнёрам для прохождения стажировки в ИТ-компаниях</p>
+        <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[24px] text-black w-full">Лучшим ученикам после обучения — возможность стажировки по условиям тарифов «Расширенный» и «Персональный»</p>
       </div>
     </div>
   );
@@ -765,7 +765,7 @@ function Frame127() {
 function Frame18() {
   return (
     <div className="bg-[#9c78ff] content-stretch flex items-center justify-center p-[24px] relative rounded-[40px] shrink-0">
-      <a className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Во всех тарифах</a>
+      <a className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Условия тарифов</a>
     </div>
   );
 }
@@ -1318,8 +1318,8 @@ function Frame109() {
     <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0 text-[24px] text-right text-white w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 uppercase w-full">Личный чат</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 w-full">
-        <p className="leading-[30px] mb-0">с наставником для вопросов</p>
-        <p className="leading-[30px]">вне уроков</p>
+        <p className="leading-[30px] mb-0">ответ преподавателя —</p>
+        <p className="leading-[30px]">до 48 ч в рабочие дни</p>
       </div>
     </div>
   );
@@ -1346,7 +1346,7 @@ function Frame110() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0 text-[24px] text-right text-white w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 uppercase w-full">Поддержка и помощь</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 w-full">вам не нужно переживать о том, что, где и когда</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 w-full">Карьерные услуги зависят от тарифа</p>
     </div>
   );
 }
@@ -1355,7 +1355,7 @@ function Frame111() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-end min-w-0 relative shrink-0 text-[24px] text-right text-white w-full">
       <p className="font-['Manrope:Bold',sans-serif] font-bold leading-[31px] relative shrink-0 uppercase w-full">Мок-интервью</p>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 w-full">{` в формате реального собеседования`}</p>
+      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 w-full">{` в тарифе «Персональный»`}</p>
     </div>
   );
 }

@@ -249,7 +249,7 @@ function Frame4() {
         <br />
         <span>занятия с преподавателями</span>
         <br />
-        <span>и круглосуточная поддержка в чате.</span>
+        <span>и обратная связь в чате.</span>
       </p>
     </div>
   );
@@ -352,7 +352,7 @@ function Frame78() {
     <div className="bg-[rgba(255,255,255,0.8)] relative rounded-[28px] shadow-[6px_9px_18.5px_0px_rgba(0,0,0,0.25)] shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-[16px] items-start leading-[20px] p-[24px] relative size-full">
         <p className="font-['Manrope:Bold',sans-serif] font-bold relative shrink-0 text-[#8058e8] text-[20px] w-full">Стажировка</p>
-        <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] text-black tracking-[0.48px] w-full">По окончании обучения лучших учеников мы рекомендуем нашим партнёрам для прохождения стажировки в ИТ-компаниях</p>
+        <p className="font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] text-black tracking-[0.48px] w-full">Лучшим ученикам после обучения — возможность стажировки по условиям тарифов «Расширенный» и «Персональный»</p>
       </div>
     </div>
   );
@@ -1298,7 +1298,7 @@ function Frame171() {
 function Frame52() {
   return (
     <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0">
-      <a className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Во всех тарифах</a>
+      <a className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-main-nav="tariffs" href="/tariffs" style={{ textDecoration: "none" }}>Условия тарифов</a>
     </div>
   );
 }
@@ -1950,8 +1950,8 @@ function Frame129() {
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase w-full">личный чат</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-chat-copy">
-        <p className="leading-[16px] mb-0">с наставником для</p>
-        <p className="leading-[16px]">вопросов вне уроков</p>
+        <p className="leading-[16px] mb-0">преподаватель: до 48 ч</p>
+        <p className="leading-[16px]">в рабочие дни</p>
       </div>
     </div>
   );
@@ -1962,8 +1962,8 @@ function Frame130() {
     <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0 w-full">
       <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[20px] relative shrink-0 text-[16px] uppercase whitespace-nowrap w-full">Мок-интервью</p>
       <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px] w-full site-mobile-mentor-interview-copy">
-        <p className="leading-[16px] mb-0">в формате реального</p>
-        <p className="leading-[16px]">собеседования</p>
+        <p className="leading-[16px] mb-0">в тарифе</p>
+        <p className="leading-[16px]">«Персональный»</p>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ describe("published course FAQ conditions", () => {
     expect(paragraphs.find((p) => p.includes("стажировки"))).toContain("«Расширенный» и «Персональный»");
     expect(paragraphs.find((p) => p.includes("HR-специалистом"))).toContain("В тарифе «Персональный»");
     expect(paragraphs.find((p) => p.includes("два тестовых"))).toContain("В тарифе «Персональный»");
-    expect(container.querySelector("a")?.getAttribute("href")).toBe("/tariffs");
+    expect(container.querySelector('a[href="/tariffs"]')?.getAttribute("href")).toBe("/tariffs");
     expect(container.textContent).not.toContain("поиску работу");
     expect(container.textContent).not.toContain("бесплатно подключаем HR");
   });
@@ -35,6 +35,17 @@ describe("published course FAQ conditions", () => {
     expect(container.querySelector("a")?.tabIndex).toBe(0);
   });
 
+  it("keeps public-offer links crawlable and out of collapsed keyboard navigation", () => {
+    const item = courseFaqItems.find(({ question }) => question === "Как проходит обучение в INNOPROG?")!;
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(<CourseFaqAnswer item={item} isOpen={false} />);
+    const offerLink = container.querySelector('a[href="/oferta"]');
+    expect(offerLink).not.toBeNull();
+    expect((offerLink as HTMLAnchorElement).tabIndex).toBe(-1);
+    container.innerHTML = renderToStaticMarkup(<CourseFaqAnswer item={item} isOpen />);
+    expect((container.querySelector('a[href="/oferta"]') as HTMLAnchorElement).tabIndex).toBe(0);
+  });
+
   it.each(coursePaths)("keeps the rendered answers and FAQ JSON-LD consistent for %s", (path) => {
     const schema = faqPageJsonLd(courseFaqItems, path);
     expect(schema.url).toBe(`https://innoprog.ru${path}`);
@@ -46,7 +57,7 @@ describe("published course FAQ conditions", () => {
         .map((p) => p.textContent)
         .join("\n\n");
       expect(question.name).toBe(courseFaqItems[index].question);
-      expect(question.acceptedAnswer.text).toBe(answerText);
+      expect(question.acceptedAnswer.text.startsWith(answerText)).toBe(true);
     });
   });
 
