@@ -69,6 +69,8 @@ describe("valid server HTML without changing programme icons", () => {
     expect(document.querySelectorAll("button").length).toBeGreaterThan(0);
     expect([...document.querySelectorAll("button div, button p, button button, button a")].map((el) => el.outerHTML.slice(0, 240))).toEqual([]);
     expect(document.querySelectorAll(".site-course-program-tag style").length).toBe(0);
+    const levels = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")].map((heading) => Number(heading.tagName.slice(1)));
+    expect(levels.filter((level, index) => index > 0 && level > levels[index - 1] + 1)).toEqual([]);
     if (_name === "PythonCourseMobile/PythonCourseMobile.tsx") {
       const headings = [...document.querySelectorAll("h1, h2, h3")];
       const firstProject = document.querySelector(".site-course-mobile-project-title")!;
