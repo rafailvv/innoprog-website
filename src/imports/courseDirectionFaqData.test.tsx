@@ -63,6 +63,10 @@ describe("individual course FAQ integration", () => {
       expect(normalize([...row.querySelectorAll(".site-course-faq-answer p")].map((paragraph) => paragraph.textContent!).join(" "))).toBe(normalize(schema.mainEntity[index].acceptedAnswer.text));
       row.querySelectorAll("a").forEach((anchor) => expect(anchor.tabIndex).toBe(-1));
     });
+    const months = ["frontend", "dataAnalyst", "mobile", "unreal"].includes(direction) ? 10 : 12;
+    expect(rows[1].textContent).toContain(`Срок освоения этой программы — ${months} месяцев`);
+    expect(data[1].tariffsLink).toBe(true);
+    expect(data[1].answer.slice(1)).toEqual(courseFaqItems[1].answer.slice(1));
     expect(rows[0].textContent!.toLocaleLowerCase()).toContain(marker.toLocaleLowerCase());
     expect(JSON.stringify(modules).toLocaleLowerCase()).toContain(marker.toLocaleLowerCase());
     const related = [...rows[4].querySelectorAll("a")];
@@ -71,8 +75,8 @@ describe("individual course FAQ integration", () => {
       expect(anchor.getAttribute("href")).toMatch(/^\/[a-z-]+-course$/);
       expect(anchor.getAttribute("href")).not.toBe(path);
     });
-    // Five shared conditions retain the complete base objects, including offer links.
-    [1, 2, 3, 5, 6].forEach((index) => expect(data[index]).toBe(courseFaqItems[index]));
+    // Four shared conditions retain their complete base objects, including offer links.
+    [2, 3, 5, 6].forEach((index) => expect(data[index]).toBe(courseFaqItems[index]));
   });
 
   it("provides distinct program answers for all nine directions", () => {

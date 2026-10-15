@@ -16,9 +16,9 @@ const courseFaqItems = getCourseFaqItems("java");
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Java с нуля онлайн с наставником — ИННОПРОГ",
+    "Курс Java с нуля с наставником: Spring Boot — ИННОПРОГ",
   description:
-    "Курс Java с нуля: 12 месяцев обучения с наставником, Java Core, SQL, Spring Boot и REST API. Практика и проекты в портфолио. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Java-разработка с нуля онлайн: Java Core, ООП, SQL, PostgreSQL, Spring Boot и REST API. Индивидуальные занятия с наставником. Программа на 12 месяцев и тарифы.",
   absoluteTitle: true,
   path: "/java-developer-course",
   keywords: JAVA_COURSE_KEYWORDS,

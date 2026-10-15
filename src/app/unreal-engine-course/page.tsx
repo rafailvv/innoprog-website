@@ -16,9 +16,9 @@ const courseFaqItems = getCourseFaqItems("unreal");
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Unreal Engine с нуля: разработка игр онлайн — ИННОПРОГ",
+    "Курс Unreal Engine 5 с нуля: Blueprint и игры — ИННОПРОГ",
   description:
-    "Курс Unreal Engine с нуля: 10 месяцев обучения с наставником, Unreal Engine 5, Blueprint, игровые механики и 6 проектов. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Создание игр на Unreal Engine 5 с нуля: Blueprint, игровые механики, уровни и UMG. Индивидуальные онлайн-занятия с наставником. Программа на 10 месяцев.",
   absoluteTitle: true,
   path: "/unreal-engine-course",
   keywords: UNREAL_ENGINE_COURSE_KEYWORDS,

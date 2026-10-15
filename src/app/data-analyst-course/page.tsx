@@ -16,9 +16,9 @@ const courseFaqItems = getCourseFaqItems("dataAnalyst");
 
 export const metadata = createPageMetadata({
   title:
-    "Курс аналитика данных с нуля: SQL, Python и BI — ИННОПРОГ",
+    "Курс аналитика данных: SQL, Python и Power BI — ИННОПРОГ",
   description:
-    "Курс аналитика данных с нуля: 10 месяцев обучения с наставником, SQL, Python, BI, статистика и A/B-тестирование. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Курс аналитика данных с нуля: SQL, Python, Excel, Power BI, статистика и A/B-тестирование. Индивидуальные онлайн-занятия с наставником. Программа на 10 месяцев.",
   absoluteTitle: true,
   path: "/data-analyst-course",
   keywords: DATA_ANALYST_COURSE_KEYWORDS,

@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс C++ с нуля онлайн с наставником — ИННОПРОГ",
   description:
-    "Курс C++ с нуля: 12 месяцев обучения с наставником, алгоритмы, ООП, STL, CMake и Linux. Практика и проекты в портфолио. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Обучение C++ с нуля онлайн: алгоритмы, структуры данных, ООП, STL, CMake и Linux. Индивидуальные занятия с наставником. Программа на 12 месяцев и тарифы.",
   absoluteTitle: true,
   path: "/cpp-developer-course",
   keywords: CPP_COURSE_KEYWORDS,

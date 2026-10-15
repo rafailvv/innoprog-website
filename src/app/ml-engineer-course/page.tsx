@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
   title:
     "Курс ML-инженера с нуля: машинное обучение онлайн — ИННОПРОГ",
   description:
-    "Курс ML-инженера с нуля: 12 месяцев обучения с наставником, Python, SQL, машинное обучение, нейросети и MLOps. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Курс ML-инженера с нуля: Python, машинное обучение, нейросети, ML API и MLOps. Индивидуальное обучение онлайн с наставником. Программа на 12 месяцев и тарифы.",
   absoluteTitle: true,
   path: "/ml-engineer-course",
   keywords: ML_ENGINEER_COURSE_KEYWORDS,

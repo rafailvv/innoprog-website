@@ -16,9 +16,9 @@ const courseFaqItems = getCourseFaqItems("frontend");
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Frontend с нуля: JavaScript, React, TypeScript — ИННОПРОГ",
+    "Курс frontend с нуля: JavaScript и React онлайн — ИННОПРОГ",
   description:
-    "Курс frontend-разработки с нуля: 10 месяцев обучения с наставником, HTML, CSS, JavaScript, TypeScript и React. От 7 990 ₽ в месяц в ИННОПРОГ.",
+    "Frontend-разработка с нуля: HTML, CSS, JavaScript, TypeScript и React. Индивидуальные онлайн-занятия с наставником, практика, программа на 10 месяцев и тарифы.",
   absoluteTitle: true,
   path: "/frontend-developer-course",
   keywords: FRONTEND_COURSE_KEYWORDS,
