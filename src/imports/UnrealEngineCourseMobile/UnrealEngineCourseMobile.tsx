@@ -32,7 +32,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { unrealEngineCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { unrealEngineProjectVisualImages } from "../unrealEngineProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("unreal");
 

@@ -33,7 +33,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { dataScienceCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataScienceProjectVisualImages } from "../dataScienceProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("dataScience");
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { useSyncExternalStore, type CSSProperties } from "react";
-import { MainScreenDesktopFooter } from "../../imports/MainScreenDesktop/MainScreenDesktop";
-import { MainScreenMobileFooter } from "../../imports/MainScreenMobile/MainScreenMobile";
+import { MainScreenDesktopFooter } from "../../imports/shared/DesktopSiteFooter";
+import { MainScreenMobileFooter } from "../../imports/shared/MobileSiteFooter";
 
 const DESKTOP_WIDTH = 1440;
 const MOBILE_WIDTH = 390;

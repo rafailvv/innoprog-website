@@ -32,7 +32,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { frontendCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { frontendProjectVisualImages } from "../frontendProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("frontend");
 

@@ -1,8 +1,8 @@
 "use client";
 
 import type { CSSProperties, MouseEventHandler } from "react";
-import { MainScreenDesktopHeader } from "../../imports/MainScreenDesktop/MainScreenDesktop";
-import { MainScreenMobileHeader } from "../../imports/MainScreenMobile/MainScreenMobile";
+import { MainScreenDesktopHeader } from "../../imports/shared/DesktopSiteHeader";
+import { MainScreenMobileHeader } from "../../imports/shared/MobileSiteHeader";
 
 const DESKTOP_WIDTH = 1440;
 const MOBILE_WIDTH = 390;

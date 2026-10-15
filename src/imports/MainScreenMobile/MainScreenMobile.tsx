@@ -1,5 +1,10 @@
+import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
+export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
+export { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
+import { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
+export { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
 import svgPaths from "./svg-paths";
-import { MobileTeacherCarousel, type TeacherRole } from "../shared/TeacherCarousels";
 import imgGain from "../MainScreenDesktop/home-background.opt.webp";
 import imgCoursePython from "../MainScreenDesktop/3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgCourseDataScience from "../MainScreenDesktop/course-data-analyst-desktop.webp";
@@ -16,9 +21,6 @@ import imgImage120 from "./platform-phone-screen-mobile.webp";
 import imgPhoneFrame from "./platform-phone-frame-mobile.webp";
 import imgWithUsArrow from "../MainScreenDesktop/031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
-import { FooterLegalDetails } from "../../app/FooterLegalDetails";
-import { LEGAL_LINKS } from "../../app/legalLinks";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgProblemStudent from "../MainScreenDesktop/b0e157afc5f21ed21c0695f850461b4b7de165b5.opt.webp";
 import imgProblemArrow from "../MainScreenDesktop/52099641dea92d64016f12ac74714b5a956fb8b3.opt.webp";
@@ -113,88 +115,6 @@ function CourseCardImage({ index }: { index: number }) {
           <img alt="" decoding="async" loading="lazy" className={visual.imageClassName} src={visual.src} />
         </div>
       )}
-    </div>
-  );
-}
-
-function Group1() {
-  return (
-    <div className="col-1 h-[32.011px] ml-[93.2px] mt-0 relative row-1 w-[76.802px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76.802 32.0109">
-        <g>
-          <path d={svgPaths.p39be0c00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p2bfc1ff0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1c4d1070} fill="var(--fill-0, #9C78FF)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group2() {
-  return (
-    <div className="col-1 h-[37.92px] ml-0 mt-[2.08px] relative row-1 w-[169.995px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 169.995 37.92">
-        <g>
-          <path d={svgPaths.p380e3480} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p3615c580} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p240de3c0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1ccccd00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p39592ff0} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p2dcf8680} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p185f4180} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p1aaec400} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p9387d00} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p2dc2e0c0} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p343d4900} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p2df68bf2} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p6361100} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p1c8ff40} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p27239080} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p3d204e00} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p20957100} fill="var(--fill-0, black)" />
-          <path d={svgPaths.p30672800} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group() {
-  return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-name="Group">
-      <Group1 />
-      <Group2 />
-    </div>
-  );
-}
-
-function Frame5() {
-  return (
-    <span className="block h-[16px] relative shrink-0 w-full">
-      <span className="block absolute inset-[-6.25%_0_0_0]">
-        <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 17">
-          <g>
-            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="0.5" y2="0.5" />
-            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="8.5" y2="8.5" />
-            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="16.5" y2="16.5" />
-          </g>
-        </svg>
-      </span>
-    </span>
-  );
-}
-
-export function MainScreenMobileHeader({ menuOpen = false }: { menuOpen?: boolean } = {}) {
-  return (
-    <div className="absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]" data-name="хедер М">
-      <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
-        <Group />
-        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-main-header__course-logo" src="/logo_white_and_black.svg" />
-      </a>
-      <button aria-expanded={menuOpen} aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
-        <Frame5 />
-      </button>
     </div>
   );
 }
@@ -1455,17 +1375,6 @@ function Frame196() {
   );
 }
 
-function Component1() {
-  return (
-    <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-name="преподаватели">
-      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-[0px] text-white uppercase w-[349px] site-mobile-teachers-title">
-        <span className="block leading-[43px] text-[40px] text-[rgba(255,255,255,0.4)]">{`наши `}</span>
-        <span className="block leading-[40px] text-[36px]">преподаватели</span>
-      </h2>
-    </div>
-  );
-}
-
 function Frame93() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-center text-white w-[120px]">
@@ -1665,15 +1574,6 @@ function Frame154() {
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[350px] site-carousel site-mobile-teachers-carousel" data-carousel="mobile-teachers" data-carousel-loop="true">
       <Frame153 />
       <Frame99 />
-    </div>
-  );
-}
-
-function Frame155({ preferredRole }: { preferredRole?: TeacherRole }) {
-  return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[780px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
-      <Component1 />
-      <MobileTeacherCarousel preferredRole={preferredRole} />
     </div>
   );
 }
@@ -2749,217 +2649,11 @@ function Component4() {
   );
 }
 
-function Frame117() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
-      <a className="no-underline relative shrink-0 w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
-      <a className="no-underline relative shrink-0 w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
-      <a className="no-underline relative shrink-0 w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-    </div>
-  );
-}
-
-function Frame103() {
-  return (
-    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</h2>
-      <Frame117 />
-    </div>
-  );
-}
-
-function Frame119() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
-      <p className="relative shrink-0 w-full">г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-      <p className="relative shrink-0 w-full">420500 Республика Татарстан, Верхнеуслонский р-он,</p>
-    </div>
-  );
-}
-
-function Frame118() {
-  return (
-    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</h2>
-      <Frame119 />
-    </div>
-  );
-}
-
-function Frame122() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold gap-[16px] items-start relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase w-full">
-      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.softwareOperationManual} rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-      <a className="leading-[20px] relative shrink-0 w-full" href={LEGAL_LINKS.functionalCharacteristics} rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
-    </div>
-  );
-}
-
-function Frame120() {
-  return (
-    <div className="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[302px]">
-      <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</h2>
-      <Frame122 />
-    </div>
-  );
-}
-
-function Frame92() {
-  return (
-    <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0">
-      <Frame103 />
-      <Frame118 />
-      <Frame120 />
-    </div>
-  );
-}
-
-function MaterialSymbolsMailOutline() {
-  return (
-    <div className="relative shrink-0 size-[76px]" data-name="material-symbols:mail-outline">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76 76">
-        <g id="material-symbols:mail-outline">
-          <rect fill="var(--fill-0, #D9D9D9)" height="76" rx="38" width="76" />
-          <path d={svgPaths.p1a9e2200} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function TablerPhoneCall() {
-  return (
-    <div className="relative shrink-0 size-[75px]" data-name="tabler:phone-call">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 75 75">
-        <g id="tabler:phone-call">
-          <path d={svgPaths.p2ae92c80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p1d06b620} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function IcBaselineWhatsapp() {
-  return (
-    <div className="relative shrink-0 size-[76px]" data-name="ic:baseline-whatsapp">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76 76">
-        <g id="ic:baseline-whatsapp">
-          <path d={svgPaths.p1458ef0} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p36f53980} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function MynauiTelegram() {
-  return (
-    <div className="relative shrink-0 size-[75px]" data-name="mynaui:telegram">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 75 75">
-        <g id="mynaui:telegram">
-          <path d={svgPaths.p2ae92c80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p32992140} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Frame123() {
-  return (
-    <div className="content-stretch flex gap-[16px] items-start mt-auto relative shrink-0">
-      <a aria-label="Написать на почту" className="block" href="mailto:education@innoprog.ru">
-        <MaterialSymbolsMailOutline />
-      </a>
-      <a aria-label="Позвонить" className="block" href="tel:+79586067980">
-        <TablerPhoneCall />
-      </a>
-      <a aria-label="Написать в WhatsApp" className="block" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank">
-        <IcBaselineWhatsapp />
-      </a>
-      <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
-        <MynauiTelegram />
-      </a>
-    </div>
-  );
-}
-
-function Group4() {
-  return (
-    <div className="absolute inset-[66.9%_5.13%_24.5%_54.33%] opacity-30" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 158.124 76.8275">
-        <g>
-          <path d={svgPaths.p395a3880} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p349883f0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p35dfae00} fill="var(--fill-0, #9C78FF)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group5() {
-  return (
-    <div className="absolute inset-[67.2%_5.13%_22.82%_5.13%] opacity-30" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 350.001 91.0073">
-        <g>
-          <path d={svgPaths.p1ffff600} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p31dd82f2} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p4f93a00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p21b68f80} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p28fa8d00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p22adff80} fill="var(--fill-0, white)" />
-          <path d={svgPaths.pb57f200} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p1ca71300} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p6d17800} fill="var(--fill-0, white)" />
-          <path d={svgPaths.pfe08ab0} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p3353cd00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.pf31280} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p2cd73e00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p280d3e80} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p27609700} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p21fdd800} fill="var(--fill-0, white)" />
-          <path d={svgPaths.ped7cc80} fill="var(--fill-0, white)" />
-          <path d={svgPaths.pbb0ce00} fill="var(--fill-0, white)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group3() {
-  return (
-    <div className="absolute contents inset-[87.27%_5.13%_1.72%_5.13%] pointer-events-none" data-name="Group" aria-hidden="true">
-      <Group4 />
-      <Group5 />
-    </div>
-  );
-}
-
 function Frame182() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component4 />
       <MainScreenMobileFooter />
-    </div>
-  );
-}
-
-export function MainScreenMobileFooter() {
-  return (
-    <div className="bg-[#464a6a] h-[940px] relative shrink-0 w-full">
-      <div className="content-stretch flex flex-col gap-[22px] items-start pb-[28px] pt-[28px] px-[20px] relative size-full">
-        <Frame92 />
-        <Frame123 />
-        <EducationDisclosureLink className="self-center site-education-disclosure-link" />
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[14px] min-w-full mt-[12px] relative shrink-0 text-[11px] text-center text-white tracking-[0.12px] w-[min-content]">
-          <FooterLegalDetails compactActivityCodes />
-        </p>
-        <Group3 />
-      </div>
     </div>
   );
 }
@@ -2980,7 +2674,7 @@ function Frame173() {
     <div className="absolute content-stretch flex flex-col gap-[80px] items-center left-0 w-[390px]" style={{ top: MOBILE_NEXT_SECTIONS_TOP }}>
       <Frame171 />
       <Frame196 />
-      <Frame155 />
+      <MainScreenMobileTeachersSection />
       <Frame176 />
     </div>
   );
@@ -2988,10 +2682,6 @@ function Frame173() {
 
 export function MainScreenMobileMentorSection() {
   return <Frame196 />;
-}
-
-export function MainScreenMobileTeachersSection({ preferredRole }: { preferredRole?: TeacherRole } = {}) {
-  return <Frame155 preferredRole={preferredRole} />;
 }
 
 export function MainScreenMobileMeetingsSection() {

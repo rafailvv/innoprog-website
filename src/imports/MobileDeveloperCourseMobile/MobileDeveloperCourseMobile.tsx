@@ -32,7 +32,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { mobileDeveloperCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { mobileDeveloperProjectVisualImages } from "../mobileDeveloperProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("mobile");
 

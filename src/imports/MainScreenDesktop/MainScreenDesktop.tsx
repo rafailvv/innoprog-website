@@ -1,3 +1,7 @@
+import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
+export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
+import { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
+export { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
 import svgPaths from "./svg-j2mtrggl1r";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import imgGain from "./home-background.opt.webp";
@@ -11,10 +15,6 @@ import imgImg29777 from "./3351f7e9c2b3bf5e23666740f3bf50accd535675.opt.webp";
 import imgImg29778 from "./c6e1c119abfe305878a91ba9294aa2ea1250aa7e.opt.webp";
 import imgDataScienceHero from "./course-data-science-desktop.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../../app/courseNavigation";
-import { FooterLegalDetails } from "../../app/FooterLegalDetails";
-import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgRectangle40082 from "./100b51f7b19a210b3de8eadf6abcf10392a9da09.teacher.webp";
 import imgRectangle40083 from "./9fd4f9c316d21dbd728b3436e79074f22de66286.teacher.webp";
@@ -33,8 +33,6 @@ import imgCircleStackSwirl from "./circle-stack-swirl.opt.webp";
 import imgGroup6821 from "./bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "./diplom-prof.opt.webp";
 import imgEllipse2 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
-import imgEllipse3 from "./d59a23af66561c21dac19b54273790bc7c10baf0.png";
-import imgReviewKirill from "./review-kirill.png";
 import imgReviewAnastasia from "./review-anastasia-high.webp";
 import imgReviewMikhail from "./review-mikhail-high.webp";
 import imgReviewKirillHero from "./review-story-kirill-hero.webp";
@@ -278,119 +276,6 @@ function Frame129() {
       <span className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">{`обучаем `}</span>
       <span className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программированию</span>
     </h1>
-  );
-}
-
-function Group1() {
-  return (
-    <div className="col-1 h-[52.018px] ml-[148.57px] mt-0 relative row-1 w-[122.433px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 122.433 52.0178">
-        <g>
-          <path d={svgPaths.p277c6d00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1e39dff0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p2994bec0} fill="var(--fill-0, #9C78FF)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group2() {
-  return (
-    <div className="col-1 h-[61.617px] ml-0 mt-[3.38px] relative row-1 w-[270.998px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 270.998 61.6172">
-        <g>
-          <path d={svgPaths.p21e03d80} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1add300} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p213f6200} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p3d873900} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p30670c00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p251fd0f0} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p115ed500} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p33413b00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p111ef500} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p19c58a00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p2a61d800} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p1ef19480} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.pa705100} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p16f42000} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p24c97600} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p10fe4280} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p2ccd9200} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p3f074c00} fill="var(--fill-0, #201C2D)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group() {
-  return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-name="Group">
-      <Group1 />
-      <Group2 />
-    </div>
-  );
-}
-
-function Frame58({ childrenHref, childrenLinks }: { childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[] }) {
-  return (
-    <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0 site-main-header__nav">
-      <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[166px]" data-main-nav="adults" data-name="Text" href="/">
-        <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
-          <span aria-hidden="true" className="site-main-header__nav-arrow" />
-        </a>
-        <div aria-label="Направления для взрослых" className="site-main-header__dropdown" role="menu">
-          {ADULT_COURSE_LINKS.map(({ label, href }) => (
-            <a href={href} key={href} role="menuitem">{label}</a>
-          ))}
-        </div>
-      </div>
-      <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[126px]" data-main-nav="children" data-name="Text" href={childrenHref || "/children"}>
-        <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
-          <span aria-hidden="true" className="site-main-header__nav-arrow" />
-        </a>
-        <div aria-label="Направления для детей" className="site-main-header__dropdown site-main-header__dropdown--children" role="menu">
-          {(childrenLinks || CHILD_COURSE_LINKS).map(({ label, href }) => (
-            <a href={href} key={label} role="menuitem">{label}</a>
-          ))}
-        </div>
-      </div>
-      <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="/reviews">
-        <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
-      </a>
-      <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[72px]" data-main-nav="about" data-name="Text" href="/about">
-          <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">о нас</p>
-          <span aria-hidden="true" className="site-main-header__nav-arrow" />
-        </a>
-        <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown site-main-header__dropdown--about" role="menu">
-          <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function MainScreenDesktopHeader({ childrenHref, childrenLinks, applicationHref }: { childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[]; applicationHref?: string } = {}) {
-  return (
-    <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
-      <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
-        <Group />
-      </a>
-      <Frame58 childrenHref={childrenHref} childrenLinks={childrenLinks} />
-      <div className="flex flex-row items-center self-stretch">
-        <a className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" href={applicationHref || "/application"}>
-          <div className="flex flex-row items-center justify-center size-full">
-            <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-              <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
   );
 }
 
@@ -2209,228 +2094,11 @@ function Component8() {
   );
 }
 
-function Group6() {
-  return (
-    <div className="col-1 h-[244.958px] ml-[700.63px] mt-0 relative row-1 w-[577.376px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 577.375 244.958">
-        <g>
-          <path d={svgPaths.p23edab00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p4043300} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p30941380} fill="var(--fill-0, #9C78FF)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group7() {
-  return (
-    <div className="col-1 h-[290.169px] ml-0 mt-[15.92px] relative row-1 w-[1278px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1278 290.17">
-        <g>
-          <path d={svgPaths.p1e692d80} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p34305180} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p3b8f9400} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p2b6c6b0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p2a30380} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p376d2400} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p29fbf380} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p24ca3e00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p259c9e00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p14b20500} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p21688c00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p3c4c0500} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p14b3f300} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p7ccf500} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p12339c00} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p16f9d200} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p2eac5200} fill="var(--fill-0, white)" />
-          <path d={svgPaths.p5ec3800} fill="var(--fill-0, white)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group5() {
-  return (
-    <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[81px] mt-[210px] opacity-30 place-items-start pointer-events-none relative row-1" data-name="Group" aria-hidden="true">
-      <Group6 />
-      <Group7 />
-    </div>
-  );
-}
-
-function Frame64() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
-      <a className="no-underline relative shrink-0 text-white w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
-      <a className="no-underline relative shrink-0 text-white w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-    </div>
-  );
-}
-
-function Frame67() {
-  return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start leading-[30px] relative shrink-0 w-[302px]">
-      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Контакты</h2>
-      <Frame64 />
-    </div>
-  );
-}
-
-function Frame65() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <p className="relative shrink-0 w-full">г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-      <p className="relative shrink-0 w-full">420500 Республика Татарстан, Верхнеуслонский р-он,</p>
-    </div>
-  );
-}
-
-function Frame66() {
-  return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start leading-[30px] relative shrink-0 w-[302px]">
-      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold relative shrink-0 text-[#9c78ff] text-[32px] w-full">Адреса</h2>
-      <Frame65 />
-    </div>
-  );
-}
-
-function Frame78() {
-  return (
-    <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.softwareOperationManual} rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.functionalCharacteristics} rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
-    </div>
-  );
-}
-
-function Frame77() {
-  return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[380px]">
-      <h2 className="font-['Manrope:SemiBold',sans-serif] font-semibold leading-[30px] relative shrink-0 text-[#9c78ff] text-[32px] w-full">Правовая информация</h2>
-      <Frame78 />
-    </div>
-  );
-}
-
-function Frame68() {
-  return (
-    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-[1032px]">
-      <Frame67 />
-      <Frame66 />
-      <Frame77 />
-    </div>
-  );
-}
-
-function MaterialSymbolsMailOutline() {
-  return (
-    <div className="relative shrink-0 size-[85px]" data-name="material-symbols:mail-outline">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="material-symbols:mail-outline">
-          <rect fill="var(--fill-0, #D9D9D9)" height="85" rx="40" width="85" />
-          <path d={svgPaths.p36270580} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function TablerPhoneCall() {
-  return (
-    <div className="relative shrink-0 size-[85px]" data-name="tabler:phone-call">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="tabler:phone-call">
-          <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p3f181b00} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function IcBaselineWhatsapp() {
-  return (
-    <div className="h-[83px] relative shrink-0 w-[85px]" data-name="ic:baseline-whatsapp">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 83">
-        <g id="ic:baseline-whatsapp">
-          <path d={svgPaths.p1c2b1d80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.pf349600} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function MynauiTelegram() {
-  return (
-    <div className="relative shrink-0 size-[85px]" data-name="mynaui:telegram">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="mynaui:telegram">
-          <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.pf565fa0} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Frame79() {
-  return (
-    <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0">
-      <a aria-label="Написать на почту" className="block" href="mailto:education@innoprog.ru">
-        <MaterialSymbolsMailOutline />
-      </a>
-      <a aria-label="Позвонить" className="block" href="tel:+79586067980">
-        <TablerPhoneCall />
-      </a>
-      <a aria-label="Написать в WhatsApp" className="block" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank">
-        <IcBaselineWhatsapp />
-      </a>
-      <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
-        <MynauiTelegram />
-      </a>
-    </div>
-  );
-}
-
-function Frame69() {
-  return (
-    <div className="col-1 content-stretch flex gap-[159px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
-      <Frame68 />
-      <Frame79 />
-    </div>
-  );
-}
-
-function Group8() {
-  return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 site-main-desktop-footer">
-      <div className="bg-[#464a6a] col-1 h-[533px] ml-0 mt-0 relative rounded-tl-[48px] rounded-tr-[48px] row-1 w-[1440px]" />
-      <Group5 />
-      <EducationDisclosureLink className="col-1 justify-self-center mt-[420px] relative row-1 site-education-disclosure-link" />
-      <p className="col-1 font-['Manrope:Regular',sans-serif] font-normal leading-[20px] ml-[100px] mt-[468px] relative row-1 text-[16px] text-center text-white tracking-[0.18px] w-[1240px]">
-        <FooterLegalDetails />
-      </p>
-      <Frame69 />
-    </div>
-  );
-}
-
-export function MainScreenDesktopFooter() {
-  return <Group8 />;
-}
-
 function Frame126() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0">
       <Component8 />
-      <Group8 />
+      <MainScreenDesktopFooter />
     </div>
   );
 }

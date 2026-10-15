@@ -32,7 +32,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { mlEngineerCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { mlEngineerProjectVisualImages } from "../mlEngineerProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("mlEngineer");
 

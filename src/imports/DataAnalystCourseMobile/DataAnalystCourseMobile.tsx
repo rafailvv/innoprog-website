@@ -32,7 +32,7 @@ import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { dataAnalystCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataAnalystProjectVisualImages } from "../dataAnalystProjectVisualImages";
-import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 
 const courseFaqItems = getCourseFaqItems("dataAnalyst");
 
