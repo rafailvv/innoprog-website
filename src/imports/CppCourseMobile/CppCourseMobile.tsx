@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgCppHero from "../shared/course-heroes/cpp-processor.webp";
+import imgCppHeroCompact from "../shared/course-heroes/cpp-processor-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -332,6 +333,8 @@ function Frame237() {
           alt="Процессор с символом языка программирования C++"
           className="block h-full max-w-none object-contain pointer-events-none w-full"
           src={imgCppHero}
+          srcSet={`${imgCppHeroCompact} 637w, ${imgCppHero} 909w`}
+          sizes="153.077vw"
         />
       </div>
     </div>

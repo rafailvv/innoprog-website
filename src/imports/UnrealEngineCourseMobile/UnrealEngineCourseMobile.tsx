@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgUnrealEngineHero from "../shared/course-heroes/unreal-engine-mark.webp";
+import imgUnrealEngineHeroCompact from "../shared/course-heroes/unreal-engine-mark-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -278,6 +279,8 @@ function Frame237() {
           alt="Объёмный символ Unreal Engine"
           className="block h-full max-w-none object-contain pointer-events-none w-full"
           src={imgUnrealEngineHero}
+          srcSet={`${imgUnrealEngineHeroCompact} 818w, ${imgUnrealEngineHero} 1167w`}
+          sizes="196.410vw"
         />
       </div>
     </div>

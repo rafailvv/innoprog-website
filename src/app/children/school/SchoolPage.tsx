@@ -216,7 +216,7 @@ export default function SchoolPage() {
                   <article key={title}>
                     <h3>{title}</h3>
                     <p>{text}</p>
-                    <img loading="lazy" src={image} alt="" />
+                    <img loading="lazy" decoding="async" src={image} alt="" />
                   </article>
                 ))}
               </div>
@@ -276,7 +276,7 @@ export default function SchoolPage() {
                   <img
                     src={a[course.id]}
                     alt=""
-                    loading="lazy"
+                    loading="lazy" decoding="async"
                     width={190}
                     height={210}
                   />
@@ -315,7 +315,7 @@ export default function SchoolPage() {
               <a href="/license">№ Л035-01272-16/01064358</a>
             </div>
             <img
-              loading="lazy"
+              loading="lazy" decoding="async"
               src={a.certificate}
               alt="Образец сертификата ИННОПРОГ об окончании ИТ-курса"
               width={470}
@@ -342,7 +342,7 @@ export default function SchoolPage() {
                     <img
                       src={a.lesson}
                       alt="Индивидуальный онлайн-урок с преподавателем"
-                      loading="lazy"
+                      loading="lazy" decoding="async"
                       width={530}
                       height={350}
                     />
@@ -361,7 +361,7 @@ export default function SchoolPage() {
                 <article key={teacher.name}>
                   <div className={styles.teacherPortrait}>
                     <img
-                      loading="lazy"
+                      loading="lazy" decoding="async"
                       src={teacher.image}
                       alt={teacher.name}
                       width={380}
@@ -393,7 +393,7 @@ export default function SchoolPage() {
               rel="noreferrer"
             >
               Написать{" "}
-              <img src={a.telegram} alt="в Telegram" width={50} height={50} />
+              <img src={a.telegram} alt="в Telegram" width={50} height={50} loading="lazy" decoding="async" />
             </a>
           </div>
         </section>
@@ -407,7 +407,7 @@ export default function SchoolPage() {
               className={styles.innopolisPhoto}
               src={a.innopolis}
               alt="Здание Иннополиса"
-              loading="lazy"
+              loading="lazy" decoding="async"
               width={600}
               height={330}
             />
@@ -428,14 +428,14 @@ export default function SchoolPage() {
                   alt="ИННОПРОГ Education"
                   width={200}
                   height={65}
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                 />
                 <img
                   src={a["innopolis-logo"]}
                   alt="ОЭЗ Иннополис"
                   width={220}
                   height={70}
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                 />
               </div>
             </div>
@@ -478,7 +478,7 @@ export default function SchoolPage() {
                   alt={item.name}
                   width={380}
                   height={220}
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                 />
                 <span>{item.course}</span>
                 <h3>{item.name}</h3>
@@ -540,7 +540,7 @@ export default function SchoolPage() {
             alt="Ребёнок создаёт свой первый проект"
             width={380}
             height={380}
-            loading="lazy"
+            loading="lazy" decoding="async"
           />
         </section>
         <section className={styles.pricing} id="tariff">

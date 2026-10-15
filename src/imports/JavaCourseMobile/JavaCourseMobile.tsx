@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgJavaHero from "../shared/course-heroes/java-coffee-cup.webp";
+import imgJavaHeroCompact from "../shared/course-heroes/java-coffee-cup-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -332,6 +333,8 @@ function Frame237() {
           alt="Фиолетовая чашка с паром для курса Java-разработчик"
           className="block h-full max-w-none object-contain pointer-events-none w-full"
           src={imgJavaHero}
+          srcSet={`${imgJavaHeroCompact} 649w, ${imgJavaHero} 925w`}
+          sizes="155.641vw"
         />
       </div>
     </div>

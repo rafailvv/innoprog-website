@@ -262,6 +262,7 @@ export default async function Page({ params }: Props) {
               width={560}
               height={380}
               loading="lazy"
+              decoding="async"
             />
           </section>
           <section className={styles.result}>
@@ -281,6 +282,7 @@ export default async function Page({ params }: Props) {
               width={420}
               height={360}
               loading="lazy"
+              decoding="async"
             />
           </section>
           {story && course.story ? (
@@ -291,6 +293,7 @@ export default async function Page({ params }: Props) {
                 width={480}
                 height={300}
                 loading="lazy"
+                decoding="async"
               />
               <div>
                 <span className={styles.label}>История ученика</span>

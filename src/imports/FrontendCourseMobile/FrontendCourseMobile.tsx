@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.webp";
+import imgFrontendHeroCompact from "../shared/course-heroes/frontend-code-window-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -317,6 +318,8 @@ function Frame237() {
           alt="Окно браузера с символом программного кода"
           className="block contrast-[1.06] h-full max-w-none object-contain pointer-events-none saturate-[1.45] w-full"
           src={imgFrontendHero}
+          srcSet={`${imgFrontendHeroCompact} 589w, ${imgFrontendHero} 840w`}
+          sizes="141.282vw"
         />
       </div>
     </div>

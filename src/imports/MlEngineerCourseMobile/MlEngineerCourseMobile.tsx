@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgMlEngineerHero from "../shared/course-heroes/ml-neural-network.webp";
+import imgMlEngineerHeroCompact from "../shared/course-heroes/ml-neural-network-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -332,6 +333,8 @@ function Frame237() {
           alt="Объёмная схема нейронной сети"
           className="block brightness-[1.35] h-full hue-rotate-[8deg] max-w-none object-contain pointer-events-none saturate-[1.65] w-full"
           src={imgMlEngineerHero}
+          srcSet={`${imgMlEngineerHeroCompact} 719w, ${imgMlEngineerHero} 1025w`}
+          sizes="172.564vw"
         />
       </div>
     </div>

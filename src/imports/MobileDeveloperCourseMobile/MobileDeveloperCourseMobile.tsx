@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgMobileDeveloperHero from "../shared/course-heroes/mobile-developer-phone.webp";
+import imgMobileDeveloperHeroCompact from "../shared/course-heroes/mobile-developer-phone-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -332,6 +333,8 @@ function Frame237() {
           alt="Смартфон для разработки мобильных приложений"
           className="block h-full max-w-none object-contain pointer-events-none w-full"
           src={imgMobileDeveloperHero}
+          srcSet={`${imgMobileDeveloperHeroCompact} 897w, ${imgMobileDeveloperHero} 1280w`}
+          sizes="215.385vw"
         />
       </div>
     </div>

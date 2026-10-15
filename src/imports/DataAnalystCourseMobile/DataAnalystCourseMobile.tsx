@@ -4,6 +4,7 @@ import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgDataAnalystHero from "../shared/course-heroes/data-analyst-dashboard.webp";
+import imgDataAnalystHeroCompact from "../shared/course-heroes/data-analyst-dashboard-420h.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -319,6 +320,8 @@ function Frame237() {
           alt="Панель аналитики с графиком данных"
           className="block h-full max-w-none object-contain pointer-events-none w-full"
           src={imgDataAnalystHero}
+          srcSet={`${imgDataAnalystHeroCompact} 658w, ${imgDataAnalystHero} 938w`}
+          sizes="157.949vw"
         />
       </div>
     </div>
