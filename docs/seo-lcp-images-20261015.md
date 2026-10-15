@@ -36,3 +36,7 @@ Adult FAQ already contains programme-specific explanations, comparison paragraph
 - Pillow decoded-RGBA equality: every deterministic Lanczos resized RGBA candidate versus decoded responsive WebP, exact; no extra lossy encoding stage. Integer rounding preserves the aspect ratio to within one source pixel; fixed container geometry/object-fit are unchanged.
 - Existing original images, first-screen eager/high attributes, geometry/classes, alt text, link targets and form logic preserved.
 - Integrated production build, first-screen/browser verification and repeated comparable performance runs are performed by the main agent before deployment. Source-byte savings are not presented as measured LCP gains.
+
+## Responsive preload follow-up
+
+The home page previously manually preloaded the original 1300w hero unconditionally. Once a 650w mobile candidate exists, that would fetch both the preload fallback and the selected compact image on low-DPR mobile. The explicit preload is now split at the same 768px breakpoint as App: mobile uses exactly the shared imageSrcSet/imageSizes constants used by its img; desktop preloads the unchanged original; background preload stays unconditional. The regression SSR test rejects an unconditional original-only hero preload. Actual network selection is verified separately after the integrated build.

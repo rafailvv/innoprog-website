@@ -1,5 +1,5 @@
 import App from "./App";
-import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
+import { HOME_BACKGROUND_IMAGE_URL, HOME_HERO_IMAGE_URL, HOME_HERO_IMAGE_SRCSET, HOME_HERO_IMAGE_SIZES } from "./homeCriticalAssets";
 import {
   JsonLd,
   HOME_PAGE_KEYWORDS,
@@ -26,9 +26,9 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
-      {HOME_CRITICAL_IMAGE_URLS.map((href) => (
-        <link key={href} rel="preload" as="image" href={href} fetchPriority="high" />
-      ))}
+      <link rel="preload" as="image" href={HOME_BACKGROUND_IMAGE_URL} fetchPriority="high" />
+      <link rel="preload" as="image" href={HOME_HERO_IMAGE_URL} imageSrcSet={HOME_HERO_IMAGE_SRCSET} imageSizes={HOME_HERO_IMAGE_SIZES} media="(max-width: 767px)" fetchPriority="high" />
+      <link rel="preload" as="image" href={HOME_HERO_IMAGE_URL} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={siteNavigationJsonLd} />
       <JsonLd data={keyPagesJsonLd} />
       <JsonLd data={courseCatalogJsonLd} />
