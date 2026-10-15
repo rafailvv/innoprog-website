@@ -3,7 +3,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
-import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.png";
+import imgDataScienceHero from "../DataScienceCourseDesktop/data-science-hero-2x.lossless.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -114,7 +114,7 @@ function MobileProjectVisual({ index }: { index: number }) {
         alt={item.title} title={item.title}
         className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
         decoding="async"
-        loading={index < 2 ? "eager" : "lazy"}
+        loading="lazy"
         src={image}
       />
     </div>
@@ -2352,10 +2352,9 @@ function Frame112() {
               alt=""
               className="site-course-structure-mobile-arrow block h-full mx-auto object-contain pointer-events-none w-auto"
               data-name="image 123"
-              decoding="sync"
-              fetchPriority="high"
+              decoding="async"
               height={128}
-              loading="eager"
+              loading="lazy"
               src={imgCourseStructureArrowFull}
               width={116}
             />

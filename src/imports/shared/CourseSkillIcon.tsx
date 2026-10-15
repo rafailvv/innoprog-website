@@ -105,7 +105,7 @@ export function CourseSkillIcon({ label, size }: { label: string; size: number }
   if (brandIcon) {
     return (
       <span aria-hidden="true" className="site-course-skill-icon" style={{ height: size, width: size }}>
-        <img alt="" className="block h-full object-contain w-full" decoding="async" src={brandIcon} />
+        <img alt="" className="block h-full object-contain w-full" decoding="async" loading="lazy" src={brandIcon} />
       </span>
     );
   }

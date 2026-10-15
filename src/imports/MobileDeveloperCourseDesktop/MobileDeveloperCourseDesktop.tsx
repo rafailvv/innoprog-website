@@ -2645,7 +2645,7 @@ function Component5() {
       <div className="absolute flex h-[3865.744px] items-center justify-center left-[-1014px] top-[-1556px] w-[3914.288px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as CSSProperties}>
         <div className="-scale-y-100 flex-none rotate-[13.7deg]">
           <div className="h-[3186.072px] relative rounded-[40px] w-[3252.149px]" data-name="Circle_Stack_Swirl">
-            <img alt="" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
+            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
           </div>
         </div>
       </div>
@@ -2675,10 +2675,10 @@ function Frame21() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-[1116px]">
       <div className="h-[329px] relative shrink-0 w-[465px]" data-name="Group 682 1">
-        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
+        <img alt="Диплом ИТ-школы ИННОПРОГ о прохождении курса" title="Диплом ИТ-школы ИННОПРОГ о прохождении курса" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgGroup6821} />
       </div>
       <div className="h-[329px] relative shrink-0 w-[494px]" data-name="diplom_prof 1">
-        <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="eager" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
+        <img alt="Диплом о профессиональной переподготовке ИННОПРОГ" title="Диплом о профессиональной переподготовке ИННОПРОГ" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiplomProf1} />
       </div>
     </div>
   );

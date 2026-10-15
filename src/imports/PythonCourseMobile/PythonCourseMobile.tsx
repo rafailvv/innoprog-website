@@ -121,7 +121,7 @@ function MobileProjectVisual({ index }: { index: number }) {
         alt={item.visualTitle} title={item.visualTitle}
         className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
         decoding="async"
-        loading={index < 2 ? "eager" : "lazy"}
+        loading="lazy"
         src={image}
       />
     </div>
@@ -2365,10 +2365,9 @@ function Frame112() {
               alt=""
               className="site-course-structure-mobile-arrow block h-full mx-auto object-contain pointer-events-none w-auto"
               data-name="image 123"
-              decoding="sync"
-              fetchPriority="high"
+              decoding="async"
               height={128}
-              loading="eager"
+              loading="lazy"
               src={imgCourseStructureArrowFull}
               width={116}
             />
