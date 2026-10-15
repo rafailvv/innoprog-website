@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProgramAccordion from "../ProgramAccordion";
+import { getChildrenCourseFaq, type ChildrenCourseFaq } from "../course-faq";
 import ChildrenShell from "../../ChildrenShell";
 import LeadForm from "../../school/LeadForm";
 import source from "../../school/source-data.json";
@@ -48,32 +49,7 @@ export default async function Page({ params }: Props) {
   const course = getChildrenCourse(slug);
   if (!course) notFound();
   const path = childrenCoursePath(slug);
-  const faq = [
-    {
-      question: "Нужны ли знания программирования перед началом?",
-      answer: [course.audience],
-    },
-    {
-      question: "Как проходят занятия?",
-      answer: [
-        "Онлайн, один на один с преподавателем. Урок длится 45–60 минут. Расписание и темп подбираем индивидуально; между занятиями ребёнок выполняет практические задания.",
-      ],
-    },
-    {
-      question: "Сколько времени займёт обучение?",
-      answer: [
-        "Продолжительность зависит от выбранного направления, подготовки и цели ребёнка. После вводного занятия преподаватель предложит план и темп обучения.",
-      ],
-    },
-    {
-      question: "Что нужно для занятий?",
-      answer: [
-        slug === "game-development"
-          ? "Компьютер или ноутбук, стабильный интернет, микрофон и возможность установить инструменты разработки игр. Перед началом преподаватель проверит, подходит ли компьютер для выбранного проекта."
-          : "Компьютер или ноутбук с Windows или macOS, стабильный интернет и микрофон. С установкой необходимых инструментов поможет преподаватель.",
-      ],
-    },
-  ];
+  const faq = getChildrenCourseFaq(course);
   const story = course.story
     ? source.reviews[["amir", "eldar", "almaz"].indexOf(course.story)]
     : null;
@@ -338,7 +314,7 @@ export default async function Page({ params }: Props) {
                   {item.question}
                   <span aria-hidden="true">+</span>
                 </summary>
-                <p>{item.answer[0]}</p>
+                <p><FaqAnswer item={item} /></p>
               </details>
             ))}
           </section>
@@ -392,4 +368,12 @@ export default async function Page({ params }: Props) {
       </main>
     </ChildrenShell>
   );
+}
+
+function FaqAnswer({ item }: { item: ChildrenCourseFaq }) {
+  const text = item.answer[0];
+  if (!item.link) return text;
+  const index = text.indexOf(item.link.label);
+  if (index < 0) return text;
+  return <>{text.slice(0, index)}<Link className="text-inherit underline underline-offset-4" href={item.link.href}>{item.link.label}</Link>{text.slice(index + item.link.label.length)}</>;
 }
