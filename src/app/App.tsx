@@ -1230,11 +1230,18 @@ function SitePageHeader({
         <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src={logoSrc} />
       </button>
       <nav className="site-review-page__nav" aria-label="Навигация">
-        <button data-review-nav="adults" type="button">для взрослых</button>
-        <button data-review-nav="children" type="button">для детей</button>
-        <button data-review-nav="reviews" type="button">отзывы</button>
+        <a data-review-nav="adults" href="/">для взрослых</a>
+        <div className="site-main-header__nav-group site-review-page__children-nav">
+          <a aria-haspopup="menu" data-review-nav="children" href="/children">для детей</a>
+          <div aria-label="Направления для детей" className="site-main-header__dropdown" role="menu">
+            {CHILD_COURSE_LINKS.map(({ label, href }) => (
+              <a href={href} key={href} role="menuitem">{label}</a>
+            ))}
+          </div>
+        </div>
+        <a data-review-nav="reviews" href="/reviews">отзывы</a>
         <div className="site-main-header__nav-group">
-          <button aria-haspopup="menu" data-review-nav="about" type="button">о нас<span aria-hidden="true" className="site-main-header__nav-arrow" /></button>
+          <a aria-haspopup="menu" data-review-nav="about" href="/about">о нас<span aria-hidden="true" className="site-main-header__nav-arrow" /></a>
           <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown site-main-header__dropdown--about" role="menu">
             <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
           </div>
@@ -1243,6 +1250,7 @@ function SitePageHeader({
       <button className="site-review-page__header-cta" type="button">подобрать курс</button>
       <button
         aria-label="Открыть меню"
+        aria-controls="site-mobile-navigation"
         className="site-review-page__mobile-toggle"
         data-mobile-menu-toggle
         type="button"
@@ -5375,10 +5383,17 @@ export default function App({
           {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
         </div>
       )}
-      {viewport.isMobile && isMobileMenuMounted ? (
+      {(
         <nav
           aria-hidden={!isMobileMenuOpen}
           aria-label="Мобильное меню"
+          id="site-mobile-navigation"
+          hidden={!viewport.isMobile || !isMobileMenuMounted}
+          ref={(menu) => {
+            // React 18 does not serialize the boolean inert attribute. Keep the
+            // closing animation unfocusable; hidden covers the initial SSR state.
+            if (menu) menu.inert = !isMobileMenuOpen;
+          }}
           className={[
             "site-mobile-menu",
             isMobileMenuOpen ? "site-mobile-menu--open" : "site-mobile-menu--closing",
@@ -5474,7 +5489,7 @@ export default function App({
             подобрать направление
           </button>
         </nav>
-      ) : null}
+      )}
       {!isMetrikaSelectorMode && (shouldShowLoader || isPageTransitionLoading) ? (
         <div className="site-loader" aria-hidden={isReady && !isPageTransitionLoading}>
           <img

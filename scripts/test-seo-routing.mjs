@@ -102,7 +102,29 @@ try {
       for (const meta of document.querySelectorAll('meta[name="robots"], meta[name="googlebot"]')) {
         assert.doesNotMatch(meta.content, /noindex/i, route);
       }
-      assert.ok(document.querySelector("h1"), `${route}: missing heading in server HTML`);
+      assert.equal(document.querySelectorAll("h1").length, 1, `${route}: exactly one heading`);
+      const ids = [...document.querySelectorAll("[id]")].map(node => node.id);
+      assert.equal(new Set(ids).size, ids.length, `${route}: duplicate DOM IDs`);
+      for (const id of ids) assert.doesNotMatch(id, /[\t\n\f\r ]/, `${route}: whitespace in ID`);
+      for (const control of document.querySelectorAll("[aria-controls], [aria-labelledby]")) {
+        for (const attr of ["aria-controls", "aria-labelledby"]) {
+          for (const id of (control.getAttribute(attr) || "").split(/\s+/).filter(Boolean)) {
+            assert.ok(document.getElementById(id), `${route}: missing ${attr} target ${id}`);
+          }
+        }
+      }
+      if (route === "/" || route.endsWith("-course")) {
+        const keywords = document.querySelector('meta[name="keywords"]')?.content.split(",").map(x => x.trim().toLowerCase()) || [];
+        assert.ok(keywords.length <= 12, `${route}: excessive keywords`);
+        assert.equal(new Set(keywords).size, keywords.length, `${route}: duplicate keywords`);
+      }
+      if (!route.startsWith("/children") && !route.startsWith("/sveden/")) {
+        for (const path of ["/children", "/children/courses/python", "/children/courses/web-development", "/children/courses/informatics-exams", "/children/courses/olympiad-programming", "/children/courses/neural-networks", "/children/courses/game-development"]) {
+          assert.ok(document.querySelector(`a[href="${path}"]`), `${route}: missing server children link ${path}`);
+        }
+        const menu = document.querySelector('nav[aria-label="Мобильное меню"]');
+        assert.ok(menu?.hidden, `${route}: menu initially hidden`);
+      }
       const heading = document.querySelector("h1").textContent;
       assert.doesNotMatch(heading, /Выгодныеусловия|мы\?наша|История [^:]+:[^\s]/, `${route}: joined heading words`);
       assert.equal(structuredData.filter((item) => item["@type"] === "EducationalOrganization").length, 1, `${route}: school entity`);
@@ -185,6 +207,13 @@ try {
     const response = await requestWithHost(route, "www.innoprog.ru");
     assert.equal(response.status, 308, `www redirect: ${route}`);
     assert.equal(new URL(response.location).href, new URL(`${origin}${route}`).href, `www path and query: ${route}`);
+  }
+  for (const route of ["/main", "/main?utm_source=seo-test&utm_campaign=legacy"]) {
+    const response = await request(route);
+    await response.text();
+    assert.equal(response.status, 308, `legacy redirect: ${route}`);
+    assert.equal(new URL(response.headers.get("location"), baseUrl).pathname, "/");
+    assert.equal(new URL(response.headers.get("location"), baseUrl).search, new URL(route, baseUrl).search);
   }
   for (const route of ["/reviews?direction=python", "/reviews?direction=python&review=andrey"]) {
     const response = await request(route);

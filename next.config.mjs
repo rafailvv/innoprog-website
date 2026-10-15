@@ -172,6 +172,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/main",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/favicon.ico",
         destination: "/favicon.png",
         permanent: true,

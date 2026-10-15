@@ -6,6 +6,14 @@ import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
 const SVEDEN_UPDATED_AT = new Date("2026-08-01T00:00:00.000Z");
 const PYTHON_PROGRAM_UPDATED_AT = new Date("2026-08-29T00:00:00.000Z");
 const SEO_UPDATED_AT = new Date("2026-10-14T00:00:00.000Z");
+// Dates represent substantial published changes, not the time of a request/build.
+const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
+  "/": "2026-10-15", "/python-course": "2026-10-15",
+  "/data-science-course": "2026-10-15", "/frontend-developer-course": "2026-10-15",
+  "/data-analyst-course": "2026-10-15", "/cpp-developer-course": "2026-10-15",
+  "/mobile-developer-course": "2026-10-15", "/unreal-engine-course": "2026-10-15",
+  "/java-developer-course": "2026-10-15", "/ml-engineer-course": "2026-10-15",
+};
 
 const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
@@ -64,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${SITE_URL}${route.path}`,
     lastModified: !route.path.startsWith("/sveden/")
-      ? SEO_UPDATED_AT
+      ? PAGE_UPDATED_AT[route.path] ? new Date(`${PAGE_UPDATED_AT[route.path]}T00:00:00.000Z`) : SEO_UPDATED_AT
       : route.path === "/sveden/education"
         ? PYTHON_PROGRAM_UPDATED_AT
         : SVEDEN_UPDATED_AT,

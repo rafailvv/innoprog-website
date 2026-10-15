@@ -1874,7 +1874,7 @@ body {
   transform: translate(0, 0);
 }
 
-.site-review-page__nav button .site-main-header__nav-arrow {
+.site-review-page__nav [data-review-nav] .site-main-header__nav-arrow {
   position: relative;
   top: -2px;
   right: auto;
@@ -4079,6 +4079,8 @@ button[data-name="кнопки пд"] {
   height: 31px;
 }
 
+.site-mobile-menu[hidden] { display: none; }
+
 .site-mobile-menu {
   position: fixed;
   inset: 0;
@@ -4484,13 +4486,15 @@ button[data-name="кнопки пд"] {
 }
 
 .site-review-page__nav button,
+.site-review-page__nav [data-review-nav],
 .site-review-page__header-cta {
   border: 0;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.site-review-page__nav button {
+.site-review-page__nav button,
+.site-review-page__nav [data-review-nav] {
   padding: 0;
   background: transparent;
   color: #000000;
@@ -4498,6 +4502,9 @@ button[data-name="кнопки пд"] {
   font-weight: 300;
   line-height: 30px;
 }
+
+.site-review-page__children-nav { margin-right: 0; }
+.site-review-page__nav [data-review-nav] { text-decoration: none; }
 
 .site-review-page__header-cta {
   display: flex;
