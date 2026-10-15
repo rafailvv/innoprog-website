@@ -1,4 +1,5 @@
 "use client";
+import "../styles/adult-pages.css";
 import { trackApplicationSuccess } from "./analytics";
 import { observeCookieBannerPosition } from "./cookieBannerPosition";
 
