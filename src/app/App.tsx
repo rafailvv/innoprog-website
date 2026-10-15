@@ -4,6 +4,8 @@ import { observeCookieBannerPosition } from "./cookieBannerPosition";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
+import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
 import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
 import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
@@ -43,10 +45,6 @@ import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
-
-// Preserve SSR while keeping the home-only screens out of course-page JavaScript.
-const MainScreen = dynamic(() => import("../imports/MainScreenDesktop/MainScreenDesktop"));
-const MainScreenMobile = dynamic(() => import("../imports/MainScreenMobile/MainScreenMobile"));
 
 const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
 const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
