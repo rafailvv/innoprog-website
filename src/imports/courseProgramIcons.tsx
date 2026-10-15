@@ -1,56 +1,64 @@
-import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
-import AccountTreeRoundedIcon from "@mui/icons-material/AccountTreeRounded";
-import AltRouteRoundedIcon from "@mui/icons-material/AltRouteRounded";
-import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
-import AssignmentTurnedInRoundedIcon from "@mui/icons-material/AssignmentTurnedInRounded";
-import BuildRoundedIcon from "@mui/icons-material/BuildRounded";
-import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
-import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
-import DataObjectRoundedIcon from "@mui/icons-material/DataObjectRounded";
-import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
-import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
-import IntegrationInstructionsRoundedIcon from "@mui/icons-material/IntegrationInstructionsRounded";
-import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
-import SchemaRoundedIcon from "@mui/icons-material/SchemaRounded";
-import ScienceRoundedIcon from "@mui/icons-material/Science";
-import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
-import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
-import TerminalRoundedIcon from "@mui/icons-material/TerminalRounded";
-import WebAssetRoundedIcon from "@mui/icons-material/WebAssetRounded";
-import WebRoundedIcon from "@mui/icons-material/WebRounded";
-import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
+// Geometry copied from @mui/icons-material 7.3.5 (MIT; see courseProgramIcons.LICENSE).
+// Native SVG avoids injecting Emotion style elements inside programme tags.
+const iconPaths = {
+  AccessTimeRoundedIcon: ["M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m-.22-13h-.06c-.4 0-.72.32-.72.72v4.72c0 .35.18.68.49.86l4.15 2.49c.34.2.78.1.98-.24.21-.34.1-.79-.25-.99l-3.87-2.3V7.72c0-.4-.32-.72-.72-.72"],
+  AccountTreeRoundedIcon: ["M17 11h3c1.11 0 2-.9 2-2V5c0-1.11-.9-2-2-2h-3c-1.11 0-2 .9-2 2v1H9.01V5c0-1.11-.9-2-2-2H4c-1.1 0-2 .9-2 2v4c0 1.11.9 2 2 2h3c1.11 0 2-.9 2-2V8h2v7.01c0 1.65 1.34 2.99 2.99 2.99H15v1c0 1.11.9 2 2 2h3c1.11 0 2-.9 2-2v-4c0-1.11-.9-2-2-2h-3c-1.11 0-2 .9-2 2v1h-1.01c-.54 0-.99-.45-.99-.99V8h2v1c0 1.1.9 2 2 2"],
+  AltRouteRoundedIcon: ["m9.78 11.16-1.42 1.42c-.68-.69-1.34-1.58-1.79-2.94l1.94-.49c.32.89.77 1.5 1.27 2.01m.37-6.01-2.8-2.8c-.2-.2-.51-.2-.71 0l-2.79 2.8c-.31.31-.09.85.36.85h1.81c.02.81.08 1.54.19 2.17l1.94-.49C8.08 7.2 8.03 6.63 8.02 6H9.8c.44 0 .66-.54.35-.85m10 0-2.79-2.79c-.2-.2-.51-.2-.71 0l-2.79 2.79c-.32.31-.1.85.35.85h1.78c-.1 3.68-1.28 4.75-2.54 5.88-.5.44-1.01.92-1.45 1.55-.34-.49-.73-.88-1.13-1.24L9.46 13.6c.93.85 1.54 1.54 1.54 3.4v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-2.02.71-2.66 1.79-3.63 1.38-1.24 3.08-2.78 3.2-7.37h1.8c.45 0 .67-.54.36-.85"],
+  AppsRoundedIcon: ["M6 20q-.825 0-1.4125-.5875T4 18t.5875-1.4125T6 16t1.4125.5875T8 18t-.5875 1.4125T6 20m6 0q-.825 0-1.4125-.5875T10 18t.5875-1.4125T12 16t1.4125.5875T14 18t-.5875 1.4125T12 20m6 0q-.825 0-1.4125-.5875T16 18t.5875-1.4125T18 16t1.4125.5875T20 18t-.5875 1.4125T18 20M6 14q-.825 0-1.4125-.5875T4 12t.5875-1.4125T6 10t1.4125.5875T8 12t-.5875 1.4125T6 14m6 0q-.825 0-1.4125-.5875T10 12t.5875-1.4125T12 10t1.4125.5875T14 12t-.5875 1.4125T12 14m6 0q-.825 0-1.4125-.5875T16 12t.5875-1.4125T18 10t1.4125.5875T20 12t-.5875 1.4125T18 14M6 8q-.825 0-1.4125-.5875T4 6t.5875-1.4125T6 4t1.4125.5875T8 6t-.5875 1.4125T6 8m6 0q-.825 0-1.4125-.5875T10 6t.5875-1.4125T12 4t1.4125.5875T14 6t-.5875 1.4125T12 8m6 0q-.825 0-1.4125-.5875T16 6t.5875-1.4125T18 4t1.4125.5875T20 6t-.5875 1.4125T18 8"],
+  AssignmentTurnedInRoundedIcon: ["M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1M9.29 16.29 6.7 13.7a.996.996 0 0 1 0-1.41c.39-.39 1.02-.39 1.41 0L10 14.17l5.88-5.88c.39-.39 1.02-.39 1.41 0s.39 1.02 0 1.41l-6.59 6.59c-.38.39-1.02.39-1.41 0"],
+  BuildRoundedIcon: ["M12.09 2.91C10.08.9 7.07.49 4.65 1.67L8.28 5.3c.39.39.39 1.02 0 1.41L6.69 8.3c-.39.4-1.02.4-1.41 0L1.65 4.67C.48 7.1.89 10.09 2.9 12.1c1.86 1.86 4.58 2.35 6.89 1.48l7.96 7.96c1.03 1.03 2.69 1.03 3.71 0 1.03-1.03 1.03-2.69 0-3.71L13.54 9.9c.92-2.34.44-5.1-1.45-6.99"],
+  CloudUploadRoundedIcon: ["M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l4.65-4.65c.2-.2.51-.2.71 0L17 13z"],
+  CodeRoundedIcon: ["M8.7 15.9 4.8 12l3.9-3.9c.39-.39.39-1.01 0-1.4a.984.984 0 0 0-1.4 0l-4.59 4.59c-.39.39-.39 1.02 0 1.41l4.59 4.6c.39.39 1.01.39 1.4 0s.39-1.01 0-1.4m6.6 0 3.9-3.9-3.9-3.9a.984.984 0 0 1 0-1.4c.39-.39 1.01-.39 1.4 0l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.6c-.39.39-1.01.39-1.4 0a.984.984 0 0 1 0-1.4"],
+  DataObjectRoundedIcon: ["M4 7v2c0 .55-.45 1-1 1s-1 .45-1 1v2c0 .55.45 1 1 1s1 .45 1 1v2c0 1.66 1.34 3 3 3h2c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1-.45-1-1v-2c0-1.3-.84-2.42-2-2.83v-.34C5.16 11.42 6 10.3 6 9V7c0-.55.45-1 1-1h2c.55 0 1-.45 1-1s-.45-1-1-1H7C5.34 4 4 5.34 4 7m17 3c-.55 0-1-.45-1-1V7c0-1.66-1.34-3-3-3h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1 .45 1 1v2c0 1.3.84 2.42 2 2.83v.34c-1.16.41-2 1.52-2 2.83v2c0 .55-.45 1-1 1h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c1.66 0 3-1.34 3-3v-2c0-.55.45-1 1-1s1-.45 1-1v-2c0-.55-.45-1-1-1"],
+  DnsRoundedIcon: ["M19 13H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2M7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2M19 3H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"],
+  ForumRoundedIcon: ["M20 6h-1v8c0 .55-.45 1-1 1H6v1c0 1.1.9 2 2 2h10l4 4V8c0-1.1-.9-2-2-2m-3 5V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v13l4-4h9c1.1 0 2-.9 2-2"],
+  GitHubIcon: ["M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"],
+  GroupsRoundedIcon: ["M12 12.75c1.63 0 3.07.39 4.24.9 1.08.48 1.76 1.56 1.76 2.73V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-.61c0-1.18.68-2.26 1.76-2.73 1.17-.52 2.61-.91 4.24-.91M4 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m1.13 1.1c-.37-.06-.74-.1-1.13-.1-.99 0-1.93.21-2.78.58C.48 14.9 0 15.62 0 16.43V17c0 .55.45 1 1 1h3.5v-1.61c0-.83.23-1.61.63-2.29M20 13c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2m4 3.43c0-.81-.48-1.53-1.22-1.85-.85-.37-1.79-.58-2.78-.58-.39 0-.76.04-1.13.1.4.68.63 1.46.63 2.29V18H23c.55 0 1-.45 1-1zM12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3"],
+  IntegrationInstructionsRoundedIcon: ["M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-.14 0-.27.01-.4.04-.39.08-.74.28-1.01.55-.18.18-.33.4-.43.64-.1.23-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-8.7 11.88c-.39.39-1.03.39-1.42 0l-2.17-2.17a.996.996 0 0 1 0-1.41l2.17-2.17c.39-.39 1.03-.39 1.42 0s.39 1.02 0 1.41L8.83 12l1.46 1.46c.39.39.4 1.03.01 1.42M12 4.25c-.41 0-.75-.34-.75-.75s.34-.75.75-.75.75.34.75.75-.34.75-.75.75m1.7 10.63a.996.996 0 0 1 0-1.41L15.17 12l-1.47-1.47a.996.996 0 0 1 0-1.41c.39-.39 1.03-.39 1.42 0l2.17 2.17c.39.39.39 1.02 0 1.41l-2.17 2.17c-.39.4-1.03.4-1.42.01"],
+  RocketLaunchRoundedIcon: ["M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89l-2.26-.97c-.65-.28-.81-1.13-.31-1.63l3.01-3.01c.47-.47 1.15-.68 1.81-.55zm1.49 10.16c.3.3.74.38 1.12.2 1.16-.54 3.65-1.81 5.26-3.42 4.59-4.59 4.63-8.33 4.36-9.93-.07-.4-.39-.72-.79-.79-1.6-.27-5.34-.23-9.93 4.36-1.61 1.61-2.87 4.1-3.42 5.26-.18.38-.09.83.2 1.12zm6.97-1.7c-2.29 2.04-5.58 3.44-5.89 3.57l.97 2.26c.28.65 1.13.81 1.63.31l3.01-3.01c.47-.47.68-1.15.55-1.81zm-8.71 2.6c.2 1.06-.15 2.04-.82 2.71-.77.77-3.16 1.34-4.71 1.64-.69.13-1.3-.48-1.17-1.17.3-1.55.86-3.94 1.64-4.71.67-.67 1.65-1.02 2.71-.82 1.17.22 2.13 1.18 2.35 2.35M13 9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2"],
+  SchemaRoundedIcon: ["M14 10.5v.5h-3v-.5c0-.83-.67-1.5-1.5-1.5h-1V7h1c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5h-4C4.67 1 4 1.67 4 2.5v3C4 6.33 4.67 7 5.5 7h1v2h-1C4.67 9 4 9.67 4 10.5v3c0 .83.67 1.5 1.5 1.5h1v2h-1c-.83 0-1.5.67-1.5 1.5v3c0 .83.67 1.5 1.5 1.5h4c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5h-1v-2h1c.83 0 1.5-.67 1.5-1.5V13h3v.5c0 .83.67 1.5 1.5 1.5h4c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5h-4c-.83 0-1.5.67-1.5 1.5"],
+  ScienceRoundedIcon: ["M19.8 18.4 14 10.67V6.5l1.35-1.69c.26-.33.03-.81-.39-.81H9.04c-.42 0-.65.48-.39.81L10 6.5v4.17L4.2 18.4c-.49.66-.02 1.6.8 1.6h14c.82 0 1.29-.94.8-1.6"],
+  SmartToyRoundedIcon: ["M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3M7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5M15 17H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m0-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13"],
+  StorageRoundedIcon: ["M4 20h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2s.9 2 2 2m0-3h2v2H4zM2 6c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2m4 1H4V5h2zm-2 7h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2s.9 2 2 2m0-3h2v2H4z"],
+  TerminalRoundedIcon: ["M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2m0 14H4V8h16zm-8-2c0-.55.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1M6.79 9.71c.39-.39 1.02-.39 1.41 0l2.59 2.59c.39.39.39 1.02 0 1.41L8.2 16.3c-.39.39-1.02.39-1.41 0a.996.996 0 0 1 0-1.41L8.67 13l-1.88-1.88a.996.996 0 0 1 0-1.41"],
+  WebAssetRoundedIcon: ["M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2m-1 14H6c-.55 0-1-.45-1-1V8h14v9c0 .55-.45 1-1 1"],
+  WebRoundedIcon: ["M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2M4 9h10.5v3.5H4zm0 5.5h10.5V18H5c-.55 0-1-.45-1-1zM19 18h-2.5V9H20v8c0 .55-.45 1-1 1"],
+  PsychologyRoundedIcon: ["M13 8.57c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43","M13.21 3c-3.84-.11-7 2.87-7.19 6.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h5c.55 0 1-.45 1-1v-3.68c2.44-1.16 4.1-3.68 4-6.58-.14-3.62-3.18-6.63-6.79-6.74M16 10c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39"],
+} as const;
 
 const tagIconMap = {
-  "Организационный старт": RocketLaunchRoundedIcon,
-  "Индивидуальная траектория": AltRouteRoundedIcon,
-  "Консольные программы": TerminalRoundedIcon,
-  "Практические задания": AssignmentTurnedInRoundedIcon,
-  "Поддерживаемые приложения": IntegrationInstructionsRoundedIcon,
-  "Тестирование": ScienceRoundedIcon,
-  "Архитектура кода": AccountTreeRoundedIcon,
-  "Практическая работа": BuildRoundedIcon,
-  "Командная разработка": GroupsRoundedIcon,
-  "GitHub": GitHubIcon,
-  "Базы данных": StorageRoundedIcon,
-  "SQL-запросы": DataObjectRoundedIcon,
-  "Алгоритмическое мышление": PsychologyRoundedIcon,
-  "Практика на Python": CodeRoundedIcon,
-  "Веб-интерфейсы": WebRoundedIcon,
-  "Django-шаблоны": WebAssetRoundedIcon,
-  "Linux-среда": DnsRoundedIcon,
-  "Docker и деплой": CloudUploadRoundedIcon,
-  "PostgreSQL": StorageRoundedIcon,
-  "ORM": SchemaRoundedIcon,
-  "Telegram-бот": SmartToyRoundedIcon,
-  "Aiogram": ForumRoundedIcon,
-  "Django-проект": AppsRoundedIcon,
-  "Деплой": RocketLaunchRoundedIcon,
+  "Организационный старт": "RocketLaunchRoundedIcon",
+  "Индивидуальная траектория": "AltRouteRoundedIcon",
+  "Консольные программы": "TerminalRoundedIcon",
+  "Практические задания": "AssignmentTurnedInRoundedIcon",
+  "Поддерживаемые приложения": "IntegrationInstructionsRoundedIcon",
+  "Тестирование": "ScienceRoundedIcon",
+  "Архитектура кода": "AccountTreeRoundedIcon",
+  "Практическая работа": "BuildRoundedIcon",
+  "Командная разработка": "GroupsRoundedIcon",
+  "GitHub": "GitHubIcon",
+  "Базы данных": "StorageRoundedIcon",
+  "SQL-запросы": "DataObjectRoundedIcon",
+  "Алгоритмическое мышление": "PsychologyRoundedIcon",
+  "Практика на Python": "CodeRoundedIcon",
+  "Веб-интерфейсы": "WebRoundedIcon",
+  "Django-шаблоны": "WebAssetRoundedIcon",
+  "Linux-среда": "DnsRoundedIcon",
+  "Docker и деплой": "CloudUploadRoundedIcon",
+  "PostgreSQL": "StorageRoundedIcon",
+  "ORM": "SchemaRoundedIcon",
+  "Telegram-бот": "SmartToyRoundedIcon",
+  "Aiogram": "ForumRoundedIcon",
+  "Django-проект": "AppsRoundedIcon",
+  "Деплой": "RocketLaunchRoundedIcon",
 } as const;
 
 export function CourseProgramTagIcon({ tag }: { tag: string }) {
-  const Icon = tag.includes("академичес") ? AccessTimeRoundedIcon : tagIconMap[tag as keyof typeof tagIconMap] ?? CodeRoundedIcon;
+  const Icon = tag.includes("академичес") ? "AccessTimeRoundedIcon" : tagIconMap[tag as keyof typeof tagIconMap] ?? "CodeRoundedIcon";
 
-  return <Icon aria-hidden="true" className="site-course-program-tag-icon" focusable="false" />;
+  return (
+    <svg aria-hidden="true" className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium site-course-program-tag-icon" focusable="false" viewBox="0 0 24 24" style={{ userSelect: "none", display: "inline-block", fill: "currentColor", flexShrink: 0, transition: "fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms" }}>
+      {iconPaths[Icon].map((d, index) => <path d={d} key={index} />)}
+    </svg>
+  );
 }

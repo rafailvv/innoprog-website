@@ -516,28 +516,28 @@ function Frame181() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
       <button className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
-            <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
-              <div className="relative shrink-0 size-[16px]">
-                <div className="absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</span>
+            <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
+              <span className="block relative shrink-0 size-[16px]">
+                <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
                   <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.6457 16.6327">
                     <path d={svgPaths.p2b850d80} stroke="var(--stroke-0, #464A6A)" />
                   </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </span>
+              </span>
+            </span>
+          </span>
+        </span>
       </button>
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer h-[46px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
-        <div aria-hidden className="absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-black text-left whitespace-nowrap">получить консультацию</p>
-          </div>
-        </div>
+        <span aria-hidden className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-black text-left whitespace-nowrap">получить консультацию</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -740,11 +740,11 @@ function Frame269() {
 function Frame64() {
   return (
     <button className="bg-[#9c78ff] cursor-pointer relative rounded-[40px] shrink-0 w-full z-20" data-application-open type="button">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase whitespace-nowrap">Открыт набор на обучение</p>
-        </div>
-      </div>
+      <span className="flex flex-row items-center justify-center size-full">
+        <span className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
+          <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:SemiBold',sans-serif] font-semibold leading-[20px] relative shrink-0 text-[16px] text-white tracking-[0.48px] uppercase whitespace-nowrap">Открыт набор на обучение</span>
+        </span>
+      </span>
     </button>
   );
 }
@@ -2619,28 +2619,28 @@ function Frame18() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0 site-course-carousel-actions site-course-carousel-actions--projects">
       <button aria-label="Предыдущие проекты" className="bg-transparent flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="python-mobile-projects" onClick={(event) => handleCourseCarouselClick(event, "python-mobile-projects", -1)} type="button">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
-            <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
-            <div className="flex-[1_0_0] min-h-px relative w-full">
-              <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span className="block -scale-y-100 flex-none rotate-180">
+          <span className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
+            <span aria-hidden className="block absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
+            <span className="block flex-[1_0_0] min-h-px relative w-full">
+              <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
                   <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+              </span>
+            </span>
+          </span>
+        </span>
       </button>
       <button aria-label="Следующие проекты" className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="python-mobile-projects" onClick={(event) => handleCourseCarouselClick(event, "python-mobile-projects", 1)} type="button">
-        <div aria-hidden className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
-        <div className="flex-[1_0_0] min-h-px relative w-full">
-          <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span aria-hidden className="block absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
+        <span className="block flex-[1_0_0] min-h-px relative w-full">
+          <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
               <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
             </svg>
-          </div>
-        </div>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -3862,7 +3862,7 @@ function Frame16() {
         <p className="leading-[20px]">Их результат может стать вашим</p>
       </div>
       <button className="bg-[rgba(156,120,255,0.6)] content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0" data-name="кнопки пд" data-reviews-all="python" type="button">
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-left text-white whitespace-pre">{`смотреть все  отзывы`}</p>
+        <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-left text-white whitespace-pre">{`смотреть все  отзывы`}</span>
       </button>
     </div>
   );
@@ -3907,28 +3907,28 @@ function Frame58() {
   return (
     <div className="content-stretch flex gap-[16px] items-center justify-center relative shrink-0 w-[348px] site-course-carousel-actions">
       <button aria-label="Предыдущие отзывы" className="bg-transparent flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="python-mobile-reviews" onClick={(event) => handleCourseCarouselClick(event, "python-mobile-reviews", -1)} type="button">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
-            <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
-            <div className="flex-[1_0_0] min-h-px relative w-full">
-              <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span className="block -scale-y-100 flex-none rotate-180">
+          <span className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
+            <span aria-hidden className="block absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+            <span className="block flex-[1_0_0] min-h-px relative w-full">
+              <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
                   <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+              </span>
+            </span>
+          </span>
+        </span>
       </button>
       <button aria-label="Следующие отзывы" className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="python-mobile-reviews" onClick={(event) => handleCourseCarouselClick(event, "python-mobile-reviews", 1)} type="button">
-        <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
-        <div className="flex-[1_0_0] min-h-px relative w-full">
-          <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span aria-hidden className="block absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+        <span className="block flex-[1_0_0] min-h-px relative w-full">
+          <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
               <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
             </svg>
-          </div>
-        </div>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -4045,12 +4045,12 @@ function Frame156() {
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[32px] text-white uppercase whitespace-nowrap">Базовый</p>
       <Frame154 />
       <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
-          </div>
-        </div>
+        <span aria-hidden className="block absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -4221,12 +4221,12 @@ function Frame158() {
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] relative shrink-0 text-[#9c78ff] text-[32px] uppercase whitespace-nowrap">расширенный</p>
       <Frame155 />
       <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <div aria-hidden className="absolute border-2 border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[#9c78ff] text-[20px] whitespace-nowrap">начать обучение</p>
-          </div>
-        </div>
+        <span aria-hidden className="block absolute border-2 border-[#9c78ff] border-solid inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[#9c78ff] text-[20px] whitespace-nowrap">начать обучение</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -4389,12 +4389,12 @@ function Frame159() {
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[32px] min-w-full relative shrink-0 text-[32px] text-center text-white uppercase w-[min-content]">пЕРСОНАЛЬНЫЙ</p>
       <Frame160 />
       <button className="relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
-          </div>
-        </div>
+        <span aria-hidden className="block absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -4685,8 +4685,8 @@ function Frame51() {
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame50 />
       <button aria-busy="false" aria-disabled="true" className="content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-[350px] site-course-lead-submit site-course-lead-submit--mobile" data-name="кнопки пд" disabled type="button">
-        <div aria-hidden className="absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</p>
+        <span aria-hidden className="block absolute border-2 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
+        <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать обучение</span>
       </button>
     </div>
   );

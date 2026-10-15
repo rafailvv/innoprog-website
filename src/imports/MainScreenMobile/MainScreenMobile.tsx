@@ -171,8 +171,8 @@ function Group() {
 
 function Frame5() {
   return (
-    <div className="h-[16px] relative shrink-0 w-full">
-      <div className="absolute inset-[-6.25%_0_0_0]">
+    <span className="block h-[16px] relative shrink-0 w-full">
+      <span className="block absolute inset-[-6.25%_0_0_0]">
         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 17">
           <g>
             <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="0.5" y2="0.5" />
@@ -180,8 +180,8 @@ function Frame5() {
             <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="16.5" y2="16.5" />
           </g>
         </svg>
-      </div>
-    </div>
+      </span>
+    </span>
   );
 }
 
@@ -505,7 +505,7 @@ function Frame147() {
 function MobilePlatformStartButton() {
   return (
     <button className="bg-[rgba(156,120,255,0.4)] border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full site-mobile-platform-start-button" data-name="кнопки пд" type="button">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать бесплатно</p>
+      <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать бесплатно</span>
     </button>
   );
 }
@@ -1754,11 +1754,11 @@ function Frame64() {
 function ProblemSupportCta() {
   return (
     <button className="bg-[#464a6a] h-[68px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</p>
-        </div>
-      </div>
+      <span className="flex flex-row items-center justify-center size-full">
+        <span className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
+          <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать направление</span>
+        </span>
+      </span>
     </button>
   );
 }
@@ -2379,12 +2379,12 @@ function Frame167() {
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame166 />
       <button className="bg-transparent border-0 cursor-pointer h-[46px] p-0 relative rounded-[40px] shrink-0 w-full" data-main-nav="reviews" type="button">
-        <div aria-hidden="true" className="absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">больше отзывов</p>
-          </div>
-        </div>
+        <span aria-hidden="true" className="block absolute border-3 border-solid border-white inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">больше отзывов</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -2720,12 +2720,12 @@ function Frame115() {
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame114 />
       <button className="bg-[rgba(255,255,255,0.8)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <div aria-hidden="true" className="absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] whitespace-nowrap">отправить заявку</p>
-          </div>
-        </div>
+        <span aria-hidden="true" className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
+            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] whitespace-nowrap">отправить заявку</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -3016,16 +3016,16 @@ export default function Component() {
           <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
       </div>
       <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button">
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</p>
-        <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
-          <div className="relative shrink-0 size-[16px]">
-            <div className="absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</span>
+        <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
+          <span className="block relative shrink-0 size-[16px]">
+            <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.6457 16.6327">
                 <path d={svgPaths.p2b850d80} stroke="var(--stroke-0, #9C78FF)" />
               </svg>
-            </div>
-          </div>
-        </div>
+            </span>
+          </span>
+        </span>
       </button>
     </div>
   );

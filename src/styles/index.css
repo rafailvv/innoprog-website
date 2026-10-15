@@ -1759,7 +1759,7 @@ body {
   border-radius: 32px;
 }
 
-.site-shell--mobile.site-shell--python-course-route .site-main-header--mobile .site-main-header__logo-button > div {
+.site-shell--mobile.site-shell--python-course-route .site-main-header--mobile .site-main-header__logo-button > :is(div, span) {
   display: none;
 }
 
@@ -1916,8 +1916,8 @@ body {
   line-height: 30px;
 }
 
-.site-shell--python-course-route button[data-site-home][data-name="главная"]:hover p,
-.site-shell--python-course-route button[data-site-home][data-name="главная"]:focus-visible p {
+.site-shell--python-course-route button[data-site-home][data-name="главная"]:hover :is(p, span),
+.site-shell--python-course-route button[data-site-home][data-name="главная"]:focus-visible :is(p, span) {
   text-decoration: underline;
   text-underline-offset: 4px;
 }

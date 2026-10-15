@@ -266,7 +266,7 @@ function Frame84() {
       <Frame83 />
       <Frame87 />
       <button className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529" type="button">
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">получить консультацию</p>
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">получить консультацию</span>
       </button>
     </div>
   );
@@ -1070,28 +1070,28 @@ function TeachersCarouselActions() {
   return (
     <div className="content-stretch flex gap-[24px] items-center justify-center relative shrink-0 w-full site-teachers-carousel-actions">
       <button aria-label="Предыдущие преподаватели" className="bg-transparent flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="teachers" type="button">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
-            <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
-            <div className="flex-[1_0_0] min-h-px relative w-full">
-              <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span className="block -scale-y-100 flex-none rotate-180">
+          <span className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
+            <span aria-hidden="true" className="block absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+            <span className="block flex-[1_0_0] min-h-px relative w-full">
+              <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
                   <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+              </span>
+            </span>
+          </span>
+        </span>
       </button>
       <button aria-label="Следующие преподаватели" className="bg-[rgba(255,255,255,0.4)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="teachers" type="button">
-        <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
-        <div className="flex-[1_0_0] min-h-px relative w-full">
-          <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span aria-hidden="true" className="block absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
+        <span className="block flex-[1_0_0] min-h-px relative w-full">
+          <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
               <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
             </svg>
-          </div>
-        </div>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -1816,28 +1816,28 @@ function Frame63() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
       <button aria-label="Предыдущие отзывы" className="bg-transparent border-0 flex items-center justify-center p-0 relative shrink-0" data-carousel-action="prev" data-carousel-target="reviews" type="button">
-        <div className="-scale-y-100 flex-none rotate-180">
-          <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
-            <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
-            <div className="flex-[1_0_0] min-h-px relative w-full">
-              <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span className="block -scale-y-100 flex-none rotate-180">
+          <span className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] size-[44px]">
+            <span aria-hidden="true" className="block absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
+            <span className="block flex-[1_0_0] min-h-px relative w-full">
+              <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
                   <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
                 </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+              </span>
+            </span>
+          </span>
+        </span>
       </button>
       <button aria-label="Следующие отзывы" className="bg-[rgba(255,255,255,0.8)] border-0 content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]" data-carousel-action="next" data-carousel-target="reviews" type="button">
-        <div aria-hidden="true" className="absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
-        <div className="flex-[1_0_0] min-h-px relative w-full">
-          <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
+        <span aria-hidden="true" className="block absolute border border-black border-solid inset-0 pointer-events-none rounded-[32px]" />
+        <span className="block flex-[1_0_0] min-h-px relative w-full">
+          <span className="block absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
               <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
             </svg>
-          </div>
-        </div>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -1858,7 +1858,7 @@ function Component6() {
     <div className="content-stretch flex flex-col gap-[60px] items-center py-[80px] relative rounded-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 1129\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(4.4087e-15 56.45 -72 3.4566e-15 720 564.5)\\'><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(115,99,182,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(94,88,145,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(73,77,108,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="отзывы">
       <Frame76 />
       <button className="bg-white content-stretch flex items-center justify-center p-[28px] relative rounded-[40px] shrink-0" data-name="кнопки пд" type="button">
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">подобрать курс</p>
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">подобрать курс</span>
       </button>
     </div>
   );
@@ -2165,12 +2165,12 @@ function Frame101() {
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
       <Frame100 />
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
-        <div aria-hidden="true" className="absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <div className="flex flex-row items-center justify-center size-full">
-          <div className="content-stretch flex items-center justify-center p-[24px] relative size-full">
-            <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[#464a6a] text-[32px] text-left whitespace-nowrap">отправить заявку</p>
-          </div>
-        </div>
+        <span aria-hidden="true" className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
+        <span className="flex flex-row items-center justify-center size-full">
+          <span className="content-stretch flex items-center justify-center p-[24px] relative size-full">
+            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[#464a6a] text-[32px] text-left whitespace-nowrap">отправить заявку</span>
+          </span>
+        </span>
       </button>
     </div>
   );
@@ -2574,16 +2574,16 @@ export default function Component() {
         </div>
       </div>
       <button className="-translate-x-1/2 absolute content-stretch flex h-[88px] items-center justify-between left-[calc(50%-3px)] px-[24px] py-[16px] rounded-[40px] site-start-button top-[652px] w-[622px]" data-name="кнопки пд" data-node-id="3401:839" type="button">
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</p>
-        <div className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
-          <div className="relative shrink-0 size-[32px]">
-            <div className="absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</span>
+        <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
+          <span className="block relative shrink-0 size-[32px]">
+            <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
                 <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #9C78FF)" strokeWidth="2" />
               </svg>
-            </div>
-          </div>
-        </div>
+            </span>
+          </span>
+        </span>
       </button>
       <Frame128 />
       <Frame131 />

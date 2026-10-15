@@ -5634,6 +5634,7 @@ export default function App({
                   />
                 </div>
                 <div
+                  aria-checked={isConsentChecked}
                   className="site-lead-modal__consent site-consent"
                   data-consent-toggle
                   role="checkbox"
@@ -5658,6 +5659,7 @@ export default function App({
                   </span>
                 </div>
                 <div
+                  aria-checked={isAdvertisingConsentChecked}
                   className="site-lead-modal__consent site-consent site-consent--advertising"
                   data-advertising-consent-toggle
                   role="checkbox"
