@@ -121,10 +121,10 @@ function Group1() {
   return (
     <div className="col-1 h-[32.011px] ml-[93.2px] mt-0 relative row-1 w-[76.802px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76.802 32.0109">
-        <g id="Group">
-          <path d={svgPaths.p39be0c00} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p2bfc1ff0} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p1c4d1070} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
+        <g>
+          <path d={svgPaths.p39be0c00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2bfc1ff0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1c4d1070} fill="var(--fill-0, #9C78FF)" />
         </g>
       </svg>
     </div>
@@ -135,25 +135,25 @@ function Group2() {
   return (
     <div className="col-1 h-[37.92px] ml-0 mt-[2.08px] relative row-1 w-[169.995px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 169.995 37.92">
-        <g id="Group">
-          <path d={svgPaths.p380e3480} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p3615c580} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p240de3c0} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
-          <path d={svgPaths.p1ccccd00} fill="var(--fill-0, #9C78FF)" id="Vector_4" />
-          <path d={svgPaths.p39592ff0} fill="var(--fill-0, black)" id="Vector_5" />
-          <path d={svgPaths.p2dcf8680} fill="var(--fill-0, black)" id="Vector_6" />
-          <path d={svgPaths.p185f4180} fill="var(--fill-0, black)" id="Vector_7" />
-          <path d={svgPaths.p1aaec400} fill="var(--fill-0, black)" id="Vector_8" />
-          <path d={svgPaths.p9387d00} fill="var(--fill-0, black)" id="Vector_9" />
-          <path d={svgPaths.p2dc2e0c0} fill="var(--fill-0, black)" id="Vector_10" />
-          <path d={svgPaths.p343d4900} fill="var(--fill-0, black)" id="Vector_11" />
-          <path d={svgPaths.p2df68bf2} fill="var(--fill-0, black)" id="Vector_12" />
-          <path d={svgPaths.p6361100} fill="var(--fill-0, black)" id="Vector_13" />
-          <path d={svgPaths.p1c8ff40} fill="var(--fill-0, black)" id="Vector_14" />
-          <path d={svgPaths.p27239080} fill="var(--fill-0, black)" id="Vector_15" />
-          <path d={svgPaths.p3d204e00} fill="var(--fill-0, black)" id="Vector_16" />
-          <path d={svgPaths.p20957100} fill="var(--fill-0, black)" id="Vector_17" />
-          <path d={svgPaths.p30672800} fill="var(--fill-0, black)" id="Vector_18" />
+        <g>
+          <path d={svgPaths.p380e3480} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3615c580} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p240de3c0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1ccccd00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p39592ff0} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2dcf8680} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p185f4180} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p1aaec400} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p9387d00} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2dc2e0c0} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p343d4900} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2df68bf2} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p6361100} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p1c8ff40} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p27239080} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p3d204e00} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p20957100} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p30672800} fill="var(--fill-0, black)" />
         </g>
       </svg>
     </div>
@@ -174,10 +174,10 @@ function Frame5() {
     <div className="h-[16px] relative shrink-0 w-full">
       <div className="absolute inset-[-6.25%_0_0_0]">
         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 17">
-          <g id="Frame 64">
-            <line id="Line 18" stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="0.5" y2="0.5" />
-            <line id="Line 19" stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="8.5" y2="8.5" />
-            <line id="Line 20" stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="16.5" y2="16.5" />
+          <g>
+            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="0.5" y2="0.5" />
+            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="8.5" y2="8.5" />
+            <line stroke="var(--stroke-0, white)" strokeLinecap="round" x1="0.5" x2="15.5" y1="16.5" y2="16.5" />
           </g>
         </svg>
       </div>
@@ -561,7 +561,7 @@ function Frame185() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -634,7 +634,7 @@ function Frame186() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -703,7 +703,7 @@ function Frame187() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -776,7 +776,7 @@ function Frame188() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -849,7 +849,7 @@ function Frame189() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -918,7 +918,7 @@ function Frame190() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -990,7 +990,7 @@ function Frame191() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -1062,7 +1062,7 @@ function Frame192() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -1134,7 +1134,7 @@ function Frame193() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -2250,8 +2250,8 @@ function Frame81() {
   return (
     <div className="relative shrink-0 size-[89px]">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 89 89">
-        <g id="Frame 118">
-          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" id="Ellipse 2" r="44.5" />
+        <g>
+          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" r="44.5" />
         </g>
       </svg>
     </div>
@@ -2309,8 +2309,8 @@ function Frame84() {
   return (
     <div className="relative shrink-0 size-[89px]">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 89 89">
-        <g id="Frame 118">
-          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" id="Ellipse 2" r="44.5" />
+        <g>
+          <circle cx="44.5" cy="44.5" fill="var(--fill-0, #BFBFBF)" r="44.5" />
         </g>
       </svg>
     </div>
@@ -2822,7 +2822,7 @@ function MaterialSymbolsMailOutline() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76 76">
         <g id="material-symbols:mail-outline">
           <rect fill="var(--fill-0, #D9D9D9)" height="76" rx="38" width="76" />
-          <path d={svgPaths.p1a9e2200} fill="var(--fill-0, black)" id="Vector" />
+          <path d={svgPaths.p1a9e2200} fill="var(--fill-0, black)" />
         </g>
       </svg>
     </div>
@@ -2835,7 +2835,7 @@ function TablerPhoneCall() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 75 75">
         <g id="tabler:phone-call">
           <path d={svgPaths.p2ae92c80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p1d06b620} id="Vector" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+          <path d={svgPaths.p1d06b620} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>
       </svg>
     </div>
@@ -2848,7 +2848,7 @@ function IcBaselineWhatsapp() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76 76">
         <g id="ic:baseline-whatsapp">
           <path d={svgPaths.p1458ef0} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p36f53980} fill="var(--fill-0, black)" id="Vector" />
+          <path d={svgPaths.p36f53980} fill="var(--fill-0, black)" />
         </g>
       </svg>
     </div>
@@ -2861,7 +2861,7 @@ function MynauiTelegram() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 75 75">
         <g id="mynaui:telegram">
           <path d={svgPaths.p2ae92c80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p32992140} id="Vector" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+          <path d={svgPaths.p32992140} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>
       </svg>
     </div>
@@ -2891,10 +2891,10 @@ function Group4() {
   return (
     <div className="absolute inset-[66.9%_5.13%_24.5%_54.33%] opacity-30" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 158.124 76.8275">
-        <g id="Group">
-          <path d={svgPaths.p395a3880} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p349883f0} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p35dfae00} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
+        <g>
+          <path d={svgPaths.p395a3880} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p349883f0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p35dfae00} fill="var(--fill-0, #9C78FF)" />
         </g>
       </svg>
     </div>
@@ -2905,25 +2905,25 @@ function Group5() {
   return (
     <div className="absolute inset-[67.2%_5.13%_22.82%_5.13%] opacity-30" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 350.001 91.0073">
-        <g id="Group">
-          <path d={svgPaths.p1ffff600} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p31dd82f2} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p4f93a00} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
-          <path d={svgPaths.p21b68f80} fill="var(--fill-0, #9C78FF)" id="Vector_4" />
-          <path d={svgPaths.p28fa8d00} fill="var(--fill-0, white)" id="Vector_5" />
-          <path d={svgPaths.p22adff80} fill="var(--fill-0, white)" id="Vector_6" />
-          <path d={svgPaths.pb57f200} fill="var(--fill-0, white)" id="Vector_7" />
-          <path d={svgPaths.p1ca71300} fill="var(--fill-0, white)" id="Vector_8" />
-          <path d={svgPaths.p6d17800} fill="var(--fill-0, white)" id="Vector_9" />
-          <path d={svgPaths.pfe08ab0} fill="var(--fill-0, white)" id="Vector_10" />
-          <path d={svgPaths.p3353cd00} fill="var(--fill-0, white)" id="Vector_11" />
-          <path d={svgPaths.pf31280} fill="var(--fill-0, white)" id="Vector_12" />
-          <path d={svgPaths.p2cd73e00} fill="var(--fill-0, white)" id="Vector_13" />
-          <path d={svgPaths.p280d3e80} fill="var(--fill-0, white)" id="Vector_14" />
-          <path d={svgPaths.p27609700} fill="var(--fill-0, white)" id="Vector_15" />
-          <path d={svgPaths.p21fdd800} fill="var(--fill-0, white)" id="Vector_16" />
-          <path d={svgPaths.ped7cc80} fill="var(--fill-0, white)" id="Vector_17" />
-          <path d={svgPaths.pbb0ce00} fill="var(--fill-0, white)" id="Vector_18" />
+        <g>
+          <path d={svgPaths.p1ffff600} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p31dd82f2} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p4f93a00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p21b68f80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p28fa8d00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p22adff80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.pb57f200} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p1ca71300} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p6d17800} fill="var(--fill-0, white)" />
+          <path d={svgPaths.pfe08ab0} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p3353cd00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.pf31280} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p2cd73e00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p280d3e80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p27609700} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p21fdd800} fill="var(--fill-0, white)" />
+          <path d={svgPaths.ped7cc80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.pbb0ce00} fill="var(--fill-0, white)" />
         </g>
       </svg>
     </div>
@@ -3021,7 +3021,7 @@ export default function Component() {
           <div className="relative shrink-0 size-[16px]">
             <div className="absolute inset-[-1.98%_-4.04%_-1.98%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.6457 16.6327">
-                <path d={svgPaths.p2b850d80} id="Vector 121" stroke="var(--stroke-0, #9C78FF)" />
+                <path d={svgPaths.p2b850d80} stroke="var(--stroke-0, #9C78FF)" />
               </svg>
             </div>
           </div>

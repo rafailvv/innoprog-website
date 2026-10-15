@@ -1,5 +1,5 @@
 import { CourseReviewCard } from "../shared/CourseReviewCard";
-import { useState, type CSSProperties, type ReactNode } from "react";
+import { useId, useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
@@ -248,10 +248,10 @@ function Group1() {
   return (
     <div className="col-1 h-[52.018px] ml-[148.57px] mt-0 relative row-1 w-[122.433px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 122.433 52.0181">
-        <g id="Group">
-          <path d={svgPaths.p28c29de0} fill="var(--fill-0, white)" id="Vector" />
-          <path d={svgPaths.p17db4f80} fill="var(--fill-0, white)" id="Vector_2" />
-          <path d={svgPaths.p5cd0d00} fill="var(--fill-0, white)" id="Vector_3" />
+        <g>
+          <path d={svgPaths.p28c29de0} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p17db4f80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p5cd0d00} fill="var(--fill-0, white)" />
         </g>
       </svg>
     </div>
@@ -262,25 +262,25 @@ function Group2() {
   return (
     <div className="col-1 h-[61.618px] ml-0 mt-[3.38px] relative row-1 w-[271px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 271 61.6182">
-        <g id="Group">
-          <path d={svgPaths.p2271ac00} fill="var(--fill-0, white)" id="Vector" />
-          <path d={svgPaths.p3291b280} fill="var(--fill-0, white)" id="Vector_2" />
-          <path d={svgPaths.p3e776800} fill="var(--fill-0, white)" id="Vector_3" />
-          <path d={svgPaths.p26588c00} fill="var(--fill-0, white)" id="Vector_4" />
-          <path d={svgPaths.p5147f80} fill="var(--fill-0, black)" id="Vector_5" />
-          <path d={svgPaths.p2443ed80} fill="var(--fill-0, black)" id="Vector_6" />
-          <path d={svgPaths.p51dcc00} fill="var(--fill-0, black)" id="Vector_7" />
-          <path d={svgPaths.p12e1d700} fill="var(--fill-0, black)" id="Vector_8" />
-          <path d={svgPaths.p3ff2e500} fill="var(--fill-0, black)" id="Vector_9" />
-          <path d={svgPaths.pe65d800} fill="var(--fill-0, black)" id="Vector_10" />
-          <path d={svgPaths.p1c5cb600} fill="var(--fill-0, black)" id="Vector_11" />
-          <path d={svgPaths.p2669d300} fill="var(--fill-0, black)" id="Vector_12" />
-          <path d={svgPaths.p3d987380} fill="var(--fill-0, black)" id="Vector_13" />
-          <path d={svgPaths.p2f64c280} fill="var(--fill-0, black)" id="Vector_14" />
-          <path d={svgPaths.p29246180} fill="var(--fill-0, black)" id="Vector_15" />
-          <path d={svgPaths.p1907f500} fill="var(--fill-0, black)" id="Vector_16" />
-          <path d={svgPaths.p11714f00} fill="var(--fill-0, black)" id="Vector_17" />
-          <path d={svgPaths.p13ca2100} fill="var(--fill-0, black)" id="Vector_18" />
+        <g>
+          <path d={svgPaths.p2271ac00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p3291b280} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p3e776800} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p26588c00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p5147f80} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2443ed80} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p51dcc00} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p12e1d700} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p3ff2e500} fill="var(--fill-0, black)" />
+          <path d={svgPaths.pe65d800} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p1c5cb600} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2669d300} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p3d987380} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2f64c280} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p29246180} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p1907f500} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p11714f00} fill="var(--fill-0, black)" />
+          <path d={svgPaths.p13ca2100} fill="var(--fill-0, black)" />
         </g>
       </svg>
     </div>
@@ -407,8 +407,8 @@ function Frame271() {
   return (
     <div className="absolute inset-[0_48.15%_7.41%_0]">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 25">
-        <g clipPath="url(#clip0_1_2629)" id="Frame 843">
-          <path d={svgPaths.p39e5b900} fill="var(--fill-0, #9C78FF)" id="Star 2" />
+        <g clipPath="url(#clip0_1_2629)">
+          <path d={svgPaths.p39e5b900} fill="var(--fill-0, #9C78FF)" />
         </g>
         <defs>
           <clipPath id="clip0_1_2629">
@@ -427,35 +427,35 @@ function Frame209() {
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" />
           </svg>
         </div>
       </div>
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" />
           </svg>
         </div>
       </div>
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" />
           </svg>
         </div>
       </div>
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9C78FF)" />
           </svg>
         </div>
       </div>
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, white)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, white)" />
           </svg>
         </div>
         <Frame271 />
@@ -615,7 +615,7 @@ function Frame76() {
               <div className="relative shrink-0 size-[32px]">
                 <div className="absolute inset-[-1.98%_-4.04%_-1.98%_0]">
                   <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
-                    <path d={svgPaths.p3b802100} id="Vector 121" stroke="var(--stroke-0, #464A6A)" strokeWidth="2" />
+                    <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #464A6A)" strokeWidth="2" />
                   </svg>
                 </div>
               </div>
@@ -1532,8 +1532,8 @@ function MaterialIconThemePython() {
     <div className="relative shrink-0 size-[24px]" data-name="material-icon-theme:python">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g id="material-icon-theme:python">
-          <path d={svgPaths.pfbed5b0} fill="var(--fill-0, #0288D1)" id="Vector" />
-          <path d={svgPaths.p3df67d80} fill="var(--fill-0, #FDD835)" id="Vector_2" />
+          <path d={svgPaths.pfbed5b0} fill="var(--fill-0, #0288D1)" />
+          <path d={svgPaths.p3df67d80} fill="var(--fill-0, #FDD835)" />
         </g>
       </svg>
     </div>
@@ -1547,22 +1547,22 @@ function Frame136() {
       <div className="overflow-clip relative shrink-0 size-[24px]" data-name="devicon:postgresql">
         <div className="absolute inset-[5.88%_7.14%_5.88%_7.54%]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.4769 21.1768">
-            <path d={svgPaths.p3e3c080} fill="var(--fill-0, black)" id="Vector" />
+            <path d={svgPaths.p3e3c080} fill="var(--fill-0, black)" />
           </svg>
         </div>
         <div className="absolute inset-[2.14%_3.39%_2.14%_3.8%]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22.2755 22.9709">
-            <path d={svgPaths.p293f4780} fill="var(--fill-0, black)" id="Vector" />
+            <path d={svgPaths.p293f4780} fill="var(--fill-0, black)" />
           </svg>
         </div>
         <div className="absolute inset-[5.88%_7.14%_5.87%_7.54%]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.4774 21.1795">
-            <path d={svgPaths.p1e83cc80} fill="var(--fill-0, #336791)" id="Vector" />
+            <path d={svgPaths.p1e83cc80} fill="var(--fill-0, #336791)" />
           </svg>
         </div>
         <div className="absolute inset-[4.5%_5.97%_4.45%_6.21%]" data-name="Vector">
           <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 21.0756 21.852">
-            <path d={svgPaths.p8fa6540} fill="var(--fill-0, white)" id="Vector" />
+            <path d={svgPaths.p8fa6540} fill="var(--fill-0, white)" />
           </svg>
         </div>
       </div>
@@ -1576,7 +1576,7 @@ function MaterialIconThemeGit() {
     <div className="relative shrink-0 size-[23px]" data-name="material-icon-theme:git">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23 23">
         <g id="material-icon-theme:git">
-          <path d={svgPaths.p3468f880} fill="var(--fill-0, #E64A19)" id="Vector" />
+          <path d={svgPaths.p3468f880} fill="var(--fill-0, #E64A19)" />
         </g>
       </svg>
     </div>
@@ -1598,8 +1598,8 @@ function MaterialIconThemeMetabase() {
     <div className="relative shrink-0 size-[24px]" data-name="material-icon-theme:django">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g id="material-icon-theme:django">
-          <path d={svgPaths.p2102a200} fill="var(--fill-0, #43A047)" id="Vector" />
-          <path d={svgPaths.pc25a500} fill="var(--fill-0, #43A047)" id="Vector_2" />
+          <path d={svgPaths.p2102a200} fill="var(--fill-0, #43A047)" />
+          <path d={svgPaths.pc25a500} fill="var(--fill-0, #43A047)" />
         </g>
       </svg>
     </div>
@@ -1621,13 +1621,13 @@ function LogosPycharm() {
     <div className="relative shrink-0 size-[24px]" data-name="logos:pycharm">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g clipPath="url(#clip0_1_2552)" id="logos:pycharm">
-          <path d={svgPaths.p348e5a00} fill="url(#paint0_linear_1_2552)" id="Vector" />
-          <path d={svgPaths.p2d4e5880} fill="url(#paint1_linear_1_2552)" id="Vector_2" />
-          <path d={svgPaths.p1a252b00} fill="url(#paint2_linear_1_2552)" id="Vector_3" />
-          <path d={svgPaths.p3b5c8170} fill="url(#paint3_linear_1_2552)" id="Vector_4" />
-          <path d={svgPaths.p32729700} fill="url(#paint4_linear_1_2552)" id="Vector_5" />
-          <path d="M4.5 4.5H19.5V19.5H4.5V4.5Z" fill="var(--fill-0, black)" id="Vector_6" />
-          <path d={svgPaths.p2c8bdac0} fill="var(--fill-0, white)" id="Vector_7" />
+          <path d={svgPaths.p348e5a00} fill="url(#paint0_linear_1_2552)" />
+          <path d={svgPaths.p2d4e5880} fill="url(#paint1_linear_1_2552)" />
+          <path d={svgPaths.p1a252b00} fill="url(#paint2_linear_1_2552)" />
+          <path d={svgPaths.p3b5c8170} fill="url(#paint3_linear_1_2552)" />
+          <path d={svgPaths.p32729700} fill="url(#paint4_linear_1_2552)" />
+          <path d="M4.5 4.5H19.5V19.5H4.5V4.5Z" fill="var(--fill-0, black)" />
+          <path d={svgPaths.p2c8bdac0} fill="var(--fill-0, white)" />
         </g>
         <defs>
           <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_2552" x1="8.56968" x2="22.8522" y1="9.27209" y2="9.27209">
@@ -1715,16 +1715,16 @@ function DeviconJwt() {
     <div className="relative shrink-0 size-[23px]" data-name="devicon:jwt">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23 23">
         <g clipPath="url(#clip0_1_2536)" id="devicon:jwt">
-          <path d={svgPaths.p3760fc00} fill="var(--fill-0, #546E7A)" id="Vector" />
-          <path d={svgPaths.p98f6e80} fill="var(--fill-0, #F50057)" id="Vector_2" />
-          <path d={svgPaths.p1a320f80} fill="var(--fill-0, #D500F9)" id="Vector_3" />
-          <path d={svgPaths.p1e4ee80} fill="var(--fill-0, #29B6F6)" id="Vector_4" />
-          <path d={svgPaths.p9f897f0} fill="var(--fill-0, #00E5FF)" id="Vector_5" />
-          <path d={svgPaths.pe89e300} fill="var(--fill-0, #546E7A)" id="Vector_6" />
-          <path d={svgPaths.pe51fb80} fill="var(--fill-0, #F50057)" id="Vector_7" />
-          <path d={svgPaths.p2c291d80} fill="var(--fill-0, #D500F9)" id="Vector_8" />
-          <path d={svgPaths.p3c9c2380} fill="var(--fill-0, #29B6F6)" id="Vector_9" />
-          <path d={svgPaths.p36f6a80} fill="var(--fill-0, #00E5FF)" id="Vector_10" />
+          <path d={svgPaths.p3760fc00} fill="var(--fill-0, #546E7A)" />
+          <path d={svgPaths.p98f6e80} fill="var(--fill-0, #F50057)" />
+          <path d={svgPaths.p1a320f80} fill="var(--fill-0, #D500F9)" />
+          <path d={svgPaths.p1e4ee80} fill="var(--fill-0, #29B6F6)" />
+          <path d={svgPaths.p9f897f0} fill="var(--fill-0, #00E5FF)" />
+          <path d={svgPaths.pe89e300} fill="var(--fill-0, #546E7A)" />
+          <path d={svgPaths.pe51fb80} fill="var(--fill-0, #F50057)" />
+          <path d={svgPaths.p2c291d80} fill="var(--fill-0, #D500F9)" />
+          <path d={svgPaths.p3c9c2380} fill="var(--fill-0, #29B6F6)" />
+          <path d={svgPaths.p36f6a80} fill="var(--fill-0, #00E5FF)" />
         </g>
         <defs>
           <clipPath id="clip0_1_2536">
@@ -1751,8 +1751,8 @@ function DeviconSqlalchemy() {
     <div className="relative shrink-0 size-[24px]" data-name="devicon:sqlalchemy">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g clipPath="url(#clip0_1_2532)" id="devicon:sqlalchemy">
-          <path d={svgPaths.pc0788f0} fill="var(--fill-0, #333333)" id="Vector" />
-          <path d={svgPaths.p3996d400} fill="var(--fill-0, #CA2727)" id="Vector_2" />
+          <path d={svgPaths.pc0788f0} fill="var(--fill-0, #333333)" />
+          <path d={svgPaths.p3996d400} fill="var(--fill-0, #CA2727)" />
         </g>
         <defs>
           <clipPath id="clip0_1_2532">
@@ -1792,7 +1792,7 @@ function LogosWebsocket() {
     <div className="relative shrink-0 size-[23px]" data-name="logos:websocket">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23 23">
         <g id="logos:websocket">
-          <path d={svgPaths.p8877e80} fill="var(--fill-0, #231F20)" id="Vector" />
+          <path d={svgPaths.p8877e80} fill="var(--fill-0, #231F20)" />
         </g>
       </svg>
     </div>
@@ -1814,7 +1814,7 @@ function MaterialIconThemeDocker() {
     <div className="relative shrink-0 size-[24px]" data-name="material-icon-theme:docker">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g id="material-icon-theme:docker">
-          <path d={svgPaths.p3a8e9e00} fill="var(--fill-0, #0288D1)" id="Vector" />
+          <path d={svgPaths.p3a8e9e00} fill="var(--fill-0, #0288D1)" />
         </g>
       </svg>
     </div>
@@ -1836,11 +1836,11 @@ function VscodeIconsFileTypePytest() {
     <div className="relative shrink-0 size-[23px]" data-name="vscode-icons:file-type-pytest">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23 23">
         <g id="vscode-icons:file-type-pytest">
-          <path d={svgPaths.p3e501700} fill="var(--fill-0, #696969)" id="Vector" />
-          <path d={svgPaths.p2759d900} fill="var(--fill-0, #009FE3)" id="Vector_2" />
-          <path d={svgPaths.p2f5ecd00} fill="var(--fill-0, #C7D302)" id="Vector_3" />
-          <path d={svgPaths.p1d84ec0} fill="var(--fill-0, #F07E16)" id="Vector_4" />
-          <path d={svgPaths.p10bef00} fill="var(--fill-0, #DF2815)" id="Vector_5" />
+          <path d={svgPaths.p3e501700} fill="var(--fill-0, #696969)" />
+          <path d={svgPaths.p2759d900} fill="var(--fill-0, #009FE3)" />
+          <path d={svgPaths.p2f5ecd00} fill="var(--fill-0, #C7D302)" />
+          <path d={svgPaths.p1d84ec0} fill="var(--fill-0, #F07E16)" />
+          <path d={svgPaths.p10bef00} fill="var(--fill-0, #DF2815)" />
         </g>
       </svg>
     </div>
@@ -1862,19 +1862,19 @@ function FlatColorIconsLinux() {
     <div className="relative shrink-0 size-[24px]" data-name="flat-color-icons:linux">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g clipPath="url(#clip0_1_2616)" id="flat-color-icons:linux">
-          <path d={svgPaths.p16f05300} fill="var(--fill-0, #ECEFF1)" id="Vector" />
-          <path d={svgPaths.p3f62b880} fill="var(--fill-0, #263238)" id="Vector_2" />
-          <g id="Group">
-            <path d={svgPaths.p29071a00} fill="var(--fill-0, #ECEFF1)" id="Vector_3" />
-            <path d={svgPaths.p25013100} fill="var(--fill-0, #ECEFF1)" id="Vector_4" />
+          <path d={svgPaths.p16f05300} fill="var(--fill-0, #ECEFF1)" />
+          <path d={svgPaths.p3f62b880} fill="var(--fill-0, #263238)" />
+          <g>
+            <path d={svgPaths.p29071a00} fill="var(--fill-0, #ECEFF1)" />
+            <path d={svgPaths.p25013100} fill="var(--fill-0, #ECEFF1)" />
           </g>
-          <g id="Group_2">
-            <path d={svgPaths.p1b055300} fill="var(--fill-0, #212121)" id="Vector_5" />
-            <path d={svgPaths.p14a7cc00} fill="var(--fill-0, #212121)" id="Vector_6" />
+          <g>
+            <path d={svgPaths.p1b055300} fill="var(--fill-0, #212121)" />
+            <path d={svgPaths.p14a7cc00} fill="var(--fill-0, #212121)" />
           </g>
-          <path d={svgPaths.p366016f0} fill="var(--fill-0, #FFC107)" id="Vector_7" />
-          <path d={svgPaths.p293a0500} fill="var(--fill-0, #634703)" id="Vector_8" />
-          <path d={svgPaths.p11b7f100} fill="var(--fill-0, #455A64)" id="Vector_9" />
+          <path d={svgPaths.p366016f0} fill="var(--fill-0, #FFC107)" />
+          <path d={svgPaths.p293a0500} fill="var(--fill-0, #634703)" />
+          <path d={svgPaths.p11b7f100} fill="var(--fill-0, #455A64)" />
         </g>
         <defs>
           <clipPath id="clip0_1_2616">
@@ -1901,8 +1901,8 @@ function MaterialIconThemeMetabase1() {
     <div className="relative shrink-0 size-[24px]" data-name="material-icon-theme:django">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g id="material-icon-theme:django">
-          <path d={svgPaths.p2102a200} fill="var(--fill-0, #43A047)" id="Vector" />
-          <path d={svgPaths.pc25a500} fill="var(--fill-0, #43A047)" id="Vector_2" />
+          <path d={svgPaths.p2102a200} fill="var(--fill-0, #43A047)" />
+          <path d={svgPaths.pc25a500} fill="var(--fill-0, #43A047)" />
         </g>
       </svg>
     </div>
@@ -1924,7 +1924,7 @@ function DashiconsRestApi() {
     <div className="relative shrink-0 size-[20px]" data-name="dashicons:rest-api">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
         <g id="dashicons:rest-api">
-          <path d={svgPaths.p3b8ac100} fill="var(--fill-0, black)" id="Vector" />
+          <path d={svgPaths.p3b8ac100} fill="var(--fill-0, black)" />
         </g>
       </svg>
     </div>
@@ -1946,7 +1946,7 @@ function DeviconFastapi() {
     <div className="relative shrink-0 size-[24px]" data-name="devicon:fastapi">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
         <g clipPath="url(#clip0_1_2488)" id="devicon:fastapi">
-          <path d={svgPaths.p2ed9f6b0} fill="var(--fill-0, #049688)" id="Vector" />
+          <path d={svgPaths.p2ed9f6b0} fill="var(--fill-0, #049688)" />
         </g>
         <defs>
           <clipPath id="clip0_1_2488">
@@ -1985,15 +1985,15 @@ function Group3() {
     <div className="absolute inset-[0.26%_0_0.26%_-0.06%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0.016px_0px] mask-size-[25px_24.871px]" style={{ maskImage: `url('${imgGroup}')` }} data-name="Group">
       <div className="absolute inset-[-4.19%_-4.16%]">
         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 27.0991 26.955">
-          <g id="Group">
-            <path d={svgPaths.p391dd700} fill="var(--fill-0, #0065A9)" id="Vector" />
-            <g filter="url(#filter0_d_1_2599)" id="Group_2">
-              <path d={svgPaths.p1f009080} fill="var(--fill-0, #007ACC)" id="Vector_2" />
+          <g>
+            <path d={svgPaths.p391dd700} fill="var(--fill-0, #0065A9)" />
+            <g filter="url(#filter0_d_1_2599)">
+              <path d={svgPaths.p1f009080} fill="var(--fill-0, #007ACC)" />
             </g>
-            <g filter="url(#filter1_d_1_2599)" id="Group_3">
-              <path d={svgPaths.p741100} fill="var(--fill-0, #1F9CF0)" id="Vector_3" />
+            <g filter="url(#filter1_d_1_2599)">
+              <path d={svgPaths.p741100} fill="var(--fill-0, #1F9CF0)" />
             </g>
-            <path clipRule="evenodd" d={svgPaths.p1a242b80} fill="var(--fill-0, white)" fillRule="evenodd" id="Vector_4" opacity="0.25" />
+            <path clipRule="evenodd" d={svgPaths.p1a242b80} fill="var(--fill-0, white)" fillRule="evenodd" opacity="0.25" />
           </g>
           <defs>
             <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="20.9785" id="filter0_d_1_2599" width="27.0987" x="0" y="5.97656">
@@ -2052,7 +2052,7 @@ function MaterialIconThemeNginx({ className }: { className?: string }) {
     <div className={className || "relative shrink-0 size-[24px]"} data-name="material-icon-theme:nginx">
       <div className="absolute inset-[0_6.25%]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 21 24">
-          <path d={svgPaths.p106cdb00} fill="var(--fill-0, #43A047)" id="Vector" />
+          <path d={svgPaths.p106cdb00} fill="var(--fill-0, #43A047)" />
         </svg>
       </div>
     </div>
@@ -2074,12 +2074,12 @@ function DeviconBash({ className }: { className?: string }) {
     <div className={className || "relative shrink-0 size-[23px]"} data-name="devicon:bash">
       <div className="-translate-y-1/2 absolute aspect-[14.00012493133545/16] left-[6.25%] right-[6.25%] top-[calc(50%+0.5px)]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.1252 23">
-          <path d={svgPaths.p12296df0} fill="var(--fill-0, #293138)" id="Vector" />
+          <path d={svgPaths.p12296df0} fill="var(--fill-0, #293138)" />
         </svg>
       </div>
       <div className="absolute inset-[72.31%_20.24%_20.09%_71.16%]" data-name="Vector">
         <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1.97782 1.74925">
-          <path d={svgPaths.p39284600} fill="var(--fill-0, #4FA847)" id="Vector" />
+          <path d={svgPaths.p39284600} fill="var(--fill-0, #4FA847)" />
         </svg>
       </div>
     </div>
@@ -2602,7 +2602,7 @@ function Frame25() {
             <div className="flex-[1_0_0] min-h-px relative w-full">
               <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-                  <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, black)" />
+                  <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
                 </svg>
               </div>
             </div>
@@ -2614,7 +2614,7 @@ function Frame25() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-              <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, black)" />
+              <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
             </svg>
           </div>
         </div>
@@ -2656,7 +2656,7 @@ function Component5() {
       <div className="-translate-x-1/2 absolute h-0 left-1/2 top-[1022px] w-[1086px]">
         <div className="absolute inset-[-0.5px_0]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1086 1">
-            <path d="M0 0.5H1086" id="Vector 12" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
+            <path d="M0 0.5H1086" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
           </svg>
         </div>
       </div>
@@ -2732,9 +2732,9 @@ function Group4() {
     <div className="absolute inset-[8.34%_14.58%_14.58%_8.34%]" data-name="Group">
       <div className="absolute inset-[-6.08%]">
         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 13.8333 13.8333">
-          <g id="Group">
-            <path d={svgPaths.p339c2e40} id="Vector" stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-            <path d={svgPaths.p1ce54200} id="Vector_2" stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+          <g>
+            <path d={svgPaths.p339c2e40} stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+            <path d={svgPaths.p1ce54200} stroke="var(--stroke-0, white)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
           </g>
         </svg>
       </div>
@@ -2765,10 +2765,10 @@ function Group5() {
     <div className="absolute inset-[4.16%_16.68%_8.34%_12.5%]" data-name="Group">
       <div className="absolute inset-[-5.36%_-6.64%_-5.36%_-6.62%]">
         <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 12.8327 15.5">
-          <g id="Group">
-            <g id="Vector" />
-            <path d={svgPaths.p36570a80} id="Vector_2" stroke="var(--stroke-0, white)" strokeLinecap="square" strokeWidth="1.5" />
-            <path d="M0.75 4.75V14.75H8.08333" id="Vector_3" stroke="var(--stroke-0, white)" strokeLinecap="square" strokeWidth="1.5" />
+          <g>
+            <g />
+            <path d={svgPaths.p36570a80} stroke="var(--stroke-0, white)" strokeLinecap="square" strokeWidth="1.5" />
+            <path d="M0.75 4.75V14.75H8.08333" stroke="var(--stroke-0, white)" strokeLinecap="square" strokeWidth="1.5" />
           </g>
         </svg>
       </div>
@@ -2799,7 +2799,7 @@ function GrommetIconsTask() {
     <div className="relative shrink-0 size-[16px]" data-name="grommet-icons:task">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16 16">
         <g clipPath="url(#clip0_1_2466)" id="grommet-icons:task">
-          <path d={svgPaths.p1c012980} id="Vector" stroke="var(--stroke-0, white)" strokeWidth="1.5" />
+          <path d={svgPaths.p1c012980} stroke="var(--stroke-0, white)" strokeWidth="1.5" />
         </g>
         <defs>
           <clipPath id="clip0_1_2466">
@@ -2858,7 +2858,7 @@ function Frame111() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2877,7 +2877,7 @@ function Frame112() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2896,7 +2896,7 @@ function Frame117() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2915,7 +2915,7 @@ function Frame118() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2934,7 +2934,7 @@ function Frame119() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2953,7 +2953,7 @@ function Frame120() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2972,7 +2972,7 @@ function Frame121() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -2991,7 +2991,7 @@ function Frame122() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -3010,7 +3010,7 @@ function Frame123() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -3035,7 +3035,7 @@ function Frame124() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -3057,7 +3057,7 @@ function Frame126() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, white)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, white)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -3375,7 +3375,7 @@ function CourseTeachersCarouselActions() {
             <div className="flex-[1_0_0] min-h-px relative w-full">
               <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-                  <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+                  <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
                 </svg>
               </div>
             </div>
@@ -3387,7 +3387,7 @@ function CourseTeachersCarouselActions() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-              <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+              <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
             </svg>
           </div>
         </div>
@@ -3433,7 +3433,7 @@ function Frame210() {
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" />
           </svg>
         </div>
       </div>
@@ -3502,7 +3502,7 @@ function Frame214() {
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" />
           </svg>
         </div>
       </div>
@@ -3553,7 +3553,7 @@ function Frame219() {
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" />
           </svg>
         </div>
       </div>
@@ -3622,7 +3622,7 @@ function Frame224() {
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.6785 24.4217">
-            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" id="Star 1" />
+            <path d={svgPaths.p1080600} fill="var(--fill-0, #9747FF)" />
           </svg>
         </div>
       </div>
@@ -3686,43 +3686,43 @@ function Group6() {
   return (
     <div className="relative size-full" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 290.859 290.824">
-        <g id="Group">
-          <path d={svgPaths.p18267cf0} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p3e050700} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.pa4e4700} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
-          <path d={svgPaths.p2e3ae300} fill="var(--fill-0, #9C78FF)" id="Vector_4" />
-          <path d={svgPaths.p98afe80} fill="var(--fill-0, #9C78FF)" id="Vector_5" />
-          <path d={svgPaths.p2b861570} fill="var(--fill-0, #9C78FF)" id="Vector_6" />
-          <path d={svgPaths.p224c2400} fill="var(--fill-0, #9C78FF)" id="Vector_7" />
-          <path d={svgPaths.p2df88ef1} fill="var(--fill-0, #9C78FF)" id="Vector_8" />
-          <path d={svgPaths.p39cb9af0} fill="var(--fill-0, #9C78FF)" id="Vector_9" />
-          <path d={svgPaths.pfd76b00} fill="var(--fill-0, #9C78FF)" id="Vector_10" />
-          <path d={svgPaths.p119c8300} fill="var(--fill-0, #9C78FF)" id="Vector_11" />
-          <path d={svgPaths.p284c4170} fill="var(--fill-0, #9C78FF)" id="Vector_12" />
-          <path d={svgPaths.p25de6f00} fill="var(--fill-0, #9C78FF)" id="Vector_13" />
-          <path d={svgPaths.p3814a500} fill="var(--fill-0, #9C78FF)" id="Vector_14" />
-          <path d={svgPaths.p2d129140} fill="var(--fill-0, #9C78FF)" id="Vector_15" />
-          <path d={svgPaths.p1263bf00} fill="var(--fill-0, #9C78FF)" id="Vector_16" />
-          <path d={svgPaths.p2696b700} fill="var(--fill-0, #9C78FF)" id="Vector_17" />
-          <path d={svgPaths.p1197f900} fill="var(--fill-0, #9C78FF)" id="Vector_18" />
-          <path d={svgPaths.p20587300} fill="var(--fill-0, #9C78FF)" id="Vector_19" />
-          <path d={svgPaths.p3b34b200} fill="var(--fill-0, #9C78FF)" id="Vector_20" />
-          <path d={svgPaths.p3ccd7280} fill="var(--fill-0, #9C78FF)" id="Vector_21" />
-          <path d={svgPaths.p29ccbe00} fill="var(--fill-0, #9C78FF)" id="Vector_22" />
-          <path d={svgPaths.p1b52c480} fill="var(--fill-0, #9C78FF)" id="Vector_23" />
-          <path d={svgPaths.p1e75eb80} fill="var(--fill-0, #9C78FF)" id="Vector_24" />
-          <path d={svgPaths.p11748700} fill="var(--fill-0, #9C78FF)" id="Vector_25" />
-          <path d={svgPaths.pcd03700} fill="var(--fill-0, #9C78FF)" id="Vector_26" />
-          <path d={svgPaths.p7822980} fill="var(--fill-0, #9C78FF)" id="Vector_27" />
-          <path d={svgPaths.p8b90600} fill="var(--fill-0, #9C78FF)" id="Vector_28" />
-          <path d={svgPaths.p39ee6df0} fill="var(--fill-0, #9C78FF)" id="Vector_29" />
-          <path d={svgPaths.p1082cf80} fill="var(--fill-0, #9C78FF)" id="Vector_30" />
-          <path d={svgPaths.p24418960} fill="var(--fill-0, #9C78FF)" id="Vector_31" />
-          <path d={svgPaths.p155a4500} fill="var(--fill-0, #9C78FF)" id="Vector_32" />
-          <path d={svgPaths.p2f1c6400} fill="var(--fill-0, #9C78FF)" id="Vector_33" />
-          <path d={svgPaths.p1bcafe80} fill="var(--fill-0, #9C78FF)" id="Vector_34" />
-          <path d={svgPaths.p8458000} fill="var(--fill-0, #9C78FF)" id="Vector_35" />
-          <path d={svgPaths.p7121180} fill="var(--fill-0, #9C78FF)" id="Vector_36" />
+        <g>
+          <path d={svgPaths.p18267cf0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3e050700} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.pa4e4700} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2e3ae300} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p98afe80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2b861570} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p224c2400} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2df88ef1} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p39cb9af0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.pfd76b00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p119c8300} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p284c4170} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p25de6f00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3814a500} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2d129140} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1263bf00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2696b700} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1197f900} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p20587300} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3b34b200} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3ccd7280} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p29ccbe00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1b52c480} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1e75eb80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p11748700} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.pcd03700} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p7822980} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p8b90600} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p39ee6df0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1082cf80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p24418960} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p155a4500} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2f1c6400} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p1bcafe80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p8458000} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p7121180} fill="var(--fill-0, #9C78FF)" />
         </g>
       </svg>
     </div>
@@ -3733,28 +3733,28 @@ function Group7() {
   return (
     <div className="absolute inset-[16.76%_15.75%_17.88%_16.47%]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 226.383 218.291">
-        <g id="Group">
-          <path d={svgPaths.p1e050a00} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <g id="Group_2">
-            <g id="Vector_2" />
+        <g>
+          <path d={svgPaths.p1e050a00} fill="var(--fill-0, #9C78FF)" />
+          <g>
+            <g />
           </g>
-          <g id="Group_3">
-            <path d={svgPaths.p27dcea80} fill="var(--fill-0, white)" id="Vector_3" />
-            <path d={svgPaths.pe7ac00} fill="var(--fill-0, black)" id="Vector_4" />
+          <g>
+            <path d={svgPaths.p27dcea80} fill="var(--fill-0, white)" />
+            <path d={svgPaths.pe7ac00} fill="var(--fill-0, black)" />
           </g>
-          <path d={svgPaths.p26939880} fill="var(--fill-0, black)" id="Vector_5" />
-          <g id="Group_4">
-            <path d={svgPaths.p1280e500} fill="var(--fill-0, white)" id="Vector_6" />
-            <path d={svgPaths.p14d0cc00} fill="var(--fill-0, black)" id="Vector_7" />
+          <path d={svgPaths.p26939880} fill="var(--fill-0, black)" />
+          <g>
+            <path d={svgPaths.p1280e500} fill="var(--fill-0, white)" />
+            <path d={svgPaths.p14d0cc00} fill="var(--fill-0, black)" />
           </g>
-          <g id="Group_5">
-            <path d={svgPaths.p28412c80} fill="var(--fill-0, black)" id="Vector_8" />
+          <g>
+            <path d={svgPaths.p28412c80} fill="var(--fill-0, black)" />
           </g>
-          <g id="Group_6">
-            <path d={svgPaths.p1becc480} fill="var(--fill-0, #9C78FF)" id="Vector_9" />
-            <path d={svgPaths.p384e640} fill="var(--fill-0, #9C78FF)" id="Vector_10" />
-            <path d={svgPaths.p1f6bda80} fill="var(--fill-0, #9C78FF)" id="Vector_11" />
-            <path d={svgPaths.p2a26d000} fill="var(--fill-0, #9C78FF)" id="Vector_12" />
+          <g>
+            <path d={svgPaths.p1becc480} fill="var(--fill-0, #9C78FF)" />
+            <path d={svgPaths.p384e640} fill="var(--fill-0, #9C78FF)" />
+            <path d={svgPaths.p1f6bda80} fill="var(--fill-0, #9C78FF)" />
+            <path d={svgPaths.p2a26d000} fill="var(--fill-0, #9C78FF)" />
           </g>
         </g>
       </svg>
@@ -3833,7 +3833,7 @@ function Frame66() {
             <div className="flex-[1_0_0] min-h-px relative w-full">
               <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
                 <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-                  <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+                  <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
                 </svg>
               </div>
             </div>
@@ -3845,7 +3845,7 @@ function Frame66() {
         <div className="flex-[1_0_0] min-h-px relative w-full">
           <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-              <path d={svgPaths.p50fce00} id="Vector 119" stroke="var(--stroke-0, white)" />
+              <path d={svgPaths.p50fce00} stroke="var(--stroke-0, white)" />
             </svg>
           </div>
         </div>
@@ -3921,7 +3921,7 @@ function Frame179() {
           <div className="h-0 relative w-[124px]">
             <div className="absolute inset-[-3px_0_0_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 124 3">
-                <line id="Line 1" stroke="var(--stroke-0, black)" strokeWidth="3" x2="124" y1="1.5" y2="1.5" />
+                <line stroke="var(--stroke-0, black)" strokeWidth="3" x2="124" y1="1.5" y2="1.5" />
               </svg>
             </div>
           </div>
@@ -3974,14 +3974,15 @@ function Frame178() {
 }
 
 function WeuiDone2Filled() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -3991,14 +3992,15 @@ function WeuiDone2Filled() {
 }
 
 function WeuiDone2Filled1() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4008,14 +4010,15 @@ function WeuiDone2Filled1() {
 }
 
 function WeuiDone2Filled2() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4025,14 +4028,15 @@ function WeuiDone2Filled2() {
 }
 
 function WeuiDone2Filled3() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4042,14 +4046,15 @@ function WeuiDone2Filled3() {
 }
 
 function WeuiDone2Filled4() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4059,14 +4064,15 @@ function WeuiDone2Filled4() {
 }
 
 function WeuiDone2Filled5() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4076,14 +4082,15 @@ function WeuiDone2Filled5() {
 }
 
 function WeuiDone2Filled6() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4213,14 +4220,15 @@ function Frame180() {
 }
 
 function WeuiDone2Filled7() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4230,14 +4238,15 @@ function WeuiDone2Filled7() {
 }
 
 function WeuiDone2Filled8() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4247,14 +4256,15 @@ function WeuiDone2Filled8() {
 }
 
 function WeuiDone2Filled9() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4264,14 +4274,15 @@ function WeuiDone2Filled9() {
 }
 
 function WeuiDone2Filled10() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4281,14 +4292,15 @@ function WeuiDone2Filled10() {
 }
 
 function WeuiDone2Filled11() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4298,14 +4310,15 @@ function WeuiDone2Filled11() {
 }
 
 function WeuiDone2Filled12() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4315,14 +4328,15 @@ function WeuiDone2Filled12() {
 }
 
 function WeuiDone2Filled13() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4332,14 +4346,15 @@ function WeuiDone2Filled13() {
 }
 
 function WeuiDone2Filled14() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4349,14 +4364,15 @@ function WeuiDone2Filled14() {
 }
 
 function WeuiDone2Filled15() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4470,14 +4486,15 @@ function Frame181() {
 }
 
 function WeuiDone2Filled16() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4487,14 +4504,15 @@ function WeuiDone2Filled16() {
 }
 
 function WeuiDone2Filled17() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4504,14 +4522,15 @@ function WeuiDone2Filled17() {
 }
 
 function WeuiDone2Filled18() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4521,14 +4540,15 @@ function WeuiDone2Filled18() {
 }
 
 function WeuiDone2Filled19() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4538,14 +4558,15 @@ function WeuiDone2Filled19() {
 }
 
 function WeuiDone2Filled20() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4555,14 +4576,15 @@ function WeuiDone2Filled20() {
 }
 
 function WeuiDone2Filled21() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4572,14 +4594,15 @@ function WeuiDone2Filled21() {
 }
 
 function WeuiDone2Filled22() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4589,14 +4612,15 @@ function WeuiDone2Filled22() {
 }
 
 function WeuiDone2Filled23() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4606,14 +4630,15 @@ function WeuiDone2Filled23() {
 }
 
 function WeuiDone2Filled24() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4623,14 +4648,15 @@ function WeuiDone2Filled24() {
 }
 
 function WeuiDone2Filled25() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4640,14 +4666,15 @@ function WeuiDone2Filled25() {
 }
 
 function WeuiDone2Filled26() {
+  const clipId = useId();
   return (
     <div className="relative shrink-0 size-[26px]" data-name="weui:done2-filled">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 26 26">
-        <g clipPath="url(#clip0_1_2567)" id="weui:done2-filled">
-          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" id="Vector" />
+        <g clipPath={`url(#${clipId})`}>
+          <path clipRule="evenodd" d={svgPaths.p202a7510} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
         </g>
         <defs>
-          <clipPath id="clip0_1_2567">
+          <clipPath id={clipId}>
             <rect fill="white" height="26" width="26" />
           </clipPath>
         </defs>
@@ -4970,7 +4997,7 @@ function Frame162() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -4989,7 +5016,7 @@ function Frame171() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -5011,7 +5038,7 @@ function Frame173() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -5030,7 +5057,7 @@ function Frame183() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -5049,7 +5076,7 @@ function Frame184() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -5068,7 +5095,7 @@ function Frame185() {
           <div className="relative size-[28px]">
             <div className="absolute inset-[-2.6%_-5.21%_-2.6%_0]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564">
-                <path d={svgPaths.p3133300} id="Vector 119" stroke="var(--stroke-0, black)" strokeWidth="2" />
+                <path d={svgPaths.p3133300} stroke="var(--stroke-0, black)" strokeWidth="2" />
               </svg>
             </div>
           </div>
@@ -5128,10 +5155,10 @@ function Group9() {
   return (
     <div className="col-1 h-[244.958px] ml-[700.63px] mt-0 relative row-1 w-[577.376px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 577.375 244.958">
-        <g id="Group">
-          <path d={svgPaths.p23edab00} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p4043300} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p30941380} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
+        <g>
+          <path d={svgPaths.p23edab00} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p4043300} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p30941380} fill="var(--fill-0, #9C78FF)" />
         </g>
       </svg>
     </div>
@@ -5142,25 +5169,25 @@ function Group10() {
   return (
     <div className="col-1 h-[290.17px] ml-0 mt-[15.92px] relative row-1 w-[1278px]" data-name="Group">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1278 290.17">
-        <g id="Group">
-          <path d={svgPaths.p1e692d80} fill="var(--fill-0, #9C78FF)" id="Vector" />
-          <path d={svgPaths.p34305180} fill="var(--fill-0, #9C78FF)" id="Vector_2" />
-          <path d={svgPaths.p3b8f9400} fill="var(--fill-0, #9C78FF)" id="Vector_3" />
-          <path d={svgPaths.p2b6c6b0} fill="var(--fill-0, #9C78FF)" id="Vector_4" />
-          <path d={svgPaths.p2a30380} fill="var(--fill-0, white)" id="Vector_5" />
-          <path d={svgPaths.p376d2400} fill="var(--fill-0, white)" id="Vector_6" />
-          <path d={svgPaths.p29fbf380} fill="var(--fill-0, white)" id="Vector_7" />
-          <path d={svgPaths.p24ca3e00} fill="var(--fill-0, white)" id="Vector_8" />
-          <path d={svgPaths.p259c9e00} fill="var(--fill-0, white)" id="Vector_9" />
-          <path d={svgPaths.p847f400} fill="var(--fill-0, white)" id="Vector_10" />
-          <path d={svgPaths.p1cb57300} fill="var(--fill-0, white)" id="Vector_11" />
-          <path d={svgPaths.p391bde80} fill="var(--fill-0, white)" id="Vector_12" />
-          <path d={svgPaths.p2cbc4300} fill="var(--fill-0, white)" id="Vector_13" />
-          <path d={svgPaths.p7ccf500} fill="var(--fill-0, white)" id="Vector_14" />
-          <path d={svgPaths.p25b8d000} fill="var(--fill-0, white)" id="Vector_15" />
-          <path d={svgPaths.p16f9d200} fill="var(--fill-0, white)" id="Vector_16" />
-          <path d={svgPaths.p10852a80} fill="var(--fill-0, white)" id="Vector_17" />
-          <path d={svgPaths.p264827f0} fill="var(--fill-0, white)" id="Vector_18" />
+        <g>
+          <path d={svgPaths.p1e692d80} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p34305180} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p3b8f9400} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2b6c6b0} fill="var(--fill-0, #9C78FF)" />
+          <path d={svgPaths.p2a30380} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p376d2400} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p29fbf380} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p24ca3e00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p259c9e00} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p847f400} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p1cb57300} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p391bde80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p2cbc4300} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p7ccf500} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p25b8d000} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p16f9d200} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p10852a80} fill="var(--fill-0, white)" />
+          <path d={svgPaths.p264827f0} fill="var(--fill-0, white)" />
         </g>
       </svg>
     </div>
@@ -5251,7 +5278,7 @@ function MaterialSymbolsMailOutline() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
         <g id="material-symbols:mail-outline">
           <rect fill="var(--fill-0, #D9D9D9)" height="85" rx="40" width="85" />
-          <path d={svgPaths.p36270580} fill="var(--fill-0, #464A6A)" id="Vector" />
+          <path d={svgPaths.p36270580} fill="var(--fill-0, #464A6A)" />
         </g>
       </svg>
     </div>
@@ -5264,7 +5291,7 @@ function TablerPhoneCall() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
         <g id="tabler:phone-call">
           <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p3f181b00} id="Vector" stroke="var(--stroke-0, #464A6A)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+          <path d={svgPaths.p3f181b00} stroke="var(--stroke-0, #464A6A)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>
       </svg>
     </div>
@@ -5277,7 +5304,7 @@ function IcBaselineWhatsapp() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 83">
         <g id="ic:baseline-whatsapp">
           <path d={svgPaths.p1c2b1d80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.pf349600} fill="var(--fill-0, #464A6A)" id="Vector" />
+          <path d={svgPaths.pf349600} fill="var(--fill-0, #464A6A)" />
         </g>
       </svg>
     </div>
@@ -5290,7 +5317,7 @@ function MynauiTelegram() {
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
         <g id="mynaui:telegram">
           <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.pf565fa0} id="Vector" stroke="var(--stroke-0, #464A6A)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+          <path d={svgPaths.pf565fa0} stroke="var(--stroke-0, #464A6A)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>
       </svg>
     </div>
@@ -5438,7 +5465,7 @@ function CourseTopBackground() {
       <div className="absolute h-[686px] left-[80px] top-[1710px] w-[1280px]">
         <div className="absolute inset-[-29.15%_-15.63%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 1086">
-            <g filter="url(#filter0_f_1_2632)" id="Ellipse 7">
+            <g filter="url(#filter0_f_1_2632)">
               <ellipse cx="840" cy="543" fill="var(--fill-0, white)" fillOpacity="0.4" rx="640" ry="343" />
             </g>
             <defs>
@@ -5454,7 +5481,7 @@ function CourseTopBackground() {
       <div className="absolute h-[1007px] left-[94px] top-[186px] w-[1236px]">
         <div className="absolute inset-[-19.86%_-16.18%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1636 1407">
-            <g filter="url(#filter0_f_1_2491)" id="Ellipse 6">
+            <g filter="url(#filter0_f_1_2491)">
               <ellipse cx="818" cy="703.5" fill="var(--fill-0, white)" fillOpacity="0.4" rx="618" ry="503.5" />
             </g>
             <defs>
