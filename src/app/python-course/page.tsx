@@ -1,5 +1,5 @@
 import App from "../App";
-import { courseFaqItems } from "../../imports/courseFaqData";
+import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { PYTHON_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   JsonLd,
@@ -11,6 +11,8 @@ import {
   pythonCourseJsonLd,
   webPageJsonLd,
 } from "../seo";
+
+const courseFaqItems = getCourseFaqItems("python");
 
 export const metadata = createPageMetadata({
   title:

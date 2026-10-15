@@ -1,5 +1,5 @@
 import App from "../App";
-import { courseFaqItems } from "../../imports/courseFaqData";
+import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { JAVA_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   JAVA_COURSE_OG_IMAGE_PATH,
@@ -11,6 +11,8 @@ import {
   faqPageJsonLd,
   webPageJsonLd,
 } from "../seo";
+
+const courseFaqItems = getCourseFaqItems("java");
 
 export const metadata = createPageMetadata({
   title:

@@ -27,12 +27,14 @@ import imgRectangle40087 from "./dffabcf9253f8840fc97552d03f9a59b8a13fb24.opt.we
 import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.opt.webp";
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.opt.webp";
 import { imgGroup } from "./svg-htygp";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { mlEngineerCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { mlEngineerProjectVisualImages } from "../mlEngineerProjectVisualImages";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+
+const courseFaqItems = getCourseFaqItems("mlEngineer");
 
 const mobileProjectVisuals = [
   { title: "Dataset baseline", code: "baseline_forecast.ipynb" },

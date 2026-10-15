@@ -1066,7 +1066,12 @@ export const mlEngineerCourseJsonLd = {
 };
 
 export function faqPageJsonLd(
-  items: ReadonlyArray<{ question: string; answer: readonly string[] }>,
+  items: ReadonlyArray<{
+    question: string;
+    answer: readonly string[];
+    tariffsLink?: boolean;
+    links?: readonly { text: string; href: string }[];
+  }>,
   path = "/python-course",
 ) {
   return {
@@ -1080,7 +1085,11 @@ export function faqPageJsonLd(
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer.join("\n\n"),
+        text: [
+          ...item.answer,
+          ...(item.links?.map((link) => link.text) ?? []),
+          ...(item.tariffsLink ? ["Сравнить тарифы и состав услуг"] : []),
+        ].join("\n\n"),
       },
     })),
   };

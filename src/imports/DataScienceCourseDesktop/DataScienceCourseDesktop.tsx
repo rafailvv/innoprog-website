@@ -38,11 +38,13 @@ import { imgGroup } from "./svg-0m3gv";
 import imgBenefitIconsChatFigma from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Figma from "../MainScreenDesktop/benefit-card1-figma.png";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { dataScienceCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataScienceProjectVisualImages } from "../dataScienceProjectVisualImages";
+
+const courseFaqItems = getCourseFaqItems("dataScience");
 
 const projectVisuals = [
   { title: "Executive sales analytics", code: "sales_insights.ipynb" },

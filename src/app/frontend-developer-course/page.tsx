@@ -1,5 +1,5 @@
 import App from "../App";
-import { courseFaqItems } from "../../imports/courseFaqData";
+import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { FRONTEND_COURSE_KEYWORDS } from "../courseKeywords";
 import {
   FRONTEND_COURSE_OG_IMAGE_PATH,
@@ -11,6 +11,8 @@ import {
   frontendCourseJsonLd,
   webPageJsonLd,
 } from "../seo";
+
+const courseFaqItems = getCourseFaqItems("frontend");
 
 export const metadata = createPageMetadata({
   title:

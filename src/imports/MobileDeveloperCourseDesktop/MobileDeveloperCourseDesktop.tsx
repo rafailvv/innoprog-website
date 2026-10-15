@@ -38,11 +38,13 @@ import { imgGroup } from "./svg-0m3gv";
 import imgBenefitIconsChatTableau from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Tableau from "../MainScreenDesktop/benefit-card1-figma.png";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { mobileDeveloperCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { mobileDeveloperProjectVisualImages } from "../mobileDeveloperProjectVisualImages";
+
+const courseFaqItems = getCourseFaqItems("mobile");
 
 const projectVisuals = [
   { title: "Mobile task manager", code: "mobile-task-manager/" },

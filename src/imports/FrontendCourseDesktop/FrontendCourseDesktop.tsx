@@ -38,11 +38,13 @@ import { imgGroup } from "./svg-0m3gv";
 import imgBenefitIconsChatFigma from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Figma from "../MainScreenDesktop/benefit-card1-figma.png";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { frontendCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { frontendProjectVisualImages } from "../frontendProjectVisualImages";
+
+const courseFaqItems = getCourseFaqItems("frontend");
 
 const projectVisuals = [
   { title: "Frontend portfolio", code: "portfolio-app/" },

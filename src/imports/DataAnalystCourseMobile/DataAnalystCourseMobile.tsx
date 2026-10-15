@@ -27,12 +27,14 @@ import imgRectangle40087 from "./dffabcf9253f8840fc97552d03f9a59b8a13fb24.opt.we
 import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.opt.webp";
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.opt.webp";
 import { imgGroup } from "./svg-htygp";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { dataAnalystCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataAnalystProjectVisualImages } from "../dataAnalystProjectVisualImages";
 import { MainScreenMobileTeachersSection } from "../MainScreenMobile/MainScreenMobile";
+
+const courseFaqItems = getCourseFaqItems("dataAnalyst");
 
 const dataAnalystProgramPdfHref = "/files/sveden/education/professional/Data-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf?v=326ef5718c508ba3";
 

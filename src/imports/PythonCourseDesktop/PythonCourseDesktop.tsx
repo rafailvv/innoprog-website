@@ -38,11 +38,13 @@ import { imgGroup } from "./svg-0m3gv";
 import imgBenefitIconsChatFigma from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Figma from "../MainScreenDesktop/benefit-card1-figma.png";
-import { courseFaqItems } from "../courseFaqData";
+import { getCourseFaqItems } from "../courseDirectionFaqData";
 import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { courseProjectVisualImages } from "../courseProjectVisualImages";
+
+const courseFaqItems = getCourseFaqItems("python");
 
 const projectVisuals = [
   { title: "Склад фруктов", code: "stock.py" },

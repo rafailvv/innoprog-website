@@ -270,8 +270,9 @@ export default async function Page({ params }: Props) {
                 когда вы не одни
               </h2>
               <p>
-                Ребёнок занимается с преподавателем один на один, сразу задаёт
-                вопросы и получает обратную связь по своей работе
+                Ребёнок занимается с{" "}
+                <a className="text-inherit hover:underline focus-visible:underline underline-offset-4" href="/children#teachers">преподавателем</a>{" "}
+                один на один, сразу задаёт вопросы и получает обратную связь по своей работе
               </p>
               <ul>
                 <li>Расписание подстраиваем под школу и другие занятия</li>
