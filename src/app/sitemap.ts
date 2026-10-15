@@ -13,6 +13,13 @@ const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
   "/data-analyst-course": "2026-10-15", "/cpp-developer-course": "2026-10-15",
   "/mobile-developer-course": "2026-10-15", "/unreal-engine-course": "2026-10-15",
   "/java-developer-course": "2026-10-15", "/ml-engineer-course": "2026-10-15",
+  "/children": "2026-10-15",
+  "/children/courses/python": "2026-10-15",
+  "/children/courses/web-development": "2026-10-15",
+  "/children/courses/informatics-exams": "2026-10-15",
+  "/children/courses/olympiad-programming": "2026-10-15",
+  "/children/courses/neural-networks": "2026-10-15",
+  "/children/courses/game-development": "2026-10-15",
 };
 
 const baseRoutes = [

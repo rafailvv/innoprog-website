@@ -12,10 +12,12 @@ import {
   webPageJsonLd,
 } from "./seo";
 
+const HOME_DESCRIPTION =
+  "Курсы программирования для взрослых и детей с наставником. Индивидуальные онлайн-занятия, практика и проекты: Python, Java, frontend, аналитика данных и создание игр.";
+
 export const metadata = createPageMetadata({
   title: HOME_PAGE_TITLE,
-  description:
-    "Онлайн-школа программирования ИННОПРОГ: IT курсы с нуля Python, Data Science, Java, аналитика данных, Unreal Engine с наставником, диплом и карьерная поддержка",
+  description: HOME_DESCRIPTION,
   path: "/",
   keywords: [...HOME_PAGE_KEYWORDS],
   absoluteTitle: true,
@@ -34,8 +36,7 @@ export default function HomePage() {
         data={webPageJsonLd({
           path: "/",
           name: HOME_PAGE_TITLE,
-          description:
-            "Курсы программирования для взрослых и детей с практикой, наставниками, платформой и поддержкой учеников",
+          description: HOME_DESCRIPTION,
         })}
       />
       <JsonLd data={breadcrumbJsonLd([{ name: "Главная", path: "/" }])} />
