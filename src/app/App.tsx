@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import MainScreen from "../imports/MainScreenDesktop/MainScreenDesktop";
 import MainScreenMobile from "../imports/MainScreenMobile/MainScreenMobile";
-import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
+import { observeFirstContent } from "./firstContentReady";
 import heroPersonUrl from "../imports/MainScreenDesktop/hero-person-desktop.webp";
 import platformLaptopUrl from "../imports/MainScreenDesktop/platform-laptop-desktop.webp";
 import platformScreenUrl from "../imports/MainScreenDesktop/platform-screen-desktop.webp";
@@ -101,11 +101,11 @@ const desktopScrollTargets = {
 
 const mobileScrollTargets = MOBILE_SCROLL_TARGETS;
 
-const LOADER_MIN_MS = 300;
 const LOADER_MAX_MS = 2600;
 const LOADED_STORAGE_KEY = "innoprog-site-loaded";
 const PAGE_TRANSITION_STORAGE_KEY = "innoprog-page-transition-until";
-const PAGE_TRANSITION_MIN_MS = 720;
+// Route changes should not wait for a cosmetic minimum duration.
+const PAGE_TRANSITION_MIN_MS = 0;
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
 const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
 const LOADER_EXIT_MS = 400;
@@ -733,14 +733,6 @@ function useViewportState() {
   ));
 
   return getViewportStateFromWidth(viewportWidth);
-}
-
-function getCriticalAssets(route: AppInitialRoute) {
-  const logo = "/logo-education-360.webp";
-  if (route.page === "home") return [logo, ...HOME_CRITICAL_IMAGE_URLS];
-  if (route.page === "about") return [logo, aboutHeroUrl];
-  if (route.page === "review") return [logo, REVIEW_STORIES[route.story].hero];
-  return [logo];
 }
 
 function getClickedText(target: EventTarget | null, root: HTMLElement) {
@@ -3541,24 +3533,6 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
   };
 }
 
-function preloadImage(src: string) {
-  return new Promise<void>((resolve) => {
-    const image = new Image();
-
-    image.decoding = "async";
-    image.onload = () => {
-      if (typeof image.decode === "function") {
-        image.decode().then(() => resolve()).catch(() => resolve());
-        return;
-      }
-
-      resolve();
-    };
-    image.onerror = () => resolve();
-    image.src = src;
-  });
-}
-
 function hasLoadedInSession() {
   try {
     return window.sessionStorage.getItem(LOADED_STORAGE_KEY) === "true";
@@ -3654,18 +3628,6 @@ function clearReturnScrollPosition() {
   } catch {
     // Storage can be unavailable in private or restricted contexts.
   }
-}
-
-function waitForCriticalAssets(route: AppInitialRoute) {
-  const images = Array.from(document.images);
-  const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
-  const loaderLogo = images.find((image) => image.src.endsWith("/logo_education.png"));
-
-  return Promise.all([
-    ...getCriticalAssets(route).map(preloadImage),
-    loaderLogo && !loaderLogo.complete ? preloadImage(loaderLogo.src) : Promise.resolve(),
-    fonts?.ready.catch(() => undefined) ?? Promise.resolve(),
-  ]).then(() => undefined);
 }
 
 export default function App({
@@ -3883,37 +3845,23 @@ export default function App({
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isReady) {
       rememberLoadedInSession();
       return;
     }
-
-    let cancelled = false;
-    const startedAt = performance.now();
-    const maxTimer = window.setTimeout(() => {
-      if (!cancelled) {
-        setIsReady(true);
-      }
-    }, LOADER_MAX_MS);
-
-    waitForCriticalAssets(initialRoute).then(() => {
-      const elapsed = performance.now() - startedAt;
-      const delay = Math.max(0, LOADER_MIN_MS - elapsed);
-
-      window.setTimeout(() => {
-        if (!cancelled) {
-          window.clearTimeout(maxTimer);
-          window.requestAnimationFrame(() => setIsReady(true));
-        }
-      }, delay);
-    });
-
-    return () => {
-      cancelled = true;
-      window.clearTimeout(maxTimer);
-    };
-  }, [isReady, initialRoute]);
+    // Hydration starts with the mobile SSR tree. Reveal only after its viewport
+    // matches the client and the requested screen's heading has mounted.
+    const clientViewport = getViewportStateFromWidth(window.innerWidth);
+    if (viewport.isMobile !== clientViewport.isMobile || viewport.scale !== clientViewport.scale) return;
+    const surface = initialRoute.page === "home"
+      ? homeCanvasRef.current
+      : document.querySelector<HTMLElement>(".site-shell");
+    if (!surface) return;
+    // Native eager images and font-display:swap can paint progressively. Neither
+    // all document fonts nor decorative backgrounds should gate useful content.
+    return observeFirstContent(surface, () => setIsReady(true), LOADER_MAX_MS);
+  }, [isReady, initialRoute, viewport.isMobile, viewport.scale]);
 
   useEffect(() => () => {
     if (pageTransitionTimerRef.current !== null) {
@@ -5515,7 +5463,7 @@ export default function App({
             className="site-loader__logo"
             decoding="async"
             fetchPriority="high"
-            src="/logo_education.png"
+            src="/logo_education.lossless.webp"
           />
           <div className="site-loader__bar">
             <div className="site-loader__bar-fill" />
