@@ -1,5 +1,6 @@
 "use client";
 import { trackApplicationSuccess } from "./analytics";
+import { cookieBannerBottom } from "./cookieBannerPosition";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -3717,6 +3718,7 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
+  const cookieBannerRef = useRef<HTMLElement | null>(null);
   const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
   const homeCanvasRef = useRef<HTMLDivElement>(null);
   const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
@@ -4321,6 +4323,8 @@ export default function App({
     setLeadDraft({});
     setIsLeadSubmitting(false);
   };
+
+
 
   const acceptCookieConsent = () => {
 
@@ -5169,6 +5173,39 @@ export default function App({
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
+  useEffect(() => {
+    if (!shouldShowCookieBanner || !isReady || isStandaloneRoute) return;
+    const banner = cookieBannerRef.current;
+    const cta = document.querySelector<HTMLElement>(".site-shell--home-route .site-start-button, .site-shell--home-route .site-mobile-hero-start-button");
+    if (!banner) return;
+    banner.style.removeProperty("bottom");
+    if (!cta) return;
+    let frame = 0;
+    const position = () => {
+      banner.style.removeProperty("bottom");
+      if (!cta.isConnected) return;
+      const bottom = cookieBannerBottom(banner.getBoundingClientRect(), cta.getBoundingClientRect(), window.innerHeight);
+      if (bottom !== undefined) banner.style.bottom = `${bottom}px`;
+    };
+    const schedule = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(position);
+    };
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(schedule);
+    observer?.observe(banner);
+    observer?.observe(cta);
+    window.addEventListener("resize", schedule);
+    window.addEventListener("scroll", schedule, { passive: true });
+    position();
+    return () => {
+      banner.style.removeProperty("bottom");
+      observer?.disconnect();
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("scroll", schedule);
+    };
+  }, [shouldShowCookieBanner, isReady, viewport.isMobile, isStandaloneRoute]);
+
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   // Metrika's visual selector calculates incorrect hit areas for a canvas
@@ -5437,7 +5474,7 @@ export default function App({
                 id="mobile-adult-courses"
               >
                 {ADULT_COURSE_LINKS.map(({ label, href }) => (
-                  <a href={href} key={href}>{label}</a>
+                  <a href={href} key={href} tabIndex={openMobileNavGroup === "adults" ? undefined : -1}>{label}</a>
                 ))}
               </div>
             </div>
@@ -5462,7 +5499,7 @@ export default function App({
                 id="mobile-child-courses"
               >
                 {CHILD_COURSE_LINKS.map(({ label, href }) => (
-                  <a href={href} key={label}>{label}</a>
+                  <a href={href} key={label} tabIndex={openMobileNavGroup === "children" ? undefined : -1}>{label}</a>
                 ))}
               </div>
             </div>
@@ -5481,7 +5518,7 @@ export default function App({
                 <button aria-controls="mobile-about-links" aria-expanded={openMobileNavGroup === "about"} aria-label="Показать информацию об ИННОПРОГ" className="site-mobile-menu__expand" data-mobile-menu-expand="about" type="button"><span aria-hidden="true" /></button>
               </div>
               <div aria-hidden={openMobileNavGroup !== "about"} className="site-mobile-menu__submenu" data-open={openMobileNavGroup === "about"} id="mobile-about-links">
-                <a href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
+                <a href={LEGAL_LINKS.educationDisclosure} tabIndex={openMobileNavGroup === "about" ? undefined : -1}>{EDUCATION_DISCLOSURE_LABEL}</a>
               </div>
             </div>
           </div>
@@ -5678,7 +5715,7 @@ export default function App({
       }
       <YandexSmartCaptcha ref={smartCaptchaRef} />
       {shouldShowCookieBanner ? (
-        <aside className="site-cookie-banner" aria-label="Уведомление о cookie">
+        <aside ref={cookieBannerRef} className="site-cookie-banner" aria-label="Уведомление о cookie">
           <p>
             INNOPROG использует cookie и похожие технологии для корректной работы сайта, сохранения настроек,
             аналитики и показа более подходящего контента. Продолжая пользоваться сайтом, вы соглашаетесь с их
