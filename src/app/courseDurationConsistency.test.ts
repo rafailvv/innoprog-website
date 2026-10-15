@@ -76,11 +76,18 @@ describe("public course duration facts", () => {
     }
   });
 
-  it("publishes twelve months in Python, Data Science and ML metadata", () => {
-    for (const route of ["cpp-developer-course", "java-developer-course", "python-course", "data-science-course", "ml-engineer-course"]) {
+  it("publishes approved calendar months in every adult course description", () => {
+    const durations = [
+      ["cpp-developer-course", 12], ["java-developer-course", 12],
+      ["python-course", 12], ["data-science-course", 12], ["ml-engineer-course", 12],
+      ["frontend-developer-course", 10], ["data-analyst-course", 10],
+      ["mobile-developer-course", 10], ["unreal-engine-course", 10],
+    ] as const;
+    for (const [route, months] of durations) {
       const source = readFileSync(resolve(process.cwd(), "src", "app", route, "page.tsx"), "utf8");
-      expect(source).toContain("12 месяцев обучения");
-      expect(source).not.toContain("10 месяцев обучения");
+      const description = source.match(/description:\s*"([^"]+)"/)?.[1];
+      expect(description, route).toContain(`${months} месяцев`);
+      expect(description, route).not.toContain(`${months === 12 ? 10 : 12} месяцев`);
     }
   });
 

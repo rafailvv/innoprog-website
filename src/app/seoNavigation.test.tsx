@@ -21,6 +21,9 @@ describe("server-rendered navigation", () => {
     const entries = sitemap();
     expect(new Date(entries.find(x => x.url.endsWith("/python-course"))!.lastModified!).toISOString()).toBe("2026-10-15T00:00:00.000Z");
     expect(new Date(entries.find(x => x.url.endsWith("/sveden/education"))!.lastModified!).toISOString()).toBe("2026-08-29T00:00:00.000Z");
-    expect(new Date(entries.find(x => x.url.endsWith("/children"))!.lastModified!).toISOString()).toBe("2026-10-14T00:00:00.000Z");
+    for (const entry of entries.filter(x => x.url.endsWith("/children") || x.url.includes("/children/courses/"))) {
+      expect(new Date(entry.lastModified!).toISOString()).toBe("2026-10-15T00:00:00.000Z");
+    }
+    expect(new Date(entries.find(x => x.url.endsWith("/children/stories/amir"))!.lastModified!).toISOString()).toBe("2026-10-14T00:00:00.000Z");
   });
 });
