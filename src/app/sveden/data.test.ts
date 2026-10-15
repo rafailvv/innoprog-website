@@ -137,16 +137,12 @@ describe("educational disclosure contracts", () => {
     for (const program of EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")) {
       const schema = courseSchemaByProgram.get(program.name);
       const hours = Number.parseInt(program.volume, 10);
-      const explicitWeeks = Number.parseInt(
-        program.term.match(/(\d+) учебных недель/)?.[1] ?? "",
-        10,
-      );
       const months = Number.parseInt(program.term.match(/(\d+) месяцев/)?.[1] ?? "", 10);
-      const weeks = Number.isNaN(explicitWeeks) ? months * 4 : explicitWeeks;
 
       expect(schema, program.name).toBeDefined();
       expect(schema?.hasCourseInstance.courseWorkload, program.name).toBe(`${hours} академических часов`);
-      expect(schema?.timeRequired, program.name).toBe(`P${weeks}W`);
+      expect(Number.isFinite(months), program.name).toBe(true);
+      expect(schema?.timeRequired, program.name).toBe(`P${months}M`);
     }
   });
 

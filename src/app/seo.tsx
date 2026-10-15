@@ -562,7 +562,7 @@ export const pythonCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P48W",
+  timeRequired: "P12M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -616,7 +616,7 @@ export const dataScienceCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P48W",
+  timeRequired: "P12M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -672,7 +672,7 @@ export const frontendCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P40W",
+  timeRequired: "P10M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -730,7 +730,7 @@ export const dataAnalystCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P40W",
+  timeRequired: "P10M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -788,7 +788,7 @@ export const cppCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P48W",
+  timeRequired: "P12M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -846,7 +846,7 @@ export const mobileDeveloperCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P40W",
+  timeRequired: "P10M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -904,7 +904,7 @@ export const unrealEngineCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P40W",
+  timeRequired: "P10M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -963,7 +963,7 @@ export const javaCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P48W",
+  timeRequired: "P12M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",
@@ -1022,7 +1022,7 @@ export const mlEngineerCourseJsonLd = {
   inLanguage: "ru-RU",
   educationalLevel: "beginner",
   isAccessibleForFree: false,
-  timeRequired: "P48W",
+  timeRequired: "P12M",
   audience: {
     "@type": "EducationalAudience",
     educationalRole: "student",

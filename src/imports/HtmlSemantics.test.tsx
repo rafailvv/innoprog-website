@@ -85,4 +85,28 @@ describe("valid server HTML without changing programme icons", () => {
     expect(controls).toHaveLength(2);
     controls.forEach((control) => expect(control.getAttribute("aria-checked")).toBe("false"));
   });
+
+  it("keeps one main landmark on the about route", () => {
+    const document = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page: "about" }} />), "text/html");
+    expect(document.querySelectorAll("main")).toHaveLength(1);
+    expect(document.querySelector("main main, section main")).toBeNull();
+    const content = document.querySelector(".site-about-content")!;
+    expect(content.tagName).toBe("DIV");
+    expect(content.textContent).toContain("наша миссия:");
+    expect(content.querySelectorAll("section").length).toBeGreaterThan(2);
+  });
+
+  it("keeps review headings in flow containers inside their navigable cards", () => {
+    const document = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page: "reviews" }} />), "text/html");
+    const cards = [...document.querySelectorAll<HTMLAnchorElement>("a.site-reviews-index-card")];
+    expect(cards.length).toBeGreaterThan(0);
+    for (const card of cards) {
+      const heading = card.querySelector("h3.site-reviews-index-card__title")!;
+      expect(heading.parentElement?.tagName).toBe("DIV");
+      expect(heading.parentElement?.classList.contains("site-reviews-index-card__copy")).toBe(true);
+      expect(card.getAttribute("href")).toMatch(/^\/(?:reviews[/?]|[a-z-]+-course\/reviews\/)/);
+      expect(card.querySelector(".site-reviews-index-card__body")?.textContent).not.toBe("");
+    }
+  });
+
 });

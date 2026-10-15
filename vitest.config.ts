@@ -6,6 +6,8 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
+    // Rendering all responsive course screens is memory intensive; keep workers bounded.
+    maxWorkers: 2,
     setupFiles: ["./src/test/setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
     coverage: {

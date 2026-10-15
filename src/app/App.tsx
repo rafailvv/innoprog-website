@@ -1554,10 +1554,10 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
         </span>
         <CourseRating rating={review.rating} />
       </span>
-      <span className="site-reviews-index-card__copy">
+      <div className="site-reviews-index-card__copy">
         <h3 className="site-reviews-index-card__title">{review.title}</h3>
         <span className="site-reviews-index-card__body">{review.body}</span>
-      </span>
+      </div>
       <span className="site-reviews-index-card__read-more">читать полностью</span>
     </>
   );
@@ -1856,7 +1856,7 @@ function AboutPage({
           </h1>
         </section>
 
-        <main className="site-about-content">
+        <div className="site-about-content">
           <section className="site-about-intro">
             <p className="site-about-kicker">ИННОПРОГ</p>
             <p>
@@ -1943,7 +1943,7 @@ function AboutPage({
             <p>Локальные нормативные акты и сведения об образовательной организации опубликованы в открытом доступе в разделе «Сведения об образовательной организации».</p>
             <a className="site-about-legal__disclosure" href={LEGAL_LINKS.educationDisclosure}>{EDUCATION_DISCLOSURE_LABEL}</a>
           </section>
-        </main>
+        </div>
       </section>
       </div>
       <SiteFooter isMobile={isMobile} scale={headerScale} />
