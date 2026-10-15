@@ -2215,6 +2215,11 @@ function PythonCoursePage({
     const videoCleanups = new Map<HTMLVideoElement, () => void>();
 
     const playVideo = (video: HTMLVideoElement) => {
+      // Deferred lower-page videos must not compete with the first screen.
+      if (!video.getAttribute("src")) {
+        return;
+      }
+
       video.autoplay = true;
       video.muted = true;
       video.defaultMuted = true;
@@ -2239,6 +2244,10 @@ function PythonCoursePage({
     const observer = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
+
+        if (!video.getAttribute("src")) {
+          return;
+        }
 
         if (video.hasAttribute("data-course-autoplay-video")) {
           void video.play().catch(() => undefined);
@@ -2456,6 +2465,11 @@ function DataScienceCoursePage({
     const videoCleanups = new Map<HTMLVideoElement, () => void>();
 
     const playVideo = (video: HTMLVideoElement) => {
+      // Deferred lower-page videos must not compete with the first screen.
+      if (!video.getAttribute("src")) {
+        return;
+      }
+
       video.autoplay = true;
       video.muted = true;
       video.defaultMuted = true;
@@ -2480,6 +2494,10 @@ function DataScienceCoursePage({
     const observer = typeof IntersectionObserver === "undefined" ? null : new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target as HTMLVideoElement;
+
+        if (!video.getAttribute("src")) {
+          return;
+        }
 
         if (video.hasAttribute("data-course-autoplay-video")) {
           void video.play().catch(() => undefined);

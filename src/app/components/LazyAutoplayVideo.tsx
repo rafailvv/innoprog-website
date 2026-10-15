@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 type LazyAutoplayVideoProps = {
   className: string;
   src: string;
+  courseAutoplay?: boolean;
 };
 
-export function LazyAutoplayVideo({ className, src }: LazyAutoplayVideoProps) {
+export function LazyAutoplayVideo({ className, src, courseAutoplay = false }: LazyAutoplayVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
 
@@ -38,11 +39,19 @@ export function LazyAutoplayVideo({ className, src }: LazyAutoplayVideoProps) {
 
   return (
     <video
-      aria-hidden="true"
+      aria-hidden={courseAutoplay ? undefined : true}
       autoPlay
       className={className}
+      data-course-autoplay-video={courseAutoplay ? true : undefined}
       loop
       muted
+      onCanPlay={courseAutoplay ? (event) => {
+        event.currentTarget.defaultMuted = true;
+        event.currentTarget.muted = true;
+        if (event.currentTarget.paused) {
+          void event.currentTarget.play().catch(() => undefined);
+        }
+      } : undefined}
       playsInline
       preload="none"
       ref={videoRef}

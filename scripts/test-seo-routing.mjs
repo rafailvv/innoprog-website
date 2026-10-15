@@ -74,6 +74,40 @@ try {
     assert.ok(ready, "Production server did not become ready");
   }
 
+  // Stable public images must be reusable, but validate freshness on every
+  // visit. HTML, service routes and missing paths retain their no-store policy.
+  for (const [route, mime] of [
+    ["/children/school/hero-mobile.webp", "image/webp"],
+    ["/children/school/review-1-gallery-1.jpg", "image/jpeg"],
+    ["/children/school/laptop.svg", "image/svg+xml"],
+    ["/skill-icons/python.svg", "image/svg+xml"],
+  ]) {
+    const asset = await request(route);
+    assert.equal(asset.status, 200, route);
+    assert.ok((asset.headers.get("content-type") || "").startsWith(mime), route);
+    assert.equal(asset.headers.get("cache-control"), "public, max-age=0, must-revalidate", route);
+    const etag = asset.headers.get("etag");
+    assert.ok(etag, `${route}: validator required`);
+    await asset.arrayBuffer();
+    // Undici otherwise adds Cache-Control: no-cache for conditional fetches,
+    // which deliberately forces a full response instead of HTTP revalidation.
+    const unchanged = await request(route, { cache: "no-cache", headers: { "if-none-match": etag } });
+    assert.equal(unchanged.status, 304, `${route}: reuse cached body`);
+    assert.equal((await unchanged.arrayBuffer()).byteLength, 0, route);
+  }
+  for (const route of ["/children", "/children/courses/python", "/python-course", "/healthz"]) {
+    const response = await request(route);
+    assert.match(response.headers.get("cache-control") || "", /no-store/, route);
+    await response.text();
+  }
+
+  for (const route of ["/children/school/nonexistent.webp", "/skill-icons/nonexistent.svg"]) {
+    const response = await request(route);
+    assert.equal(response.status, 404, route);
+    assert.match(response.headers.get("cache-control") || "", /no-store/, route);
+    await response.text();
+  }
+
   const sitemapResponse = await request("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();

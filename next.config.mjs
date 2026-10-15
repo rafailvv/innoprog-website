@@ -73,6 +73,17 @@ const nextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      // These public assets have stable (unhashed) URLs. Revalidate cached
+      // bodies with ETag instead of forbidding storage or keeping stale images
+      // across releases. Restrict the rule to media, never children HTML.
+      {
+        source: "/children/school/:asset([a-zA-Z0-9_.-]+[.](?:webp|png|jpe?g|svg))",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
+      {
+        source: "/skill-icons/:asset([a-zA-Z0-9_.-]+[.]svg)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
       {
         source: "/logo-education-360.webp",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],

@@ -2272,21 +2272,9 @@ function Frame93() {
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
       <Frame89 />
       <div className="aspect-[1148/720] overflow-hidden relative rounded-[16px] shrink-0 w-full">
-        <video
-          autoPlay
+        <LazyAutoplayVideo
           className="absolute inset-0 size-full object-contain"
-          data-course-autoplay-video
-          loop
-          muted
-          onCanPlay={(event) => {
-            event.currentTarget.defaultMuted = true;
-            event.currentTarget.muted = true;
-            if (event.currentTarget.paused) {
-              void event.currentTarget.play().catch(() => undefined);
-            }
-          }}
-          playsInline
-          preload="auto"
+          courseAutoplay
           src="/videos/course-ai-autoplay.mp4"
         />
       </div>
