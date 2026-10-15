@@ -8,7 +8,7 @@ Data Science already provides an 840 px lossless candidate and a 1680 px origina
 
 ## Changes
 
-- Home mobile first-screen image receives a responsive 650w candidate plus the unchanged 1300w original. Its CSS canvas is 390 px and artwork width 490 px, so `sizes=125.65vw` matches the existing geometry. Browser selection retains the original for higher DPR / larger displayed widths. The new candidate is resized from the exact existing decoded RGBA image with Lanczos and saved losslessly; it adds no lossy codec stage. Candidate: 85,662 bytes; original: 114,432 bytes. This is a request-size opportunity for suitable lower-DPR screens, not a general LCP guarantee.
+- A 650w mobile home candidate was trialled (85662 bytes versus 114432 bytes original) and its single-request responsive preload verified at mobile DPR1/2 and desktop. It is **not retained in the release**: repeated simulated results did not establish an LCP benefit. Home first-screen src and explicit hero-first/background-second preload now match the baseline. The unused newly introduced home candidate is removed; original artwork remains unchanged.
 - Seven additional adult mobile courses now provide a 420 px high candidate, alongside each unchanged original. Their `sizes` values follow the actual CSS artwork width divided by the 390 px canvas; they deliberately include parts clipped by the card so the browser does not underestimate the required resolution. Originals remain untouched for DPR2 and desktop.
 
 | Mobile course | Original bytes | Compact bytes | Original / compact width | sizes |
@@ -37,6 +37,8 @@ Adult FAQ already contains programme-specific explanations, comparison paragraph
 - Existing original images, first-screen eager/high attributes, geometry/classes, alt text, link targets and form logic preserved.
 - Integrated production build, first-screen/browser verification and repeated comparable performance runs are performed by the main agent before deployment. Source-byte savings are not presented as measured LCP gains.
 
-## Responsive preload follow-up
+## Home responsive trial and narrow fallback
 
-The home page previously manually preloaded the original 1300w hero unconditionally. Once a 650w mobile candidate exists, that would fetch both the preload fallback and the selected compact image on low-DPR mobile. The explicit preload is now split at the same 768px breakpoint as App: mobile uses exactly the shared imageSrcSet/imageSizes constants used by its img; desktop preloads the unchanged original; background preload stays unconditional. The regression SSR test rejects an unconditional original-only hero preload. Actual network selection is verified separately after the integrated build.
+The initial responsive trial required matching media/imageSrcSet preloads to avoid fetching an unused full-size fallback. A shared srcSet/sizes implementation was verified with one actual hero request on mobile DPR1/2 and desktop. Nevertheless, the integrated simulated home median remained approximately 4882 ms LCP versus 4744 ms baseline, and 1505 ms FCP versus 1208 ms baseline. Restoring hero-first order alone did not improve that result. These observations do not prove the responsive image caused the entire difference; bundle/CSS work also changed the page.
+
+Because this home-specific candidate saved only about 28.8 KB and did not demonstrate earlier content, it was narrowly reverted. Page metadata, adult responsive image candidates, child loading changes, shared-component extraction, CSS work and the lossless loader logo are preserved. The updated SSR regression test enforces the original image src without srcset, exact hero-first/background-second preloads and no alternate media/srcset preload. Final integrated home measurements are recorded in the release report; no improvement is claimed solely from the fallback.

@@ -2,7 +2,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import HomePage from "./page";
-import { HOME_BACKGROUND_IMAGE_URL, HOME_HERO_IMAGE_URL } from "./homeCriticalAssets";
+import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 
 // Render the actual mobile surface without Next's runtime dynamic-loading wrapper.
 vi.mock("./App", async () => ({ default: (await import("../imports/MainScreenMobile/MainScreenMobile")).default }));
@@ -10,17 +10,13 @@ vi.mock("./App", async () => ({ default: (await import("../imports/MainScreenMob
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), back: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }) }));
 
 describe("home hero preload selection", () => {
-  it("matches the mobile image candidates instead of preloading an unused full-size fallback", () => {
+  it("preloads the unchanged first-screen image before its background without alternate unused candidates", () => {
     const document = new DOMParser().parseFromString(renderToStaticMarkup(<HomePage />), "text/html");
     const image = document.querySelector('img[alt="Студент ИННОПРОГ за ноутбуком"]');
-    expect(image).not.toBeNull();
+    expect(image?.getAttribute("src")).toBe(HOME_CRITICAL_IMAGE_URLS[0]);
+    expect(image?.hasAttribute("srcset")).toBe(false);
     const preloads = [...document.querySelectorAll('link[rel="preload"][as="image"]')];
-    const mobile = preloads.find(link => link.getAttribute("media") === "(max-width: 767px)");
-    const desktop = preloads.find(link => link.getAttribute("media") === "(min-width: 768px)");
-    expect(mobile?.getAttribute("imagesrcset")).toBe(image?.getAttribute("srcset"));
-    expect(mobile?.getAttribute("imagesizes")).toBe(image?.getAttribute("sizes"));
-    expect(desktop?.getAttribute("href")).toBe(HOME_HERO_IMAGE_URL);
-    expect(preloads.some(link => link.getAttribute("href") === HOME_HERO_IMAGE_URL && !link.hasAttribute("media") && !link.hasAttribute("imagesrcset"))).toBe(false);
-    expect(preloads.some(link => link.getAttribute("href") === HOME_BACKGROUND_IMAGE_URL && !link.hasAttribute("media"))).toBe(true);
+    expect(preloads.map(link => link.getAttribute("href"))).toEqual([...HOME_CRITICAL_IMAGE_URLS]);
+    expect(preloads.every(link => !link.hasAttribute("imagesrcset") && !link.hasAttribute("media"))).toBe(true);
   });
 });

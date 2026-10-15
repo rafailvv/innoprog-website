@@ -40,7 +40,7 @@ import imgReviewMikhail from "../MainScreenDesktop/review-mikhail-high.webp";
 import imgReviewKirillHero from "../MainScreenDesktop/review-story-kirill-hero.webp";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
-import { HOME_HERO_IMAGE_URL, HOME_HERO_IMAGE_SRCSET, HOME_HERO_IMAGE_SIZES } from "../../app/homeCriticalAssets";
+import imgImg29491 from "../MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import {
   MOBILE_FEATURES_BG_HEIGHT,
   MOBILE_FEATURES_BG_TOP,
@@ -2703,7 +2703,7 @@ export default function Component() {
       <Frame147 />
       <Frame173 />
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
-          <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={HOME_HERO_IMAGE_URL} srcSet={HOME_HERO_IMAGE_SRCSET} sizes={HOME_HERO_IMAGE_SIZES} />
+          <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
       </div>
       <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button">
         <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</span>
