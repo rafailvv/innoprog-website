@@ -2785,6 +2785,10 @@ body {
   line-height: 25px;
 }
 
+.site-internship-title--mobile .site-internship-title__line--opportunity {
+  font-size: 22px;
+}
+
 .site-internship-title--mobile .site-internship-title__line--brand {
   gap: 8px;
   line-height: 29px;

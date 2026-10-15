@@ -28,6 +28,7 @@ import imgRectangle40088 from "./accce48d175d044546f06312eec0a082304225b6.opt.we
 import imgRectangle40089 from "./0637a0266dd99580004167f3ae3ffee5b51608c3.opt.webp";
 import { imgGroup } from "./svg-htygp";
 import { courseFaqItems } from "../courseFaqData";
+import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { pythonCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { courseProjectVisualImages } from "../courseProjectVisualImages";
@@ -319,7 +320,7 @@ function Frame45() {
   return (
     <div className="content-stretch flex items-center justify-center relative rounded-[32px] shrink-0">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[10px] text-black text-center tracking-[0.3px] uppercase whitespace-nowrap">
-        <p className="leading-[14px] mb-0">Образовательная лицензия</p>
+        <p className="leading-[14px] mb-0"><a href="/license" className="hover:underline focus-visible:underline" style={{ color: "inherit", font: "inherit" }}>Образовательная лицензия</a></p>
         <p className="leading-[14px]">{`министерства образования и науки `}</p>
       </div>
     </div>
@@ -1191,7 +1192,7 @@ function Frame273() {
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[0px] text-black uppercase w-[351px]">
         <p className="mb-0 text-[32px]">
-          <span className="leading-[32px] text-[#9c78ff]">{`Вас ждет более 40+ `}</span>
+          <span className="leading-[32px] text-[#9c78ff]">{`Вас ждет 40+ `}</span>
           <span className="leading-[32px]">персональных онлайн встреч</span>
         </p>
         <p className="leading-[32px] text-[32px]">с наставником:</p>
@@ -1204,7 +1205,7 @@ function Frame273() {
 function Frame145() {
   return (
     <div className="site-internship-title site-internship-title--mobile content-stretch flex flex-col items-start relative shrink-0 w-[350px]">
-      <p className="site-internship-title__line site-internship-title__line--black">пройдёте стажировку</p>
+      <p className="site-internship-title__line site-internship-title__line--black site-internship-title__line--opportunity">возможность стажировки</p>
       <p className="site-internship-title__line site-internship-title__line--brand">
         <span className="site-internship-title__prefix">в</span>
         <span className="site-internship-title__brand">иннопрог проджектс</span>
@@ -4854,9 +4855,7 @@ function Frame210() {
             </button>
             <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
               <div className="site-course-faq-answer site-course-faq-answer--mobile">
-                {item.answer.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <CourseFaqAnswer item={item} isOpen={isOpen} />
               </div>
             </div>
           </div>

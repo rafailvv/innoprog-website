@@ -2017,7 +2017,7 @@ function Frame177() {
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
       <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[0] relative shrink-0 text-[32px] text-black uppercase w-[351px] site-mobile-mentor-heading">
         <span className="block">
-          <span className="leading-[32px] text-[#9c78ff]">Вас ждет более 40+ </span>
+          <span className="leading-[32px] text-[#9c78ff]">Вас ждет 40+ </span>
           <span className="leading-[32px]">персональных онлайн встреч</span>
         </span>
         <span className="block leading-[32px]">с наставником:</span>

@@ -39,6 +39,7 @@ import imgBenefitIconsChatTableau from "../MainScreenDesktop/benefit-icons-chat-
 import imgBenefitDocumentSolid from "../MainScreenDesktop/benefit-document-figma.svg";
 import imgBenefitCard1Tableau from "../MainScreenDesktop/benefit-card1-figma.png";
 import { courseFaqItems } from "../courseFaqData";
+import { CourseFaqAnswer } from "../shared/CourseFaqAnswer";
 import { dataAnalystCourseProgramModules, type CourseProgramModule } from "../courseProgramData";
 import { CourseProgramTagIcon } from "../courseProgramIcons";
 import { dataAnalystProjectVisualImages } from "../dataAnalystProjectVisualImages";
@@ -362,7 +363,7 @@ function Frame54() {
   return (
     <div className="content-stretch flex flex-col items-start justify-center p-[8px] relative rounded-[32px] shrink-0">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[20px] text-black uppercase whitespace-nowrap">
-        <p className="leading-[22px] mb-0">Образовательная лицензия</p>
+        <p className="leading-[22px] mb-0"><a href="/license" className="hover:underline focus-visible:underline" style={{ color: "inherit", font: "inherit" }}>Образовательная лицензия</a></p>
         <p className="leading-[22px]">министерства образования и науки</p>
       </div>
     </div>
@@ -1013,7 +1014,7 @@ function Frame248() {
   return (
     <div className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
       <p className="relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
-        <span className="leading-[52px] text-[74px]">{`Вас ждет более `}</span>
+        <span className="leading-[52px] text-[74px]">{`Вас ждет `}</span>
         <span className="font-['Manrope:Bold',sans-serif] leading-[97px] text-[122px]">40+</span>
         <span className="leading-[52px] text-[74px]">{` `}</span>
       </p>
@@ -1213,7 +1214,7 @@ function Frame20() {
 function Frame161() {
   return (
     <div className="site-internship-title content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <p className="site-internship-title__line site-internship-title__line--black">пройдёте стажировку</p>
+      <p className="site-internship-title__line site-internship-title__line--black site-internship-title__line--opportunity">возможность стажировки</p>
       <p className="site-internship-title__line site-internship-title__line--brand">
         <span className="site-internship-title__prefix">в</span>
         <span className="site-internship-title__brand">иннопрог проджектс</span>
@@ -5134,9 +5135,7 @@ function Frame137() {
             </button>
             <div className="site-course-faq-answer-shell" aria-hidden={!isOpen}>
               <div className="site-course-faq-answer site-course-faq-answer--desktop">
-                {item.answer.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <CourseFaqAnswer item={item} isOpen={isOpen} />
               </div>
             </div>
           </div>

@@ -1206,7 +1206,7 @@ function Frame130() {
   return (
     <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[20px] items-end leading-[0] relative shrink-0 uppercase w-[918px]">
       <span className="block relative shrink-0 text-[#9c78ff] text-[0px] whitespace-nowrap w-full">
-        <span className="leading-[52px] text-[74px]">{`Вас ждет более `}</span>
+        <span className="leading-[52px] text-[74px]">{`Вас ждет `}</span>
         <span className="font-['Manrope:Bold',sans-serif] leading-[97px] text-[122px]">40+</span>
         <span className="leading-[52px] text-[74px]">{` `}</span>
       </span>
