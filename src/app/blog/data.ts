@@ -13,7 +13,7 @@ export function findArticle(slug: string) {
 
 export function readingMinutes(article: BlogArticle) {
   const text = [
-    ...article.introduction, ...article.takeaways,
+    ...article.introduction,
     ...article.sections.flatMap((section) => section.blocks.map((block) => {
       if (block.type === "paragraph" || block.type === "note") return block.text;
       if (block.type === "list") return block.items.join(" ");

@@ -36,14 +36,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       </header>
       <figure className={styles.articleHero}><img src={article.hero.src} alt={article.hero.alt} width={article.hero.width} height={article.hero.height} fetchPriority="high" decoding="async" /></figure>
       <div className={styles.articleLayout}>
-        <aside className={styles.toc} aria-labelledby="article-toc-title"><div className={styles.tocInner}><h2 id="article-toc-title">В этой статье</h2><ol>{article.sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ol><a className={styles.tocCourse} href="#article-course">Программа курса ↗</a></div></aside>
+        <aside className={styles.toc} aria-labelledby="article-toc-title"><div className={styles.tocInner}><h2 id="article-toc-title">В этой статье</h2><ol>{article.sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ol></div></aside>
         <div className={styles.prose}>
           <div className={styles.lead}>{article.introduction.map((text) => <p key={text}>{text}</p>)}</div>
-          <aside className={styles.takeaways} aria-labelledby="article-takeaways"><h2 id="article-takeaways">Главное</h2><ul>{article.takeaways.map((text) => <li key={text}>{text}</li>)}</ul></aside>
           {article.sections.map((section) => <section className={styles.articleSection} id={section.id} key={section.id}><h2>{section.title}</h2>{section.blocks.map((block, index) => <ArticleBody block={block} key={index} />)}</section>)}
           <section className={styles.faq} aria-labelledby="article-faq"><h2 id="article-faq">Частые вопросы</h2>{article.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section>
           <section className={styles.sources} aria-labelledby="article-sources"><h2 id="article-sources">Источники и документация</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} rel="noopener noreferrer" target="_blank">{source.title}<span aria-hidden="true"> ↗</span></a></li>)}</ul></section>
-          <aside className={styles.courseCta} id="article-course"><span className={styles.eyebrow}>Практика с наставником</span><h2>Продолжить обучение</h2><p>{article.course.description}</p><Link className={styles.primaryLink} href={article.course.href}>{article.course.label}<span aria-hidden="true">↗</span></Link></aside>
+          <aside className={styles.courseCta} id="article-course"><p>{article.course.description}</p><Link className={styles.primaryLink} href={article.course.href}>{article.course.label}<span aria-hidden="true">↗</span></Link></aside>
         </div>
       </div>
     </article>

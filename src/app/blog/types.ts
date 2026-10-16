@@ -15,7 +15,6 @@ export type BlogArticle = {
   publishedAt: string;
   hero: { src: string; alt: string; width: number; height: number };
   introduction: string[];
-  takeaways: string[];
   sections: { id: string; title: string; blocks: ArticleBlock[] }[];
   faq: { question: string; answer: string }[];
   sources: { title: string; url: string }[];
