@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState, useSyncExternalStore, type MouseEvent } from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../courseNavigation";
-import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../legalLinks";
+import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
 
 type MenuGroup = "adults" | "children" | "about" | null;
 
@@ -26,6 +25,7 @@ function getServerViewportSnapshot() {
 
 export function SvedenHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLElement>(null);
   const [openGroup, setOpenGroup] = useState<MenuGroup>(null);
   const viewportWidth = Number(useSyncExternalStore(
     subscribeViewport,
@@ -37,6 +37,36 @@ export function SvedenHeader() {
   const toggleGroup = (group: Exclude<MenuGroup, null>) => {
     setOpenGroup((current) => (current === group ? null : group));
   };
+
+  useEffect(() => {
+    if (!isMobile) setMenuOpen(false);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    menuRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMenuOpen(false);
+      }
+      if (event.key !== "Tab") return;
+      const controls = Array.from(menuRef.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? [])
+        .filter((element) => element.tabIndex >= 0 && element.getClientRects().length > 0);
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      document.querySelector<HTMLButtonElement>(".site-responsive-header--mobile [data-mobile-menu-toggle]")?.focus();
+    };
+  }, [menuOpen]);
 
   const handleHeaderClick = (event: MouseEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target : null;
@@ -69,8 +99,7 @@ export function SvedenHeader() {
         scale={headerScale}
       />
 
-      {menuOpen ? (
-        <nav aria-label="Мобильное меню" className="site-mobile-menu site-mobile-menu--open sveden-mobile-menu">
+      <nav ref={menuRef} hidden={!menuOpen} aria-label="Мобильное меню" className="site-mobile-menu site-mobile-menu--open sveden-mobile-menu">
           <div className="site-mobile-menu__top">
             <a aria-label="На главную" className="site-mobile-menu__logo" href="/"><img alt="ИННОПРОГ Education" src="/logo-education-360.webp" /></a>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" onClick={() => setMenuOpen(false)} type="button"><span aria-hidden="true" /></button>
@@ -97,14 +126,13 @@ export function SvedenHeader() {
               href="/about"
               id="sveden-mobile-about"
               label="о нас"
-              links={[{ label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure }]}
+              links={ABOUT_SITE_LINKS}
               open={openGroup === "about"}
               onToggle={() => toggleGroup("about")}
             />
           </div>
           <a className="site-mobile-menu__cta" href="/application">подобрать направление</a>
-        </nav>
-      ) : null}
+      </nav>
     </>
   );
 }

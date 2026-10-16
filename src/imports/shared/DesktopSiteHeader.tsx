@@ -1,5 +1,4 @@
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "../../app/courseNavigation";
-import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
+import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../../app/courseNavigation";
 const svgPaths = {
 p10fe4280: "M114.301 48.6534H112.695V61.4152H114.301V48.6534Z",
 p111ef500: "M254.123 0H240.569L257.439 22.6296H270.998L254.123 0Z",
@@ -110,7 +109,7 @@ function Frame58({ childrenHref, childrenLinks }: { childrenHref?: string; child
           <span aria-hidden="true" className="site-main-header__nav-arrow" />
         </a>
         <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown site-main-header__dropdown--about" role="menu">
-          <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
+          {ABOUT_SITE_LINKS.map(({ label, href }) => <a href={href} key={href} role="menuitem">{label}</a>)}
         </div>
       </div>
     </div>

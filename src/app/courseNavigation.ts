@@ -1,3 +1,4 @@
+import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 import { childrenCourseNavigation } from "./children/courses/course-paths";
 
 export const ADULT_COURSE_LINKS = [
@@ -13,3 +14,8 @@ export const ADULT_COURSE_LINKS = [
 ] as const;
 
 export const CHILD_COURSE_LINKS = childrenCourseNavigation;
+
+export const ABOUT_SITE_LINKS = [
+  { label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure },
+  { label: "блог", href: "/blog" },
+] as const;

@@ -163,6 +163,45 @@ try {
       assert.doesNotMatch(heading, /Выгодныеусловия|мы\?наша|История [^:]+:[^\s]/, `${route}: joined heading words`);
       assert.equal(structuredData.filter((item) => item["@type"] === "EducationalOrganization").length, 1, `${route}: school entity`);
       assert.equal(structuredData.filter((item) => item["@type"] === "WebSite").length, 1, `${route}: website entity`);
+      if (route === "/blog" || route.startsWith("/blog/")) {
+        const main = document.querySelector("main");
+        assert.ok(main, `${route}: missing server-rendered main content`);
+        if (route === "/blog") {
+          const blog = structuredData.find((item) => item["@type"] === "Blog");
+          assert.equal(blog?.blogPost.length, 3, "Blog must expose all three articles");
+          for (const post of blog.blogPost) {
+            const postPath = new URL(post.url).pathname;
+            assert.ok(document.querySelector(`main a[href="${postPath}"]`), `Missing visible article link: ${postPath}`);
+          }
+        } else {
+          const article = structuredData.find((item) => item["@type"] === "BlogPosting");
+          assert.ok(article, `${route}: missing BlogPosting`);
+          assert.equal(article.headline, heading, `${route}: schema headline must match H1`);
+          assert.equal(article.url, url, `${route}: schema URL must be canonical`);
+          assert.equal(article.mainEntityOfPage["@id"], `${url}#webpage`);
+          const published = main.querySelector("article time");
+          assert.equal(article.datePublished, published?.getAttribute("datetime"), `${route}: date must match visible publication`);
+          assert.ok(main.textContent.includes(article.author.name), `${route}: author must be visible`);
+          assert.ok(main.querySelector("article").textContent.trim().split(/\s+/).length > 1000, `${route}: article body must be published as HTML`);
+          assert.ok(main.querySelector("pre code"), `${route}: expected practical code example`);
+          for (const link of main.querySelectorAll('a[href^="#"]')) assert.ok(document.getElementById(link.getAttribute("href").slice(1)), `${route}: broken contents anchor`);
+          const imagePath = new URL(article.image.url).pathname;
+          const image = main.querySelector(`img[src="${imagePath}"]`);
+          assert.ok(image?.getAttribute("alt"), `${route}: primary image needs descriptive alt`);
+          assert.equal(document.querySelector('meta[property="og:type"]')?.content, "article");
+          for (const assetPath of [imagePath, new URL(document.querySelector('meta[property="og:image"]').content).pathname]) {
+            const asset = await request(assetPath);
+            assert.equal(asset.status, 200, assetPath);
+            assert.match(asset.headers.get("content-type") || "", /^image\/webp/);
+            assert.doesNotMatch(asset.headers.get("x-robots-tag") || "", /noindex/);
+            assert.equal(asset.headers.get("cache-control"), "public, max-age=0, must-revalidate");
+            const bytes = Buffer.from(await asset.arrayBuffer());
+            assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+            assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+            assert.ok(bytes.length <= 150 * 1024, `${assetPath}: image budget`);
+          }
+        }
+      }
       const checkListSchema = (node) => {
         if (!node || typeof node !== "object") return;
         if (node["@type"] === "ItemList") {
@@ -265,6 +304,11 @@ try {
     const response = await request(route);
     const html = await response.text();
     assert.match(html, /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i, route);
+  }
+  for (const route of ["/blog/unknown-article", "/blog/python-razrabotchik-s-nulya/missing"]) {
+    const response = await request(route);
+    assert.equal(response.status, 404, route);
+    assert.match(await response.text(), /noindex/i, route);
   }
   console.log(`SEO HTTP checks passed: ${urls.length} sitemap pages, JSON-LD/visible FAQ, story indexing, www/query redirects, filtered reviews and 404s.`);
 } finally {

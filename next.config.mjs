@@ -81,6 +81,10 @@ const nextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
       {
+        source: "/blog/images/:asset([a-zA-Z0-9_.-]+[.]webp)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
+      },
+      {
         source: "/skill-icons/:asset([a-zA-Z0-9_.-]+[.]svg)",
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },

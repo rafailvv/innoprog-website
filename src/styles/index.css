@@ -3574,6 +3574,10 @@ button[data-name="кнопки пд"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .site-mobile-menu--open,
   .site-mobile-menu--closing,
   .site-mobile-menu__top,

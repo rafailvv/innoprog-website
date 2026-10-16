@@ -223,6 +223,7 @@ export const KEY_SITE_LINKS = [
     path: "/about",
     description: "Информация об онлайн-школе ИННОПРОГ, документах и подходе к обучению",
   },
+  { name: "Блог", path: "/blog", description: "Практические статьи о Python, Data Science и продуктовой аналитике" },
 ] as const;
 
 function courseEntityId(path: string) {
@@ -432,6 +433,7 @@ export const siteNavigationJsonLd = {
       name: "О нас",
       url: absoluteUrl("/about"),
     },
+    { "@type": "SiteNavigationElement", position: COURSE_SEO_ITEMS.length + 5, name: "Блог", url: absoluteUrl("/blog") },
   ],
 };
 

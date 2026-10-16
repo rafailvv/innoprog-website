@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { BLOG_ARTICLES } from "./blog/data";
 import { REVIEW_ROUTE_TO_KEY, SITE_URL } from "./seo";
 import { childrenCoursePaths } from "./children/courses/course-paths";
 import { SVEDEN_SECTION_SLUGS } from "./sveden/data";
@@ -8,6 +9,8 @@ const PYTHON_PROGRAM_UPDATED_AT = new Date("2026-08-29T00:00:00.000Z");
 const SEO_UPDATED_AT = new Date("2026-10-14T00:00:00.000Z");
 // Dates represent substantial published changes, not the time of a request/build.
 const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
+  "/blog": "2026-10-16",
+  ...Object.fromEntries(BLOG_ARTICLES.map((article) => [`/blog/${article.slug}`, article.publishedAt])),
   "/": "2026-10-15", "/python-course": "2026-10-15",
   "/data-science-course": "2026-10-15", "/frontend-developer-course": "2026-10-15",
   "/data-analyst-course": "2026-10-15", "/cpp-developer-course": "2026-10-15",
@@ -48,6 +51,8 @@ const baseRoutes = [
 
 const routes = [
   ...baseRoutes,
+  { path: "/blog", changeFrequency: "weekly" as const, priority: 0.75 },
+  ...BLOG_ARTICLES.map((article) => ({ path: `/blog/${article.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),
   {
     path: "/children",
     changeFrequency: "weekly" as const,

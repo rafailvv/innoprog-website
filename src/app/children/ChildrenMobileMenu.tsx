@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { ADULT_COURSE_LINKS } from "../courseNavigation";
-import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../legalLinks";
+import { ADULT_COURSE_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
 import { childrenCourseNavigation } from "./courses/course-paths";
 
 export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, applicationHref = "#application" }: {
@@ -24,7 +23,7 @@ export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, 
   const groups = [
     { key: "adults", label: "для взрослых", href: "/", expand: "Показать направления для взрослых", links: ADULT_COURSE_LINKS },
     { key: "children", label: "для детей", href: "/children", expand: "Показать направления для детей", links: childrenCourseNavigation },
-    { key: "about", label: "о нас", href: "/about", expand: "Показать информацию об ИННОПРОГ", links: [{ label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure }] },
+    { key: "about", label: "о нас", href: "/about", expand: "Показать информацию об ИННОПРОГ", links: ABOUT_SITE_LINKS },
   ];
   const close = () => onOpenChange(false);
   const renderGroup = (item: typeof groups[number]) => (

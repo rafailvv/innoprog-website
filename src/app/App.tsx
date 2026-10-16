@@ -37,7 +37,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS } from "./courseNavigation";
+import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
@@ -1238,7 +1238,7 @@ function SitePageHeader({
         <div className="site-main-header__nav-group">
           <a aria-haspopup="menu" data-review-nav="about" href="/about">о нас<span aria-hidden="true" className="site-main-header__nav-arrow" /></a>
           <div aria-label="Информация об ИННОПРОГ" className="site-main-header__dropdown site-main-header__dropdown--about" role="menu">
-            <a href={LEGAL_LINKS.educationDisclosure} role="menuitem">{EDUCATION_DISCLOSURE_LABEL}</a>
+            {ABOUT_SITE_LINKS.map(({ label, href }) => <a href={href} key={href} role="menuitem">{label}</a>)}
           </div>
         </div>
       </nav>
@@ -5467,7 +5467,7 @@ export default function App({
                 <button aria-controls="mobile-about-links" aria-expanded={openMobileNavGroup === "about"} aria-label="Показать информацию об ИННОПРОГ" className="site-mobile-menu__expand" data-mobile-menu-expand="about" type="button"><span aria-hidden="true" /></button>
               </div>
               <div aria-hidden={openMobileNavGroup !== "about"} className="site-mobile-menu__submenu" data-open={openMobileNavGroup === "about"} id="mobile-about-links">
-                <a href={LEGAL_LINKS.educationDisclosure} tabIndex={openMobileNavGroup === "about" ? undefined : -1}>{EDUCATION_DISCLOSURE_LABEL}</a>
+                {ABOUT_SITE_LINKS.map(({ label, href }) => <a href={href} key={href} tabIndex={openMobileNavGroup === "about" ? undefined : -1}>{label}</a>)}
               </div>
             </div>
           </div>
