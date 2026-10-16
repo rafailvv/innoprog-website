@@ -1,81 +1,45 @@
 import Link from "next/link";
 import { COURSE_SEO_ITEMS } from "./seo";
-import { EducationDisclosureLink } from "./components/EducationDisclosureLink";
-import { FooterLegalDetails } from "./FooterLegalDetails";
+import "../styles/adult-pages.css";
+import { SvedenHeader as SiteNavigation } from "./sveden/SvedenHeader";
+import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
+import styles from "./not-found.module.css";
 
 export default function NotFoundPageContent() {
   return (
-    <main className="site-reviews-index-page site-not-found">
-      <header className="site-review-page__header site-not-found__header" aria-label="Навигация по сайту">
-        <Link className="site-review-page__logo" href="/" aria-label="ИННОПРОГ, на главную">
-          <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-education-360.webp" />
-        </Link>
-        <nav className="site-review-page__nav" aria-label="Основные разделы">
-          <Link href="/">для взрослых</Link>
-          <Link href="/reviews">отзывы</Link>
-          <Link href="/about">о нас</Link>
-          <Link href="/tariffs">стоимость обучения</Link>
-        </nav>
-        <Link className="site-review-page__header-cta" href="/#courses">
-          подобрать курс
-        </Link>
-      </header>
-
-      <div className="site-reviews-index-page__inner site-not-found__inner">
-        <section className="site-review-page__free site-not-found__message" aria-labelledby="not-found-title">
-          <h1 id="not-found-title">Такой страницы нет</h1>
-          <p>
-            Похоже, ссылка устарела или адрес набран с ошибкой. Вернитесь на главную или выберите направление обучения
-          </p>
-          <div className="site-not-found__actions" aria-label="Действия">
-            <Link className="site-not-found__primary" href="/">
-              на главную
-            </Link>
-            <Link className="site-not-found__secondary" href="/reviews">
-              посмотреть отзывы
-            </Link>
-          </div>
-        </section>
-
-        <section className="site-reviews-index-page__directions site-reviews-index-page__directions--top site-not-found__courses" aria-labelledby="not-found-courses">
-          <h2 id="not-found-courses">Популярные направления</h2>
-          <div>
-            {COURSE_SEO_ITEMS.map((course) => (
-              <Link href={course.path} key={course.path}>
-                {course.name}
+    <div className={styles.page}>
+      <SiteNavigation />
+      <main className={`site-reviews-index-page site-not-found ${styles.content}`}>
+        <div className="site-reviews-index-page__inner site-not-found__inner">
+          <section className="site-review-page__free site-not-found__message" aria-labelledby="not-found-title">
+            <h1 id="not-found-title">Такой страницы нет</h1>
+            <p>
+              Похоже, ссылка устарела или адрес набран с ошибкой. Вернитесь на главную или выберите направление обучения
+            </p>
+            <div className="site-not-found__actions" aria-label="Действия">
+              <Link className="site-not-found__primary" href="/">
+                на главную
               </Link>
-            ))}
-          </div>
-        </section>
-      </div>
+              <Link className="site-not-found__secondary" href="/reviews">
+                посмотреть отзывы
+              </Link>
+            </div>
+          </section>
 
-      <footer className="site-review-page__footer">
-        <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-review-page__footer-logo" src="/logo-education-360.webp" />
-        <div className="site-review-page__footer-columns">
-          <section>
-            <h2>Контакты</h2>
-            <a href="tel:+79586067980">Тел.: +7 (958) 606-79-80;</a>
-            <a href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
-            <a href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
-          </section>
-          <section>
-            <h2>Адреса</h2>
-            <p>г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-            <p>420500 Республика Татарстан, Верхнеуслонский р-он</p>
-          </section>
-          <section>
-            <h2>Правовая информация</h2>
-            <a href="/privacy" rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-            <a href="/oferta" rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-            <a href="/software-operation-manual" rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-            <a href="/functional-characteristics" rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
+          <section className="site-reviews-index-page__directions site-reviews-index-page__directions--top site-not-found__courses" aria-labelledby="not-found-courses">
+            <h2 id="not-found-courses">Популярные направления</h2>
+            <div>
+              {COURSE_SEO_ITEMS.map((course) => (
+                <Link href={course.path} key={course.path}>
+                  {course.name}
+                </Link>
+              ))}
+            </div>
           </section>
         </div>
-        <EducationDisclosureLink className="site-education-disclosure-link site-review-page__education-disclosure" />
-        <p className="site-review-page__footer-company">
-          <FooterLegalDetails />
-        </p>
-      </footer>
-    </main>
+
+      </main>
+      <ResponsiveSiteFooter />
+    </div>
   );
 }

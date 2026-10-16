@@ -19,7 +19,8 @@ describe("educational disclosure footer link", () => {
 
   it("renders the same clickable link in the standalone 404 footer", () => {
     const html = renderToStaticMarkup(<NotFoundPageContent />);
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] ?? "";
 
-    expect(html.match(disclosureLinkPattern)).toHaveLength(1);
+    expect(footer.match(disclosureLinkPattern)).toHaveLength(1);
   });
 });

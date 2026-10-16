@@ -1,0 +1,15 @@
+.page {
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.page main.content {
+  min-height: 0;
+  padding: 0;
+}
+
+.page .content :global(.site-not-found__primary),
+.page .content :global(.site-not-found__secondary),
+.page .content :global(.site-reviews-index-page__directions) a {
+  color: #ffffff;
+}
