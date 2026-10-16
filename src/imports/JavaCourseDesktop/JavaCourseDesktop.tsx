@@ -5,7 +5,7 @@ import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
-import imgJavaHero from "../shared/course-heroes/java-coffee-cup.webp";
+import imgJavaHero from "../shared/course-heroes/java-coffee-cup.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";

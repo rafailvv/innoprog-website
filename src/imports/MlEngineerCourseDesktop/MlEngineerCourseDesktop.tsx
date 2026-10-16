@@ -5,7 +5,7 @@ import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
-import imgMlEngineerHero from "../shared/course-heroes/ml-neural-network.webp";
+import imgMlEngineerHero from "../shared/course-heroes/ml-neural-network.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";

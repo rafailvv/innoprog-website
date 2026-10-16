@@ -70,7 +70,7 @@ describe("course image delivery", () => {
       expect(image.getAttribute("fetchPriority")).not.toBe("high");
     }
     if (path.includes("DataScience")) {
-      expect(prioritized[0].getAttribute("src")).toContain("data-science-hero-2x.lossless.webp");
+      expect(prioritized[0].getAttribute("src")).toContain("data-science-hero-2x.delivery.webp");
     }
   });
 });
