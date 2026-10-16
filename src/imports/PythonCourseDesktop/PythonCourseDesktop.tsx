@@ -66,14 +66,14 @@ const projectVisuals = [
 
 function ProjectVisual({ index, compact = false }: { index: number; compact?: boolean }) {
   const item = projectVisuals[index] ?? projectVisuals[0];
-  const image = courseProjectVisualImages[index] ?? courseProjectVisualImages[0];
+  const image = courseProjectVisualImages[index];
   const heightClass = compact ? "h-[195px] rounded-[32px]" : "h-[300px] rounded-[40px]";
 
   return (
     <div className={heightClass + " bg-[#eee8ff] overflow-hidden relative shrink-0 w-full site-course-project-visual"}>
       <img
         alt={item.title} title={item.title}
-        className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
+        className="absolute inset-0 max-w-none object-cover object-center pointer-events-none size-full"
         decoding="async"
         loading="lazy"
         src={image}

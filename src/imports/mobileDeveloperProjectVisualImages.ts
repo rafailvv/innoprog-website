@@ -1,33 +1,33 @@
-import projectFruitWarehouse from "./courseProjectVisuals/mobile-developer/project-01-fruit-warehouse.webp";
-import projectHrDatabase from "./courseProjectVisuals/mobile-developer/project-02-hr-database.webp";
-import projectTaskManager from "./courseProjectVisuals/mobile-developer/project-03-task-manager.webp";
-import projectTaskBot from "./courseProjectVisuals/mobile-developer/project-04-task-bot.webp";
-import projectTravelBooking from "./courseProjectVisuals/mobile-developer/project-05-travel-booking.webp";
-import projectPassengerTransport from "./courseProjectVisuals/mobile-developer/project-06-passenger-transport.webp";
-import projectProductWarehouse from "./courseProjectVisuals/mobile-developer/project-07-product-warehouse.webp";
-import projectKeyValueStorage from "./courseProjectVisuals/mobile-developer/project-08-key-value-storage.webp";
-import projectWeatherForecast from "./courseProjectVisuals/mobile-developer/project-09-weather-forecast.webp";
-import projectWeatherBot from "./courseProjectVisuals/mobile-developer/project-10-weather-bot.webp";
-import projectRestaurantBooking from "./courseProjectVisuals/mobile-developer/project-11-restaurant-booking.webp";
-import projectShopBot from "./courseProjectVisuals/mobile-developer/project-12-shop-bot.webp";
-import projectDjangoCatalog from "./courseProjectVisuals/mobile-developer/project-13-django-catalog.webp";
-import projectOnlineShop from "./courseProjectVisuals/mobile-developer/project-14-online-shop.webp";
-import projectProductionDeploy from "./courseProjectVisuals/mobile-developer/project-15-production-deploy.webp";
+import project01 from "./courseProjectVisuals/mobile-developer/generated-project-01-task-manager.webp";
+import project02 from "./courseProjectVisuals/mobile-developer/generated-project-02-habit-tracker.webp";
+import project03 from "./courseProjectVisuals/mobile-developer/generated-project-03-product-catalog.webp";
+import project04 from "./courseProjectVisuals/mobile-developer/generated-project-04-weather-app.webp";
+import project05 from "./courseProjectVisuals/mobile-developer/generated-project-05-personal-finance.webp";
+import project06 from "./courseProjectVisuals/mobile-developer/generated-project-06-table-booking.webp";
+import project07 from "./courseProjectVisuals/mobile-developer/generated-project-07-service-booking.webp";
+import project08 from "./courseProjectVisuals/mobile-developer/generated-project-08-small-business-crm.webp";
+import project09 from "./courseProjectVisuals/mobile-developer/generated-project-09-delivery-map.webp";
+import project10 from "./courseProjectVisuals/mobile-developer/generated-project-10-mobile-shop.webp";
+import project11 from "./courseProjectVisuals/mobile-developer/generated-project-11-news-app.webp";
+import project12 from "./courseProjectVisuals/mobile-developer/generated-project-12-fitness-tracker.webp";
+import project13 from "./courseProjectVisuals/mobile-developer/generated-project-13-synced-notes.webp";
+import project14 from "./courseProjectVisuals/mobile-developer/generated-project-14-auth-profile.webp";
+import project15 from "./courseProjectVisuals/mobile-developer/generated-project-15-study-planner.webp";
 
 export const mobileDeveloperProjectVisualImages = [
-  projectFruitWarehouse,
-  projectHrDatabase,
-  projectTaskManager,
-  projectTaskBot,
-  projectTravelBooking,
-  projectPassengerTransport,
-  projectProductWarehouse,
-  projectKeyValueStorage,
-  projectWeatherForecast,
-  projectWeatherBot,
-  projectRestaurantBooking,
-  projectShopBot,
-  projectDjangoCatalog,
-  projectOnlineShop,
-  projectProductionDeploy,
+  project01,
+  project02,
+  project03,
+  project04,
+  project05,
+  project06,
+  project07,
+  project08,
+  project09,
+  project10,
+  project11,
+  project12,
+  project13,
+  project14,
+  project15,
 ] as const;

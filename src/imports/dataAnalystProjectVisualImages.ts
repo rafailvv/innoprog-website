@@ -1,33 +1,33 @@
-import projectFruitWarehouse from "./courseProjectVisuals/data-analyst/project-01-fruit-warehouse.webp";
-import projectHrDatabase from "./courseProjectVisuals/data-analyst/project-02-hr-database.webp";
-import projectTaskManager from "./courseProjectVisuals/data-analyst/project-03-task-manager.webp";
-import projectTaskBot from "./courseProjectVisuals/data-analyst/project-04-task-bot.webp";
-import projectTravelBooking from "./courseProjectVisuals/data-analyst/project-05-travel-booking.webp";
-import projectPassengerTransport from "./courseProjectVisuals/data-analyst/project-06-passenger-transport.webp";
-import projectProductWarehouse from "./courseProjectVisuals/data-analyst/project-07-product-warehouse.webp";
-import projectKeyValueStorage from "./courseProjectVisuals/data-analyst/project-08-key-value-storage.webp";
-import projectWeatherForecast from "./courseProjectVisuals/data-analyst/project-09-weather-forecast.webp";
-import projectWeatherBot from "./courseProjectVisuals/data-analyst/project-10-weather-bot.webp";
-import projectRestaurantBooking from "./courseProjectVisuals/data-analyst/project-11-restaurant-booking.webp";
-import projectShopBot from "./courseProjectVisuals/data-analyst/project-12-shop-bot.webp";
-import projectDjangoCatalog from "./courseProjectVisuals/data-analyst/project-13-django-catalog.webp";
-import projectOnlineShop from "./courseProjectVisuals/data-analyst/project-14-online-shop.webp";
-import projectProductionDeploy from "./courseProjectVisuals/data-analyst/project-15-production-deploy.webp";
+import project1 from "./courseProjectVisuals/data-analyst/analyst-project-01-sales-analytics.webp";
+import project2 from "./courseProjectVisuals/data-analyst/analyst-project-02-operations-dashboard.webp";
+import project3 from "./courseProjectVisuals/data-analyst/analyst-project-03-rfm-segmentation.webp";
+import project4 from "./courseProjectVisuals/data-analyst/analyst-project-04-registration-funnel.webp";
+import project5 from "./courseProjectVisuals/data-analyst/analyst-project-05-cohort-retention.webp";
+import project6 from "./courseProjectVisuals/data-analyst/analyst-project-06-ab-experiment.webp";
+import project7 from "./courseProjectVisuals/data-analyst/analyst-project-07-financial-analytics.webp";
+import project8 from "./courseProjectVisuals/data-analyst/analyst-project-08-hr-turnover.webp";
+import project9 from "./courseProjectVisuals/data-analyst/analyst-project-09-support-analytics.webp";
+import project10 from "./courseProjectVisuals/data-analyst/analyst-project-10-marketing-roi.webp";
+import project11 from "./courseProjectVisuals/data-analyst/analyst-project-11-warehouse-analytics.webp";
+import project12 from "./courseProjectVisuals/data-analyst/analyst-project-12-data-quality-audit.webp";
+import project13 from "./courseProjectVisuals/data-analyst/analyst-project-13-executive-bi.webp";
+import project14 from "./courseProjectVisuals/data-analyst/analyst-project-14-user-behavior.webp";
+import project15 from "./courseProjectVisuals/data-analyst/analyst-project-15-subscription-revenue.webp";
 
 export const dataAnalystProjectVisualImages = [
-  projectFruitWarehouse,
-  projectHrDatabase,
-  projectTaskManager,
-  projectTaskBot,
-  projectTravelBooking,
-  projectPassengerTransport,
-  projectProductWarehouse,
-  projectKeyValueStorage,
-  projectWeatherForecast,
-  projectWeatherBot,
-  projectRestaurantBooking,
-  projectShopBot,
-  projectDjangoCatalog,
-  projectOnlineShop,
-  projectProductionDeploy,
+  project1,
+  project2,
+  project3,
+  project4,
+  project5,
+  project6,
+  project7,
+  project8,
+  project9,
+  project10,
+  project11,
+  project12,
+  project13,
+  project14,
+  project15,
 ] as const;

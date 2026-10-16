@@ -135,13 +135,13 @@ const mlEngineerMobileProjects = [
 
 function MobileProjectVisual({ index }: { index: number }) {
   const item = mobileProjectVisuals[index] ?? mobileProjectVisuals[0];
-  const image = mlEngineerProjectVisualImages[index] ?? mlEngineerProjectVisualImages[0];
+  const image = mlEngineerProjectVisualImages[index];
 
   return (
     <div className="bg-[#eee8ff] h-[195px] overflow-hidden relative rounded-[32px] shrink-0 w-full site-course-mobile-project-visual">
       <img
         alt={item.title} title={item.title}
-        className="absolute inset-0 max-w-none object-contain pointer-events-none size-full"
+        className="absolute inset-0 max-w-none object-cover object-center pointer-events-none size-full"
         decoding="async"
         loading="lazy"
         src={image}
