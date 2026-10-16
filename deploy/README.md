@@ -74,6 +74,20 @@ not referenced by either release are removed only after seven days, and the
 post-deploy smoke validates both the new HTML and the saved previous HTML.
 Next.js also receives the Git SHA as its build/deployment ID.
 
+The release script enables gzip for CSS, JavaScript, JSON and SVG in the known
+website static location. `configure-static-compression.py` reconciles the
+legacy inline location in `/etc/nginx/sites-enabled/innoprog.conf` (override via
+`WEBSITE_NGINX_SITE_CONFIG`). It preserves other hosts, upstreams and headers,
+tests nginx before a graceful reload, and restores the original bytes if
+validation or reload fails. The directives are inlined so a Git rollback cannot
+leave nginx referring to a removed source file. Image/video/font bytes remain
+unchanged, and immutable cache policy is preserved with `Vary: Accept-Encoding`.
+The documented routing-include layout is also supported; its source must match
+the frozen release template. The helper and gzip policy execute from the Git
+archive used to build the image, so checkout changes during build cannot change
+the requested release's policy. Included routing drift aborts before switching
+traffic and preserves the existing configuration.
+
 The `/files/` Object Storage proxy resolves only IPv4 addresses because the
 edge host does not have an IPv6 route. DNS is resolved at request time, with a
 short connect timeout and a retry on another IPv4 endpoint.

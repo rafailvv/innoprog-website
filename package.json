@@ -9,7 +9,7 @@
     "start": "next start",
     "test:proxy": "node scripts/test-proxy-contracts.mjs",
     "test:course-reviews": "node scripts/test-course-review-directions.mjs",
-    "test:deployment": "node scripts/test-deployment-contracts.mjs && node scripts/test-static-asset-retention.mjs",
+    "test:deployment": "node scripts/test-deployment-contracts.mjs && node scripts/test-static-asset-retention.mjs && python3 scripts/test-static-compression.py",
     "test:sveden-html": "node scripts/test-sveden-source-html.mjs",
     "test:sveden-routing": "node scripts/test-sveden-routing.mjs",
     "test:seo": "node scripts/test-seo-routing.mjs",

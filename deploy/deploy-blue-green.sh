@@ -314,8 +314,6 @@ docker build \
   --build-arg "NEXT_DEPLOYMENT_ID=${RELEASE}" \
   --label "org.opencontainers.image.revision=${RELEASE}" \
   -t "$IMAGE" "$build_context"
-rm -rf "$build_context"
-build_context=""
 
 # The edge rejects Next-Action because this website currently has no Server
 # Actions. Fail deployment if that assumption ever becomes false so a future
@@ -328,6 +326,16 @@ docker run --rm --entrypoint node "$IMAGE" -e '
     process.exit(1);
   }
 '
+
+# The legacy live server inlines the routing config. Apply only the known
+# website static location, under this same lease, with nginx validation/restore.
+python3 "$build_context/deploy/configure-static-compression.py" \
+  --site-config "${WEBSITE_NGINX_SITE_CONFIG:-/etc/nginx/sites-enabled/innoprog.conf}" \
+  --snippet "$build_context/deploy/nginx/website-static-compression.conf" \
+  --routing-config "$APP_DIR/deploy/nginx/website-release-routing.conf" \
+  --routing-template "$build_context/deploy/nginx/website-release-routing.conf"
+rm -rf "$build_context"
+build_context=""
 
 docker rm -f "$CANDIDATE_CONTAINER" >/dev/null 2>&1 || true
 docker run -d \
