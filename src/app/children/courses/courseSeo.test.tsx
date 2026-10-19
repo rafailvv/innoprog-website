@@ -19,6 +19,7 @@ describe("children course search content", () => {
       expect(detail.querySelector("p")!.textContent).toBe(faq.mainEntity[index].acceptedAnswer.text);
       expect(faq.mainEntity[index].name).toBe(items[index].question);
     });
+    expect(document.querySelector('details a[href="/blog/kak-vybrat-programmirovanie-rebenku"]')).not.toBeNull();
     const link = items[0].link!;
     expect(document.querySelector(`details a[href="${link.href}"]`)!.textContent).toBe(link.label);
     expect(childrenCourses.some(other => childrenCoursePath(other.slug) === link.href)).toBe(true);

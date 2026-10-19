@@ -1,5 +1,6 @@
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
+  | { type: "links"; items: { text: string; href: string }[] }
   | { type: "list"; ordered?: boolean; items: string[] }
   | { type: "table"; caption: string; columns: string[]; rows: string[][] }
   | { type: "code"; language: "python" | "sql" | "text"; caption: string; code: string }
@@ -13,6 +14,8 @@ export type BlogArticle = {
   excerpt: string;
   category: string;
   publishedAt: string;
+  updatedAt?: string;
+  ogImage?: string;
   hero: { src: string; alt: string; width: number; height: number };
   introduction: string[];
   sections: { id: string; title: string; blocks: ArticleBlock[] }[];

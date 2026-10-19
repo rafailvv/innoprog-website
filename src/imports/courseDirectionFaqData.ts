@@ -27,6 +27,7 @@ const directionAnswers: Record<CourseFaqDirection, DirectionAnswer> = {
       "Для другой серверной технологии есть курс Java со Spring Boot. Направление стоит выбирать по интересующим задачам и инструментам",
     ],
     links: [
+      { text: "Сравнение направлений: задачи и выбор программы", href: "/blog/python-ili-frontend" },
       { text: "Сравнить с курсом frontend-разработки", href: "/frontend-developer-course" },
       { text: "Посмотреть программу Java", href: "/java-developer-course" },
     ],
@@ -44,6 +45,7 @@ const directionAnswers: Record<CourseFaqDirection, DirectionAnswer> = {
       "В ML-инженерии программа также включает модели, а инженерные модули посвящены структуре ML-проекта, API, деплою и мониторингу. У обоих направлений есть общие темы, поэтому сравнивайте полные программы",
     ],
     links: [
+      { text: "Сравнение направлений: задачи и выбор программы", href: "/blog/analitik-dannyh-ili-data-scientist" },
       { text: "Сравнить с аналитикой данных", href: "/data-analyst-course" },
       { text: "Сравнить с ML-инженерией", href: "/ml-engineer-course" },
     ],
@@ -61,6 +63,7 @@ const directionAnswers: Record<CourseFaqDirection, DirectionAnswer> = {
       "Если интереснее серверная часть, базы данных и API, сравните программу с Python-разработкой. Эти направления решают разные части задачи приложения",
     ],
     links: [
+      { text: "Сравнение направлений: задачи и выбор программы", href: "/blog/python-ili-frontend" },
       { text: "Сравнить с мобильной разработкой", href: "/mobile-developer-course" },
       { text: "Посмотреть программу Python", href: "/python-course" },
     ],
@@ -77,7 +80,8 @@ const directionAnswers: Record<CourseFaqDirection, DirectionAnswer> = {
       "Если интереснее обучение моделей, сравните направление с Data Science: в его программе есть машинное и глубокое обучение, подготовка данных и MLOps",
       "Python встречается в обеих программах, но выбирайте по задачам: аналитические расчеты и отчеты либо исследование данных и модели",
     ],
-    links: [{ text: "Сравнить с программой Data Science", href: "/data-science-course" }],
+    links: [{ text: "Сравнение направлений: задачи и выбор программы", href: "/blog/analitik-dannyh-ili-data-scientist" },
+      { text: "Сравнить с программой Data Science", href: "/data-science-course" }],
   },
   cpp: {
     months: 12,

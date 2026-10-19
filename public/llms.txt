@@ -76,3 +76,13 @@ Use innoprog.ru/children as the primary children's section. The older pages.inno
 
 - [Sitemap](https://innoprog.ru/sitemap.xml)
 - [Robots](https://innoprog.ru/robots.txt)
+
+## Blog and course selection
+
+- Blog: https://innoprog.ru/blog
+- Python developer from scratch: https://innoprog.ru/blog/python-razrabotchik-s-nulya
+- Data Science from scratch: https://innoprog.ru/blog/data-science-s-nulya
+- Product analytics: https://innoprog.ru/blog/produktovaya-analitika-metriki-ab-testy
+- Data analyst or Data Scientist: https://innoprog.ru/blog/analitik-dannyh-ili-data-scientist
+- Python or frontend: https://innoprog.ru/blog/python-ili-frontend
+- Choosing programming for a child: https://innoprog.ru/blog/kak-vybrat-programmirovanie-rebenku

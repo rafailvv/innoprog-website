@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import ProgramAccordion from "../ProgramAccordion";
 import { getChildrenCourseFaq, type ChildrenCourseFaq } from "../course-faq";
 import ChildrenShell from "../../ChildrenShell";
@@ -106,7 +107,7 @@ export default async function Page({ params }: Props) {
           { name: course.title, path },
         ])}
       />
-      <JsonLd data={faqPageJsonLd(faq, path)} />
+      <JsonLd data={faqPageJsonLd(faq.map(({ question, answer }) => ({ question, answer })), path)} />
       <JsonLd
         data={webPageJsonLd({
           path,
@@ -375,8 +376,19 @@ export default async function Page({ params }: Props) {
 
 function FaqAnswer({ item }: { item: ChildrenCourseFaq }) {
   const text = item.answer[0];
-  if (!item.link) return text;
-  const index = text.indexOf(item.link.label);
-  if (index < 0) return text;
-  return <>{text.slice(0, index)}<Link className="text-inherit underline underline-offset-4" href={item.link.href}>{item.link.label}</Link>{text.slice(index + item.link.label.length)}</>;
+  const links = [...(item.link ? [item.link] : []), ...(item.links ?? [])];
+  const matches = links
+    .map((link) => ({ ...link, index: text.indexOf(link.label) }))
+    .filter((link) => link.label.length > 0 && link.index >= 0)
+    .sort((a, b) => a.index - b.index);
+  const parts: ReactNode[] = [];
+  let cursor = 0;
+  for (const link of matches) {
+    if (link.index < cursor) continue;
+    parts.push(text.slice(cursor, link.index));
+    parts.push(<Link key={`${link.href}-${link.index}`} className="text-inherit underline underline-offset-4" href={link.href}>{link.label}</Link>);
+    cursor = link.index + link.label.length;
+  }
+  parts.push(text.slice(cursor));
+  return <>{parts}</>;
 }

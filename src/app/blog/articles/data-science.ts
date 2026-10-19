@@ -6,6 +6,7 @@ export const dataScienceArticle: BlogArticle = {
   description: "Как начать изучать Data Science: Python, SQL, статистика, первый проект, baseline и проверка модели без утечки данных. Рабочий пример на scikit-learn.",
   excerpt: "Понятный маршрут от таблицы к проверенной модели: какие навыки нужны, как выбрать метрики и оформить первый проект в портфолио.",
   category: "Data Science",
+  updatedAt: "2026-10-19",
   publishedAt: "2026-10-16",
   hero: {
     src: "/blog/images/data-science.webp",
@@ -22,6 +23,7 @@ export const dataScienceArticle: BlogArticle = {
       id: "what-is-data-science",
       title: "Что такое Data Science и чем отличаются соседние направления",
       blocks: [
+        { type: "links", items: [{ text: "Аналитик данных или Data Scientist: сравнить направления", href: "/blog/analitik-dannyh-ili-data-scientist" }] },
         {
           type: "paragraph",
           text: "Data Science — анализ данных и построение моделей для конкретной задачи: например, прогнозировать спрос или распределять обращения по темам. Дата-сайентист проверяет качество исходных данных, выбирает признаки и выясняет, насколько прогноз полезен на новых наблюдениях. Иногда результатом становится простое правило: оно может решать задачу дешевле и надёжнее сложной модели."

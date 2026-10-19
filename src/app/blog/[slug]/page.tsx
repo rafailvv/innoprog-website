@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd, absoluteUrl, breadcrumbJsonLd, webPageJsonLd } from "../../seo";
 import { BLOG_ARTICLES, articleDate, findArticle, readingMinutes } from "../data";
-import { articleJsonLd, articleMetadata } from "../metadata";
+import { articleFaqJsonLd, articleJsonLd, articleMetadata } from "../metadata";
 import { BlogShell } from "../BlogShell";
 import { ArticleBody } from "../ArticleBody";
 import { ArticleCard } from "../ArticleCard";
@@ -24,6 +24,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const related = BLOG_ARTICLES.filter((entry) => entry.slug !== article.slug);
   return <BlogShell>
     <JsonLd data={articleJsonLd(article)} />
+    <JsonLd data={articleFaqJsonLd(article)} />
     <JsonLd data={webPageJsonLd({ path, name: article.title, description: article.description, primaryEntityId: `${absoluteUrl(path)}#article`, significantLinks: ["/blog", article.course.href, ...related.map((entry) => `/blog/${entry.slug}`)] })} />
     <JsonLd data={breadcrumbJsonLd([{ name: "Главная", path: "/" }, { name: "Блог", path: "/blog" }, { name: article.title, path }])} />
     <nav className={styles.breadcrumbs} aria-label="Хлебные крошки"><Link href="/">Главная</Link><span aria-hidden="true">/</span><Link href="/blog">Блог</Link><span aria-hidden="true">/</span><span aria-current="page">{article.category}</span></nav>

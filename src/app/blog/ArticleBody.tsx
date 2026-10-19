@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ArticleBlock } from "./types";
 import { CodeBlock } from "./CodeBlock";
 import styles from "./blog.module.css";
@@ -5,6 +6,7 @@ import styles from "./blog.module.css";
 export function ArticleBody({ block }: { block: ArticleBlock }) {
   switch (block.type) {
     case "paragraph": return <p>{block.text}</p>;
+    case "links": return <ul>{block.items.map((item) => <li key={item.href}><Link href={item.href}>{item.text}</Link></li>)}</ul>;
     case "list": return block.ordered ? <ol>{block.items.map((item) => <li key={item}>{item}</li>)}</ol> : <ul>{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
     case "note": return <aside className={styles.note}><strong>{block.title}</strong><p>{block.text}</p></aside>;
     case "code": return <CodeBlock block={block} />;

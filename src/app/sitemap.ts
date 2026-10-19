@@ -9,20 +9,20 @@ const PYTHON_PROGRAM_UPDATED_AT = new Date("2026-08-29T00:00:00.000Z");
 const SEO_UPDATED_AT = new Date("2026-10-14T00:00:00.000Z");
 // Dates represent substantial published changes, not the time of a request/build.
 const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
-  "/blog": "2026-10-16",
-  ...Object.fromEntries(BLOG_ARTICLES.map((article) => [`/blog/${article.slug}`, article.publishedAt])),
-  "/": "2026-10-15", "/python-course": "2026-10-15",
-  "/data-science-course": "2026-10-15", "/frontend-developer-course": "2026-10-15",
-  "/data-analyst-course": "2026-10-15", "/cpp-developer-course": "2026-10-15",
+  "/blog": BLOG_ARTICLES.map((article) => article.updatedAt ?? article.publishedAt).sort().at(-1)!,
+  ...Object.fromEntries(BLOG_ARTICLES.map((article) => [`/blog/${article.slug}`, article.updatedAt ?? article.publishedAt])),
+  "/": "2026-10-19", "/python-course": "2026-10-19",
+  "/data-science-course": "2026-10-19", "/frontend-developer-course": "2026-10-19",
+  "/data-analyst-course": "2026-10-19", "/cpp-developer-course": "2026-10-15",
   "/mobile-developer-course": "2026-10-15", "/unreal-engine-course": "2026-10-15",
   "/java-developer-course": "2026-10-15", "/ml-engineer-course": "2026-10-15",
-  "/children": "2026-10-15",
-  "/children/courses/python": "2026-10-15",
-  "/children/courses/web-development": "2026-10-15",
-  "/children/courses/informatics-exams": "2026-10-15",
-  "/children/courses/olympiad-programming": "2026-10-15",
-  "/children/courses/neural-networks": "2026-10-15",
-  "/children/courses/game-development": "2026-10-15",
+  "/children": "2026-10-19",
+  "/children/courses/python": "2026-10-19",
+  "/children/courses/web-development": "2026-10-19",
+  "/children/courses/informatics-exams": "2026-10-19",
+  "/children/courses/olympiad-programming": "2026-10-19",
+  "/children/courses/neural-networks": "2026-10-19",
+  "/children/courses/game-development": "2026-10-19",
 };
 
 const baseRoutes = [

@@ -160,8 +160,8 @@ export default function SchoolPage() {
             <div className={styles.heroText}>
               <span className={styles.age}>для детей от 9 до 17 лет</span>
               <h1>
-                Подготовим вашего ребёнка к будущей{" "}
-                <strong>ИТ-профессии</strong>
+                Курсы программирования{" "}
+                <strong>для детей</strong>
               </h1>
             </div>
             <picture className={styles.heroPicture}>

@@ -122,8 +122,8 @@ function CourseCardImage({ index }: { index: number }) {
 function Frame55() {
   return (
     <h1 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[43px] relative shrink-0 uppercase w-full">
-      <span className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">{`обучаем `}</span>
-      <span className="relative shrink-0 text-[26px] text-center w-full">программированию</span>
+      <span className="relative shrink-0 text-[56px] text-center whitespace-nowrap w-full">{`курсы `}</span>
+      <span className="relative shrink-0 text-[26px] text-center w-full">программирования</span>
     </h1>
   );
 }

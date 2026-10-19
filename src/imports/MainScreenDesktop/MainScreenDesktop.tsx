@@ -273,8 +273,8 @@ function Frame84() {
 function Frame129() {
   return (
     <h1 className="absolute content-stretch flex flex-col gap-[8px] items-start left-[80px] text-[#464a6a] top-[313px] uppercase w-[615px]">
-      <span className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">{`обучаем `}</span>
-      <span className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программированию</span>
+      <span className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] w-full">{`курсы `}</span>
+      <span className="font-['Raleway:SemiBold',sans-serif] font-semibold leading-[47px] relative shrink-0 text-[53px] w-full">программирования</span>
     </h1>
   );
 }

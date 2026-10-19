@@ -70,9 +70,9 @@ describe("individual course FAQ integration", () => {
     expect(rows[0].textContent!.toLocaleLowerCase()).toContain(marker.toLocaleLowerCase());
     expect(JSON.stringify(modules).toLocaleLowerCase()).toContain(marker.toLocaleLowerCase());
     const related = [...rows[4].querySelectorAll("a")];
-    expect(related.length).toBeGreaterThan(0);
+    expect(related.filter(anchor => /^\/[a-z-]+-course$/.test(anchor.getAttribute("href")!)).length).toBeGreaterThan(0);
     related.forEach((anchor) => {
-      expect(anchor.getAttribute("href")).toMatch(/^\/[a-z-]+-course$/);
+      expect(anchor.getAttribute("href")).toMatch(/^\/(?:[a-z-]+-course|blog\/(?:python-ili-frontend|analitik-dannyh-ili-data-scientist))$/);
       expect(anchor.getAttribute("href")).not.toBe(path);
     });
     // Four shared conditions retain their complete base objects, including offer links.

@@ -168,7 +168,7 @@ try {
         assert.ok(main, `${route}: missing server-rendered main content`);
         if (route === "/blog") {
           const blog = structuredData.find((item) => item["@type"] === "Blog");
-          assert.equal(blog?.blogPost.length, 3, "Blog must expose all three articles");
+          assert.equal(blog?.blogPost.length, 6, "Blog must expose all six articles");
           for (const post of blog.blogPost) {
             const postPath = new URL(post.url).pathname;
             assert.ok(document.querySelector(`main a[href="${postPath}"]`), `Missing visible article link: ${postPath}`);
@@ -182,8 +182,17 @@ try {
           const published = main.querySelector("article time");
           assert.equal(article.datePublished, published?.getAttribute("datetime"), `${route}: date must match visible publication`);
           assert.ok(main.textContent.includes(article.author.name), `${route}: author must be visible`);
-          assert.ok(main.querySelector("article").textContent.trim().split(/\s+/).length > 1000, `${route}: article body must be published as HTML`);
-          assert.ok(main.querySelector("pre code"), `${route}: expected practical code example`);
+          const practical = ["/blog/python-razrabotchik-s-nulya", "/blog/data-science-s-nulya", "/blog/produktovaya-analitika-metriki-ab-testy"].includes(route);
+          assert.ok(main.querySelector("article").textContent.trim().split(/\s+/).length > (practical ? 1000 : 500), `${route}: article body must be published as HTML`);
+          if (practical) assert.ok(main.querySelector("pre code"), `${route}: expected practical code example`);
+          const faq = structuredData.find((item) => item["@type"] === "FAQPage");
+          const answers = [...main.querySelectorAll("#article-faq ~ details")];
+          assert.equal(faq?.mainEntity.length, answers.length);
+          answers.forEach((detail, i) => {
+            assert.equal(detail.querySelector("summary").textContent, faq.mainEntity[i].name);
+            assert.equal(detail.querySelector("p").textContent, faq.mainEntity[i].acceptedAnswer.text);
+          });
+          assert.equal(article.dateModified, document.querySelector('meta[property="article:modified_time"]')?.content);
           for (const link of main.querySelectorAll('a[href^="#"]')) assert.ok(document.getElementById(link.getAttribute("href").slice(1)), `${route}: broken contents anchor`);
           const imagePath = new URL(article.image.url).pathname;
           const image = main.querySelector(`img[src="${imagePath}"]`);
@@ -192,13 +201,15 @@ try {
           for (const assetPath of [imagePath, new URL(document.querySelector('meta[property="og:image"]').content).pathname]) {
             const asset = await request(assetPath);
             assert.equal(asset.status, 200, assetPath);
-            assert.match(asset.headers.get("content-type") || "", /^image\/webp/);
+            assert.match(asset.headers.get("content-type") || "", /^image\/(webp|png)/);
             assert.doesNotMatch(asset.headers.get("x-robots-tag") || "", /noindex/);
-            assert.equal(asset.headers.get("cache-control"), "public, max-age=0, must-revalidate");
+            assert.equal(asset.headers.get("cache-control"), assetPath.startsWith("/og/") ? "public, max-age=31536000, immutable" : "public, max-age=0, must-revalidate");
             const bytes = Buffer.from(await asset.arrayBuffer());
-            assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
-            assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
-            assert.ok(bytes.length <= 150 * 1024, `${assetPath}: image budget`);
+            if (assetPath.endsWith(".webp")) {
+              assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+              assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+            } else assert.equal(bytes.toString("hex", 0, 8), "89504e470d0a1a0a");
+            assert.ok(bytes.length <= (assetPath === "/og/children-school-v1.png" ? 270 : 150) * 1024, `${assetPath}: image budget`);
           }
         }
       }
