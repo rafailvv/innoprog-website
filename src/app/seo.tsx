@@ -553,7 +553,7 @@ export const pythonCourseJsonLd = {
   "@id": `${SITE_URL}/python-course#course`,
   name: "Python-разработчик",
   description:
-    "Практический онлайн-курс Python-разработчик с нуля в ИННОПРОГ с наставником, платформой, проектами в портфолио и документами после обучения",
+    "Практический онлайн-курс Python-разработчик с нуля в ИННОПРОГ: Python, ООП, SQL, PostgreSQL, Django, FastAPI, тестирование, Docker и CI/CD с наставником",
   url: absoluteUrl("/python-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -571,11 +571,17 @@ export const pythonCourseJsonLd = {
   },
   review: publishedCourseReviewsJsonLd("python"),
   teaches: [
-    "Python",
-    "backend-разработка",
-    "работа с кодом",
-    "практические задачи",
-    "портфолио проектов",
+    "основы и продвинутые возможности Python",
+    "объектно-ориентированное программирование на Python",
+    "алгоритмы и структуры данных",
+    "Git и Linux",
+    "SQL и PostgreSQL",
+    "HTTP, REST API и асинхронный Python с asyncio",
+    "Django и FastAPI",
+    "Redis, Celery и фоновые задачи",
+    "Telegram-боты на aiogram",
+    "тестирование с pytest",
+    "Docker и CI/CD",
   ],
   offers: {
     "@type": "Offer",
