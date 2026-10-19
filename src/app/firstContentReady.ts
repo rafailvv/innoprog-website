@@ -1,6 +1,11 @@
 // Reveal a real screen, including a lazy component mounted after hydration.
 // Keep the existing bounded fallback if a component cannot finish mounting.
-export function observeFirstContent(surface: HTMLElement, reveal: () => void, maxWaitMs: number): () => void {
+export function observeFirstContent(
+  surface: HTMLElement,
+  reveal: () => void,
+  maxWaitMs: number,
+  { allowEmptyFallback = true }: { allowEmptyFallback?: boolean } = {},
+): () => void {
   let done = false;
   let observer: MutationObserver | undefined;
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -16,7 +21,9 @@ export function observeFirstContent(surface: HTMLElement, reveal: () => void, ma
   else {
     observer = new MutationObserver(() => { if (hasContent()) finish(); });
     observer.observe(surface, { childList: true, subtree: true, characterData: true });
-    timer = setTimeout(finish, maxWaitMs);
+    timer = setTimeout(() => {
+      if (allowEmptyFallback || hasContent()) finish();
+    }, maxWaitMs);
   }
   return () => {
     done = true;

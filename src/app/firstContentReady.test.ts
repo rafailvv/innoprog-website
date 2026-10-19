@@ -2,6 +2,18 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { observeFirstContent } from "./firstContentReady";
 afterEach(() => { vi.useRealTimers(); document.body.innerHTML = ""; });
 describe("first meaningful content", () => {
+  it("keeps covering a slow screen past the deadline and reveals when its heading arrives", async () => {
+    vi.useFakeTimers();
+    const surface = document.createElement("main");
+    const reveal = vi.fn();
+    const cleanup = observeFirstContent(surface, reveal, 2600, { allowEmptyFallback: false });
+    vi.advanceTimersByTime(4000);
+    expect(reveal).not.toHaveBeenCalled();
+    surface.innerHTML = '<h1>Настольный курс</h1><img src="/still-loading.webp">';
+    await Promise.resolve();
+    expect(reveal).toHaveBeenCalledTimes(1);
+    cleanup();
+  });
   it("reveals existing SSR heading without waiting for images or fonts", () => {
     const surface = document.createElement("main");
     surface.innerHTML = '<h1>Курс Python</h1><img src="/not-loaded.webp">';

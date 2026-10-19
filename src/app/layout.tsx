@@ -98,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={manrope.variable}>
       <head>
+        <noscript><style>{".site-loader{display:none!important}"}</style></noscript>
         <meta name="yandex-verification" content="ca948d488c7e73d2" />
         <script
           type="text/javascript"

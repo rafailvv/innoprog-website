@@ -8,6 +8,19 @@ import sitemap from "./sitemap";
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), back: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }) }));
 
 describe("server-rendered navigation", () => {
+  it.each([
+    "pythonCourse", "dataScienceCourse", "frontendCourse", "dataAnalystCourse",
+    "cppCourse", "mobileDeveloperCourse", "unrealEngineCourse", "javaCourse", "mlEngineerCourse",
+  ] as const)("retains a desktop viewport cover for a mobile-ready course on %s", (page) => {
+    const d = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page }} />), "text/html");
+    const shell = d.querySelector(".site-shell");
+    // The same response serves phones and desktops: phones can paint this
+    // ready tree immediately; CSS must have an overlay available on desktops.
+    expect(shell?.classList.contains("site-shell--mobile")).toBe(true);
+    expect(shell?.classList.contains("site-shell--ready")).toBe(true);
+    expect(shell?.querySelector(".site-loader")).not.toBeNull();
+    expect(shell?.firstElementChild?.classList.contains("site-loader")).toBe(true);
+  });
   it.each(["home", "tariffs", "about", "reviews"] as const)("exposes children destinations on %s before JavaScript", (page) => {
     const d = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page }} />), "text/html");
     for (const href of ["/children", ...CHILD_COURSE_LINKS.map(x => x.href)]) {

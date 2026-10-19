@@ -3687,7 +3687,10 @@ export default function App({
     initialRouteState.activeReviewsDirection,
   );
   const [isReady, setIsReady] = useState(isInitialCoursePage);
-  const [shouldShowLoader, setShouldShowLoader] = useState(!isInitialCoursePage);
+  // Course HTML is immediately useful on mobile, but desktop must retain the
+  // overlay until hydration replaces the mobile SSR tree. CSS keeps this
+  // overlay hidden on a matching, already-ready mobile course.
+  const [shouldShowLoader, setShouldShowLoader] = useState(true);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);
   const [isConsentError, setIsConsentError] = useState(false);
@@ -3830,7 +3833,9 @@ export default function App({
       clearPageTransition();
     }
 
-    if (hasLoadedInSession()) {
+    const clientViewport = getViewportStateFromWidth(window.innerWidth);
+    if (hasLoadedInSession() && viewport.isMobile === clientViewport.isMobile && viewport.scale === clientViewport.scale
+      && document.querySelector(".site-shell h1")?.textContent?.trim()) {
       setIsReady(true);
       setShouldShowLoader(false);
     }
@@ -3866,21 +3871,27 @@ export default function App({
   }, []);
 
   useLayoutEffect(() => {
-    if (isReady) {
-      rememberLoadedInSession();
+    const clientViewport = getViewportStateFromWidth(window.innerWidth);
+    if (viewport.isMobile !== clientViewport.isMobile || viewport.scale !== clientViewport.scale) {
+      // Desktop modules can still be downloading after the viewport changes.
+      // A course's mobile SSR readiness cannot carry over to that other tree.
+      if (viewport.isMobile !== clientViewport.isMobile) setIsReady(false);
       return;
     }
     // Hydration starts with the mobile SSR tree. Reveal only after its viewport
     // matches the client and the requested screen's heading has mounted.
-    const clientViewport = getViewportStateFromWidth(window.innerWidth);
-    if (viewport.isMobile !== clientViewport.isMobile || viewport.scale !== clientViewport.scale) return;
     const surface = initialRoute.page === "home"
       ? homeCanvasRef.current
       : document.querySelector<HTMLElement>(".site-shell");
     if (!surface) return;
+    if (isReady && surface.querySelector("h1")?.textContent?.trim()) {
+      rememberLoadedInSession();
+      return;
+    }
+    if (isReady) setIsReady(false);
     // Native eager images and font-display:swap can paint progressively. Neither
     // all document fonts nor decorative backgrounds should gate useful content.
-    return observeFirstContent(surface, () => setIsReady(true), LOADER_MAX_MS);
+    return observeFirstContent(surface, () => setIsReady(true), LOADER_MAX_MS, { allowEmptyFallback: false });
   }, [isReady, initialRoute, viewport.isMobile, viewport.scale]);
 
   useEffect(() => () => {
@@ -3893,6 +3904,8 @@ export default function App({
     if (!isReady) {
       return;
     }
+    const clientViewport = getViewportStateFromWidth(window.innerWidth);
+    if (viewport.isMobile !== clientViewport.isMobile || viewport.scale !== clientViewport.scale) return;
 
     rememberLoadedInSession();
     const hideTimer = window.setTimeout(() => setShouldShowLoader(false), LOADER_EXIT_MS);
@@ -3900,7 +3913,7 @@ export default function App({
     return () => {
       window.clearTimeout(hideTimer);
     };
-  }, [isReady]);
+  }, [isReady, viewport.isMobile, viewport.scale]);
 
   useEffect(() => {
     setIsReviewConsultPrimed(false);
@@ -5262,6 +5275,21 @@ export default function App({
         minHeight: `${Math.ceil((homeContentDesignHeight || activeDesign.height) * viewport.scale)}px`,
       }}
     >
+      {!isMetrikaSelectorMode && (shouldShowLoader || isPageTransitionLoading) ? (
+        <div className="site-loader" aria-hidden={isReady && !isPageTransitionLoading}>
+          <img
+            alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
+            className="site-loader__logo"
+            decoding="async"
+            loading={isInitialCoursePage ? "lazy" : undefined}
+            fetchPriority={isInitialCoursePage ? "low" : "high"}
+            src="/logo_education.lossless.webp"
+          />
+          <div className="site-loader__bar">
+            <div className="site-loader__bar-fill" />
+          </div>
+        </div>
+      ) : null}
       {isReviewRoute ? (
         <ReviewStoryPage
           storyKey={activeReviewStory as ReviewStoryKey}
@@ -5476,20 +5504,6 @@ export default function App({
           </button>
         </nav>
       )}
-      {!isMetrikaSelectorMode && (shouldShowLoader || isPageTransitionLoading) ? (
-        <div className="site-loader" aria-hidden={isReady && !isPageTransitionLoading}>
-          <img
-            alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
-            className="site-loader__logo"
-            decoding="async"
-            fetchPriority="high"
-            src="/logo_education.lossless.webp"
-          />
-          <div className="site-loader__bar">
-            <div className="site-loader__bar-fill" />
-          </div>
-        </div>
-      ) : null}
       {
         <div
           aria-hidden={leadModalState === "closed"}

@@ -589,6 +589,18 @@ body {
   pointer-events: none;
 }
 
+/* SSR starts with the lightweight mobile tree. Do not expose it on desktop,
+   even when a course is already ready for a mobile first paint. No extra wait
+   is introduced on phones or after the correct desktop tree has committed. */
+@media (min-width: 768px) {
+  .site-shell--mobile.site-shell--ready .site-loader {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: none;
+  }
+}
+
 .site-shell--ready.site-shell--page-transition-loading .site-loader {
   opacity: 1;
   visibility: visible;
