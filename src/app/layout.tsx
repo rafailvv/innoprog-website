@@ -12,6 +12,7 @@ import {
   DEFAULT_KEYWORDS,
   DEFAULT_ROBOTS,
   SITE_FAVICON_PATH,
+  SITE_APPLE_TOUCH_ICON_PATH,
   SITE_LEGAL_NAME,
   SITE_NAME,
   SITE_URL,
@@ -59,8 +60,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: SITE_FAVICON_PATH,
-    apple: SITE_FAVICON_PATH,
+    icon: [{ url: SITE_FAVICON_PATH, type: "image/x-icon", sizes: "16x16 32x32 48x48 64x64" }],
+    apple: SITE_APPLE_TOUCH_ICON_PATH,
   },
   openGraph: {
     title: SITE_NAME,

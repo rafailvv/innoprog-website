@@ -11,12 +11,20 @@ const REVIEWS_TITLE = "Отзывы учеников ИННОПРОГ";
 const REVIEWS_DESCRIPTION =
   "Отзывы учеников ИННОПРОГ о курсах программирования, наставниках, практических проектах и результатах обучения в онлайн-школе";
 
-export const metadata = createPageMetadata({
-  title: REVIEWS_TITLE,
-  description: REVIEWS_DESCRIPTION,
-  path: "/reviews",
-  keywords: [...REVIEWS_PAGE_KEYWORDS],
-});
+export async function generateMetadata({ searchParams }: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const query = await searchParams;
+  const isFiltered = query.direction !== undefined || query.review !== undefined;
+  return createPageMetadata({
+    title: REVIEWS_TITLE,
+    description: REVIEWS_DESCRIPTION,
+    path: "/reviews",
+    keywords: [...REVIEWS_PAGE_KEYWORDS],
+    noIndex: isFiltered,
+    follow: true,
+  });
+}
 
 const reviewsRoute: AppInitialRoute = { page: "reviews" };
 

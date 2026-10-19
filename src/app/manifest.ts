@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { DEFAULT_DESCRIPTION, SITE_FAVICON_PATH, SITE_LOGO_PATH, SITE_NAME, SITE_URL } from "./seo";
+import { DEFAULT_DESCRIPTION, SITE_APP_ICON_PATH, SITE_APPLE_TOUCH_ICON_PATH, SITE_NAME, SITE_URL } from "./seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -15,13 +15,13 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "ru-RU",
     icons: [
       {
-        src: SITE_FAVICON_PATH,
+        src: SITE_APP_ICON_PATH,
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: SITE_LOGO_PATH,
-        sizes: "1256x296",
+        src: SITE_APPLE_TOUCH_ICON_PATH,
+        sizes: "420x420",
         type: "image/png",
         purpose: "any",
       },

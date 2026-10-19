@@ -108,6 +108,17 @@ try {
     await response.text();
   }
 
+  const faviconResponse = await request("/favicon.ico");
+  assert.equal(faviconResponse.status, 200, "Small browser icon must be served without redirect");
+  assert.match(faviconResponse.headers.get("content-type") ?? "", /image\/(?:x-icon|vnd\.microsoft\.icon)/);
+  assert.ok((await faviconResponse.arrayBuffer()).byteLength < 20_000, "Browser icon must remain below 20KB");
+  for (const iconPath of ["/favicon.ico", "/app-icon-192.png"]) {
+    const iconResponse = await request(iconPath);
+    assert.equal(iconResponse.status, 200);
+    assert.match(iconResponse.headers.get("cache-control") ?? "", /must-revalidate/);
+    assert.doesNotMatch(iconResponse.headers.get("cache-control") ?? "", /no-store/);
+  }
+
   const sitemapResponse = await request("/sitemap.xml");
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
@@ -301,9 +312,12 @@ try {
   }
   for (const route of ["/reviews?direction=python", "/reviews?direction=python&review=andrey"]) {
     const response = await request(route);
-    await response.text();
+    const { document } = readDocument(await response.text());
     assert.equal(response.status, 200, route);
     assert.match(response.headers.get("x-robots-tag") || "", /noindex, follow/i, route);
+    assert.match(document.querySelector('meta[name="robots"]')?.content || "", /noindex, follow/i, route);
+    assert.match(document.querySelector('meta[name="googlebot"]')?.content || "", /noindex, follow/i, route);
+    assert.equal(document.querySelector('link[rel="canonical"]')?.href, `${origin}/reviews`, route);
   }
   for (const route of ["/not-found", "/seo-test-missing-page", "/reviews/seo-test-missing-story"]) {
     const response = await request(route);

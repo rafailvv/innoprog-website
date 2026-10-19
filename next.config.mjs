@@ -61,7 +61,7 @@ const nextConfig = {
     return [
       {
         source:
-          "/((?!_next/static|_next/image|favicon.png|logo-education-360.webp|og/|videos/|documents/|files/).*)",
+          "/((?!_next/static|_next/image|favicon.png|favicon.ico|app-icon-192.png|logo-education-360.webp|og/|videos/|documents/|files/).*)",
         headers: [
           {
             key: "Cache-Control",
@@ -91,6 +91,10 @@ const nextConfig = {
       {
         source: "/logo-education-360.webp",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/:icon(favicon[.]ico|app-icon-192[.]png)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
       {
         source: "/favicon.png",
@@ -189,11 +193,6 @@ const nextConfig = {
       {
         source: "/main",
         destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/favicon.ico",
-        destination: "/favicon.png",
         permanent: true,
       },
       {
