@@ -4050,9 +4050,9 @@ button[data-name="кнопки пд"] {
 }
 
 @media (max-width: 767px) {
-  body .site-consent-policy-note,
-  body .site-lead-modal__policy-note,
-  body .site-application-policy-note {
+  body p.site-consent-policy-note,
+  body p.site-lead-modal__policy-note,
+  body p.site-application-policy-note {
     font-size: 11px;
     line-height: 15px;
   }
