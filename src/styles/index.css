@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+/* Preserve the case entered by visitors in application fields. */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea[name],
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea[name]::placeholder {
+  text-transform: none;
+}
+
 .site-smooth-photo {
   --site-photo-radius: 40px;
   overflow: hidden !important;
@@ -4034,5 +4046,14 @@ button[data-name="кнопки пд"] {
     margin: 28px auto 0;
     transform: none;
     text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  body .site-consent-policy-note,
+  body .site-lead-modal__policy-note,
+  body .site-application-policy-note {
+    font-size: 11px;
+    line-height: 15px;
   }
 }
