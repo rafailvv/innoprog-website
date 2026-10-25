@@ -4981,19 +4981,6 @@ function TablerPhoneCall() {
   );
 }
 
-function IcBaselineWhatsapp() {
-  return (
-    <div className="relative shrink-0 size-[76px]" data-name="ic:baseline-whatsapp">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 76 76">
-        <g id="ic:baseline-whatsapp">
-          <path d={svgPaths.p1458ef0} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.p36f53980} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 function MynauiTelegram() {
   return (
     <div className="relative shrink-0 size-[75px]" data-name="mynaui:telegram">
@@ -5012,7 +4999,6 @@ function Frame22() {
     <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
       <MaterialSymbolsMailOutline />
       <TablerPhoneCall />
-      <IcBaselineWhatsapp />
       <MynauiTelegram />
     </div>
   );

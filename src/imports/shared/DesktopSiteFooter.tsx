@@ -176,19 +176,6 @@ function TablerPhoneCall() {
   );
 }
 
-function IcBaselineWhatsapp() {
-  return (
-    <div className="h-[83px] relative shrink-0 w-[85px]" data-name="ic:baseline-whatsapp">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 83">
-        <g id="ic:baseline-whatsapp">
-          <path d={svgPaths.p1c2b1d80} fill="var(--fill-0, #D9D9D9)" />
-          <path d={svgPaths.pf349600} fill="var(--fill-0, black)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
 function MynauiTelegram() {
   return (
     <div className="relative shrink-0 size-[85px]" data-name="mynaui:telegram">
@@ -210,9 +197,6 @@ function Frame79() {
       </a>
       <a aria-label="Позвонить" className="block" href="tel:+79586067980">
         <TablerPhoneCall />
-      </a>
-      <a aria-label="Написать в WhatsApp" className="block" href="https://wa.me/79934099057?text=Добрый%20день%21%20Хочу%20приобрести%20обучение%20по%20профессии%20Python-разработчик" rel="noopener noreferrer" target="_blank">
-        <IcBaselineWhatsapp />
       </a>
       <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
         <MynauiTelegram />
