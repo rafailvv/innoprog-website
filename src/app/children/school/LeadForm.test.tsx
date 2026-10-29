@@ -120,6 +120,7 @@ describe("children phone formatting and validation", () => {
     expect(field.value).toBe("");
   });
   it.each([
+    ["Возраст ребёнка", "9", "от 10 до 18 лет"],
     ["Возраст ребёнка", "19", "возраст ребёнка"],
     ["Номер телефона", "+799912345678", "номер телефона"],
   ])("rejects invalid %s before sending", async (label, value, message) => {

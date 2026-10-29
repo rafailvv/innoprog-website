@@ -49,8 +49,8 @@ export default function LeadForm({ course, formId, context }: { course?: string;
       setError("Укажите ваше имя и имя ребёнка — не меньше двух букв.");
       return;
     }
-    if (!/^\d{1,2}$/.test(age) || Number(age) < 5 || Number(age) > 18) {
-      setError("Укажите возраст ребёнка от 5 до 18 лет.");
+    if (!/^\d{1,2}$/.test(age) || Number(age) < 10 || Number(age) > 18) {
+      setError("Укажите возраст ребёнка от 10 до 18 лет.");
       return;
     }
     if (digits.length < 10 || digits.length > 15 || (/^[78]/.test(digits) && digits.length !== 11)) {
@@ -126,7 +126,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
         </label>
         <label className={formStyles.field}>
           <span>Возраст ребёнка <span aria-hidden="true">*</span></span>
-          <input name="child_age" type="number" min={5} max={18} step={1} placeholder="От 5 до 18 лет" inputMode="numeric" required disabled={pending} />
+          <input name="child_age" type="number" min={10} max={18} step={1} placeholder="От 10 до 18 лет" inputMode="numeric" required disabled={pending} />
         </label>
         <label className={formStyles.field}>
           <span>Номер телефона <span aria-hidden="true">*</span></span>
