@@ -3387,12 +3387,13 @@ button[data-name="кнопки пд"] {
   bottom: 24px;
   z-index: 1500;
   display: flex;
-  width: min(720px, calc(100vw - 48px));
+  width: max-content;
+  max-width: calc(100vw - 48px);
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 28px;
-  padding: 18px 20px 18px 24px;
+  border-radius: 16px;
+  padding: 8px 12px 8px 16px;
   background: rgba(70, 74, 106, 0.94);
   box-shadow: 0 18px 48px rgba(23, 20, 52, 0.22);
   color: #ffffff;
@@ -3632,14 +3633,15 @@ button[data-name="кнопки пд"] {
 
 @media (max-width: 767px) {
   .site-cookie-banner {
-    right: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    width: calc(100vw - 24px);
-    flex-direction: column;
-    align-items: stretch;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
     gap: 12px;
-    border-radius: 22px;
-    padding: 14px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 0;
+    padding: 8px max(12px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   }
 
   .site-cookie-banner p {
@@ -3648,7 +3650,6 @@ button[data-name="кнопки пд"] {
   }
 
   .site-cookie-banner button {
-    width: 100%;
     min-width: 0;
     min-height: 44px;
     padding: 11px 16px;

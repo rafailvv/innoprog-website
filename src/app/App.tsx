@@ -5161,7 +5161,7 @@ export default function App({
   useLayoutEffect(() => {
     // Position the first visible notice before paint, rather than moving it
     // after the home loader finishes (which contributes a layout shift).
-    if (!shouldShowCookieBanner || isStandaloneRoute) return;
+    if (!shouldShowCookieBanner || isStandaloneRoute || viewport.isMobile) return;
     const banner = cookieBannerRef.current;
     const canvas = homeCanvasRef.current;
     if (!banner || !canvas) return;
@@ -5682,17 +5682,14 @@ export default function App({
       {shouldShowCookieBanner ? (
         <aside ref={cookieBannerRef} className="site-cookie-banner" aria-label="Уведомление о cookie">
           <p>
-            INNOPROG использует cookie и похожие технологии для корректной работы сайта, сохранения настроек,
-            аналитики и показа более подходящего контента. Продолжая пользоваться сайтом, вы соглашаетесь с их
-            использованием по{" "}
+            Используем cookie для работы сайта и аналитики.{" "}
             <a
               href="/privacy"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Политике обработки персональных данных
+              Подробнее
             </a>
-            .
           </p>
           <button type="button" onClick={acceptCookieConsent}>
             понятно
