@@ -101,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <noscript><style>{".site-loader{display:none!important}"}</style></noscript>
         <meta name="yandex-verification" content="ca948d488c7e73d2" />
+        <meta name="google-site-verification" content="ASsR_pT14eTWgOIz2S4bbEAO5UhRtcHBqv1F1O2a1AE" />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
