@@ -13,7 +13,7 @@ import {
 } from "./seo";
 
 const HOME_DESCRIPTION =
-  "Курсы программирования для взрослых и детей с наставником. Индивидуальные онлайн-занятия, практика и проекты: Python, Java, frontend, аналитика данных и создание игр.";
+  "Курсы программирования для взрослых и детей с наставником. Индивидуальные онлайн-занятия, практика и проекты: Python, Java, frontend, аналитика, игры.";
 
 export const metadata = createPageMetadata({
   title: HOME_PAGE_TITLE,

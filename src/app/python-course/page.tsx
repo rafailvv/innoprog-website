@@ -16,7 +16,7 @@ const courseFaqItems = getCourseFaqItems("python");
 
 export const metadata = createPageMetadata({
   title:
-    "Курс Python с нуля с наставником: Django и FastAPI — ИННОПРОГ",
+    "Курс Python с нуля с наставником: Django, FastAPI — ИННОПРОГ",
   description:
     "Курс Python-разработчика с нуля: индивидуальные онлайн-занятия с наставником, Django, FastAPI, SQL и PostgreSQL. 12 месяцев. Программа, практика и тарифы.",
   absoluteTitle: true,

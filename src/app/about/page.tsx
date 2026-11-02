@@ -12,7 +12,7 @@ const ABOUT_DESCRIPTION =
   "О школе ИННОПРОГ: миссия, документы, юридическая информация и подход к обучению программированию с практикой, наставниками и поддержкой";
 
 export const metadata = createPageMetadata({
-  title: "О нас",
+  title: "О школе программирования: миссия и подход",
   description: ABOUT_DESCRIPTION,
   path: "/about",
   keywords: [...ABOUT_PAGE_KEYWORDS, "ИННОПРОГ документы", "онлайн-платформа ИННОПРОГ"],

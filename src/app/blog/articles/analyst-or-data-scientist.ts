@@ -3,7 +3,7 @@ import type { BlogArticle } from '../types';
 export const analystOrDataScientistArticle: BlogArticle = {
   "slug": "analitik-dannyh-ili-data-scientist",
   "title": "Аналитик данных или Data Scientist: какое направление выбрать",
-  "seoTitle": "Аналитик данных или Data Scientist: сравнение направлений — ИННОПРОГ",
+  "seoTitle": "В чём разница между аналитиком данных и Data Scientist",
   "description": "Сравниваем задачи аналитика данных и Data Scientist, инструменты, математику и первые проекты. Как выбрать программу обучения под свои интересы.",
   "excerpt": "Оба направления работают с данными, но проверяют разные вещи. Разбираем различия на примере заказов, отчёта и прогноза спроса.",
   "category": "Выбор профессии",

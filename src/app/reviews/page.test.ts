@@ -12,6 +12,6 @@ describe("review filter indexing metadata", () => {
     const metadata = await generateMetadata({ searchParams: Promise.resolve(query) });
     expect(metadata.robots).toMatchObject({ index: false, follow: true, googleBot: { index: false, follow: true } });
     expect(metadata.alternates?.canonical).toBe("https://innoprog.ru/reviews");
-    expect(metadata.title).toBe("Отзывы учеников ИННОПРОГ");
+    expect(metadata.title).toBe("Отзывы о курсах программирования и преподавателях");
   });
 });

@@ -3,7 +3,7 @@ import type { BlogArticle } from '../types';
 export const pythonArticle: BlogArticle = {
   slug: 'python-razrabotchik-s-nulya',
   title: 'Как стать Python-разработчиком с нуля: навыки, план обучения и первые проекты',
-  seoTitle: 'Как стать Python-разработчиком с нуля: план и проекты — ИННОПРОГ',
+  seoTitle: 'Как выучить Python: от синтаксиса до SQL и веб-сервисов',
   description: 'С чего начать изучение Python, когда переходить к SQL и веб-разработке, какие проекты собрать в портфолио и как проверить готовность к первым задачам.',
   excerpt: 'Что нужно Python-разработчику помимо синтаксиса: работа с данными, SQL, тесты и веб-сервисы. С примером кода и идеями для портфолио.',
   category: 'Python',
