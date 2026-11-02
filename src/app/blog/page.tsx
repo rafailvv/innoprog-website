@@ -13,7 +13,7 @@ export default function BlogPage() {
     <JsonLd data={webPageJsonLd({ path: "/blog", name: BLOG_TITLE, description: BLOG_DESCRIPTION, pageType: "CollectionPage", primaryEntityId: `${absoluteUrl("/blog")}#blog`, significantLinks: BLOG_ARTICLES.map((article) => `/blog/${article.slug}`) })} />
     <JsonLd data={breadcrumbJsonLd([{ name: "Главная", path: "/" }, { name: "Блог", path: "/blog" }])} />
     <JsonLd data={{ "@context": "https://schema.org", "@type": "Blog", "@id": `${absoluteUrl("/blog")}#blog`, name: "Блог ИННОПРОГ", url: absoluteUrl("/blog"), inLanguage: "ru-RU",
-      blogPost: BLOG_ARTICLES.map((article) => ({ "@type": "BlogPosting", "@id": `${absoluteUrl(`/blog/${article.slug}`)}#article`, headline: article.title, url: absoluteUrl(`/blog/${article.slug}`) })) }} />
+      blogPost: BLOG_ARTICLES.map((article) => ({ "@type": "BlogPosting", "@id": `${absoluteUrl(`/blog/${article.slug}`)}#article`, headline: article.title, url: absoluteUrl(`/blog/${article.slug}`), datePublished: article.publishedAt, image: absoluteUrl(article.hero.src) })) }} />
     <header className={styles.indexIntro}>
       <nav className={styles.breadcrumbs} aria-label="Хлебные крошки"><Link href="/">Главная</Link><span aria-hidden="true">/</span><span aria-current="page">Блог</span></nav>
       <span className={styles.eyebrow}>Блог ИННОПРОГ</span>

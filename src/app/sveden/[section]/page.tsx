@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SITE_NAME, SITE_URL } from "../../seo";
+import { DEFAULT_OG_IMAGE_PATH, DEFAULT_OG_IMAGE_SIZE, SITE_NAME, SITE_URL, absoluteUrl } from "../../seo";
 import { SvedenPage } from "../SvedenPage";
 import { SVEDEN_SECTIONS, SVEDEN_SECTION_SLUGS, type SvedenSectionSlug } from "../data";
 
@@ -25,7 +25,19 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
     title: `${info.title} — ${SITE_NAME}`,
     description: info.description,
     alternates: { canonical: url },
-    openGraph: { title: info.title, description: info.description, url, type: "website" },
+    openGraph: {
+      title: info.title,
+      description: info.description,
+      url,
+      type: "website",
+      images: [{ url: absoluteUrl(DEFAULT_OG_IMAGE_PATH), ...DEFAULT_OG_IMAGE_SIZE, alt: info.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: info.title,
+      description: info.description,
+      images: [absoluteUrl(DEFAULT_OG_IMAGE_PATH)],
+    },
     robots: { index: true, follow: true },
   };
 }
