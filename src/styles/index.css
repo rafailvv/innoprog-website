@@ -613,6 +613,18 @@ body {
   }
 }
 
+/* The covered tree is still laid out under the loader and resizes when the
+   desktop tree replaces the SSR mobile tree. Keep it out of paint only while
+   the loader is in the DOM, so the swap is not reported as a layout shift (CLS).
+   Without the loader (later resizes) nothing is hidden; without scripting the
+   rule does not apply at all. Layout stays measurable for readiness checks. */
+@media (min-width: 768px) and (scripting: enabled) {
+  .site-shell:not(.site-shell--ready) > .site-loader ~ *,
+  .site-shell--mobile > .site-loader ~ * {
+    visibility: hidden;
+  }
+}
+
 .site-shell--ready.site-shell--page-transition-loading .site-loader {
   opacity: 1;
   visibility: visible;
