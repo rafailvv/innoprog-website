@@ -1,3 +1,4 @@
+import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
@@ -260,7 +261,7 @@ function Frame76() {
           <br aria-hidden="true" />
           о профпереподготовке. Данные
           <br aria-hidden="true" />
-          о профпереподготовке вносятся в ФИС ФРДО.
+          о профпереподготовке вносятся в ФИС ФРДО
         </p>
       </div>
     </div>
@@ -1965,7 +1966,7 @@ function Frame86() {
         <p className="leading-[16px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="flex-[1_0_0] min-w-px relative">
-        <p className="leading-[16px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
+        <p className="leading-[16px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО</p>
       </div>
     </div>
   );
@@ -2553,100 +2554,8 @@ function Frame180() {
   );
 }
 
-function Frame142() {
-  return (
-    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-0 items-center leading-[39px] relative shrink-0 text-[40px] uppercase">
-      <span className="block relative shrink-0">{`заявка `}</span>
-      <span className="block relative shrink-0">на обучение</span>
-    </h2>
-  );
-}
-
-function Frame113() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 text-center text-white whitespace-nowrap">
-      <Frame142 />
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[20px]">
-        <p className="leading-[22px] mb-0">Оставьте заявку, и мы свяжемся</p>
-        <p className="leading-[22px]">с Вами в ближайшее время</p>
-      </div>
-    </div>
-  );
-}
-
-function Frame198() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0">
-      <input aria-label="Ваше имя" autoComplete="name" className="site-lead-input site-lead-input--mobile" name="name" placeholder="Ваше имя" type="text" />
-      <input aria-label="Номер телефона" autoComplete="tel" className="site-lead-input site-lead-input--mobile" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
-    </div>
-  );
-}
-
-function Frame114() {
-  return (
-    <div className="site-consent-group">
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent" data-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[39px] site-consent__box" data-name="чекбокс">
-          <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[12px] leading-[15px]">
-          Я даю <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a>
-        </p>
-      </div>
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-consent--advertising" data-advertising-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[39px] site-consent__box" data-name="чекбокс рекламных сообщений">
-          <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[12px] leading-[15px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
-        </p>
-      </div>
-      <p className="site-consent-policy-note text-white text-[12px] leading-[15px]">
-        Форма защищена Yandex SmartCaptcha
-      </p>
-    </div>
-  );
-}
-
-function Frame115() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <Frame114 />
-      <button className="bg-[rgba(255,255,255,0.8)] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
-        <span aria-hidden="true" className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <span className="flex flex-row items-center justify-center size-full">
-          <span className="content-stretch flex items-center justify-center p-[16px] relative size-full">
-            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-[rgba(0,0,0,0.4)] whitespace-nowrap">отправить заявку</span>
-          </span>
-        </span>
-      </button>
-    </div>
-  );
-}
-
-function Frame116() {
-  return (
-    <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[350px]">
-      <Frame198 />
-      <Frame115 />
-    </div>
-  );
-}
-
 function Component4() {
-  return (
-    <div className="bg-gradient-to-b content-stretch flex flex-col from-[#ae90ff] gap-[40px] h-[590px] items-center justify-center pb-[56px] pt-[64px] relative rounded-tl-[40px] rounded-tr-[40px] shrink-0 to-[#8559ff] w-full" data-name="заявка">
-      <Frame113 />
-      <Frame116 />
-    </div>
-  );
+  return <HomeLeadSection />;
 }
 
 function Frame182() {

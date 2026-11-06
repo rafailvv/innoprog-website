@@ -1,4 +1,7 @@
 "use client";
+import { CaptchaNotice } from "../components/CaptchaNotice";
+import { CallbackTimeReveal } from "../components/CallbackTimeReveal";
+import { CallbackTimePicker } from "../components/CallbackTimePicker";
 import { trackApplicationSuccess } from "../analytics";
 
 import { useRouter } from "next/navigation";
@@ -12,6 +15,8 @@ type LeadPayload = {
   phone: string;
   email: string;
   question: string;
+  callback_window: string;
+  callback_timezone: string;
   personal_data_consent: boolean;
   advertising_consent: boolean;
 };
@@ -74,6 +79,7 @@ const BENEFITS = [
 export default function LeadApplicationPage({ success = false }: { success?: boolean }) {
   const router = useRouter();
   const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
+  const [phone, setPhone] = useState("");
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -111,6 +117,8 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
       phone: String(formData.get("phone") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       question: String(formData.get("question") || "").trim(),
+      callback_window: String(formData.get("callback_window") || "anytime"),
+      callback_timezone: String(formData.get("callback_timezone") || "Europe/Moscow"),
       personal_data_consent: true,
       advertising_consent: isAdvertisingConsentChecked,
     };
@@ -164,10 +172,11 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
           </div>
           <form className="site-application-form" onSubmit={handleSubmit}>
             <h2>Оставьте заявку</h2>
-            <p>Мы свяжемся с вами в ближайшее время</p>
+            <p>Свяжемся с вами в удобное время</p>
             <div className="site-application-fields">
               <input aria-label="Ваше имя" autoComplete="name" name="name" placeholder="Ваше имя" type="text" />
-              <input aria-label="Номер телефона" autoComplete="tel" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
+              <input aria-label="Номер телефона" autoComplete="tel" inputMode="tel" name="phone" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="+7(000)-000-00-00" type="tel" />
+              <CallbackTimeReveal phone={phone}><CallbackTimePicker disabled={isSubmitting} /></CallbackTimeReveal>
               <input aria-label="Почта" autoComplete="email" inputMode="email" name="email" placeholder="Почта" type="email" />
               <textarea aria-label="Ваш вопрос" name="question" placeholder="Ваш вопрос" />
             </div>
@@ -183,13 +192,11 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
                 Я согласен(на) получать <a href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
               </span>
             </label>
-            <p className="site-application-policy-note">
-              Форма защищена Yandex SmartCaptcha
-            </p>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}
             <button className="site-application-submit" disabled={!isConsentChecked || isSubmitting} type="submit">
               {isSubmitting ? "отправляем..." : "отправить заявку"}
             </button>
+            <CaptchaNotice />
           </form>
         </div>
       </section>

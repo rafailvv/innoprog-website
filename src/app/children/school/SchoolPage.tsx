@@ -602,7 +602,7 @@ export default function SchoolPage() {
               Оставьте заявку, и мы поможем подобрать направление и удобное
               время занятий
             </Dialog.Description>
-            <LeadForm key={application} context={application ?? undefined} />
+            <LeadForm key={application} context={application ?? undefined} presentation="modal" />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

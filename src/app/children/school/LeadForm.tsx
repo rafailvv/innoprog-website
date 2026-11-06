@@ -1,4 +1,7 @@
 "use client";
+import { CaptchaNotice } from "../../components/CaptchaNotice";
+import { CallbackTimeReveal } from "../../components/CallbackTimeReveal";
+import { CallbackTimePicker } from "../../components/CallbackTimePicker";
 import { trackApplicationSuccess } from "../../analytics";
 
 import { useId, useRef, useState, type FormEvent } from "react";
@@ -25,7 +28,7 @@ export function formatChildrenPhone(value: string) {
     : value;
 }
 
-export default function LeadForm({ course, formId, context }: { course?: string; formId?: string; context?: string }) {
+export default function LeadForm({ course, formId, context, presentation = "inline" }: { course?: string; formId?: string; context?: string; presentation?: "inline" | "modal" }) {
   const id = useId();
   const captcha = useRef<YandexSmartCaptchaHandle>(null);
   const inFlight = useRef(false);
@@ -77,6 +80,8 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           phone: normalizedPhone,
           email: "",
           question: [context, course ? direction : `Направление: ${direction}`, `Имя ребёнка: ${childName}`, `Возраст ребёнка: ${age}`, message && `Пожелания: ${message}`].filter(Boolean).join("\n"),
+          callback_window: String(values.get("callback_window") || "anytime"),
+          callback_timezone: String(values.get("callback_timezone") || "Europe/Moscow"),
           personal_data_consent: true,
           advertising_consent: values.get("advertising_consent") === "on",
           captcha_token: token,
@@ -132,6 +137,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
           <span>Номер телефона <span aria-hidden="true">*</span></span>
           <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" autoComplete="tel" inputMode="tel" maxLength={30} required disabled={pending} value={phone} onChange={(event) => setPhone(event.target.value)} onBlur={() => setPhone(formatChildrenPhone(phone))} />
         </label>
+        {presentation === "modal" ? <div className={formStyles.fullWidth}><CallbackTimePicker disabled={pending} /></div> : <CallbackTimeReveal phone={phone}><CallbackTimePicker disabled={pending} /></CallbackTimeReveal>}
         <label className={`${formStyles.field} ${formStyles.fullWidth}`}>
           <span>Направление</span>
           {course ? <input name="direction" value={course.replace(/^Запись на курс\s*/, "")} readOnly /> : (
@@ -156,6 +162,7 @@ export default function LeadForm({ course, formId, context }: { course?: string;
       </label>
       {error ? <p id={`${id}-error`} role="alert" className={formStyles.error}>{error}{" "}<a href="https://t.me/innoprog_admin" target="_blank" rel="noreferrer">Написать в Telegram</a></p> : null}
       <button className={`${styles.button} ${formStyles.submit}`} type="submit" disabled={pending || !personalConsent} aria-describedby={error ? `${id}-error` : undefined}>{pending ? "Отправляем…" : "Отправить"}</button>
+      <CaptchaNotice dark />
     </form>
   );
 }

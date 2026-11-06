@@ -45,6 +45,9 @@ describe("children lead submission", () => {
       <LeadForm course="Запись на курс «Python»" formId="children-python" />,
     );
     fill();
+    fireEvent.click(screen.getByRole("radio", { name: "16:00–18:00" }));
+    const notice = screen.getByText("Форма защищена Yandex SmartCaptcha");
+    expect(notice.previousElementSibling?.tagName).toBe("BUTTON");
     fireEvent.click(screen.getByRole("button", { name: "Отправить" }));
     await waitFor(() =>
       expect(screen.getByRole("status").textContent).toContain(
@@ -60,6 +63,7 @@ describe("children lead submission", () => {
       advertising_consent: false,
       captcha_token: "test-captcha-token",
       form_id: "children-python",
+      callback_window: "16:00–18:00",
     });
     expect(track).toHaveBeenCalledExactlyOnceWith("children-python");
   });
@@ -196,5 +200,23 @@ describe("required personal consent controls submission", () => {
     expect(button.disabled).toBe(false);
     fireEvent.click(advertising);
     expect(button.disabled).toBe(false);
+  });
+});
+
+
+describe("callback visibility by form placement", () => {
+  it("shows callback choices immediately in a popup with an empty phone", () => {
+    render(<LeadForm presentation="modal" />);
+    expect(screen.getByLabelText(/Номер телефона/)).toHaveValue("");
+    expect(screen.getAllByRole("radio")).toHaveLength(6);
+  });
+  it("reveals and resets callback choices only after phone input on the page", () => {
+    render(<LeadForm />);
+    expect(screen.queryByRole("radio")).toBeNull();
+    const phone = screen.getByLabelText(/Номер телефона/);
+    fireEvent.change(phone,{target:{value:"89990000000"}});
+    expect(screen.getAllByRole("radio")).toHaveLength(6);
+    fireEvent.change(phone,{target:{value:""}});
+    expect(screen.queryByRole("radio")).toBeNull();
   });
 });

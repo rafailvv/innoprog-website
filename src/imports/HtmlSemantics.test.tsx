@@ -69,6 +69,17 @@ describe("valid server HTML without changing programme icons", () => {
     expect(document.querySelectorAll("button").length).toBeGreaterThan(0);
     expect([...document.querySelectorAll("button div, button p, button button, button a")].map((el) => el.outerHTML.slice(0, 240))).toEqual([]);
     expect(document.querySelectorAll(".site-course-program-tag style").length).toBe(0);
+    const leadSections = [...document.querySelectorAll('[data-name="заявка"]')];
+    expect(leadSections.length).toBeGreaterThan(0);
+    for (const section of leadSections) {
+      expect(section.querySelectorAll('input[name="callback_window"]')).toHaveLength(0);
+      expect(section.querySelector('input[name="phone"]')).not.toBeNull();
+      const notice = section.querySelector('[data-captcha-notice]')!;
+      expect(notice).not.toBeNull();
+      expect(notice.previousElementSibling?.matches('button[data-name="кнопки пд"]')).toBe(true);
+      expect(section.querySelector('.site-consent-group [data-captcha-notice]')).toBeNull();
+    }
+
     const levels = [...document.querySelectorAll("h1, h2, h3, h4, h5, h6")].map((heading) => Number(heading.tagName.slice(1)));
     expect(levels.filter((level, index) => index > 0 && level > levels[index - 1] + 1)).toEqual([]);
     if (_name === "PythonCourseMobile/PythonCourseMobile.tsx") {
@@ -83,6 +94,7 @@ describe("valid server HTML without changing programme icons", () => {
     const document = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page: "tariffs" }} />), "text/html");
     const controls = document.querySelectorAll('.site-lead-modal [role="checkbox"]');
     expect(controls).toHaveLength(2);
+    expect(document.querySelectorAll('.site-lead-modal input[name="callback_window"]')).toHaveLength(6);
     controls.forEach((control) => expect(control.getAttribute("aria-checked")).toBe("false"));
   });
 

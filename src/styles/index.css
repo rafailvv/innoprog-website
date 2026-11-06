@@ -215,7 +215,9 @@ body {
 }
 
 .site-shell--home-route .site-canvas .site-main-desktop-footer {
-  margin-top: -20px;
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .site-canvas--mobile {
@@ -4070,3 +4072,10 @@ button[data-name="кнопки пд"] {
     line-height: 15px;
   }
 }
+
+/* Shared callback forms, including generated adult landing/course screens. */
+.site-shell .site-lead-input, .site-shell .site-course-lead-input { border-radius:22px; }
+@media(max-width:767px) { .site-shell .site-lead-input, .site-shell .site-course-lead-input { border-radius:18px; } }
+
+/* A transformed canvas must not extend the home page beyond its measured footer. */
+.site-shell--home-route { overflow:clip; }

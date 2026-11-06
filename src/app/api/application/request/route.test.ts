@@ -119,3 +119,44 @@ describe("Telegram application audience", () => {
     });
   });
 });
+
+describe("callback preferences", () => {
+  it.each(["10:00–12:00", "18:00–20:00", "anytime"])("includes %s and Moscow timezone in the administrator message", async (callback_window) => {
+    process.env.SMARTCAPTCHA_SERVER_KEY = "test-key";
+    const fetchMock = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(Response.json({ status: "ok" }))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    const { POST } = await import("./route");
+    const response = await POST(request({ ...validPayload, question: "Хочу изучать Python", callback_window }));
+    expect(response.status).toBe(200);
+    const forwarded = JSON.parse(String(fetchMock.mock.calls[1][1]?.body));
+    expect(forwarded.question).toBe(`Хочу изучать Python\nУдобное время для звонка: ${callback_window === "anytime" ? "любое время" : callback_window} (по Москве)`);
+  });
+
+  it("rejects an unsupported interval before contacting external services", async () => {
+    const fetchMock = vi.spyOn(globalThis, "fetch");
+    const { POST } = await import("./route");
+    const response = await POST(request({ ...validPayload, callback_window: "03:00–19:00" }));
+    expect(response.status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+});
+
+it("forwards the local preference and an explicit Moscow conversion", async () => {
+  process.env.SMARTCAPTCHA_SERVER_KEY = "test-key";
+  const mock = vi.spyOn(globalThis, "fetch")
+    .mockResolvedValueOnce(Response.json({ status: "ok" }))
+    .mockResolvedValueOnce(Response.json({ ok: true }));
+  const { POST } = await import("./route");
+  const response = await POST(request({ ...validPayload, callback_window: "14:00–16:00", callback_timezone: "Asia/Yekaterinburg" }));
+  expect(response.status).toBe(200);
+  expect(JSON.parse(String(mock.mock.calls[1][1]?.body)).question).toBe("Удобное время для звонка: 14:00–16:00 (местное, МСК+2)\n❗ По Москве: 12:00–14:00");
+});
+
+it("rejects an invalid timezone before contacting external services", async () => {
+  const mock = vi.spyOn(globalThis, "fetch");
+  const { POST } = await import("./route");
+  const response = await POST(request({ ...validPayload, callback_window: "14:00–16:00", callback_timezone: "invalid-zone" }));
+  expect(response.status).toBe(400);
+  expect(mock).not.toHaveBeenCalled();
+});

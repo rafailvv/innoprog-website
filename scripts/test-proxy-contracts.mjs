@@ -12,7 +12,7 @@ const generatedFormFiles = fs
   .readdirSync(importRoot, { recursive: true })
   .filter((file) => String(file).endsWith(".tsx"))
   .map((file) => `src/imports/${file}`)
-  .filter((file) => read(file).includes("data-consent-toggle"));
+  .filter((file) => /import \{ (?:InlineLeadForm|HomeLeadSection) \}/.test(read(file)));
 
 assert.match(
   app,
@@ -91,7 +91,7 @@ assert.match(
 );
 assert.match(
   standaloneApplication,
-  /href="\/consent"[\s\S]*href="\/advertising-consent"[\s\S]*Форма защищена Yandex SmartCaptcha/,
+  /href="\/consent"[\s\S]*href="\/advertising-consent"[\s\S]*<\/button>[\s\S]*<CaptchaNotice \/>/,
   "standalone application must separate consent, advertising and captcha notices",
 );
 assert.doesNotMatch(
@@ -101,13 +101,16 @@ assert.doesNotMatch(
 );
 assert.equal(generatedFormFiles.length, 20, "all generated desktop and mobile forms must be checked");
 for (const file of generatedFormFiles) {
-  const source = read(file);
-  assert.match(source, /data-consent-toggle/, `${file} must expose personal-data consent`);
-  assert.match(source, /href="\/consent"/, `${file} must link the separate consent document`);
-  assert.match(source, /data-advertising-consent-toggle/, `${file} must expose optional advertising consent`);
-  assert.match(source, /href="\/advertising-consent"/, `${file} must link advertising consent`);
-  assert.match(source, /Форма защищена Yandex SmartCaptcha/, `${file} must display the captcha notice`);
-  assert.doesNotMatch(source, /Нажимая на кнопку, вы даете/, `${file} must require an explicit choice`);
+  assert.match(read(file), /<(?:InlineLeadForm course|HomeLeadSection) \/>/, `${file} must use the shared inline form`);
 }
+const inlineForm = read("src/app/components/InlineLeadForm.tsx");
+assert.match(inlineForm, /data-consent-toggle/, "shared form must expose personal consent");
+assert.match(inlineForm, /data-advertising-consent-toggle/, "shared form must expose optional advertising consent");
+assert.match(inlineForm, /href="\/consent"/, "shared form must link personal consent");
+assert.match(inlineForm, /href="\/advertising-consent"/, "shared form must link advertising consent");
+assert.match(inlineForm, /<CallbackTimeReveal phone=\{phone\}>/, "callback choice must follow a filled phone");
+assert.match(inlineForm, /<\/button>\s*<CaptchaNotice \/>/, "captcha notice must follow submit");
+
+assert.match(read("src/app/components/CaptchaNotice.tsx"), /Форма защищена Yandex SmartCaptcha/, "shared captcha notice must keep its vendor attribution");
 
 console.log("innoprog-website proxy contracts ok");

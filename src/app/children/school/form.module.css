@@ -36,3 +36,6 @@
 /* Portalled forms must not rely on variables inherited from the page wrapper. */
 .submit{background:#9c78ff;color:#fff;border:0;border-radius:12px;font-family:var(--font-manrope),Arial,sans-serif;font-weight:700}
 .submit:hover:not(:disabled){background:#895feb}
+
+.field input, .field select, .field textarea { border-radius:22px; }
+@media(max-width:560px) { .field input, .field select, .field textarea { border-radius:18px; } }

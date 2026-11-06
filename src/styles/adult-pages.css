@@ -4351,3 +4351,38 @@
 .site-course-faq-answer--mobile p + p {
   margin-top: 10px;
 }
+
+/* Keep the callback choice and submit action together in the application dialog. */
+@media (min-width: 769px) {
+  .site-lead-modal__card:not(.site-lead-modal__card--success) { width:min(800px, calc(100vw - 48px)); gap:20px; padding:28px 40px; }
+  .site-lead-modal__card:not(.site-lead-modal__card--success) .site-lead-modal__logo { width:240px; }
+  .site-lead-modal__form { width:100%; gap:16px; }
+  .site-lead-modal__title { font-size:30px; line-height:1.2; }
+  .site-lead-modal__subtitle { font-size:18px; line-height:1.5; text-transform:none; }
+  .site-lead-modal__fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .site-lead-modal__input { min-width:0; height:54px; padding:15px 20px; border-radius:22px; font-size:16px; line-height:24px; text-transform:none; }
+  .site-lead-modal__textarea { min-height:54px; }
+  .site-lead-modal__consent { font-size:12px; line-height:1.5; gap:12px; }
+  .site-lead-modal__submit { min-height:54px; padding:14px 20px; font-size:18px; line-height:24px; }
+}
+
+.site-lead-modal__top { align-items:center; }
+.site-lead-modal__brand { display:flex; align-items:center; gap:20px; min-width:0; }
+.site-lead-modal__brand .site-lead-modal__logo { width:180px; max-width:none; flex-shrink:0; }
+.site-lead-modal__card:not(.site-lead-modal__card--success) .site-lead-modal__brand .site-lead-modal__logo { width:180px; }
+@media (min-width:769px) { .site-lead-modal__subtitle { white-space:nowrap; font-size:17px; } }
+@media (max-width:768px) {
+  .site-lead-modal__brand { width:100%; justify-content:space-between; gap:12px; }
+  .site-lead-modal__card:not(.site-lead-modal__card--success) .site-lead-modal__brand .site-lead-modal__logo,
+  .site-lead-modal__brand .site-lead-modal__logo { width:146px; }
+  .site-lead-modal__top .site-lead-modal__crumbs { display:none; }
+  .site-lead-modal__input { border-radius:18px; }
+  .site-lead-modal__subtitle { text-transform:none; }
+}
+@media (max-width:768px) {
+  .site-lead-modal__card:not(.site-lead-modal__card--success) { gap:12px; }
+  .site-lead-modal__form { gap:10px; }
+  .site-lead-modal__title { font-size:22px; line-height:26px; }
+  .site-lead-modal__subtitle { font-size:16px; line-height:22px; }
+  .site-lead-modal__textarea { min-height:60px; }
+}

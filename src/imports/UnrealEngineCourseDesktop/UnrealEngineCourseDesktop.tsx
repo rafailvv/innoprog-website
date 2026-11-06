@@ -1,3 +1,4 @@
+import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useId, useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
@@ -659,7 +660,7 @@ function Frame38() {
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[32px] w-full">Два диплома</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
         <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом о профпереподготовке.</p>
-        <p className="leading-[30px]">Данные о профпереподготовке вносятся в ФИС ФРДО.</p>
+        <p className="leading-[30px]">Данные о профпереподготовке вносятся в ФИС ФРДО</p>
       </div>
     </div>
   );
@@ -2628,7 +2629,7 @@ function Frame43() {
         <p className="leading-[30px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
+        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО</p>
       </div>
     </div>
   );
@@ -4821,79 +4822,8 @@ function Frame254() {
   );
 }
 
-function Frame189() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-      <input aria-label="Ваше имя" autoComplete="name" className="site-course-lead-input site-course-lead-input--desktop" name="name" placeholder="Ваше имя" type="text" />
-      <input aria-label="Номер телефона" autoComplete="tel" className="site-course-lead-input site-course-lead-input--desktop" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
-      <input aria-label="Почта" autoComplete="email" className="site-course-lead-input site-course-lead-input--desktop" name="email" placeholder="Почта" type="email" />
-    </div>
-  );
-}
-
-function Frame57() {
-  return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-      <Frame189 />
-    </div>
-  );
-}
-
-function Frame58() {
-  return (
-    <div className="site-consent-group">
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-course-consent" data-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
-          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я даю <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a>
-        </p>
-      </div>
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-consent--advertising site-course-consent" data-advertising-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс рекламных сообщений">
-          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
-        </p>
-      </div>
-      <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
-        Форма защищена Yandex SmartCaptcha
-      </p>
-    </div>
-  );
-}
-
-function Frame59() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <Frame58 />
-      <button className="bg-white cursor-pointer relative rounded-[40px] shrink-0 w-full site-course-lead-submit" data-name="кнопки пд" type="button">
-        <span className="flex flex-row items-center justify-center size-full">
-          <span className="content-stretch flex items-center justify-center p-[28px] relative size-full">
-            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-black whitespace-nowrap">начать обучение</span>
-          </span>
-        </span>
-      </button>
-    </div>
-  );
-}
-
 function Frame60() {
-  return (
-    <div className="content-stretch drop-shadow-[0px_4px_2px_rgba(0,0,0,0.25)] flex flex-col gap-[48px] items-start relative shrink-0 w-[464px]">
-      <Frame57 />
-      <textarea aria-label="Ваш вопрос" className="site-course-lead-input site-course-lead-input--desktop site-course-lead-input--question" name="question" placeholder="Ваш вопрос" />
-      <Frame59 />
-    </div>
-  );
+  return <InlineLeadForm course />;
 }
 
 function Component11() {

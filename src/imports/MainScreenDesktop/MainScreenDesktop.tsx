@@ -1,3 +1,4 @@
+import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 import { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
@@ -156,7 +157,7 @@ function Frame72() {
         <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] text-black w-full">
           <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом</p>
           <p className="leading-[30px] mb-0">о профпереподготовке. Данные</p>
-          <p className="leading-[30px]">о профпереподготовке вносятся в ФИС ФРДО.</p>
+          <p className="leading-[30px]">о профпереподготовке вносятся в ФИС ФРДО</p>
         </div>
       </div>
     </div>
@@ -481,7 +482,7 @@ function Frame132() {
           description="Освойте анализ данных, отчеты и визуализацию, чтобы находить закономерности и делать обоснованные выводы для бизнеса"
         />
       </a>
-      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 text-white no-underline w-[410.667px]" href="/cpp-developer-course">
+      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/cpp-developer-course">
         <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
           <div className="flex-[1_0_0] min-h-px relative w-full">
@@ -1350,7 +1351,7 @@ function Frame81() {
         <p className="leading-[30px]">(1) Диплом ИТ-школы ИННОПРОГ подтверждает прохождение курса и освоение программы по выбранному направлению</p>
       </div>
       <div className="relative shrink-0 w-[628px]">
-        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО.</p>
+        <p className="leading-[30px]">(2) Диплом о профессиональной переподготовке подтверждает получение квалификации. Сведения вносятся в ФИС ФРДО</p>
       </div>
     </div>
   );
@@ -1975,123 +1976,8 @@ function Component7() {
   );
 }
 
-function Frame125() {
-  return (
-    <h2 className="content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold items-center justify-center leading-[92px] relative shrink-0 text-[96px] uppercase w-[1000px]">
-      <span className="block relative shrink-0 whitespace-nowrap">заявка</span>
-      <span className="block relative shrink-0 whitespace-nowrap">на обучение</span>
-    </h2>
-  );
-}
-
-function Frame97() {
-  return (
-    <div className="content-stretch flex flex-col h-[276px] items-center justify-between relative shrink-0 text-[#464a6a] text-center w-[626px]">
-      <Frame125 />
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[36px] w-[626px]">
-        <p className="leading-[33px] mb-0">Оставьте заявку, и мы свяжемся</p>
-        <p className="leading-[33px]">с Вами в ближайшее время</p>
-      </div>
-    </div>
-  );
-}
-
-function Frame98() {
-  return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full">
-      <input aria-label="Ваше имя" autoComplete="name" className="site-lead-input site-lead-input--desktop" name="name" placeholder="Ваше имя" type="text" />
-      <input aria-label="Номер телефона" autoComplete="tel" className="site-lead-input site-lead-input--desktop" inputMode="tel" name="phone" placeholder="+7(000)-000-00-00" type="tel" />
-    </div>
-  );
-}
-
-function Frame99() {
-  return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[628px]">
-      <Frame98 />
-    </div>
-  );
-}
-
-function Frame100() {
-  return (
-    <div className="site-consent-group">
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent" data-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс">
-          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я даю <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/consent" rel="noopener noreferrer" target="_blank">согласие на обработку персональных данных</a>
-        </p>
-      </div>
-      <div aria-checked="false" className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full site-consent site-consent--advertising" data-advertising-consent-toggle role="checkbox" tabIndex={0}>
-        <div className="relative rounded-[2px] shrink-0 size-[24px] site-consent__box" data-name="чекбокс рекламных сообщений">
-          <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.7)] border-solid inset-0 pointer-events-none rounded-[2px] site-consent__border" />
-          <svg aria-hidden="true" className="site-consent__check" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12.5 10 17l9-10" />
-          </svg>
-        </div>
-        <p className="flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal min-w-px relative text-white text-[16px] leading-[20px]">
-          Я согласен(на) получать <a className="cursor-pointer font-['Manrope:Bold',sans-serif] font-bold site-consent__link" href="/advertising-consent" rel="noopener noreferrer" target="_blank">рекламные и информационные сообщения</a>
-        </p>
-      </div>
-      <p className="site-consent-policy-note text-white text-[16px] leading-[20px]">
-        Форма защищена Yandex SmartCaptcha
-      </p>
-    </div>
-  );
-}
-
-function Frame101() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-      <Frame100 />
-      <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
-        <span aria-hidden="true" className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
-        <span className="flex flex-row items-center justify-center size-full">
-          <span className="content-stretch flex items-center justify-center p-[24px] relative size-full">
-            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[#464a6a] text-[32px] text-left whitespace-nowrap">отправить заявку</span>
-          </span>
-        </span>
-      </button>
-    </div>
-  );
-}
-
-function Frame102() {
-  return (
-    <div className="content-stretch flex flex-col gap-[48px] items-center relative shrink-0 w-[628px]">
-      <Frame99 />
-      <Frame101 />
-    </div>
-  );
-}
-
-function Frame103() {
-  return (
-    <div className="content-stretch flex flex-col gap-[60px] items-center justify-center relative shrink-0 w-full">
-      <Frame97 />
-      <Frame102 />
-    </div>
-  );
-}
-
 function Component8() {
-  return (
-    <div className="content-stretch flex flex-col gap-[104px] h-[870px] items-center justify-center overflow-clip p-[80px] relative rounded-tl-[60px] rounded-tr-[60px] shrink-0 w-[1440px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1440 885\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'0.800000011920929\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(1.35 51.815 -84.309 5.8136 720 442.5)\\'><stop stop-color=\\'rgba(255,255,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(206,188,255,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(181,154,255,1)\\' offset=\\'0.75\\'/><stop stop-color=\\'rgba(156,120,255,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} data-name="заявка">
-      <div className="absolute flex h-[3281.282px] items-center justify-center left-[-883px] top-[-1728px] w-[3443.535px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-[-27.04deg]">
-          <div className="h-[2313.375px] opacity-70 relative w-[2685.416px]" data-name="Circle_Stack_Swirl">
-            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none mix-blend-color-burn object-cover pointer-events-none size-full" src={imgCircleStackSwirl1} />
-          </div>
-        </div>
-      </div>
-      <Frame103 />
-    </div>
-  );
+  return <HomeLeadSection />;
 }
 
 function Frame126() {
@@ -2105,7 +1991,7 @@ function Frame126() {
 
 function Frame122() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[148px] h-[9675px] items-center left-1/2 top-[3436px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[148px] items-center left-1/2 top-[3436px]">
       <Frame127 />
       <Component1 />
       <Component2 />

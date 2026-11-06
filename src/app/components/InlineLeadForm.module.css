@@ -1,0 +1,17 @@
+.form { --lead-gap:16px; position:relative; display:flex; flex-direction:column; width:100%; min-width:0; max-width:560px; gap:var(--lead-gap); margin:0; color:white; font-family:var(--font-manrope),Arial,sans-serif; }
+.fields { display:flex; flex-direction:column; gap:12px; width:100%; }
+.fields input, .fields textarea { box-sizing:border-box; width:100%; min-width:0; margin:0; border:1px solid transparent; border-radius:22px; padding:16px 20px; background:#fff; color:#39364f; font:inherit; font-size:18px; line-height:1.4; outline:0; }
+.fields input { height:58px; }
+.fields textarea { min-height:88px; resize:vertical; }
+.fields input::placeholder,.fields textarea::placeholder { color:#8163b9; opacity:1; }
+.fields input:focus-visible,.fields textarea:focus-visible { border-color:#55378c; outline:2px solid #dfd0ff; outline-offset:2px; }
+.course { width:464px; max-width:100%; }
+.course .fields input,.course .fields textarea { background:#716098; color:white; }
+.course .fields input::placeholder,.course .fields textarea::placeholder { color:#f0e9fc; }
+.consent { display:flex; align-items:flex-start; gap:10px; font-size:13px; line-height:1.5; text-align:left; }
+.consent a { color:inherit; font-weight:600; }
+.box { position:relative; flex:0 0 22px; width:22px; height:22px; border:1px solid #d8c9f3; border-radius:4px; }
+.form .submit { width:100%; min-height:56px; margin-top:0; padding:15px 20px; border:1px solid white; border-radius:22px; background:white; color:#39364f; font:inherit; font-size:18px; font-weight:700; line-height:1.4; text-transform:uppercase; cursor:pointer; }
+.form .submit:disabled { cursor:not-allowed; opacity:.6; }
+.form .submit:focus-visible { outline:3px solid #e5d9ff; outline-offset:3px; }
+@media(max-width:767px) { .form { --lead-gap:14px; } .fields input,.fields textarea { border-radius:18px; padding:13px 16px; font-size:16px; } .fields input { height:50px; } .consent { font-size:12px; } .form .submit { min-height:50px; border-radius:18px; font-size:16px; } }

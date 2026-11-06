@@ -1,7 +1,10 @@
 "use client";
 import "../styles/adult-pages.css";
+import { CaptchaNotice } from "./components/CaptchaNotice";
+import { CallbackTimePicker } from "./components/CallbackTimePicker";
 import { trackApplicationSuccess } from "./analytics";
 import { observeCookieBannerPosition } from "./cookieBannerPosition";
+import { getLayoutBottom, getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -118,6 +121,8 @@ type LeadPayload = {
   phone: string;
   email?: string;
   question?: string;
+  callback_window?: string;
+  callback_timezone?: string;
   personal_data_consent?: boolean;
   advertising_consent?: boolean;
 };
@@ -204,7 +209,9 @@ function getLeadPayload(scope?: ParentNode | null): LeadPayload {
   const email = findLeadFieldValue(root, ["email", "modal-email"]);
   const question = findLeadFieldValue(root, ["question", "modal-question"]);
 
-  return { name, phone, email, question };
+  const callback_window = root.querySelector<HTMLInputElement>('input[name="callback_window"]:checked')?.value;
+  const callback_timezone = findLeadFieldValue(root, ["callback_timezone"]);
+  return { name, phone, email, question, callback_window, callback_timezone };
 }
 
 function isLeadPayloadValid(payload: LeadPayload) {
@@ -682,23 +689,6 @@ function getServerViewportSnapshot() {
   return String(MOBILE_DESIGN.width);
 }
 
-function getSafariSnapshot() {
-  if (typeof navigator === "undefined") {
-    return "false";
-  }
-
-  const userAgent = navigator.userAgent;
-  const isSafari = /Safari/i.test(userAgent) &&
-    /AppleWebKit/i.test(userAgent) &&
-    !/(Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android)/i.test(userAgent);
-
-  return isSafari ? "true" : "false";
-}
-
-function getServerSafariSnapshot() {
-  return "false";
-}
-
 function getMetrikaSelectorSnapshot() {
   if (typeof window === "undefined") {
     return "false";
@@ -709,14 +699,6 @@ function getMetrikaSelectorSnapshot() {
 
 function getServerMetrikaSelectorSnapshot() {
   return "false";
-}
-
-function useIsSafariBrowser() {
-  return useSyncExternalStore(
-    () => () => {},
-    getSafariSnapshot,
-    getServerSafariSnapshot,
-  ) === "true";
 }
 
 function useIsMetrikaSelectorMode() {
@@ -750,16 +732,7 @@ function getClickedText(target: EventTarget | null, root: HTMLElement) {
 }
 
 function getVisibleCarouselAnchor(carousel: HTMLElement) {
-  const rect = carousel.getBoundingClientRect();
-  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-  const visibleLeft = Math.max(rect.left, 0);
-  const visibleRight = Math.min(rect.right, viewportWidth);
-
-  if (visibleRight > visibleLeft) {
-    return ((visibleLeft + visibleRight) / 2) - rect.left;
-  }
-
-  return carousel.clientWidth / 2;
+  return getVisibleCarouselCenter(carousel, window.innerWidth || document.documentElement.clientWidth);
 }
 
 function shouldLoopCarousel(carousel: HTMLElement) {
@@ -3496,7 +3469,7 @@ function enableCarouselPointerDrag(carousel: HTMLElement) {
       carousel.setPointerCapture?.(event.pointerId);
     }
 
-    carousel.scrollLeft = clampCarouselScrollLeft(carousel, startScrollLeft - deltaX);
+    carousel.scrollLeft = clampCarouselScrollLeft(carousel, startScrollLeft - deltaX / getRenderedScale(carousel));
     event.preventDefault();
   };
 
@@ -3659,7 +3632,6 @@ export default function App({
   const isInitialCoursePage = isCoursePageRoute(initialRoute);
   const router = useRouter();
   const viewport = useViewportState();
-  const isSafariBrowser = useIsSafariBrowser();
   const isMetrikaSelectorMode = useIsMetrikaSelectorMode();
   const [leadModalState, setLeadModalState] = useState<"closed" | "form" | "success">("closed");
   const [activeReviewStory, setActiveReviewStory] = useState<ReviewStoryKey | null>(
@@ -4621,6 +4593,8 @@ export default function App({
       const captchaToken = await smartCaptchaRef.current?.requestToken();
       if (!captchaToken) throw new Error("captcha-failed");
       await sendLeadApplication(payload, captchaToken, formId);
+      const submittedForm = source instanceof HTMLFormElement ? source : source?.querySelector<HTMLFormElement>("form[data-inline-lead-form]");
+      submittedForm?.reset();
       setLeadModalState("success");
       setLeadDraft({});
       setIsConsentChecked(false);
@@ -5170,22 +5144,13 @@ export default function App({
 
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
-  // Metrika's visual selector calculates incorrect hit areas for a canvas
-  // scaled with Safari's non-standard CSS zoom. Its debug mode uses the same
-  // transform-based scaling as other browsers so button outlines stay aligned.
-  const shouldUseSafariCanvasZoom = !viewport.isMobile && isSafariBrowser && !isMetrikaSelectorMode;
-  const canvasStyle = shouldUseSafariCanvasZoom
-    ? {
-        width: `${activeDesign.width}px`,
-        height: `${activeDesign.height}px`,
-        transform: "none",
-        zoom: viewport.scale,
-      } as CSSProperties & { zoom?: number }
-    : {
-        width: `${activeDesign.width}px`,
-        height: `${activeDesign.height}px`,
-        transform: `scale(${viewport.scale})`,
-      } as CSSProperties;
+  // Keep one coordinate system in every browser. Safari CSS zoom changes
+  // layout/scroll metrics and made the canvas height depend on viewport width.
+  const canvasStyle: CSSProperties = {
+    width: `${activeDesign.width}px`,
+    height: `${homeContentDesignHeight || activeDesign.height}px`,
+    transform: `scale(${viewport.scale})`,
+  };
 
   useLayoutEffect(() => {
     if (isStandaloneRoute) {
@@ -5205,13 +5170,12 @@ export default function App({
     const measureContent = () => {
       window.cancelAnimationFrame(animationFrame);
       animationFrame = window.requestAnimationFrame(() => {
-        const content = canvas.firstElementChild as HTMLElement | null;
-        const measuredHeight = Math.ceil(Math.max(
-          activeDesign.height,
-          canvas.scrollHeight,
-          content?.scrollHeight || 0,
-          content?.offsetHeight || 0,
-        ));
+        const footer = canvas.querySelector<HTMLElement>("[data-site-footer]");
+        if (!footer) return;
+        // Measure the footer in layout pixels, independently of scale, scroll
+        // position, and the height assigned to the outer canvas.
+        const measuredHeight = getLayoutBottom(footer, canvas);
+        if (measuredHeight === null || measuredHeight <= 0) return;
 
         setHomeContentDesignHeight((currentHeight) => (
           currentHeight === measuredHeight ? currentHeight : measuredHeight
@@ -5222,9 +5186,19 @@ export default function App({
     const resizeObserver = new ResizeObserver(measureContent);
     resizeObserver.observe(canvas);
 
-    if (canvas.firstElementChild) {
-      resizeObserver.observe(canvas.firstElementChild);
-    }
+    const observed = new WeakSet<Element>();
+    const observeForms = () => {
+      canvas.querySelectorAll('[data-name="заявка"], [data-site-footer]').forEach((section) => {
+        if (!observed.has(section)) {
+          resizeObserver.observe(section);
+          observed.add(section);
+        }
+      });
+    };
+    if (canvas.firstElementChild) resizeObserver.observe(canvas.firstElementChild);
+    observeForms();
+    const formObserver = new MutationObserver(() => { observeForms(); measureContent(); });
+    formObserver.observe(canvas, { childList: true, subtree: true });
 
     measureContent();
     window.addEventListener("resize", measureContent, { passive: true });
@@ -5237,8 +5211,9 @@ export default function App({
       window.removeEventListener("resize", measureContent);
       window.removeEventListener("load", measureContent);
       resizeObserver.disconnect();
+      formObserver.disconnect();
     };
-  }, [activeDesign.height, isStandaloneRoute, viewport.isMobile]);
+  }, [activeDesign.height, isStandaloneRoute, viewport.isMobile, viewport.scale]);
 
   return (
     <main
@@ -5248,7 +5223,6 @@ export default function App({
         isReady ? "site-shell--ready" : "",
         isPageTransitionLoading ? "site-shell--page-transition-loading" : "",
         viewport.isMobile ? "site-shell--mobile" : "",
-        shouldUseSafariCanvasZoom ? "site-shell--safari-canvas-zoom" : "",
         isReviewRoute ? "site-shell--review-route" : "",
         isCourseReviewRoute ? "site-shell--course-review-route" : "",
         isStudentReviewRoute ? "site-shell--student-review-route" : "",
@@ -5529,10 +5503,13 @@ export default function App({
             role="dialog"
           >
             <div className="site-lead-modal__top">
-              <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
-                <span aria-hidden="true">←</span>
-                <span>назад</span>
-              </button>
+              <div className="site-lead-modal__brand">
+                <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
+                  <span aria-hidden="true">←</span>
+                  <span>назад</span>
+                </button>
+                <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
+              </div>
               <div className="site-lead-modal__crumbs">
                 <button
                   onClick={() => {
@@ -5548,15 +5525,11 @@ export default function App({
               </div>
             </div>
 
-            <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
-
             {leadModalState !== "success" ? (
               <form key={leadModalState} className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
                 <h2 className="site-lead-modal__title">Записаться на обучение</h2>
                 <p className="site-lead-modal__subtitle">
-                  Оставьте заявку, и мы свяжемся
-                  <br />
-                  с Вами в ближайшее время
+                  Оставьте заявку, и мы свяжемся с вами в удобное время
                 </p>
                 <div className="site-lead-modal__fields">
                   <input
@@ -5596,6 +5569,7 @@ export default function App({
                     placeholder="Ваш вопрос"
                   />
                 </div>
+                <CallbackTimePicker defaultValue={leadDraft.callback_window} defaultTimezone={leadDraft.callback_timezone} disabled={isLeadSubmitting} />
                 <div
                   aria-checked={isConsentChecked}
                   className="site-lead-modal__consent site-consent"
@@ -5646,9 +5620,6 @@ export default function App({
                     </a>
                   </span>
                 </div>
-                <p className="site-lead-modal__policy-note">
-                  Форма защищена Yandex SmartCaptcha
-                </p>
                 {leadFormError ? (
                   <p className="site-lead-modal__error" role="alert">
                     {leadFormError}
@@ -5661,6 +5632,7 @@ export default function App({
                 >
                   {isLeadSubmitting ? "отправляем..." : "отправить заявку"}
                 </button>
+                <CaptchaNotice />
               </form>
             ) : (
               <div className="site-lead-modal__success" role="status">

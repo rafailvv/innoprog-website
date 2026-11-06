@@ -207,7 +207,7 @@ function Group3() {
 
 export function MainScreenMobileFooter() {
   return (
-    <div className="bg-[#464a6a] h-[940px] relative shrink-0 w-full">
+    <div className="bg-[#464a6a] min-h-[940px] relative shrink-0 w-full" data-site-footer>
       <div className="content-stretch flex flex-col gap-[22px] items-start pb-[28px] pt-[28px] px-[20px] relative size-full">
         <Frame92 />
         <Frame123 />

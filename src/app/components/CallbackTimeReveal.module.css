@@ -1,0 +1,4 @@
+.reveal { grid-column:1 / -1; display:grid; grid-template-rows:1fr; width:100%; min-width:0; animation:callback-reveal 280ms ease-out both; }
+.content { min-height:0; overflow:hidden; }
+@keyframes callback-reveal { from { margin-top:calc(-1 * var(--lead-gap, 14px)); grid-template-rows:0fr; opacity:0; transform:translateY(-5px); } to { margin-top:0; grid-template-rows:1fr; opacity:1; transform:translateY(0); } }
+@media(prefers-reduced-motion:reduce) { .reveal { animation:none; } }

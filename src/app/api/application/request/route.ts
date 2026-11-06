@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { callbackNote, isCallbackWindow, isCallbackTimezone } from "../../../callbackTime";
 
 const BOT_APPLICATION_URL =
   process.env.APPLICATION_REQUEST_PROXY_URL || "https://bot.innoprog.ru/application/request";
@@ -103,13 +104,20 @@ export function OPTIONS() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
+    if (body.callback_window !== undefined && !isCallbackWindow(body.callback_window)) {
+      return NextResponse.json({ ok: false, error: "invalid_callback_window" }, { status: 400 });
+    }
+    if (body.callback_timezone !== undefined && !isCallbackTimezone(body.callback_timezone)) {
+      return NextResponse.json({ ok: false, error: "invalid_callback_timezone" }, { status: 400 });
+    }
+    const question = String(body.question || "").trim();
     const sourcePage = normalizeSourcePage(body.source_page, req.headers.get("referer") || "");
     const sourcePath = new URL(sourcePage).pathname;
     const payload = {
       name: String(body.name || "").trim(),
       phone: normalizePhone(body.phone),
       email: String(body.email || "").trim(),
-      question: String(body.question || "").trim(),
+      question: [question, body.callback_window ? callbackNote(body.callback_window, body.callback_timezone) : ""].filter(Boolean).join("\n"),
       personal_data_consent: body.personal_data_consent === true,
       advertising_consent: body.advertising_consent === true,
       source_page: sourcePage,
