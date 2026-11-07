@@ -105,7 +105,7 @@ function DocumentList({
             >
               {DOCUMENT_DISPLAY_TITLES[document.title] ?? document.title}
             </a>
-            <span>{DOCUMENT_PURPOSES[document.title] ?? purpose} · PDF · {formatDocumentSize(document.sizeBytes)}</span>
+            <span>{DOCUMENT_PURPOSES[document.title] ?? purpose}, PDF, {formatDocumentSize(document.sizeBytes)}</span>
           </li>
         ))}
       </ul>
@@ -251,7 +251,7 @@ function EducationSection() {
                 <td>{program.students}, в том числе иностранных граждан — {program.foreignStudents}</td>
                 <td className={styles.documentLinks}>
                   <a href={program.document.href} itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology" rel="noopener noreferrer" target="_blank">Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы.</a>
-                  <small>PDF · {formatDocumentSize(program.document.sizeBytes)}</small>
+                  <small>PDF, {formatDocumentSize(program.document.sizeBytes)}</small>
                 </td>
               </tr>
             ))}

@@ -33,7 +33,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <span className={styles.tag}>{article.category}</span>
         <h1 id="article-title">{article.title}</h1>
         <p className={styles.articleExcerpt}>{article.excerpt}</p>
-        <div className={styles.byline}><span>Редакция ИННОПРОГ</span><span aria-hidden="true">·</span><time dateTime={article.publishedAt}>{articleDate(article.publishedAt)}</time><span aria-hidden="true">·</span><span>~{readingMinutes(article)} мин чтения</span></div>
+        <div className={styles.byline}>Редакция ИННОПРОГ, <time dateTime={article.publishedAt}>{articleDate(article.publishedAt)}</time>, ~{readingMinutes(article)} мин чтения</div>
       </header>
       <figure className={styles.articleHero}><img src={article.hero.src} alt={article.hero.alt} width={article.hero.width} height={article.hero.height} fetchPriority="high" decoding="async" /></figure>
       <div className={styles.articleLayout}>

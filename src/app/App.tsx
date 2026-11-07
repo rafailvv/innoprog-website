@@ -1526,7 +1526,7 @@ function ReviewsIndexCard({ review }: { review: StudentReview }) {
       <span className="site-reviews-index-card__head">
         <span>
           <strong>{review.name}</strong>
-          <span>{`${review.age} · курс: ${review.course}`}</span>
+          <span>{`${review.age}, курс: ${review.course}`}</span>
         </span>
         <CourseRating rating={review.rating} />
       </span>
@@ -1611,7 +1611,7 @@ function StudentReviewPage({
           <div className="site-course-review-feature__head">
             <div>
               <h2>{review.name}</h2>
-              <p>{`${review.age} · курс: ${review.course}`}</p>
+              <p>{`${review.age}, курс: ${review.course}`}</p>
             </div>
             <CourseRating rating={review.rating} />
           </div>
