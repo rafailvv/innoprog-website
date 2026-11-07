@@ -7,6 +7,8 @@ import svgPaths from "./svg-j2mtrggl1r";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import imgGain from "./home-background.opt.webp";
 import homeBenefitsGlow from "./home-benefits-glow.webp";
+import homeCourseGlow from "../shared/home-course-glow.webp";
+import { ResultsBackground } from "../shared/ResultsBackground";
 import imgImg29771 from "./3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgImg29772 from "./course-data-analyst-desktop.webp";
 import imgImg29773 from "./course-frontend-desktop.webp";
@@ -1286,34 +1288,10 @@ function Frame42() {
   );
 }
 
-function Component5() {
-  return (
-    <div className="absolute h-[968px] left-[-80px] opacity-70 overflow-clip rounded-[40px] top-[-104px] w-[1440px]" style={{ backgroundImage: "linear-gradient(213.954deg, rgb(66, 190, 248) 10.648%, rgb(255, 255, 255) 8.7589%, rgb(156, 120, 255) 45.956%, rgb(66, 190, 248) 73.988%, rgb(156, 120, 255) 101.48%)" }} data-name="слово дня">
-      <div className="absolute left-0 size-[1304px] top-[-135px]" />
-      <div className="absolute blur-[37.15px] h-[1191px] left-[-66px] top-[-56px] w-[1242px]" style={{ backgroundImage: "linear-gradient(135.943deg, rgb(255, 255, 255) 3.2894%, rgba(137, 101, 234, 0.67) 51.298%)" }} />
-      <div className="absolute flex h-[3865.744px] items-center justify-center left-[-1014px] top-[-1556px] w-[3914.288px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="-scale-y-100 flex-none rotate-[13.7deg]">
-          <div className="h-[3186.072px] relative rounded-[40px] w-[3252.149px]" data-name="Circle_Stack_Swirl">
-            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
-          </div>
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-0 left-1/2 top-[1022px] w-[1086px]">
-        <div className="absolute inset-[-0.5px_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1086 1">
-            <path d="M0 0.5H1086" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
-          </svg>
-        </div>
-      </div>
-      <p className="absolute font-['JetBrains_Mono:Regular',sans-serif] font-normal leading-[normal] left-[943px] text-[#f9f9f9] text-[24px] top-[968px] whitespace-nowrap">{`{//}`}</p>
-    </div>
-  );
-}
-
 function Frame80() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
-      <Component5 />
+      <ResultsBackground eager />
       <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-white uppercase w-full">
         <span className="block h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] w-[min-content]">Что вы получите</span>
         <span className="block leading-[97px] relative shrink-0 text-[64px] text-right whitespace-nowrap">после обучения</span>
@@ -2093,22 +2071,7 @@ export default function Component() {
         <div className="flex-none rotate-[90.25deg]">
           <div className="h-[656px] relative w-[717.676px]">
             <div className="absolute inset-[-30.49%_-27.87%]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1117.68 1056">
-                <g filter="url(#filter0_f_1_1053)">
-                  <ellipse cx="558.838" cy="528" fill="url(#paint0_linear_1_1053)" rx="358.838" ry="328" />
-                </g>
-                <defs>
-                  <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1056" id="filter0_f_1_1053" width="1117.68" x="0" y="0">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                    <feGaussianBlur result="effect1_foregroundBlur_1_1053" stdDeviation="100" />
-                  </filter>
-                  <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_1053" x1="200" x2="917.676" y1="528" y2="528">
-                    <stop stopColor="#9C78FF" />
-                    <stop offset="1" stopColor="white" />
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img alt="" className="block size-full" decoding="async" src={homeCourseGlow} />
             </div>
           </div>
         </div>

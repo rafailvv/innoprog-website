@@ -22,7 +22,8 @@ import imgRectangle40094 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import imgRectangle40093 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
 import imgRectangle40095 from "./eb997e5032ab41f0b8c6c533fe59612a169fb82b.opt.webp";
 import imgImage115 from "./6f7c219f8f920445932a5ab496a09907db2bd7ae.opt.webp";
-import imgCircleStackSwirl from "../MainScreenDesktop/circle-stack-swirl.opt.webp";
+import { ResultsBackground } from "../shared/ResultsBackground";
+import { CourseTopGlows } from "../shared/CourseTopGlows";
 import imgGroup6821 from "../MainScreenDesktop/bced4fe251202675be6f268fb651a981a420eb8a.opt.webp";
 import imgDiplomProf1 from "../MainScreenDesktop/diplom-prof.opt.webp";
 import imgContraBluestar1 from "./8f9d493ec8bd19b806c3ba56b61df7f250ca9d00.png";
@@ -2562,34 +2563,10 @@ function Frame78() {
   );
 }
 
-function Component5() {
-  return (
-    <div className="absolute h-[968px] left-[-80px] opacity-70 overflow-clip rounded-[40px] top-[-104px] w-[1440px]" style={{ backgroundImage: "linear-gradient(213.954deg, rgb(66, 190, 248) 10.648%, rgb(255, 255, 255) 8.7589%, rgb(156, 120, 255) 45.956%, rgb(66, 190, 248) 73.988%, rgb(156, 120, 255) 101.48%)" }} data-name="слово дня">
-      <div className="absolute left-0 size-[1304px] top-[-135px]" />
-      <div className="absolute blur-[37.15px] h-[1191px] left-[-66px] top-[-56px] w-[1242px]" style={{ backgroundImage: "linear-gradient(135.943deg, rgb(255, 255, 255) 3.2894%, rgba(137, 101, 234, 0.67) 51.298%)" }} />
-      <div className="absolute flex h-[3865.744px] items-center justify-center left-[-1014px] top-[-1556px] w-[3914.288px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="-scale-y-100 flex-none rotate-[13.7deg]">
-          <div className="h-[3186.072px] relative rounded-[40px] w-[3252.149px]" data-name="Circle_Stack_Swirl">
-            <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none rounded-[40px] size-full" src={imgCircleStackSwirl} />
-          </div>
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-0 left-1/2 top-[1022px] w-[1086px]">
-        <div className="absolute inset-[-0.5px_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1086 1">
-            <path d="M0 0.5H1086" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
-          </svg>
-        </div>
-      </div>
-      <p className="absolute font-['JetBrains_Mono:Regular',sans-serif] font-normal leading-[normal] left-[943px] text-[#f9f9f9] text-[24px] top-[968px] whitespace-nowrap">{`{//}`}</p>
-    </div>
-  );
-}
-
 function Frame42() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
-      <Component5 />
+      <ResultsBackground />
       <p className="font-['Raleway:Bold',sans-serif] font-bold h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] text-white uppercase w-[min-content]">Что вы получите</p>
       <p className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[64px] text-right text-white uppercase whitespace-nowrap">после обучения</p>
     </div>
@@ -5296,38 +5273,7 @@ function CourseTopBackground() {
           />
         </div>
       </div>
-      <div className="absolute h-[686px] left-[80px] top-[1710px] w-[1280px]">
-        <div className="absolute inset-[-29.15%_-15.63%]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1680 1086">
-            <g filter="url(#filter0_f_1_2632)">
-              <ellipse cx="840" cy="543" fill="var(--fill-0, white)" fillOpacity="0.4" rx="640" ry="343" />
-            </g>
-            <defs>
-              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1086" id="filter0_f_1_2632" width="1680" x="0" y="0">
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                <feGaussianBlur result="effect1_foregroundBlur_1_2632" stdDeviation="100" />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      <div className="absolute h-[1007px] left-[94px] top-[186px] w-[1236px]">
-        <div className="absolute inset-[-19.86%_-16.18%]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1636 1407">
-            <g filter="url(#filter0_f_1_2491)">
-              <ellipse cx="818" cy="703.5" fill="var(--fill-0, white)" fillOpacity="0.4" rx="618" ry="503.5" />
-            </g>
-            <defs>
-              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1407" id="filter0_f_1_2491" width="1636" x="0" y="0">
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                <feGaussianBlur result="effect1_foregroundBlur_1_2491" stdDeviation="100" />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
+      <CourseTopGlows />
     </>
   );
 }

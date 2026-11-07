@@ -60,7 +60,7 @@ describe("course image delivery", () => {
     expect(projects.length).toBeGreaterThan(0);
     expect(skillIcons.length).toBeGreaterThan(0);
     const lowerImages = path.includes("Desktop")
-      ? images.filter((image) => image.alt.startsWith("Диплом") || image.src.includes("circle-stack-swirl"))
+      ? images.filter((image) => image.alt.startsWith("Диплом") || image.src.includes("home-results-background"))
       : [...document.querySelectorAll(".site-course-structure-mobile-arrow")];
     expect(lowerImages).toHaveLength(path.includes("Desktop") ? 3 : 1);
 
