@@ -5505,7 +5505,9 @@ export default function App({
             <div className="site-lead-modal__top">
               <div className="site-lead-modal__brand">
                 <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
-                  <span aria-hidden="true">←</span>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 12H5m7-7-7 7 7 7" />
+                  </svg>
                   <span>назад</span>
                 </button>
                 <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
