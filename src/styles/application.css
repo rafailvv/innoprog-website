@@ -179,6 +179,7 @@
 }
 
 .site-application-fields {
+  --application-question-height: 110px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -203,8 +204,13 @@
 }
 
 .site-application-fields > textarea {
-  min-height: 110px;
+  height: var(--application-question-height);
+  min-height: var(--application-question-height);
   resize: vertical;
+}
+
+.site-application-fields > textarea:placeholder-shown {
+  padding-block-start: calc((var(--application-question-height) - 1lh) / 2);
 }
 
 .site-application-fields > input::placeholder,
@@ -405,6 +411,7 @@
   }
 
   .site-application-fields {
+    --application-question-height: calc(46px + var(--application-room) * .45);
     --lead-gap: 8px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -413,7 +420,7 @@
 
   .site-application-fields > :is(input, textarea) {
     min-width: 0;
-    height: calc(46px + var(--application-room) * .45);
+    height: var(--application-question-height);
     border-radius: 16px;
     padding: 11px 14px;
     font-size: 16px;
@@ -520,8 +527,8 @@
     height: 50px;
   }
 
-  .site-application-fields > textarea {
-    min-height: 86px;
+  .site-application-fields {
+    --application-question-height: 86px;
   }
 
   .site-application-consent {
