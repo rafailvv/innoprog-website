@@ -3,7 +3,6 @@ import "../styles/adult-pages.css";
 import { CaptchaNotice } from "./components/CaptchaNotice";
 import { CallbackTimePicker } from "./components/CallbackTimePicker";
 import { trackApplicationSuccess } from "./analytics";
-import { observeCookieBannerPosition } from "./cookieBannerPosition";
 import { getLayoutBottom, getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
 
 import { useRouter } from "next/navigation";
@@ -3649,7 +3648,6 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
-  const cookieBannerRef = useRef<HTMLElement | null>(null);
   const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
   const homeCanvasRef = useRef<HTMLDivElement>(null);
   const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
@@ -5101,16 +5099,6 @@ export default function App({
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
-  useLayoutEffect(() => {
-    // Position the first visible notice before paint, rather than moving it
-    // after the home loader finishes (which contributes a layout shift).
-    if (!shouldShowCookieBanner || isStandaloneRoute || viewport.isMobile) return;
-    const banner = cookieBannerRef.current;
-    const canvas = homeCanvasRef.current;
-    if (!banner || !canvas) return;
-    return observeCookieBannerPosition(banner, canvas);
-  }, [shouldShowCookieBanner, viewport.isMobile, isStandaloneRoute]);
-
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   // Keep one coordinate system in every browser. Safari CSS zoom changes
@@ -5621,7 +5609,7 @@ export default function App({
       }
       <YandexSmartCaptcha ref={smartCaptchaRef} />
       {shouldShowCookieBanner ? (
-        <aside ref={cookieBannerRef} className="site-cookie-banner" aria-label="Уведомление о cookie">
+        <aside className="site-cookie-banner" aria-label="Уведомление о cookie">
           <p>
             Используем cookie для работы сайта и аналитики.{" "}
             <a
