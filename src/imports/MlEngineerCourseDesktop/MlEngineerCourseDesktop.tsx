@@ -713,7 +713,7 @@ function Frame38() {
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-end relative rounded-[40px] shrink-0 w-[482px]">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[30px] relative shrink-0 text-[32px] w-full">Два диплома</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
-        <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом о профпереподготовке.</p>
+        <p className="leading-[30px] mb-0">Диплом ИННОПРОГ и диплом о профпереподготовке</p>
         <p className="leading-[30px]">Данные о профпереподготовке вносятся в ФИС ФРДО</p>
       </div>
     </div>
@@ -5105,7 +5105,7 @@ function Group8() {
 function Frame27() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
+      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full">Telegram: @innoprog_admin</p>
     </div>

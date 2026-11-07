@@ -17,5 +17,5 @@ export const CHILD_COURSE_LINKS = childrenCourseNavigation;
 
 export const ABOUT_SITE_LINKS = [
   { label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure },
-  { label: "блог", href: "/blog" },
+  { label: "Блог", href: "/blog" },
 ] as const;

@@ -55,7 +55,7 @@ export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, 
           <nav className="site-mobile-menu__links" aria-label="Навигация">
             {renderGroup(groups[0])}
             {renderGroup(groups[1])}
-            <a href="/children#reviews" onClick={close}>отзывы</a>
+            <a href="/reviews" onClick={close}>отзывы</a>
             {renderGroup(groups[2])}
           </nav>
           {onApplication ? <button type="button" className="site-mobile-menu__cta" onClick={() => { close(); onApplication(); }}>подобрать направление</button> : <a className="site-mobile-menu__cta" style={{ textDecoration: "none" }} href={applicationHref} onClick={close}>подобрать направление</a>}

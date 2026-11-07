@@ -112,7 +112,9 @@ const PAGE_TRANSITION_STORAGE_KEY = "innoprog-page-transition-until";
 // Route changes should not wait for a cosmetic minimum duration.
 const PAGE_TRANSITION_MIN_MS = 0;
 const COOKIE_CONSENT_STORAGE_KEY = "innoprog-cookie-consent";
-const RETURN_SCROLL_STORAGE_KEY = "innoprog-return-scroll";
+const RETURN_SCROLL_HISTORY_KEY = "innoprogReturnScroll";
+const INTERNAL_NAVIGATION_HISTORY_KEY = "innoprogInternalNavigation";
+let pendingInternalPath: string | null = null;
 const LOADER_EXIT_MS = 400;
 const APPLICATION_REQUEST_URL = "/application/request";
 
@@ -1299,6 +1301,14 @@ function RelatedReviewCard({ storyKey }: { storyKey: ReviewStoryKey }) {
   );
 }
 
+function BackArrow() {
+  return (
+    <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 12H5m7-7-7 7 7 7" />
+    </svg>
+  );
+}
+
 function CourseRating({ rating }: { rating: string }) {
   return (
     <span className="site-course-review-rating">
@@ -1353,7 +1363,7 @@ function CourseReviewsPage({
       <div className="site-course-reviews-page__inner">
         <div className="site-course-reviews-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
-            <span aria-hidden="true">←</span>
+            <BackArrow />
             <span>назад</span>
           </button>
           <div className="site-review-page__crumbs site-course-reviews-page__crumbs">
@@ -1454,7 +1464,7 @@ function ReviewsIndexPage({
       <div className="site-reviews-index-page__inner">
         <div className="site-reviews-index-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
-            <span aria-hidden="true">←</span>
+            <BackArrow />
             <span>назад</span>
           </button>
           <div className="site-review-page__crumbs site-reviews-index-page__crumbs">
@@ -1583,7 +1593,7 @@ function StudentReviewPage({
       <div className="site-course-reviews-page__inner">
         <div className="site-course-reviews-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
-            <span aria-hidden="true">←</span>
+            <BackArrow />
             <span>назад</span>
           </button>
           <div className="site-review-page__crumbs site-course-reviews-page__crumbs">
@@ -1678,7 +1688,7 @@ function ReviewStoryPage({
       <div className="site-review-page__inner">
         <div className="site-review-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
-            <span aria-hidden="true">←</span>
+            <BackArrow />
             <span>назад</span>
           </button>
           <div className="site-review-page__crumbs">
@@ -1798,7 +1808,7 @@ function AboutPage({
       <section className="site-about-page" aria-label="О нас">
         <div className="site-about-page__top">
           <button className="site-review-page__back" onClick={onBack} type="button">
-            <span aria-hidden="true">←</span>
+            <BackArrow />
             <span>назад</span>
           </button>
           <div className="site-review-page__crumbs">
@@ -3587,42 +3597,6 @@ function clearPageTransition() {
   }
 }
 
-function readReturnScrollPosition(): { path: string; y: number } | null {
-  try {
-    const raw = window.sessionStorage.getItem(RETURN_SCROLL_STORAGE_KEY);
-
-    if (!raw) {
-      return null;
-    }
-
-    const parsed = JSON.parse(raw) as { path?: unknown; y?: unknown };
-
-    if (typeof parsed.path !== "string" || typeof parsed.y !== "number") {
-      return null;
-    }
-
-    return { path: parsed.path, y: parsed.y };
-  } catch {
-    return null;
-  }
-}
-
-function writeReturnScrollPosition(value: { path: string; y: number }) {
-  try {
-    window.sessionStorage.setItem(RETURN_SCROLL_STORAGE_KEY, JSON.stringify(value));
-  } catch {
-    // Storage can be unavailable in private or restricted contexts.
-  }
-}
-
-function clearReturnScrollPosition() {
-  try {
-    window.sessionStorage.removeItem(RETURN_SCROLL_STORAGE_KEY);
-  } catch {
-    // Storage can be unavailable in private or restricted contexts.
-  }
-}
-
 export default function App({
   initialRoute = { page: "home" },
 }: {
@@ -3679,7 +3653,6 @@ export default function App({
   const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
   const homeCanvasRef = useRef<HTMLDivElement>(null);
   const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
-  const pendingReturnScrollRef = useRef<{ path: string; y: number } | null>(null);
   const pageTransitionTimerRef = useRef<number | null>(null);
   const initialRouteKey = (() => {
     if (initialRoute.page === "review") {
@@ -3700,6 +3673,15 @@ export default function App({
 
     return initialRoute.page;
   })();
+
+  useLayoutEffect(() => {
+    if (pendingInternalPath !== `${window.location.pathname}${window.location.search}`) return;
+    pendingInternalPath = null;
+    window.history.replaceState({
+      ...window.history.state,
+      [INTERNAL_NAVIGATION_HISTORY_KEY]: true,
+    }, "");
+  }, [initialRouteKey]);
 
   useEffect(() => {
     const routeState = getRouteState(initialRoute);
@@ -3728,21 +3710,13 @@ export default function App({
     window.history.scrollRestoration = "manual";
 
     const restorePendingReturnScroll = () => {
-      const pendingReturnScroll = pendingReturnScrollRef.current || readReturnScrollPosition();
+      const y = window.history.state?.[RETURN_SCROLL_HISTORY_KEY];
+      if (typeof y !== "number") return;
 
-      if (!pendingReturnScroll) {
-        return;
-      }
-
-      const currentPath = `${window.location.pathname}${window.location.search}`;
-
-      if (currentPath !== pendingReturnScroll.path) {
-        return;
-      }
-
-      pendingReturnScrollRef.current = null;
-      clearReturnScrollPosition();
-      const restore = () => window.scrollTo({ top: pendingReturnScroll.y, behavior: "instant" });
+      const path = window.location.href;
+      const restore = () => {
+        if (window.location.href === path) window.scrollTo({ top: y, behavior: "instant" });
+      };
       window.requestAnimationFrame(() => {
         restore();
         window.setTimeout(restore, 0);
@@ -4294,18 +4268,13 @@ export default function App({
     const currentPath = `${window.location.pathname}${window.location.search}`;
 
     if (currentPath !== nextPath || window.location.hash) {
-      router.push(nextPath, { scroll: false });
+      window.history.replaceState({
+        ...window.history.state,
+        [RETURN_SCROLL_HISTORY_KEY]: window.scrollY,
+      }, "");
+      pendingInternalPath = nextPath;
+      router.push(nextPath);
     }
-  };
-
-  const saveReturnScrollPosition = () => {
-    const value = {
-      path: `${window.location.pathname}${window.location.search}`,
-      y: window.scrollY,
-    };
-
-    pendingReturnScrollRef.current = value;
-    writeReturnScrollPosition(value);
   };
 
   const showPageTransitionLoader = () => {
@@ -4330,7 +4299,6 @@ export default function App({
     }
 
     const nextPath = `/reviews/${REVIEW_ROUTES[key]}`;
-    saveReturnScrollPosition();
     pushInternalRoute(nextPath);
 
     setActiveReviewStory(key);
@@ -4349,6 +4317,7 @@ export default function App({
     setIsReviewsRoute(false);
     setIsTariffsRoute(false);
     setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openReviewsPage = (direction?: ReviewsDirectionKey | string) => {
@@ -4390,7 +4359,6 @@ export default function App({
     }
 
     const nextPath = getStudentReviewPath(studentReview);
-    saveReturnScrollPosition();
     showPageTransitionLoader();
     pushInternalRoute(nextPath);
 
@@ -4422,7 +4390,6 @@ export default function App({
     }
 
     const nextPath = getStudentReviewPath(review);
-    saveReturnScrollPosition();
     showPageTransitionLoader();
     pushInternalRoute(nextPath);
 
@@ -4470,12 +4437,15 @@ export default function App({
   const goBack = () => {
     setIsMobileMenuOpen(false);
 
-    if (window.history.length > 1) {
+    const cameFromThisSite = document.referrer.startsWith(`${window.location.origin}/`);
+    if (window.history.length > 1 && (window.history.state?.[INTERNAL_NAVIGATION_HISTORY_KEY] || cameFromThisSite)) {
       router.back();
       return;
     }
 
-    goHome();
+    const isReviewDetail = activeReviewStory || activeCourseReview || activeStudentReview;
+    router.replace(isReviewDetail ? "/reviews" : "/");
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openAboutPage = () => {
@@ -4501,7 +4471,6 @@ export default function App({
   };
 
   const openCoursePage = (nextPath: string) => {
-    saveReturnScrollPosition();
     setIsMobileMenuOpen(false);
     router.push(nextPath);
   };
@@ -5454,15 +5423,15 @@ export default function App({
                 ))}
               </div>
             </div>
-            <button
+            <a
               aria-current={isReviewRoute || isStudentReviewRoute || isReviewsRoute ? "page" : undefined}
               data-active={isReviewRoute || isStudentReviewRoute || isReviewsRoute ? "true" : undefined}
               data-mobile-menu-link
               data-scroll-target="reviews"
-              type="button"
+              href="/reviews"
             >
               отзывы
-            </button>
+            </a>
             <div className="site-mobile-menu__nav-group">
               <div className="site-mobile-menu__nav-row">
                 <button aria-current={isAboutRoute ? "page" : undefined} data-active={isAboutRoute ? "true" : undefined} data-mobile-menu-link data-scroll-target="about" type="button">о нас</button>
@@ -5505,9 +5474,7 @@ export default function App({
             <div className="site-lead-modal__top">
               <div className="site-lead-modal__brand">
                 <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 12H5m7-7-7 7 7 7" />
-                  </svg>
+                  <BackArrow />
                   <span>назад</span>
                 </button>
                 <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />

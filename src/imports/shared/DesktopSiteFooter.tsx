@@ -86,7 +86,7 @@ function Group5() {
 function Frame64() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
+      <a className="no-underline relative shrink-0 text-white w-full" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <a className="no-underline relative shrink-0 text-white w-full" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">Telegram: @innoprog_admin</a>
     </div>
@@ -122,11 +122,11 @@ function Frame66() {
 
 function Frame78() {
   return (
-    <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light gap-[24px] items-start relative shrink-0 text-[20px] text-white w-full">
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.softwareOperationManual} rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
-      <a className="leading-[30px] relative shrink-0 text-white w-full" href={LEGAL_LINKS.functionalCharacteristics} rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
+    <div className="content-stretch flex flex-col font-['Manrope:Light',sans-serif] font-light site-footer-legal-links items-start relative shrink-0 text-[20px] text-white w-full">
+      <a className="relative shrink-0 text-white w-full" href={LEGAL_LINKS.privacy} rel="noopener noreferrer" target="_blank">Политика конфиденциальности</a>
+      <a className="relative shrink-0 text-white w-full" href={LEGAL_LINKS.offer} rel="noopener noreferrer" target="_blank">Публичная оферта</a>
+      <a className="relative shrink-0 text-white w-full" href={LEGAL_LINKS.softwareOperationManual} rel="noopener noreferrer" target="_blank">Инструкция по эксплуатации</a>
+      <a className="relative shrink-0 text-white w-full" href={LEGAL_LINKS.functionalCharacteristics} rel="noopener noreferrer" target="_blank">Описание функциональных характеристик</a>
     </div>
   );
 }

@@ -53,7 +53,7 @@ function Frame4() {
           <span className="absolute font-['Raleway:SemiBold',sans-serif] font-semibold leading-[35px] left-0 text-[32px] top-[-7px] whitespace-nowrap">ИННОПРОГ</span>
           <span>{`                                       — это онлайн-образовательная платформа`}</span>
           <br />
-          <span>для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и обратная связь в чате.</span>
+          <span>для изучения ИТ-профессий. Пошаговое обучение, индивидуальные занятия с преподавателями и обратная связь в чате</span>
         </p>
       </div>
     </div>

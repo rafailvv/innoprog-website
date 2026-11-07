@@ -771,7 +771,7 @@ function Frame278() {
         <p className="leading-[20px]"><span>Мобильный разработчик создает приложения для Android и iOS, проектирует интерфейсы</span><br /><span>и подключает API, локальное хранение и нативные возможности</span></p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full whitespace-pre-wrap">
-        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл мобильной разработки: Dart, Flutter UI, архитектуру, API, локальное хранение и тестирование</span><br /><span>сборку, публикацию, аналитику и сопровождение приложения.</span><br /><span>Программа помогает собрать портфолио из 15 мобильных проектов и подготовиться к первым задачам мобильного разработчика.</span></p>
+        <p className="leading-[18px]"><span>На курсе вы проходите полный цикл мобильной разработки: Dart, Flutter UI, архитектуру, API, локальное хранение и тестирование</span><br /><span>сборку, публикацию, аналитику и сопровождение приложения</span><br /><span>Программа помогает собрать портфолио из 15 мобильных проектов и подготовиться к первым задачам мобильного разработчика</span></p>
       </div>
     </div>
   );
@@ -4821,7 +4821,7 @@ function Frame211() {
 function Frame19() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
-      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80;</a>
+      <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="tel:+79586067980">Тел: +7 (958) 606-79-80</a>
       <a className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full no-underline" href="mailto:education@innoprog.ru">Email: education@innoprog.ru</a>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] relative shrink-0 w-full">Telegram: @innoprog_admin</p>
     </div>
