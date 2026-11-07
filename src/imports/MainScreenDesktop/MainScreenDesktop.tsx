@@ -6,6 +6,7 @@ export { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
 import svgPaths from "./svg-j2mtrggl1r";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import imgGain from "./home-background.opt.webp";
+import homeBenefitsGlow from "./home-benefits-glow.webp";
 import imgImg29771 from "./3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgImg29772 from "./course-data-analyst-desktop.webp";
 import imgImg29773 from "./course-frontend-desktop.webp";
@@ -239,18 +240,8 @@ function Frame87() {
     <div className="content-stretch flex h-[718px] items-start justify-between pb-[24px] relative shrink-0 w-full">
       <div className="-translate-x-1/2 absolute h-[738px] left-1/2 top-[-18px] w-[1280px]">
         <div className="absolute inset-[-44.64%_-23.44%]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1880 1272">
-            <g filter="url(#filter0_f_1_1195)">
-              <ellipse cx="940" cy="636" fill="var(--fill-0, white)" fillOpacity="0.8" rx="640" ry="336" />
-            </g>
-            <defs>
-              <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1272" id="filter0_f_1_1195" width="1880" x="0" y="0">
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                <feGaussianBlur result="effect1_foregroundBlur_1_1195" stdDeviation="150" />
-              </filter>
-            </defs>
-          </svg>
+          {/* Pre-render the SVG glow so Safari can paint it without a large live blur during scrolling. */}
+          <img alt="" className="block size-full" decoding="async" src={homeBenefitsGlow} />
         </div>
       </div>
       <Frame85 />
