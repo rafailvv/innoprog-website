@@ -224,11 +224,30 @@ function EducationSection() {
         ["Формы обучения", "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий"],
         ["Язык образования", <>Русский язык. <a href={languageDocument.href} itemProp="languageEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
         ["Общее количество программ", `${EDUCATION_TOTALS.programs}: ${EDUCATION_TOTALS.generalPrograms} дополнительных общеобразовательных и ${EDUCATION_TOTALS.professionalPrograms} дополнительных профессиональных`],
-        [`Численность на ${STUDENT_COUNT_AS_OF}`, <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
+        ["Численность по абонементам на 08.11.2026", <>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}. <a href="/files/sveden/education/headcount-2026-11-08.pdf" rel="noopener noreferrer" target="_blank">Сведения по программам, PDF</a></>],
+        [`Численность на ${STUDENT_COUNT_AS_OF}`, <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Архивный отчёт, PDF</a></>],
         ["Государственная аккредитация", "Не предусмотрена для реализуемых дополнительных образовательных программ"],
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
+      <details className={styles.informationBlock}>
+        <summary>Сводка по абонементам на 08.11.2026</summary>
+        <ScrollableTableRegion ariaLabel="Сводка по абонементам" className={styles.tableScroll}>
+          <table className={`${styles.dataTable} ${styles.subscriptionTable}`}>
+            <thead><tr><th scope="col">Вид</th><th scope="col">Программа</th><th scope="col">Аккаунты</th></tr></thead>
+            <tbody>
+              {SUBSCRIPTION_SNAPSHOT.map(([kind, program, count]) => (
+                <tr key={`${kind}-${program}`}><td>{kind}</td><th scope="row">{program}</th><td>{count}</td></tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr><th scope="row" colSpan={2}>Итого по ДО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+              <tr><th scope="row" colSpan={2}>Итого по ДПО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДПО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+              <tr><th scope="row" colSpan={2}>Всего</th><td>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+            </tfoot>
+          </table>
+        </ScrollableTableRegion>
+      </details>
       <p itemProp="eduPriemEl">Приём на обучение осуществляется без вступительных испытаний.</p>
       <p itemProp="eduPerevodEl">Перевод, восстановление и отчисление обучающихся в отчётном периоде не осуществлялись.</p>
       <p>Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен <a href={creditPolicy.href} rel="noopener noreferrer" target="_blank">локальным нормативным актом (PDF)</a>.</p>
@@ -260,24 +279,6 @@ function EducationSection() {
           </tbody>
         </table>
       </ScrollableTableRegion>
-      <details className={styles.informationBlock}>
-        <summary>Сводка по абонементам на 08.11.2026</summary>
-        <ScrollableTableRegion ariaLabel="Сводка по абонементам" className={styles.tableScroll}>
-          <table className={`${styles.dataTable} ${styles.subscriptionTable}`}>
-            <thead><tr><th scope="col">Вид</th><th scope="col">Программа</th><th scope="col">Аккаунты</th></tr></thead>
-            <tbody>
-              {SUBSCRIPTION_SNAPSHOT.map(([kind, program, count]) => (
-                <tr key={`${kind}-${program}`}><td>{kind}</td><th scope="row">{program}</th><td>{count}</td></tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr><th scope="row" colSpan={2}>Итого по ДО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-              <tr><th scope="row" colSpan={2}>Итого по ДПО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДПО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-              <tr><th scope="row" colSpan={2}>Всего</th><td>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-            </tfoot>
-          </table>
-        </ScrollableTableRegion>
-      </details>
       <DocumentList documents={documents} />
     </>
   );
