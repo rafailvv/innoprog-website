@@ -452,11 +452,11 @@ function VacantSection() {
   return (
     <>
       <h3>Количество вакантных мест по состоянию на {VACANT_UPDATED_AT}</h3>
-      <p>По утверждённым сведениям предусмотрено {VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((sum, { paid }) => sum + paid, 0)} платных мест по дополнительным общеобразовательным программам и {VACANT_PROGRAMS.reduce((sum, { paid }) => sum + paid, 0)} по всем программам.</p>
+      <p>По утверждённым сведениям предусмотрено {VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((sum, { paid }) => sum + (paid ?? 0), 0)} платных мест по дополнительным общеобразовательным программам и {VACANT_PROGRAMS.reduce((sum, { paid }) => sum + (paid ?? 0), 0)} по всем программам.</p>
       <ScrollableTableRegion ariaLabel="Вакантные места по образовательным программам" className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.fileName}`}>
-            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
+            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid ?? "Нет утверждённых сведений"}</td>
           </tr>)}</tbody>
         </table>
       </ScrollableTableRegion>

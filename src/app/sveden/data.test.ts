@@ -58,12 +58,12 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_TOTALS).toMatchObject({ programs: 64, generalPrograms: 55, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
     expect(VACANT_PROGRAMS).toHaveLength(64);
     expect(VACANT_PROGRAMS.every(({ federal, regional, municipal }) => federal === 0 && regional === 0 && municipal === 0)).toBe(true);
-    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(460);
-    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.paid, 0)).toBe(100);
+    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + (program.paid ?? 0), 0)).toBe(440);
+    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + (program.paid ?? 0), 0)).toBe(100);
     expect(VACANT_PROGRAMS.map(({ paid }) => paid)).toEqual([
       5, 5, 12, 12, 5, 15, 5, 5, 5, 25, 20, 5, 8, 5, 8, 5, 12, 10, 5,
       10, 8, 8, 5, 5, 12, 10, 5, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-      20, 20, 20, 20, 20, 20, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
+      20, 20, 20, 20, 20, 20, null, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
     ]);
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
