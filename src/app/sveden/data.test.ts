@@ -53,10 +53,10 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_PROGRAMS).toHaveLength(64);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО")).toHaveLength(55);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")).toHaveLength(9);
-    expect(EDUCATION_PROGRAMS.reduce((total, program) => total + (program.students ?? 0), 0)).toBe(72);
-    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + (program.students ?? 0), 0)).toBe(68);
-    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + (program.students ?? 0), 0)).toBe(4);
-    expect(EDUCATION_TOTALS).toMatchObject({ programs: 64, generalPrograms: 55, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
+    expect(EDUCATION_PROGRAMS.reduce((total, program) => total + (program.students ?? 0), 0)).toBe(81);
+    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + (program.students ?? 0), 0)).toBe(74);
+    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + (program.students ?? 0), 0)).toBe(7);
+    expect(EDUCATION_TOTALS).toMatchObject({ programs: 64, generalPrograms: 55, professionalPrograms: 9, students: 81, generalStudents: 74, professionalStudents: 7 });
     expect(VACANT_PROGRAMS).toHaveLength(64);
     expect(VACANT_PROGRAMS.every(({ federal, regional, municipal }) => federal === 0 && regional === 0 && municipal === 0)).toBe(true);
     expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(460);
@@ -69,13 +69,13 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ subjects, practice }) => subjects.length > 0 && practice.length > 0)).toBe(true);
-    expect(EDUCATION_PROGRAMS.every(({ students, foreignStudents }) => foreignStudents === (students === null ? null : 0))).toBe(true);
+    expect(EDUCATION_PROGRAMS.every(({ students, foreignStudents }) => foreignStudents === (students === 0 ? 0 : null))).toBe(true);
   });
 
-  it("publishes the nine general programs approved by order No. OBR-5 without headcount data in the August report", () => {
+  it("publishes the nine general programs approved by order No. OBR-5 with the November headcount", () => {
     const programs = EDUCATION_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых"));
     expect(programs).toHaveLength(9);
-    expect(programs.every(({ kind, students, foreignStudents }) => kind === "ДО" && students === null && foreignStudents === null)).toBe(true);
+    expect(programs.every(({ kind, students }) => kind === "ДО" && students !== null)).toBe(true);
     expect(programs.every(({ document }) => document.storageKey.includes("/general/"))).toBe(true);
     expect(VACANT_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых")).every(({ paid }) => paid === 0)).toBe(true);
   });
@@ -95,7 +95,7 @@ describe("educational disclosure contracts", () => {
     for (const program of childPrograms) {
       expect(program.volume).toBe("160 академических часов");
       expect(program.term).toContain("40 учебных недель");
-      expect(program.students).toBe(0);
+      expect(program.students).toBe(program.name === "Python-разработчик для детей" ? 20 : 0);
       expect(program.document.sourceSha256, program.name).toBe(approvedHashes.get(program.fileName));
     }
   });

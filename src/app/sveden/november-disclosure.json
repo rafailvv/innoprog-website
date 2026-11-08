@@ -1,0 +1,435 @@
+{
+  "date": "08.11.2026",
+  "headcount": [
+    {
+      "kind": "ДО",
+      "program": "C++ разработчик",
+      "paid": 5
+    },
+    {
+      "kind": "ДО",
+      "program": "Data Science",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "Data-аналитик",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "Frontend-разработчик",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "Java-разработчик",
+      "paid": 5
+    },
+    {
+      "kind": "ДО",
+      "program": "ML-инженер",
+      "paid": 4
+    },
+    {
+      "kind": "ДО",
+      "program": "Python-разработчик",
+      "paid": 18
+    },
+    {
+      "kind": "ДО",
+      "program": "Python-разработчик для детей",
+      "paid": 20
+    },
+    {
+      "kind": "ДО",
+      "program": "Unreal Engine (дети от 12 лет и взрослые)",
+      "paid": 5
+    },
+    {
+      "kind": "ДО",
+      "program": "Алгоритмы и структуры данных",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "ЕГЭ",
+      "paid": 3
+    },
+    {
+      "kind": "ДО",
+      "program": "ОГЭ",
+      "paid": 2
+    },
+    {
+      "kind": "ДО",
+      "program": "Олимпиадное программирование",
+      "paid": 5
+    },
+    {
+      "kind": "ДО",
+      "program": "Основы C++",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "Основы HTML, CSS и JavaScript",
+      "paid": 1
+    },
+    {
+      "kind": "ДО",
+      "program": "Создание Telegram-бота",
+      "paid": 1
+    },
+    {
+      "kind": "ДПО",
+      "program": "Data-аналитик",
+      "paid": 2
+    },
+    {
+      "kind": "ДПО",
+      "program": "Python-разработчик",
+      "paid": 5
+    }
+  ],
+  "staff": [
+    {
+      "name": "Агузаров Алан Батразович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Data Science",
+          "disciplines": [
+            "Анализ данных"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Продвинутый",
+            "Создание Telegram-бота"
+          ]
+        },
+        {
+          "kind": "ДПО",
+          "program": "Data Science",
+          "disciplines": [
+            "Продвинутый Python и ООП"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Афончиков Данил Олегович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "ML-инженер",
+          "disciplines": [
+            "Машинное обучение"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Начальный"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Быков Лев",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Java-разработчик",
+          "disciplines": [
+            "Spring Boot",
+            "ООП в Java",
+            "Основы Java"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Венедиктов Рафаил Владимирович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Docker",
+            "FastAPI",
+            "Git",
+            "Linux",
+            "PostgreSQL",
+            "Python Начальный",
+            "Алгоритмы и структуры данных",
+            "ООП в Python",
+            "Основы SQL",
+            "Тестирование"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": []
+        },
+        {
+          "kind": "ДО",
+          "program": "Основы C++",
+          "disciplines": [
+            "Основы C++"
+          ]
+        },
+        {
+          "kind": "ДПО",
+          "program": "Python-разработчик",
+          "disciplines": []
+        }
+      ]
+    },
+    {
+      "name": "Дробышев Данила Кимович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "C++ разработчик",
+          "disciplines": [
+            "Основы программирования на C++",
+            "Современный C++ и стандартная библиотека"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Объектно-ориентированное программирование в C++",
+          "disciplines": [
+            "ООП в C++"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Караева Полина Руслановна",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Git",
+            "Python Начальный",
+            "ООП в Python",
+            "Основы HTML/CSS/JavaScript"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Королев Артемий Александрович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Продвинутый",
+            "Алгоритмы и структуры данных"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": [
+            "Python Начальный",
+            "Python Продвинутый"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Коченов Илья Сергеевич",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Data Science",
+          "disciplines": [
+            "Python для анализа данных"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Кротов Павел Сергеевич",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Алгоритмы и структуры данных",
+          "disciplines": [
+            "Алгоритмы и структуры данных"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "ОГЭ",
+          "disciplines": [
+            "Подготовка к ОГЭ по информатике"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Олимпиадное программирование",
+          "disciplines": [
+            "Олимпиадное программирование"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Мягчилов Павел Алексеевич",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Data-аналитик",
+          "disciplines": [
+            "Python для анализа данных"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Начальный",
+            "Python Продвинутый"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": [
+            "Python Начальный",
+            "Python Продвинутый",
+            "ООП в Python"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Надымова Анна Андреевна",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Начальный"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": [
+            "Turtle в Python"
+          ]
+        },
+        {
+          "kind": "ДПО",
+          "program": "Data-аналитик",
+          "disciplines": [
+            "Python Начальный",
+            "Основы SQL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Попкович Сергей Юрьевич",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "FastAPI",
+            "Python Начальный",
+            "Python Продвинутый",
+            "ООП в Python",
+            "Тестирование"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": [
+            "Python Начальный"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Создание Telegram-бота",
+          "disciplines": [
+            "Введение"
+          ]
+        },
+        {
+          "kind": "ДПО",
+          "program": "Python-разработчик",
+          "disciplines": [
+            "Python Начальный"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Таджидинов Джамбулат Гамлетович",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Unreal Engine",
+          "disciplines": [
+            "Unreal Engine"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Unreal Engine (дети от 12 лет и взрослые)",
+          "disciplines": [
+            "Unreal Engine"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Чепель Григорий Анатольевич",
+      "assignments": [
+        {
+          "kind": "ДО",
+          "program": "Frontend-разработчик",
+          "disciplines": [
+            "Node.js"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Python-разработчик для детей",
+          "disciplines": [
+            "Python Начальный",
+            "Разработка игр на Python"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "ЕГЭ",
+          "disciplines": [
+            "Подготовка к ЕГЭ по информатике"
+          ]
+        },
+        {
+          "kind": "ДО",
+          "program": "Основы HTML, CSS и JavaScript",
+          "disciplines": [
+            "Основы HTML, CSS и JavaScript"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,18 @@
 import manifestData from "./documents.generated.json";
+import snapshot from "./november-disclosure.json";
+import generalProgramModules from "./general-program-modules.json";
 
 export const SVEDEN_UPDATED_AT = "01.08.2026";
-export const STUDENT_COUNT_AS_OF = "05.08.2026";
+export const STUDENT_COUNT_AS_OF = snapshot.date;
+export const STUDENT_COUNTS = snapshot.headcount;
+export const TEACHER_ASSIGNMENTS = snapshot.staff;
+export const STUDENT_COUNT_PDF = "/documents/headcount-2026-11-08.pdf";
+
+function headcountProgramName(kind: string, name: string, fileName: string) {
+  return kind === "ДО" && name === "Unreal Engine" && fileName.includes("для детей от 12 лет и взрослых")
+    ? "Unreal Engine (дети от 12 лет и взрослые)"
+    : name;
+}
 export const EDUCATION_UPDATED_AT = "08.11.2026";
 export const VACANT_UPDATED_AT = "01.09.2026";
 
@@ -179,12 +190,7 @@ const DPO_MODULES: Record<string, string[]> = {
   ],
 };
 
-const GENERAL_12PLUS_MODULE_OVERRIDES: Record<string, string[]> = {
-  "Python-разработчик": [
-    "Введение в профессию", "Python начальный", "Python продвинутый", "ООП в Python", "Git", "Основы SQL",
-    "Алгоритмы и структуры данных", "HTML, CSS и JavaScript", "Linux", "PostgreSQL", "Создание Telegram-бота", "Django",
-  ],
-};
+const GENERAL_PROGRAM_MODULES: Record<string, string[]> = generalProgramModules;
 
 const CHILD_PROGRAM_MODULES: Record<string, string[]> = {
   "Подготовка к ОГЭ и ЕГЭ по информатике": [
@@ -330,7 +336,8 @@ export type EducationProgram = {
 };
 
 export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
-  ([kind, name, volume, term, students, fileName]) => {
+  ([kind, name, volume, term, , fileName]) => {
+    const students = STUDENT_COUNTS.find((row) => row.kind === kind && row.program === headcountProgramName(kind, name, fileName))?.paid ?? 0;
     const folder = kind === "ДО" ? "/general/" : "/professional/";
     const document = SVEDEN_DOCUMENTS.find(
       (candidate) => candidate.category === "program" && candidate.sourceName === fileName && candidate.storageKey.includes(folder),
@@ -351,14 +358,14 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
       volume,
       term,
       students,
-      foreignStudents: students === null ? null : 0,
+      foreignStudents: students === 0 ? 0 : null,
       fileName,
       form: "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий",
       language: "русский",
       subjects: kind === "ДПО"
         ? DPO_MODULES[name] || [name]
         : fileName.includes("для детей от 12 лет и взрослых")
-          ? GENERAL_12PLUS_MODULE_OVERRIDES[name] || DPO_MODULES[name] || [name]
+          ? GENERAL_PROGRAM_MODULES[fileName] || [name]
           : CHILD_PROGRAM_MODULES[name] || [`Учебный курс «${name}»`],
       practice: kind === "ДПО" || fileName.includes("для детей от 12 лет и взрослых")
         ? "Проектная практика"
@@ -454,8 +461,7 @@ export const EDUCATION_TOTALS = {
   programs: EDUCATION_PROGRAMS.length,
   generalPrograms: EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО").length,
   professionalPrograms: EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").length,
-  students: 72,
-  generalStudents: 68,
-  professionalStudents: 4,
-  foreignStudents: 0,
+  students: STUDENT_COUNTS.reduce((sum, row) => sum + row.paid, 0),
+  generalStudents: STUDENT_COUNTS.filter(({ kind }) => kind === "ДО").reduce((sum, row) => sum + row.paid, 0),
+  professionalStudents: STUDENT_COUNTS.filter(({ kind }) => kind === "ДПО").reduce((sum, row) => sum + row.paid, 0),
 } as const;

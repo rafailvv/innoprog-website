@@ -142,8 +142,8 @@ describe("public course duration facts", () => {
       volume: "800 академических часов",
       term: "10 месяцев (40 учебных недель), рекомендуемая нагрузка 20 академических часов в неделю",
       subjects: [
-        "Введение в профессию", "Python начальный", "Python продвинутый", "ООП в Python", "Git", "Основы SQL",
-        "Алгоритмы и структуры данных", "HTML, CSS и JavaScript", "Linux", "PostgreSQL", "Создание Telegram-бота", "Django",
+        "Введение в Python-разработку и организация обучения", "Python начальный", "Python продвинутый", "ООП в Python", "Git", "Основы SQL",
+        "Алгоритмы и структуры данных", "Основы HTML/CSS/JavaScript", "Linux", "PostgreSQL", "Создание Telegram-бота", "Django",
       ],
     });
   });

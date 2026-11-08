@@ -6,6 +6,10 @@ import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
   EDUCATION_UPDATED_AT,
+  STUDENT_COUNT_AS_OF,
+  STUDENT_COUNT_PDF,
+  STUDENT_COUNTS,
+  TEACHER_ASSIGNMENTS,
   SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
@@ -226,7 +230,26 @@ function EducationSection() {
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
       <h3>Численность обучающихся</h3>
-      <p itemProp="eduChislenEl">Актуальные сведения о численности обучающихся уточняются.</p>
+      <section itemProp="eduChislenEl" aria-label="Численность обучающихся">
+        <p>На {STUDENT_COUNT_AS_OF}. <a href={STUDENT_COUNT_PDF}>Сведения о численности обучающихся (PDF)</a></p>
+        <ScrollableTableRegion ariaLabel="Численность по образовательным программам" className={styles.tableScroll}>
+          <table className={`${styles.dataTable} ${styles.headcountTable}`}>
+            <thead><tr><th scope="col">Вид образования</th><th scope="col">Программа</th><th scope="col">Федеральный бюджет</th><th scope="col">Бюджет субъекта РФ</th><th scope="col">Местный бюджет</th><th scope="col">Платные договоры</th></tr></thead>
+            <tbody>
+              {STUDENT_COUNTS.map(({ kind, program, paid }) => <tr key={`${kind}-${program}`}>
+                <td>{kind === "ДО" ? "Дополнительное образование" : "Дополнительное профессиональное образование"}</td>
+                <th scope="row">{program}</th><td>0</td><td>0</td><td>0</td><td>{paid}</td>
+              </tr>)}
+            </tbody>
+            <tfoot>
+              <tr><th colSpan={2} scope="row">Итого по ДО</th><td>0</td><td>0</td><td>0</td><td>{EDUCATION_TOTALS.generalStudents}</td></tr>
+              <tr><th colSpan={2} scope="row">Итого по ДПО</th><td>0</td><td>0</td><td>0</td><td>{EDUCATION_TOTALS.professionalStudents}</td></tr>
+              <tr><th colSpan={2} scope="row">Всего</th><td>0</td><td>0</td><td>0</td><td>{EDUCATION_TOTALS.students}</td></tr>
+            </tfoot>
+          </table>
+        </ScrollableTableRegion>
+        <p>По остальным программам численность составляет 0.</p>
+      </section>
       <p itemProp="eduPriemEl">Приём на обучение осуществляется без вступительных испытаний.</p>
       <p itemProp="eduPerevodEl">Перевод, восстановление и отчисление обучающихся в отчётном периоде не осуществлялись.</p>
       <p>Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен <a href={creditPolicy.href} rel="noopener noreferrer" target="_blank">локальным нормативным актом (PDF)</a>.</p>
@@ -288,52 +311,95 @@ const EMPLOYEES = [
   {
     fio: "Венедиктов Рафаил Владимирович",
     post: "Генеральный директор, преподаватель",
-    disciplines: "Дополнительные профессиональные программы: Python-разработчик, Data-аналитик, Data Science",
     education: "Высшее образование: бакалавриат по направлению «Информатика и вычислительная техника»; магистратура по направлению «Бизнес-информатика»",
     qualification: "Бакалавр; магистр",
     training: "Повышение квалификации отсутствует",
     retraining: "Профессиональная переподготовка отсутствует",
     experience: "5 лет работы в профессиональной сфере, соответствующей преподаваемым дисциплинам",
-    programs: "Дополнительные профессиональные программы: Python-разработчик, Data-аналитик, Data Science",
   },
   {
     fio: "Королев Артемий Александрович",
     post: "Руководитель преподавательского состава",
-    disciplines: "Дополнительные общеобразовательные программы по Python",
     education: "Профессиональное образование не завершено. Обучается в Университете «Синергия» по направлению «Программная инженерия». Успешно прошёл промежуточную аттестацию не менее чем за два года обучения. Допущен к педагогической деятельности по дополнительным общеобразовательным программам в соответствии с частью 4 статьи 46 Федерального закона № 273-ФЗ.",
     qualification: "Не присвоена",
     training: "Повышение квалификации отсутствует",
     retraining: "Профессиональная переподготовка отсутствует",
     experience: "3 года работы в профессиональной сфере, соответствующей преподаваемым дисциплинам",
-    programs: "Дополнительные общеобразовательные общеразвивающие программы: «Python Начальный», «Python Продвинутый», «Turtle в Python», «Объектно-ориентированное программирование в Python», «Разработка игр на Python»",
   },
 ] as const;
 
 function EmployeesSection() {
+  const staffWithAssignments = EMPLOYEES.map((employee) => ({
+    ...employee,
+    assignments: TEACHER_ASSIGNMENTS.find(({ name }) => name === employee.fio)?.assignments ?? [],
+  }));
+  const invited = TEACHER_ASSIGNMENTS.filter(({ name }) => !EMPLOYEES.some(({ fio }) => fio === name));
+  const disciplines = (assignments: typeof TEACHER_ASSIGNMENTS[number]["assignments"]) =>
+    [...new Set(assignments.flatMap((assignment) => assignment.disciplines))].join(", ");
+  const programmes = (assignments: typeof TEACHER_ASSIGNMENTS[number]["assignments"]) =>
+    [...new Set(assignments.map(({ kind, program }) => `${kind} «${program}»`))];
+  const byProgramme = new Map<string, { name: string; disciplines: string[] }[]>();
+  for (const { name, assignments } of TEACHER_ASSIGNMENTS) {
+    for (const assignment of assignments) {
+      const label = `${assignment.kind} «${assignment.program}»`;
+      const teachers = byProgramme.get(label) ?? [];
+      const entry = teachers.find((teacher) => teacher.name === name);
+      if (entry) {
+        entry.disciplines = [...new Set([...entry.disciplines, ...assignment.disciplines])];
+      } else {
+        teachers.push({ name, disciplines: assignment.disciplines });
+      }
+      byProgramme.set(label, teachers);
+    }
+  }
   return (
     <>
-      <h3>Педагогические работники</h3>
+      <h3>Штатные преподаватели</h3>
       <div className={styles.tableScroll} tabIndex={0} role="region" aria-label="Сведения о педагогическом составе">
         <table className={styles.dataTable}>
           <thead><tr><th>ФИО и должность</th><th>Преподаваемые дисциплины</th><th>Образование и квалификация</th><th>Степень и звание</th><th>Повышение квалификации</th><th>Профессиональная переподготовка</th><th>Опыт работы</th><th>Образовательные программы</th></tr></thead>
           <tbody>
-            {EMPLOYEES.map((employee) => <tr itemProp="teachingStaff" key={employee.fio}>
+            {staffWithAssignments.map((employee) => <tr itemProp="teachingStaff" key={employee.fio}>
               <th scope="row"><strong itemProp="fio">{employee.fio}</strong><br /><span itemProp="post">{employee.post}</span></th>
-              <td itemProp="teachingDiscipline">{employee.disciplines}</td>
+              <td itemProp="teachingDiscipline">{disciplines(employee.assignments)}</td>
               <td itemProp="teachingLevel">{employee.education}<br />Квалификация: {employee.qualification}</td>
               <td><span itemProp="degree">Учёная степень отсутствует</span>; <span itemProp="academStat">учёное звание отсутствует</span></td>
               <td itemProp="qualification">{employee.training}</td>
               <td itemProp="profDevelopment">{employee.retraining}</td>
               <td itemProp="specExperience">{employee.experience}</td>
-              <td itemProp="teachingOp">{employee.programs}</td>
+              <td itemProp="teachingOp">{programmes(employee.assignments).map((program) => <div key={program}>{program}</div>)}</td>
             </tr>)}
           </tbody>
         </table>
       </div>
-      <section className={styles.informationBlock} aria-labelledby="industry-experts-title">
-        <h3 id="industry-experts-title">Приглашённые отраслевые эксперты</h3>
-        <p>Указанные специалисты привлекаются к отдельным практико-ориентированным, консультационным и профориентационным мероприятиям. Они не осуществляют самостоятельную реализацию учебных дисциплин (модулей), не проводят промежуточную и итоговую аттестацию и не принимают решений об освоении обучающимися образовательных программ. Реализацию образовательных программ обеспечивают педагогические работники, сведения о которых размещены в разделе «Педагогический состав».</p>
-      </section>
+      <h3>Приглашённые специалисты</h3>
+      <ScrollableTableRegion ariaLabel="Приглашённые специалисты" className={styles.tableScroll}>
+        <table className={`${styles.dataTable} ${styles.invitedTable}`}>
+          <thead><tr><th scope="col">ФИО</th><th scope="col">Дисциплины</th><th scope="col">Образовательные программы</th></tr></thead>
+          <tbody>
+            {invited.map(({ name, assignments }) => (
+              <tr key={name}>
+                <th scope="row">{name}</th>
+                <td>{disciplines(assignments)}</td>
+                <td>{programmes(assignments).map((program) => <div key={program}>{program}</div>)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </ScrollableTableRegion>
+      <details>
+        <summary>Педагогический состав по программам</summary>
+        <dl>
+          {[...byProgramme].sort(([left], [right]) => left.localeCompare(right, "ru")).map(([programme, teachers]) => (
+            <React.Fragment key={programme}>
+              <dt><strong>{programme}</strong></dt>
+              <dd><ul>{teachers.map(({ name, disciplines }) => (
+                <li key={name}>{name}{disciplines.length ? ` — ${disciplines.join(", ")}` : ""}</li>
+              ))}</ul></dd>
+            </React.Fragment>
+          ))}
+        </dl>
+      </details>
       <DocumentList documents={getSectionDocuments("employees")} />
     </>
   );

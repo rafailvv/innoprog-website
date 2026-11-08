@@ -64,11 +64,11 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
 
-  it("does not publish the subscription snapshot as enrollment information", () => {
+  it("publishes the November programme headcount", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
-    expect(html).toContain("Актуальные сведения о численности обучающихся уточняются.");
+    expect(html).toContain("Численность по образовательным программам");
     expect(html).not.toContain("Сводка по абонементам");
-    expect(html).not.toContain("headcount-2026-11-08.pdf");
+    expect(html).toContain("headcount-2026-11-08.pdf");
   });
 
   it("marks the license registry extract with the required property", () => {
@@ -196,7 +196,7 @@ describe("educational disclosure server HTML", () => {
   it("publishes the current pedagogical staff properties", () => {
     const html = renderToStaticMarkup(<SvedenPage section="employees" />);
     expect(html.match(/itemProp="teachingStaff"/g)).toHaveLength(2);
-    expect(html.match(/scope="row"/g)).toHaveLength(2);
+    expect(html.match(/scope="row"/g)).toHaveLength(14);
     for (const property of ["teachingDiscipline", "qualification", "profDevelopment", "specExperience", "teachingOp"]) {
       expect(html).toContain(`itemProp="${property}"`);
     }
@@ -207,9 +207,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toContain("Неоконченное профессиональное образование");
     expect(html).not.toContain("пройдены два профильных курса");
     expect(html).not.toContain("направлению «Разработка программного обеспечения»");
-    expect(html).toContain("Приглашённые отраслевые эксперты");
-    expect(html).toContain("Они не осуществляют самостоятельную реализацию учебных дисциплин (модулей), не проводят промежуточную и итоговую аттестацию и не принимают решений об освоении обучающимися образовательных программ.");
-    expect(html.indexOf("Приглашённые отраслевые эксперты")).toBeGreaterThan(html.lastIndexOf('itemProp="teachingStaff"'));
+    expect(html).toContain("Приглашённые специалисты");
+    expect(html.indexOf("Приглашённые специалисты")).toBeGreaterThan(html.lastIndexOf('itemProp="teachingStaff"'));
     expect(html.match(/itemProp="teachingStaff"/g)).toHaveLength(2);
   });
 
