@@ -59,12 +59,12 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_TOTALS).toMatchObject({ programs: 64, generalPrograms: 55, professionalPrograms: 9, students: 81, generalStudents: 74, professionalStudents: 7 });
     expect(VACANT_PROGRAMS).toHaveLength(64);
     expect(VACANT_PROGRAMS.every(({ federal, regional, municipal }) => federal === 0 && regional === 0 && municipal === 0)).toBe(true);
-    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(460);
+    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(620);
     expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.paid, 0)).toBe(100);
     expect(VACANT_PROGRAMS.map(({ paid }) => paid)).toEqual([
       5, 5, 12, 12, 5, 15, 5, 5, 5, 25, 20, 5, 8, 5, 8, 5, 12, 10, 5,
       10, 8, 8, 5, 5, 12, 10, 5, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-      20, 20, 20, 20, 20, 20, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
     ]);
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
@@ -77,7 +77,7 @@ describe("educational disclosure contracts", () => {
     expect(programs).toHaveLength(9);
     expect(programs.every(({ kind, students }) => kind === "ДО" && students !== null)).toBe(true);
     expect(programs.every(({ document }) => document.storageKey.includes("/general/"))).toBe(true);
-    expect(VACANT_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых")).every(({ paid }) => paid === 0)).toBe(true);
+    expect(VACANT_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых")).every(({ name, paid }) => paid === (name === "Мобильный разработчик" ? 0 : 20))).toBe(true);
   });
 
   it("uses the current signed child program revisions", () => {

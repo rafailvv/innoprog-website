@@ -97,7 +97,7 @@ export const SVEDEN_SECTIONS: Record<SvedenSectionSlug, { title: string; shortTi
   vacant: {
     title: "Вакантные места для приёма (перевода) обучающихся",
     shortTitle: "Вакантные места",
-    description: "Количество вакантных мест по каждой образовательной программе по состоянию на 5 августа 2026 года.",
+    description: `Количество вакантных мест по каждой образовательной программе по состоянию на ${VACANT_UPDATED_AT}.`,
   },
   grants: {
     title: "Стипендии и меры поддержки обучающихся",
@@ -436,9 +436,20 @@ const PROFESSIONAL_VACANT_PLACES = {
   "Мобильный разработчик": 5,
 } as const;
 
+const OBR_16_PAID_VACANCY_PROGRAMS = new Set([
+  "C++ разработчик",
+  "Data Science",
+  "Data-аналитик",
+  "Frontend-разработчик",
+  "Java-разработчик",
+  "ML-инженер",
+  "Python-разработчик",
+  "Unreal Engine",
+]);
+
 function getPaidVacantPlaces(program: EducationProgram): number {
-  if (program.fileName.includes("для детей от 12 лет и взрослых")) {
-    return 0;
+  if (program.kind === "ДО" && program.fileName.includes("для детей от 12 лет и взрослых")) {
+    return OBR_16_PAID_VACANCY_PROGRAMS.has(program.name) ? 20 : 0;
   }
   const places = program.kind === "ДО"
     ? GENERAL_VACANT_PLACES[program.name as keyof typeof GENERAL_VACANT_PLACES]
