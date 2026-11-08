@@ -472,7 +472,7 @@ function PaidEducationSection() {
         </tbody></table>
       </div>
       <p itemProp="paidParents">Плата за присмотр и уход за детьми не взимается, поскольку соответствующие услуги не оказываются.</p>
-      <p><a itemProp="paidDog" href="/documents/education-contract-sample.pdf">Образец договора об оказании платных образовательных услуг (PDF)</a></p>
+      <p><a itemProp="paidDog" href="/documents/education-contract-sample.pdf?v=20261108">Образец договора об оказании платных образовательных услуг (PDF)</a></p>
       <DocumentList documents={getSectionDocuments("paid_edu").filter(({ storageKey }) => storageKey !== PDF_STORAGE_KEYS.offer)} />
     </>
   );
