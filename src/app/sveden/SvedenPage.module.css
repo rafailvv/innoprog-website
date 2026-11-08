@@ -139,6 +139,7 @@
 .detailsTable th { width: 34%; color: #302a42; background: #faf9fd; font-weight: 650; }
 .detailsTable tr:last-child > *, .dataTable tbody tr:last-child > * { border-bottom: 0; }
 .dataTable { min-width: 960px; }
+.subscriptionTable { min-width: 0; }
 .dataTable thead th { color: #fff; background: #4c486b; font-weight: 650; }
 .dataTable tbody tr:nth-child(even) { background: #faf9fd; }
 .programTable { min-width: 2400px; }

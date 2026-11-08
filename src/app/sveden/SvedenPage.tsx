@@ -7,6 +7,7 @@ import {
   EDUCATION_TOTALS,
   EDUCATION_UPDATED_AT,
   STUDENT_COUNT_AS_OF,
+  SUBSCRIPTION_SNAPSHOT,
   SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
@@ -259,6 +260,24 @@ function EducationSection() {
           </tbody>
         </table>
       </ScrollableTableRegion>
+      <details className={styles.informationBlock}>
+        <summary>Сводка по абонементам на 08.11.2026</summary>
+        <ScrollableTableRegion ariaLabel="Сводка по абонементам" className={styles.tableScroll}>
+          <table className={`${styles.dataTable} ${styles.subscriptionTable}`}>
+            <thead><tr><th scope="col">Вид</th><th scope="col">Программа</th><th scope="col">Аккаунты</th></tr></thead>
+            <tbody>
+              {SUBSCRIPTION_SNAPSHOT.map(([kind, program, count]) => (
+                <tr key={`${kind}-${program}`}><td>{kind}</td><th scope="row">{program}</th><td>{count}</td></tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr><th scope="row" colSpan={2}>Итого по ДО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+              <tr><th scope="row" colSpan={2}>Итого по ДПО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДПО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+              <tr><th scope="row" colSpan={2}>Всего</th><td>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
+            </tfoot>
+          </table>
+        </ScrollableTableRegion>
+      </details>
       <DocumentList documents={documents} />
     </>
   );
