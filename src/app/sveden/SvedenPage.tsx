@@ -6,7 +6,6 @@ import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
   EDUCATION_UPDATED_AT,
-  STUDENT_COUNT_AS_OF,
   SUBSCRIPTION_SNAPSHOT,
   SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
@@ -208,12 +207,11 @@ function DocumentSection() {
 function EducationSection() {
   const documents = getSectionDocuments("education");
   const languageDocument = documents.find((document) => document.title === "Положение о языке образования");
-  const studentsDocument = documents.find((document) => document.title.startsWith("Сведения о численности обучающихся"));
   const creditPolicy = SVEDEN_DOCUMENTS.find(
     (document) => document.title === "Положение о порядке зачёта результатов ранее освоенных образовательных программ и их компонентов",
   );
 
-  if (!languageDocument || !studentsDocument || !creditPolicy) {
+  if (!languageDocument || !creditPolicy) {
     throw new Error("Required education disclosure documents are missing");
   }
 
@@ -224,14 +222,13 @@ function EducationSection() {
         ["Формы обучения", "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий"],
         ["Язык образования", <>Русский язык. <a href={languageDocument.href} itemProp="languageEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
         ["Общее количество программ", `${EDUCATION_TOTALS.programs}: ${EDUCATION_TOTALS.generalPrograms} дополнительных общеобразовательных и ${EDUCATION_TOTALS.professionalPrograms} дополнительных профессиональных`],
-        ["Численность по абонементам на 08.11.2026", <>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}. <a href="/files/sveden/education/headcount-2026-11-08.pdf" rel="noopener noreferrer" target="_blank">Сведения по программам, PDF</a></>],
-        [`Численность на ${STUDENT_COUNT_AS_OF}`, <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Архивный отчёт, PDF</a></>],
         ["Государственная аккредитация", "Не предусмотрена для реализуемых дополнительных образовательных программ"],
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
-      <details className={styles.informationBlock}>
+      <details className={styles.informationBlock} open>
         <summary>Сводка по абонементам на 08.11.2026</summary>
+        <p><a href="/files/sveden/education/headcount-2026-11-08.pdf" itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Сведения по программам, PDF</a></p>
         <ScrollableTableRegion ariaLabel="Сводка по абонементам" className={styles.tableScroll}>
           <table className={`${styles.dataTable} ${styles.subscriptionTable}`}>
             <thead><tr><th scope="col">Вид</th><th scope="col">Программа</th><th scope="col">Аккаунты</th></tr></thead>
@@ -255,7 +252,7 @@ function EducationSection() {
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
       <ScrollableTableRegion ariaLabel={`${EDUCATION_TOTALS.programs} образовательных программ`} className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.programTable}`}>
-          <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Численность на {STUDENT_COUNT_AS_OF}</th><th>Электронные документы</th></tr></thead>
+          <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Электронные документы</th></tr></thead>
           <tbody>
             {EDUCATION_PROGRAMS.map((program) => (
               <tr itemProp="eduAccred eduOp" key={`${program.kind}-${program.fileName}`}>
@@ -269,7 +266,6 @@ function EducationSection() {
                 <td itemProp="eduPred">{program.subjects.join("; ")}</td>
                 <td itemProp="eduPrac">{program.practice}</td>
                 <td>{program.language}</td>
-                <td>{program.students === null ? "В отчёте нет сведений по программе" : `${program.students}, в том числе иностранных граждан — ${program.foreignStudents}`}</td>
                 <td className={styles.documentLinks}>
                   <a href={program.document.href} itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology" rel="noopener noreferrer" target="_blank">Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы.</a>
                   <small>PDF, {formatDocumentSize(program.document.sizeBytes)}</small>

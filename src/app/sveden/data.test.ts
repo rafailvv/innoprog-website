@@ -24,8 +24,8 @@ describe("educational disclosure contracts", () => {
     expect(SVEDEN_DOCUMENTS).toHaveLength(122);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(0);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(116);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(1);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(115);
     expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(122);
     expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
@@ -42,6 +42,7 @@ describe("educational disclosure contracts", () => {
     expect(SVEDEN_DOCUMENTS.some(({ sourceName }) => sourceName === "СВЕДЕНИЯ_О_ВАКАНТНЫХ_МЕСТАХ_НА_01.08.2026.pdf")).toBe(false);
     expect(SVEDEN_DOCUMENTS).toContainEqual(expect.objectContaining({
       title: "Сведения о численности обучающихся по состоянию на 05.08.2026",
+      category: "archive",
       sourceName: "СВЕДЕНИЯ_О_ЧИСЛЕННОСТИ_ОБУЧАЮЩИХСЯ_ПО_СОСТОЯНИЮ_НА_05.08.2026.pdf",
       sourceSha256: "29dc3e5ed523b73d1b6676e6e8a4cdbd23a628104c1ab1cf2678cd6c9ff5a3b2",
     }));

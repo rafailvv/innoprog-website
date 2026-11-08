@@ -36,7 +36,7 @@ describe("educational disclosure server HTML", () => {
     expect(actual).not.toContain("hosteInfo");
   });
 
-  it("renders all 64 education programs and approved totals", () => {
+  it("renders all 64 education programs without archived headcount", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
     expect(html.match(/itemProp="eduAccred eduOp"/g)).toHaveLength(64);
     expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(64);
@@ -47,9 +47,10 @@ describe("educational disclosure server HTML", () => {
     expect(html.match(/itemProp="eduPrac"/g)).toHaveLength(64);
     expect(html).toContain('itemProp="languageEl"');
     expect(html).toContain('itemProp="eduChislenEl"');
-    expect(html).toContain("Численность на 05.08.2026");
-    expect(html.match(/В отчёте нет сведений по программе/g)).toHaveLength(11);
-    expect(html).toContain("72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам");
+    expect(html).not.toContain("Численность на 05.08.2026");
+    expect(html).not.toContain("В отчёте нет сведений по программе");
+    expect(html).not.toContain("72 человека: 68");
+    expect(html).not.toContain("_05.08.2026.pdf");
     expect(html).toContain("Дополнительная общеобразовательная общеразвивающая программа");
     expect(html).toContain("Дополнительная профессиональная программа профессиональной переподготовки");
     expect(html).toContain("Нормативный срок обучения");
@@ -63,13 +64,14 @@ describe("educational disclosure server HTML", () => {
     expect(html.split("<summary>Сводка по абонементам")[0]).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
 
-  it("shows the subscription snapshot separately from official headcount", () => {
+  it("shows one headcount table and the November PDF", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
     const snapshot = html.split("<summary>Сводка по абонементам на 08.11.2026</summary>")[1]?.split("</details>")[0];
     expect(snapshot).toContain('>Итого по ДО</th><td>77</td>');
     expect(snapshot).toContain('>Итого по ДПО</th><td>7</td>');
     expect(snapshot).toContain('>Всего</th><td>84</td>');
-    expect(snapshot).not.toContain('itemProp=');
+    expect(snapshot).toContain('href="/files/sveden/education/headcount-2026-11-08.pdf" itemProp="eduChislenEl"');
+    expect(html.match(/itemProp="eduChislenEl"/g)).toHaveLength(1);
   });
 
   it("marks the license registry extract with the required property", () => {
