@@ -227,6 +227,8 @@
   .content h2 { font-size: 26px; }
   .content h3 { margin-top: 36px; font-size: 21px; }
   .informationBlock { margin-top: 36px; padding: 18px; }
+  .subscriptionTable th,
+  .subscriptionTable td { padding-inline: 8px; overflow-wrap: anywhere; }
   .detailsTable { min-width: 660px; }
   .detailsTable th { width: 250px; }
   :global(html.sveden-accessible) .hero h1 { font-size: 36px; }
