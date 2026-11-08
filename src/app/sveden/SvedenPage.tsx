@@ -400,7 +400,6 @@ function EmployeesSection() {
           ))}
         </dl>
       </details>
-      <DocumentList documents={getSectionDocuments("employees")} />
     </>
   );
 }
