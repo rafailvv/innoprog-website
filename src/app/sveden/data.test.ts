@@ -24,8 +24,8 @@ describe("educational disclosure contracts", () => {
     expect(SVEDEN_DOCUMENTS).toHaveLength(122);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(1);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(115);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(2);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(114);
     expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(122);
     expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);

@@ -233,22 +233,25 @@ function EducationSection() {
       <h3>Реализуемые образовательные программы</h3>
       <p>Утверждённый PDF каждой программы является единым документом и включает описание, учебный план, календарный учебный график, рабочие программы модулей, сведения о практике, оценочные и методические материалы.</p>
       <ScrollableTableRegion ariaLabel={`${EDUCATION_TOTALS.programs} образовательных программ`} className={styles.tableScroll}>
-        <table className={`${styles.dataTable} ${styles.programTable}`}>
-          <thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Форма обучения</th><th>Нормативный срок обучения</th><th>Объём программы</th><th>Учебные предметы, курсы, дисциплины (модули)</th><th>Практика</th><th>Язык образования</th><th>Электронные документы</th></tr></thead>
-          <tbody>
+        <table role="table" className={`${styles.dataTable} ${styles.programTable}`}>
+          <thead role="rowgroup"><tr role="row"><th role="columnheader">Программа</th><th role="columnheader">Вид и форма обучения</th><th role="columnheader">Срок и объём</th><th role="columnheader">Содержание и практика</th><th role="columnheader">Документы</th></tr></thead>
+          <tbody role="rowgroup">
             {EDUCATION_PROGRAMS.map((program) => (
-              <tr itemProp="eduAccred eduOp" key={`${program.kind}-${program.fileName}`}>
-                <td itemProp="eduCode">{program.code}</td>
-                <th scope="row" itemProp="eduName">{program.name}</th>
-                <td itemProp="eduLevel">{program.educationLevel}</td>
-                <td itemProp="eduProf">{program.programDescription}</td>
-                <td itemProp="eduForm">{program.form}</td>
-                <td itemProp="learningTerm">{program.term}</td>
-                <td>{program.volume}</td>
-                <td itemProp="eduPred">{program.subjects.join("; ")}</td>
-                <td itemProp="eduPrac">{program.practice}</td>
-                <td>{program.language}</td>
-                <td className={styles.documentLinks}>
+              <tr itemProp="eduAccred eduOp" role="row" key={`${program.kind}-${program.fileName}`}>
+                <th scope="row" itemProp="eduName" role="rowheader">{program.name}</th>
+                <td role="cell" data-label="Вид и форма обучения">
+                  <span itemProp="eduProf">{program.programDescription}</span><br />
+                  <span itemProp="eduForm">{program.form}</span><br />
+                  Язык обучения: {program.language}<br />
+                  <small itemProp="eduLevel">{program.educationLevel}</small><br />
+                  <small itemProp="eduCode">{program.code}</small>
+                </td>
+                <td role="cell" data-label="Срок и объём"><span itemProp="learningTerm">{program.term}</span><br />{program.volume}</td>
+                <td role="cell" data-label="Содержание и практика">
+                  <span itemProp="eduPred">{program.subjects.join("; ")}</span><br />
+                  <span itemProp="eduPrac">{program.practice}</span>
+                </td>
+                <td role="cell" data-label="Документы" className={styles.documentLinks}>
                   <a href={program.document.href} itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology" rel="noopener noreferrer" target="_blank">Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы.</a>
                   <small>PDF, {formatDocumentSize(program.document.sizeBytes)}</small>
                 </td>
@@ -450,15 +453,24 @@ function VacantSection() {
   return (
     <>
       <h3>Количество вакантных мест по состоянию на {VACANT_UPDATED_AT}</h3>
-      <p>По утверждённым сведениям предусмотрено {VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((sum, { paid }) => sum + paid, 0)} платных мест по дополнительным общеобразовательным программам и {VACANT_PROGRAMS.reduce((sum, { paid }) => sum + paid, 0)} по всем программам.</p>
+      <p>Платные места финансируются по договорам об образовании за счёт средств физических и (или) юридических лиц. По утверждённым сведениям предусмотрено {VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((sum, { paid }) => sum + paid, 0)} платных мест по дополнительным общеобразовательным программам и {VACANT_PROGRAMS.reduce((sum, { paid }) => sum + paid, 0)} по всем программам.</p>
       <ScrollableTableRegion ariaLabel="Вакантные места по образовательным программам" className={styles.tableScroll}>
-        <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
-          <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.fileName}`}>
-            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
+        <table role="table" className={`${styles.dataTable} ${styles.vacancyTable}`}>
+          <thead role="rowgroup"><tr role="row"><th role="columnheader">Программа</th><th role="columnheader">Федеральный бюджет</th><th role="columnheader">Региональный бюджет</th><th role="columnheader">Местный бюджет</th><th role="columnheader">Платные места</th></tr></thead>
+          <tbody role="rowgroup">{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" role="row" key={`${program.kind}-${program.fileName}`}>
+            <th scope="row" itemProp="eduName" role="rowheader">{program.name}<small>{program.kind === "ДО" ? "Дополнительная общеразвивающая программа" : "Профессиональная переподготовка"}, {program.volume}</small></th>
+            <td role="cell" data-label="Федеральный бюджет" itemProp="numberBFVacant">{program.federal}</td>
+            <td role="cell" data-label="Региональный бюджет" itemProp="numberBRVacant">{program.regional}</td>
+            <td role="cell" data-label="Местный бюджет" itemProp="numberBMVacant">{program.municipal}</td>
+            <td role="cell" data-label="Платные места" itemProp="numberPVacant">{program.paid}</td>
           </tr>)}</tbody>
         </table>
       </ScrollableTableRegion>
-      <DocumentList documents={[...getSectionDocuments("vacant"), ...getSectionDocuments("education").filter(({ sourceName }) => sourceName.startsWith("ПРИКАЗ_№_ОБР-15_"))]} />
+      <DocumentList documents={[
+        ...getSectionDocuments("vacant"),
+        ...getSectionDocuments("document").filter(({ sourceName }) => /ОБР-(10|14)_/.test(sourceName)),
+        ...getSectionDocuments("education").filter(({ sourceName }) => sourceName.startsWith("ПРИКАЗ_№_ОБР-15_")),
+      ]} />
     </>
   );
 }
@@ -471,10 +483,7 @@ function GrantsSection() {
         ["Локальный нормативный акт о стипендиях", <Value itemProp="localAct">Не утверждался, поскольку стипендии не предоставляются</Value>],
         ["Стипендии", <Value itemProp="grant">Не предоставляются</Value>],
         ["Меры социальной поддержки", <Value itemProp="support">Не предоставляются</Value>],
-        ["Трудоустройство выпускников", "Обязательное распределение отсутствует"],
       ]} />
-      <h3>Общежитие и интернат</h3>
-      <HostelTable />
       <DocumentList documents={getSectionDocuments("grants")} />
     </>
   );

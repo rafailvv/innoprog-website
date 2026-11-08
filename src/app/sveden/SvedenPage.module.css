@@ -141,24 +141,15 @@
 .dataTable { min-width: 960px; }
 .dataTable thead th { color: #fff; background: #4c486b; font-weight: 650; }
 .dataTable tbody tr:nth-child(even) { background: #faf9fd; }
-.programTable { min-width: 2400px; }
-.vacancyTable { min-width: 2200px; }
 .programTable,
-.vacancyTable {
-  border-collapse: separate;
-  border-spacing: 0;
-  table-layout: fixed;
-}
+.vacancyTable { min-width: 0; }
 .programTable th,
 .programTable td,
 .vacancyTable th,
-.vacancyTable td {
-  min-width: 150px;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-.vacancyTable th:last-child,
-.vacancyTable td:last-child { width: 400px; min-width: 400px; }
+.vacancyTable td { padding: 12px; overflow-wrap: anywhere; }
+.programTable td:nth-child(4) { width: 30%; }
+.vacancyTable th:first-child { width: 46%; }
+.vacancyTable small { display: block; font-weight: 400; }
 .hostelTable { min-width: 820px; table-layout: fixed; }
 .hostelTable th:first-child,
 .hostelTable td:first-child { width: 44%; }
@@ -172,7 +163,6 @@
 .internationalTable th:last-child,
 .internationalTable td:last-child { width: 33%; }
 
-.documentLinks { min-width: 190px; }
 .documentLinks a, .documentLinks small { display: block; }
 .documentLinks a + a { margin-top: 6px; }
 .content a { color: #6544d9; text-underline-offset: 3px; }
@@ -213,21 +203,39 @@
   .topline { align-items: stretch; flex-direction: column; gap: 12px; }
   .breadcrumbs { font-size: 12px; }
   .accessibilityToggle { align-self: flex-start; }
-  .programTable th:last-child,
-  .programTable td:last-child,
-  .vacancyTable th:last-child,
-  .vacancyTable td:last-child {
-    width: 200px;
-    min-width: 200px;
-    max-width: 200px;
-  }
   .hero h1 { font-size: 28px; }
   .sectionNav { grid-template-columns: 1fr; }
   .content h2 { font-size: 26px; }
   .content h3 { margin-top: 36px; font-size: 21px; }
   .informationBlock { margin-top: 36px; padding: 18px; }
-  .detailsTable { min-width: 660px; }
-  .detailsTable th { width: 250px; }
+  .detailsTable { min-width: 0; table-layout: fixed; overflow-wrap: anywhere; }
+  .detailsTable th, .detailsTable td { padding: 10px; }
   :global(html.sveden-accessible) .hero h1 { font-size: 36px; }
   :global(html.sveden-accessible) .content h2 { font-size: 32px; }
+}
+
+
+@media (max-width: 860px) {
+  .programTable,
+  .vacancyTable,
+  .programTable tbody,
+  .vacancyTable tbody { display: block; }
+  .programTable thead,
+  .vacancyTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .programTable tbody tr,
+  .vacancyTable tbody tr { display: block; border-bottom: 1px solid #d8d4e3; }
+  .programTable tbody th,
+  .vacancyTable tbody th,
+  .programTable td,
+  .vacancyTable td { display: block; width: auto; border-bottom: 0; }
+  .programTable td::before,
+  .vacancyTable td::before { content: attr(data-label); display: block; font-weight: 650; }
+  .programTable td:nth-child(4),
+  .vacancyTable th:first-child { width: auto; }
 }

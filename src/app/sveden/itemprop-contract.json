@@ -35,11 +35,10 @@
     "copy", "finBFVolume", "finBRVolume", "finBMVolume", "finPVolume", "volume", "finYear", "finPost", "finRas", "finPlanDocLink"
   ],
   "vacant": [
-    "copy", "vacant", "eduCode", "eduName", "eduLevel", "eduProf", "eduCourse", "eduForm", "numberBFVacant", "numberBRVacant",
-    "numberBMVacant", "numberPVacant"
+    "copy", "vacant", "eduName", "numberBFVacant", "numberBRVacant", "numberBMVacant", "numberPVacant"
   ],
   "grants": [
-    "copy", "localAct", "grant", "support", "hostelInfo", "interInfo", "hostelNum", "hostelNumOvz", "interNum", "interNumOvz", "localActObSt"
+    "copy", "localAct", "grant", "support"
   ],
   "inter": [
     "copy", "internationalDog", "stateName", "orgName", "dogReg"

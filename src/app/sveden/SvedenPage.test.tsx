@@ -53,8 +53,8 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toContain("_05.08.2026.pdf");
     expect(html).toContain("Дополнительная общеобразовательная общеразвивающая программа");
     expect(html).toContain("Дополнительная профессиональная программа профессиональной переподготовки");
-    expect(html).toContain("Нормативный срок обучения");
-    expect(html).toContain("Учебные предметы, курсы, дисциплины (модули)");
+    expect(html).toContain("Срок и объём");
+    expect(html).toContain("Содержание и практика");
     expect(html).toContain("Код и шифр образовательной программе не присвоены");
     expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
@@ -163,21 +163,18 @@ describe("educational disclosure server HTML", () => {
     const html = renderToStaticMarkup(<SvedenPage section="vacant" />);
     expect(html.match(/itemProp="vacant"/g)).toHaveLength(64);
     expect(html.match(/scope="row" itemProp="eduName"/g)).toHaveLength(64);
-    expect(html.match(/itemProp="eduCourse"/g)).toHaveLength(64);
     expect(html.match(/itemProp="numberBFVacant"/g)).toHaveLength(64);
     expect(html.match(/itemProp="numberBRVacant"/g)).toHaveLength(64);
     expect(html.match(/itemProp="numberBMVacant"/g)).toHaveLength(64);
     expect(html.match(/itemProp="numberPVacant"/g)).toHaveLength(64);
     expect(html).not.toMatch(/itemProp="number(?:BF|BR|BM|P)Vac"/);
-    expect(html).toContain("Код и шифр образовательной программе не присвоены");
-    expect(html).not.toContain("Код и шифр образовательной программе не присваиваются");
-    expect(html).toContain("Деление на курсы образовательной программой не предусмотрено");
-    expect(html).toContain("По договорам об образовании за счёт средств физических и (или) юридических лиц");
+    expect(html).toContain("по договорам об образовании за счёт средств физических и (или) юридических лиц");
     expect(html).toContain('aria-keyshortcuts="ArrowLeft ArrowRight PageUp PageDown Home End"');
     expect(html).toContain('aria-label="Вакантные места по образовательным программам"');
     expect(html).toContain("Количество вакантных мест по состоянию на 01.09.2026");
     expect(html).toContain("Python-разработчик");
     expect(html).toContain('itemProp="numberPVacant">25</td>');
+    expect(html).toContain('/files/sveden/document/obr-10-full.pdf');
   });
 
   it("uses the recommended international cooperation and catering tables", () => {

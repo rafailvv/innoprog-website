@@ -1,10 +1,10 @@
 {
   "generatedAt": "2026-11-08",
   "counts": {
-    "section": 115,
+    "section": 114,
     "legal": 4,
     "technical": 2,
-    "archive": 1,
+    "archive": 2,
     "total": 122
   },
   "documents": [
@@ -109,7 +109,7 @@
       "title": "Выписка из ЕГРЮЛ от 01.08.2026",
       "sourceName": "Выписка_из_ЕГРЮЛ_от_01.08.2026.pdf",
       "section": "common",
-      "category": "section",
+      "category": "archive",
       "storageKey": "site-public/sveden/common/Выписка_из_ЕГРЮЛ_от_01.08.2026.pdf",
       "href": "/files/sveden/common/%D0%92%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0_%D0%B8%D0%B7_%D0%95%D0%93%D0%A0%D0%AE%D0%9B_%D0%BE%D1%82_01.08.2026.pdf",
       "sizeBytes": 157718,
@@ -333,15 +333,15 @@
       "sourceSha256": "7655bfd95998f4bd38b00846a96ccddd3783743e4dad12d682780d9a0ef53e1b"
     },
     {
-      "id": "b66227da525fbdaa",
+      "id": "650cfa72c7c114c4",
       "title": "Приказ ООО «ИННОПРОГ» от 02.08.2026 № ОБР-10 «Об утверждении количества вакантных мест для приёма (перевода) обучающихся»",
       "sourceName": "ПРИКАЗ_№_ОБР-10_ОБ_УТВЕРЖДЕНИИ_КОЛИЧЕСТВА_ВАКАНТНЫХ_МЕСТ_С_ПРИЛОЖЕНИЕМ.pdf",
       "section": "document",
       "category": "section",
-      "storageKey": "site-public/sveden/document/Приказ_№_ОБР-10_об_утверждении_количества_вакантных_мест_с_приложением.pdf",
-      "href": "/files/sveden/document/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-10_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B0_%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D1%85_%D0%BC%D0%B5%D1%81%D1%82_%D1%81_%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC.pdf",
-      "sizeBytes": 1128539,
-      "sha256": "b66227da525fbdaa27b2d7d6f0122d23906d2668187f9abe7649f000b35a30c0",
+      "storageKey": "site-public/sveden/document/obr-10-full.pdf",
+      "href": "/files/sveden/document/obr-10-full.pdf",
+      "sizeBytes": 1129034,
+      "sha256": "650cfa72c7c114c4a1e1ea68207e5ca95e61197b9fac624c5b3c9f04e8ae217c",
       "sourceSha256": "bbdf696f1d796e04971674e0a10456a132e15b273f28632a2c3d8ce1fd582032"
     },
     {
