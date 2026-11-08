@@ -508,7 +508,7 @@ function VacantSection() {
         <table role="table" className={`${styles.dataTable} ${styles.vacancyTable}`}>
           <thead role="rowgroup"><tr role="row"><th role="columnheader">Программа</th><th role="columnheader">Федеральный бюджет</th><th role="columnheader">Региональный бюджет</th><th role="columnheader">Местный бюджет</th><th role="columnheader">Платные места</th></tr></thead>
           <tbody role="rowgroup">{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" role="row" key={`${program.kind}-${program.fileName}`}>
-            <th scope="row" itemProp="eduName" role="rowheader">{program.name}<small>{program.kind === "ДО" ? "Дополнительная общеразвивающая программа" : "Профессиональная переподготовка"}{program.fileName.includes("для детей от 12 лет и взрослых") ? " для детей от 12 лет и взрослых" : ""}, {program.volume}</small></th>
+            <th scope="row" itemProp="eduName" role="rowheader">{program.displayName}<small>{program.kind === "ДО" ? "Дополнительная общеразвивающая программа" : "Профессиональная переподготовка"}{program.displayName === program.name && program.fileName.includes("для детей от 12 лет и взрослых") ? " для детей от 12 лет и взрослых" : ""}, {program.volume}</small></th>
             <td role="cell" data-label="Федеральный бюджет" itemProp="numberBFVacant">{program.federal}</td>
             <td role="cell" data-label="Региональный бюджет" itemProp="numberBRVacant">{program.regional}</td>
             <td role="cell" data-label="Местный бюджет" itemProp="numberBMVacant">{program.municipal}</td>

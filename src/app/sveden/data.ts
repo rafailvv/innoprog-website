@@ -462,6 +462,7 @@ function getPaidVacantPlaces(program: EducationProgram): number {
 
 export const VACANT_PROGRAMS = EDUCATION_PROGRAMS.map((program) => ({
   ...program,
+  displayName: headcountProgramName(program.kind, program.name, program.fileName),
   federal: 0,
   regional: 0,
   municipal: 0,
