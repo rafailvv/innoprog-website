@@ -196,7 +196,7 @@ describe("educational disclosure server HTML", () => {
   it("publishes the current pedagogical staff properties", () => {
     const html = renderToStaticMarkup(<SvedenPage section="employees" />);
     expect(html.match(/itemProp="teachingStaff"/g)).toHaveLength(2);
-    expect(html.match(/scope="row"/g)).toHaveLength(14);
+    expect(html.match(/scope="row"/g)).toHaveLength(2);
     for (const property of ["teachingDiscipline", "qualification", "profDevelopment", "specExperience", "teachingOp"]) {
       expect(html).toContain(`itemProp="${property}"`);
     }
@@ -207,8 +207,10 @@ describe("educational disclosure server HTML", () => {
     expect(html).not.toContain("Неоконченное профессиональное образование");
     expect(html).not.toContain("пройдены два профильных курса");
     expect(html).not.toContain("направлению «Разработка программного обеспечения»");
-    expect(html).toContain("Приглашённые специалисты");
-    expect(html.indexOf("Приглашённые специалисты")).toBeGreaterThan(html.lastIndexOf('itemProp="teachingStaff"'));
+    expect(html).not.toContain("Приглашённые специалисты");
+    expect(html).not.toContain("Агузаров Алан Батразович");
+    expect(html).toContain("Венедиктов Рафаил Владимирович");
+    expect(html).toContain("Королев Артемий Александрович");
     expect(html.match(/itemProp="teachingStaff"/g)).toHaveLength(2);
   });
 

@@ -334,13 +334,12 @@ function EmployeesSection() {
     ...employee,
     assignments: TEACHER_ASSIGNMENTS.find(({ name }) => name === employee.fio)?.assignments ?? [],
   }));
-  const invited = TEACHER_ASSIGNMENTS.filter(({ name }) => !EMPLOYEES.some(({ fio }) => fio === name));
   const disciplines = (assignments: typeof TEACHER_ASSIGNMENTS[number]["assignments"]) =>
     [...new Set(assignments.flatMap((assignment) => assignment.disciplines))].join(", ");
   const programmes = (assignments: typeof TEACHER_ASSIGNMENTS[number]["assignments"]) =>
     [...new Set(assignments.map(({ kind, program }) => `${kind} «${program}»`))];
   const byProgramme = new Map<string, { name: string; disciplines: string[] }[]>();
-  for (const { name, assignments } of TEACHER_ASSIGNMENTS) {
+  for (const { fio: name, assignments } of staffWithAssignments) {
     for (const assignment of assignments) {
       const label = `${assignment.kind} «${assignment.program}»`;
       const teachers = byProgramme.get(label) ?? [];
@@ -373,21 +372,6 @@ function EmployeesSection() {
           </tbody>
         </table>
       </div>
-      <h3>Приглашённые специалисты</h3>
-      <ScrollableTableRegion ariaLabel="Приглашённые специалисты" className={styles.tableScroll}>
-        <table className={`${styles.dataTable} ${styles.invitedTable}`}>
-          <thead><tr><th scope="col">ФИО</th><th scope="col">Дисциплины</th><th scope="col">Образовательные программы</th></tr></thead>
-          <tbody>
-            {invited.map(({ name, assignments }) => (
-              <tr key={name}>
-                <th scope="row">{name}</th>
-                <td>{disciplines(assignments)}</td>
-                <td>{programmes(assignments).map((program) => <div key={program}>{program}</div>)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </ScrollableTableRegion>
       <details>
         <summary>Педагогический состав по программам</summary>
         <dl>

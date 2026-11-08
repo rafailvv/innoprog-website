@@ -241,10 +241,7 @@
 }
 
 .headcountTable { min-width: 660px; }
-.invitedTable { min-width: 540px; }
 .headcountTable th,
-.headcountTable td,
-.invitedTable th,
-.invitedTable td { overflow-wrap: anywhere; }
+.headcountTable td { overflow-wrap: anywhere; }
 .headcountTable tfoot { font-weight: 650; }
 .headcountTable :is(tbody, tfoot) td:nth-last-child(-n + 4) { text-align: center; }
