@@ -612,7 +612,7 @@ def prepare(
     obr15_title = "Приказ № ОБР-15 об утверждении и актуализации детских программ и установлении вакантных мест"
     obr15_entry = write_pdf(
         output_root,
-        Path("sveden/education") / (obr15_title.replace(" ", "_") + ".pdf"),
+        Path("sveden/education/obr-15") / "ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",
         obr15_order_file.read_bytes(),
         section="education",
         source_name="ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",

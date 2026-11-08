@@ -368,7 +368,7 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
 );
 
 const GENERAL_VACANT_PLACES = {
-  "Подготовка к ОГЭ и ЕГЭ по информатике": null,
+  "Подготовка к ОГЭ и ЕГЭ по информатике": 20,
   "Разработка нейросетей": 20,
   "CI/CD": 5,
   "Dart и Flutter": 5,
@@ -428,7 +428,7 @@ const PROFESSIONAL_VACANT_PLACES = {
   "Мобильный разработчик": 5,
 } as const;
 
-function getPaidVacantPlaces(program: EducationProgram): number | null {
+function getPaidVacantPlaces(program: EducationProgram): number {
   if (program.fileName.includes("для детей от 12 лет и взрослых")) {
     return 0;
   }

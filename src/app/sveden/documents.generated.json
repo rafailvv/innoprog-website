@@ -1413,16 +1413,16 @@
       "sourceSha256": "f86e9ba80c2372a99be95078afa69fb11ae45292f44b3ab55ca5dfde8e4eea1f"
     },
     {
-      "id": "5e8873693f45105b",
+      "id": "2fa4727e4f49d486",
       "title": "Приказ № ОБР-15 об утверждении и актуализации детских программ и установлении вакантных мест",
       "sourceName": "ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",
       "section": "education",
       "category": "section",
-      "storageKey": "site-public/sveden/education/Приказ_№_ОБР-15_об_утверждении_и_актуализации_детских_программ_и_установлении_вакантных_мест.pdf",
-      "href": "/files/sveden/education/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-15_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_%D0%B8_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D1%85_%D0%BC%D0%B5%D1%81%D1%82.pdf",
-      "sizeBytes": 345097,
-      "sha256": "5e8873693f45105b223f2a74fbeaa64e479ad3a78bcbc046ca16b7837341a22c",
-      "sourceSha256": "5e8873693f45105b223f2a74fbeaa64e479ad3a78bcbc046ca16b7837341a22c"
+      "storageKey": "site-public/sveden/education/obr-15/ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",
+      "href": "/files/sveden/education/obr-15/%D0%9F%D0%A0%D0%98%D0%9A%D0%90%D0%97_%E2%84%96_%D0%9E%D0%91%D0%A0-15_%D0%9E%D0%91_%D0%9F%D0%A0%D0%9E%D0%93%D0%A0%D0%90%D0%9C%D0%9C%D0%90%D0%A5_%D0%98_%D0%A0%D0%95%D0%94%D0%90%D0%9A%D0%A6%D0%98%D0%AF%D0%A5.pdf",
+      "sizeBytes": 311426,
+      "sha256": "2fa4727e4f49d486cf97e167cff0c5b123f8b0f014190c53e742380a773540c3",
+      "sourceSha256": "2fa4727e4f49d486cf97e167cff0c5b123f8b0f014190c53e742380a773540c3"
     },
     {
       "id": "0124d45669223987",
