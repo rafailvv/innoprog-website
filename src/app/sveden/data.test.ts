@@ -69,7 +69,7 @@ describe("educational disclosure contracts", () => {
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ subjects, practice }) => subjects.length > 0 && practice.length > 0)).toBe(true);
-    expect(EDUCATION_PROGRAMS.every(({ students, foreignStudents }) => foreignStudents === (students === 0 ? 0 : null))).toBe(true);
+    expect(EDUCATION_PROGRAMS.every(({ foreignStudents }) => foreignStudents === 0)).toBe(true);
   });
 
   it("publishes the nine general programs approved by order No. OBR-5 with the November headcount", () => {

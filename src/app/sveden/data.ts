@@ -358,7 +358,7 @@ export const EDUCATION_PROGRAMS: EducationProgram[] = PROGRAM_ROWS.map(
       volume,
       term,
       students,
-      foreignStudents: students === 0 ? 0 : null,
+      foreignStudents: 0,
       fileName,
       form: "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий",
       language: "русский",
