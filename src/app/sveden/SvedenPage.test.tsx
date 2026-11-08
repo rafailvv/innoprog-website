@@ -47,6 +47,8 @@ describe("educational disclosure server HTML", () => {
     expect(html.match(/itemProp="eduPrac"/g)).toHaveLength(64);
     expect(html).toContain('itemProp="languageEl"');
     expect(html).toContain('itemProp="eduChislenEl"');
+    expect(html).toContain("Численность на 05.08.2026");
+    expect(html.match(/В отчёте нет сведений по программе/g)).toHaveLength(11);
     expect(html).toContain("72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам");
     expect(html).toContain("Дополнительная общеобразовательная общеразвивающая программа");
     expect(html).toContain("Дополнительная профессиональная программа профессиональной переподготовки");
