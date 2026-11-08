@@ -21,6 +21,7 @@ import {
   type SvedenDocument,
   type SvedenSectionSlug,
 } from "./data";
+import { PDF_STORAGE_KEYS } from "../pdfProxy";
 import styles from "./SvedenPage.module.css";
 
 const NO_INFORMATION = "Отсутствует";
@@ -45,12 +46,10 @@ const DOCUMENT_ITEMPROPS: Record<string, string> = {
   "Положение о специализированном структурном образовательном подразделении": "divisionClauseDocLink",
   "Положение об оказании платных образовательных услуг": "paidEdu",
   "Приказ № ОБР-4-1 об утверждении стоимости обучения": "paidSt",
-  "Публичная оферта INNOPROG от 02.08.2026": "paidDog",
 };
 
 const DOCUMENT_DISPLAY_TITLES: Record<string, string> = {
   "Приказ № ОБР-4-1 об утверждении стоимости обучения": "Приказ № ОБР-4/1 об утверждении стоимости обучения",
-  "Публичная оферта INNOPROG от 02.08.2026": "Публичная оферта на заключение договора об оказании платных образовательных услуг (редакция от 02.08.2026)",
 };
 
 const DOCUMENT_PURPOSES: Record<string, string> = {
@@ -473,7 +472,8 @@ function PaidEducationSection() {
         </tbody></table>
       </div>
       <p itemProp="paidParents">Плата за присмотр и уход за детьми не взимается, поскольку соответствующие услуги не оказываются.</p>
-      <DocumentList documents={getSectionDocuments("paid_edu")} />
+      <p><a itemProp="paidDog" href="/documents/education-contract-sample.pdf">Образец договора об оказании платных образовательных услуг (PDF)</a></p>
+      <DocumentList documents={getSectionDocuments("paid_edu").filter(({ storageKey }) => storageKey !== PDF_STORAGE_KEYS.offer)} />
     </>
   );
 }
