@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-19",
+  "generatedAt": "2026-11-08",
   "counts": {
-    "section": 113,
+    "section": 116,
     "legal": 4,
     "technical": 2,
     "archive": 0,
-    "total": 119
+    "total": 122
   },
   "documents": [
     {
@@ -261,30 +261,6 @@
       "sourceSha256": "5c1a16cd6178eadf54a98678cb059a0be87cc5af3914abdd213a8750f4d9c141"
     },
     {
-      "id": "ce3720058b063cf0",
-      "title": "Положение о языке образования",
-      "sourceName": "Положение_о_языке_образования.pdf",
-      "section": "document",
-      "category": "section",
-      "storageKey": "site-public/sveden/document/Положение_о_языке_образования.pdf",
-      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B5_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 946523,
-      "sha256": "ce3720058b063cf0d5e9fa08738ff44b0c851837542d0efb823efa2466771426",
-      "sourceSha256": "af5507e67e3bdbe4e33a227944dda4973fcd8420ffacacee8ec5b32b1511feef"
-    },
-    {
-      "id": "40ad91523e695644",
-      "title": "Положение об оказании платных образовательных услуг",
-      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf",
-      "section": "document",
-      "category": "section",
-      "storageKey": "site-public/sveden/document/Положение_об_оказании_платных_образовательных_услуг.pdf",
-      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B8_%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D1%83%D1%81%D0%BB%D1%83%D0%B3.pdf",
-      "sizeBytes": 888719,
-      "sha256": "40ad91523e69564441647956e4da994a6c33b6c7cadcb0afa69748192a8d2cff",
-      "sourceSha256": "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967"
-    },
-    {
       "id": "3d453f993c62eb75",
       "title": "Положение об организации образовательного процесса",
       "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОРГАНИЗАЦИИ_ОБРАЗОВАТЕЛЬНОГО_ПРОЦЕССА.pdf",
@@ -307,18 +283,6 @@
       "sizeBytes": 966713,
       "sha256": "611d4fd3013fb89b0e852b9b6bed1aba727a9589263f9412a03ebd67c4db1681",
       "sourceSha256": "5e1712e19f968f49bf88c0107c3e55bc6dd2db61debb7e8b7f36cd804903d357"
-    },
-    {
-      "id": "b4ab4226b05ed66d",
-      "title": "Положение об электронном обучении и дистанционных образовательных технологиях",
-      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf",
-      "section": "document",
-      "category": "section",
-      "storageKey": "site-public/sveden/document/Положение_об_электронном_обучении_и_ДОТ.pdf",
-      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%BC_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
-      "sizeBytes": 884511,
-      "sha256": "b4ab4226b05ed66dffb2d7731294be365fab256fc494f6f47bf522bf9384c5dd",
-      "sourceSha256": "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc"
     },
     {
       "id": "11d195a61b5b5850",
@@ -573,16 +537,16 @@
       "sourceSha256": "80c645c2e8f828262aeff8b7b49c46bdca44f9629337ebf1d8261b26f32e887c"
     },
     {
-      "id": "d0bece85d40ccb50",
+      "id": "a2aaf392db6d7dd3",
       "title": "Frontend-разработчик для детей программа обучения",
       "sourceName": "Frontend-разработчик для детей программа обучения.pdf",
       "section": "education",
       "category": "program",
-      "storageKey": "site-public/sveden/education/general/Frontend-разработчик для детей программа обучения.pdf",
-      "href": "/files/sveden/education/general/Frontend-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 926411,
-      "sha256": "d0bece85d40ccb5047eced7a6772e55abd8b05ad56be3c9f091a2e9c8c4de728",
-      "sourceSha256": "45f2e3b04fd3613461bcd7ae33a68b5ac82e8d75983c05f63284eb433bb45e48"
+      "storageKey": "site-public/sveden/education/general/obr-15/Frontend-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/Frontend-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 480102,
+      "sha256": "a2aaf392db6d7dd303dc4161b3bb29121dd825a5c9ad8516f28eaba0666d0044",
+      "sourceSha256": "a2aaf392db6d7dd303dc4161b3bb29121dd825a5c9ad8516f28eaba0666d0044"
     },
     {
       "id": "0268ed4d6876f834",
@@ -657,16 +621,16 @@
       "sourceSha256": "7ef2c1454509c45188edcce111dd371308881886c8718600da260dd0e92b69ea"
     },
     {
-      "id": "3f11690554cad756",
+      "id": "960e19ca939b9396",
       "title": "Python-разработчик для детей программа обучения",
       "sourceName": "Python-разработчик для детей программа обучения.pdf",
       "section": "education",
       "category": "program",
-      "storageKey": "site-public/sveden/education/general/Python-разработчик для детей программа обучения.pdf",
-      "href": "/files/sveden/education/general/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 928537,
-      "sha256": "3f11690554cad756785cc4f504b6985f67dfed72d44cb55705ea6d0cba4ccee4",
-      "sourceSha256": "563988a9ef19f20a221ee904ef48ed4577ec798bc56fbd3b4137c94676493d0b"
+      "storageKey": "site-public/sveden/education/general/obr-15/Python-разработчик для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/Python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 516976,
+      "sha256": "960e19ca939b939614ffbbc0c2d05b37de0c18c5b631bf910e5a785db73b9701",
+      "sourceSha256": "960e19ca939b939614ffbbc0c2d05b37de0c18c5b631bf910e5a785db73b9701"
     },
     {
       "id": "d315063562e2a940",
@@ -727,18 +691,6 @@
       "sizeBytes": 969498,
       "sha256": "bac367317a7a8078516cfdaa7cebadb630b39ec594d31175012d17c8dc3e4c4f",
       "sourceSha256": "b5d650467e7df36736cae13cf6e18cc8310a6eecd44431ad40e53a18be3dda9d"
-    },
-    {
-      "id": "6911c194c4e86d76",
-      "title": "Unreal Engine программа обучения",
-      "sourceName": "Unreal Engine программа обучения.pdf",
-      "section": "education",
-      "category": "program",
-      "storageKey": "site-public/sveden/education/general/Unreal Engine программа обучения.pdf",
-      "href": "/files/sveden/education/general/Unreal%20Engine%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 969154,
-      "sha256": "6911c194c4e86d7661646c2cf08b629b37a787b2c93af19339376699ee7be8e7",
-      "sourceSha256": "f0f1ed6342b76277a6956f670797902c1f95bafe6dbecc6b022a66e03a974f12"
     },
     {
       "id": "17b58b27db056be2",
@@ -873,16 +825,16 @@
       "sourceSha256": "8a6bf9148d93bc2d3830a62fc6c20d259230b8aeb6833cdb8404d675135717ab"
     },
     {
-      "id": "0407fb734baeebda",
+      "id": "429298dcb09edf03",
       "title": "Олимпиадное программирование программа обучения",
       "sourceName": "Олимпиадное программирование программа обучения.pdf",
       "section": "education",
       "category": "program",
-      "storageKey": "site-public/sveden/education/general/Олимпиадное программирование программа обучения.pdf",
-      "href": "/files/sveden/education/general/%D0%9E%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D0%B0%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 964186,
-      "sha256": "0407fb734baeebda55c5680cd72431fd6b2fa55d0f75d3ee1e6bdd8488998b8b",
-      "sourceSha256": "2126ee8a3bf94a5d18e221cf9f4c0cdf878cfd1e86efddb9384d52467658b9fc"
+      "storageKey": "site-public/sveden/education/general/obr-15/Олимпиадное программирование программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/%D0%9E%D0%BB%D0%B8%D0%BC%D0%BF%D0%B8%D0%B0%D0%B4%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 478393,
+      "sha256": "429298dcb09edf0392b35cda787902260a87819d554f8c62baca8401d0bd2c73",
+      "sourceSha256": "429298dcb09edf0392b35cda787902260a87819d554f8c62baca8401d0bd2c73"
     },
     {
       "id": "c64eedd281f6f637",
@@ -957,16 +909,16 @@
       "sourceSha256": "6fbae2502a286dffba0a7714c7c3cf57efa4af68612a2baebd4c92efda472f9f"
     },
     {
-      "id": "e060ba828269bd9a",
+      "id": "422b9cbf5d3e3d7e",
       "title": "Разработчик игр на Unreal Engine для детей программа обучения",
       "sourceName": "Разработчик игр на Unreal Engine для детей программа обучения.pdf",
       "section": "education",
       "category": "program",
-      "storageKey": "site-public/sveden/education/general/Разработчик игр на Unreal Engine для детей программа обучения.pdf",
-      "href": "/files/sveden/education/general/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B8%D0%B3%D1%80%20%D0%BD%D0%B0%20Unreal%20Engine%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
-      "sizeBytes": 926862,
-      "sha256": "e060ba828269bd9a257f26fbf3535c0fef8ee091d371442c21da38b6b70c8fb2",
-      "sourceSha256": "4f50c58fa32463a8b67e34f76f3fca185ba7ccad51536768f80654054bf9bb18"
+      "storageKey": "site-public/sveden/education/general/obr-15/Разработчик игр на Unreal Engine для детей программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D0%B8%D0%B3%D1%80%20%D0%BD%D0%B0%20Unreal%20Engine%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 490695,
+      "sha256": "422b9cbf5d3e3d7edc68fb70373066fa129191544ce9efd08a2c5837e3803c33",
+      "sourceSha256": "422b9cbf5d3e3d7edc68fb70373066fa129191544ce9efd08a2c5837e3803c33"
     },
     {
       "id": "04603aaf401dce4e",
@@ -1209,6 +1161,18 @@
       "sourceSha256": "628076454721465c468de459b3bbba8535ff4d7eaacab3776711d5aeb73d0402"
     },
     {
+      "id": "6911c194c4e86d76",
+      "title": "Unreal Engine программа обучения",
+      "sourceName": "Unreal Engine программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/Unreal Engine программа обучения.pdf",
+      "href": "/files/sveden/education/general/Unreal%20Engine%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 969154,
+      "sha256": "6911c194c4e86d7661646c2cf08b629b37a787b2c93af19339376699ee7be8e7",
+      "sourceSha256": "f0f1ed6342b76277a6956f670797902c1f95bafe6dbecc6b022a66e03a974f12"
+    },
+    {
       "id": "033b67ac395e65db",
       "title": "Unreal Engine программа обучения",
       "sourceName": "Unreal Engine программа обучения.pdf",
@@ -1231,6 +1195,18 @@
       "sizeBytes": 1080535,
       "sha256": "389799e9aa9509f17ca7f227d547f9d600939542c4ed239a4009c44d05194a7c",
       "sourceSha256": "8b9ecd1ff4f22ff7c4c9c3c7b908c3eaca0230b1b326a2593ed946f4d5f64287"
+    },
+    {
+      "id": "ce3720058b063cf0",
+      "title": "Положение о языке образования",
+      "sourceName": "Положение_о_языке_образования.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Положение_о_языке_образования.pdf",
+      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B5_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 946523,
+      "sha256": "ce3720058b063cf0d5e9fa08738ff44b0c851837542d0efb823efa2466771426",
+      "sourceSha256": "af5507e67e3bdbe4e33a227944dda4973fcd8420ffacacee8ec5b32b1511feef"
     },
     {
       "id": "acfa1e43ae5d9b74",
@@ -1353,6 +1329,18 @@
       "sourceSha256": "30a001948ab6b1017d6f8dec21377f5d8ca87e08c34a75c7f995f6831f3f9536"
     },
     {
+      "id": "b4ab4226b05ed66d",
+      "title": "Положение об электронном обучении и дистанционных образовательных технологиях",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Положение_об_электронном_обучении_и_ДОТ.pdf",
+      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%BE%D0%BC_%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%94%D0%9E%D0%A2.pdf",
+      "sizeBytes": 884511,
+      "sha256": "b4ab4226b05ed66dffb2d7731294be365fab256fc494f6f47bf522bf9384c5dd",
+      "sourceSha256": "104f82eb6d39d9447ec32a6bca6f7f8c5135fbee9e038e71c29bb2c2140ae7fc"
+    },
+    {
       "id": "06db8e424a6d14f2",
       "title": "Положение об электронном обучении и дистанционных образовательных технологиях",
       "sourceName": "ПОЛОЖЕНИЕ_ОБ_ЭЛЕКТРОННОМ_ОБУЧЕНИИ_И_ДИСТАНЦИОННЫХ_ОБРАЗОВАТЕЛЬНЫХ_ТЕХНОЛОГИЯХ.pdf",
@@ -1377,6 +1365,18 @@
       "sourceSha256": "4b5dfc118136b3ffe0870420b939a396e1bf0139f9bfdec9ab06ed69907faaa6"
     },
     {
+      "id": "40ad91523e695644",
+      "title": "Положение об оказании платных образовательных услуг",
+      "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf",
+      "section": "document",
+      "category": "section",
+      "storageKey": "site-public/sveden/document/Положение_об_оказании_платных_образовательных_услуг.pdf",
+      "href": "/files/sveden/document/%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BE%D0%B1_%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B8_%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D1%85_%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D1%83%D1%81%D0%BB%D1%83%D0%B3.pdf",
+      "sizeBytes": 888719,
+      "sha256": "40ad91523e69564441647956e4da994a6c33b6c7cadcb0afa69748192a8d2cff",
+      "sourceSha256": "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967"
+    },
+    {
       "id": "8d33d4c4afc5dba0",
       "title": "Положение об оказании платных образовательных услуг",
       "sourceName": "ПОЛОЖЕНИЕ_ОБ_ОКАЗАНИИ_ПЛАТНЫХ_ОБРАЗОВАТЕЛЬНЫХ_УСЛУГ.pdf",
@@ -1387,6 +1387,42 @@
       "sizeBytes": 888719,
       "sha256": "8d33d4c4afc5dba00e94249f19a149d60d8c19ee0a7e750bdf59cbc0d5ea3ce3",
       "sourceSha256": "8dc92527cb1263b6d0cfe391f882b49353b766f7d9e99aa20e89808fe55e0967"
+    },
+    {
+      "title": "Подготовка к ОГЭ и ЕГЭ по информатике программа обучения",
+      "sourceName": "Подготовка к ОГЭ и ЕГЭ по информатике программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "id": "a2e269f793730574",
+      "storageKey": "site-public/sveden/education/general/obr-15/Подготовка к ОГЭ и ЕГЭ по информатике программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BA%20%D0%9E%D0%93%D0%AD%20%D0%B8%20%D0%95%D0%93%D0%AD%20%D0%BF%D0%BE%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 383489,
+      "sha256": "a2e269f79373057474ca1021c61cd6633711bae7be7ce16ebbf168eba9fa7e8f",
+      "sourceSha256": "a2e269f79373057474ca1021c61cd6633711bae7be7ce16ebbf168eba9fa7e8f"
+    },
+    {
+      "id": "f86e9ba80c2372a9",
+      "title": "Разработка нейросетей программа обучения",
+      "sourceName": "Разработка нейросетей программа обучения.pdf",
+      "section": "education",
+      "category": "program",
+      "storageKey": "site-public/sveden/education/general/obr-15/Разработка нейросетей программа обучения.pdf",
+      "href": "/files/sveden/education/general/obr-15/%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F.pdf",
+      "sizeBytes": 505924,
+      "sha256": "f86e9ba80c2372a99be95078afa69fb11ae45292f44b3ab55ca5dfde8e4eea1f",
+      "sourceSha256": "f86e9ba80c2372a99be95078afa69fb11ae45292f44b3ab55ca5dfde8e4eea1f"
+    },
+    {
+      "id": "5e8873693f45105b",
+      "title": "Приказ № ОБР-15 об утверждении и актуализации детских программ и установлении вакантных мест",
+      "sourceName": "ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",
+      "section": "education",
+      "category": "section",
+      "storageKey": "site-public/sveden/education/Приказ_№_ОБР-15_об_утверждении_и_актуализации_детских_программ_и_установлении_вакантных_мест.pdf",
+      "href": "/files/sveden/education/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7_%E2%84%96_%D0%9E%D0%91%D0%A0-15_%D0%BE%D0%B1_%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8_%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D1%85_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC_%D0%B8_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%82%D0%BD%D1%8B%D1%85_%D0%BC%D0%B5%D1%81%D1%82.pdf",
+      "sizeBytes": 345097,
+      "sha256": "5e8873693f45105b223f2a74fbeaa64e479ad3a78bcbc046ca16b7837341a22c",
+      "sourceSha256": "5e8873693f45105b223f2a74fbeaa64e479ad3a78bcbc046ca16b7837341a22c"
     },
     {
       "id": "0124d45669223987",

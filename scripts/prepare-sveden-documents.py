@@ -188,11 +188,11 @@ REPLACED_PUBLIC_KEYS = {
     "site-public/sveden/archive/document/Приказ_об_организации_дистанционного_обучения.pdf",
 }
 
-EXPECTED_SECTION_PDFS = 113
+EXPECTED_SECTION_PDFS = 116
 EXPECTED_LEGAL_PDFS = 4
 EXPECTED_TECHNICAL_PDFS = 2
 EXPECTED_ARCHIVE_PDFS = 0
-EXPECTED_TOTAL_PDFS = 119
+EXPECTED_TOTAL_PDFS = 122
 TECHNICAL_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/technical/"
 PUBLIC_SOURCE_BASE_URL = "https://storage.yandexcloud.net/innoprog-documents/site-public/"
 
@@ -238,9 +238,11 @@ def write_pdf(
     section: str | None,
     source_name: str,
     category: str,
+    optimize: bool = True,
 ) -> dict[str, object]:
     source_sha256 = sha256(data)
-    data = optimize_pdf_bytes(data)
+    if optimize:
+        data = optimize_pdf_bytes(data)
     destination = output_root / "site-public" / relative_key
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_bytes(data)
@@ -305,6 +307,8 @@ def prepare(
     general_12plus_order_file: Path,
     offer_file: Path,
     student_count_file: Path,
+    obr15_programs_dir: Path,
+    obr15_order_file: Path,
     output_root: Path,
     manifest: Path,
 ) -> None:
@@ -578,6 +582,47 @@ def prepare(
     entries_by_key[str(student_count_entry["storageKey"])] = student_count_entry
     section_count += 1
 
+    revised_programs = (
+        "Python-разработчик для детей",
+        "Frontend-разработчик для детей",
+        "Разработчик игр на Unreal Engine для детей",
+        "Олимпиадное программирование",
+        "Разработка нейросетей",
+        "Подготовка к ОГЭ и ЕГЭ по информатике",
+    )
+    for name in revised_programs:
+        filename = f"{name} программа обучения.pdf"
+        previous_key = f"site-public/sveden/education/general/{filename}"
+        previous = entries_by_key.pop(previous_key, None)
+        if previous:
+            (output_root / previous_key).unlink()
+        else:
+            section_count += 1
+        entry = write_pdf(
+            output_root,
+            Path("sveden/education/general/obr-15") / filename,
+            (obr15_programs_dir / filename).read_bytes(),
+            section="education",
+            source_name=filename,
+            category="program",
+            optimize=False,
+        )
+        entries_by_key[str(entry["storageKey"])] = entry
+
+    obr15_title = "Приказ № ОБР-15 об утверждении и актуализации детских программ и установлении вакантных мест"
+    obr15_entry = write_pdf(
+        output_root,
+        Path("sveden/education") / (obr15_title.replace(" ", "_") + ".pdf"),
+        obr15_order_file.read_bytes(),
+        section="education",
+        source_name="ПРИКАЗ_№_ОБР-15_ОБ_ПРОГРАММАХ_И_РЕДАКЦИЯХ.pdf",
+        category="section",
+        optimize=False,
+    )
+    obr15_entry["title"] = obr15_title
+    entries_by_key[str(obr15_entry["storageKey"])] = obr15_entry
+    section_count += 1
+
     entries = list(entries_by_key.values())
 
     counts = {
@@ -600,7 +645,7 @@ def prepare(
     entries.sort(key=lambda item: (str(item["section"]), str(item["storageKey"])))
     manifest.parent.mkdir(parents=True, exist_ok=True)
     manifest.write_text(
-        json.dumps({"generatedAt": "2026-08-26", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
+        json.dumps({"generatedAt": "2026-11-08", "counts": counts, "documents": entries}, ensure_ascii=False, indent=2)
         + "\n",
         encoding="utf-8",
     )
@@ -661,6 +706,8 @@ def main() -> None:
         required=True,
         help="Approved student count PDF that replaces the previous revision",
     )
+    parser.add_argument("--obr-15-programs-dir", type=Path, required=True)
+    parser.add_argument("--obr-15-order-file", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("/tmp/innoprog-sveden-upload"))
     parser.add_argument(
         "--manifest",
@@ -679,6 +726,8 @@ def main() -> None:
         args.general_12plus_order_file,
         args.offer_file,
         args.student_count_file,
+        args.obr_15_programs_dir,
+        args.obr_15_order_file,
         args.output,
         args.manifest,
     )

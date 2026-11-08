@@ -21,12 +21,12 @@ import {
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(119);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(122);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(0);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(113);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(119);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(116);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(122);
     expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
@@ -49,21 +49,21 @@ describe("educational disclosure contracts", () => {
   });
 
   it("keeps the approved program and student totals", () => {
-    expect(EDUCATION_PROGRAMS).toHaveLength(62);
-    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО")).toHaveLength(53);
+    expect(EDUCATION_PROGRAMS).toHaveLength(64);
+    expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО")).toHaveLength(55);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО")).toHaveLength(9);
     expect(EDUCATION_PROGRAMS.reduce((total, program) => total + program.students, 0)).toBe(72);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.students, 0)).toBe(68);
     expect(EDUCATION_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.students, 0)).toBe(4);
-    expect(EDUCATION_TOTALS).toMatchObject({ programs: 62, generalPrograms: 53, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
-    expect(VACANT_PROGRAMS).toHaveLength(62);
+    expect(EDUCATION_TOTALS).toMatchObject({ programs: 64, generalPrograms: 55, professionalPrograms: 9, students: 72, generalStudents: 68, professionalStudents: 4 });
+    expect(VACANT_PROGRAMS).toHaveLength(64);
     expect(VACANT_PROGRAMS.every(({ federal, regional, municipal }) => federal === 0 && regional === 0 && municipal === 0)).toBe(true);
-    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + program.paid, 0)).toBe(420);
-    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + program.paid, 0)).toBe(100);
+    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДО").reduce((total, program) => total + (program.paid ?? 0), 0)).toBe(440);
+    expect(VACANT_PROGRAMS.filter(({ kind }) => kind === "ДПО").reduce((total, program) => total + (program.paid ?? 0), 0)).toBe(100);
     expect(VACANT_PROGRAMS.map(({ paid }) => paid)).toEqual([
       5, 5, 12, 12, 5, 15, 5, 5, 5, 25, 20, 5, 8, 5, 8, 5, 12, 10, 5,
       10, 8, 8, 5, 5, 12, 10, 5, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5,
-      20, 20, 20, 20, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
+      20, 20, 20, 20, 20, 20, null, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 15, 10, 10, 5, 25, 5, 5,
     ]);
     expect(EDUCATION_PROGRAMS.every(({ code }) => code === "Код и шифр образовательной программе не присвоены")).toBe(true);
     expect(EDUCATION_PROGRAMS.every(({ educationLevel }) => !educationLevel.includes("ДО"))).toBe(true);
@@ -79,21 +79,21 @@ describe("educational disclosure contracts", () => {
     expect(VACANT_PROGRAMS.filter(({ fileName }) => fileName.includes("для детей от 12 лет и взрослых")).every(({ paid }) => paid === 0)).toBe(true);
   });
 
-  it("uses the six child programs approved by order No. OBR-13 on 05.08.2026", () => {
+  it("uses the current signed child program revisions", () => {
     const approvedHashes = new Map([
-      ["Python-разработчик для детей программа обучения.pdf", "563988a9ef19f20a221ee904ef48ed4577ec798bc56fbd3b4137c94676493d0b"],
-      ["Frontend-разработчик для детей программа обучения.pdf", "45f2e3b04fd3613461bcd7ae33a68b5ac82e8d75983c05f63284eb433bb45e48"],
+      ["Python-разработчик для детей программа обучения.pdf", "960e19ca939b939614ffbbc0c2d05b37de0c18c5b631bf910e5a785db73b9701"],
+      ["Frontend-разработчик для детей программа обучения.pdf", "a2aaf392db6d7dd303dc4161b3bb29121dd825a5c9ad8516f28eaba0666d0044"],
       ["C++-разработчик для детей программа обучения.pdf", "1e9ef29e1b92e117c287438df57c60a359014590bc1ae6a32b4f789caa9e5be9"],
       ["Java-разработчик для детей программа обучения.pdf", "d46c9cd79b7b3c5608e9473f460330587f2221657c08dc9c43c9a87505bb4e64"],
       ["Мобильный разработчик для детей программа обучения.pdf", "e3163f0383569d83b20ec9618881948b1c8616081599a30e86d79e131608f9cb"],
-      ["Разработчик игр на Unreal Engine для детей программа обучения.pdf", "4f50c58fa32463a8b67e34f76f3fca185ba7ccad51536768f80654054bf9bb18"],
+      ["Разработчик игр на Unreal Engine для детей программа обучения.pdf", "422b9cbf5d3e3d7edc68fb70373066fa129191544ce9efd08a2c5837e3803c33"],
     ]);
     const childPrograms = EDUCATION_PROGRAMS.filter(({ name }) => name.endsWith("для детей"));
 
     expect(childPrograms).toHaveLength(6);
     for (const program of childPrograms) {
       expect(program.volume).toBe("160 академических часов");
-      expect(program.term).toContain("10 месяцев (40 учебных недель)");
+      expect(program.term).toContain("40 учебных недель");
       expect(program.students).toBe(0);
       expect(program.document.sourceSha256, program.name).toBe(approvedHashes.get(program.fileName));
     }

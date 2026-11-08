@@ -222,7 +222,7 @@ function EducationSection() {
         ["Формы обучения", "Очная форма обучения с применением электронного обучения и дистанционных образовательных технологий"],
         ["Язык образования", <>Русский язык. <a href={languageDocument.href} itemProp="languageEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
         ["Общее количество программ", `${EDUCATION_TOTALS.programs}: ${EDUCATION_TOTALS.generalPrograms} дополнительных общеобразовательных и ${EDUCATION_TOTALS.professionalPrograms} дополнительных профессиональных`],
-        ["Общая численность обучающихся", <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
+        ["Численность по опубликованному отчёту", <>72 человека: 68 по дополнительным общеобразовательным программам и 4 по дополнительным профессиональным программам; иностранных граждан — 0. <a href={studentsDocument.href} itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Электронный документ, PDF</a></>],
         ["Государственная аккредитация", "Не предусмотрена для реализуемых дополнительных образовательных программ"],
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
@@ -248,7 +248,7 @@ function EducationSection() {
                 <td itemProp="eduPred">{program.subjects.join("; ")}</td>
                 <td itemProp="eduPrac">{program.practice}</td>
                 <td>{program.language}</td>
-                <td>{program.students}, в том числе иностранных граждан — {program.foreignStudents}</td>
+                <td>{program.document.storageKey.includes("/obr-15/") && (program.name === "Разработка нейросетей" || program.name === "Подготовка к ОГЭ и ЕГЭ по информатике") ? "Программа утверждена после даты отчёта" : `${program.students}, в том числе иностранных граждан — ${program.foreignStudents}`}</td>
                 <td className={styles.documentLinks}>
                   <a href={program.document.href} itemProp="opMain educationPlan educationRpd educationShedule eduPr methodology" rel="noopener noreferrer" target="_blank">Скачать полную образовательную программу, включая учебный план, календарный учебный график, рабочие программы модулей, оценочные и методические материалы.</a>
                   <small>PDF, {formatDocumentSize(program.document.sizeBytes)}</small>
@@ -450,15 +450,15 @@ function BudgetSection() {
 function VacantSection() {
   return (
     <>
-      <h3>Количество вакантных мест по состоянию на 26.08.2026</h3>
+      <h3>Количество вакантных мест по состоянию на {VACANT_UPDATED_AT}</h3>
       <ScrollableTableRegion ariaLabel="Вакантные места по образовательным программам" className={styles.tableScroll}>
         <table className={`${styles.dataTable} ${styles.vacancyTable}`}><thead><tr><th>Код, шифр</th><th>Наименование образовательной программы</th><th>Уровень образования</th><th>Образовательная программа</th><th>Курс</th><th>Форма обучения</th><th>Федеральный бюджет</th><th>Бюджет субъекта Российской Федерации</th><th>Местный бюджет</th><th>По договорам об образовании за счёт средств физических и (или) юридических лиц</th></tr></thead>
           <tbody>{VACANT_PROGRAMS.map((program) => <tr itemProp="vacant" key={`${program.kind}-${program.fileName}`}>
-            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid}</td>
+            <td itemProp="eduCode">{program.code}</td><th scope="row" itemProp="eduName">{program.name}</th><td itemProp="eduLevel">{program.educationLevel}</td><td itemProp="eduProf">{program.programDescription}</td><td itemProp="eduCourse">Деление на курсы образовательной программой не предусмотрено</td><td itemProp="eduForm">{program.form}</td><td itemProp="numberBFVacant">{program.federal}</td><td itemProp="numberBRVacant">{program.regional}</td><td itemProp="numberBMVacant">{program.municipal}</td><td itemProp="numberPVacant">{program.paid ?? "Количество мест не установлено"}</td>
           </tr>)}</tbody>
         </table>
       </ScrollableTableRegion>
-      <DocumentList documents={getSectionDocuments("vacant")} />
+      <DocumentList documents={[...getSectionDocuments("vacant"), ...getSectionDocuments("education").filter(({ sourceName }) => sourceName.startsWith("ПРИКАЗ_№_ОБР-15_"))]} />
     </>
   );
 }
@@ -557,7 +557,7 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
     : section === "vacant"
       ? VACANT_UPDATED_AT
       : SVEDEN_UPDATED_AT;
-  const updatedAtIso = section === "education" || section === "vacant" ? "2026-08-05" : "2026-08-01";
+  const updatedAtIso = section === "education" ? "2026-11-08" : section === "vacant" ? "2026-09-01" : "2026-08-01";
   return (
     <div className={styles.page} itemScope itemType="https://schema.org/EducationalOrganization">
       <SvedenHeader />
