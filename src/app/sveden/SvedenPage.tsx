@@ -6,7 +6,6 @@ import {
   EDUCATION_PROGRAMS,
   EDUCATION_TOTALS,
   EDUCATION_UPDATED_AT,
-  SUBSCRIPTION_SNAPSHOT,
   SVEDEN_DOCUMENTS,
   SVEDEN_SECTIONS,
   SVEDEN_SECTION_SLUGS,
@@ -226,25 +225,8 @@ function EducationSection() {
         ["Научно-исследовательская деятельность в 2025 году", <Value itemProp="eduNir">Не осуществлялась</Value>],
         ["Трудоустройство выпускников", <Value itemProp="graduateJob">Обязательное распределение и гарантированное трудоустройство законодательством для данных программ не предусмотрены</Value>],
       ]} />
-      <details className={styles.informationBlock} open>
-        <summary>Сводка по абонементам на 08.11.2026</summary>
-        <p><a href="/files/sveden/education/headcount-2026-11-08.pdf" itemProp="eduChislenEl" rel="noopener noreferrer" target="_blank">Сведения по программам, PDF</a></p>
-        <ScrollableTableRegion ariaLabel="Сводка по абонементам" className={styles.tableScroll}>
-          <table className={`${styles.dataTable} ${styles.subscriptionTable}`}>
-            <thead><tr><th scope="col">Вид</th><th scope="col">Программа</th><th scope="col">Аккаунты</th></tr></thead>
-            <tbody>
-              {SUBSCRIPTION_SNAPSHOT.map(([kind, program, count]) => (
-                <tr key={`${kind}-${program}`}><td>{kind}</td><th scope="row">{program}</th><td>{count}</td></tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr><th scope="row" colSpan={2}>Итого по ДО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-              <tr><th scope="row" colSpan={2}>Итого по ДПО</th><td>{SUBSCRIPTION_SNAPSHOT.filter(([kind]) => kind === "ДПО").reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-              <tr><th scope="row" colSpan={2}>Всего</th><td>{SUBSCRIPTION_SNAPSHOT.reduce((sum, [, , count]) => sum + count, 0)}</td></tr>
-            </tfoot>
-          </table>
-        </ScrollableTableRegion>
-      </details>
+      <h3>Численность обучающихся</h3>
+      <p itemProp="eduChislenEl">Актуальные сведения о численности обучающихся уточняются.</p>
       <p itemProp="eduPriemEl">Приём на обучение осуществляется без вступительных испытаний.</p>
       <p itemProp="eduPerevodEl">Перевод, восстановление и отчисление обучающихся в отчётном периоде не осуществлялись.</p>
       <p>Порядок зачёта результатов ранее освоенных образовательных программ и их компонентов установлен <a href={creditPolicy.href} rel="noopener noreferrer" target="_blank">локальным нормативным актом (PDF)</a>.</p>
@@ -599,6 +581,10 @@ export function SvedenPage({ section }: { section: SvedenSectionSlug }) {
             <SectionContent section={section} />
           </article>
         </div>
+        <nav aria-label="Федеральные органы в сфере образования" className={styles.breadcrumbs}>
+          <a href="https://minobrnauki.gov.ru/">Минобрнауки России</a>
+          <a href="https://edu.gov.ru/">Минпросвещения России</a>
+        </nav>
       </main>
       <ResponsiveSiteFooter />
     </div>

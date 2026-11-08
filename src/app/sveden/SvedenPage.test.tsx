@@ -61,17 +61,14 @@ describe("educational disclosure server HTML", () => {
     expect(html).toContain('aria-label="64 образовательных программ"');
     expect(html).toContain("Приказ № ОБР-5 о дополнении перечня образовательных программ");
     expect(html).toContain("Приказ № ОБР-13 об утверждении детских образовательных программ");
-    expect(html.split("<summary>Сводка по абонементам")[0]).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
+    expect(html).not.toMatch(/>ДО<|>ДПО<|Программы ДПО/);
   });
 
-  it("shows one headcount table and the November PDF", () => {
+  it("does not publish the subscription snapshot as enrollment information", () => {
     const html = renderToStaticMarkup(<SvedenPage section="education" />);
-    const snapshot = html.split("<summary>Сводка по абонементам на 08.11.2026</summary>")[1]?.split("</details>")[0];
-    expect(snapshot).toContain('>Итого по ДО</th><td>77</td>');
-    expect(snapshot).toContain('>Итого по ДПО</th><td>7</td>');
-    expect(snapshot).toContain('>Всего</th><td>84</td>');
-    expect(snapshot).toContain('href="/files/sveden/education/headcount-2026-11-08.pdf" itemProp="eduChislenEl"');
-    expect(html.match(/itemProp="eduChislenEl"/g)).toHaveLength(1);
+    expect(html).toContain("Актуальные сведения о численности обучающихся уточняются.");
+    expect(html).not.toContain("Сводка по абонементам");
+    expect(html).not.toContain("headcount-2026-11-08.pdf");
   });
 
   it("marks the license registry extract with the required property", () => {
