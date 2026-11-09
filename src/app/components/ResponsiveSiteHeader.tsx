@@ -11,6 +11,7 @@ export function SiteHeader({
   childrenHref,
   childrenLinks,
   applicationHref,
+  mobileApplicationHref,
   isMobile,
   mobileMenuOpen = false,
   onClickCapture,
@@ -20,6 +21,7 @@ export function SiteHeader({
   childrenHref?: string;
   childrenLinks?: readonly { label: string; href: string }[];
   applicationHref?: string;
+  mobileApplicationHref?: string;
   isMobile: boolean;
   mobileMenuOpen?: boolean;
   onClickCapture?: MouseEventHandler<HTMLElement>;
@@ -38,6 +40,7 @@ export function SiteHeader({
           responsive
         />
         <MobileHeaderSurface
+          applicationHref={mobileApplicationHref}
           menuOpen={mobileMenuOpen}
           onClickCapture={onClickCapture}
           scale={scale}
@@ -49,6 +52,7 @@ export function SiteHeader({
 
   return isMobile ? (
     <MobileHeaderSurface
+      applicationHref={mobileApplicationHref}
       menuOpen={mobileMenuOpen}
       onClickCapture={onClickCapture}
       scale={scale}
@@ -65,11 +69,13 @@ export function SiteHeader({
 }
 
 function MobileHeaderSurface({
+  applicationHref,
   menuOpen,
   onClickCapture,
   responsive = false,
   scale,
 }: {
+  applicationHref?: string;
   menuOpen: boolean;
   onClickCapture?: MouseEventHandler<HTMLElement>;
   responsive?: boolean;
@@ -89,7 +95,7 @@ function MobileHeaderSurface({
           width: `${MOBILE_WIDTH}px`,
         }}
       >
-        <MainScreenMobileHeader menuOpen={menuOpen} />
+        <MainScreenMobileHeader menuOpen={menuOpen} applicationHref={applicationHref} />
       </div>
     </header>
   );

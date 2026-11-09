@@ -4,7 +4,8 @@ import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
 import Link from "next/link";
-import { CalendarDays, MessageCircle, UserRound } from "lucide-react";
+import { CalendarDays, CodeXml, GraduationCap, Laptop, Trophy, UserRound } from "lucide-react";
+import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../../components/ResponsiveSiteFooter";
@@ -148,6 +149,7 @@ export default function SchoolPage() {
         <SiteHeader
           childrenHref="/children"
           childrenLinks={childrenCourseNavigation}
+          mobileApplicationHref="/application"
           renderBoth
           isMobile={isMobile}
           mobileMenuOpen={menuOpen}
@@ -166,60 +168,71 @@ export default function SchoolPage() {
                 <strong>для детей</strong>
               </h1>
             </div>
-            <picture className={styles.heroPicture}>
-              <source media="(max-width: 767px)" srcSet={a["hero-mobile"]} />
-              <img
-                src={a.hero}
-                alt="Ученик ИННОПРОГ занимается программированием за ноутбуком"
-                width={450}
-                height={650}
-                fetchPriority="high"
-              />
-            </picture>
             <ul className={styles.heroBenefits} role="list">
               {[
                 { text: "Индивидуальные занятия с преподавателем", Icon: UserRound },
-                { text: "Объясняем сложные вещи простым языком", Icon: MessageCircle },
+                { text: "Развиваем навыки программирования", Icon: Laptop },
                 { text: "Подстроимся под расписание ребёнка", Icon: CalendarDays },
               ].map(({ text, Icon }) => (
                 <li key={text}>
-                  <Icon aria-hidden="true" size={20} />
+                  <span className={styles.heroBenefitIcon}><Icon aria-hidden="true" size={23} /></span>
                   <span>{text}</span>
                 </li>
               ))}
             </ul>
             <button
               className={`${styles.button} ${styles.heroCta}`}
+              type="button"
               onClick={() => setApplication("Запись на бесплатное занятие")}
             >
-              Записаться на бесплатное занятие
+              <span>записаться на бесплатное занятие</span>
+              <span className={styles.heroCtaIcon} aria-hidden="true">
+                <svg viewBox="0 0 16.65 16.64" fill="none">
+                  <path d={mobileHomePaths.p2b850d80} stroke="currentColor" />
+                </svg>
+              </span>
             </button>
+            <img
+              className={styles.heroPicture}
+              src="/children/school/hero-illustration-transparent.webp"
+              alt="Ребёнок за ноутбуком. Вокруг него робот, ракета и плашки о проектах, алгоритмах, достижениях и сертификате"
+              width={1440}
+              height={884}
+              fetchPriority="high"
+            />
           </div>
         </section>
         <section className={styles.future}>
           <div className={styles.container}>
             <h2>Будьте спокойны за будущее вашего ребёнка</h2>
             <div className={styles.futureGrid}>
-              {[
+              {([
                 [
                   "Поступление в ВУЗ",
-                  "Подготовим к поступлению в ВУЗ по ИТ-направлению",
-                  a["future-1"],
+                  <>
+                    <span className={styles.futureAdmissionLead}>Подготовим к поступлению в ВУЗ</span>
+                    <br />
+                    <span className={styles.futureAdmissionDirection}>по ИТ-направлению</span>
+                  </>,
+                  a["future-2"],
+                  GraduationCap,
                 ],
                 [
                   "ИТ-специальность",
                   "Вырастим из вашего ребёнка будущего ИТ-специалиста",
                   a["future-3"],
+                  CodeXml,
                 ],
                 [
                   "Участие в олимпиадах",
                   "Прокачаем навыки для участия в олимпиадах по информатике",
-                  a["future-2"],
+                  a["future-1"],
+                  Trophy,
                 ],
-              ].map(([title, text, image]) => (
+              ] as const).map(([title, text, image, Icon]) => (
                 <article key={title}>
                   <header>
-                    <h3>{title}</h3>
+                    <h3><Icon aria-hidden="true" size={22} />{title}</h3>
                     <p>{text}</p>
                   </header>
                   <img

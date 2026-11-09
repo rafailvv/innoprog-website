@@ -17,7 +17,7 @@ export const metadata = createPageMetadata({
     "Индивидуальные онлайн-занятия по программированию для детей: Python, сайты и игры, нейросети, подготовка к ОГЭ, ЕГЭ и олимпиадам. Бесплатное вводное занятие.",
   path: "/children",
   ogImage: "/og/children-school-v1.png",
-  ogImageAlt: "Программирование для детей 9–17 лет в ИННОПРОГ",
+  ogImageAlt: "Программирование для детей в ИННОПРОГ",
   ogImageSize: { width: 1200, height: 630 },
   keywords: [
     "курсы программирования для детей",

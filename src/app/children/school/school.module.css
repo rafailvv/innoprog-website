@@ -3,6 +3,7 @@
   --ink: #201c2d;
   color: var(--ink);
   background: #fff;
+  font-family: var(--font-manrope), Arial, sans-serif;
   font-size: 18px;
   line-height: 1.4;
   overflow: clip;
@@ -79,24 +80,15 @@
   background: #8860ed;
   transform: translateY(-1px);
 }
-.hero {
-  position: relative;
-  background:
-    url("/children/school/hero-wave.svg") left center/65% 100% no-repeat,
-    url("/children/school/hero-wave-right.svg") right center/50% 100% no-repeat;
-}
 .heroInner {
   display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  grid-template-rows: auto auto auto;
-  column-gap: 48px;
-  position: relative;
-  padding-block: 25px 40px;
-  min-height: 670px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-content: center;
+  gap: 18px 20px;
+  padding-block: 12px 36px;
 }
 .heroText {
   container-type: inline-size;
-  padding-top: 25px;
 }
 .age {
   display: inline-block;
@@ -109,11 +101,13 @@
 }
 .heroText > .age {
   display: table;
-  margin: 0 auto 50px 0;
-  padding: 5px 36px;
-  font-size: 20px;
+  padding: 5px 24px;
+  color: #000;
+  border-color: currentColor;
+  font-size: clamp(14px, 3.8cqi, 20px);
 }
 .hero h1 {
+  margin-top: 14px;
   color: #464a6a;
   line-height: 1;
   text-transform: uppercase;
@@ -136,80 +130,89 @@
 .hero h1 strong {
   margin-top: 8px;
   font-size: min(7cqi, 46px);
+  color: var(--purple);
 }
 .heroPicture {
   grid-column: 2;
-  grid-row: 1/4;
-  height: 650px;
+  grid-row: 1 / 4;
+  align-self: center;
+  justify-self: start;
   display: block;
-}
-.heroPicture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
-  box-shadow: 0 2px 16px #0004;
+  width: 105%;
+  max-width: none;
+  height: auto;
 }
 .heroBenefits {
   display: grid;
-  gap: 2px;
-  width: min(100%, 490px);
+  gap: 4px;
   list-style: none;
-  margin: 36px 0 32px;
-  padding: 6px;
-  border: 1px solid #e4d8fa;
-  border-radius: 22px;
-  background: #f7f3ff;
-  color: #464a6a;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.35;
+  margin: 0;
+  padding: 0;
+  color: #292044;
+  font-size: clamp(15px, 1.35vw, 20px);
+  font-weight: 500;
+  line-height: 1.25;
 }
 .heroBenefits li {
   display: flex;
   align-items: center;
   gap: 12px;
-  border-radius: 15px;
-  padding: 9px 14px;
+  min-height: 44px;
+  padding: 4px 0;
 }
-.heroBenefits svg {
-  flex: none;
-  color: #6944c4;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .heroBenefits li {
-    animation: heroBenefitHighlight 1.6s ease-in-out;
-  }
-  .heroBenefits li:nth-child(2) { animation-delay: 1.6s; }
-  .heroBenefits li:nth-child(3) { animation-delay: 3.2s; }
-}
-@keyframes heroBenefitHighlight {
-  20%, 80% {
-    background-color: #e7d8ff;
-    color: #432682;
-  }
+.heroBenefitIcon {
+  display: grid;
+  flex: 0 0 23px;
+  min-height: 32px;
+  place-items: center;
+  border-radius: 14px;
+  color: #6636d3;
 }
 .heroCta {
-  align-self: end;
-  width: 100%;
-  font-size: 26px;
-  border-radius: 30px;
-  padding: 22px 16px;
+  --hero-cta-arrow-size: clamp(32px, 4vw, 56px);
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  align-self: start;
+  width: calc(100% + 14px);
+  border-radius: 999px;
+  font-weight: 400;
+  text-align: left;
+  padding: 12px clamp(12px, 1.5vw, 24px);
+}
+.heroCta > span:first-child {
+  font-size: min(26px, calc((100cqi - var(--hero-cta-arrow-size) - 8px) / 17.2));
+  white-space: nowrap;
+}
+.heroCtaIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: var(--hero-cta-arrow-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--purple);
+}
+.heroCtaIcon svg {
+  width: 56%;
 }
 
-
-
-.future,
 .certificate,
 .contactBand {
   background: var(--purple, #9c78ff);
   color: white;
 }
 .future {
-  padding: 40px 0;
+  padding: 44px 0;
+  background: linear-gradient(180deg, #fff 0%, #f3edff 42%, #faf7ff 85%, #fff 100%);
+  color: #464a6a;
 }
 .future h2 {
   text-align: center;
+  text-transform: uppercase;
 }
 .futureGrid {
   display: grid;
@@ -218,31 +221,62 @@
   margin: 32px 0 36px;
 }
 .futureGrid article {
+  --card-tint: #eee5ff;
+  --card-accent: #6036b5;
   display: grid;
   grid-template-rows: 1fr auto;
   border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgb(63 37 112 / 9%), 0 13px 28px rgb(63 37 112 / 16%);
   overflow: hidden;
+}
+.futureGrid article:nth-child(2) {
+  --card-tint: #e2f7ef;
+  --card-accent: #17644f;
+}
+.futureGrid article:nth-child(3) {
+  --card-tint: #fff0c9;
+  --card-accent: #744b10;
 }
 .futureGrid header {
   z-index: 1;
   background: #fff;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 24%, white);
   border-radius: 30px;
-  color: #333;
+  box-shadow: 0 4px 10px rgb(38 23 69 / 12%);
+  color: #292044;
+  padding: 10px 10px 0;
 }
 .futureGrid h3 {
-  background: #090909;
-  color: white;
-  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-tint);
+  color: var(--card-accent);
+  border-radius: 22px;
   text-align: center;
   font-size: 20px;
-  font-weight: 500;
-  padding: 13px;
+  font-weight: 800;
+  padding: 12px 10px;
+}
+.futureGrid h3 svg {
+  flex: none;
 }
 .futureGrid p {
+  container-type: inline-size;
   font-size: 20px;
   line-height: 1.5;
   margin: 0;
-  padding: 18px 30px;
+  padding: 16px 16px 20px;
+}
+.futureAdmissionLead {
+  font-size: min(1em, 6.25cqi);
+  white-space: nowrap;
+}
+.futureAdmissionDirection {
+  font-size: min(1em, 9.5cqi);
+  white-space: nowrap;
 }
 .futureGrid img {
   display: block;
@@ -893,26 +927,6 @@
   .header {
     height: 115px;
   }
-  .heroInner {
-    column-gap: 24px;
-    min-height: 510px;
-  }
-  .heroText > .age {
-    margin-bottom: 35px;
-    font-size: 16px;
-  }
-  .heroPicture {
-    height: 500px;
-  }
-  .heroBenefits {
-    font-size: 17px;
-    margin: 24px 0;
-  }
-  .heroCta {
-    font-size: 19px;
-    padding: 17px 12px;
-  }
-
   .course {
     padding: 25px;
     min-height: 330px;
@@ -931,7 +945,7 @@
   }
   .futureGrid p {
     font-size: 18px;
-    padding-inline: 20px;
+    padding-inline: 12px;
   }
   .teacherGrid {
     gap: 16px;
@@ -1021,61 +1035,61 @@
   .header {
     height: 112px;
   }
-  .hero {
-    background-size:
-      150% 100%,
-      120% 100%;
+  .schoolHeader {
+    height: auto;
+  }
+  .schoolHeader :global(.site-main-header--mobile) {
+    align-items: center;
+    left: 16px;
+    width: 358px;
+    padding-inline: 0;
+  }
+  .schoolHeader :global(.site-main-header__logo-button > div) {
+    transform: scale(.88);
+    transform-origin: left center;
+  }
+  .schoolHeader :global(.site-main-header__mobile-application) {
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: #464a6a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
   }
   .heroInner {
     display: flex;
     flex-direction: column;
-    padding: 0 0 20px;
-    min-height: 0;
-    gap: 0;
+    gap: 14px;
+    width: calc(100% - 40px);
+    padding-block: 12px 24px;
   }
-  .heroText {
-    padding: 0;
-    text-align: center;
-  }
-  .heroText > .age {
-    margin: 0 auto 25px;
-    padding: 4px 30px;
-    font-size: 14px;
-  }
-  .heroTitleLead {
-    font-size: min(16cqi, 70px);
-  }
+  .heroText { text-align: center; }
+  .heroText > .age { margin-inline: auto; }
+  .heroTitleLead { font-size: min(16cqi, 70px); }
   .heroTitleSubject { font-size: min(8.1cqi, 42px); }
   .hero h1 strong { font-size: min(7cqi, 34px); }
-  .heroPicture {
-    height: auto;
-    margin-top: 22px;
-  }
-  .heroPicture img {
-    height: auto;
-    width: 100%;
-    aspect-ratio: 1.55;
-    object-fit: cover;
-    border-radius: 28px;
-  }
+  .heroPicture { width: 100%; }
   .heroBenefits {
-    font-size: 14px;
-    margin: 20px auto 18px;
-  }
-  .heroBenefits li {
-    padding-inline: 10px;
+    font-size: clamp(14px, 4.1vw, 21px);
   }
   .heroCta {
-    font-size: 17px;
-    padding: 15px 8px;
-    border-radius: 14px;
-    white-space: normal;
+    align-self: center;
+    width: 100%;
   }
 
-
-
   .future {
-    display: none;
+    padding: 32px 0;
+  }
+  .futureGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    max-width: 440px;
+    margin: 24px auto 0;
+  }
+  .futureGrid p {
+    font-size: clamp(18px, 4.8vw, 20px);
   }
   .section {
     padding-block: 38px;
@@ -1444,12 +1458,6 @@
   }
 }
 @media (max-width: 359px) {
-  .heroBenefits {
-    font-size: 12px;
-  }
-  .heroCta {
-    font-size: 15px;
-  }
   .course {
     padding: 22px 18px;
   }
@@ -1487,7 +1495,6 @@
   }
 }
 /* The children pages use a clean background; decorative source waves are omitted. */
-.hero,
 .waveArea,
 .pricing {
   background-image: none;
@@ -1582,24 +1589,13 @@
   .course[id="olympiad"] > img { width: 28%; transform: scale(1.15); }
 }
 
-/* Keep the introductory photo and CTA inside a normal laptop viewport. */
 @media (min-width: 1101px) {
   .schoolHeader { height: 128px; }
   .heroInner {
-    min-height: 0;
-    grid-template-rows: auto auto 1fr;
-    row-gap: 16px;
-    padding-block: 16px 28px;
+    grid-template-columns: minmax(0, 0.91fr) minmax(0, 1.09fr);
+    column-gap: 64px;
   }
-  .heroText { padding-top: 0; }
-  .heroText > .age { margin-bottom: 28px; }
-  .heroPicture {
-    height: clamp(500px, calc((100svh - 128px) / var(--children-desktop-scale, 1) - 44px), 550px);
-  }
-  .heroPicture img { object-position: center 20%; }
-  .heroBenefits { margin: 0; }
-  .heroCta { font-size: 26px; padding-block: 18px; }
-
+  .heroCta { width: calc(100% + 58px); }
 }
 
 /* Use the header's 104px design gutters for the introductory block. */
