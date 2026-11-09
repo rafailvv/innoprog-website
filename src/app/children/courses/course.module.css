@@ -840,6 +840,9 @@
 .modules :global(.site-course-program-toggle) {
   padding-inline: 0;
 }
+.modules :global(.site-course-program-title) {
+  font-family: var(--font-manrope), Arial, sans-serif;
+}
 .modules :global(.site-course-program-toggle):focus-visible {
   outline: none;
 }
@@ -883,7 +886,6 @@
   .modules :global(.site-course-program-toggle) { gap: 14px; padding: 16px 0; }
   .modules :global(.is-open) :global(.site-course-program-toggle) { padding-bottom: 0; }
   .modules :global(.site-course-program-title) {
-    font-family: var(--font-manrope), Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: .48px;

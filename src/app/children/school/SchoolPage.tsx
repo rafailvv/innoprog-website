@@ -4,6 +4,7 @@ import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
 import Link from "next/link";
+import { CalendarDays, MessageCircle, UserRound } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../../components/ResponsiveSiteFooter";
@@ -160,7 +161,8 @@ export default function SchoolPage() {
             <div className={styles.heroText}>
               <span className={styles.age}>для детей от 9 до 17 лет</span>
               <h1>
-                Курсы программирования{" "}
+                <span className={styles.heroTitleLead}>Курсы</span>{" "}
+                <span className={styles.heroTitleSubject}>программирования</span>{" "}
                 <strong>для детей</strong>
               </h1>
             </div>
@@ -174,13 +176,16 @@ export default function SchoolPage() {
                 fetchPriority="high"
               />
             </picture>
-            <ul className={styles.heroBenefits}>
+            <ul className={styles.heroBenefits} role="list">
               {[
-                "Индивидуальные занятия с преподавателем",
-                "Объясняем сложные вещи простым языком",
-                "Подстроимся под расписание ребёнка",
-              ].map((text) => (
-                <li key={text}>{text}</li>
+                { text: "Индивидуальные занятия с преподавателем", Icon: UserRound },
+                { text: "Объясняем сложные вещи простым языком", Icon: MessageCircle },
+                { text: "Подстроимся под расписание ребёнка", Icon: CalendarDays },
+              ].map(({ text, Icon }) => (
+                <li key={text}>
+                  <Icon aria-hidden="true" size={20} />
+                  <span>{text}</span>
+                </li>
               ))}
             </ul>
             <button
@@ -193,41 +198,41 @@ export default function SchoolPage() {
         </section>
         <section className={styles.future}>
           <div className={styles.container}>
-            <div className={styles.futureDesktop}>
-              <h2>Будьте спокойны за будущее вашего ребёнка</h2>
-              <div className={styles.futureGrid}>
-                {[
-                  [
-                    "Поступление в ВУЗ",
-                    "Подготовим к поступлению в ВУЗ по ИТ-направлению",
-                    a["future-1"],
-                  ],
-                  [
-                    "ИТ-специальность",
-                    "Вырастим из вашего ребёнка будущего ИТ-специалиста",
-                    a["future-3"],
-                  ],
-                  [
-                    "Участие в олимпиадах",
-                    "Прокачаем навыки для участия в олимпиадах по информатике",
-                    a["future-2"],
-                  ],
-                ].map(([title, text, image]) => (
-                  <article key={title}>
+            <h2>Будьте спокойны за будущее вашего ребёнка</h2>
+            <div className={styles.futureGrid}>
+              {[
+                [
+                  "Поступление в ВУЗ",
+                  "Подготовим к поступлению в ВУЗ по ИТ-направлению",
+                  a["future-1"],
+                ],
+                [
+                  "ИТ-специальность",
+                  "Вырастим из вашего ребёнка будущего ИТ-специалиста",
+                  a["future-3"],
+                ],
+                [
+                  "Участие в олимпиадах",
+                  "Прокачаем навыки для участия в олимпиадах по информатике",
+                  a["future-2"],
+                ],
+              ].map(([title, text, image]) => (
+                <article key={title}>
+                  <header>
                     <h3>{title}</h3>
                     <p>{text}</p>
-                    <img loading="lazy" decoding="async" src={image} alt="" />
-                  </article>
-                ))}
-              </div>
+                  </header>
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={image}
+                    alt=""
+                    width={800}
+                    height={720}
+                  />
+                </article>
+              ))}
             </div>
-            <h2 className={styles.guarantee}>
-              Гарантируем результат или вернём деньги
-            </h2>
-            <p className={styles.guaranteeText}>
-              Мы уверены в наших преподавателях и учебной программе, поэтому
-              гарантируем, что ваш ребёнок достигнет высоких результатов
-            </p>
           </div>
         </section>
         <div className={styles.waveArea}>
@@ -567,9 +572,6 @@ export default function SchoolPage() {
                 </li>
                 <li>
                   Погружение ребёнка в <b>ИТ-профессию</b>
-                </li>
-                <li>
-                  <b>Гарантируем результат</b> или мы вернём вам деньги
                 </li>
               </ul>
             </div>
