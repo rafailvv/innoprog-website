@@ -37,7 +37,7 @@ export default function UnrealEngineCourseRoute() {
           path: "/unreal-engine-course",
           name: "Курс Unreal Engine с нуля",
           description:
-            "Практический онлайн-курс Unreal Engine с Unreal Engine 5, Blueprint, игровыми механиками, UMG, State Tree, оптимизацией и 6 проектами",
+            "Практический онлайн-курс Unreal Engine с Unreal Engine 5, Blueprint, игровыми механиками, UMG, State Tree, оптимизацией. Проектная практика",
           primaryEntityId: "https://innoprog.ru/unreal-engine-course#course",
         })}
       />

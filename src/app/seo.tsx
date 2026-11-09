@@ -119,37 +119,37 @@ export const COURSE_SEO_ITEMS = [
   {
     name: "Frontend-разработчик",
     path: "/frontend-developer-course",
-    description: "Онлайн-курс Frontend-разработчик: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и 15 проектных работ",
+    description: "Онлайн-курс Frontend-разработчик: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и проектная практика",
   },
   {
     name: "Data-аналитик",
     path: "/data-analyst-course",
-    description: "Онлайн-курс Data-аналитик: SQL, Python, BI, статистика, A/B-тестирование и 15 аналитических проектов",
+    description: "Онлайн-курс Data-аналитик: SQL, Python, BI, статистика, A/B-тестирование. Проектная практика",
   },
   {
     name: "C++ разработчик",
     path: "/cpp-developer-course",
-    description: "Онлайн-курс C++ разработчик: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 проектов",
+    description: "Онлайн-курс C++ разработчик: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и проектная практика",
   },
   {
     name: "Мобильный разработчик",
     path: "/mobile-developer-course",
-    description: "Онлайн-курс мобильной разработки: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование и 15 проектов",
+    description: "Онлайн-курс мобильной разработки: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование и проектная практика",
   },
   {
     name: "Unreal Engine",
     path: "/unreal-engine-course",
-    description: "Онлайн-курс Unreal Engine: Unreal Engine 5, Blueprint, игровые механики, UMG, State Tree, оптимизация и 6 проектов",
+    description: "Онлайн-курс Unreal Engine: Unreal Engine 5, Blueprint, игровые механики, UMG, State Tree, оптимизация. Проектная практика",
   },
   {
     name: "Java-разработчик",
     path: "/java-developer-course",
-    description: "Онлайн-курс Java-разработчик: Java Core, ООП, SQL, PostgreSQL, Spring Boot, REST API, тестирование и 15 проектов",
+    description: "Онлайн-курс Java-разработчик: Java Core, ООП, SQL, PostgreSQL, Spring Boot, REST API, тестирование и проектная практика",
   },
   {
     name: "ML-инженер",
     path: "/ml-engineer-course",
-    description: "Онлайн-курс ML-инженер: Python, SQL, статистика, ML, deep learning, NLP, CV, MLOps, FastAPI, Docker и 15 проектов",
+    description: "Онлайн-курс ML-инженер: Python, SQL, статистика, ML, deep learning, NLP, CV, MLOps, FastAPI, Docker, 13 проектных работ в программе",
   },
 ] as const;
 
@@ -671,7 +671,7 @@ export const frontendCourseJsonLd = {
   "@id": `${SITE_URL}/frontend-developer-course#course`,
   name: "Frontend-разработчик",
   description:
-    "Практический онлайн-курс Frontend-разработчик в ИННОПРОГ: HTML, CSS, JavaScript, TypeScript, React, API, тестирование и 15 проектных работ с наставником",
+    "Практический онлайн-курс Frontend-разработчик в ИННОПРОГ: HTML, CSS, JavaScript, TypeScript, React, API, тестирование. Проектная практика",
   url: absoluteUrl("/frontend-developer-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -729,7 +729,7 @@ export const dataAnalystCourseJsonLd = {
   "@id": `${SITE_URL}/data-analyst-course#course`,
   name: "Data-аналитик",
   description:
-    "Практический онлайн-курс Data-аналитик в ИННОПРОГ: SQL, Python, BI, статистика, A/B-тестирование и 15 аналитических проектов с наставником",
+    "Практический онлайн-курс Data-аналитик в ИННОПРОГ: SQL, Python, BI, статистика, A/B-тестирование. Проектная практика",
   url: absoluteUrl("/data-analyst-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -787,7 +787,7 @@ export const cppCourseJsonLd = {
   "@id": `${SITE_URL}/cpp-developer-course#course`,
   name: "C++ разработчик",
   description:
-    "Практический онлайн-курс C++ разработчик в ИННОПРОГ: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование и 15 C++ проектов с наставником",
+    "Практический онлайн-курс C++ разработчик в ИННОПРОГ: C++, алгоритмы, STL, ООП, Git, CMake, SQL, Linux, тестирование. Проектная практика",
   url: absoluteUrl("/cpp-developer-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -845,7 +845,7 @@ export const mobileDeveloperCourseJsonLd = {
   "@id": `${SITE_URL}/mobile-developer-course#course`,
   name: "Мобильный разработчик",
   description:
-    "Практический онлайн-курс Мобильный разработчик в ИННОПРОГ: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование, публикация и 15 мобильных проектов с наставником",
+    "Практический онлайн-курс Мобильный разработчик в ИННОПРОГ: Dart, Flutter, API, локальное хранение, Android/iOS, тестирование, публикация. Проектная практика",
   url: absoluteUrl("/mobile-developer-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -903,7 +903,7 @@ export const unrealEngineCourseJsonLd = {
   "@id": `${SITE_URL}/unreal-engine-course#course`,
   name: "Unreal Engine",
   description:
-    "Практический онлайн-курс Unreal Engine в ИННОПРОГ: Unreal Engine 5, Blueprint, игровые механики, персонажи, UMG, State Tree, оптимизация, публикация и 6 игровых проектов с наставником",
+    "Практический онлайн-курс Unreal Engine в ИННОПРОГ: Unreal Engine 5, Blueprint, игровые механики, персонажи, UMG, State Tree, оптимизация, публикация. Проектная практика",
   url: absoluteUrl("/unreal-engine-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -962,7 +962,7 @@ export const javaCourseJsonLd = {
   "@id": `${SITE_URL}/java-developer-course#course`,
   name: "Java-разработчик",
   description:
-    "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование, Docker и CI/CD, 15 Java-проектов с наставником",
+    "Практический онлайн-курс Java-разработчик в ИННОПРОГ: Java Core, ООП, SQL, PostgreSQL, Spring Framework и Spring Boot, REST API, тестирование, Docker и CI/CD. Проектная практика с наставником",
   url: absoluteUrl("/java-developer-course"),
   provider: {
     "@type": "EducationalOrganization",
@@ -1021,7 +1021,7 @@ export const mlEngineerCourseJsonLd = {
   "@id": `${SITE_URL}/ml-engineer-course#course`,
   name: "ML-инженер",
   description:
-    "Практический онлайн-курс ML-инженер в ИННОПРОГ: Python, SQL, статистика, feature engineering, machine learning, deep learning, NLP, CV, MLOps, FastAPI, Docker и 15 ML-проектов с наставником",
+    "Практический онлайн-курс ML-инженер в ИННОПРОГ: Python, SQL, статистика, feature engineering, machine learning, deep learning, NLP, CV, MLOps, FastAPI, Docker, 13 проектных работ в программе",
   url: absoluteUrl("/ml-engineer-course"),
   provider: {
     "@type": "EducationalOrganization",

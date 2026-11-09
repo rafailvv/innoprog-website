@@ -2244,7 +2244,7 @@ function Frame91() {
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start leading-[0] relative shrink-0 text-white w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold relative shrink-0 text-[24px] uppercase w-full">
         <p className="leading-[27px] mb-0">13 проектных работ</p>
-        <p className="leading-[27px]">для портфолио</p>
+        <p className="leading-[27px]">в программе</p>
       </div>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal relative shrink-0 text-[16px] tracking-[0.48px] w-full">
         <p className="leading-[18px] mb-0">Во время обучения вы работаете</p>
@@ -2368,8 +2368,8 @@ function Frame67() {
         <span className="leading-[43px] text-[40px]">{` проектных работ`}</span>
       </p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] relative shrink-0 text-[20px] text-black w-full">
-        <p className="leading-[20px] mb-0">которые вы создадите</p>
-        <p className="leading-[20px]">на курсе</p>
+        <p className="leading-[20px] mb-0">по программе</p>
+        <p className="leading-[20px]">обучения</p>
       </div>
     </div>
   );
@@ -2796,7 +2796,7 @@ function Frame100() {
     <div className="content-stretch flex gap-[10px] items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
       <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
       <GrommetIconsTask />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">300 практических работ</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">Практические задания</p>
     </div>
   );
 }
@@ -4094,7 +4094,7 @@ function Frame194() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
           </svg>
         </div>
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">13 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">
@@ -4246,7 +4246,7 @@ function Frame195() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
           </svg>
         </div>
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">13 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[#464a6a] text-[16px] tracking-[0.48px]">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">
@@ -4390,7 +4390,7 @@ function Frame196() {
             <path clipRule="evenodd" d={svgPaths.p3d65f800} fill="var(--fill-0, #9C78FF)" fillRule="evenodd" />
           </svg>
         </div>
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">13 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] min-w-px relative text-[16px] text-white tracking-[0.48px]">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <div className="relative shrink-0 size-[18px]" data-name="Vector">
@@ -4517,8 +4517,8 @@ function Frame164() {
 function Frame165() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start justify-center relative rounded-[40px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">194</p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">практических задания</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">Практика</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[16px] relative shrink-0 text-[12px] tracking-[0.36px]">задания на платформе</p>
     </div>
   );
 }
@@ -4548,7 +4548,7 @@ function Frame166() {
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">13</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[12px] tracking-[0.36px]">
         <p className="leading-[16px] mb-0">проектных работ</p>
-        <p className="leading-[16px]">в портфолио</p>
+        <p className="leading-[16px]">в программе</p>
       </div>
     </div>
   );

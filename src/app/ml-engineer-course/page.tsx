@@ -37,7 +37,7 @@ export default function MlEngineerCourseRoute() {
           path: "/ml-engineer-course",
           name: "Курс ML-инженер с нуля",
           description:
-            "Практический онлайн-курс ML-инженер с Python, SQL, статистикой, feature engineering, ML, DL, NLP, CV, MLOps, FastAPI, Docker и 15 проектами",
+            "Практический онлайн-курс ML-инженер с Python, SQL, статистикой, feature engineering, ML, DL, NLP, CV, MLOps, FastAPI, Docker, 13 проектных работ в программе",
           primaryEntityId: "https://innoprog.ru/ml-engineer-course#course",
         })}
       />

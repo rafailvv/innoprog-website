@@ -2245,8 +2245,8 @@ function Frame103() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start relative shrink-0 text-white w-full">
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[40px] uppercase w-full whitespace-pre-wrap">
-        <p className="leading-[44px] mb-0">{`15 проектных работ `}</p>
-        <p className="leading-[44px]">для портфолио</p>
+        <p className="leading-[44px] mb-0">{`15 примерных тем `}</p>
+        <p className="leading-[44px]">проектов</p>
       </div>
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] w-full">Во время обучения вы работаете над проектами разного уровня сложности, закрепляете навыки на практике и постепенно собираете портфолио</p>
     </div>
@@ -2380,10 +2380,10 @@ function Frame259() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col font-['Raleway:Bold',sans-serif] font-bold gap-[24px] items-start px-[80px] relative shrink-0 uppercase w-full">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[0] relative shrink-0 text-[#9c78ff] text-[0px] w-full">
-        <span className="leading-[97px] text-[128px]">13</span>
-        <span className="leading-[97px] text-[96px]">{` проектных работ`}</span>
+        <span className="leading-[97px] text-[128px]">15</span>
+        <span className="leading-[97px] text-[96px]">{` примерных тем`}</span>
       </p>
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[57px] relative shrink-0 text-[64px] text-black w-full">которые вы создадите на курсе</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] leading-[57px] relative shrink-0 text-[64px] text-black w-full">по программе обучения</p>
     </div>
   );
 }
@@ -2787,7 +2787,7 @@ function Frame113() {
     <div className="content-stretch flex gap-[10px] items-center justify-center p-[16px] relative rounded-[32px] shrink-0">
       <div aria-hidden className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[32px]" />
       <GrommetIconsTask />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[27px] relative shrink-0 text-[20px] text-white whitespace-nowrap">15 проектных работ</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[27px] relative shrink-0 text-[20px] text-white whitespace-nowrap">15 примерных тем</p>
     </div>
   );
 }
@@ -4115,7 +4115,7 @@ function Frame186() {
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled2 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">15 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled3 />
@@ -4381,7 +4381,7 @@ function Frame187() {
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled9 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">15 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[#464a6a] text-[20px]">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled10 />
@@ -4667,7 +4667,7 @@ function Frame188() {
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled18 />
-        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">15 проектных работ в портфолио</p>
+        <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] flex-[1_0_0] font-['Manrope:Regular',sans-serif] font-normal leading-[22px] min-w-px relative text-[20px] text-white">Проектная практика по программе</p>
       </div>
       <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
         <WeuiDone2Filled19 />
@@ -4764,10 +4764,10 @@ function Frame192() {
 function Frame196() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">194</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">Практика</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
-        <p className="leading-[30px] mb-0">практических</p>
-        <p className="leading-[30px]">задания</p>
+        <p className="leading-[30px] mb-0">задания</p>
+        <p className="leading-[30px]">на платформе</p>
       </div>
     </div>
   );
@@ -4800,8 +4800,8 @@ function Frame198() {
     <div className="content-stretch flex flex-col gap-[16px] items-start justify-center px-[20px] py-[16px] relative shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase">15</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[32px]">
-        <p className="leading-[30px] mb-0 whitespace-pre">{`проектных работ `}</p>
-        <p className="leading-[30px] whitespace-pre">в портфолио</p>
+        <p className="leading-[30px] mb-0 whitespace-pre">примерных тем</p>
+        <p className="leading-[30px] whitespace-pre">проектов</p>
       </div>
     </div>
   );

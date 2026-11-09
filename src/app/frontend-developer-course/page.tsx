@@ -37,7 +37,7 @@ export default function FrontendCourseRoute() {
           path: "/frontend-developer-course",
           name: "Курс Frontend-разработчик с нуля",
           description:
-            "Практический онлайн-курс Frontend-разработчик с HTML, CSS, JavaScript, TypeScript, React, API, тестами и 15 проектными работами",
+            "Практический онлайн-курс Frontend-разработчик с HTML, CSS, JavaScript, TypeScript, React, API, тестами. Проектная практика",
           primaryEntityId: "https://innoprog.ru/frontend-developer-course#course",
         })}
       />

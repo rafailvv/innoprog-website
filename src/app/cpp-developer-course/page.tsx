@@ -37,7 +37,7 @@ export default function CppCourseRoute() {
           path: "/cpp-developer-course",
           name: "Курс C++ разработчик с нуля",
           description:
-            "Практический онлайн-курс C++ разработчик с C++, алгоритмами, STL, ООП, Git, CMake, SQL, Linux, тестами и 15 проектами",
+            "Практический онлайн-курс C++ разработчик с C++, алгоритмами, STL, ООП, Git, CMake, SQL, Linux, тестами. Проектная практика",
           primaryEntityId: "https://innoprog.ru/cpp-developer-course#course",
         })}
       />

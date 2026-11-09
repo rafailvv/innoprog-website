@@ -37,7 +37,7 @@ export default function DataAnalystCourseRoute() {
           path: "/data-analyst-course",
           name: "Курс Data-аналитик с нуля",
           description:
-            "Практический онлайн-курс Data-аналитик с SQL, Python, BI, статистикой, A/B-тестированием и 15 аналитическими проектами",
+            "Практический онлайн-курс Data-аналитик с SQL, Python, BI, статистикой, A/B-тестированием. Проектная практика",
           primaryEntityId: "https://innoprog.ru/data-analyst-course#course",
         })}
       />

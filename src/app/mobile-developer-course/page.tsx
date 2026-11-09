@@ -37,7 +37,7 @@ export default function MobileDeveloperCourseRoute() {
           path: "/mobile-developer-course",
           name: "Курс Мобильный разработчик с нуля",
           description:
-            "Практический онлайн-курс мобильный разработчик с Dart, Flutter, API, локальным хранением, тестами, публикацией и 15 проектами",
+            "Практический онлайн-курс мобильный разработчик с Dart, Flutter, API, локальным хранением, тестами, публикацией. Проектная практика",
           primaryEntityId: "https://innoprog.ru/mobile-developer-course#course",
         })}
       />
