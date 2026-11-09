@@ -768,7 +768,7 @@
 }
 .pricing {
   padding: 48px 0;
-  background: var(--purple);
+  background: #fff;
 }
 .pricing > .container {
   display: grid;
@@ -784,13 +784,11 @@
 }
 .applicationCard {
   background: #fff;
+  border: 1px solid var(--school-line);
 }
 .applicationCard > p {
   font-size: 19px;
   margin: 12px 0 24px;
-}
-.footerJoin {
-  background: var(--purple);
 }
 .footerJoin > footer {
   margin-top: 0;
@@ -851,7 +849,7 @@
 }
 .priceCard {
   min-width: 0;
-  background: var(--school-accent);
+  background: var(--purple);
   color: #fff;
 }
 .price {
@@ -902,7 +900,8 @@
 .taxBenefit {
   border-radius: 16px;
   padding: 15px 17px;
-  background: rgb(255 255 255 / 12%);
+  background: #fff2cc;
+  color: #392754;
 }
 .taxBenefit h4 {
   margin: 0;
