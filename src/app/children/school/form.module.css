@@ -16,7 +16,16 @@
   cursor: pointer;
 }
 .field > input::placeholder, .field > [data-lead-phone] input::placeholder, .field textarea::placeholder { color: #898392; opacity: 1; }
-.field > input:focus-visible, .field > [data-lead-phone]:focus-within, .field select:focus-visible, .field textarea:focus-visible { border-color: #8d65e5; outline: 2px solid #9c78ff; outline-offset: 2px; }
+.field > :is(input, select, textarea):focus,
+.field > [data-lead-phone]:focus-within {
+  border-color: #b59bdc;
+  outline: 1px solid transparent;
+  box-shadow: 0 0 0 3px rgb(133 86 204 / 16%);
+}
+
+.field > [data-lead-phone] > input:focus {
+  outline: none;
+}
 .field > input[readonly] { background: #f6f3fc; color: #655384; font-size: 13px; }
 .field textarea { resize: vertical; min-height: 90px; }
 .fullWidth { grid-column: 1 / -1; }
