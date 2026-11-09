@@ -1,4 +1,5 @@
 "use client";
+import { LeadSubmitLabel } from "./components/LeadSubmitLabel";
 import { LeadPhoneField } from "./components/LeadPhoneField";
 import { isCompleteLeadPhone, leadPhoneNumber } from "./leadPhone";
 import "../styles/adult-pages.css";
@@ -4543,6 +4544,7 @@ export default function App({
       setIsConsentChecked(false);
       setIsAdvertisingConsentChecked(false);
     } catch (error) {
+      setLeadModalState((state) => state === "closed" ? "form" : state);
       setLeadFormError(
         error instanceof Error && error.message === "captcha-script-failed"
           ? "Не удалось загрузить проверку безопасности. Обновите страницу и попробуйте снова"
@@ -5555,10 +5557,11 @@ export default function App({
                 ) : null}
                 <button
                   className="site-lead-modal__submit"
+                  aria-busy={isLeadSubmitting}
                   disabled={!isConsentChecked || isLeadSubmitting}
                   type="submit"
                 >
-                  {isLeadSubmitting ? "отправляем..." : "отправить заявку"}
+                  <LeadSubmitLabel pending={isLeadSubmitting} />
                 </button>
                 <CaptchaNotice />
               </form>

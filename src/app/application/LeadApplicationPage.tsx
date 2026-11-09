@@ -1,4 +1,5 @@
 "use client";
+import { LeadSubmitLabel } from "../components/LeadSubmitLabel";
 import { LeadPhoneField } from "../components/LeadPhoneField";
 import { isCompleteLeadPhone, leadPhoneNumber } from "../leadPhone";
 import { CaptchaNotice } from "../components/CaptchaNotice";
@@ -68,7 +69,9 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  if (success) {
+  const [submitted, setSubmitted] = useState(false);
+
+  if (success || submitted) {
     return (
       <main className="site-application-page site-application-page--success">
         <section className="site-application-card site-application-card--success" aria-labelledby="application-success-title">
@@ -117,8 +120,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
       const captchaToken = await smartCaptchaRef.current?.requestToken();
       if (!captchaToken) throw new Error("captcha-failed");
       await sendApplication(payload, captchaToken);
-      setIsConsentChecked(false);
-      setIsAdvertisingConsentChecked(false);
+      setSubmitted(true);
       router.push("/application/success");
     } catch (submitError) {
       setError(
@@ -176,8 +178,8 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
               </span>
             </label>
             {error ? <p className="site-application-error" role="alert">{error}</p> : null}
-            <button className="site-application-submit" disabled={!isConsentChecked || isSubmitting} type="submit">
-              {isSubmitting ? "отправляем..." : "отправить заявку"}
+            <button className="site-application-submit" aria-busy={isSubmitting} disabled={!isConsentChecked || isSubmitting} type="submit">
+              <LeadSubmitLabel pending={isSubmitting} />
             </button>
             <CaptchaNotice />
           </form>

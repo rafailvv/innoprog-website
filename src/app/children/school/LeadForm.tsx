@@ -1,4 +1,5 @@
 "use client";
+import { LeadSubmitLabel } from "../../components/LeadSubmitLabel";
 import { LeadPhoneField } from "../../components/LeadPhoneField";
 import { isCompleteLeadPhone, leadPhoneNumber } from "../../leadPhone";
 import { CaptchaNotice } from "../../components/CaptchaNotice";
@@ -147,7 +148,7 @@ export default function LeadForm({ course, formId, context, presentation = "inli
         <span>Я согласен(на) получать <a href="/advertising-consent" target="_blank" rel="noreferrer">рекламные и информационные сообщения</a></span>
       </label>
       {error ? <p id={`${id}-error`} role="alert" className={formStyles.error}>{error}{" "}<a href="https://t.me/innoprog_admin" target="_blank" rel="noreferrer">Написать в Telegram</a></p> : null}
-      <button className={`${styles.button} ${formStyles.submit}`} type="submit" disabled={pending || !personalConsent} aria-describedby={error ? `${id}-error` : undefined}>{pending ? "Отправляем…" : "Отправить"}</button>
+      <button className={`${styles.button} ${formStyles.submit}`} type="submit" aria-busy={pending} disabled={pending || !personalConsent} aria-describedby={error ? `${id}-error` : undefined}><LeadSubmitLabel label="Отправить" pending={pending} /></button>
       <CaptchaNotice dark />
     </form>
   );

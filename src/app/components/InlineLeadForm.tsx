@@ -1,4 +1,5 @@
 "use client";
+import { LeadSubmitLabel } from "./LeadSubmitLabel";
 
 import { LeadPhoneField } from "./LeadPhoneField";
 import { useState } from "react";
@@ -33,7 +34,7 @@ export function InlineLeadForm({ course = false }: { course?: boolean }) {
         <textarea name="question" aria-label="Ваш вопрос" placeholder="Ваш вопрос" rows={3} />
       </div> : null}
       <div className="site-consent-group"><Consent /><Consent advertising /></div>
-      <button className={`${styles.submit}${course ? " site-course-lead-submit" : ""}`} data-name="кнопки пд" type="submit" disabled aria-disabled="true">отправить заявку</button>
+      <button className={`${styles.submit}${course ? " site-course-lead-submit" : ""}`} data-name="кнопки пд" type="submit" disabled aria-disabled="true"><LeadSubmitLabel /></button>
       <CaptchaNotice />
     </form>
   );
