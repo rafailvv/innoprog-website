@@ -451,14 +451,16 @@ export default function SchoolPage() {
           <div className={styles.reviews} ref={carousel}>
             {data.reviews.map((item, i) => (
               <article key={item.name}>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  width={380}
-                  height={220}
-                  loading="lazy" decoding="async"
-                />
-                <span>{item.course}</span>
+                <div className={styles.reviewPhoto}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    width={380}
+                    height={220}
+                    loading="lazy" decoding="async"
+                  />
+                  <span>{item.course}</span>
+                </div>
                 <h3>{item.name}</h3>
                 <p>{item.text.slice(0, 185)}…</p>
                 <Link
