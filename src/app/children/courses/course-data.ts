@@ -222,7 +222,7 @@ export const childrenCourses: ChildrenCourse[] = [
   {
     slug: "game-development",
     asset: "games",
-    title: "Игры своими руками",
+    title: "Создание 3D игр",
     age: "10–17 лет",
     seoTitle: "Создание игр для детей 10–17 лет на Unreal Engine",
     description:

@@ -4,7 +4,7 @@ import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
 import Link from "next/link";
-import { CalendarDays, CodeXml, GraduationCap, Laptop, Trophy, UserRound } from "lucide-react";
+import { CalendarDays, CodeXml, Compass, GraduationCap, Laptop, Layers, Trophy, UserRound, Workflow } from "lucide-react";
 import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
@@ -15,21 +15,31 @@ import LeadForm from "./LeadForm";
 import { childrenTeachers as teachers } from "./teacher-data";
 import { childrenCoursePaths } from "../courses/course-paths";
 
+function CtaArrow() {
+  return (
+    <span className={styles.heroCtaIcon} aria-hidden="true">
+      <svg viewBox="0 0 16.65 16.64" fill="none">
+        <path d={mobileHomePaths.p2b850d80} stroke="currentColor" />
+      </svg>
+    </span>
+  );
+}
+
 const a = data.assets;
 const courses = [
   {
     id: "python",
-    title: "Программирование на Python",
+    titleLines: ["программирование", "на Python"],
     age: "9 до 17",
     bullets: [
       "Научим писать код и создавать приложения",
-      "Покажем, как применять Python на практике",
+      "Покажем, как применять Python на\u00a0практике",
       "Создадим полезные мини-проекты",
     ],
   },
   {
     id: "web",
-    title: "Создание сайтов с нуля",
+    titleLines: ["создание сайтов", "с нуля"],
     age: "9 до 17",
     bullets: [
       "Научим создавать сайты",
@@ -39,7 +49,7 @@ const courses = [
   },
   {
     id: "exam",
-    title: "Информатика ОГЭ/ЕГЭ",
+    titleLines: ["информатика", "ОГЭ/ЕГЭ"],
     age: "9 до 17",
     bullets: [
       "Разберём темы, на которых теряются баллы",
@@ -49,7 +59,7 @@ const courses = [
   },
   {
     id: "olympiad",
-    title: "Олимпиадное программирование",
+    titleLines: ["олимпиадное", "программирование"],
     age: "12 до 17",
     bullets: [
       "Подготовимся к ВсОШ, перечневым олимпиадам",
@@ -59,7 +69,7 @@ const courses = [
   },
   {
     id: "ai",
-    title: "Разработка нейросетей",
+    titleLines: ["разработка", "нейросетей"],
     age: "12 до 17",
     bullets: [
       "Познакомим с разработкой нейросетей",
@@ -69,12 +79,12 @@ const courses = [
   },
   {
     id: "games",
-    title: "Игры своими руками",
+    titleLines: ["создание", "3D игр"],
     age: "10 до 17",
     bullets: [
-      "Научим создавать игры с нуля",
+      "Освоим редактор Unreal Engine",
       "Разберём основы геймдизайна",
-      "Сделаем первые игровые проекты на Unreal Engine",
+      "Соберем собственные 3D игры",
     ],
   },
 ] as const;
@@ -128,6 +138,14 @@ export default function SchoolPage() {
   const [application, setApplication] = useState<string | null>(null);
   const applicationDialog = useRef<HTMLDivElement>(null);
   const carousel = useRef<HTMLDivElement>(null);
+  const scrollReviews = (direction: -1 | 1) => {
+    const track = carousel.current;
+    const first = track?.children[0];
+    const second = track?.children[1];
+    if (!track || !first || !second) return;
+    const step = second.getBoundingClientRect().left - first.getBoundingClientRect().left;
+    track.scrollBy({ left: direction * step, behavior: "smooth" });
+  };
   const handleHeader = (event: MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
     if (target.closest("[data-mobile-menu-toggle]")) setMenuOpen(true);
@@ -157,7 +175,7 @@ export default function SchoolPage() {
           onClickCapture={handleHeader}
         />
       </div>
-      <main id="school-main">
+      <main id="school-main" className={styles.schoolMain}>
         <section className={styles.hero}>
           <div className={`${styles.container} ${styles.heroInner}`}>
             <div className={styles.heroText}>
@@ -186,11 +204,7 @@ export default function SchoolPage() {
               onClick={() => setApplication("Запись на бесплатное занятие")}
             >
               <span>записаться на бесплатное занятие</span>
-              <span className={styles.heroCtaIcon} aria-hidden="true">
-                <svg viewBox="0 0 16.65 16.64" fill="none">
-                  <path d={mobileHomePaths.p2b850d80} stroke="currentColor" />
-                </svg>
-              </span>
+              <CtaArrow />
             </button>
             <img
               className={styles.heroPicture}
@@ -248,71 +262,51 @@ export default function SchoolPage() {
             </div>
           </div>
         </section>
-        <div className={styles.waveArea}>
-          <section
-            className={`${styles.container} ${styles.section}`}
-            id="professions"
-          >
-            <h2>Наши курсы</h2>
-            <p className={styles.intro}>
-              Ваш ребёнок изучит необходимые навыки для{" "}
-              <strong>будущей ИТ-профессии</strong>
-            </p>
+        <section className={styles.catalog} id="professions">
+          <div className={styles.container}>
+            <header className={styles.catalogHeader}>
+              <h2>Наши курсы</h2>
+              <p>
+                Ваш ребёнок изучит необходимые навыки для{" "}
+                <strong>будущей ИТ-профессии</strong>
+              </p>
+            </header>
             <div className={styles.courseGrid}>
-              {courses.map((course) => (
-                <article
-                  className={styles.course}
-                  key={course.id}
-                  id={course.id}
-                >
-                  <span className={styles.age}>
-                    для детей от {course.age} лет
-                  </span>
-                  <h3>
-                    {course.id === "python" ? (
-                      <>
-                        Программиро-
-                        <br />
-                        вание на Python
-                      </>
-                    ) : course.id === "web" ? (
-                      <>
-                        Создание
-                        <br />
-                        сайтов с нуля
-                      </>
-                    ) : course.id === "exam" ? (
-                      <>
-                        Информатика
-                        <br />
-                        ОГЭ/ЕГЭ
-                      </>
-                    ) : (
-                      course.title
-                    )}
-                  </h3>
-                  <img
-                    src={a[course.id]}
-                    alt=""
-                    loading="lazy" decoding="async"
-                    width={190}
-                    height={210}
-                  />
-                  <ul>
-                    {course.bullets.map((text) => (
-                      <li key={text}>{text}</li>
-                    ))}
-                  </ul>
-                  <Link
-                    className={styles.button}
-                    href={childrenCoursePaths[course.id]}
-                  >
-                    Подробнее
-                    <span className={styles.srOnly}>
-                      {" "}
-                      о курсе «{course.title}»
-                    </span>
-                  </Link>
+              {courses.map(({ id, titleLines, age, bullets }) => (
+                <article className={styles.course} key={id} id={id}>
+                  <div className={styles.courseContent}>
+                    <div className={styles.courseMeta}>
+                      <span className={styles.age}>для детей от {age} лет</span>
+                      <h3>
+                        {titleLines[0]}<br />{titleLines[1]}
+                      </h3>
+                      <ul>
+                        {bullets.map((text) => (
+                          <li key={text}>{text}</li>
+                        ))}
+                      </ul>
+                      <img
+                        className={styles.courseIcon}
+                        src={`/children/school/catalog-icon-${id}.webp`}
+                        alt=""
+                        width={240}
+                        height={360}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <Link
+                      className={`${styles.button} ${styles.detailLink}`}
+                      href={childrenCoursePaths[id]}
+                    >
+                      подробнее
+                      <span className={styles.srOnly}>
+                        {" "}
+                        о курсе «{titleLines.join(" ")}»
+                      </span>
+                      <CtaArrow />
+                    </Link>
+                  </div>
                 </article>
               ))}
             </div>
@@ -321,13 +315,13 @@ export default function SchoolPage() {
               сосредоточен на обучении детей{" "}
               <strong>реальным ИТ-навыкам</strong>
             </p>
-          </section>
-        </div>
+          </div>
+        </section>
         <section className={styles.certificate} id="certificate">
           <div className={styles.container}>
             <div>
               <h2>
-                После обучения ваш ребёнок получит <mark>сертификат</mark> об
+                после обучения ваш ребёнок получит <mark>диплом</mark> об
                 успешном окончании ИТ-курса
               </h2>
               <a href="/license">№ Л035-01272-16/01064358</a>
@@ -335,9 +329,9 @@ export default function SchoolPage() {
             <img
               loading="lazy" decoding="async"
               src={a.certificate}
-              alt="Образец сертификата ИННОПРОГ об окончании ИТ-курса"
-              width={470}
-              height={400}
+              alt="Образец диплома ИННОПРОГ по курсу программирования на Python"
+              width={1020}
+              height={840}
             />
           </div>
         </section>
@@ -399,22 +393,6 @@ export default function SchoolPage() {
             </div>
           </section>
         </div>
-        <section className={styles.contactBand}>
-          <div className={styles.container}>
-            <h2>
-              Если у вас возникли вопросы,
-              <br /> свяжитесь с нами в мессенджерах
-            </h2>
-            <a
-              href="https://t.me/innoprog_admin"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Написать{" "}
-              <img src={a.telegram} alt="в Telegram" width={50} height={50} loading="lazy" decoding="async" />
-            </a>
-          </div>
-        </section>
         <section
           className={`${styles.container} ${styles.section} ${styles.innopolis}`}
           id="innopolis"
@@ -466,27 +444,9 @@ export default function SchoolPage() {
           <h2>Отзывы учеников</h2>
           <div className={styles.reviewHeading}>
             <p>
-              Что думают о курсах сами дети? Читайте реальные
-              <br /> отзывы наших учеников
+              Что думают о курсах сами дети? Читайте реальные{" "}
+              <strong>отзывы наших учеников</strong>
             </p>
-            <div className={styles.arrows}>
-              <button
-                aria-label="Предыдущий отзыв"
-                onClick={() =>
-                  carousel.current?.scrollBy({ left: -320, behavior: "smooth" })
-                }
-              >
-                ←
-              </button>
-              <button
-                aria-label="Следующий отзыв"
-                onClick={() =>
-                  carousel.current?.scrollBy({ left: 320, behavior: "smooth" })
-                }
-              >
-                →
-              </button>
-            </div>
           </div>
           <div className={styles.reviews} ref={carousel}>
             {data.reviews.map((item, i) => (
@@ -502,13 +462,26 @@ export default function SchoolPage() {
                 <h3>{item.name}</h3>
                 <p>{item.text.slice(0, 185)}…</p>
                 <Link
-                  className={styles.button}
+                  className={`${styles.button} ${styles.detailLink}`}
                   href={`/children/stories/${["amir", "eldar", "almaz"][i]}`}
                 >
-                  Подробнее<span className={styles.srOnly}> — {item.name}</span>
+                  подробнее<span className={styles.srOnly}> — {item.name}</span>
+                  <CtaArrow />
                 </Link>
               </article>
             ))}
+          </div>
+          <div className={styles.arrows}>
+            <button type="button" aria-label="Предыдущий отзыв" onClick={() => scrollReviews(-1)}>
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16.65 16.64" fill="none">
+                <path d={mobileHomePaths.p2b850d80} stroke="currentColor" />
+              </svg>
+            </button>
+            <button type="button" aria-label="Следующий отзыв" onClick={() => scrollReviews(1)}>
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16.65 16.64" fill="none">
+                <path d={mobileHomePaths.p2b850d80} stroke="currentColor" />
+              </svg>
+            </button>
           </div>
         </section>
         <section
@@ -532,17 +505,19 @@ export default function SchoolPage() {
           <div>
             <h2>За 45 минут вводного урока</h2>
             <ul>
-              {[
+              {([
+                ["Создадим", "мини-проект на первом занятии вместе с ребёнком", CodeXml],
+                ["Разберём", "логику программирования и базовые алгоритмы", Workflow],
                 [
                   "Определим",
                   "направление в ИТ, к которому есть интерес у ребёнка",
+                  Compass,
                 ],
-                ["Разберём", "логику программирования и базовые алгоритмы"],
-                ["Создадим", "мини-проект на первом занятии вместе с ребёнком"],
-                ["Дадим", "необходимые навыки для дальнейшего развития в ИТ"],
-              ].map(([verb, text]) => (
+                ["Дадим", "необходимые навыки для дальнейшего развития в ИТ", Layers],
+              ] as const).map(([verb, text, Icon]) => (
                 <li key={verb}>
-                  <strong>{verb}</strong> {text}
+                  <Icon aria-hidden="true" size={24} strokeWidth={1.7} />
+                  <span><strong>{verb}</strong> {text}</span>
                 </li>
               ))}
             </ul>
@@ -554,10 +529,11 @@ export default function SchoolPage() {
             </button>
           </div>
           <img
+            className={styles.trialPhoto}
             src={a.trial}
-            alt="Ребёнок создаёт свой первый проект"
-            width={380}
-            height={380}
+            alt="Школьник пишет код на Python во время онлайн-занятия с преподавателем"
+            width={1448}
+            height={1086}
             loading="lazy" decoding="async"
           />
         </section>
