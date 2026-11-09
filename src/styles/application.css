@@ -185,7 +185,7 @@
   gap: 14px;
 }
 
-.site-application-fields > input,
+.site-application-fields > :is(input, [data-lead-phone]),
 .site-application-fields > textarea {
   width: 100%;
   border: 0;
@@ -199,7 +199,7 @@
   line-height: 1.3;
 }
 
-.site-application-fields > input {
+.site-application-fields > :is(input, [data-lead-phone]) {
   height: 64px;
 }
 
@@ -214,12 +214,14 @@
 }
 
 .site-application-fields > input::placeholder,
+.site-application-fields > [data-lead-phone] input::placeholder,
 .site-application-fields > textarea::placeholder {
   color: #615573;
   opacity: 1;
 }
 
 .site-application-fields > input:focus,
+.site-application-fields > [data-lead-phone]:focus-within,
 .site-application-fields > textarea:focus {
   box-shadow: inset 0 0 0 2px #7451bb;
 }
@@ -418,7 +420,7 @@
     gap: var(--lead-gap);
   }
 
-  .site-application-fields > :is(input, textarea) {
+  .site-application-fields > :is(input, textarea, [data-lead-phone]) {
     min-width: 0;
     height: var(--application-question-height);
     border-radius: 16px;
@@ -516,14 +518,14 @@
     font-size: 16px;
   }
 
-  .site-application-fields > input,
+  .site-application-fields > :is(input, [data-lead-phone]),
   .site-application-fields > textarea {
     border-radius: 18px;
     padding: 14px 18px;
     font-size: 16px;
   }
 
-  .site-application-fields > input {
+  .site-application-fields > :is(input, [data-lead-phone]) {
     height: 50px;
   }
 

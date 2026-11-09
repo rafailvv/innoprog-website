@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { callbackNote, isCallbackWindow, isCallbackTimezone } from "../../../callbackTime";
 
+import { isCompleteLeadPhone, leadPhoneNumber, nationalLeadPhoneDigits } from "../../../leadPhone";
+
 const BOT_APPLICATION_URL =
   process.env.APPLICATION_REQUEST_PROXY_URL || "https://bot.innoprog.ru/application/request";
 const BOT_APPLICATION_TOKEN =
@@ -13,28 +15,6 @@ const SMARTCAPTCHA_SERVER_KEY = process.env.SMARTCAPTCHA_SERVER_KEY || "";
 const SMARTCAPTCHA_VALIDATE_URL = "https://smartcaptcha.cloud.yandex.ru/validate";
 
 export const runtime = "nodejs";
-
-function normalizePhone(rawPhone: unknown) {
-  const digits = String(rawPhone || "").replace(/\D/g, "");
-
-  if (!digits) {
-    return "";
-  }
-
-  if (digits.length === 11 && digits.startsWith("8")) {
-    return `+7${digits.slice(1)}`;
-  }
-
-  if (digits.length === 10) {
-    return `+7${digits}`;
-  }
-
-  if (digits.startsWith("7")) {
-    return `+${digits}`;
-  }
-
-  return String(rawPhone || "").trim().startsWith("+") ? `+${digits}` : digits;
-}
 
 function getClientIp(req: NextRequest) {
   return (
@@ -115,7 +95,7 @@ export async function POST(req: NextRequest) {
     const sourcePath = new URL(sourcePage).pathname;
     const payload = {
       name: String(body.name || "").trim(),
-      phone: normalizePhone(body.phone),
+      phone: leadPhoneNumber(nationalLeadPhoneDigits(String(body.phone || ""))),
       email: String(body.email || "").trim(),
       question: [question, body.callback_window ? callbackNote(body.callback_window, body.callback_timezone) : ""].filter(Boolean).join("\n"),
       personal_data_consent: body.personal_data_consent === true,
@@ -128,7 +108,7 @@ export async function POST(req: NextRequest) {
 
     if (
       payload.name.length < 2 ||
-      payload.phone.replace(/\D/g, "").length < 10 ||
+      !isCompleteLeadPhone(payload.phone) ||
       !payload.personal_data_consent
     ) {
       return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });

@@ -1,0 +1,40 @@
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.prefix {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  flex: none;
+  padding-inline-end: 10px;
+  border-inline-end: 1px solid currentColor;
+  border-inline-end-color: color-mix(in srgb, currentColor 28%, transparent);
+  font-weight: 600;
+}
+
+.field > input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.flag {
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  aspect-ratio: 3 / 2;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #fff 33.33%, #2454b8 33.33% 66.67%, #d52b1e 66.67%);
+  box-shadow: inset 0 0 0 1px #2222;
+}

@@ -1,4 +1,6 @@
 "use client";
+import { LeadPhoneField } from "./components/LeadPhoneField";
+import { isCompleteLeadPhone, leadPhoneNumber } from "./leadPhone";
 import "../styles/adult-pages.css";
 import { CaptchaNotice } from "./components/CaptchaNotice";
 import { CallbackTimePicker } from "./components/CallbackTimePicker";
@@ -162,32 +164,6 @@ function isCoursePageRoute(route: AppInitialRoute) {
   ].includes(route.page);
 }
 
-function normalizePhone(rawPhone: string) {
-  const digits = rawPhone.replace(/\D/g, "");
-
-  if (!digits) {
-    return "";
-  }
-
-  if (digits.length === 11 && digits.startsWith("8")) {
-    return `+7${digits.slice(1)}`;
-  }
-
-  if (digits.length === 10) {
-    return `+7${digits}`;
-  }
-
-  if (digits.startsWith("7")) {
-    return `+${digits}`;
-  }
-
-  if (rawPhone.trim().startsWith("+")) {
-    return `+${digits}`;
-  }
-
-  return digits;
-}
-
 function findLeadFieldValue(scope: ParentNode, names: string[]) {
   for (const name of names) {
     const field = scope.querySelector<HTMLInputElement | HTMLTextAreaElement>(
@@ -206,7 +182,7 @@ function findLeadFieldValue(scope: ParentNode, names: string[]) {
 function getLeadPayload(scope?: ParentNode | null): LeadPayload {
   const root = scope || document;
   const name = findLeadFieldValue(root, ["name", "modal-name"]);
-  const phone = normalizePhone(findLeadFieldValue(root, ["phone", "modal-phone"]));
+  const phone = leadPhoneNumber(findLeadFieldValue(root, ["phone", "modal-phone"]));
   const email = findLeadFieldValue(root, ["email", "modal-email"]);
   const question = findLeadFieldValue(root, ["question", "modal-question"]);
 
@@ -218,7 +194,7 @@ function getLeadPayload(scope?: ParentNode | null): LeadPayload {
 function isLeadPayloadValid(payload: LeadPayload) {
   const isEmailValid = !payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
 
-  return payload.name.length >= 2 && payload.phone.replace(/\D/g, "").length >= 10 && isEmailValid;
+  return payload.name.length >= 2 && isCompleteLeadPhone(payload.phone) && isEmailValid;
 }
 
 async function sendLeadApplication(
@@ -4542,8 +4518,8 @@ export default function App({
 
       setLeadFormError(
         hasEmailField
-          ? "Заполните имя, корректный номер телефона и проверьте почту"
-          : "Заполните имя и корректный номер телефона",
+          ? "Заполните имя, российский номер телефона и проверьте почту"
+          : "Заполните имя и российский номер телефона",
       );
 
       if (leadModalState === "closed") {
@@ -5498,15 +5474,10 @@ export default function App({
                     placeholder="Ваше имя"
                     type="text"
                   />
-                  <input
-                    aria-label="Номер телефона"
-                    autoComplete="tel"
+                  <LeadPhoneField
                     className="site-lead-modal__input"
-                    defaultValue={leadDraft.phone || ""}
-                    inputMode="tel"
+                    defaultValue={leadDraft.phone}
                     name="modal-phone"
-                    placeholder="+7(000)-000-00-00"
-                    type="tel"
                   />
                   <input
                     aria-label="Почта"

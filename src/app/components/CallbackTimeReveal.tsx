@@ -1,11 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { isCompleteLeadPhone, leadPhoneNumber } from "../leadPhone";
 import styles from "./CallbackTimeReveal.module.css";
 
 export function hasCallbackPhone(phone: string) {
-  const digits = phone.replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
+  return isCompleteLeadPhone(leadPhoneNumber(phone));
 }
 
 export function CallbackTimeReveal({ phone, children }: { phone: string; children: ReactNode }) {

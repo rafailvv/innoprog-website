@@ -30,6 +30,19 @@ afterEach(() => {
 });
 
 describe("application request SmartCaptcha protection", () => {
+  it.each(["+90 512 345 67", "+7 701 123-45-67", "+7 600 123-45-67", "+7 999 123-45-678"])(
+    "rejects unsupported callback phone %s before contacting external services",
+    async (phone) => {
+      const fetchMock = vi.spyOn(globalThis, "fetch");
+      const { POST } = await import("./route");
+      const response = await POST(request({ ...validPayload, phone }));
+
+      expect(response.status).toBe(400);
+      expect(await response.json()).toMatchObject({ error: "invalid_payload" });
+      expect(fetchMock).not.toHaveBeenCalled();
+    },
+  );
+
   it("rejects a submission without a captcha token", async () => {
     process.env.SMARTCAPTCHA_SERVER_KEY = "server-secret";
     const { POST } = await import("./route");

@@ -1,4 +1,6 @@
 "use client";
+import { LeadPhoneField } from "../../components/LeadPhoneField";
+import { isCompleteLeadPhone, leadPhoneNumber } from "../../leadPhone";
 import { CaptchaNotice } from "../../components/CaptchaNotice";
 import { CallbackTimeReveal } from "../../components/CallbackTimeReveal";
 import { CallbackTimePicker } from "../../components/CallbackTimePicker";
@@ -12,21 +14,6 @@ import {
 import { childrenCourseNavigation } from "../courses/course-paths";
 import styles from "./school.module.css";
 import formStyles from "./form.module.css";
-
-export function normalizeChildrenPhone(value: string) {
-  let digits = value.replace(/\D/g, "");
-  if (digits.length === 10) digits = "7" + digits;
-  if (digits.length === 11 && digits.startsWith("8")) digits = "7" + digits.slice(1);
-  return digits ? "+" + digits : "";
-}
-
-export function formatChildrenPhone(value: string) {
-  const normalized = normalizeChildrenPhone(value);
-  const digits = normalized.slice(1);
-  return digits.length === 11 && digits.startsWith("7")
-    ? `+7 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7, 9)}-${digits.slice(9)}`
-    : value;
-}
 
 export default function LeadForm({ course, formId, context, presentation = "inline" }: { course?: string; formId?: string; context?: string; presentation?: "inline" | "modal" }) {
   const id = useId();
@@ -46,8 +33,7 @@ export default function LeadForm({ course, formId, context, presentation = "inli
     const name = String(values.get("name") || "").trim();
     const childName = String(values.get("child_name") || "").trim();
     const age = String(values.get("child_age") || "").trim();
-    const normalizedPhone = normalizeChildrenPhone(String(values.get("phone") || ""));
-    const digits = normalizedPhone.slice(1);
+    const normalizedPhone = leadPhoneNumber(String(values.get("phone") || ""));
     if (name.length < 2 || childName.length < 2) {
       setError("Укажите ваше имя и имя ребёнка — не меньше двух букв.");
       return;
@@ -56,8 +42,8 @@ export default function LeadForm({ course, formId, context, presentation = "inli
       setError("Укажите возраст ребёнка от 10 до 18 лет.");
       return;
     }
-    if (digits.length < 10 || digits.length > 15 || (/^[78]/.test(digits) && digits.length !== 11)) {
-      setError("Проверьте номер телефона. Для российского номера нужно 11 цифр, включая +7.");
+    if (!isCompleteLeadPhone(normalizedPhone)) {
+      setError("Проверьте номер телефона. Укажите российский номер с кодом +7.");
       return;
     }
     if (values.get("consent") !== "on") {
@@ -135,7 +121,7 @@ export default function LeadForm({ course, formId, context, presentation = "inli
         </label>
         <label className={formStyles.field}>
           <span>Номер телефона <span aria-hidden="true">*</span></span>
-          <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" autoComplete="tel" inputMode="tel" maxLength={30} required disabled={pending} value={phone} onChange={(event) => setPhone(event.target.value)} onBlur={() => setPhone(formatChildrenPhone(phone))} />
+          <LeadPhoneField required disabled={pending} value={phone} onValueChange={setPhone} />
         </label>
         {presentation === "modal" ? <div className={formStyles.fullWidth}><CallbackTimePicker disabled={pending} /></div> : <CallbackTimeReveal phone={phone}><CallbackTimePicker disabled={pending} /></CallbackTimeReveal>}
         <label className={`${formStyles.field} ${formStyles.fullWidth}`}>

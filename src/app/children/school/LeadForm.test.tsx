@@ -7,7 +7,7 @@ import {
   cleanup,
 } from "@testing-library/react";
 import { forwardRef, useImperativeHandle } from "react";
-import LeadForm, { formatChildrenPhone, normalizeChildrenPhone } from "./LeadForm";
+import LeadForm from "./LeadForm";
 import * as analytics from "../../analytics";
 const { requestToken } = vi.hoisted(() => ({ requestToken: vi.fn(async () => "test-captcha-token") }));
 vi.mock("../../components/YandexSmartCaptcha", () => ({
@@ -107,21 +107,14 @@ describe("children CAPTCHA load failure", () => {
 });
 
 describe("children phone formatting and validation", () => {
-  it("normalizes pasted Russian numbers and preserves international numbers", () => {
-    expect(normalizeChildrenPhone("8 (999) 123-45-67")).toBe("+79991234567");
-    expect(normalizeChildrenPhone("9991234567")).toBe("+79991234567");
-    expect(normalizeChildrenPhone("+44 20 7946 0958")).toBe("+442079460958");
-    expect(formatChildrenPhone("89991234567")).toBe("+7 (999) 123-45-67");
-    expect(formatChildrenPhone("+7 (999)")).toBe("+7 (999)");
-    expect(normalizeChildrenPhone("")).toBe("");
-  });
   it("allows editing freely and formats the complete phone on blur", () => {
     render(<LeadForm />);
     const field = screen.getByLabelText(/Номер телефона/) as HTMLInputElement;
     fireEvent.change(field, { target: { value: "89991234567" } }); fireEvent.blur(field);
-    expect(field.value).toBe("+7 (999) 123-45-67");
+    expect(field.value).toBe("(999) 123-45-67");
     fireEvent.change(field, { target: { value: "" } }); fireEvent.blur(field);
     expect(field.value).toBe("");
+    expect(field.closest("[data-lead-phone]")).toHaveTextContent("+7");
   });
   it.each([
     ["Возраст ребёнка", "9", "от 10 до 18 лет"],

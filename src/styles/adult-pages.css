@@ -3228,12 +3228,14 @@
   text-transform: uppercase;
 }
 
-.site-lead-modal__input::placeholder {
+.site-lead-modal__input::placeholder,
+.site-lead-modal__input[data-lead-phone] input::placeholder {
   color: rgba(156, 120, 255, 0.8);
   opacity: 1;
 }
 
-.site-lead-modal__input:focus {
+.site-lead-modal__input:focus,
+.site-lead-modal__input[data-lead-phone]:focus-within {
   box-shadow: inset 0 0 0 2px rgba(70, 74, 106, 0.35);
 }
 

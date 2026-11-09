@@ -1,5 +1,6 @@
 "use client";
 
+import { LeadPhoneField } from "./LeadPhoneField";
 import { useState } from "react";
 import { CallbackTimePicker } from "./CallbackTimePicker";
 import { CallbackTimeReveal } from "./CallbackTimeReveal";
@@ -24,7 +25,7 @@ export function InlineLeadForm({ course = false }: { course?: boolean }) {
     <form className={`${styles.form}${course ? ` ${styles.course}` : ""}`} data-inline-lead-form onSubmit={(event) => event.preventDefault()} onReset={() => setPhone("")}>
       <div className={styles.fields}>
         <input name="name" aria-label="Ваше имя" autoComplete="name" placeholder="Ваше имя" />
-        <input name="phone" aria-label="Номер телефона" type="tel" inputMode="tel" autoComplete="tel" placeholder="+7 (999) 123-45-67" value={phone} onChange={(event) => setPhone(event.target.value)} />
+        <LeadPhoneField value={phone} onValueChange={setPhone} />
       </div>
       <CallbackTimeReveal phone={phone}><CallbackTimePicker /></CallbackTimeReveal>
       {course ? <div className={styles.fields}>

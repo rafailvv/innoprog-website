@@ -1,4 +1,6 @@
 "use client";
+import { LeadPhoneField } from "../components/LeadPhoneField";
+import { isCompleteLeadPhone, leadPhoneNumber } from "../leadPhone";
 import { CaptchaNotice } from "../components/CaptchaNotice";
 import { CallbackTimeReveal } from "../components/CallbackTimeReveal";
 import { CallbackTimePicker } from "../components/CallbackTimePicker";
@@ -21,28 +23,10 @@ type LeadPayload = {
   advertising_consent: boolean;
 };
 
-function normalizePhone(value: string) {
-  const digits = value.replace(/\D/g, "");
-
-  if (digits.length === 11 && digits.startsWith("8")) {
-    return `+7${digits.slice(1)}`;
-  }
-
-  if (digits.length === 10) {
-    return `+7${digits}`;
-  }
-
-  if (digits.startsWith("7")) {
-    return `+${digits}`;
-  }
-
-  return value.trim().startsWith("+") ? `+${digits}` : digits;
-}
-
 function isValidLead(payload: LeadPayload) {
   return (
     payload.name.trim().length >= 2 &&
-    normalizePhone(payload.phone).replace(/\D/g, "").length >= 10 &&
+    isCompleteLeadPhone(payload.phone) &&
     (!payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email))
   );
 }
@@ -53,7 +37,6 @@ async function sendApplication(payload: LeadPayload, captchaToken: string): Prom
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ...payload,
-      phone: normalizePhone(payload.phone),
       captcha_token: captchaToken,
       source_page: window.location.href,
       form_id: "standalone-application",
@@ -114,7 +97,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
     const formData = new FormData(event.currentTarget);
     const payload = {
       name: String(formData.get("name") || "").trim(),
-      phone: String(formData.get("phone") || "").trim(),
+      phone: leadPhoneNumber(String(formData.get("phone") || "")),
       email: String(formData.get("email") || "").trim(),
       question: String(formData.get("question") || "").trim(),
       callback_window: String(formData.get("callback_window") || "anytime"),
@@ -124,7 +107,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
     };
 
     if (!isValidLead(payload)) {
-      setError("Заполните имя, корректный номер телефона и проверьте почту");
+      setError("Заполните имя, российский номер телефона и проверьте почту");
       return;
     }
 
@@ -175,7 +158,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
             <p>Свяжемся с вами в удобное время</p>
             <div className="site-application-fields">
               <input aria-label="Ваше имя" autoComplete="name" name="name" placeholder="Ваше имя" type="text" />
-              <input aria-label="Номер телефона" autoComplete="tel" inputMode="tel" name="phone" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="+7(000)-000-00-00" type="tel" />
+              <LeadPhoneField value={phone} onValueChange={setPhone} />
               <CallbackTimeReveal phone={phone}><CallbackTimePicker disabled={isSubmitting} /></CallbackTimeReveal>
               <input aria-label="Почта" autoComplete="email" inputMode="email" name="email" placeholder="Почта" type="email" />
               <textarea aria-label="Ваш вопрос" name="question" placeholder="Ваш вопрос" />
