@@ -541,35 +541,37 @@ export default function SchoolPage() {
         </section>
         <section className={styles.pricing} id="tariff">
           <div className={styles.container}>
-            <div>
-              <h2>Заявка на обучение</h2>
-              <p>
-                Оставьте <strong>заявку</strong>, и мы <strong>свяжемся</strong>{" "}
-                с вами
-                <br /> в ближайшее время
-              </p>
-              <LeadForm />
-            </div>
-            <div className={styles.priceCards}>
+            <aside className={styles.priceCard} aria-labelledby="children-price-title">
               <div className={styles.price}>
+                <h3 id="children-price-title">Стоимость обучения</h3>
                 <span className={styles.discount}>−27%</span>
-                <h2>Стоимость обучения</h2>
                 <del>9 990 руб/мес</del>
                 <p>7 290 руб/мес</p>
               </div>
-              <ul>
+              <ul className={styles.priceBenefits}>
                 <li>
-                  Онлайн-занятия с опытными преподавателями <b>1&nbsp;на&nbsp;1</b>
+                  Онлайн-занятия <b>1&nbsp;на&nbsp;1</b> с опытными преподавателями
                 </li>
                 <li>
                   Погружение ребёнка в <b>ИТ-профессию</b>
                 </li>
               </ul>
+              <div className={styles.taxBenefit}>
+                <h4>Налоговый вычет</h4>
+                <p>По окончании обучения вы сможете оформить налоговый вычет и вернуть <b>13% от стоимости обучения</b></p>
+              </div>
+            </aside>
+            <div className={styles.applicationCard}>
+              <h2>Заявка на обучение</h2>
+              <p>Оставьте заявку, и мы свяжемся с вами в удобное для вас время.</p>
+              <LeadForm />
             </div>
           </div>
         </section>
       </main>
-      <SiteFooter isMobile={isMobile} scale={scale} />
+      <div className={styles.footerJoin}>
+        <SiteFooter isMobile={isMobile} scale={scale} compactMobile />
+      </div>
       <ChildrenMobileMenu open={menuOpen} onOpenChange={setMenuOpen} onApplication={() => setApplication("Подобрать курс для ребёнка")} />
       <Dialog.Root
         open={application !== null}

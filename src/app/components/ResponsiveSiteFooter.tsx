@@ -22,8 +22,22 @@ function getServerViewportSnapshot() {
   return String(MOBILE_WIDTH);
 }
 
-export function SiteFooter({ isMobile, scale }: { isMobile: boolean; scale: number }) {
+export function SiteFooter({ isMobile, scale, compactMobile = false }: {
+  isMobile: boolean;
+  scale: number;
+  compactMobile?: boolean;
+}) {
   if (isMobile) {
+    if (compactMobile) {
+      return (
+        <footer className="site-main-footer-surface site-main-footer-surface--mobile">
+          <div style={{ width: MOBILE_WIDTH, zoom: scale }}>
+            <MainScreenMobileFooter compact />
+          </div>
+        </footer>
+      );
+    }
+
     return (
       <footer className="site-main-footer-surface site-main-footer-surface--mobile" style={{ height: `${Math.ceil(MOBILE_FOOTER_HEIGHT * scale)}px` }}>
         <div

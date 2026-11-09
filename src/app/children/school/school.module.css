@@ -767,16 +767,36 @@
   object-fit: contain;
 }
 .pricing {
-  padding: 45px 0 65px;
-  background: linear-gradient(180deg, #fff, var(--school-surface));
+  padding: 48px 0;
+  background: var(--purple);
 }
 .pricing > .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 140px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(20px, 3vw, 44px);
 }
-.pricing p {
-  font-size: 21px;
+.applicationCard,
+.priceCard {
+  border-radius: 30px;
+  padding: clamp(20px, 3vw, 36px);
+  box-shadow: 0 12px 28px rgb(46 34 73 / 14%);
+}
+.applicationCard {
+  background: #fff;
+}
+.applicationCard > p {
+  font-size: 19px;
+  margin: 12px 0 24px;
+}
+.footerJoin {
+  background: var(--purple);
+}
+.footerJoin > footer {
+  margin-top: 0;
+}
+.footerJoin > footer:global(.site-main-footer-surface--mobile) {
+  border-radius: 28px 28px 0 0;
 }
 .form {
   display: flex;
@@ -829,74 +849,84 @@
   border-radius: 12px;
   margin: 0 !important;
 }
-.priceCards {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding-top: 4px;
+.priceCard {
+  min-width: 0;
+  background: var(--school-accent);
+  color: #fff;
 }
 .price {
-  border: 1px solid var(--school-line);
-  background: var(--purple);
-  color: #fff;
-  box-shadow: 0 8px 22px rgb(46 34 73 / 8%);
-  border-radius: 30px;
-  padding: 30px 26px;
+  --discount-size: 80px;
   position: relative;
+  min-height: var(--discount-size);
+  padding-right: calc(var(--discount-size) + 10px);
 }
-.price h2 {
-  color: #fff;
-  font-size: 32px;
-  letter-spacing: -0.5px;
+.price h3 {
+  color: inherit;
+  font-size: 24px;
+  font-weight: 750;
 }
 .price del {
-  color: inherit;
-  font-size: 22px;
   display: block;
-  margin-top: 16px;
+  margin-top: 12px;
+  font-size: 17px;
 }
 .price p {
-  font-size: 44px;
-  font-weight: 650;
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 800;
   line-height: 1.2;
-  margin: 5px 0;
-}
-.price > span:not(.discount) {
-  color: #e2d5ff;
-  font-size: 23px;
-}
-.price > img {
-  position: absolute;
-  right: 100px;
-  bottom: -22px;
-  transform: rotate(12deg);
+  margin: 4px 0 0;
 }
 .discount {
   position: absolute;
-  right: -25px;
-  top: -38px;
-  width: 100px;
-  height: 100px;
+  right: 0;
+  top: 0;
+  width: var(--discount-size);
+  height: var(--discount-size);
   display: grid;
   place-items: center;
   background: #ffce65;
   color: #000;
-  border: 1px solid #333;
   border-radius: 50%;
-  font-size: 29px;
+  font-size: 24px;
   font-weight: 800;
 }
-.priceCards > ul {
-  background: var(--purple);
-  color: #fff;
-  border-radius: 30px;
-  padding: 28px 32px 28px 44px;
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.35;
+.priceBenefits {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+  padding: 18px 0 0 1.2em;
+  border-top: 1px solid rgb(255 255 255 / 32%);
+  list-style: disc;
+  font-size: 17px;
 }
-.priceCards > ul li + li {
-  margin-top: 18px;
+.taxBenefit {
+  border-radius: 16px;
+  padding: 15px 17px;
+  background: rgb(255 255 255 / 12%);
+}
+.taxBenefit h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+}
+.taxBenefit p {
+  margin: 5px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .applicationCard {
+    grid-area: 1 / 1;
+  }
+  .priceCard {
+    grid-area: 1 / 2;
+  }
+}
+@media (min-width: 1024px) and (min-height: 760px) {
+  .priceCard {
+    position: sticky;
+    top: max(140px, 10vw);
+  }
 }
 .overlay {
   position: fixed;
@@ -1034,24 +1064,6 @@
   }
   .trial .button {
     font-size: 18px;
-  }
-  .pricing > .container {
-    gap: 60px;
-  }
-  .price h2 {
-    font-size: 26px;
-  }
-  .price p {
-    font-size: 34px;
-  }
-  .price > span:not(.discount) {
-    font-size: 18px;
-  }
-  .discount {
-    width: 80px;
-    height: 80px;
-    font-size: 24px;
-    right: -16px;
   }
   .reviews {
     gap: 24px;
@@ -1380,17 +1392,25 @@
     padding: 15px 10px;
   }
   .pricing {
-    padding: 35px 0 50px;
+    padding: 24px 0;
   }
   .pricing > .container {
-    grid-template-columns: 1fr;
-    gap: 55px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
-  .pricing h2 {
-    font-size: 29px;
+  .applicationCard,
+  .priceCard {
+    border-radius: 22px;
   }
-  .pricing p {
-    font-size: 17px;
+  .price {
+    --discount-size: 68px;
+  }
+  .discount {
+    font-size: 21px;
+  }
+  .applicationCard > p {
+    font-size: 16px;
+    margin-bottom: 18px;
   }
   .form {
     max-width: none;
@@ -1405,33 +1425,6 @@
   }
   .consent {
     font-size: 12px;
-  }
-  .priceCards {
-    padding-inline: 10px;
-    gap: 25px;
-  }
-  .price {
-    padding: 26px 20px;
-  }
-  .price h2 {
-    font-size: 28px;
-  }
-  .price p {
-    font-size: 38px;
-  }
-  .price > span:not(.discount) {
-    font-size: 20px;
-  }
-  .discount {
-    width: 80px;
-    height: 80px;
-    top: -30px;
-    right: -12px;
-    font-size: 24px;
-  }
-  .priceCards > ul {
-    font-size: 18px;
-    padding: 26px 26px 26px 36px;
   }
   .modal {
     padding: 42px 22px 25px;
@@ -1453,9 +1446,6 @@
   }
   .teacherCard h3 {
     font-size: 21px;
-  }
-  .price p {
-    font-size: 32px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1480,8 +1470,7 @@
 }
 
 .course ul,
-.teacherCard ul,
-.priceCards > ul {
+.teacherCard ul {
   list-style-type: disc;
 }
 .button:disabled {
