@@ -77,7 +77,7 @@ const nextConfig = {
       // bodies with ETag instead of forbidding storage or keeping stale images
       // across releases. Restrict the rule to media, never children HTML.
       {
-        source: "/children/school/:asset([a-zA-Z0-9_.-]+[.](?:webp|png|jpe?g|svg))",
+        source: "/children/school/:asset([a-zA-Z0-9_.-]+[.](?:avif|webp|png|jpe?g|svg))",
         headers: [{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" }],
       },
       {

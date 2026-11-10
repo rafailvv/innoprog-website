@@ -156,6 +156,12 @@
   max-width: none;
   height: auto;
 }
+.heroPicture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .heroBenefits {
   display: grid;
   gap: 4px;

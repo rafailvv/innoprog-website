@@ -28,6 +28,9 @@ function CtaArrow() {
 
 const a = data.assets;
 const heroImage = "/children/school/hero-illustration-transparent";
+const heroAvif = `${heroImage}-480.avif 480w, ${heroImage}-768.avif 768w, ${heroImage}-1080.avif 1080w, ${heroImage}-1440.avif 1440w`;
+const heroWebp = `${heroImage}-480.webp 480w, ${heroImage}-768.webp 768w, ${heroImage}-1080.webp 1080w, ${heroImage}.webp 1440w`;
+const heroSizes = "(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 49vw, 47vw";
 const courses = [
   {
     id: "python",
@@ -214,16 +217,20 @@ export default function SchoolPage() {
               <span>записаться на бесплатное занятие</span>
               <CtaArrow />
             </button>
-            <img
-              className={styles.heroPicture}
-              src={`${heroImage}.webp`}
-              srcSet={`${heroImage}-480.webp 480w, ${heroImage}-768.webp 768w, ${heroImage}-1080.webp 1080w, ${heroImage}.webp 1440w`}
-              sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 49vw, 47vw"
-              alt="Ребёнок за ноутбуком. Вокруг него робот, ракета и плашки о проектах, алгоритмах, достижениях и сертификате"
-              width={1440}
-              height={884}
-              fetchPriority="high"
-            />
+            <link rel="preload" as="image" type="image/avif" media="(max-width: 767px)" imageSrcSet={heroAvif} imageSizes={heroSizes} fetchPriority="high" />
+            <link rel="preload" as="image" media="(min-width: 768px)" imageSrcSet={heroWebp} imageSizes={heroSizes} fetchPriority="high" />
+            <picture className={styles.heroPicture}>
+              <source type="image/avif" media="(max-width: 767px)" srcSet={heroAvif} sizes={heroSizes} />
+              <img
+                src={`${heroImage}.webp`}
+                srcSet={heroWebp}
+                sizes={heroSizes}
+                alt="Ребёнок за ноутбуком. Вокруг него робот, ракета и плашки о проектах, алгоритмах, достижениях и сертификате"
+                width={1440}
+                height={884}
+                fetchPriority="high"
+              />
+            </picture>
           </div>
         </section>
         <section className={styles.future}>
