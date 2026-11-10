@@ -22,6 +22,11 @@ const adaptiveVideos: Partial<Record<string, VideoVariants>> = {
     standard: "/videos/frontend-mentor-hd-v1.mp4",
     high: "/videos/frontend-mentor-hd-v1.mp4",
   },
+  "/videos/flutter-mentor-hd-v1.mp4": {
+    lite: "/videos/flutter-mentor-lite-v1.mp4",
+    standard: "/videos/flutter-mentor-hd-v1.mp4",
+    high: "/videos/flutter-mentor-hd-v1.mp4",
+  },
   "/videos/python-mentor-hd-v2.mp4": {
     lite: "/videos/python-mentor-lite-v2.mp4",
     standard: "/videos/python-mentor-hd-v2.mp4",
