@@ -17,15 +17,25 @@ const adaptiveVideos: Partial<Record<string, VideoVariants>> = {
     standard: "/videos/personal-mentor-hd-v1.mp4",
     high: "/videos/personal-mentor-hd-v1.mp4",
   },
+  "/videos/frontend-mentor-hd-v1.mp4": {
+    lite: "/videos/frontend-mentor-lite-v1.mp4",
+    standard: "/videos/frontend-mentor-hd-v1.mp4",
+    high: "/videos/frontend-mentor-hd-v1.mp4",
+  },
+  "/videos/python-mentor-hd-v1.mp4": {
+    lite: "/videos/python-mentor-lite-v1.mp4",
+    standard: "/videos/python-mentor-hd-v1.mp4",
+    high: "/videos/python-mentor-hd-v1.mp4",
+  },
   "/videos/cpp-mentor.mp4": {
     lite: "/videos/cpp-mentor.mp4",
     standard: "/videos/cpp-mentor-hd-v1.mp4",
     high: "/videos/cpp-mentor-hd-v1.mp4",
   },
   "/videos/unreal-engine-mentor.mp4": {
-    lite: "/videos/unreal-engine-mentor.mp4",
-    standard: "/videos/unreal-engine-mentor-hd-v1.mp4",
-    high: "/videos/unreal-engine-mentor-hd-v1.mp4",
+    lite: "/videos/unreal-engine-mentor-lite-v2.mp4",
+    standard: "/videos/unreal-engine-mentor-hd-v2.mp4",
+    high: "/videos/unreal-engine-mentor-hd-v2.mp4",
   },
   "/videos/course-ai-autoplay.mp4": {
     lite: "/videos/course-ai-lite-v1.mp4",
