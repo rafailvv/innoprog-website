@@ -7,7 +7,7 @@ import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatur
 import imgCppHero from "../shared/course-heroes/cpp-processor.delivery.webp";
 import imgCppHeroCompact from "../shared/course-heroes/cpp-processor-420h.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/personal-mentor-hq.mp4";
+const imgImage119 = "/videos/cpp-mentor.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
