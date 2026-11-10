@@ -5,6 +5,7 @@ import { isCompleteLeadPhone, leadPhoneNumber } from "./leadPhone";
 import "../styles/adult-pages.css";
 import { CaptchaNotice } from "./components/CaptchaNotice";
 import { CallbackTimePicker } from "./components/CallbackTimePicker";
+import { LeadSheetControls, leadSheetClassName } from "./components/LeadSheetControls";
 import { trackApplicationSuccess } from "./analytics";
 import { getLayoutBottom, getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
 
@@ -5432,11 +5433,13 @@ export default function App({
             aria-modal="true"
             className={[
               "site-lead-modal__card",
+              leadSheetClassName,
               leadModalState === "success" ? "site-lead-modal__card--success" : "",
             ].filter(Boolean).join(" ")}
             onClick={(event) => event.stopPropagation()}
             role="dialog"
           >
+            <LeadSheetControls open={leadModalState !== "closed"} onClose={closeLeadModal} />
             <div className="site-lead-modal__top">
               <div className="site-lead-modal__brand">
                 <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">

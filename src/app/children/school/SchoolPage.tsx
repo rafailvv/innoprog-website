@@ -7,6 +7,7 @@ import Link from "next/link";
 import { CalendarDays, CodeXml, Compass, GraduationCap, Laptop, Layers, Trophy, UserRound, Workflow } from "lucide-react";
 import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
+import { LeadSheetControls, leadSheetClassName } from "../../components/LeadSheetControls";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
 import { SiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "./source-data.json";
@@ -135,8 +136,14 @@ export default function SchoolPage() {
   const isMobile = width < 768;
   const scale = width / (isMobile ? 390 : 1440);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [application, setApplication] = useState<string | null>(null);
+  const [application, setApplication] = useState({ title: "", open: false });
   const applicationDialog = useRef<HTMLDivElement>(null);
+  const applicationTrigger = useRef<HTMLElement | null>(null);
+  const openApplication = (title: string) => {
+    applicationTrigger.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setApplication({ title, open: true });
+  };
+  const closeApplication = () => setApplication((current) => ({ ...current, open: false }));
   const carousel = useRef<HTMLDivElement>(null);
   const scrollReviews = (direction: -1 | 1) => {
     const track = carousel.current;
@@ -152,7 +159,7 @@ export default function SchoolPage() {
     const link = target.closest<HTMLAnchorElement>("a");
     if (link?.getAttribute("href") === "/application") {
       event.preventDefault();
-      setApplication("Подобрать курс для ребёнка");
+      openApplication("Подобрать курс для ребёнка");
     }
     if (link?.dataset.mainNav === "children") {
       event.preventDefault();
@@ -201,7 +208,7 @@ export default function SchoolPage() {
             <button
               className={`${styles.button} ${styles.heroCta}`}
               type="button"
-              onClick={() => setApplication("Запись на бесплатное занятие")}
+              onClick={() => openApplication("Запись на бесплатное занятие")}
             >
               <span>записаться на бесплатное занятие</span>
               <CtaArrow />
@@ -525,7 +532,7 @@ export default function SchoolPage() {
             </ul>
             <button
               className={styles.button}
-              onClick={() => setApplication("Запись на пробное занятие")}
+              onClick={() => openApplication("Запись на пробное занятие")}
             >
               Записаться на пробное занятие
             </button>
@@ -575,32 +582,39 @@ export default function SchoolPage() {
       <div className={styles.footerJoin}>
         <SiteFooter isMobile={isMobile} scale={scale} compactMobile />
       </div>
-      <ChildrenMobileMenu open={menuOpen} onOpenChange={setMenuOpen} onApplication={() => setApplication("Подобрать курс для ребёнка")} />
+      <ChildrenMobileMenu open={menuOpen} onOpenChange={setMenuOpen} onApplication={() => openApplication("Подобрать курс для ребёнка")} />
       <Dialog.Root
-        open={application !== null}
+        open={application.open}
         onOpenChange={(open) => {
-          if (!open) setApplication(null);
+          if (!open) closeApplication();
         }}
       >
         <Dialog.Portal>
-          <Dialog.Overlay className={styles.overlay} />
+          <Dialog.Overlay className={`${styles.overlay} ${styles.applicationOverlay}`} />
           <Dialog.Content
             ref={applicationDialog}
-            className={styles.modal}
+            className={`${styles.modal} ${leadSheetClassName}`}
             onOpenAutoFocus={(event) => {
               event.preventDefault();
               applicationDialog.current?.focus({ preventScroll: true });
+            }}
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              applicationTrigger.current?.focus({ preventScroll: true });
             }}
           >
             <Dialog.Close className={styles.close} aria-label="Закрыть окно">
               ×
             </Dialog.Close>
-            <Dialog.Title>{application}</Dialog.Title>
-            <Dialog.Description>
-              Оставьте заявку, и мы поможем подобрать направление и удобное
-              время занятий
-            </Dialog.Description>
-            <LeadForm key={application} context={application ?? undefined} presentation="modal" />
+            <LeadSheetControls open={application.open} onClose={closeApplication} />
+            <div className={styles.applicationModalBody}>
+              <Dialog.Title>{application.title}</Dialog.Title>
+              <Dialog.Description className={styles.applicationModalDescription}>
+                Оставьте заявку, и мы поможем подобрать направление и удобное
+                время занятий
+              </Dialog.Description>
+              <LeadForm key={application.title} context={application.title} presentation="modal" />
+            </div>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

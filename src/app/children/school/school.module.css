@@ -957,6 +957,19 @@
   backdrop-filter: blur(5px);
   z-index: 1400;
 }
+.applicationOverlay[data-state="open"] {
+  animation: application-overlay-in 240ms ease-out both;
+}
+.applicationOverlay[data-state="closed"] {
+  animation: application-overlay-out 200ms ease-in both;
+}
+@keyframes application-overlay-in {
+  from { opacity: 0; }
+}
+@keyframes application-overlay-out {
+  to { opacity: 0; }
+}
+
 .modal {
   font-family: var(--font-manrope), Arial, sans-serif;
   position: fixed;
@@ -969,20 +982,30 @@
   overflow-y: auto;
   background: white;
   color: #201c2d;
-  padding: 42px 34px 30px;
+  padding: 26px 34px 30px;
   border-radius: 28px;
   box-shadow: 0 20px 80px #0003;
   line-height: 1.5;
 }
+.modal[data-state="open"] {
+  animation: application-dialog-in 280ms cubic-bezier(.22, 1, .36, 1) both;
+}
+.modal[data-state="closed"] {
+  animation: application-dialog-out 200ms ease-in both;
+}
+@keyframes application-dialog-in {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 12px)) scale(.98); }
+}
+@keyframes application-dialog-out {
+  to { opacity: 0; transform: translate(-50%, calc(-50% + 8px)) scale(.98); }
+}
 .modal h2 {
   font-size: 28px;
-  margin: 0 24px 18px 0;
+  margin: 0 24px 12px 0;
 }
-.modal > p {
+.applicationModalDescription {
+  margin: 0 0 26px;
   color: #666;
-}
-.modal .form {
-  max-width: none;
 }
 .close {
   position: absolute;
@@ -1458,11 +1481,32 @@
     font-size: 12px;
   }
   .modal {
-    padding: 42px 22px 25px;
-    border-radius: 22px;
+    --lead-sheet-grip-height: 36px;
+    inset: auto 0 0;
+    width: 100%;
+    max-height: calc(100dvh - max(16px, env(safe-area-inset-top)));
+    padding: 0;
+    transform: none;
+    border-radius: 24px 24px 0 0;
+    overscroll-behavior-y: contain;
+  }
+  .modal[data-state="open"] {
+    animation-name: application-sheet-in;
+    animation-duration: 340ms;
+  }
+  .modal[data-state="closed"] {
+    animation-name: application-sheet-out;
+    animation-duration: 260ms;
+  }
+  .modal .close {
+    display: none;
+  }
+  .applicationModalBody {
+    padding: 0 20px max(24px, env(safe-area-inset-bottom));
   }
   .modal h2 {
     font-size: 24px;
+    margin-right: 24px;
   }
   .reviewModal > img {
     height: 230px;
@@ -1564,4 +1608,17 @@
 /* Use the header's 104px design gutters for the introductory block. */
 @media (min-width: 768px) {
   .heroInner { width: calc(100% * 1232 / 1440); }
+}
+
+@keyframes application-sheet-in {
+  from { transform: translateY(100%); }
+}
+@keyframes application-sheet-out {
+  to { transform: translateY(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal[data-state],
+  .applicationOverlay[data-state] {
+    animation: none;
+  }
 }
