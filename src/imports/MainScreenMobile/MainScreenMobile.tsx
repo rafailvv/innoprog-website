@@ -1627,7 +1627,7 @@ function ProblemSupportImage() {
           </div>
         </div>
       </div>
-      <div className="absolute h-[141px] left-[60px] top-[35px] w-[212px]" data-name="e6c1b488-1338-4d0e-af55-9017eea41f83 1">
+      <div className="absolute h-[176px] left-[34px] top-0 w-[264px] z-10" data-name="e6c1b488-1338-4d0e-af55-9017eea41f83 1">
         <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgProblemStudent} />
       </div>
       <div className="absolute flex h-[156.799px] items-center justify-center left-[83px] top-[135px] w-[165.583px]">
