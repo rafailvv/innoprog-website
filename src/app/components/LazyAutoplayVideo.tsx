@@ -38,9 +38,9 @@ const adaptiveVideos: Partial<Record<string, VideoVariants>> = {
     high: "/videos/cpp-mentor-hd-v1.mp4",
   },
   "/videos/unreal-engine-mentor.mp4": {
-    lite: "/videos/unreal-engine-mentor-lite-v3.mp4",
-    standard: "/videos/unreal-engine-mentor-hd-v3.mp4",
-    high: "/videos/unreal-engine-mentor-hd-v3.mp4",
+    lite: "/videos/unreal-engine-mentor-lite-v4.mp4",
+    standard: "/videos/unreal-engine-mentor-hd-v4.mp4",
+    high: "/videos/unreal-engine-mentor-hd-v4.mp4",
   },
   "/videos/course-ai-autoplay.mp4": {
     lite: "/videos/course-ai-lite-v1.mp4",

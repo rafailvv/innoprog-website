@@ -912,7 +912,7 @@ function Frame173() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame172 />
-      <div className="aspect-video overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
+      <div className="aspect-[80/43] overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
         <LazyAutoplayVideo className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[24px] size-full" src={imgImage119} />
       </div>
     </div>

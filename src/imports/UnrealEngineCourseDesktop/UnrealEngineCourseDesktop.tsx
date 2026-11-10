@@ -951,7 +951,7 @@ function Component2() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame14 />
-      <div className="aspect-video overflow-hidden relative rounded-[40px] shrink-0 w-[1280px] site-course-mentor-media" data-name="image 119">
+      <div className="aspect-[80/43] overflow-hidden relative rounded-[40px] shrink-0 w-[1280px] site-course-mentor-media" data-name="image 119">
         <LazyAutoplayVideo className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
