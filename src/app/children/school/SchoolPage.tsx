@@ -13,6 +13,7 @@ import { SiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "./source-data.json";
 import styles from "./school.module.css";
 import LeadForm from "./LeadForm";
+import NearViewportImage from "./NearViewportImage";
 import { childrenTeachers as teachers } from "./teacher-data";
 import { childrenCoursePaths } from "../courses/course-paths";
 
@@ -266,7 +267,7 @@ export default function SchoolPage() {
                     <h3><Icon aria-hidden="true" size={22} />{title}</h3>
                     <p>{text}</p>
                   </header>
-                  <img
+                  <NearViewportImage
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
@@ -305,7 +306,7 @@ export default function SchoolPage() {
                           <li key={text}>{text}</li>
                         ))}
                       </ul>
-                      <img
+                      <NearViewportImage
                         className={styles.courseIcon}
                         src={`/children/school/catalog-icon-${id}.webp`}
                         alt=""
