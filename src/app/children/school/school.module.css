@@ -1553,7 +1553,7 @@
   .container { width: 1280px; }
 }
 @media (min-width: 1101px) {
-  .schoolHeader { height: 128px; }
+  .schoolHeader { height: calc(136px * var(--children-desktop-scale, 1)); }
   .heroInner {
     grid-template-columns: minmax(0, 0.91fr) minmax(0, 1.09fr);
     column-gap: 64px;

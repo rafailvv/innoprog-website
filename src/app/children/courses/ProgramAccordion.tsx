@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import svgPaths from "../../../imports/PythonCourseDesktop/svg-egdjewsyn7";
+import CourseArrow from "./CourseArrow";
 import { CourseProgramTagIcon } from "../../../imports/courseProgramIcons";
 import type { ChildrenCourse } from "./course-data";
 import styles from "./course.module.css";
@@ -37,9 +37,7 @@ export default function ProgramAccordion({ modules }: { modules: ChildrenCourse[
             <h3 className="site-course-program-heading">
               <button aria-controls={panelId} aria-expanded={isOpen} className="site-course-program-toggle" data-name="программа обучения" id={buttonId} onClick={() => setActive((current) => current === index ? null : index)} type="button">
                 <span className="site-course-program-title">{`(${index + 1}) ${module.title}`}</span>
-                <span className="site-course-program-chevron" aria-hidden="true" data-name="стрелка программы обучения">
-                  <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29.4591 29.4564"><path d={svgPaths.p3133300} stroke="currentColor" strokeWidth="2" /></svg>
-                </span>
+                <CourseArrow className="site-course-program-chevron" />
               </button>
             </h3>
             <div aria-hidden={!isOpen} aria-labelledby={buttonId} className="site-course-program-panel-shell" id={panelId} role="region">

@@ -1,6 +1,7 @@
 import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 import { LEGAL_LINKS } from "../../app/legalLinks";
+import MaxFooterLink from "./MaxFooterLink";
 const svgPaths = {
 p1458ef0: "M0 38C0 17.0132 17.0132 0 38 0V0C58.9868 0 76 17.0132 76 38V38C76 58.9868 58.9868 76 38 76V76C17.0132 76 0 58.9868 0 38V38Z",
 p1a9e2200: "M21.6 54.5C20.4725 54.5 19.5076 54.0964 18.7054 53.2893C17.9032 52.4822 17.5014 51.5107 17.5 50.375V25.625C17.5 24.4906 17.9018 23.5199 18.7054 22.7127C19.509 21.9056 20.4739 21.5014 21.6 21.5H54.4C55.5275 21.5 56.493 21.9042 57.2966 22.7127C58.1002 23.5212 58.5014 24.492 58.5 25.625V50.375C58.5 51.5094 58.0989 52.4808 57.2966 53.2893C56.4944 54.0978 55.5289 54.5014 54.4 54.5H21.6ZM38 40.0625L21.6 29.75V50.375H54.4V29.75L38 40.0625ZM38 35.9375L54.4 25.625H21.6L38 35.9375ZM21.6 29.75V25.625V50.375V29.75Z",
@@ -149,6 +150,7 @@ function Frame123() {
       <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
         <MynauiTelegram />
       </a>
+      <MaxFooterLink sizeClass="size-[75px]" />
     </div>
   );
 }

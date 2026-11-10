@@ -49,9 +49,9 @@
 }
 .heroCard {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
   align-items: center;
-  gap: 45px;
+  gap: 20px 36px;
   border-radius: 40px;
   padding: 42px;
   background: #f8f5ff;
@@ -59,7 +59,9 @@
 }
 .heroCard > img {
   width: 100%;
-  height: 330px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  justify-self: center;
   object-fit: contain;
 }
 .tags {
@@ -87,23 +89,32 @@
   align-items: flex-start;
   gap: 20px;
 }
-.heroActions a:first-child {
-  background: #464a6a;
-  color: white;
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 100%;
+  padding: 8px 10px 8px 18px;
+  border-radius: 999px;
+  font-size: 18px;
+  text-align: left;
   text-decoration: none;
-  font-size: 20px;
-  padding: 18px 24px;
-  border-radius: 30px;
 }
-.heroActions a:nth-child(2) {
-  color: #7851cd;
-  font-weight: 600;
-  text-decoration: none;
+.courseArrow {
+  --hero-cta-arrow-size: 36px;
+}
+.courseArrow svg {
+  color: var(--purple);
+}
+.programLink .courseArrow svg {
+  transform: rotate(90deg);
 }
 .license {
-  display: inline-block;
+  grid-column: 1 / -1;
+  justify-self: center;
   font-size: 13px;
-  margin-top: 30px;
+  text-align: center;
   color: #7c708d;
 }
 .section,
@@ -303,12 +314,6 @@
   font-size: 20px;
   line-height: 1.6;
 }
-.story a {
-  color: #8a5de5;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.5;
-}
 .faq {
   max-width: 1000px;
   margin: auto;
@@ -378,28 +383,29 @@
   color: #cbb5ff;
 }
 .price {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  --discount-size: 80px;
+  display: grid;
+  grid-template-columns: minmax(0, max-content) auto;
+  align-items: center;
+  justify-content: start;
+  gap: 6px 16px;
   margin-top: 35px;
 }
 .price > span:first-child {
+  grid-column: 1 / -1;
   font-size: 17px;
   color: #d1cbdc;
 }
 .price del {
+  grid-column: 1;
   font-size: 23px;
   color: #b5adc8;
   margin-top: 10px;
 }
 .price b {
+  grid-column: 1;
   font-size: 42px;
   letter-spacing: -1px;
-}
-.price > span:last-child {
-  color: #c2a4ff;
-  font-size: 21px;
 }
 .formCard {
   background: #fff;
@@ -428,36 +434,14 @@
   gap: 14px;
   margin-top: 30px;
 }
-.related a {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  background: #f4eeff;
-  border: 1px solid #e1d3ff;
-  border-radius: 22px;
-  padding: 16px 20px;
-  color: #7147c2;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 1.4;
-}
-.related a:hover {
-  background: #eaddff;
-}
 @media (min-width: 768px) and (max-width: 1100px) {
   .heroCard {
-    grid-template-columns: 1fr 210px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 240px);
     padding: 30px;
     gap: 20px;
   }
-  .heroCard > img {
-    height: 260px;
-  }
   .heroCard p {
     font-size: 22px;
-  }
-  .heroActions a:first-child {
-    font-size: 18px;
   }
   .hero h1 {
     font-size: 53px;
@@ -530,15 +514,14 @@
     overflow-wrap: anywhere;
   }
   .heroCard {
-    display: flex;
-    flex-direction: column-reverse;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
     padding: 24px 20px;
     border-radius: 28px;
   }
   .heroCard > img {
-    width: 170px;
-    height: 170px;
+    grid-row: 1;
+    width: min(78%, 240px);
   }
   .heroCard p {
     font-size: 19px;
@@ -555,18 +538,14 @@
     align-items: stretch;
     gap: 18px;
   }
-  .heroActions a:first-child {
-    font-size: 18px;
-    padding: 16px 12px;
-    text-align: center;
+  .cta {
+    font-size: 16px;
   }
-  .heroActions a:nth-child(2) {
-    font-size: 17px;
-    text-align: center;
+  .courseArrow {
+    --hero-cta-arrow-size: 32px;
   }
   .license {
     font-size: 11px;
-    margin-top: 24px;
   }
   .section,
   .practice,
@@ -701,9 +680,6 @@
   .story p {
     font-size: 18px;
   }
-  .story a {
-    font-size: 17px;
-  }
   .faq summary {
     font-size: 19px;
     line-height: 1.35;
@@ -726,6 +702,7 @@
     font-size: 18px;
   }
   .price {
+    --discount-size: 68px;
     margin-top: 25px;
   }
   .price b {
@@ -743,11 +720,6 @@
   }
   .related .sectionTitle {
     font-size: 28px;
-  }
-  .related a {
-    font-size: 16px;
-    padding: 14px 17px;
-    border-radius: 18px;
   }
   .related > div {
     gap: 10px;
@@ -909,8 +881,6 @@
   .modules :global(.site-course-program-chevron),
   .modules :global(.site-course-program-toggle) { transition: none; }
 }
-
-.heroCard > img.enlargedArtwork { transform: scale(1.15); }
 
 @media (min-width: 768px) and (max-width: 900px) {
   .examples { grid-template-columns: minmax(0, 1fr); }

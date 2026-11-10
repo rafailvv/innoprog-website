@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import ProgramAccordion from "../ProgramAccordion";
+import CourseArrow from "../CourseArrow";
 import { getChildrenCourseFaq, type ChildrenCourseFaq } from "../course-faq";
 import ChildrenShell from "../../ChildrenShell";
 import LeadForm from "../../school/LeadForm";
@@ -135,23 +136,24 @@ export default async function Page({ params }: Props) {
                 </div>
                 <p>{course.lead.replace(/\.$/, "")}</p>
                 <div className={styles.heroActions}>
-                  <a className={school.button} href="#application">
-                    Записаться на бесплатное занятие
+                  <a className={`${school.button} ${styles.cta}`} href="#application">
+                    Записаться на бесплатное занятие <CourseArrow />
                   </a>
-                  <a href="#program">Посмотреть программу ↓</a>
+                  <a className={`${school.button} ${styles.cta} ${styles.programLink}`} href="#program">
+                    Посмотреть программу <CourseArrow />
+                  </a>
                 </div>
-                <a className={styles.license} href="/license">
-                  Образовательная лицензия № Л035-01272-16/01064358
-                </a>
               </div>
               <img
-                className={course.asset === "exam" || course.asset === "olympiad" ? styles.enlargedArtwork : undefined}
-                src={source.assets[course.asset]}
+                src={`/children/school/catalog-icon-${course.asset}.webp`}
                 alt={course.title}
-                width={320}
-                height={340}
+                width={240}
+                height={360}
                 fetchPriority="high"
               />
+              <a className={styles.license} href="/license">
+                Образовательная лицензия № Л035-01272-16/01064358
+              </a>
             </div>
           </div>
         </section>
@@ -275,11 +277,11 @@ export default async function Page({ params }: Props) {
                 останутся с ребёнком
               </h2>
               <p>{course.result.replace(/\.$/, "")}</p>
-              <p>После успешного окончания ИТ-курса — сертификат ИННОПРОГ</p>
+              <p>После успешного окончания ИТ-курса — диплом ИННОПРОГ</p>
             </div>
             <img
               src={source.assets.certificate}
-              alt="Сертификат ИННОПРОГ об успешном окончании курса"
+              alt="Диплом ИННОПРОГ об успешном окончании курса"
               width={420}
               height={360}
               loading="lazy"
@@ -300,8 +302,8 @@ export default async function Page({ params }: Props) {
                 <span className={styles.label}>История ученика</span>
                 <h2 className={styles.sectionTitle}>{story.name}</h2>
                 <p>{story.text.slice(0, 220)}…</p>
-                <Link href={`/children/stories/${course.story}`}>
-                  Читать историю и смотреть фотографии ↗
+                <Link className={`${school.button} ${styles.cta}`} href={`/children/stories/${course.story}`}>
+                  Читать историю и смотреть фотографии <CourseArrow />
                 </Link>
               </div>
             </section>
@@ -343,7 +345,8 @@ export default async function Page({ params }: Props) {
               <div className={styles.price}>
                 <span>Стоимость обучения</span>
                 <del>9 990 ₽/мес</del>
-                <b>7 290 ₽/мес</b>
+                <b>7&nbsp;290 ₽/мес</b>
+                <span className={school.discount}>−27%</span>
               </div>
             </div>
             <div className={styles.formCard}>
@@ -362,9 +365,8 @@ export default async function Page({ params }: Props) {
             {childrenCourses
               .filter((c) => c.slug !== slug)
               .map((c) => (
-                <Link href={childrenCoursePath(c.slug)} key={c.slug}>
-                  {c.title}
-                  <span aria-hidden="true">↗</span>
+                <Link className={`${school.button} ${styles.cta}`} href={childrenCoursePath(c.slug)} key={c.slug}>
+                  {c.title} <CourseArrow />
                 </Link>
               ))}
           </div>

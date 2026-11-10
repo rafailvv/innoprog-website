@@ -1,6 +1,7 @@
 import { EducationDisclosureLink } from "../../app/components/EducationDisclosureLink";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "../../app/legalLinks";
+import MaxFooterLink from "./MaxFooterLink";
 const svgPaths = {
 p12339c00: "M471.859 229.104H464.269H444.147V235.99H464.269V289.201H471.859V235.99H491.981V229.104H471.859Z",
 p12eb5e80: "M0 40C0 17.9086 17.9086 0 40 0H45C67.0914 0 85 17.9086 85 40V45C85 67.0914 67.0914 85 45 85H40C17.9086 85 0 67.0914 0 45V40Z",
@@ -191,23 +192,26 @@ function MynauiTelegram() {
 
 function Frame79() {
   return (
-    <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0">
+    <div className="content-stretch flex flex-col gap-[11px] items-end relative shrink-0">
       <a aria-label="Написать на почту" className="block" href="mailto:education@innoprog.ru">
         <MaterialSymbolsMailOutline />
       </a>
       <a aria-label="Позвонить" className="block" href="tel:+79586067980">
         <TablerPhoneCall />
       </a>
-      <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
-        <MynauiTelegram />
-      </a>
+      <div className="flex gap-[11px]">
+        <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
+          <MynauiTelegram />
+        </a>
+        <MaxFooterLink sizeClass="size-[85px]" />
+      </div>
     </div>
   );
 }
 
 function Frame69() {
   return (
-    <div className="col-1 content-stretch flex gap-[159px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
+    <div className="col-1 content-stretch flex gap-[63px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
       <Frame68 />
       <Frame79 />
     </div>
