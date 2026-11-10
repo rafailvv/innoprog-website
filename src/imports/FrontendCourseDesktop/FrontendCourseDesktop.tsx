@@ -9,7 +9,7 @@ import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
-const imgImage119 = "/videos/frontend-mentor-hd-v1.mp4";
+const imgImage119 = "/videos/frontend-mentor-hd-v2.mp4";
 import imgRectangle40112 from "./5c407d7588fb3a05c9bbdf356d2803639f0ccff7.png";
 import imgRectangle40113 from "./77c2af5c9c78b8253a92ca77339d6e448645843a.opt.webp";
 import imgCollabration from "./0ddae1105f6319bcc13e96735e2d30ab76fbfe3d.png";
@@ -1005,8 +1005,8 @@ function Component2() {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[1280px]" data-name="наставник">
       <Frame14 />
-      <div className="h-[735px] overflow-hidden relative rounded-[40px] shrink-0 w-[1280px] site-course-mentor-media" data-name="image 119">
-        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[40px] size-full" src={imgImage119} />
+      <div className="aspect-video overflow-hidden relative rounded-[40px] shrink-0 w-[1280px] site-course-mentor-media" data-name="image 119">
+        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[40px] size-full" src={imgImage119} />
       </div>
     </div>
   );
