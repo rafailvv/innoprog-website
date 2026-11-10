@@ -150,6 +150,7 @@ export default function SchoolPage() {
   };
   const closeApplication = () => setApplication((current) => ({ ...current, open: false }));
   const carousel = useRef<HTMLDivElement>(null);
+  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
   const scrollReviews = (direction: -1 | 1) => {
     const track = carousel.current;
     const first = track?.children[0];
@@ -514,15 +515,31 @@ export default function SchoolPage() {
           id="faq"
         >
           <h2>Часто задаваемые вопросы</h2>
-          {data.faq.map(([question, answer]) => (
-            <details key={question}>
-              <summary>
-                {question}
-                <span aria-hidden="true">+</span>
-              </summary>
-              <p>{answer}</p>
-            </details>
-          ))}
+          {data.faq.map(([question, answer], index) => {
+            const isOpen = openQuestions.includes(question);
+            const answerId = `children-faq-answer-${index}`;
+            return (
+              <div className={styles.faqItem} key={question}>
+                <button
+                  className={styles.faqToggle}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  onClick={() => setOpenQuestions((current) =>
+                    current.includes(question)
+                      ? current.filter((item) => item !== question)
+                      : [...current, question],
+                  )}
+                >
+                  {question}
+                  <span aria-hidden="true">+</span>
+                </button>
+                <div className={styles.faqAnswer} id={answerId} aria-hidden={!isOpen}>
+                  <div><p>{answer}</p></div>
+                </div>
+              </div>
+            );
+          })}
         </section>
         <section
           className={`${styles.container} ${styles.section} ${styles.trial}`}

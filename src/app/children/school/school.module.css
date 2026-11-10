@@ -507,7 +507,7 @@
 }
 .mainStep .stepNumber {
   background: #fff;
-  color: var(--school-accent);
+  color: var(--purple);
 }
 .mainStep img {
   margin-top: 24px;
@@ -689,24 +689,33 @@
 .faq h2 {
   margin-bottom: 36px;
 }
-.faq details {
+.faqItem {
   padding: 15px 0;
+  border-bottom: 1px solid #ece5f6;
 }
-.faq summary {
+.faqToggle {
+  min-height: 44px;
   color: var(--school-heading);
   font-size: 24px;
   font-weight: 800;
-  list-style: none;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
 }
-.faq summary::-webkit-details-marker {
-  display: none;
+.faqToggle:hover {
+  color: #7852ce;
 }
-.faq summary span {
+.faqToggle:focus-visible {
+  border-radius: 8px;
+}
+.faqToggle span {
   display: grid;
   place-items: center;
   background: var(--school-surface);
@@ -718,13 +727,34 @@
   font-size: 40px;
   font-weight: 300;
   line-height: 1;
+  transition: transform 280ms ease, background-color 280ms ease, color 280ms ease;
 }
-.faq details[open] summary span {
+.faqToggle[aria-expanded="true"] span {
   transform: rotate(45deg);
   background: var(--purple, #9c78ff);
   color: #fff;
 }
-.faq details p {
+.faqAnswer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 300ms ease, opacity 240ms ease;
+}
+.faqToggle[aria-expanded="true"] + .faqAnswer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.faqAnswer > div {
+  min-height: 0;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faqAnswer,
+  .faqToggle span {
+    transition: none;
+  }
+}
+.faqAnswer p {
   font-size: 20px;
   line-height: 1.6;
   color: #666;
@@ -1292,7 +1322,7 @@
   }
   .step:nth-child(odd) .stepNumber {
     background: #fff;
-    color: var(--school-accent);
+    color: var(--purple);
   }
   .mainStep img {
     height: auto;
@@ -1364,6 +1394,9 @@
     gap: 18px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
     padding-bottom: 16px;
     scrollbar-width: thin;
   }
@@ -1398,20 +1431,20 @@
     font-size: 24px;
     margin-bottom: 28px;
   }
-  .faq summary {
+  .faqToggle {
     font-size: 19px;
     gap: 14px;
     line-height: 1.3;
   }
-  .faq summary span {
+  .faqToggle span {
     width: 36px;
     height: 36px;
     font-size: 34px;
   }
-  .faq details {
+  .faqItem {
     padding: 14px 0;
   }
-  .faq details p {
+  .faqAnswer p {
     font-size: 17px;
     line-height: 1.6;
   }
@@ -1569,26 +1602,6 @@
   }
 }
 
-.faq details {
-  border-bottom: 1px solid #ece5f6;
-}
-.faq summary {
-  min-height: 44px;
-}
-.faq summary:hover {
-  color: #7852ce;
-}
-.faq summary span {
-  transition: transform 180ms ease, background 180ms ease;
-}
-.faq summary:focus-visible {
-  border-radius: 8px;
-}
-@media (prefers-reduced-motion: reduce) {
-  .faq summary span {
-    transition: none;
-  }
-}
 
 /* Match the adult canvas scale on wide screens, with compact outer gutters. */
 @media (min-width: 1101px) {

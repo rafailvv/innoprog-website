@@ -10,6 +10,8 @@ import annaNadymova from "./teachers/anna-nadymova.webp";
 import pavelKrotov from "./teachers/pavel-krotov.png";
 import ilyaKochenkov from "./teachers/ilya-kochenkov.png";
 import artemyKorolev from "./teachers/artemy-korolev.webp";
+import ivanMurzin from "./teachers/ivan-murzin.png";
+import danilAfonchikov from "./teachers/danil-afonchikov.png";
 
 export type TeacherRole =
   | "Python-разработчик"
@@ -99,6 +101,18 @@ export const teachers: Teacher[] = [
     nameLines: ["Артемий", "Королев"],
     role: "Python-разработчик",
     image: artemyKorolev,
+  },
+  {
+    name: "Иван Мортин",
+    nameLines: ["Иван", "Мортин"],
+    role: "Frontend-разработчик",
+    image: ivanMurzin,
+  },
+  {
+    name: "Данила Афончиков",
+    nameLines: ["Данила", "Афончиков"],
+    role: "Data Scientist",
+    image: danilAfonchikov,
   },
 ];
 
