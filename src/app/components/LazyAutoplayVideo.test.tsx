@@ -32,7 +32,7 @@ describe("deferred course video", () => {
     const observer = { observe, disconnect };
     vi.stubGlobal("IntersectionObserver", vi.fn(function (callback: IntersectionObserverCallback, options: IntersectionObserverInit) {
       intersect = callback;
-      expect(options.rootMargin).toBe("1000px 0px");
+      expect(options.rootMargin).toBe("250px 0px");
       return observer;
     }));
     const play = vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
@@ -44,7 +44,7 @@ describe("deferred course video", () => {
     act(() => intersect!([{ isIntersecting: false } as IntersectionObserverEntry], observer as unknown as IntersectionObserver));
     expect(video.hasAttribute("src")).toBe(false);
     act(() => intersect!([{ isIntersecting: true } as IntersectionObserverEntry], observer as unknown as IntersectionObserver));
-    expect(video.getAttribute("src")).toBe(src);
+    expect(video.getAttribute("src")).toBe("/videos/course-ai-standard-v1.mp4");
     expect(disconnect).toHaveBeenCalledOnce();
     fireEvent.canPlay(video);
     expect(video.muted).toBe(true);
@@ -55,7 +55,19 @@ describe("deferred course video", () => {
   it("falls back to loading when IntersectionObserver is unavailable", () => {
     vi.stubGlobal("IntersectionObserver", undefined);
     const { container } = render(<LazyAutoplayVideo className="ai-video" src={src} courseAutoplay />);
-    expect(container.querySelector("video")?.getAttribute("src")).toBe(src);
+    expect(container.querySelector("video")?.getAttribute("src")).toBe("/videos/course-ai-standard-v1.mp4");
+  });
+
+  it.each([
+    [{ effectiveType: "3g", downlink: 5 }, "/videos/course-ai-lite-v1.mp4"],
+    [{ effectiveType: "4g", downlink: 10, saveData: true }, "/videos/course-ai-lite-v1.mp4"],
+    [{ effectiveType: "4g", downlink: 2 }, "/videos/course-ai-standard-v1.mp4"],
+    [{ effectiveType: "4g", downlink: 10 }, src],
+  ])("picks one source for connection %j", (connection, expected) => {
+    vi.stubGlobal("navigator", { connection });
+    vi.stubGlobal("IntersectionObserver", undefined);
+    const { container } = render(<LazyAutoplayVideo className="ai-video" src={src} courseAutoplay />);
+    expect(container.querySelector("video")?.getAttribute("src")).toBe(expected);
   });
 
   it("preserves the existing mentor video attributes without adding course retry behavior", () => {

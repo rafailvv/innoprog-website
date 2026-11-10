@@ -8,15 +8,57 @@ type LazyAutoplayVideoProps = {
   courseAutoplay?: boolean;
 };
 
+type VideoQuality = "lite" | "standard" | "high";
+type VideoVariants = Record<VideoQuality, string>;
+
+const adaptiveVideos: Partial<Record<string, VideoVariants>> = {
+  "/videos/personal-mentor-hq.mp4": {
+    lite: "/videos/personal-mentor-lite-v1.mp4",
+    standard: "/videos/personal-mentor-hd-v1.mp4",
+    high: "/videos/personal-mentor-hd-v1.mp4",
+  },
+  "/videos/cpp-mentor.mp4": {
+    lite: "/videos/cpp-mentor.mp4",
+    standard: "/videos/cpp-mentor-hd-v1.mp4",
+    high: "/videos/cpp-mentor-hd-v1.mp4",
+  },
+  "/videos/unreal-engine-mentor.mp4": {
+    lite: "/videos/unreal-engine-mentor.mp4",
+    standard: "/videos/unreal-engine-mentor-hd-v1.mp4",
+    high: "/videos/unreal-engine-mentor-hd-v1.mp4",
+  },
+  "/videos/course-ai-autoplay.mp4": {
+    lite: "/videos/course-ai-lite-v1.mp4",
+    standard: "/videos/course-ai-standard-v1.mp4",
+    high: "/videos/course-ai-autoplay.mp4",
+  },
+};
+
+function connectionQuality(): VideoQuality {
+  const { connection } = navigator as Navigator & {
+    connection?: { saveData?: boolean; effectiveType?: string; downlink?: number };
+  };
+
+  if (!connection) return "standard";
+
+  const { saveData, effectiveType, downlink } = connection;
+  if (saveData || (effectiveType && effectiveType !== "4g") || (downlink !== undefined && downlink < 1.5)) {
+    return "lite";
+  }
+  return downlink !== undefined && downlink >= 4 ? "high" : "standard";
+}
+
 export function LazyAutoplayVideo({ className, src, courseAutoplay = false }: LazyAutoplayVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [quality, setQuality] = useState<VideoQuality>();
+  const variants = adaptiveVideos[src];
 
   useEffect(() => {
     const video = videoRef.current;
+    const startLoading = () => setQuality(variants ? connectionQuality() : "standard");
 
     if (!video || typeof IntersectionObserver === "undefined") {
-      setShouldLoad(true);
+      startLoading();
       return;
     }
 
@@ -26,16 +68,16 @@ export function LazyAutoplayVideo({ className, src, courseAutoplay = false }: La
           return;
         }
 
-        setShouldLoad(true);
+        startLoading();
         observer.disconnect();
       },
-      { rootMargin: "1000px 0px" },
+      { rootMargin: variants ? "250px 0px" : "1000px 0px" },
     );
 
     observer.observe(video);
 
     return () => observer.disconnect();
-  }, []);
+  }, [variants]);
 
   return (
     <video
@@ -55,7 +97,7 @@ export function LazyAutoplayVideo({ className, src, courseAutoplay = false }: La
       playsInline
       preload="none"
       ref={videoRef}
-      src={shouldLoad ? src : undefined}
+      src={quality ? (variants?.[quality] ?? src) : undefined}
     />
   );
 }
