@@ -546,19 +546,22 @@ export default function SchoolPage() {
                 <h3 id="children-price-title">Стоимость обучения</h3>
                 <span className={styles.discount}>−27%</span>
                 <del>9 990 руб/мес</del>
-                <p>7 290 руб/мес</p>
+                <p>7&nbsp;290 <span>руб/мес</span></p>
               </div>
               <ul className={styles.priceBenefits}>
                 <li>
-                  Онлайн-занятия <b>1&nbsp;на&nbsp;1</b> с опытными преподавателями
+                  онлайн-занятия <b>1&nbsp;на&nbsp;1</b> с опытными преподавателями
                 </li>
                 <li>
-                  Погружение ребёнка в <b>ИТ-профессию</b>
+                  погружение ребёнка в <b>ИТ-профессию</b>
                 </li>
               </ul>
               <div className={styles.taxBenefit}>
-                <h4>Налоговый вычет</h4>
-                <p>По окончании обучения вы сможете оформить налоговый вычет и вернуть <b>13% от стоимости обучения</b></p>
+                <h4>налоговый вычет</h4>
+                <p className={styles.taxReturn}>
+                  <b>13%</b> <span>от стоимости обучения</span>
+                </p>
+                <p>вычет можно оформить после окончания курса</p>
               </div>
             </aside>
             <div className={styles.applicationCard}>

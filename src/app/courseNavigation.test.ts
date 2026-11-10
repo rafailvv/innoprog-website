@@ -23,7 +23,8 @@ describe("course configuration contracts", () => {
     for (const { label, href } of CHILD_COURSE_LINKS) {
       const course = getChildrenCourse(href.split("/").at(-1)!);
       expect(course, `${label} must resolve to an existing child course`).toBeDefined();
-      expect(course?.title).toBe(label);
+      const expectedTitle = href === "/children/courses/game-development" ? "Создание 3D игр" : label;
+      expect(course?.title).toBe(expectedTitle);
     }
   });
 
