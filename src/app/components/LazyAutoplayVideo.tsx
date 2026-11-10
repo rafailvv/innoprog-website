@@ -32,6 +32,11 @@ const adaptiveVideos: Partial<Record<string, VideoVariants>> = {
     standard: "/videos/python-mentor-hd-v2.mp4",
     high: "/videos/python-mentor-hd-v2.mp4",
   },
+  "/videos/java-mentor-hd-v1.mp4": {
+    lite: "/videos/java-mentor-lite-v1.mp4",
+    standard: "/videos/java-mentor-hd-v1.mp4",
+    high: "/videos/java-mentor-hd-v1.mp4",
+  },
   "/videos/cpp-mentor.mp4": {
     lite: "/videos/cpp-mentor.mp4",
     standard: "/videos/cpp-mentor-hd-v1.mp4",
