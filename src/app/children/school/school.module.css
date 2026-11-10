@@ -713,7 +713,11 @@
   color: #7852ce;
 }
 .faqToggle:focus-visible {
-  border-radius: 8px;
+  outline: none;
+}
+.faqToggle:focus-visible span {
+  outline: 2px solid var(--school-heading);
+  outline-offset: 3px;
 }
 .faqToggle span {
   display: grid;
