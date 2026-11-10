@@ -46,7 +46,7 @@ export default function ChildrenShell({
         />
       </div>
       {children}
-      <SiteFooter isMobile={isMobile} scale={scale} />
+      <SiteFooter isMobile={isMobile} scale={scale} compactMobile />
       <ChildrenMobileMenu open={menu} onOpenChange={setMenu} />
     </div>
   );

@@ -54,7 +54,7 @@ function Frame119() {
   return (
     <div className="content-stretch flex flex-col font-['Manrope:Regular',sans-serif] font-normal gap-[16px] items-start leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] w-full">
       <p className="relative shrink-0 w-full">г. Иннополис, ул. Университетская, д.5, пом.115, м.15/2</p>
-      <p className="relative shrink-0 w-full">420500 Республика Татарстан, Верхнеуслонский р-он,</p>
+      <p className="relative shrink-0 w-full">420500 Республика Татарстан, Верхнеуслонский р-он</p>
     </div>
   );
 }
