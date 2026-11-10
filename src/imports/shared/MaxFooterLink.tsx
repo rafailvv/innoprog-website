@@ -2,7 +2,7 @@ export default function MaxFooterLink({ sizeClass }: { sizeClass: string }) {
   return (
     <a
       aria-label="Написать в MAX"
-      className={`grid shrink-0 place-items-center rounded-full bg-white text-black ${sizeClass}`}
+      className={`grid shrink-0 place-items-center rounded-[40px] bg-[var(--fill-0,#D9D9D9)] text-black ${sizeClass}`}
       href="https://max.ru/u/f9LHodD0cOJwWUFrzjz_nx2YhAnwl4dMnRjOzEXxuz1aVR1sT81d1eHG9vc"
       rel="noopener noreferrer"
       target="_blank"
