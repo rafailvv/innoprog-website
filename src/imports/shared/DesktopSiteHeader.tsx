@@ -75,7 +75,7 @@ function Group() {
   );
 }
 
-function Frame58({ childrenHref, childrenLinks }: { childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[] }) {
+function Frame58({ childrenActive, childrenHref, childrenLinks }: { childrenActive?: boolean; childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[] }) {
   return (
     <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0 site-main-header__nav">
       <div className="site-main-header__nav-group">
@@ -90,7 +90,7 @@ function Frame58({ childrenHref, childrenLinks }: { childrenHref?: string; child
         </div>
       </div>
       <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[126px]" data-main-nav="children" data-name="Text" href={childrenHref || "/children"}>
+        <a aria-current={childrenActive ? "location" : undefined} aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[126px]" data-main-nav="children" data-name="Text" href={childrenHref || "/children"}>
         <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для детей</p>
           <span aria-hidden="true" className="site-main-header__nav-arrow" />
         </a>
@@ -116,13 +116,13 @@ function Frame58({ childrenHref, childrenLinks }: { childrenHref?: string; child
   );
 }
 
-export function MainScreenDesktopHeader({ childrenHref, childrenLinks, applicationHref }: { childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[]; applicationHref?: string } = {}) {
+export function MainScreenDesktopHeader({ childrenActive, childrenHref, childrenLinks, applicationHref }: { childrenActive?: boolean; childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[]; applicationHref?: string } = {}) {
   return (
     <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
       <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
         <Group />
       </a>
-      <Frame58 childrenHref={childrenHref} childrenLinks={childrenLinks} />
+      <Frame58 childrenActive={childrenActive} childrenHref={childrenHref} childrenLinks={childrenLinks} />
       <div className="flex flex-row items-center self-stretch">
         <a className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" href={applicationHref || "/application"}>
           <div className="flex flex-row items-center justify-center size-full">

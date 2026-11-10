@@ -34,6 +34,7 @@ export default function StoryPage({ index }: { index: number }) {
     <div className={school.page} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={school.header}>
         <SiteHeader
+          childrenActive
           childrenHref="/children"
           childrenLinks={childrenCourseNavigation}
           applicationHref="/children#tariff"

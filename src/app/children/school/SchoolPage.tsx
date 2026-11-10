@@ -177,6 +177,7 @@ export default function SchoolPage() {
     <div className={styles.page} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={`${styles.header} ${styles.schoolHeader}`}>
         <SiteHeader
+          childrenActive
           childrenHref="/children"
           childrenLinks={childrenCourseNavigation}
           mobileApplicationHref="/application"

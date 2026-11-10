@@ -30,6 +30,7 @@ export default function ChildrenShell({
     <div className={`${styles.page} ${className}`} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={styles.header}>
         <SiteHeader
+          childrenActive
           childrenHref="/children"
           childrenLinks={childrenCourseNavigation}
           applicationHref="#application"

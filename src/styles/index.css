@@ -483,7 +483,8 @@ body {
 .site-shell--review-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--course-review-route .site-main-header [data-main-nav="reviews"] p,
 .site-shell--reviews-index-route .site-main-header [data-main-nav="reviews"] p,
-.site-shell--about-route .site-main-header [data-main-nav="about"] p {
+.site-shell--about-route .site-main-header [data-main-nav="about"] p,
+.site-main-header--desktop [data-main-nav="children"][aria-current="location"] p {
   color: #6f728a !important;
   opacity: 0.72;
 }

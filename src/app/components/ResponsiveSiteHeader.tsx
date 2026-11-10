@@ -8,6 +8,7 @@ const DESKTOP_WIDTH = 1440;
 const MOBILE_WIDTH = 390;
 
 export function SiteHeader({
+  childrenActive,
   childrenHref,
   childrenLinks,
   applicationHref,
@@ -18,6 +19,7 @@ export function SiteHeader({
   renderBoth = false,
   scale,
 }: {
+  childrenActive?: boolean;
   childrenHref?: string;
   childrenLinks?: readonly { label: string; href: string }[];
   applicationHref?: string;
@@ -32,6 +34,7 @@ export function SiteHeader({
     return (
       <>
         <DesktopHeaderSurface
+          childrenActive={childrenActive}
           childrenHref={childrenHref}
           childrenLinks={childrenLinks}
           applicationHref={applicationHref}
@@ -59,6 +62,7 @@ export function SiteHeader({
     />
   ) : (
     <DesktopHeaderSurface
+      childrenActive={childrenActive}
       childrenHref={childrenHref}
       childrenLinks={childrenLinks}
       applicationHref={applicationHref}
@@ -102,6 +106,7 @@ function MobileHeaderSurface({
 }
 
 function DesktopHeaderSurface({
+  childrenActive,
   childrenHref,
   childrenLinks,
   applicationHref,
@@ -109,6 +114,7 @@ function DesktopHeaderSurface({
   responsive = false,
   scale,
 }: {
+  childrenActive?: boolean;
   childrenHref?: string;
   childrenLinks?: readonly { label: string; href: string }[];
   applicationHref?: string;
@@ -128,6 +134,7 @@ function DesktopHeaderSurface({
       style={surfaceStyle}
     >
       <MainScreenDesktopHeader
+        childrenActive={childrenActive}
         childrenHref={childrenHref}
         childrenLinks={childrenLinks}
         applicationHref={applicationHref}
