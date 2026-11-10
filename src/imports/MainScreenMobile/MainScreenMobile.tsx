@@ -1609,7 +1609,7 @@ function Frame67() {
 function ProblemSupportImage() {
   return (
     <div className="h-[292px] relative shrink-0 w-[350px]">
-      <div className="absolute flex h-[130px] items-center justify-center left-[31px] top-[13px] w-[106px]">
+      <div className="absolute flex h-[130px] items-center justify-center left-[22px] top-[7px] w-[106px]">
         <div className="-scale-y-100 flex-none rotate-90">
           <div className="h-[106px] relative w-[130px]" data-name="image 107">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -1618,7 +1618,7 @@ function ProblemSupportImage() {
           </div>
         </div>
       </div>
-      <div className="absolute flex h-[156.799px] items-center justify-center left-[165px] top-0 w-[165.583px]">
+      <div className="absolute flex h-[156.799px] items-center justify-center left-[175px] top-[-8px] w-[165.583px]">
         <div className="-rotate-150 -scale-y-100 flex-none">
           <div className="h-[106px] relative w-[130px]" data-name="image 106">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -1630,7 +1630,7 @@ function ProblemSupportImage() {
       <div className="absolute h-[176px] left-[34px] top-0 w-[264px] z-10" data-name="e6c1b488-1338-4d0e-af55-9017eea41f83 1">
         <img alt="" decoding="async" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgProblemStudent} />
       </div>
-      <div className="absolute flex h-[156.799px] items-center justify-center left-[83px] top-[135px] w-[165.583px]">
+      <div className="absolute flex h-[156.799px] items-center justify-center left-[83px] top-[145px] w-[165.583px]">
         <div className="-rotate-30 -scale-y-100 flex-none">
           <div className="h-[106px] relative w-[130px]" data-name="image 105">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

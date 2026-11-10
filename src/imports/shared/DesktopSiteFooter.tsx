@@ -199,19 +199,17 @@ function Frame79() {
       <a aria-label="Позвонить" className="block" href="tel:+79586067980">
         <TablerPhoneCall />
       </a>
-      <div className="flex gap-[11px]">
-        <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
-          <MynauiTelegram />
-        </a>
-        <MaxFooterLink sizeClass="size-[85px]" />
-      </div>
+      <a aria-label="Написать в Telegram" className="block" href="https://t.me/innoprog_admin" rel="noopener noreferrer" target="_blank">
+        <MynauiTelegram />
+      </a>
+      <MaxFooterLink sizeClass="size-[85px]" />
     </div>
   );
 }
 
 function Frame69() {
   return (
-    <div className="col-1 content-stretch flex gap-[63px] h-[373px] items-start ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
+    <div className="col-1 content-stretch flex h-[373px] items-start justify-between ml-[80px] mt-[80px] relative row-1 site-main-desktop-footer__content w-[1280px]">
       <Frame68 />
       <Frame79 />
     </div>
