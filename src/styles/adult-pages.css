@@ -4382,7 +4382,6 @@
     transition-delay: 0s, 280ms;
   }
   .site-lead-modal__card {
-    --lead-sheet-surface: #9c78ff;
     --lead-sheet-transform-duration: 340ms;
     width: 100%;
     max-height: calc(100dvh - max(16px, env(safe-area-inset-top)));

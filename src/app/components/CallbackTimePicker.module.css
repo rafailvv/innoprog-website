@@ -4,9 +4,9 @@
 .options { clear:both; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
 .option { position:relative; min-width:0; cursor:pointer; }
 .option input { position:absolute; width:1px; height:1px; opacity:0; }
-.option > span { display:flex; align-items:center; justify-content:center; gap:5px; min-height:46px; padding:10px 7px; border:1px solid #ddd2ee; border-radius:13px; background:#fff; color:#4d3e63; font-size:13px; font-weight:650; line-height:1.4; white-space:nowrap; transition:background .15s,border-color .15s; }
+.option > span { display:flex; align-items:center; justify-content:center; gap:5px; min-height:46px; padding:10px 7px; border:1px solid #ddd2ee; border-radius:13px; background:#fff; color:#4d3e63; font-size:13px; font-weight:650; line-height:1.4; white-space:nowrap; transition:background .15s,border-color .15s,color .15s; }
 .check { display:none; }
-.option input:checked + span { background:#9c78ff; border-color:#9c78ff; color:#221833; }
+.option input:checked + span { background:#9c78ff; border-color:#9c78ff; color:#fff; }
 .option input:checked + span .check { display:inline; }
 .option:hover > span { border-color:#9c78ff; }
 .option input:focus-visible + span { outline:3px solid #9c78ff; outline-offset:3px; }
