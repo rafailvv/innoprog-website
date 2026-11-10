@@ -6,7 +6,7 @@ import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
 import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
-const imgImage119 = "/videos/python-mentor-hd-v1.mp4";
+const imgImage119 = "/videos/python-mentor-hd-v2.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
 import imgBenefitIconsChat from "../MainScreenDesktop/benefit-icons-chat-figma.webp";
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
@@ -946,8 +946,8 @@ function Frame173() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0">
       <Frame172 />
-      <div className="h-[201px] overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
-        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImage119} />
+      <div className="aspect-video overflow-hidden relative rounded-[24px] shrink-0 w-[349px] site-course-mentor-media site-course-mentor-media--mobile" data-name="image 119">
+        <LazyAutoplayVideo className="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[24px] size-full" src={imgImage119} />
       </div>
     </div>
   );
