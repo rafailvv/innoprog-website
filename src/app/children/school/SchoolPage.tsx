@@ -27,6 +27,7 @@ function CtaArrow() {
 }
 
 const a = data.assets;
+const heroImage = "/children/school/hero-illustration-transparent";
 const courses = [
   {
     id: "python",
@@ -215,7 +216,9 @@ export default function SchoolPage() {
             </button>
             <img
               className={styles.heroPicture}
-              src="/children/school/hero-illustration-transparent.webp"
+              src={`${heroImage}.webp`}
+              srcSet={`${heroImage}-480.webp 480w, ${heroImage}-768.webp 768w, ${heroImage}-1080.webp 1080w, ${heroImage}.webp 1440w`}
+              sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 49vw, 47vw"
               alt="Ребёнок за ноутбуком. Вокруг него робот, ракета и плашки о проектах, алгоритмах, достижениях и сертификате"
               width={1440}
               height={884}
@@ -259,7 +262,10 @@ export default function SchoolPage() {
                   <img
                     loading="lazy"
                     decoding="async"
+                    fetchPriority="low"
                     src={image}
+                    srcSet={`${image.replace(".webp", "-480.webp")} 480w, ${image.replace(".webp", "-720.webp")} 720w, ${image} 800w`}
+                    sizes="(max-width: 767px) min(440px, calc(100vw - 32px)), 30vw"
                     alt=""
                     width={800}
                     height={720}
@@ -300,6 +306,7 @@ export default function SchoolPage() {
                         height={360}
                         loading="lazy"
                         decoding="async"
+                        fetchPriority="low"
                       />
                     </div>
                     <Link

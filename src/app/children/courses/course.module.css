@@ -111,10 +111,10 @@
   transform: rotate(90deg);
 }
 .license {
-  grid-column: 1 / -1;
-  justify-self: center;
+  display: block;
+  width: fit-content;
+  margin-top: 24px;
   font-size: 13px;
-  text-align: center;
   color: #7c708d;
 }
 .section,
@@ -545,7 +545,9 @@
     --hero-cta-arrow-size: 32px;
   }
   .license {
+    margin-inline: auto;
     font-size: 11px;
+    text-align: center;
   }
   .section,
   .practice,

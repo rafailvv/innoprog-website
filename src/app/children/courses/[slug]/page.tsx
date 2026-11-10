@@ -51,6 +51,7 @@ export default async function Page({ params }: Props) {
   const course = getChildrenCourse(slug);
   if (!course) notFound();
   const path = childrenCoursePath(slug);
+  const artwork = `/children/school/course-icon-${course.asset}`;
   const faq = getChildrenCourseFaq(course);
   const story = course.story
     ? source.reviews[["amir", "eldar", "almaz"].indexOf(course.story)]
@@ -143,17 +144,19 @@ export default async function Page({ params }: Props) {
                     Посмотреть программу <CourseArrow />
                   </a>
                 </div>
+                <a className={styles.license} href="/license">
+                  Образовательная лицензия № Л035-01272-16/01064358
+                </a>
               </div>
               <img
-                src={`/children/school/catalog-icon-${course.asset}.webp`}
+                src={`${artwork}-800.webp`}
+                srcSet={`${artwork}-480.webp 480w, ${artwork}-800.webp 800w`}
+                sizes="(max-width: 1100px) 240px, max(300px, 20.84vw)"
                 alt={course.title}
-                width={240}
-                height={360}
+                width={800}
+                height={1200}
                 fetchPriority="high"
               />
-              <a className={styles.license} href="/license">
-                Образовательная лицензия № Л035-01272-16/01064358
-              </a>
             </div>
           </div>
         </section>
