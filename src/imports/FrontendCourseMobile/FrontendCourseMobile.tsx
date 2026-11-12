@@ -4,6 +4,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
+import { frontendCoursePricing } from "../shared/frontendCoursePricing";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.delivery.webp";
 import imgFrontendHeroCompact from "../shared/course-heroes/frontend-code-window-420h.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
@@ -4009,7 +4010,7 @@ function Frame204() {
 function Frame270() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex items-center justify-center p-[8px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[14px] tracking-[0.42px] whitespace-nowrap">-36%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[14px] tracking-[0.42px] whitespace-nowrap">-{frontendCoursePricing.basic.discount}%</p>
     </div>
   );
 }
@@ -4017,7 +4018,7 @@ function Frame270() {
 function Frame282() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">12 590 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[27px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">{frontendCoursePricing.basic.originalPriceLabel}</p>
       <Frame270 />
     </div>
   );
@@ -4027,7 +4028,7 @@ function Frame154() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame282 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">7 990 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[40px] text-center text-white whitespace-nowrap">{frontendCoursePricing.basic.priceLabel}</p>
     </div>
   );
 }
@@ -4185,7 +4186,7 @@ function Frame205() {
 function Frame271() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center p-[8px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">-38%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[14px] text-white tracking-[0.42px] whitespace-nowrap">-{frontendCoursePricing.extended.discount}%</p>
     </div>
   );
 }
@@ -4193,7 +4194,7 @@ function Frame271() {
 function Frame283() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">23 590 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">{frontendCoursePricing.extended.originalPriceLabel}</p>
       <Frame271 />
     </div>
   );
@@ -4203,7 +4204,7 @@ function Frame155() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame283 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">14 390 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] text-center uppercase whitespace-nowrap">{frontendCoursePricing.extended.priceLabel}</p>
     </div>
   );
 }
@@ -4353,7 +4354,7 @@ function Frame206() {
 function Frame272() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex items-center justify-center p-[8px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[14px] tracking-[0.42px] whitespace-nowrap">-41%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[14px] tracking-[0.42px] whitespace-nowrap">-{frontendCoursePricing.personal.discount}%</p>
     </div>
   );
 }
@@ -4361,7 +4362,7 @@ function Frame272() {
 function Frame284() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">31 950 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] text-center uppercase whitespace-nowrap">{frontendCoursePricing.personal.originalPriceLabel}</p>
       <Frame272 />
     </div>
   );
@@ -4371,7 +4372,7 @@ function Frame160() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-center justify-center relative shrink-0">
       <Frame284 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white uppercase w-[312px]">18 890 р./мес.</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-center text-white uppercase w-[312px]">{frontendCoursePricing.personal.priceLabel}</p>
     </div>
   );
 }
