@@ -21,12 +21,12 @@ import {
 describe("educational disclosure contracts", () => {
   it("publishes all mandatory sections and approved PDF files", () => {
     expect(SVEDEN_SECTION_SLUGS).toHaveLength(14);
-    expect(SVEDEN_DOCUMENTS).toHaveLength(122);
+    expect(SVEDEN_DOCUMENTS).toHaveLength(123);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "legal")).toHaveLength(4);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "technical")).toHaveLength(2);
     expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "archive")).toHaveLength(2);
-    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(114);
-    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(122);
+    expect(SVEDEN_DOCUMENTS.filter(({ category }) => category === "section" || category === "program")).toHaveLength(115);
+    expect(new Set(SVEDEN_DOCUMENTS.map(({ storageKey }) => storageKey)).size).toBe(123);
     expect(SVEDEN_DOCUMENTS.some(({ storageKey }) => storageKey === "site-public/legal/consent-representative.pdf")).toBe(true);
     expect(SVEDEN_DOCUMENTS.every(({ storageKey }) => storageKey.startsWith("site-public/"))).toBe(true);
     expect(SVEDEN_DOCUMENTS.some(({ title }) => title === "Приказ № ОБР-8 об утверждении новых редакций локальных нормативных актов")).toBe(true);
@@ -82,21 +82,33 @@ describe("educational disclosure contracts", () => {
 
   it("uses the current signed child program revisions", () => {
     const approvedHashes = new Map([
-      ["Python-разработчик для детей программа обучения.pdf", "960e19ca939b939614ffbbc0c2d05b37de0c18c5b631bf910e5a785db73b9701"],
-      ["Frontend-разработчик для детей программа обучения.pdf", "a2aaf392db6d7dd303dc4161b3bb29121dd825a5c9ad8516f28eaba0666d0044"],
       ["C++-разработчик для детей программа обучения.pdf", "1e9ef29e1b92e117c287438df57c60a359014590bc1ae6a32b4f789caa9e5be9"],
       ["Java-разработчик для детей программа обучения.pdf", "d46c9cd79b7b3c5608e9473f460330587f2221657c08dc9c43c9a87505bb4e64"],
       ["Мобильный разработчик для детей программа обучения.pdf", "e3163f0383569d83b20ec9618881948b1c8616081599a30e86d79e131608f9cb"],
-      ["Разработчик игр на Unreal Engine для детей программа обучения.pdf", "422b9cbf5d3e3d7edc68fb70373066fa129191544ce9efd08a2c5837e3803c33"],
+    ]);
+    const obr17Hashes = new Map([
+      ["Олимпиадное программирование программа обучения.pdf", "e1f40627ebf534ded64d36b94bce3e8fbd416565d7e1528c1da683cedcdf8331"],
+      ["Подготовка к ОГЭ и ЕГЭ по информатике программа обучения.pdf", "7d0cbc26569254dd7459a1a019ffc68bab679b1abac7aeda62efd26a221ee8cd"],
+      ["Разработка нейросетей программа обучения.pdf", "8ebdd83b2cb4cd5e3637d87729c7997fcd69bfdd09e8501cc7b53b9569f4754c"],
+      ["Разработчик игр на Unreal Engine для детей программа обучения.pdf", "3ef227169ffd04dc29074e59432f55d5a34dd67ef60d9efdb078061d5cf6fa41"],
+      ["Frontend-разработчик для детей программа обучения.pdf", "b4aa5f5d02c025bc14eabcd29bc6b012a242a23974bc59ce03cc60e462f20297"],
+      ["Python-разработчик для детей программа обучения.pdf", "6697ccd6ebc2a74635da9b28ab72feafa873b0927c9ab81b89427cf281c079bc"],
     ]);
     const childPrograms = EDUCATION_PROGRAMS.filter(({ name }) => name.endsWith("для детей"));
 
     expect(childPrograms).toHaveLength(6);
     for (const program of childPrograms) {
       expect(program.volume).toBe("160 академических часов");
-      expect(program.term).toContain("40 учебных недель");
+      expect(program.term).toContain(obr17Hashes.has(program.fileName) ? "80 учебных недель" : "40 учебных недель");
       expect(program.students).toBe(program.name === "Python-разработчик для детей" ? 20 : 0);
-      expect(program.document.sourceSha256, program.name).toBe(approvedHashes.get(program.fileName));
+      expect(program.document.sourceSha256, program.name).toBe(obr17Hashes.get(program.fileName) ?? approvedHashes.get(program.fileName));
+    }
+    const updatedPrograms = EDUCATION_PROGRAMS.filter(({ fileName }) => obr17Hashes.has(fileName));
+    expect(updatedPrograms).toHaveLength(6);
+    for (const { term, document, fileName } of updatedPrograms) {
+      expect(term).toBe("80 учебных недель");
+      expect(document.storageKey).toContain("/general/obr-17/");
+      expect(document.sha256).toBe(obr17Hashes.get(fileName));
     }
   });
 
