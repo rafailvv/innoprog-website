@@ -20,6 +20,17 @@
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.26);
 }
 
+.site-application-page:not(.site-application-page--success) {
+  padding: 0;
+}
+
+.site-application-card:not(.site-application-card--success) {
+  width: 100%;
+  min-height: 100dvh;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .site-application-card::before {
   content: "";
   position: absolute;
@@ -349,15 +360,13 @@
 @media (min-width: 901px) {
   .site-application-page:not(.site-application-page--success) {
     --application-room: clamp(0px, (100dvh - 720px) * .18, 26px);
-    padding: 10px 24px;
   }
 
   .site-application-card:not(.site-application-card--success) {
     display: flex;
     flex-direction: column;
-    width: min(1400px, 100%);
-    min-height: min(680px, calc(530px + var(--application-room) * 6));
-    padding: calc(20px + var(--application-room) * .4) clamp(24px, 4vw, 56px) calc(22px + var(--application-room) * .4);
+    padding-block: calc(20px + var(--application-room) * .4) calc(22px + var(--application-room) * .4);
+    padding-inline: max(clamp(24px, 4vw, 56px), calc((100% - 1288px) / 2));
   }
 
   .site-application-card:not(.site-application-card--success) .site-application-topline {
