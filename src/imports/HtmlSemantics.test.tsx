@@ -76,7 +76,9 @@ describe("valid server HTML without changing programme icons", () => {
       expect(section.querySelector('input[name="phone"]')).not.toBeNull();
       const notice = section.querySelector('[data-captcha-notice]')!;
       expect(notice).not.toBeNull();
-      expect(notice.previousElementSibling?.matches('button[data-name="кнопки пд"]')).toBe(true);
+      const previous = notice.previousElementSibling;
+      const submit = previous?.matches("form") ? previous.lastElementChild : previous;
+      expect(submit?.matches('button[data-name="кнопки пд"]')).toBe(true);
       expect(section.querySelector('.site-consent-group [data-captcha-notice]')).toBeNull();
     }
 

@@ -1,4 +1,4 @@
-import { InlineLeadForm } from "../../app/components/InlineLeadForm";
+import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useId, useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
@@ -4844,30 +4844,8 @@ function Frame270() {
   );
 }
 
-function Frame254() {
-  return (
-    <div className="[word-break:break-word] content-stretch flex flex-col gap-[40px] items-start relative shrink-0 text-white w-[792px]">
-      <Frame253 />
-      <Frame270 />
-    </div>
-  );
-}
-
-function Frame60() {
-  return <InlineLeadForm course />;
-}
-
 function Component11() {
-  return (
-    <div className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full site-course-render-section" data-name="заявка">
-      <div className="flex flex-row items-end justify-center size-full">
-        <div className="content-stretch flex items-end justify-between px-[80px] py-[104px] relative size-full">
-          <Frame254 />
-          <Frame60 />
-        </div>
-      </div>
-    </div>
-  );
+  return <DesktopCourseLeadSection intro={<Frame253 />} highlights={<Frame270 />} />;
 }
 
 function Frame132() {

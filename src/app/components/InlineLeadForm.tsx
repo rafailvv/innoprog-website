@@ -20,7 +20,7 @@ function Consent({ advertising = false }: { advertising?: boolean }) {
   );
 }
 
-export function InlineLeadForm({ course = false }: { course?: boolean }) {
+export function InlineLeadForm({ course = false, separateCaptchaNotice = false }: { course?: boolean; separateCaptchaNotice?: boolean }) {
   const [phone, setPhone] = useState("");
   return (
     <form className={`${styles.form}${course ? ` ${styles.course}` : ""}`} data-inline-lead-form onSubmit={(event) => event.preventDefault()} onReset={() => setPhone("")}>
@@ -35,7 +35,7 @@ export function InlineLeadForm({ course = false }: { course?: boolean }) {
       </div> : null}
       <div className="site-consent-group"><Consent /><Consent advertising /></div>
       <button className={`${styles.submit}${course ? " site-course-lead-submit" : ""}`} data-name="кнопки пд" type="submit" disabled aria-disabled="true"><LeadSubmitLabel /></button>
-      <CaptchaNotice />
+      {!separateCaptchaNotice && <CaptchaNotice />}
     </form>
   );
 }

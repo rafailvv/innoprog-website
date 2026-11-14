@@ -12,7 +12,7 @@ const generatedFormFiles = fs
   .readdirSync(importRoot, { recursive: true })
   .filter((file) => String(file).endsWith(".tsx"))
   .map((file) => `src/imports/${file}`)
-  .filter((file) => /import \{ (?:InlineLeadForm|HomeLeadSection) \}/.test(read(file)));
+  .filter((file) => /import \{ (?:InlineLeadForm|HomeLeadSection|DesktopCourseLeadSection) \}/.test(read(file)));
 
 assert.match(
   app,
@@ -101,7 +101,7 @@ assert.doesNotMatch(
 );
 assert.equal(generatedFormFiles.length, 20, "all generated desktop and mobile forms must be checked");
 for (const file of generatedFormFiles) {
-  assert.match(read(file), /<(?:InlineLeadForm course|HomeLeadSection) \/>/, `${file} must use the shared inline form`);
+  assert.match(read(file), /<(?:InlineLeadForm course \/>|HomeLeadSection \/>|DesktopCourseLeadSection )/, `${file} must use the shared inline form`);
 }
 const inlineForm = read("src/app/components/InlineLeadForm.tsx");
 assert.match(inlineForm, /data-consent-toggle/, "shared form must expose personal consent");
@@ -109,7 +109,10 @@ assert.match(inlineForm, /data-advertising-consent-toggle/, "shared form must ex
 assert.match(inlineForm, /href="\/consent"/, "shared form must link personal consent");
 assert.match(inlineForm, /href="\/advertising-consent"/, "shared form must link advertising consent");
 assert.match(inlineForm, /<CallbackTimeReveal phone=\{phone\}>/, "callback choice must follow a filled phone");
-assert.match(inlineForm, /<\/button>\s*<CaptchaNotice \/>/, "captcha notice must follow submit");
+assert.match(inlineForm, /<\/button>\s*\{!separateCaptchaNotice && <CaptchaNotice \/>/, "captcha notice must follow submit");
+
+const desktopLead = read("src/app/components/DesktopCourseLeadSection.tsx");
+assert.match(desktopLead, /<InlineLeadForm course separateCaptchaNotice \/>\s*<CaptchaNotice \/>/, "desktop captcha notice must follow the form");
 
 assert.match(read("src/app/components/CaptchaNotice.tsx"), /Форма защищена Yandex SmartCaptcha/, "shared captcha notice must keep its vendor attribution");
 
