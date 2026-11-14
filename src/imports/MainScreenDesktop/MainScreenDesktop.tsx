@@ -1,3 +1,6 @@
+import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonDesktopCard } from "../shared/PythonDirectionCard";
+import { DirectionHoverOverlay } from "../shared/DirectionHoverOverlay";
+import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
@@ -9,7 +12,6 @@ import imgGain from "./home-background.opt.webp";
 import homeBenefitsGlow from "./home-benefits-glow.webp";
 import homeCourseGlow from "../shared/home-course-glow.webp";
 import { ResultsBackground } from "../shared/ResultsBackground";
-import imgImg29771 from "./3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgImg29772 from "./course-data-analyst-desktop.webp";
 import imgImg29773 from "./course-frontend-desktop.webp";
 import imgImg29774 from "./course-cpp-desktop.webp";
@@ -257,8 +259,8 @@ function Frame84() {
     <div className="absolute content-stretch flex flex-col gap-[60px] h-[1346px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
-      <button className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-node-id="3401:529" type="button">
-        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">получить консультацию</span>
+      <button className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-application-open data-node-id="3401:529" type="button">
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">Подробнее</span>
       </button>
     </div>
   );
@@ -277,55 +279,6 @@ function Frame17() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0 w-[1440px]">
       <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-black text-center uppercase whitespace-nowrap">курсы</h2>
-    </div>
-  );
-}
-
-function DirectionHoverOverlay({
-  title,
-  description,
-  period = "≈10 месяцев",
-  showArrow = false,
-}: {
-  title: string;
-  description: string;
-  period?: string;
-  showArrow?: boolean;
-}) {
-  return (
-    <div aria-hidden="true" className="site-desktop-direction-hover">
-      <div className="site-desktop-direction-hover__top">
-        <div className="site-desktop-direction-hover__tags">
-          <div className="site-desktop-direction-hover__tag-column">
-            <span>{period}</span>
-            <span>Стажировка</span>
-          </div>
-          <span>С наставником</span>
-        </div>
-        {showArrow ? (
-          <div className="site-desktop-direction-hover__arrow">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-              <path d={svgPaths.p50fce00} stroke="black" />
-            </svg>
-          </div>
-        ) : null}
-      </div>
-      <div className="site-desktop-direction-hover__bottom">
-        <div className="site-desktop-direction-hover__copy">
-          <p className="site-desktop-direction-hover__title">{title}</p>
-          <p className="site-desktop-direction-hover__description">{description}</p>
-        </div>
-        <span className="site-desktop-direction-hover__button">Получить консультацию</span>
-      </div>
-    </div>
-  );
-}
-
-function Frame5() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 text-white w-full">
-      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] relative shrink-0 text-[36px] w-full">Python разработчик</h3>
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов и автоматизировать рабочие задачи в проектах</p>
     </div>
   );
 }
@@ -351,30 +304,12 @@ function Frame7() {
 function Frame14() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0">
-      <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="/python-course">
-        <div className="bg-white content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
-          <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
-          <div className="flex-[1_0_0] min-h-px relative w-full">
-            <div className="absolute inset-[-1.82%_-3.65%_-1.82%_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20.7295 20.7282">
-                <path d={svgPaths.p50fce00} stroke="var(--stroke-0, black)" />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <Frame5 />
-        <div className="absolute h-[284px] left-0 top-0 w-[340px]" data-name="IMG_2977 1">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="Курс Python-разработчик в ИННОПРОГ" title="Курс Python-разработчик в ИННОПРОГ" decoding="async" loading="lazy" className="absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]" src={imgImg29771} />
-          </div>
-        </div>
-        <DirectionHoverOverlay
-          title="Python разработчик"
-          description="Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов и автоматизировать рабочие задачи в проектах"
-          period="≈12 месяцев"
-          showArrow
-        />
-      </a>
+      <PythonDesktopCard
+        href="/python-course"
+        title={PYTHON_DIRECTION_TITLE}
+        description={PYTHON_DIRECTION_DESCRIPTION}
+        tagRows={[["≈12 месяцев", "С наставником"], ["Стажировка"]]}
+      />
       <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" data-name="курсы" href="/data-science-course">
         <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[44px]">
           <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
@@ -396,7 +331,6 @@ function Frame14() {
           title="Data Science"
           description="Научитесь работать с данными, Python, статистикой и моделями ИИ, чтобы находить закономерности и решать бизнес-задачи"
           period="≈12 месяцев"
-          showArrow
         />
       </a>
       <a className="site-desktop-direction-card bg-[#9c78ff] content-stretch flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline w-[410.667px]" href="/frontend-developer-course">
@@ -624,10 +558,11 @@ function Frame15() {
 
 function Frame16() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0">
+    <div className="content-stretch flex flex-col gap-[40px] items-center justify-center relative shrink-0 w-[1280px]">
       <Frame14 />
       <Frame132 />
       <Frame15 />
+      <FreeCoursesBanner />
     </div>
   );
 }

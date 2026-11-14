@@ -1,3 +1,5 @@
+import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonMobileCard } from "../shared/PythonDirectionCard";
+import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
@@ -7,7 +9,6 @@ import { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
 export { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
 import svgPaths from "./svg-paths";
 import imgGain from "../MainScreenDesktop/home-background.opt.webp";
-import imgCoursePython from "../MainScreenDesktop/3f6061d637a4cfce23fccae8de31e69e558fd2a8.opt.webp";
 import imgCourseDataScience from "../MainScreenDesktop/course-data-analyst-desktop.webp";
 import imgCourseFrontend from "../MainScreenDesktop/course-frontend-desktop.webp";
 import imgCourseCpp from "../MainScreenDesktop/course-cpp-desktop.webp";
@@ -59,10 +60,6 @@ type CourseCardVisual = {
 
 const COURSE_CARD_VISUALS: CourseCardVisual[] = [
   {
-    src: imgCoursePython,
-    imageClassName: "absolute h-[223.09%] left-[-52.45%] max-w-none top-[-71.19%] w-[279.52%]",
-  },
-  {
     src: imgCourseDataScienceHero,
     imageClassName: "object-contain object-left-top",
     direct: true,
@@ -101,7 +98,7 @@ const COURSE_CARD_VISUALS: CourseCardVisual[] = [
 ];
 
 function CourseCardImage({ index }: { index: number }) {
-  const visual = COURSE_CARD_VISUALS[index];
+  const visual = COURSE_CARD_VISUALS[index - 1];
 
   if (!visual) {
     return null;
@@ -428,79 +425,6 @@ function MobilePlatformStartButton() {
     <button className="bg-[rgba(156,120,255,0.4)] border-[3px] border-solid border-white content-stretch cursor-pointer flex items-center justify-center p-[16px] relative rounded-[40px] shrink-0 w-full site-mobile-platform-start-button" data-name="кнопки пд" type="button">
       <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap">начать бесплатно</span>
     </button>
-  );
-}
-
-function Frame7() {
-  return (
-    <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">≈12 месяцев</p>
-    </div>
-  );
-}
-
-function Frame6() {
-  return (
-    <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">Стажировка</p>
-    </div>
-  );
-}
-
-function Frame8() {
-  return (
-    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0">
-      <Frame7 />
-      <Frame6 />
-    </div>
-  );
-}
-
-function Frame9() {
-  return (
-    <div className="bg-[#464a6a] content-stretch flex items-center justify-center p-[8px] relative rounded-[32px] shrink-0">
-      <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">С наставником</p>
-    </div>
-  );
-}
-
-function Frame104() {
-  return (
-    <div className="content-stretch flex gap-[8px] items-start relative shrink-0">
-      <Frame8 />
-      <Frame9 />
-    </div>
-  );
-}
-
-function Frame185() {
-  return (
-    <div className="content-stretch flex items-start justify-between relative shrink-0 w-[350px]">
-      <Frame104 />
-      <div className="bg-white content-stretch flex flex-col items-center justify-center p-[8px] relative rounded-[32px] shrink-0 size-[39px]">
-        <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.8)] border-solid inset-0 pointer-events-none rounded-[32px]" />
-        <div className="flex-[1_0_0] min-h-px relative w-full">
-          <div className="absolute inset-[-1.58%_-3.17%_-1.58%_0]">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 23.7295 23.7282">
-              <path d={svgPaths.p2f851400} stroke="var(--stroke-0, black)" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Frame11() {
-  return (
-    <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 text-white w-[350px]">
-      <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] relative shrink-0 text-[32px] w-full">Python разработчик</h3>
-      <div className="font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-        <p className="leading-[18px] mb-0">Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов</p>
-        <p className="leading-[18px] mb-0">и автоматизировать рабочие задачи</p>
-        <p className="leading-[18px]">в проектах</p>
-      </div>
-    </div>
   );
 }
 
@@ -1081,15 +1005,18 @@ function Frame184() {
   return (
     <div className="content-stretch flex h-[301px] items-center relative shrink-0 w-full site-carousel site-mobile-directions-carousel" data-carousel="mobile-directions" data-carousel-sync>
       <div className="flex flex-row items-center self-stretch">
-        <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/python-course">
-          <CourseCardImage index={0} />
-          <div className="flex flex-col justify-center size-full">
-            <div className="content-stretch flex flex-col items-start justify-between px-[20px] py-[24px] relative size-full">
-              <Frame185 />
-              <Frame11 />
-            </div>
+        <PythonMobileCard
+          href="/python-course"
+          title={PYTHON_DIRECTION_TITLE}
+          description={PYTHON_DIRECTION_DESCRIPTION}
+          tagRows={[["≈12 месяцев", "С наставником"], ["Стажировка"]]}
+        >
+          <div className="font-['Manrope:Regular',sans-serif] text-[16px] leading-[18px] tracking-[0.48px]">
+            <p>Освойте Python с нуля, научитесь писать программы, создавать сайты, ботов</p>
+            <p>и автоматизировать рабочие задачи</p>
+            <p>в проектах</p>
           </div>
-        </a>
+        </PythonMobileCard>
       </div>
       <div className="flex flex-row items-center self-stretch">
         <a className="bg-[#9c78ff] block h-full overflow-clip relative rounded-[40px] shrink-0 text-white no-underline w-[390px]" href="/data-science-course">
@@ -1212,6 +1139,7 @@ function Frame171() {
       <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">курсы</h2>
       <Frame184 />
       <Frame183 />
+      <FreeCoursesBanner />
     </div>
   );
 }

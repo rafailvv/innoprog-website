@@ -1,3 +1,4 @@
+import { PythonStartPromo } from "../shared/PythonStartPromo";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties } from "react";
@@ -4970,8 +4971,11 @@ function Group8() {
 function Frame213() {
   return (
     <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
-      <Frame200 />
-      <Frame251 />
+      <div className="flex w-full flex-col">
+        <Frame200 />
+        <PythonStartPromo />
+        <Frame251 />
+      </div>
       <Frame212 />
       <Frame209 />
       <Frame211 />

@@ -13,6 +13,10 @@ export const ADULT_COURSE_LINKS = [
   { label: "ML-инженер", href: "/ml-engineer-course" },
 ] as const;
 
+export const FREE_COURSES_LINK = { label: "Бесплатные курсы", href: "/free-courses" } as const;
+
+export const ADULT_NAV_LINKS = [...ADULT_COURSE_LINKS, FREE_COURSES_LINK] as const;
+
 export const CHILD_COURSE_LINKS = childrenCourseNavigation;
 
 export const ABOUT_SITE_LINKS = [

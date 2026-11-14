@@ -59,6 +59,16 @@ const nextConfig = {
   trailingSlash: false,
   async headers() {
     return [
+      ...(process.env.NODE_ENV === "development"
+        ? [{
+          source: "/:path*",
+          has: [
+            { type: "host", value: "(?:127\\.0\\.0\\.1|localhost)" },
+            { type: "header", key: "sec-fetch-dest", value: "document" },
+          ],
+          headers: [{ key: "Clear-Site-Data", value: '"cache"' }],
+        }]
+        : []),
       {
         source:
           "/((?!_next/static|_next/image|favicon.png|favicon.ico|app-icon-192.png|logo-education-360.webp|og/|videos/|documents/|files/).*)",

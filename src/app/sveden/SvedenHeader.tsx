@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
+import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
 
 type MenuGroup = "adults" | "children" | "about" | null;
 
@@ -109,7 +109,7 @@ export function SvedenHeader() {
               href="/"
               id="sveden-mobile-adults"
               label="для взрослых"
-              links={ADULT_COURSE_LINKS}
+              links={ADULT_NAV_LINKS}
               open={openGroup === "adults"}
               onToggle={() => toggleGroup("adults")}
             />

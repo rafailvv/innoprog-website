@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { FREE_COURSES_LINK } from "./courseNavigation";
 import { BLOG_ARTICLES } from "./blog/data";
 import { REVIEW_ROUTE_TO_KEY, SITE_URL } from "./seo";
 import { childrenCoursePaths } from "./children/courses/course-paths";
@@ -11,6 +12,7 @@ const SEO_UPDATED_AT = new Date("2026-10-14T00:00:00.000Z");
 const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
   "/blog": BLOG_ARTICLES.map((article) => article.updatedAt ?? article.publishedAt).sort().at(-1)!,
   ...Object.fromEntries(BLOG_ARTICLES.map((article) => [`/blog/${article.slug}`, article.updatedAt ?? article.publishedAt])),
+  [FREE_COURSES_LINK.href]: "2026-11-14",
   "/": "2026-10-19", "/python-course": "2026-10-19",
   "/data-science-course": "2026-10-19", "/frontend-developer-course": "2026-10-19",
   "/data-analyst-course": "2026-10-19", "/cpp-developer-course": "2026-10-15",
@@ -27,6 +29,7 @@ const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
 
 const baseRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: FREE_COURSES_LINK.href, changeFrequency: "monthly", priority: 0.8 },
   { path: "/python-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/data-science-course", changeFrequency: "weekly", priority: 0.9 },
   {

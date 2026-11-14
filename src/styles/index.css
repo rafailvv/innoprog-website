@@ -404,6 +404,19 @@ body {
   transform: translateY(2px) rotate(45deg);
 }
 
+.site-main-header__adult-toggle {
+  position: absolute;
+  right: -12px;
+  z-index: 1;
+  width: 28px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.site-main-header__adult-toggle .site-main-header__nav-arrow {
+  right: 5px;
+}
+
 .site-main-header__dropdown {
   position: absolute;
   top: 100%;
@@ -440,11 +453,28 @@ body {
 }
 
 .site-main-header__nav-group:hover .site-main-header__dropdown,
-.site-main-header__nav-group:focus-within .site-main-header__dropdown {
+.site-main-header__nav-group:focus-within .site-main-header__dropdown,
+.site-main-header__nav-group[data-adult-dropdown-open="true"] .site-main-header__dropdown {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
   visibility: visible;
+}
+
+@media (hover: none) {
+  .site-main-header__nav-group[data-adult-dropdown-open="false"] .site-main-header__dropdown {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .site-main-header__adult-toggle {
+    height: 44px;
+  }
+
+  .site-main-header__adult-toggle .site-main-header__nav-arrow {
+    top: 18px;
+  }
 }
 
 .site-main-header__nav-group:hover .site-main-header__dropdown--about,
@@ -3328,6 +3358,7 @@ button[data-name="кнопки пд"] {
 }
 
 .site-education-disclosure-link {
+  text-transform: lowercase;
   position: relative;
   z-index: 10;
   display: inline-flex;
@@ -3512,13 +3543,15 @@ button[data-name="кнопки пд"] {
 
 .site-desktop-direction-hover__tags {
   display: flex;
+  min-width: 0;
+  flex-direction: column;
   align-items: flex-start;
   gap: 8px;
 }
 
-.site-desktop-direction-hover__tag-column {
+.site-desktop-direction-hover__tag-row {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: flex-start;
 }
@@ -3537,6 +3570,19 @@ button[data-name="кнопки пд"] {
   line-height: 27px;
   letter-spacing: 0;
   white-space: nowrap;
+}
+
+.site-desktop-direction-hover__tags--compact span {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (768px <= width < 1000px) {
+  .site-desktop-direction-hover__tags--compact span {
+    padding: 9px;
+    font-size: 16px;
+  }
 }
 
 .site-desktop-direction-hover__arrow {

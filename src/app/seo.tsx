@@ -3,6 +3,7 @@ import { STUDENT_REVIEWS, type StudentReview } from "./studentReviewsData";
 import { childrenCourseNavigation } from "./children/courses/course-paths";
 import { teachers, type TeacherRole } from "../imports/shared/teacherData";
 import { frontendCoursePricing } from "../imports/shared/frontendCoursePricing";
+import { FREE_COURSES_LINK } from "./courseNavigation";
 
 export const SITE_URL = "https://innoprog.ru";
 export const SITE_NAME = "ИННОПРОГ";
@@ -209,6 +210,7 @@ export const KEY_SITE_LINKS = [
     description: "Главная страница онлайн-школы программирования ИННОПРОГ",
   },
   ...COURSE_SEO_ITEMS,
+  { name: FREE_COURSES_LINK.label, path: FREE_COURSES_LINK.href, description: "Бесплатные онлайн-курсы программирования с нуля" },
   { name: "Программирование для детей", path: "/children", description: "Индивидуальные онлайн-занятия программированием для детей 9–17 лет" },
   ...childrenCourseNavigation.map(({ label, href }) => ({ name: label, path: href, description: `${label}: индивидуальные онлайн-занятия для школьников` })),
   {
@@ -437,6 +439,7 @@ export const siteNavigationJsonLd = {
       url: absoluteUrl("/about"),
     },
     { "@type": "SiteNavigationElement", position: COURSE_SEO_ITEMS.length + 5, name: "Блог", url: absoluteUrl("/blog") },
+    { "@type": "SiteNavigationElement", position: COURSE_SEO_ITEMS.length + 6, name: FREE_COURSES_LINK.label, url: absoluteUrl(FREE_COURSES_LINK.href) },
   ],
 };
 

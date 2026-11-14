@@ -1,4 +1,7 @@
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../../app/courseNavigation";
+"use client";
+
+import { useId, useState } from "react";
+import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../../app/courseNavigation";
 const svgPaths = {
 p10fe4280: "M114.301 48.6534H112.695V61.4152H114.301V48.6534Z",
 p111ef500: "M254.123 0H240.569L257.439 22.6296H270.998L254.123 0Z",
@@ -76,15 +79,40 @@ function Group() {
 }
 
 function Frame58({ childrenActive, childrenHref, childrenLinks }: { childrenActive?: boolean; childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[] }) {
+  const adultsMenuId = useId();
+  const [adultsMenuOpen, setAdultsMenuOpen] = useState(false);
+
   return (
     <div className="bg-white content-stretch flex gap-[16px] items-center p-[32px] relative rounded-[40px] shrink-0 site-main-header__nav">
-      <div className="site-main-header__nav-group">
-        <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[166px]" data-main-nav="adults" data-name="Text" href="/">
-        <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
-          <span aria-hidden="true" className="site-main-header__nav-arrow" />
+      <div
+        className="site-main-header__nav-group"
+        data-adult-dropdown-open={adultsMenuOpen}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setAdultsMenuOpen(false);
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape" && adultsMenuOpen) {
+            setAdultsMenuOpen(false);
+            event.currentTarget.querySelector("button")?.focus();
+          }
+        }}
+      >
+        <a className="h-[17px] relative shrink-0 w-[166px]" data-main-nav="adults" data-name="Text" href="/">
+          <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">для взрослых</p>
         </a>
-        <div aria-label="Направления для взрослых" className="site-main-header__dropdown" role="menu">
-          {ADULT_COURSE_LINKS.map(({ label, href }) => (
+        <button
+          aria-controls={adultsMenuId}
+          aria-expanded={adultsMenuOpen}
+          aria-haspopup="menu"
+          aria-label="Показать направления для взрослых"
+          className="site-main-header__adult-toggle"
+          onClick={() => setAdultsMenuOpen((open) => !open)}
+          type="button"
+        >
+          <span aria-hidden="true" className="site-main-header__nav-arrow" />
+        </button>
+        <div aria-label="Направления для взрослых" className="site-main-header__dropdown" id={adultsMenuId} role="menu">
+          {ADULT_NAV_LINKS.map(({ label, href }) => (
             <a href={href} key={href} role="menuitem">{label}</a>
           ))}
         </div>

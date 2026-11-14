@@ -1,0 +1,131 @@
+.banner {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: #9c78ff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.banner:focus-visible {
+  outline: 3px solid #464a6a;
+  outline-offset: 4px;
+}
+
+.illustration {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 12%;
+  width: 270px;
+  max-width: 42%;
+  transform: translateY(-50%);
+}
+
+.banner :global(.site-desktop-direction-hover) {
+  padding: 24px 32px;
+  gap: 16px;
+}
+
+.banner :global(.site-desktop-direction-hover__bottom) {
+  gap: 20px;
+}
+
+.banner :global(.site-desktop-direction-hover__description) {
+  max-width: 980px;
+}
+
+.banner :global(.site-desktop-direction-hover__button) {
+  width: fit-content;
+}
+
+.banner :global(.site-desktop-direction-hover__arrow) {
+  margin-right: -8px;
+}
+
+.copy {
+  display: grid;
+  gap: 16px;
+  max-width: 50%;
+}
+
+.copy h3 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.copy p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+@media (768px <= width <= 1024px) {
+  .copy p,
+  .banner :global(.site-desktop-direction-hover__description) {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+}
+
+@media (hover: none), (max-width: 767px) {
+  .banner :global(.site-desktop-direction-hover) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner {
+    width: 350px;
+    min-height: 0;
+    margin-inline: auto;
+    padding: 210px 20px 20px;
+    border-radius: 32px;
+  }
+
+  .illustration {
+    top: 17px;
+    right: 50%;
+    width: 187px;
+    max-width: none;
+    transform: translateX(50%);
+  }
+
+  .copy {
+    gap: 12px;
+    max-width: none;
+  }
+
+  .copy h3 {
+    font-size: 32px;
+  }
+
+  .copy p {
+    font-size: 16px;
+  }
+
+  .arrow {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner :global(.site-desktop-direction-hover) {
+    transition: none;
+  }
+}

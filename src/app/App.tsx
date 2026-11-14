@@ -43,7 +43,7 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { ADULT_COURSE_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "./courseNavigation";
+import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
@@ -5360,7 +5360,7 @@ export default function App({
                 data-open={openMobileNavGroup === "adults"}
                 id="mobile-adult-courses"
               >
-                {ADULT_COURSE_LINKS.map(({ label, href }) => (
+                {ADULT_NAV_LINKS.map(({ label, href }) => (
                   <a href={href} key={href} tabIndex={openMobileNavGroup === "adults" ? undefined : -1}>{label}</a>
                 ))}
               </div>
