@@ -1,3 +1,4 @@
+import { FREE_MODULE_FORM_ID, complimentaryCourseLeadLabel, parseComplimentaryCourseLead } from "../../../complimentaryCourseLead";
 import { NextRequest, NextResponse } from "next/server";
 import { callbackNote, isCallbackWindow, isCallbackTimezone } from "../../../callbackTime";
 
@@ -90,6 +91,16 @@ export async function POST(req: NextRequest) {
     if (body.callback_timezone !== undefined && !isCallbackTimezone(body.callback_timezone)) {
       return NextResponse.json({ ok: false, error: "invalid_callback_timezone" }, { status: 400 });
     }
+    const formId = normalizeFormId(body.form_id);
+    const complimentaryCourse = formId === FREE_MODULE_FORM_ID
+      ? parseComplimentaryCourseLead(body.complimentary_course)
+      : null;
+    const applicationContext = typeof body.application_context === "string" ? body.application_context : "";
+    if (formId === FREE_MODULE_FORM_ID && (!complimentaryCourse
+      || applicationContext.length > 2048 || !/^v2\.[\w-]+\.[\w-]+$/.test(applicationContext))) {
+      return NextResponse.json({ ok: false, error: "invalid_free_module_source" }, { status: 400 });
+    }
+
     const question = String(body.question || "").trim();
     const sourcePage = normalizeSourcePage(body.source_page, req.headers.get("referer") || "");
     const sourcePath = new URL(sourcePage).pathname;
@@ -102,7 +113,11 @@ export async function POST(req: NextRequest) {
       advertising_consent: body.advertising_consent === true,
       source_page: sourcePage,
       site_audience: sourcePath === "/children" || sourcePath.startsWith("/children/") ? "children" : "adults",
-      form_id: normalizeFormId(body.form_id),
+      form_id: formId,
+      ...(complimentaryCourse ? {
+        application_source: complimentaryCourseLeadLabel(complimentaryCourse),
+        application_context: applicationContext,
+      } : {}),
     };
     const captchaToken = String(body.captcha_token || "").trim();
 

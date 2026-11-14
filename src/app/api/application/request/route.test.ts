@@ -173,3 +173,46 @@ it("rejects an invalid timezone before contacting external services", async () =
   expect(response.status).toBe(400);
   expect(mock).not.toHaveBeenCalled();
 });
+
+describe("free module application source", () => {
+  it.each([
+    [{ module: "python-start", page: "lesson", lesson: "Первая программа" },
+      "Бесплатник «Первые шаги в Python», урок «Первая программа»"],
+    [{ module: "python-start", page: "bonus" },
+      "Бесплатник «Первые шаги в Python», страница бонуса, модуль пройден"],
+  ])("forwards the source separately from the question for %o", async (source, label) => {
+    process.env.SMARTCAPTCHA_SERVER_KEY = "test-key";
+    const mock = vi.spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(Response.json({ status: "ok" }))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    const { POST } = await import("./route");
+
+    const response = await POST(request({
+      ...validPayload,
+      question: "Хочу изучать Python",
+      form_id: "free-module-application",
+      complimentary_course: source,
+      application_context: "v2.test.signature",
+    }));
+
+    expect(response.status).toBe(200);
+    expect(JSON.parse(String(mock.mock.calls[1][1]?.body))).toMatchObject({
+      question: "Хочу изучать Python",
+      application_source: label,
+      application_context: "v2.test.signature",
+    });
+  });
+
+  it("rejects an invalid free module source", async () => {
+    const mock = vi.spyOn(globalThis, "fetch");
+    const { POST } = await import("./route");
+    const response = await POST(request({
+      ...validPayload,
+      form_id: "free-module-application",
+      complimentary_course: { module: "unknown", page: "bonus" },
+    }));
+
+    expect(response.status).toBe(400);
+    expect(mock).not.toHaveBeenCalled();
+  });
+});

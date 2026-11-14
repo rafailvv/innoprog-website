@@ -1,0 +1,42 @@
+html,
+body,
+body > .free-module-lead {
+  background: transparent;
+}
+
+html:has(.free-module-lead) nextjs-portal {
+  display: none !important;
+}
+
+.free-module-lead .site-lead-modal {
+  padding: 24px;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Match the platform preview footprint when the embedded form replaces it. */
+.free-module-lead .site-lead-modal:not(.site-lead-modal--closed) .site-lead-modal__card {
+  width: min(100%, 800px);
+  height: min(734px, calc(100dvh - 48px));
+  animation: none;
+  box-shadow: none;
+}
+
+.free-module-lead :is(.site-lead-modal__title, .site-lead-modal__subtitle, .site-lead-modal__back, .site-lead-modal__crumbs) {
+  font-family: system-ui, sans-serif;
+}
+
+.free-module-lead .site-lead-modal__subtitle {
+  white-space: normal;
+}
+
+@media (max-width: 767px) {
+  .free-module-lead .site-lead-modal {
+    padding: 0;
+  }
+
+  .free-module-lead .site-lead-modal:not(.site-lead-modal--closed) .site-lead-modal__card {
+    height: min(854px, calc(100dvh - max(16px, env(safe-area-inset-top))));
+  }
+}

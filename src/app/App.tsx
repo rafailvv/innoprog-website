@@ -1,12 +1,7 @@
 "use client";
-import { LeadSubmitLabel } from "./components/LeadSubmitLabel";
-import { LeadPhoneField } from "./components/LeadPhoneField";
-import { isCompleteLeadPhone, leadPhoneNumber } from "./leadPhone";
+import { LeadModal } from "./components/LeadModal";
+import { getLeadPayload, isLeadPayloadValid, sendLeadApplication, type LeadPayload } from "./leadApplication";
 import "../styles/adult-pages.css";
-import { CaptchaNotice } from "./components/CaptchaNotice";
-import { CallbackTimePicker } from "./components/CallbackTimePicker";
-import { LeadSheetControls, leadSheetClassName } from "./components/LeadSheetControls";
-import { trackApplicationSuccess } from "./analytics";
 import { getLayoutBottom, getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
 
 import { useRouter } from "next/navigation";
@@ -119,19 +114,6 @@ const RETURN_SCROLL_HISTORY_KEY = "innoprogReturnScroll";
 const INTERNAL_NAVIGATION_HISTORY_KEY = "innoprogInternalNavigation";
 let pendingInternalPath: string | null = null;
 const LOADER_EXIT_MS = 400;
-const APPLICATION_REQUEST_URL = "/application/request";
-
-type LeadPayload = {
-  name: string;
-  phone: string;
-  email?: string;
-  question?: string;
-  callback_window?: string;
-  callback_timezone?: string;
-  personal_data_consent?: boolean;
-  advertising_consent?: boolean;
-};
-
 type LeadDraft = Partial<LeadPayload>;
 
 export type AppInitialRoute =
@@ -164,67 +146,6 @@ function isCoursePageRoute(route: AppInitialRoute) {
     "javaCourse",
     "mlEngineerCourse",
   ].includes(route.page);
-}
-
-function findLeadFieldValue(scope: ParentNode, names: string[]) {
-  for (const name of names) {
-    const field = scope.querySelector<HTMLInputElement | HTMLTextAreaElement>(
-      `input[name="${name}"], textarea[name="${name}"]`,
-    );
-    const value = field?.value.trim();
-
-    if (value) {
-      return value;
-    }
-  }
-
-  return "";
-}
-
-function getLeadPayload(scope?: ParentNode | null): LeadPayload {
-  const root = scope || document;
-  const name = findLeadFieldValue(root, ["name", "modal-name"]);
-  const phone = leadPhoneNumber(findLeadFieldValue(root, ["phone", "modal-phone"]));
-  const email = findLeadFieldValue(root, ["email", "modal-email"]);
-  const question = findLeadFieldValue(root, ["question", "modal-question"]);
-
-  const callback_window = root.querySelector<HTMLInputElement>('input[name="callback_window"]:checked')?.value;
-  const callback_timezone = findLeadFieldValue(root, ["callback_timezone"]);
-  return { name, phone, email, question, callback_window, callback_timezone };
-}
-
-function isLeadPayloadValid(payload: LeadPayload) {
-  const isEmailValid = !payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
-
-  return payload.name.length >= 2 && isCompleteLeadPhone(payload.phone) && isEmailValid;
-}
-
-async function sendLeadApplication(
-  payload: LeadPayload,
-  captchaToken: string,
-  formId: string,
-): Promise<void> {
-  const response = await fetch(APPLICATION_REQUEST_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      ...payload,
-      captcha_token: captchaToken,
-      source_page: window.location.href,
-      form_id: formId,
-    }),
-  });
-
-  const result = await response.json().catch(() => ({ error: null }));
-
-  if (response.ok && result.ok) {
-    trackApplicationSuccess(formId);
-    return;
-  }
-
-  throw new Error(result.error || `lead-request-failed:${response.status}`);
 }
 
 const REVIEW_STORIES = {
@@ -5414,176 +5335,19 @@ export default function App({
           </button>
         </nav>
       )}
-      {
-        <div
-          aria-hidden={leadModalState === "closed"}
-          className={[
-            "site-lead-modal",
-            leadModalState === "closed" ? "site-lead-modal--closed" : "",
-          ].filter(Boolean).join(" ")}
-          onClick={(event) => {
-            if (event.target === event.currentTarget) {
-              closeLeadModal();
-            }
-          }}
-          role="presentation"
-        >
-          <section
-            aria-label={leadModalState === "form" ? "Заявка на обучение" : "Заявка успешно отправлена"}
-            aria-modal="true"
-            className={[
-              "site-lead-modal__card",
-              leadSheetClassName,
-              leadModalState === "success" ? "site-lead-modal__card--success" : "",
-            ].filter(Boolean).join(" ")}
-            onClick={(event) => event.stopPropagation()}
-            role="dialog"
-          >
-            <LeadSheetControls open={leadModalState !== "closed"} onClose={closeLeadModal} />
-            <div className="site-lead-modal__top">
-              <div className="site-lead-modal__brand">
-                <button className="site-lead-modal__back" onClick={closeLeadModal} type="button">
-                  <BackArrow />
-                  <span>назад</span>
-                </button>
-                <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" className="site-lead-modal__logo" src="/logo_white_and_black.svg" />
-              </div>
-              <div className="site-lead-modal__crumbs">
-                <button
-                  onClick={() => {
-                    closeLeadModal();
-                    goHome();
-                  }}
-                  type="button"
-                >
-                  главная
-                </button>
-                <span aria-hidden="true">/</span>
-                <strong>заявка</strong>
-              </div>
-            </div>
-
-            {leadModalState !== "success" ? (
-              <form key={leadModalState} className="site-lead-modal__form" onSubmit={handleLeadFormSubmit}>
-                <h2 className="site-lead-modal__title">Записаться на обучение</h2>
-                <p className="site-lead-modal__subtitle">
-                  Оставьте заявку, и мы свяжемся с вами в удобное время
-                </p>
-                <div className="site-lead-modal__fields">
-                  <input
-                    aria-label="Ваше имя"
-                    autoComplete="name"
-                    className="site-lead-modal__input"
-                    defaultValue={leadDraft.name || ""}
-                    name="modal-name"
-                    placeholder="Ваше имя"
-                    type="text"
-                  />
-                  <LeadPhoneField
-                    className="site-lead-modal__input"
-                    defaultValue={leadDraft.phone}
-                    name="modal-phone"
-                  />
-                  <input
-                    aria-label="Почта"
-                    autoComplete="email"
-                    className="site-lead-modal__input"
-                    defaultValue={leadDraft.email || ""}
-                    inputMode="email"
-                    name="modal-email"
-                    placeholder="Почта"
-                    type="email"
-                  />
-                  <textarea
-                    aria-label="Ваш вопрос"
-                    className="site-lead-modal__input site-lead-modal__textarea"
-                    defaultValue={leadDraft.question || ""}
-                    name="modal-question"
-                    placeholder="Ваш вопрос"
-                  />
-                </div>
-                <CallbackTimePicker defaultValue={leadDraft.callback_window} defaultTimezone={leadDraft.callback_timezone} disabled={isLeadSubmitting} />
-                <div
-                  aria-checked={isConsentChecked}
-                  className="site-lead-modal__consent site-consent"
-                  data-consent-toggle
-                  role="checkbox"
-                  tabIndex={0}
-                >
-                  <span className="site-lead-modal__checkbox site-consent__box">
-                    <span className="site-lead-modal__checkbox-border site-consent__border" />
-                    <svg className="site-consent__check" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5 10 17l9-10" fill="none" />
-                    </svg>
-                  </span>
-                  <span>
-                    Я даю&nbsp;
-                    <a
-                      className="site-consent__link"
-                      href="/consent"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      согласие на обработку персональных данных
-                    </a>
-                  </span>
-                </div>
-                <div
-                  aria-checked={isAdvertisingConsentChecked}
-                  className="site-lead-modal__consent site-consent site-consent--advertising"
-                  data-advertising-consent-toggle
-                  role="checkbox"
-                  tabIndex={0}
-                >
-                  <span className="site-lead-modal__checkbox site-consent__box">
-                    <span className="site-lead-modal__checkbox-border site-consent__border" />
-                    <svg className="site-consent__check" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12.5 10 17l9-10" fill="none" />
-                    </svg>
-                  </span>
-                  <span>
-                    Я согласен(на) получать&nbsp;
-                    <a
-                      className="site-consent__link"
-                      href="/advertising-consent"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      рекламные и информационные сообщения
-                    </a>
-                  </span>
-                </div>
-                {leadFormError ? (
-                  <p className="site-lead-modal__error" role="alert">
-                    {leadFormError}
-                  </p>
-                ) : null}
-                <button
-                  className="site-lead-modal__submit"
-                  aria-busy={isLeadSubmitting}
-                  disabled={!isConsentChecked || isLeadSubmitting}
-                  type="submit"
-                >
-                  <LeadSubmitLabel pending={isLeadSubmitting} />
-                </button>
-                <CaptchaNotice />
-              </form>
-            ) : (
-              <div className="site-lead-modal__success" role="status">
-                <h2>ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!</h2>
-                <p>Спасибо, что доверяте нам!</p>
-                <p>
-                  Администратор ИННОПРОГ свяжется с вами в ближайшее время, уточнит детали и поможет подобрать
-                  подходящий формат обучения. Пожалуйста, ожидайте 🙏
-                </p>
-                <button className="site-lead-modal__submit" onClick={closeLeadModal} type="button">
-                  закрыть
-                </button>
-              </div>
-            )}
-          </section>
-        </div>
-      }
+      <LeadModal
+        state={leadModalState}
+        onClose={closeLeadModal}
+        onHome={() => { closeLeadModal(); goHome(); }}
+        onSubmit={handleLeadFormSubmit}
+        draft={leadDraft}
+        consent={isConsentChecked}
+        advertisingConsent={isAdvertisingConsentChecked}
+        onToggleConsent={toggleConsent}
+        onToggleAdvertisingConsent={() => setIsAdvertisingConsentChecked((checked) => !checked)}
+        pending={isLeadSubmitting}
+        error={leadFormError}
+      />
       <YandexSmartCaptcha ref={smartCaptchaRef} />
       {shouldShowCookieBanner ? (
         <aside className="site-cookie-banner" aria-label="Уведомление о cookie">

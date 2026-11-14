@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 const read = (file) => fs.readFileSync(new URL(`../${file}`, import.meta.url), "utf8");
 
 const app = read("src/app/App.tsx");
+const leadApplication = read("src/app/leadApplication.ts");
 const route = read("src/app/api/application/request/route.ts");
 const publicRoute = read("src/app/application/request/route.ts");
 const standaloneApplication = read("src/app/application/LeadApplicationPage.tsx");
@@ -15,7 +16,7 @@ const generatedFormFiles = fs
   .filter((file) => /import \{ (?:InlineLeadForm|HomeLeadSection|DesktopCourseLeadSection) \}/.test(read(file)));
 
 assert.match(
-  app,
+  leadApplication,
   /const APPLICATION_REQUEST_URL = "\/application\/request";/,
   "website forms must post to same-origin /application/request",
 );
@@ -30,7 +31,7 @@ assert.match(
   "website forms must request a Yandex SmartCaptcha token before submission",
 );
 assert.match(
-  app,
+  leadApplication,
   /captcha_token: captchaToken/,
   "website forms must send the Yandex SmartCaptcha token",
 );

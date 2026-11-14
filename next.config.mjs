@@ -33,6 +33,16 @@ const securityHeaders = [
   },
 ];
 
+const freeModuleAncestors = [
+  "https://app.innoprog.ru",
+  ...(process.env.NODE_ENV === "development" ? ["http://127.0.0.1:5173", "http://localhost:5173"] : []),
+].join(" ");
+const freeModuleHeaders = securityHeaders.map((header) =>
+  header.key === "Content-Security-Policy"
+    ? { ...header, value: header.value.replace("frame-ancestors 'self'", `frame-ancestors 'self' ${freeModuleAncestors}`) }
+    : header,
+);
+
 const deploymentId = process.env.NEXT_DEPLOYMENT_ID?.trim() || null;
 
 /** @type {import("next").NextConfig} */
@@ -82,6 +92,10 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/application/free-module",
+        headers: freeModuleHeaders,
       },
       // These public assets have stable (unhashed) URLs. Revalidate cached
       // bodies with ETag instead of forbidding storage or keeping stale images
