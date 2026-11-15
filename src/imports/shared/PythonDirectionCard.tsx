@@ -63,9 +63,11 @@ export function PythonMobileCard({ href, title, description, tagRows, action, ar
       className={`bg-[#9c78ff] block overflow-clip relative rounded-[40px] shrink-0 text-white no-underline ${catalog ? "min-h-[400px] w-full" : "h-full w-[390px]"}`}
       href={href}
     >
-      {!artwork && <PythonArtwork layout={catalog ? "mobile-catalog" : "mobile"} />}
+      {artwork ? <img src={artwork} alt="" width={680} height={507} loading="lazy" decoding="async"
+        className="pointer-events-none absolute -left-[20px] -top-[7px] h-[207px] w-auto max-w-none min-[375px]:h-[223px]" />
+        : <PythonArtwork layout={catalog ? "mobile-catalog" : "mobile"} />}
       <div className={`flex flex-col items-start justify-between gap-[16px] px-[20px] py-[24px] relative ${catalog ? "min-h-[400px]" : "size-full"}`}>
-        <div className={`w-full ${catalog && !artwork ? "min-h-[188px]" : ""}`}>
+        <div className={`flex items-start justify-between gap-[8px] w-full ${catalog ? "min-h-[188px]" : ""}`}>
           <div className="flex flex-col items-start gap-[8px]">
             {tagRows.map((row) => (
               <div className="flex flex-wrap items-start gap-[8px]" key={row[0]}>
@@ -75,9 +77,8 @@ export function PythonMobileCard({ href, title, description, tagRows, action, ar
               </div>
             ))}
           </div>
+          {!catalog && <DirectionArrow mobile />}
         </div>
-        {artwork && <img src={artwork} alt="" width={680} height={507} loading="lazy" decoding="async"
-          className="pointer-events-none -ml-[26px] h-[136px] w-auto max-w-none min-[375px]:h-[150px]" />}
         <div className="flex flex-col gap-[16px] items-start w-full">
           <Heading className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] text-[32px]">{title}</Heading>
           {children ?? <p className="font-['Manrope:Regular',sans-serif] text-[16px] leading-[18px] tracking-[0.48px]">{description}</p>}
