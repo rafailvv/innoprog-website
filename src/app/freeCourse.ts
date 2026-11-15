@@ -12,5 +12,5 @@ export const ANALYTICS_START_COURSE = {
   href: "https://app.innoprog.ru/try/analytics-start?mode=reg",
   action: "перейти к курсу",
   tags: ["Бесплатно", "Для новичков", "Бонус нейросети для аналитиков"],
-  artwork: "/free-analytics-course.webp",
+  artwork: "/free-analytics-course-glass.png",
 } as const;

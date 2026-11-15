@@ -18,7 +18,7 @@ export function PythonStartPromo({ analytics = false }: { analytics?: boolean } 
         </p>
       </div>
       <div className={styles.bonus}>
-        <img className={styles.bonusArtwork} alt="" decoding="async" loading="lazy" src={analytics ? ANALYTICS_START_COURSE.artwork : "/free-courses-banner-pearl.webp"} />
+        <img className={styles.bonusArtwork} alt="" decoding="async" loading="lazy" src="/free-courses-banner-pearl.webp" />
         <div className={styles.guide}>
           <p className={styles.bonusLabel}><Gift aria-hidden="true" /> Бонус к курсу</p>
           <h3>{analytics ? "Нейросети для аналитиков данных" : "Нейросети для Python-разработчиков"}</h3>
