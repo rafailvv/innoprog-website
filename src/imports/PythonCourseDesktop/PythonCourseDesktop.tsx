@@ -1,5 +1,5 @@
 import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
-import { PythonStartPromo } from "../shared/PythonStartPromo";
+import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useId, useState, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
@@ -5209,7 +5209,7 @@ function Frame194WithoutFooter() {
       <Frame262 />
       <div className="flex w-full flex-col items-center">
         <Component7 />
-        <PythonStartPromo />
+        <FreeCoursePromo slug="python-start" />
         <Component8 />
       </div>
       <Component10 />

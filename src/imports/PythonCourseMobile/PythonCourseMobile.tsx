@@ -1,4 +1,4 @@
-import { PythonStartPromo } from "../shared/PythonStartPromo";
+import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties } from "react";
@@ -4973,7 +4973,7 @@ function Frame213() {
     <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
       <div className="flex w-full flex-col">
         <Frame200 />
-        <PythonStartPromo />
+        <FreeCoursePromo slug="python-start" />
         <Frame251 />
       </div>
       <Frame212 />

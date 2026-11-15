@@ -91,7 +91,7 @@
 .bonusArtwork {
   display: block;
   width: min(76%, 345px);
-  aspect-ratio: 780 / 822;
+  height: auto;
   object-fit: contain;
 }
 

@@ -1,5 +1,6 @@
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
+import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { useState, type CSSProperties, type ReactNode } from "react";
 import svgPaths from "./svg-5im7jl6ott";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
@@ -4959,8 +4960,11 @@ function Group8() {
 function Frame213() {
   return (
     <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
-      <Frame200 />
-      <Frame251 />
+      <div className="flex w-full flex-col items-center">
+        <Frame200 />
+        <FreeCoursePromo slug="data-science-start" />
+        <Frame251 />
+      </div>
       <Frame212 />
       <Frame209 />
       <Frame211 />

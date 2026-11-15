@@ -12,7 +12,7 @@ type CardProps = {
   description: string;
   tagRows: readonly (readonly string[])[];
   action?: string;
-  artwork?: string;
+  artwork?: { src: string; width: number; height: number };
 };
 
 function PythonArtwork({ layout = "desktop" }: { layout?: "desktop" | "mobile" | "mobile-catalog" }) {
@@ -40,7 +40,7 @@ export function PythonDesktopCard({ href, title, description, tagRows, action, a
     >
       {artwork ? (
         <div className="relative min-h-0 w-full flex-1">
-          <img src={artwork} alt="" width={680} height={507} loading="lazy" decoding="async"
+          <img {...artwork} alt="" loading="lazy" decoding="async"
             className="pointer-events-none absolute -left-[46px] -top-[20px] h-[calc(100%+12px)] max-h-[236px] w-auto max-w-none" />
           <div className="absolute right-0 top-0"><DirectionArrow /></div>
         </div>
@@ -63,7 +63,7 @@ export function PythonMobileCard({ href, title, description, tagRows, action, ar
       className={`bg-[#9c78ff] block overflow-clip relative rounded-[40px] shrink-0 text-white no-underline ${catalog ? "min-h-[400px] w-full" : "h-full w-[390px]"}`}
       href={href}
     >
-      {artwork ? <img src={artwork} alt="" width={680} height={507} loading="lazy" decoding="async"
+      {artwork ? <img {...artwork} alt="" loading="lazy" decoding="async"
         className="pointer-events-none absolute -left-[20px] -top-[7px] h-[207px] w-auto max-w-none min-[375px]:h-[223px]" />
         : <PythonArtwork layout={catalog ? "mobile-catalog" : "mobile"} />}
       <div className={`flex flex-col items-start justify-between gap-[16px] px-[20px] py-[24px] relative ${catalog ? "min-h-[400px]" : "size-full"}`}>

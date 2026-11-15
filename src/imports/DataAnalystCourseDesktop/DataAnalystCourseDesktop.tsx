@@ -1,4 +1,4 @@
-import { PythonStartPromo } from "../shared/PythonStartPromo";
+import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useId, useState, type CSSProperties, type ReactNode } from "react";
@@ -5228,7 +5228,7 @@ function Frame194() {
       <Frame262 />
       <div className="flex w-full flex-col items-center">
         <Component7 />
-        <PythonStartPromo analytics />
+        <FreeCoursePromo slug="analytics-start" />
         <Component8 />
       </div>
       <Component10 />
@@ -5287,7 +5287,7 @@ function Frame194WithoutFooter() {
       <Frame262 />
       <div className="flex w-full flex-col items-center">
         <Component7 />
-        <PythonStartPromo analytics />
+        <FreeCoursePromo slug="analytics-start" />
         <Component8 />
       </div>
       <Component10 />

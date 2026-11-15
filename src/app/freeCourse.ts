@@ -1,3 +1,5 @@
+import dataScienceArtwork from "../imports/MainScreenDesktop/course-data-science-desktop.webp";
+
 // Плашки дополнительных материалов в каталоге содержат только название материала.
 export const PYTHON_START_COURSE = {
   title: "Первые шаги в Python",
@@ -13,5 +15,16 @@ export const ANALYTICS_START_COURSE = {
   href: "https://app.innoprog.ru/try/analytics-start?mode=reg",
   action: "перейти к курсу",
   tags: ["Бесплатно", "Для новичков", "Нейросети для аналитиков"],
-  artwork: "/free-analytics-course-glass.png",
+  artwork: { src: "/free-analytics-course-glass.png", width: 680, height: 507 },
+} as const;
+
+export const DATA_SCIENCE_START_BONUS_TITLE = "Нейросети для ML-инженеров";
+
+export const DATA_SCIENCE_START_COURSE = {
+  title: "Первые шаги в ML",
+  description: "Обучите модель на Python, чтобы предсказывать время доставки, и проверьте её точность. В бонусе — гайд по нейросетям для ML-инженеров",
+  href: "https://app.innoprog.ru/try/data-science-start",
+  action: "перейти к курсу",
+  tags: ["Бесплатно", "Для новичков", DATA_SCIENCE_START_BONUS_TITLE],
+  artwork: { src: dataScienceArtwork, width: 600, height: 428 },
 } as const;
