@@ -6,6 +6,7 @@ export type ComplimentaryCourseLeadSource = { module: string } & FreeModuleLocat
 
 const moduleNames: Record<string, string> = {
   "python-start": "Первые шаги в Python",
+  "analytics-start": "Первые шаги в аналитике данных",
 };
 
 export function parseComplimentaryCourseLead(value: unknown): ComplimentaryCourseLeadSource | null {

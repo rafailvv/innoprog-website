@@ -12,6 +12,7 @@ type CardProps = {
   description: string;
   tagRows: readonly (readonly string[])[];
   action?: string;
+  artwork?: string;
 };
 
 function PythonArtwork({ layout = "desktop" }: { layout?: "desktop" | "mobile" | "mobile-catalog" }) {
@@ -28,7 +29,7 @@ function PythonArtwork({ layout = "desktop" }: { layout?: "desktop" | "mobile" |
   );
 }
 
-export function PythonDesktopCard({ href, title, description, tagRows, action, catalog = false }: CardProps & { catalog?: boolean }) {
+export function PythonDesktopCard({ href, title, description, tagRows, action, artwork, catalog = false }: CardProps & { catalog?: boolean }) {
   const Heading = catalog ? "h2" : "h3";
 
   return (
@@ -42,13 +43,14 @@ export function PythonDesktopCard({ href, title, description, tagRows, action, c
         <Heading className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] text-[36px]">{title}</Heading>
         <p className="font-['Manrope:Regular',sans-serif] leading-[22px] text-[20px]">{description}</p>
       </div>
-      <PythonArtwork />
+      {artwork ? <img src={artwork} alt="" loading="lazy" decoding="async"
+        className="pointer-events-none absolute left-[20px] top-[16px] h-[195px] w-[75%] object-contain object-left" /> : <PythonArtwork />}
       <DirectionHoverOverlay title={title} description={description} tagRows={tagRows} action={action} wrapTags={catalog} showArrow={catalog} />
     </a>
   );
 }
 
-export function PythonMobileCard({ href, title, description, tagRows, action, catalog = false, children }: CardProps & { catalog?: boolean; children?: ReactNode }) {
+export function PythonMobileCard({ href, title, description, tagRows, action, artwork, catalog = false, children }: CardProps & { catalog?: boolean; children?: ReactNode }) {
   const Heading = catalog ? "h2" : "h3";
 
   return (
@@ -56,7 +58,9 @@ export function PythonMobileCard({ href, title, description, tagRows, action, ca
       className={`bg-[#9c78ff] block overflow-clip relative rounded-[40px] shrink-0 text-white no-underline ${catalog ? "min-h-[400px] w-full" : "h-full w-[390px]"}`}
       href={href}
     >
-      <PythonArtwork layout={catalog ? "mobile-catalog" : "mobile"} />
+      {artwork ? <img src={artwork} alt="" loading="lazy" decoding="async"
+        className="pointer-events-none absolute bottom-[172px] right-[14px] h-[130px] w-[66%] object-contain object-right" />
+        : <PythonArtwork layout={catalog ? "mobile-catalog" : "mobile"} />}
       <div className={`flex flex-col items-start justify-between gap-[16px] px-[20px] py-[24px] relative ${catalog ? "min-h-[400px]" : "size-full"}`}>
         <div className={`flex items-start justify-between gap-[8px] w-full ${catalog ? "min-h-[188px]" : ""}`}>
           <div className="flex flex-col items-start gap-[8px]">

@@ -1,26 +1,30 @@
 import { Gift } from "lucide-react";
-import { PYTHON_START_COURSE } from "../../app/freeCourse";
+import { ANALYTICS_START_COURSE, PYTHON_START_COURSE } from "../../app/freeCourse";
 import styles from "./PythonStartPromo.module.css";
 
-export function PythonStartPromo() {
-  const { title, href, action } = PYTHON_START_COURSE;
+export function PythonStartPromo({ analytics = false }: { analytics?: boolean } = {}) {
+  const { title, href, action } = analytics ? ANALYTICS_START_COURSE : PYTHON_START_COURSE;
+  const titleId = analytics ? "analytics-start-promo-title" : "python-start-promo-title";
 
   return (
-    <section aria-labelledby="python-start-promo-title" className={styles.promo}>
+    <section aria-labelledby={titleId} className={styles.promo}>
       <div className={styles.copy}>
         <p className={styles.label}>Бесплатный курс для новичков</p>
-        <h2 id="python-start-promo-title">{title}</h2>
+        <h2 id={titleId}>{title}</h2>
         <p className={styles.description}>
-          Напишите и запустите свою первую программу на Python. Затем научитесь принимать
-          данные, работать с числами и строками и решать задачи с условиями и циклами
+          {analytics
+            ? "Откройте выгрузку заказов, проверьте данные и сравните каналы по числу оплат и выручке. Постройте первый график в редакторе курса."
+            : "Напишите и запустите свою первую программу на Python. Затем научитесь принимать данные, работать с числами и строками и решать задачи с условиями и циклами"}
         </p>
       </div>
       <div className={styles.bonus}>
-        <img className={styles.bonusArtwork} alt="" decoding="async" loading="lazy" src="/free-courses-banner-pearl.webp" />
+        <img className={styles.bonusArtwork} alt="" decoding="async" loading="lazy" src={analytics ? ANALYTICS_START_COURSE.artwork : "/free-courses-banner-pearl.webp"} />
         <div className={styles.guide}>
           <p className={styles.bonusLabel}><Gift aria-hidden="true" /> Бонус к курсу</p>
-          <h3>Нейросети для Python-разработчиков</h3>
-          <p className={styles.guideDescription}>Готовые запросы к ИИ для поиска ошибок и проверки кода</p>
+          <h3>{analytics ? "Нейросети для аналитиков данных" : "Нейросети для Python-разработчиков"}</h3>
+          <p className={styles.guideDescription}>{analytics
+            ? "Примеры запросов к ИИ для проверки выгрузок, расчётов и выводов"
+            : "Готовые запросы к ИИ для поиска ошибок и проверки кода"}</p>
         </div>
       </div>
       <div className={styles.cta}>

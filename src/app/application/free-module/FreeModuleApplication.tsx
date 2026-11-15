@@ -16,6 +16,7 @@ function notifyPlatform(type: string) {
 export default function FreeModuleApplication({
   source, offerUntil,
 }: { source: ComplimentaryCourseLeadSource; offerUntil: number | null }) {
+  const courseName = source.module === "analytics-start" ? "«Аналитик данных»" : "Python-разработчик";
   const [consent, setConsent] = useState(false);
   const [advertisingConsent, setAdvertisingConsent] = useState(false);
   const [pending, setPending] = useState(false);
@@ -113,8 +114,8 @@ export default function FreeModuleApplication({
         pending={pending}
         error={error}
         subtitle={offerActive
-          ? <>Оставьте заявку и получите фиксированную скидку <strong>до 40%</strong> на весь период обучения по курсу Python-разработчик</>
-          : "Оставьте заявку на обучение по курсу Python-разработчик"}
+          ? <>Оставьте заявку и получите фиксированную скидку <strong>до 40%</strong> на весь период обучения по курсу {courseName}</>
+          : `Оставьте заявку на обучение по курсу ${courseName}`}
       />
       <YandexSmartCaptcha ref={captcha} />
     </main>

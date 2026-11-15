@@ -5,3 +5,12 @@ export const PYTHON_START_COURSE = {
   action: "перейти к курсу",
   tags: ["Бесплатно", "Для новичков", "Бонус нейросети в Python"],
 } as const;
+
+export const ANALYTICS_START_COURSE = {
+  title: "Первые шаги в аналитике данных",
+  description: "Разберите первую выгрузку заказов в Python, сравните каналы и постройте график. В бонусе — гайд по нейросетям для аналитика",
+  href: "https://app.innoprog.ru/try/analytics-start?mode=reg",
+  action: "перейти к курсу",
+  tags: ["Бесплатно", "Для новичков", "Бонус нейросети для аналитиков"],
+  artwork: "/free-analytics-course.webp",
+} as const;

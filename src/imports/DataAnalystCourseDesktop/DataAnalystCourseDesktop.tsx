@@ -1,3 +1,4 @@
+import { PythonStartPromo } from "../shared/PythonStartPromo";
 import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useId, useState, type CSSProperties, type ReactNode } from "react";
@@ -5223,10 +5224,13 @@ function Group11() {
 
 function Frame194() {
   return (
-    <div className="content-stretch flex flex-col gap-[208px] h-[9734px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[208px] items-center relative shrink-0 w-full">
       <Frame262 />
-      <Component7 />
-      <Component8 />
+      <div className="flex w-full flex-col items-center">
+        <Component7 />
+        <PythonStartPromo analytics />
+        <Component8 />
+      </div>
       <Component10 />
       <Component11 />
       <Component12 />
@@ -5281,8 +5285,11 @@ function Frame194WithoutFooter() {
   return (
     <div className="content-stretch flex flex-col gap-[208px] items-center relative shrink-0 w-full">
       <Frame262 />
-      <Component7 />
-      <Component8 />
+      <div className="flex w-full flex-col items-center">
+        <Component7 />
+        <PythonStartPromo analytics />
+        <Component8 />
+      </div>
       <Component10 />
       <Component11 />
       <Component12 />

@@ -140,10 +140,10 @@ describe("callback preferences", () => {
       .mockResolvedValueOnce(Response.json({ status: "ok" }))
       .mockResolvedValueOnce(Response.json({ ok: true }));
     const { POST } = await import("./route");
-    const response = await POST(request({ ...validPayload, question: "Хочу изучать Python", callback_window }));
+    const response = await POST(request({ ...validPayload, question: "Хочу узнать о программе", callback_window }));
     expect(response.status).toBe(200);
     const forwarded = JSON.parse(String(fetchMock.mock.calls[1][1]?.body));
-    expect(forwarded.question).toBe(`Хочу изучать Python\nУдобное время для звонка: ${callback_window === "anytime" ? "любое время" : callback_window} (по Москве)`);
+    expect(forwarded.question).toBe(`Хочу узнать о программе\nУдобное время для звонка: ${callback_window === "anytime" ? "любое время" : callback_window} (по Москве)`);
   });
 
   it("rejects an unsupported interval before contacting external services", async () => {
@@ -180,6 +180,10 @@ describe("free module application source", () => {
       "Бесплатник «Первые шаги в Python», урок «Первая программа»"],
     [{ module: "python-start", page: "bonus" },
       "Бесплатник «Первые шаги в Python», страница бонуса, модуль пройден"],
+    [{ module: "analytics-start", page: "lesson", lesson: "Открываем CSV в pandas" },
+      "Бесплатник «Первые шаги в аналитике данных», урок «Открываем CSV в pandas»"],
+    [{ module: "analytics-start", page: "bonus" },
+      "Бесплатник «Первые шаги в аналитике данных», страница бонуса, модуль пройден"],
   ])("forwards the source separately from the question for %o", async (source, label) => {
     process.env.SMARTCAPTCHA_SERVER_KEY = "test-key";
     const mock = vi.spyOn(globalThis, "fetch")
@@ -189,7 +193,7 @@ describe("free module application source", () => {
 
     const response = await POST(request({
       ...validPayload,
-      question: "Хочу изучать Python",
+      question: "Хочу узнать о программе",
       form_id: "free-module-application",
       complimentary_course: source,
       application_context: "v2.test.signature",
@@ -197,7 +201,7 @@ describe("free module application source", () => {
 
     expect(response.status).toBe(200);
     expect(JSON.parse(String(mock.mock.calls[1][1]?.body))).toMatchObject({
-      question: "Хочу изучать Python",
+      question: "Хочу узнать о программе",
       application_source: label,
       application_context: "v2.test.signature",
     });
