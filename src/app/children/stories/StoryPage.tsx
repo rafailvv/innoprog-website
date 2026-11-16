@@ -53,7 +53,7 @@ export default function StoryPage({ index }: { index: number }) {
       <main className={styles.main}>
         <div className={school.container}>
           <nav className={styles.breadcrumb} aria-label="Хлебные крошки">
-            <Link href="/children">Школа программирования</Link>
+            <a href="/children">Школа программирования</a>
             <span aria-hidden="true">/</span>
             <span>Истории учеников</span>
           </nav>
@@ -117,10 +117,10 @@ export default function StoryPage({ index }: { index: number }) {
                 Познакомимся, выберем интересное направление и начнём создавать
               </p>
             </div>
-            <Link className={school.button} href="/children#tariff">
+            <a className={school.button} href="/children#tariff">
               <span>Записаться на бесплатное занятие</span>
               <span className={styles.ctaArrow} aria-hidden="true">↗</span>
-            </Link>
+            </a>
           </section>
           <section className={styles.other}>
             <h2>Ещё истории учеников</h2>
@@ -143,9 +143,9 @@ export default function StoryPage({ index }: { index: number }) {
               )}
             </div>
           </section>
-          <Link className={styles.back} href="/children#reviews">
+          <a className={styles.back} href="/children#reviews">
             ← Все отзывы и курсы для детей
-          </Link>
+          </a>
         </div>
       </main>
       <SiteFooter isMobile={isMobile} scale={scale} />

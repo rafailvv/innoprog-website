@@ -43,6 +43,18 @@ const freeModuleHeaders = securityHeaders.map((header) =>
     : header,
 );
 
+const childrenLandingHeaders = securityHeaders.map((header) =>
+  header.key === "Content-Security-Policy"
+    ? {
+        ...header,
+        value: header.value
+          .replace("script-src 'self'", "script-src 'self' https://ac.avito.ru/tag.js")
+          .replace("img-src 'self'", "img-src 'self' https://www.avito.st https://www.avito.ru")
+          .replace("connect-src 'self'", "connect-src 'self' https://www.avito.ru"),
+      }
+    : header,
+);
+
 const deploymentId = process.env.NEXT_DEPLOYMENT_ID?.trim() || null;
 
 /** @type {import("next").NextConfig} */
@@ -92,6 +104,10 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/children",
+        headers: childrenLandingHeaders,
       },
       {
         source: "/application/free-module",

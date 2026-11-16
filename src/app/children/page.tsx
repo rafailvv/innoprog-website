@@ -25,9 +25,44 @@ export const metadata = createPageMetadata({
     "онлайн-школа программирования для детей",
   ],
 });
+const avitoPixel = `
+var _apxl = window._apxl || (window._apxl = []);
+_apxl.push({
+    id: 8824496,
+    start: (new Date()).getTime()
+});
+_apxl.q = _apxl.q || [];
+_apxl.sendEvent = _apxl.sendEvent || function (args) {
+    _apxl.q.push([args, location.href, (new Date()).getTime()]);
+};
+(function (d, w, id) {
+    if (d.getElementById(id)) return;
+    var ts = d.createElement("script");
+    ts.type = "text/javascript";
+    ts.async = true;
+    ts.id = id;
+    ts.src = "https://ac.avito.ru/tag.js";
+    var f = function () {
+        var s = d.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ts, s);
+    };
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+        f();
+    }
+})(document, window, "apxl-code");
+`;
+
 export default function Page() {
   return (
     <>
+      <script dangerouslySetInnerHTML={{ __html: avitoPixel }} />
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: '<div><img src="https://www.avito.st/static/ims/235e1f90-308c-4bf5-91a3-07239fde0f2f_ai_icon_common_12x16.png" style="position:absolute;left:-9999px;" alt="Avito Pixel" /></div>',
+        }}
+      />
       <JsonLd data={{
         ...webPageJsonLd({ path: "/children", name: "Программирование для детей от 9 до 17 лет", description: "Индивидуальные онлайн-занятия программированием для школьников", primaryEntityId: `${absoluteUrl("/children")}#course-catalog` }),
         mentions: childrenTeachers.map((teacher) => ({

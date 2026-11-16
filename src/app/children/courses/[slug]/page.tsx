@@ -122,7 +122,7 @@ export default async function Page({ params }: Props) {
         <section className={styles.hero}>
           <div className={school.container}>
             <nav className={styles.breadcrumb} aria-label="Хлебные крошки">
-              <Link href="/children">Для детей</Link>
+              <a href="/children">Для детей</a>
               <span aria-hidden="true">/</span>
               <span>{course.title}</span>
             </nav>
