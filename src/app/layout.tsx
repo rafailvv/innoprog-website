@@ -95,6 +95,35 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+const avitoPixel = `
+var _apxl = window._apxl || (window._apxl = []);
+_apxl.push({
+    id: 8824496,
+    start: (new Date()).getTime()
+});
+_apxl.q = _apxl.q || [];
+_apxl.sendEvent = _apxl.sendEvent || function (args) {
+    _apxl.q.push([args, location.href, (new Date()).getTime()]);
+};
+(function (d, w, id) {
+    if (d.getElementById(id)) return;
+    var ts = d.createElement("script");
+    ts.type = "text/javascript";
+    ts.async = true;
+    ts.id = id;
+    ts.src = "https://ac.avito.ru/tag.js";
+    var f = function () {
+        var s = d.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ts, s);
+    };
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+        f();
+    }
+})(document, window, "apxl-code");
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={manrope.variable}>
@@ -115,11 +144,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`,
           }}
         />
+        <script dangerouslySetInnerHTML={{ __html: avitoPixel }} />
       </head>
       <body className={manrope.className}>
         <noscript
           dangerouslySetInnerHTML={{
             __html: '<div><img src="https://mc.yandex.ru/watch/110454081" style="position:absolute; left:-9999px;" alt="" /></div>',
+          }}
+        />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: '<div><img src="https://www.avito.st/static/ims/235e1f90-308c-4bf5-91a3-07239fde0f2f_ai_icon_common_12x16.png" style="position:absolute;left:-9999px;" alt="Avito Pixel" /></div>',
           }}
         />
         <JsonLd data={organizationJsonLd} />

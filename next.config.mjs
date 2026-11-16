@@ -19,12 +19,12 @@ const securityHeaders = [
       "object-src 'none'",
       "form-action 'self'",
       "frame-ancestors 'self' https://yandex.ru https://*.yandex.ru https://yandex.com https://*.yandex.com https://yandex.by https://*.yandex.by https://yandex.kz https://*.yandex.kz https://yandex.com.tr https://*.yandex.com.tr https://yandex.uz https://*.yandex.uz https://ya.ru https://*.ya.ru https://metrica.yandex https://metrika.yandex https://webvisor.com https://*.webvisor.com https://webvisor.org https://*.webvisor.org",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
+      "script-src 'self' https://ac.avito.ru/tag.js 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
       "style-src 'self' 'unsafe-inline' https://*.metrika.yandex.net",
       "font-src 'self' data: https://*.metrika.yandex.net",
-      "img-src 'self' data: blob: https://*.metrika.yandex.net https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru https://api.innoprog.ru",
+      "img-src 'self' https://www.avito.st https://www.avito.ru data: blob: https://*.metrika.yandex.net https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru https://api.innoprog.ru",
       "media-src 'self' blob: https://*.metrika.yandex.net",
-      "connect-src 'self' https://*.metrika.yandex.net https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org wss://mc.yandex.ru wss://*.mc.yandex.ru wss://mc.yandex.com wss://*.mc.yandex.com wss://mc.yandex.md wss://mc.webvisor.com wss://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru https://api.innoprog.ru",
+      "connect-src 'self' https://www.avito.ru https://*.metrika.yandex.net https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org wss://mc.yandex.ru wss://*.mc.yandex.ru wss://mc.yandex.com wss://*.mc.yandex.com wss://mc.yandex.md wss://mc.webvisor.com wss://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru https://api.innoprog.ru",
       "child-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
       "frame-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
       "worker-src 'self' blob:",
@@ -40,18 +40,6 @@ const freeModuleAncestors = [
 const freeModuleHeaders = securityHeaders.map((header) =>
   header.key === "Content-Security-Policy"
     ? { ...header, value: header.value.replace("frame-ancestors 'self'", `frame-ancestors 'self' ${freeModuleAncestors}`) }
-    : header,
-);
-
-const childrenLandingHeaders = securityHeaders.map((header) =>
-  header.key === "Content-Security-Policy"
-    ? {
-        ...header,
-        value: header.value
-          .replace("script-src 'self'", "script-src 'self' https://ac.avito.ru/tag.js")
-          .replace("img-src 'self'", "img-src 'self' https://www.avito.st https://www.avito.ru")
-          .replace("connect-src 'self'", "connect-src 'self' https://www.avito.ru"),
-      }
     : header,
 );
 
@@ -104,10 +92,6 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
-      },
-      {
-        source: "/children",
-        headers: childrenLandingHeaders,
       },
       {
         source: "/application/free-module",

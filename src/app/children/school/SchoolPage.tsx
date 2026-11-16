@@ -3,6 +3,7 @@ import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
+import Link from "next/link";
 import { CalendarDays, CodeXml, Compass, GraduationCap, Laptop, Layers, Trophy, UserRound, Workflow } from "lucide-react";
 import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -318,8 +319,7 @@ export default function SchoolPage() {
                         fetchPriority="low"
                       />
                     </div>
-                    {/* Load a new document so Avito's history listener stays on the landing page. */}
-                    <a
+                    <Link
                       className={`${styles.button} ${styles.detailLink}`}
                       href={childrenCoursePaths[id]}
                     >
@@ -329,7 +329,7 @@ export default function SchoolPage() {
                         о курсе «{titleLines.join(" ")}»
                       </span>
                       <CtaArrow />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -487,13 +487,13 @@ export default function SchoolPage() {
                 </div>
                 <h3>{item.name}</h3>
                 <p>{item.text.slice(0, 185)}…</p>
-                <a
+                <Link
                   className={`${styles.button} ${styles.detailLink}`}
                   href={`/children/stories/${["amir", "eldar", "almaz"][i]}`}
                 >
                   подробнее<span className={styles.srOnly}> — {item.name}</span>
                   <CtaArrow />
-                </a>
+                </Link>
               </article>
             ))}
           </div>
