@@ -493,7 +493,7 @@ function Frame65() {
 function Frame181() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
-      <button className="bg-[#464a6a] cursor-pointer relative rounded-[40px] shrink-0 w-full" aria-haspopup="dialog" data-application-open data-name="кнопки пд" type="button">
+      <a className="bg-[#464a6a] cursor-pointer relative rounded-[40px] shrink-0 w-full no-underline" aria-haspopup="dialog" data-application-open data-name="кнопки пд" href="/application">
         <span className="flex flex-row items-center justify-center size-full">
           <span className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
             <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">бесплатное занятие</span>
@@ -508,7 +508,7 @@ function Frame181() {
             </span>
           </span>
         </span>
-      </button>
+      </a>
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer h-[46px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
         <span aria-hidden className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <span className="flex flex-row items-center justify-center size-full">
