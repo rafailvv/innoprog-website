@@ -1,0 +1,406 @@
+.page {
+  background: #fff;
+}
+
+.page + :global(.site-main-footer-surface) {
+  margin-top: 0;
+}
+
+.contacts {
+  --contact-accent: #9c78ff;
+  --contact-dark: #464a6a;
+  width: min(88.8889%, 1280px);
+  margin-inline: auto;
+  padding-top: clamp(106px, 11.667vw, 168px);
+  color: #000;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: clamp(16px, 1.667vw, 24px);
+  line-height: 1.25;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(32px, 5vw, 72px);
+  font-size: clamp(16px, 1.389vw, 20px);
+}
+
+.breadcrumbs a {
+  color: inherit;
+}
+
+.breadcrumbs [aria-current] {
+  color: var(--contact-dark);
+  font-weight: 700;
+}
+
+.content {
+  display: grid;
+  gap: clamp(56px, 7.222vw, 104px);
+  padding-bottom: clamp(56px, 7.222vw, 104px);
+}
+
+.intro {
+  display: grid;
+  gap: clamp(18px, 2.222vw, 32px);
+}
+
+.intro h1,
+.trial h2 {
+  margin: 0;
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  color: var(--contact-accent);
+  font-size: clamp(48px, 6.667vw, 96px);
+  line-height: 1.01;
+}
+
+.intro p {
+  max-width: 860px;
+  margin: 0;
+}
+
+.methods {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.667vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.method,
+.methodText {
+  display: grid;
+  justify-items: start;
+  gap: clamp(12px, 1.389vw, 20px);
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.methodLabel {
+  color: var(--contact-accent);
+  font-size: clamp(20px, 2.222vw, 32px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.methodIcon {
+  width: clamp(52px, 5.903vw, 85px);
+  aspect-ratio: 1;
+}
+
+.methodIcon > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.methodIcon .maxCircle {
+  display: grid;
+  place-items: center;
+  color: #000;
+  background: #d9d9d9;
+  border-radius: 47%;
+}
+
+.maxCircle svg {
+  width: 54%;
+  height: 54%;
+}
+
+.method:hover .methodText > :last-child {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.contacts .city {
+  gap: clamp(32px, 5.208vw, 75px);
+  margin: 0;
+}
+
+.contacts .city h2 {
+  font-size: clamp(48px, 6.667vw, 96px);
+  line-height: 1.01;
+}
+
+.contacts .city > div {
+  grid-template-columns: minmax(0, 791fr) minmax(0, 465fr);
+}
+
+.contacts .city img {
+  height: clamp(250px, 32.5vw, 468px);
+}
+
+.contacts .city div div {
+  gap: 14px;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.sectionHeading {
+  margin: 0;
+  color: var(--contact-accent);
+  font-size: clamp(24px, 2.778vw, 40px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.map {
+  display: grid;
+  justify-items: start;
+  gap: 24px;
+}
+
+.mapFrame {
+  width: 100%;
+  height: clamp(340px, 30.556vw, 440px);
+  background: #ece9f7;
+  border: 3px solid var(--contact-accent);
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.mapFrame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map a,
+.requisites a {
+  color: var(--contact-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.map a {
+  font-size: 0.85em;
+}
+
+.requisites {
+  display: grid;
+  gap: 24px;
+  padding: clamp(28px, 3.681vw, 53px) clamp(28px, 4.792vw, 69px);
+  border: 3px solid var(--contact-accent);
+  border-radius: 40px;
+}
+
+.requisites dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 3.889vw, 56px);
+  margin: 0;
+}
+
+.requisites dl > div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding-block: 16px;
+  border-top: 1px solid #000;
+  overflow-wrap: anywhere;
+}
+
+.requisites dt {
+  color: var(--contact-dark);
+  font-size: clamp(14px, 1.389vw, 20px);
+}
+
+.requisites dd {
+  margin: 0;
+}
+
+.trial {
+  display: grid;
+  justify-items: start;
+  gap: clamp(20px, 2.778vw, 40px);
+  padding: clamp(32px, 4.444vw, 64px) clamp(32px, 5.556vw, 80px);
+  color: #fff;
+  background: var(--contact-dark);
+  border-radius: 40px;
+}
+
+.trial h2 {
+  font-size: clamp(32px, 4.444vw, 64px);
+  line-height: 1.06;
+}
+
+.trial a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: clamp(64px, 6.111vw, 88px);
+  padding: 10px 24px;
+  color: #fff;
+  background: rgba(156, 120, 255, 0.6);
+  border-radius: 40px;
+  font-size: clamp(20px, 2.222vw, 32px);
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.trial a:hover {
+  background: rgba(156, 120, 255, 0.72);
+}
+
+.trialArrow {
+  display: grid;
+  width: clamp(40px, 3.889vw, 56px);
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--contact-dark);
+  background: #fff;
+  border-radius: 50%;
+}
+
+.trialArrow svg {
+  width: 57%;
+  height: 57%;
+}
+
+.contacts a:focus-visible {
+  outline: 2px solid var(--contact-dark);
+  outline-offset: 4px;
+}
+
+.trial a:focus-visible {
+  outline-color: #fff;
+}
+
+@media (max-width: 767px) {
+  .contacts {
+    width: min(calc(100% - 40px), 520px);
+    padding-top: 18px;
+  }
+
+  .breadcrumbs {
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+
+  .content {
+    gap: 48px;
+    padding-bottom: 64px;
+  }
+
+  .intro {
+    gap: 16px;
+  }
+
+  .intro h1,
+  .trial h2 {
+    font-family: var(--font-manrope), Arial, sans-serif;
+    font-weight: 800;
+  }
+
+  .intro h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .methods {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .method {
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+
+  .methodText {
+    gap: 4px;
+  }
+
+  .methodLabel {
+    line-height: 22px;
+  }
+
+  .methodIcon {
+    --fill-0: #9c78ff;
+    --stroke-0: #fff;
+    width: 64px;
+  }
+
+  .methodIcon [data-name="material-symbols:mail-outline"] path {
+    fill: #fff;
+  }
+
+  .methodIcon .maxCircle {
+    color: #fff;
+    background: var(--contact-accent);
+  }
+
+  .contacts .city {
+    gap: 22px;
+  }
+
+  .contacts .city h2 {
+    font-size: 42px;
+    line-height: 46px;
+  }
+
+  .contacts .city img {
+    height: 220px;
+  }
+
+  .contacts .city div div {
+    line-height: 23px;
+  }
+
+  .sectionHeading {
+    line-height: 26px;
+  }
+
+  .map,
+  .requisites {
+    gap: 12px;
+  }
+
+  .mapFrame,
+  .requisites,
+  .trial {
+    border-radius: 32px;
+  }
+
+  .requisites {
+    padding: 24px 20px;
+  }
+
+  .requisites dl {
+    grid-template-columns: 1fr;
+  }
+
+  .requisites dl > div {
+    gap: 2px;
+    padding-block: 10px;
+  }
+
+  .trial {
+    padding: 28px 20px;
+  }
+
+  .trial h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .trial a {
+    width: 100%;
+    gap: 12px;
+    padding-inline: 16px;
+    line-height: 24px;
+  }
+}
