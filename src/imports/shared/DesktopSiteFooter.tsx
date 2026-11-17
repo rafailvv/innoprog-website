@@ -151,11 +151,11 @@ function Frame68() {
   );
 }
 
-function MaterialSymbolsMailOutline() {
+export function MaterialSymbolsMailOutline() {
   return (
     <div className="relative shrink-0 size-[85px]" data-name="material-symbols:mail-outline">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="material-symbols:mail-outline">
+        <g>
           <rect fill="var(--fill-0, #D9D9D9)" height="85" rx="40" width="85" />
           <path d={svgPaths.p36270580} fill="var(--fill-0, black)" />
         </g>
@@ -164,11 +164,11 @@ function MaterialSymbolsMailOutline() {
   );
 }
 
-function TablerPhoneCall() {
+export function TablerPhoneCall() {
   return (
     <div className="relative shrink-0 size-[85px]" data-name="tabler:phone-call">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="tabler:phone-call">
+        <g>
           <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
           <path d={svgPaths.p3f181b00} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>
@@ -177,11 +177,11 @@ function TablerPhoneCall() {
   );
 }
 
-function MynauiTelegram() {
+export function MynauiTelegram() {
   return (
     <div className="relative shrink-0 size-[85px]" data-name="mynaui:telegram">
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 85 85">
-        <g id="mynaui:telegram">
+        <g>
           <path d={svgPaths.p12eb5e80} fill="var(--fill-0, #D9D9D9)" />
           <path d={svgPaths.pf565fa0} stroke="var(--stroke-0, black)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
         </g>

@@ -1,0 +1,112 @@
+.section {
+  flex: 0 0 auto;
+  width: 1280px;
+  max-width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  font-family: var(--font-manrope), Manrope, Arial, sans-serif;
+  color: #000;
+}
+
+.heading, .footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.heading { align-items: flex-end; }
+.footer { align-items: center; }
+.heading h2, .heading p, .footer p, .step h3, .step p { margin: 0; }
+.heading p { max-width: 500px; }
+.heading p, .footer p, .step p { font-size: 24px; line-height: 30px; }
+.footer p { color: #464a6a; font-weight: 700; }
+
+.duration, .title {
+  display: block;
+  font-family: Raleway, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.duration { color: #9c78ff; font-size: 74px; line-height: 1; white-space: nowrap; }
+.duration strong { font-family: var(--font-manrope), Manrope, Arial, sans-serif; font-size: 122px; line-height: .8; }
+.title { margin-top: 20px; color: #464a6a; font-size: 48px; line-height: 52px; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 356px;
+  border-radius: 32px;
+  padding: 28px;
+  background: #9c78ff;
+  color: #fff;
+}
+
+.step h3 { font-size: 24px; line-height: 31px; font-weight: 700; text-transform: uppercase; }
+.step p { margin-top: 12px; min-height: 120px; text-wrap: pretty; }
+.number { align-self: flex-end; font-size: 32px; line-height: 35px; }
+.stepArt { position: absolute; top: 0; left: 0; width: 163px; height: 122px; overflow: hidden; pointer-events: none; }
+.chatArt { position: absolute; inset: 0; overflow: hidden; border-radius: 40px; mix-blend-mode: color-burn; opacity: .6; }
+.chatArt img { position: absolute; top: -139.73%; left: -263.81%; width: 391.24%; height: 392.05%; max-width: none; }
+.lessonArt img { width: 302px; height: 275px; max-width: none; }
+
+.cta {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 88px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 40px;
+  background: #464a6a;
+  color: #fff;
+  font: inherit;
+  font-size: 32px;
+  line-height: 35px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cta span {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  color: #9c78ff;
+  flex: 0 0 auto;
+}
+
+.cta svg { width: 32px; height: 32px; }
+.cta:hover { background: #393c58; }
+.cta:focus-visible { outline: 3px solid #464a6a; outline-offset: 4px; }
+
+.compact { width: 350px; gap: 24px; }
+.compact .heading, .compact .footer { align-items: stretch; flex-direction: column; gap: 24px; }
+.compact .duration, .compact .title { font-family: inherit; font-weight: 800; }
+.compact .duration, .compact .duration strong { font-size: 40px; line-height: 44px; }
+.compact .title { margin-top: 6px; font-size: 24px; line-height: 28px; }
+.compact .steps { grid-template-columns: 1fr; gap: 12px; }
+.compact .step { min-height: 0; padding: 20px; gap: 12px; background: #464a6a; }
+.compact .step p { min-height: 0; margin-top: 12px; }
+.compact .number { font-size: 24px; line-height: 26px; }
+.compact .heading p, .compact .footer p, .compact .step h3, .compact .step p { font-size: 16px; line-height: 20px; }
+.compact .cta { min-height: 64px; padding: 12px 20px; font-size: 20px; line-height: 24px; }
+.compact .cta span { width: 40px; height: 40px; }
+.compact .cta svg { width: 24px; height: 24px; }

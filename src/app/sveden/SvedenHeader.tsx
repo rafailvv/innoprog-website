@@ -2,7 +2,9 @@
 
 import React, { useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
-import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
+import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "../courseNavigation";
+
+import { MobileMenuContacts, TRIAL_APPLICATION_HREF } from "../../imports/shared/HeaderContactLinks";
 
 type MenuGroup = "adults" | "children" | "about" | null;
 
@@ -82,11 +84,6 @@ export function SvedenHeader() {
       window.location.assign("/");
       return;
     }
-
-    if (target?.closest('[data-name="кнопки пд"]')) {
-      event.preventDefault();
-      window.location.assign("/application");
-    }
   };
 
   return (
@@ -130,8 +127,10 @@ export function SvedenHeader() {
               open={openGroup === "about"}
               onToggle={() => toggleGroup("about")}
             />
+            <a className="site-mobile-menu__contact-nav" href={CONTACTS_LINK.href}>{CONTACTS_LINK.label}</a>
           </div>
-          <a className="site-mobile-menu__cta" href="/application">подобрать направление</a>
+          <MobileMenuContacts />
+          <a className="site-mobile-menu__cta" href={TRIAL_APPLICATION_HREF}>бесплатное занятие</a>
       </nav>
     </>
   );

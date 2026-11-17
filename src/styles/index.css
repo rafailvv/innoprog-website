@@ -308,6 +308,103 @@ body {
   text-decoration: none;
 }
 
+
+.site-main-header__actions,
+.site-header-contacts {
+  display: flex;
+  align-items: center;
+}
+
+.site-main-header__actions {
+  align-self: stretch;
+  gap: 16px;
+}
+
+.site-main-header__actions > [data-name="кнопки пд"] {
+  align-self: stretch;
+}
+
+.site-header-contacts {
+  flex: 0 0 auto;
+  gap: 12px;
+  --contact-size: 48px;
+  --contact-background: #d9d9d9;
+  --contact-foreground: #000;
+}
+
+.site-header-contacts > a {
+  display: grid;
+  place-items: center;
+  width: var(--contact-size);
+  height: var(--contact-size);
+  border-radius: 50%;
+  background: var(--contact-background);
+  color: var(--contact-foreground);
+  --fill-0: var(--contact-background);
+  --stroke-0: var(--contact-foreground);
+}
+
+.site-header-contacts > a > div {
+  width: 100%;
+  height: 100%;
+}
+
+.site-header-contacts > a:focus-visible,
+.site-mobile-menu__contacts > a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.site-header-contacts__max {
+  width: 50%;
+  height: 50%;
+}
+
+.site-header-contacts--mobile,
+.site-header-contacts--menu {
+  --contact-background: #9c78ff;
+  --contact-foreground: #fff;
+}
+
+.site-header-contacts--mobile {
+  --contact-size: 44px;
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+.site-main-header--mobile:has(.site-header-contacts--mobile) {
+  align-items: center;
+}
+
+.site-mobile-menu__contacts {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  color: #fff;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.site-mobile-menu__contacts > a {
+  color: inherit;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.site-mobile-menu__contacts > p {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.site-mobile-menu__links > .site-mobile-menu__contact-nav {
+  display: flex;
+  height: auto;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .site-main-header__course-logo {
   display: none;
 }

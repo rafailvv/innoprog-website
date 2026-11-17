@@ -1,8 +1,9 @@
 export const MOBILE_DESIGN_WIDTH = 390;
 export const MOBILE_DESIGN_HEIGHT = 10610;
 
+export const MOBILE_HERO_ACTIONS_HEIGHT = 80;
 export const MOBILE_FEATURES_BG_TOP = 701;
-export const MOBILE_PLATFORM_TOP = 2216;
+export const MOBILE_PLATFORM_TOP = 2216 + MOBILE_HERO_ACTIONS_HEIGHT;
 // Paint the purple background over the top of the platform without moving its content or bottom edge.
 const MOBILE_FEATURES_BG_OVERLAP = 24;
 export const MOBILE_FEATURES_BG_HEIGHT = MOBILE_PLATFORM_TOP - MOBILE_FEATURES_BG_TOP + MOBILE_FEATURES_BG_OVERLAP;

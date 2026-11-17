@@ -38,11 +38,13 @@ import {
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
-import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "./courseNavigation";
+import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
+import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
+import { TariffsInformation } from "./tariffs/TariffsInformation";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
@@ -1914,7 +1916,7 @@ function TariffsPage({
 
             <section className="site-tariffs-page__conditions" aria-label="Условия оплаты">
               <article>
-                <h2>Оплата<br />по факту обучения</h2>
+                <h2>Оплата<br />за один месяц</h2>
                 <p>Без кредитов, рассрочек и скрытых обязательств</p>
               </article>
               <article>
@@ -1953,6 +1955,7 @@ function TariffsPage({
                 </article>
               ))}
             </section>
+            <TariffsInformation isMobile={isMobile} />
           </div>
         </div>
       </div>
@@ -4408,6 +4411,21 @@ export default function App({
 
     goHome();
     window.setTimeout(() => {
+      const homeSectionIds: Partial<Record<keyof typeof desktopScrollTargets, string>> = {
+        adults: "courses",
+        children: "courses",
+        directions: "courses",
+        reviews: "home-reviews",
+        form: "home-application",
+      };
+      const sectionId = homeSectionIds[key];
+      const section = sectionId ? document.getElementById(sectionId) : null;
+
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
       const targets = viewport.isMobile ? mobileScrollTargets : desktopScrollTargets;
       scrollToDesignY(targets[key]);
     }, 0);
@@ -5329,9 +5347,11 @@ export default function App({
                 {ABOUT_SITE_LINKS.map(({ label, href }) => <a href={href} key={href} tabIndex={openMobileNavGroup === "about" ? undefined : -1}>{label}</a>)}
               </div>
             </div>
+            <a className="site-mobile-menu__contact-nav" href={CONTACTS_LINK.href}>{CONTACTS_LINK.label}</a>
           </div>
+          <MobileMenuContacts />
           <button className="site-mobile-menu__cta" data-mobile-menu-link data-scroll-target="form" type="button">
-            подобрать направление
+            бесплатное занятие
           </button>
         </nav>
       )}
