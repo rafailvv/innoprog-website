@@ -2,6 +2,9 @@ import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonDesktopCard
 import { DirectionHoverOverlay } from "../shared/DirectionHoverOverlay";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
+import { FreeTrialSection } from "../../app/components/FreeTrialSection";
+import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
+import { MentorBenefitBriefcaseIcon, MentorBenefitSupportIcon } from "../shared/MentorBenefitIcons";
 import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 import { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
@@ -562,6 +565,7 @@ function Frame16() {
       <Frame14 />
       <Frame132 />
       <Frame15 />
+      <HomePricePanel />
       <FreeCoursesBanner />
     </div>
   );
@@ -569,7 +573,7 @@ function Frame16() {
 
 function Frame127() {
   return (
-    <div className="content-stretch flex flex-col gap-[104px] items-center relative shrink-0">
+    <div id="courses" className="content-stretch flex flex-col gap-[104px] items-center relative shrink-0">
       <Frame17 />
       <Frame16 />
     </div>
@@ -1049,61 +1053,6 @@ function Frame108() {
         <p className="leading-[30px] mb-0">в реальных проектах</p>
         <p className="leading-[30px]">после обучения</p>
       </div>
-    </div>
-  );
-}
-
-function MentorBenefitBriefcaseIcon() {
-  return (
-    <div aria-hidden="true" className="absolute h-[122px] left-[4px] pointer-events-none top-[-6px] w-[160px]">
-      <svg className="block size-full" fill="none" viewBox="0 0 102 78">
-        <defs>
-          <linearGradient id="mentor-briefcase-body-desktop" x1="20" x2="78" y1="10" y2="75" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#D9CDFE" />
-            <stop offset="0.55" stopColor="#9B73FF" />
-            <stop offset="1" stopColor="#7D4CFF" />
-          </linearGradient>
-          <linearGradient id="mentor-briefcase-flap-desktop" x1="22" x2="81" y1="6" y2="54" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#BEA7FF" />
-            <stop offset="1" stopColor="#6E35F8" />
-          </linearGradient>
-        </defs>
-        <g opacity="0.9">
-          <path d="M36 19.5C36 12.6 41.6 7 48.5 7H56C62.9 7 68.5 12.6 68.5 19.5V23H59.8V19.5C59.8 17.4 58.1 15.7 56 15.7H48.5C46.4 15.7 44.7 17.4 44.7 19.5V23H36V19.5Z" fill="#7E46FF" />
-          <rect fill="url(#mentor-briefcase-body-desktop)" height="44" rx="12" width="76" x="13" y="23" />
-          <path d="M13 34.5C13 28.1 18.1 23 24.5 23H77.5C83.9 23 89 28.1 89 34.5V39.8L51 53L13 39.8V34.5Z" fill="url(#mentor-briefcase-flap-desktop)" />
-          <circle cx="51" cy="41" fill="#956AFF" r="6.3" stroke="#7742F6" strokeOpacity="0.45" strokeWidth="1.1" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function MentorBenefitSupportIcon() {
-  return (
-    <div aria-hidden="true" className="absolute h-[122px] left-[2px] pointer-events-none top-[-3px] w-[160px]">
-      <svg className="block size-full" fill="none" viewBox="0 0 116 88">
-        <defs>
-          <linearGradient id="mentor-support-front-desktop" x1="20" x2="79" y1="12" y2="84" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#E2D7FF" />
-            <stop offset="0.58" stopColor="#AE8FFF" />
-            <stop offset="1" stopColor="#8352FF" />
-          </linearGradient>
-          <linearGradient id="mentor-support-back-desktop" x1="61" x2="108" y1="11" y2="76" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#B08DFF" />
-            <stop offset="1" stopColor="#6F32F3" />
-          </linearGradient>
-          <filter id="mentor-support-shadow-desktop" colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="88" width="112" x="2" y="0">
-            <feDropShadow dx="0" dy="8" floodColor="#6D35FF" floodOpacity="0.24" stdDeviation="8" />
-          </filter>
-        </defs>
-        <g filter="url(#mentor-support-shadow-desktop)" opacity="0.88">
-          <circle cx="72" cy="30" fill="url(#mentor-support-back-desktop)" r="24" />
-          <path d="M47 82C47 65.4 60.4 52 77 52H80C96.6 52 110 65.4 110 82V84H47V82Z" fill="url(#mentor-support-back-desktop)" />
-          <circle cx="36" cy="33" fill="url(#mentor-support-front-desktop)" r="26" />
-          <path d="M8 86C8 67.8 22.8 53 41 53H45C63.2 53 78 67.8 78 86V88H8V86Z" fill="url(#mentor-support-front-desktop)" />
-        </g>
-      </svg>
     </div>
   );
 }
@@ -1656,7 +1605,7 @@ function Component6() {
 
 function Frame124() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0">
+    <div id="home-reviews" className="content-stretch flex flex-col items-start relative shrink-0">
       <Component4 />
       <Component6 />
     </div>
@@ -1903,6 +1852,7 @@ function Frame122() {
       <Frame42 />
       <Frame124 />
       <Component7 />
+      <FreeTrialSection />
       <Frame126 />
     </div>
   );
@@ -2016,18 +1966,21 @@ export default function Component() {
           <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
         </div>
       </div>
-      <button className="-translate-x-1/2 absolute content-stretch flex h-[88px] items-center justify-between left-[calc(50%-3px)] px-[24px] py-[16px] rounded-[40px] site-start-button top-[652px] w-[622px]" data-name="кнопки пд" data-node-id="3401:839" type="button">
-        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</span>
-        <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
-          <span className="block relative shrink-0 size-[32px]">
-            <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
-                <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #9C78FF)" strokeWidth="2" />
-              </svg>
+      <div className="absolute top-[652px] inset-x-0 z-30 flex items-center justify-center gap-[16px]">
+        <button className="relative flex h-[88px] items-center justify-between gap-[24px] px-[24px] py-[16px] rounded-[40px] site-start-button" data-name="кнопки пд" data-node-id="3401:839" type="button" data-application-open aria-haspopup="dialog">
+          <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">записаться на бесплатное занятие</span>
+          <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
+            <span className="block relative shrink-0 size-[32px]">
+              <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
+                  <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #9C78FF)" strokeWidth="2" />
+                </svg>
+              </span>
             </span>
           </span>
-        </span>
-      </button>
+        </button>
+        <HomeCoursesLink />
+      </div>
       <Frame128 />
       <Frame131 />
       <Group11 />

@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../../app/courseNavigation";
+import { HeaderContactLinks, TRIAL_APPLICATION_HREF } from "./HeaderContactLinks";
 const svgPaths = {
 p10fe4280: "M114.301 48.6534H112.695V61.4152H114.301V48.6534Z",
 p111ef500: "M254.123 0H240.569L257.439 22.6296H270.998L254.123 0Z",
@@ -128,9 +129,6 @@ function Frame58({ childrenActive, childrenHref, childrenLinks }: { childrenActi
           ))}
         </div>
       </div>
-      <a className="h-[17px] relative shrink-0 w-[83px]" data-main-nav="reviews" data-name="Text" href="/reviews">
-        <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">отзывы</p>
-      </a>
       <div className="site-main-header__nav-group">
         <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[72px]" data-main-nav="about" data-name="Text" href="/about">
           <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">о нас</p>
@@ -151,11 +149,17 @@ export function MainScreenDesktopHeader({ childrenActive, childrenHref, children
         <Group />
       </a>
       <Frame58 childrenActive={childrenActive} childrenHref={childrenHref} childrenLinks={childrenLinks} />
-      <div className="flex flex-row items-center self-stretch">
-        <a className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0" data-name="кнопки пд" href={applicationHref || "/application"}>
+      <div className="site-main-header__actions">
+        <HeaderContactLinks variant="desktop" />
+        <a
+          className="bg-[#464a6a] h-full relative rounded-[40px] shrink-0"
+          data-application-open={applicationHref ? undefined : ""}
+          data-name="кнопки пд"
+          href={applicationHref ?? TRIAL_APPLICATION_HREF}
+        >
           <div className="flex flex-row items-center justify-center size-full">
             <div className="content-stretch flex items-center justify-center px-[24px] py-[16px] relative size-full">
-              <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">подобрать курс</p>
+              <p className="font-['Manrope:Medium',sans-serif] font-medium leading-[35px] relative shrink-0 text-[24px] text-white whitespace-nowrap">{applicationHref ? "подобрать курс" : "бесплатное занятие"}</p>
             </div>
           </div>
         </a>

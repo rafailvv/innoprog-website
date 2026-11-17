@@ -1,6 +1,8 @@
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonMobileCard } from "../shared/PythonDirectionCard";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
+import { FreeTrialSection } from "../../app/components/FreeTrialSection";
+import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
 import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
@@ -46,6 +48,7 @@ import imgImg29491 from "../MainScreenDesktop/a9544174871795971e5fb7802195e10ce3
 import {
   MOBILE_FEATURES_BG_HEIGHT,
   MOBILE_FEATURES_BG_TOP,
+  MOBILE_HERO_ACTIONS_HEIGHT,
   MOBILE_NEXT_SECTIONS_TOP,
   MOBILE_PLATFORM_CONTENT_TOP,
   MOBILE_PLATFORM_HEIGHT,
@@ -360,7 +363,7 @@ function Frame144() {
 
 function Frame145() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] top-[735px] w-[350px]">
+    <div className="absolute content-stretch flex flex-col gap-[24px] items-start left-[20px] w-[350px]" style={{ top: 735 + MOBILE_HERO_ACTIONS_HEIGHT }}>
       <Frame144 />
     </div>
   );
@@ -1135,10 +1138,11 @@ function Frame183() {
 
 function Frame171() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-start justify-center relative shrink-0 w-full">
+    <div id="courses" className="content-stretch flex flex-col gap-[40px] items-start justify-center relative shrink-0 w-full">
       <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[43px] min-w-full relative shrink-0 text-[40px] text-black text-center uppercase w-[min-content]">курсы</h2>
       <Frame184 />
       <Frame183 />
+      <HomePricePanel compact />
       <FreeCoursesBanner />
     </div>
   );
@@ -2232,7 +2236,7 @@ function Frame168() {
 
 function Frame175() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+    <div id="home-reviews" className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Component2 />
       <Frame168 />
     </div>
@@ -2501,6 +2505,7 @@ function Frame176() {
       <Frame172 />
       <Frame175 />
       <Frame180 />
+      <FreeTrialSection compact />
       <Frame182 />
     </div>
   );
@@ -2542,8 +2547,8 @@ export default function Component() {
       <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
           <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
       </div>
-      <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button">
-        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</span>
+      <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button" data-application-open aria-haspopup="dialog">
+        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">бесплатное занятие</span>
         <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
           <span className="block relative shrink-0 size-[16px]">
             <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
@@ -2554,6 +2559,7 @@ export default function Component() {
           </span>
         </span>
       </button>
+      <HomeCoursesLink compact />
     </div>
   );
 }

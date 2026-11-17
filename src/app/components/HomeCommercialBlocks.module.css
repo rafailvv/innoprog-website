@@ -1,0 +1,106 @@
+.coursesLink, .tariffsLink, .price, .application {
+  font-family: var(--font-manrope), Manrope, Arial, sans-serif;
+}
+
+.coursesLink, .tariffsLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.coursesLink {
+  height: 88px;
+  padding: 0 25px;
+  border: 3px solid rgb(0 0 0 / 60%);
+  color: #000;
+  background: #ece4ff;
+  font-size: 32px;
+  line-height: 35px;
+  font-weight: 500;
+}
+
+.coursesLink:hover { background: #fff; }
+.mobileCoursesLink { position: absolute; top: 711px; left: 20px; z-index: 5; width: 350px; height: 56px; font-size: 20px; line-height: 24px; }
+.coursesLink:focus-visible, .tariffsLink:focus-visible { outline: 3px solid #464a6a; outline-offset: 3px; }
+
+.price {
+  width: 1280px;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-top: 24px;
+  padding: 53px 69px;
+  border: 3px solid #9c78ff;
+  border-radius: 40px;
+  color: #000;
+  background: #fff;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.priceDetails { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding-right: 56px; border-right: 2px solid #000; }
+.price h3 { margin: 0; font-size: 40px; line-height: 1; font-weight: 800; text-transform: uppercase; }
+.price p { margin: 0; }
+.tariffsLink { min-height: 72px; padding: 0 24px; margin-top: 8px; color: #fff; background: #9c78ff; font-weight: 500; }
+.tariffsLink:hover { background: #8668df; }
+.terms { display: grid; gap: 16px; align-content: center; margin: 0; padding: 0; list-style: none; }
+.terms li { display: flex; align-items: center; gap: 16px; }
+.terms li span { flex: 0 0 auto; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; background: #9c78ff; font-size: 20px; font-weight: 700; }
+
+.mobilePrice { width: 350px; display: flex; flex-direction: column; gap: 16px; margin-top: 0; padding: 24px; border-radius: 32px; font-size: 16px; line-height: 20px; }
+.mobilePrice .priceDetails { display: contents; }
+.mobilePrice h3 { font-size: 28px; line-height: 30px; }
+.mobilePrice .tariffsLink { order: 1; min-height: 56px; width: 100%; margin-top: 0; font-size: 20px; line-height: 24px; color: #fff; background: #464a6a; }
+.mobilePrice .tariffsLink:hover { background: #393c58; }
+.mobilePrice .terms { gap: 10px; }
+.mobilePrice .terms li { gap: 12px; }
+.mobilePrice .terms li span { width: 24px; height: 24px; font-size: 14px; }
+
+.application {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding: 32px 40px;
+  border-radius: 32px;
+  background: #464a6a;
+  color: #fff;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.applicationTitle { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; }
+.application p, .application h3 { margin: 0; }
+.applicationTitle h3 { font-size: 32px; line-height: 38px; font-weight: 800; text-transform: uppercase; }
+.applicationTitle p, .direct p { font-weight: 700; }
+.applicationSteps { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 24px; padding: 0; margin: 0; list-style: none; }
+.applicationSteps li { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 3px solid #9c78ff; }
+.applicationSteps li span { font-size: 24px; line-height: 28px; }
+.direct { display: flex; align-items: center; gap: 28px; padding: 14px 24px; border-radius: 24px; background: rgb(255 255 255 / 8%); }
+.direct p { margin-right: auto; }
+.direct a { display: flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; }
+.direct a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.direct a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 8px; }
+.contactIcon { flex: 0 0 auto; display: block; width: 48px; height: 48px; --fill-0: #9c78ff; --stroke-0: #fff; }
+.contactIcon > div { width: 100%; height: 100%; }
+.direct strong, .direct small { display: block; white-space: nowrap; }
+.direct strong { font-weight: 600; }
+.direct small { font-size: 16px; line-height: 21px; }
+
+@media (max-width: 767px) {
+  .application { gap: 16px; padding: 24px 20px; font-size: 16px; line-height: 20px; }
+  .applicationTitle { display: contents; }
+  .applicationTitle h3 { font-size: 24px; line-height: 28px; }
+  .applicationTitle p { order: 1; }
+  .applicationSteps { display: flex; flex-direction: column; gap: 12px; }
+  .applicationSteps li { flex-direction: row; gap: 10px; padding: 0; border: 0; }
+  .applicationSteps li span { flex: 0 0 26px; font-size: 16px; line-height: 20px; }
+  .direct { order: 2; align-items: flex-start; flex-direction: column; gap: 12px; padding: 16px 0 0; border-top: 1px solid rgb(255 255 255 / 40%); border-radius: 0; background: transparent; }
+  .direct a { gap: 12px; }
+  .contactIcon { width: 44px; height: 44px; }
+  .direct small { white-space: normal; }
+}

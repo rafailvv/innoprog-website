@@ -26,7 +26,7 @@ const securityHeaders = [
       "media-src 'self' blob: https://*.metrika.yandex.net",
       "connect-src 'self' https://*.metrika.yandex.net https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org wss://mc.yandex.ru wss://*.mc.yandex.ru wss://mc.yandex.com wss://*.mc.yandex.com wss://mc.yandex.md wss://mc.webvisor.com wss://mc.webvisor.org https://yastatic.net https://*.yastatic.net https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru https://api.innoprog.ru",
       "child-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
-      "frame-src 'self' blob: https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
+      "frame-src 'self' blob: https://yandex.ru/map-widget/ https://mc.yandex.ru https://*.mc.yandex.ru https://mc.yandex.com https://*.mc.yandex.com https://mc.yandex.md https://mc.webvisor.com https://mc.webvisor.org https://smartcaptcha.yandexcloud.net https://smartcaptcha.cloud.yandex.ru",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
     ].join("; "),
