@@ -182,6 +182,10 @@ describe("free module application source", () => {
       "Бесплатник «Первые шаги в Python», страница бонуса, модуль пройден"],
     [{ module: "analytics-start", page: "lesson", lesson: "Открываем CSV в pandas" },
       "Бесплатник «Первые шаги в аналитике данных», урок «Открываем CSV в pandas»"],
+    [{ module: "data-science-start", page: "lesson", lesson: "Первый прогноз" },
+      "Бесплатник «Первые шаги в ML», урок «Первый прогноз»"],
+    [{ module: "data-science-start", page: "bonus" },
+      "Бесплатник «Первые шаги в ML», страница бонуса, модуль пройден"],
     [{ module: "analytics-start", page: "bonus" },
       "Бесплатник «Первые шаги в аналитике данных», страница бонуса, модуль пройден"],
   ])("forwards the source separately from the question for %o", async (source, label) => {

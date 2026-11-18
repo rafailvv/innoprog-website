@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { LeadModal } from "../../components/LeadModal";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "../../components/YandexSmartCaptcha";
-import { FREE_MODULE_FORM_ID, type ComplimentaryCourseLeadSource } from "../../complimentaryCourseLead";
+import { complimentaryCourseOfferName, FREE_MODULE_FORM_ID, type ComplimentaryCourseLeadSource } from "../../complimentaryCourseLead";
 import { getLeadPayload, isLeadPayloadValid, sendLeadApplication } from "../../leadApplication";
 import "../../../styles/adult-pages.css";
 import "./free-module.css";
@@ -16,7 +16,7 @@ function notifyPlatform(type: string) {
 export default function FreeModuleApplication({
   source, offerUntil,
 }: { source: ComplimentaryCourseLeadSource; offerUntil: number | null }) {
-  const courseName = source.module === "analytics-start" ? "«Аналитик данных»" : "Python-разработчик";
+  const courseName = complimentaryCourseOfferName(source.module);
   const [consent, setConsent] = useState(false);
   const [advertisingConsent, setAdvertisingConsent] = useState(false);
   const [pending, setPending] = useState(false);

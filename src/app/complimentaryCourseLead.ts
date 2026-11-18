@@ -7,7 +7,16 @@ export type ComplimentaryCourseLeadSource = { module: string } & FreeModuleLocat
 const moduleNames: Record<string, string> = {
   "python-start": "Первые шаги в Python",
   "analytics-start": "Первые шаги в аналитике данных",
+  "data-science-start": "Первые шаги в ML",
 };
+
+export function complimentaryCourseOfferName(module: string) {
+  return {
+    "python-start": "Python-разработчик",
+    "analytics-start": "«Аналитик данных»",
+    "data-science-start": "«ML-инженер»",
+  }[module];
+}
 
 export function parseComplimentaryCourseLead(value: unknown): ComplimentaryCourseLeadSource | null {
   if (!value || typeof value !== "object") return null;
