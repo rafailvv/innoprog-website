@@ -5,7 +5,7 @@ import svgPaths from "./svg-egdjewsyn7";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffDiplomaFeatures } from "../shared/CourseTariffDiplomaFeatures";
-import { frontendCoursePricing } from "../shared/frontendCoursePricing";
+import { standardCoursePricing } from "../shared/standardCoursePricing";
 import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.delivery.webp";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
@@ -3907,7 +3907,7 @@ function Frame179() {
 function Frame260() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex items-center justify-center px-[8px] py-[12px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[16px] tracking-[0.48px] whitespace-nowrap">-{frontendCoursePricing.basic.discount}%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[16px] tracking-[0.48px] whitespace-nowrap">-{standardCoursePricing.basic.discount}%</p>
     </div>
   );
 }
@@ -3915,7 +3915,7 @@ function Frame260() {
 function Frame261() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{frontendCoursePricing.basic.originalPriceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{standardCoursePricing.basic.originalPriceLabel}</p>
       <Frame260 />
     </div>
   );
@@ -3925,7 +3925,7 @@ function Frame176() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame261 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">{frontendCoursePricing.basic.priceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">{standardCoursePricing.basic.priceLabel}</p>
     </div>
   );
 }
@@ -4153,7 +4153,7 @@ function Frame186() {
 function Frame264() {
   return (
     <div className="bg-[rgba(156,120,255,0.6)] content-stretch flex items-center justify-center px-[8px] py-[12px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">-{frontendCoursePricing.extended.discount}%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] text-white tracking-[0.48px] whitespace-nowrap">-{standardCoursePricing.extended.discount}%</p>
     </div>
   );
 }
@@ -4161,7 +4161,7 @@ function Frame264() {
 function Frame263() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{frontendCoursePricing.extended.originalPriceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{standardCoursePricing.extended.originalPriceLabel}</p>
       <Frame264 />
     </div>
   );
@@ -4171,7 +4171,7 @@ function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame263 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap">{frontendCoursePricing.extended.priceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[#9c78ff] text-[40px] uppercase whitespace-nowrap">{standardCoursePricing.extended.priceLabel}</p>
     </div>
   );
 }
@@ -4419,7 +4419,7 @@ function Frame187() {
 function Frame266() {
   return (
     <div className="bg-[rgba(255,255,255,0.8)] content-stretch flex items-center justify-center px-[8px] py-[12px] relative rounded-[20px] shrink-0">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[16px] tracking-[0.48px] whitespace-nowrap">-{frontendCoursePricing.personal.discount}%</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#9c78ff] text-[16px] tracking-[0.48px] whitespace-nowrap">-{standardCoursePricing.personal.discount}%</p>
     </div>
   );
 }
@@ -4427,7 +4427,7 @@ function Frame266() {
 function Frame265() {
   return (
     <div className="content-stretch flex gap-[16px] items-end justify-center relative shrink-0 w-full">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{frontendCoursePricing.personal.originalPriceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [text-decoration-skip-ink:none] [text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Manrope:Bold',sans-serif] font-bold leading-[31px] line-through relative shrink-0 text-[24px] text-[rgba(0,0,0,0.4)] uppercase whitespace-nowrap">{standardCoursePricing.personal.originalPriceLabel}</p>
       <Frame266 />
     </div>
   );
@@ -4437,7 +4437,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
       <Frame265 />
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">{frontendCoursePricing.personal.priceLabel}</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] text-white uppercase whitespace-nowrap">{standardCoursePricing.personal.priceLabel}</p>
     </div>
   );
 }

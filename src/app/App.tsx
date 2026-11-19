@@ -39,12 +39,12 @@ import {
 } from "./mobileLayout";
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent, ReactNode } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
 import { TariffsInformation } from "./tariffs/TariffsInformation";
-import { COURSE_TARIFF_DIPLOMA_FEATURES, CourseTariffCheck } from "../imports/shared/CourseTariffDiplomaFeatures";
+import { CourseTariffCards } from "../imports/shared/CourseTariffCards";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
@@ -444,48 +444,6 @@ const REVIEWS_INDEX_COPY: Record<(typeof REVIEWS_INDEX_ORDER)[number], {
       "Обратился в онлайн-школу ИННОПРОГ с запросом на личного наставника по backend-разработке на Python, потому что хотел систематизировать знания и закрыть пробелы, которые мешали двигаться быстрее. Моим наставником стал Артемий, и это оказался именно тот специалист, которого я искал. Артемий выстроил понятный план обучения и помог привести в порядок базу. Начиная от архитектурного мышления и принципов построения backend-сервисов до практики написания чистого кода и уверенной работы с типовыми задачами. Особенно ценно, что он объясняет не как сделать по шаблону, а почему это делается именно так, где могут быть ошибки и мыслить как разработчик. Благодаря регулярной обратной связи, разбору моих решений и точечным рекомендациям я заметно подтянул уровень и стал увереннее в командной работе. Рекомендую Артемия всем, кто хочет реального прогресса в Python backend, структурно, по делу и с сильной поддержкой наставника на каждом этапе",
   },
 };
-
-const INCLUDED_TARIFF_FEATURES = [
-  "Доступ к учебной платформе ИННОПРОГ",
-  "Проектная практика по программе",
-  "Домашние задания и проверка кода преподавателем",
-  "Ежедневная поддержка куратора в чате",
-  "Записи ваших индивидуальных занятий с преподавателем навсегда",
-  ...COURSE_TARIFF_DIPLOMA_FEATURES,
-];
-
-const TARIFFS = [
-  {
-    name: "Базовый",
-    oldPrice: "12 590 р./мес.",
-    discount: "-36%",
-    price: "7 990 р./мес.",
-    accent: "dark",
-    lessons: "4 индивидуальных занятия в месяц",
-    internship: false,
-    careerSupport: false,
-  },
-  {
-    name: "Расширенный",
-    oldPrice: "23 590 р./мес.",
-    discount: "-38%",
-    price: "14 390 р./мес.",
-    accent: "purple",
-    lessons: "8 индивидуальных занятий в месяц",
-    internship: true,
-    careerSupport: false,
-  },
-  {
-    name: "Персональный",
-    oldPrice: "31 950 р./мес.",
-    discount: "-41%",
-    price: "18 890 р./мес.",
-    accent: "dark",
-    lessons: "12 индивидуальных занятий в месяц",
-    internship: true,
-    careerSupport: true,
-  },
-] as const;
 
 const REVIEW_STORY_CARD_TITLES: Record<ReviewStoryKey, string> = {
   кирилл: "Как Кирилл перешёл из HR в ИТ",
@@ -1805,17 +1763,6 @@ function AboutPage({
   );
 }
 
-function TariffFeature({ included, children }: { included: boolean; children: ReactNode }) {
-  return (
-    <li className={included ? "site-tariffs-card__feature" : "site-tariffs-card__feature site-tariffs-card__feature--muted"}>
-      <span aria-hidden="true" className="site-tariffs-card__feature-icon">
-        {included ? <CourseTariffCheck /> : "−"}
-      </span>
-      <span>{children}</span>
-    </li>
-  );
-}
-
 function TariffsPage({
   headerScale,
   isMobile,
@@ -1897,36 +1844,7 @@ function TariffsPage({
             </section>
 
             <section className="site-tariffs-page__cards" aria-label="Список тарифов">
-              {TARIFFS.map((tariff) => (
-                <article
-                  className={[
-                    "site-tariffs-card",
-                    tariff.accent === "purple" ? "site-tariffs-card--purple" : "site-tariffs-card--dark",
-                  ].join(" ")}
-                  key={tariff.name}
-                >
-                  <h2>{tariff.name}</h2>
-                  <div className="site-tariffs-card__price">
-                    <div>
-                      <span className="site-tariffs-card__old-price">{tariff.oldPrice}</span>
-                      <span className="site-tariffs-card__discount">{tariff.discount}</span>
-                    </div>
-                    <strong>{tariff.price}</strong>
-                  </div>
-                  <ul>
-                    <TariffFeature included>
-                      <strong>{tariff.lessons}</strong>
-                    </TariffFeature>
-                    {INCLUDED_TARIFF_FEATURES.map((text) => (
-                      <TariffFeature included key={text}>{text}</TariffFeature>
-                    ))}
-                    <TariffFeature included={tariff.internship}>Стажировка после обучения</TariffFeature>
-                    <TariffFeature included={tariff.careerSupport}>2 тестовых технических собеседования</TariffFeature>
-                    <TariffFeature included={tariff.careerSupport}>Подготовка резюме с HR-специалистом</TariffFeature>
-                  </ul>
-                  <button className="site-tariffs-card__button" type="button">записаться</button>
-                </article>
-              ))}
+              <CourseTariffCards compact={isMobile} />
             </section>
             <TariffsInformation isMobile={isMobile} />
           </div>

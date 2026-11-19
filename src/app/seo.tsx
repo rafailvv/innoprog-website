@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { STUDENT_REVIEWS, type StudentReview } from "./studentReviewsData";
 import { childrenCourseNavigation } from "./children/courses/course-paths";
 import { teachers, type TeacherRole } from "../imports/shared/teacherData";
-import { frontendCoursePricing } from "../imports/shared/frontendCoursePricing";
+import { standardCoursePricing } from "../imports/shared/standardCoursePricing";
 import { FREE_COURSES_LINK } from "./courseNavigation";
 
 export const SITE_URL = "https://innoprog.ru";
@@ -593,12 +593,12 @@ export const pythonCourseJsonLd = {
     "@type": "Offer",
     category: "Paid online course",
     availability: "https://schema.org/InStock",
-    price: "7990",
+    price: String(standardCoursePricing.basic.price),
     priceCurrency: "RUB",
     url: absoluteUrl("/tariffs"),
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: "7990",
+      price: String(standardCoursePricing.basic.price),
       priceCurrency: "RUB",
       unitText: "месяц",
     },
@@ -708,12 +708,12 @@ export const frontendCourseJsonLd = {
     "@type": "Offer",
     category: "Paid online course",
     availability: "https://schema.org/InStock",
-    price: String(frontendCoursePricing.basic.price),
+    price: String(standardCoursePricing.basic.price),
     priceCurrency: "RUB",
     url: absoluteUrl("/frontend-developer-course"),
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: String(frontendCoursePricing.basic.price),
+      price: String(standardCoursePricing.basic.price),
       priceCurrency: "RUB",
       unitText: "месяц",
     },
