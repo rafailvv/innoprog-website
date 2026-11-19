@@ -3495,42 +3495,6 @@ button[data-name="кнопки пд"] {
   outline-offset: 3px;
 }
 
-[data-name="тариф"] div:has(> button[data-name="кнопки пд"]) {
-  display: contents;
-}
-
-[data-name="тариф"] button[data-name="кнопки пд"] {
-  order: 100;
-  margin-top: auto;
-}
-
-/* Generated mobile tariff cards group the CTA with the price. Flatten only
-   that group so the feature list stays before the CTA in every course. */
-[data-name="тарифные карточки"] > div > div > div:has(> button[data-name="кнопки пд"]) {
-  display: contents;
-}
-
-[data-name="тарифные карточки"] button[data-name="кнопки пд"] {
-  order: 100;
-  margin-top: 0;
-}
-
-/* Keep tariff prices centered independently from the discount badge. */
-[data-name="тариф"] [data-name="тариф/актив"] {
-  align-items: center !important;
-}
-
-[data-name="тариф"] [data-name="тариф/актив"] div:has(> p.line-through) {
-  position: relative;
-  width: 100%;
-  justify-content: center !important;
-}
-
-[data-name="тариф"] [data-name="тариф/актив"] div:has(> p.line-through) > :not(p) {
-  position: absolute;
-  left: calc(50% + 94px);
-}
-
 .site-course-program-star-wrap,
 .site-course-reviews-bg,
 .site-course-structure__sticky-balance-art {

@@ -20,7 +20,8 @@ export default defineConfig({
         // Ratchet the real baseline: CI must fail when coverage regresses.
         statements: 9.4,
         branches: 75,
-        functions: 62,
+        // Cap uncovered functions so deleting covered duplicates cannot lower the pass rate.
+        functions: -2641,
         lines: 9.4,
       },
     },

@@ -62,17 +62,9 @@ for (const [courseName, duration] of Object.entries(expectedCourseDurations)) {
       throw new Error(`${courseName}${viewport} contains the obsolete 28-week duration`);
     }
 
-    if (courseName === "PythonCourse") {
-      if (!source.includes("<CourseTariffCards")) {
-        throw new Error(`${courseName}${viewport} must use the shared cards with both diploma documents`);
-      }
-      continue;
-    }
-
-    const diplomaFeatureGroups = source.split("<CourseTariffDiplomaFeatures tone=").length - 1;
-
-    if (diplomaFeatureGroups !== 3) {
-      throw new Error(`${courseName}${viewport} must include both diploma documents in all tariffs`);
+    const sharedCards = viewport === "Mobile" ? "<CourseTariffCards compact />" : "<CourseTariffCards />";
+    if (source.split(sharedCards).length !== 2) {
+      throw new Error(`${courseName}${viewport} must render the shared tariff cards once`);
     }
   }
 }

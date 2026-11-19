@@ -26,9 +26,26 @@ const screens: Record<string, () => Promise<{ default: ComponentType }>> = {
 afterEach(cleanup);
 
 describe("course pages remain interactive after SEO changes", () => {
-  it.each(Object.entries(screens))("preserves FAQ, programme and carousel controls in %s", async (_name, load) => {
+  it.each(Object.entries(screens))("preserves tariff, FAQ, programme and carousel controls in %s", async (name, load) => {
     const Screen = (await load()).default;
     const { container } = render(<Screen />);
+    const decks = container.querySelectorAll("[data-course-tariff-cards]");
+    expect(decks).toHaveLength(1);
+    const cards = [...decks[0].querySelectorAll("[data-tariff-card]")];
+    expect(cards.map((card) => card.querySelector("[data-tariff-monthly]")?.textContent?.replace(/\s+/g, " "))).toEqual([
+      "7 990 р./мес.",
+      "14 390 р./мес.",
+      "18 890 р./мес.",
+    ]);
+    cards.forEach((card, index) => {
+      const interviews = [...card.querySelectorAll("li")].filter((row) => row.textContent?.includes("собеседован"));
+      expect(interviews).toHaveLength(1);
+      expect(Boolean(interviews[0].querySelector("svg"))).toBe(index === 2);
+      expect(card.querySelector('button[data-application-open]')).toHaveTextContent(
+        name.endsWith("Mobile.tsx") ? "начать обучение" : "записаться",
+      );
+    });
+
     const faq = [...container.querySelectorAll<HTMLButtonElement>(".site-course-faq-trigger")];
     expect(faq.length).toBeGreaterThan(2);
     const firstAnswer = faq[0].closest(".site-course-faq-item")!.querySelector(".site-course-faq-answer-shell")!;
