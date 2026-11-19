@@ -18,6 +18,15 @@ export const ANALYTICS_START_COURSE = {
   artwork: { src: "/free-analytics-course-glass.png", width: 680, height: 507 },
 } as const;
 
+export const SQL_START_COURSE = {
+  title: "Первые шаги в SQL",
+  description: "Научитесь выбирать, фильтровать и объединять данные в SQLite. В финале соберите отчёт по заказам",
+  href: "https://app.innoprog.ru/try/sql-start?mode=reg",
+  action: "перейти к курсу",
+  tags: ["Бесплатно", "Для новичков", "Нейросети для SQL"],
+  artwork: { src: "/free-sql-course-glass.webp", width: 680, height: 507 },
+} as const;
+
 export const DATA_SCIENCE_START_BONUS_TITLE = "Нейросети для ML-инженеров";
 
 export const DATA_SCIENCE_START_COURSE = {

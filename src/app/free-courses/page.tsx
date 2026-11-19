@@ -1,7 +1,7 @@
 import { PythonDesktopCard, PythonMobileCard } from "../../imports/shared/PythonDirectionCard";
 import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
 import { FREE_COURSES_LINK } from "../courseNavigation";
-import { ANALYTICS_START_COURSE, DATA_SCIENCE_START_COURSE, PYTHON_START_COURSE } from "../freeCourse";
+import { ANALYTICS_START_COURSE, DATA_SCIENCE_START_COURSE, PYTHON_START_COURSE, SQL_START_COURSE } from "../freeCourse";
 import { JsonLd, SITE_URL, absoluteUrl, breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "../seo";
 import { SvedenHeader } from "../sveden/SvedenHeader";
 import styles from "./free-courses.module.css";
@@ -9,9 +9,10 @@ import styles from "./free-courses.module.css";
 const courses = [
   { slug: "python-start", ...PYTHON_START_COURSE, artwork: undefined },
   { slug: "analytics-start", ...ANALYTICS_START_COURSE },
+  { slug: "sql-start", ...SQL_START_COURSE },
   { slug: "data-science-start", ...DATA_SCIENCE_START_COURSE },
 ];
-const catalogDescription = "Бесплатные курсы ИННОПРОГ для новичков. Напишите первую программу на Python, соберите отчёт по заказам или спрогнозируйте время доставки с помощью машинного обучения.";
+const catalogDescription = "Бесплатные курсы ИННОПРОГ для новичков. Напишите первую программу на Python, проанализируйте данные, соберите отчёт по заказам в SQL или спрогнозируйте время доставки с помощью машинного обучения.";
 const catalogUrl = absoluteUrl(FREE_COURSES_LINK.href);
 
 
