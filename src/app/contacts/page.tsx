@@ -71,7 +71,7 @@ export default function ContactsPage() {
           <div className={styles.content}>
             <header className={styles.intro}>
               <h1>Контакты</h1>
-              <p>Поможем выбрать курс и тариф, ответим на вопросы об оплате и налоговом вычете.</p>
+              <p>Поможем выбрать курс и тариф, ответим на вопросы об оплате и налоговом&nbsp;вычете</p>
             </header>
 
             <ul aria-label="Способы связи" className={styles.methods}>
@@ -94,7 +94,7 @@ export default function ContactsPage() {
                 <img alt="Иннополис" decoding="async" height={468} loading="lazy" src={aboutInnopolisUrl} width={791} />
                 <div>
                   <p><strong>Адрес.</strong> {ADDRESS}</p>
-                  <p><strong>Режим работы.</strong> По будням с 09:00 до 21:00 по московскому времени. Суббота и воскресенье выходные.</p>
+                  <p><strong>Режим работы.</strong> По будням с 09:00 до 21:00 по московскому времени. Суббота и воскресенье выходные</p>
                 </div>
               </div>
             </section>

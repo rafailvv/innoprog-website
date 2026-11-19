@@ -39,11 +39,12 @@ import {
 } from "./mobileLayout";
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent, ReactNode } from "react";
 import { SiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
 import { TariffsInformation } from "./tariffs/TariffsInformation";
+import { COURSE_TARIFF_DIPLOMA_FEATURES, CourseTariffCheck } from "../imports/shared/CourseTariffDiplomaFeatures";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
@@ -444,6 +445,15 @@ const REVIEWS_INDEX_COPY: Record<(typeof REVIEWS_INDEX_ORDER)[number], {
   },
 };
 
+const INCLUDED_TARIFF_FEATURES = [
+  "Доступ к учебной платформе ИННОПРОГ",
+  "Проектная практика по программе",
+  "Домашние задания и проверка кода преподавателем",
+  "Ежедневная поддержка куратора в чате",
+  "Записи ваших индивидуальных занятий с преподавателем навсегда",
+  ...COURSE_TARIFF_DIPLOMA_FEATURES,
+];
+
 const TARIFFS = [
   {
     name: "Базовый",
@@ -451,19 +461,9 @@ const TARIFFS = [
     discount: "-36%",
     price: "7 990 р./мес.",
     accent: "dark",
-    features: [
-      { text: "4 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЯ В МЕСЯЦ", included: true },
-      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
-      { text: "Проектная практика по программе", included: true },
-      { text: "Домашние задания и проверка кода преподавателем", included: true },
-      { text: "Ежедневная поддержка куратора в чате", included: true },
-      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
-      { text: "Диплом о профессиональной переподготовке", included: true },
-      { text: "Стажировка после обучения", included: false },
-      { text: "2 тестовых технических собеседования", included: false },
-      { text: "Подготовка резюме с HR-специалистом", included: false },
-    ],
+    lessons: "4 индивидуальных занятия в месяц",
+    internship: false,
+    careerSupport: false,
   },
   {
     name: "Расширенный",
@@ -471,19 +471,9 @@ const TARIFFS = [
     discount: "-38%",
     price: "14 390 р./мес.",
     accent: "purple",
-    features: [
-      { text: "8 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
-      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
-      { text: "Проектная практика по программе", included: true },
-      { text: "Домашние задания и проверка кода преподавателем", included: true },
-      { text: "Ежедневная поддержка куратора в чате", included: true },
-      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
-      { text: "Диплом о профессиональной переподготовке", included: true },
-      { text: "Стажировка после обучения", included: true },
-      { text: "2 тестовых технических собеседования", included: false },
-      { text: "Подготовка резюме с HR-специалистом", included: false },
-    ],
+    lessons: "8 индивидуальных занятий в месяц",
+    internship: true,
+    careerSupport: false,
   },
   {
     name: "Персональный",
@@ -491,19 +481,9 @@ const TARIFFS = [
     discount: "-41%",
     price: "18 890 р./мес.",
     accent: "dark",
-    features: [
-      { text: "12 ИНДИВИДУАЛЬНЫХ ЗАНЯТИЙ В МЕСЯЦ", included: true },
-      { text: "Доступ к учебной платформе ИННОПРОГ", included: true },
-      { text: "Проектная практика по программе", included: true },
-      { text: "Домашние задания и проверка кода преподавателем", included: true },
-      { text: "Ежедневная поддержка куратора в чате", included: true },
-      { text: "Записи ваших индивидуальных занятий с преподавателем навсегда", included: true },
-      { text: "Диплом ИТ-школы ИННОПРОГ о прохождении курса", included: true },
-      { text: "Диплом о профессиональной переподготовке", included: true },
-      { text: "Стажировка после обучения", included: true },
-      { text: "2 тестовых технических собеседования", included: true },
-      { text: "Подготовка резюме с HR-специалистом", included: true },
-    ],
+    lessons: "12 индивидуальных занятий в месяц",
+    internship: true,
+    careerSupport: true,
   },
 ] as const;
 
@@ -1825,19 +1805,13 @@ function AboutPage({
   );
 }
 
-function TariffFeature({
-  included,
-  text,
-}: {
-  included: boolean;
-  text: string;
-}) {
+function TariffFeature({ included, children }: { included: boolean; children: ReactNode }) {
   return (
     <li className={included ? "site-tariffs-card__feature" : "site-tariffs-card__feature site-tariffs-card__feature--muted"}>
       <span aria-hidden="true" className="site-tariffs-card__feature-icon">
-        {included ? "✓" : "-"}
+        {included ? <CourseTariffCheck /> : "−"}
       </span>
-      <span>{text}</span>
+      <span>{children}</span>
     </li>
   );
 }
@@ -1940,13 +1914,15 @@ function TariffsPage({
                     <strong>{tariff.price}</strong>
                   </div>
                   <ul>
-                    {tariff.features.map((feature) => (
-                      <TariffFeature
-                        included={feature.included}
-                        key={`${tariff.name}-${feature.text}`}
-                        text={feature.text}
-                      />
+                    <TariffFeature included>
+                      <strong>{tariff.lessons}</strong>
+                    </TariffFeature>
+                    {INCLUDED_TARIFF_FEATURES.map((text) => (
+                      <TariffFeature included key={text}>{text}</TariffFeature>
                     ))}
+                    <TariffFeature included={tariff.internship}>Стажировка после обучения</TariffFeature>
+                    <TariffFeature included={tariff.careerSupport}>2 тестовых технических собеседования</TariffFeature>
+                    <TariffFeature included={tariff.careerSupport}>Подготовка резюме с HR-специалистом</TariffFeature>
                   </ul>
                   <button className="site-tariffs-card__button" type="button">записаться</button>
                 </article>

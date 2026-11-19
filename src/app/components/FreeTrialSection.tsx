@@ -7,7 +7,7 @@ const trialSteps = [
   { title: "Обсудим", text: "вашу цель и направление в ИТ, которое ей подходит" },
   { title: "Разберём", text: "логику программирования и базовые алгоритмы на простой задаче" },
   { title: "Напишем", text: "вместе с вами первую небольшую программу" },
-  { title: "Подберём", text: "тариф и график: 4,\u00a08 или 12 занятий в месяц" },
+  { title: "Подберём", text: "тариф и удобный для вас график занятий" },
 ];
 
 const stepArt = [
@@ -25,7 +25,7 @@ export function FreeTrialSection({ compact = false }: { compact?: boolean }) {
           <span className={styles.duration}>до <strong>45</strong> минут</span>
           <span className={styles.title}>на бесплатном занятии</span>
         </h2>
-        <p>Вы поймёте, подходит ли вам направление и получается ли у вас писать код.</p>
+        <p>Вы поймёте, подходит ли вам направление и получается ли у вас писать код</p>
       </div>
       <ol className={styles.steps}>
         {trialSteps.map((step, index) => (
@@ -40,7 +40,7 @@ export function FreeTrialSection({ compact = false }: { compact?: boolean }) {
         ))}
       </ol>
       <div className={styles.footer}>
-        <p>Абонемент покупаете после, если решите учиться.</p>
+        <p>Абонемент покупаете после, если решите учиться</p>
         <a className={styles.cta} href="/application?type=trial">
           записаться на занятие
           <span aria-hidden="true">

@@ -15,7 +15,7 @@ export function HomePricePanel({ compact = false }: { compact?: boolean }) {
   return (
     <section className={`${styles.price}${compact ? ` ${styles.mobilePrice}` : ""}`} aria-label="Стоимость обучения">
       <div className={styles.priceDetails}>
-        <h3>7 990 руб./мес.</h3>
+        <h3>7 990 ₽ в месяц</h3>
         <p>Тариф «Базовый»: 4 индивидуальных занятия в месяц и 10 проектов в портфолио</p>
         <a className={styles.tariffsLink} data-main-nav="tariffs" href="/tariffs">сравнить тарифы</a>
       </div>
@@ -29,10 +29,10 @@ export function HomePricePanel({ compact = false }: { compact?: boolean }) {
 }
 
 const applicationSteps = [
-  "Свяжемся с вами в удобное для вас время",
-  "Договоримся о дне и времени бесплатного занятия",
+  "Свяжемся с вами в удобное для вас время и ответим на вопросы об обучении",
+  "Договоримся, в какой день и во сколько провести бесплатное занятие",
   "Проведём занятие до 45 минут. После него вы решите, учиться ли дальше",
-  "После оплаты абонемента откроем доступ к платформе",
+  "После оплаты абонемента откроем доступ к личному кабинету на платформе",
 ];
 
 export function HomeApplicationDetails() {

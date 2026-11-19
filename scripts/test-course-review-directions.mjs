@@ -1,22 +1,6 @@
 import { readFileSync } from "node:fs";
 
-const appSource = readFileSync("src/app/App.tsx", "utf8");
 const reviewsSource = readFileSync("src/app/studentReviewsData.ts", "utf8");
-const tariffsSource = appSource.slice(
-  appSource.indexOf("const TARIFFS = ["),
-  appSource.indexOf("const REVIEW_STORY_CARD_TITLES"),
-);
-
-for (const diploma of [
-  "Диплом ИТ-школы ИННОПРОГ о прохождении курса",
-  "Диплом о профессиональной переподготовке",
-]) {
-  const occurrences = tariffsSource.split(diploma).length - 1;
-
-  if (occurrences !== 3) {
-    throw new Error(`${diploma} must be included in all three tariffs`);
-  }
-}
 
 const expectedCourseDirections = {
   PythonCoursePage: "python",

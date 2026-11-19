@@ -2571,31 +2571,35 @@
   color: rgba(70, 74, 106, 0.8);
 }
 
+.site-tariffs-card__feature strong {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .site-tariffs-card__feature-icon {
   display: inline-flex;
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #9c78ff;
-  color: #464a6a;
-  font-size: 13px;
-  font-weight: 800;
   line-height: 1;
 }
 
-.site-tariffs-card--purple .site-tariffs-card__feature-icon {
-  background: #464a6a;
-  color: #9c78ff;
+.site-tariffs-card__feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.site-tariffs-card--purple .site-tariffs-card__feature-icon svg path {
+  fill: #464a6a;
 }
 
 .site-tariffs-card__feature--muted .site-tariffs-card__feature-icon {
   background: rgba(84, 110, 122, 0.8);
   color: #ffffff;
   font-size: 18px;
-  font-weight: 400;
 }
 
 .site-tariffs-page .site-review-page__footer {
@@ -3811,7 +3815,6 @@
     width: 18px;
     height: 18px;
     flex-basis: 18px;
-    font-size: 12px;
   }
 
   .site-tariffs-page .site-review-page__footer {
