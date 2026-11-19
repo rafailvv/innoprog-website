@@ -4,6 +4,7 @@ import { FREE_COURSES_LINK } from "../courseNavigation";
 import { ANALYTICS_START_COURSE, DATA_SCIENCE_START_COURSE, PYTHON_START_COURSE, SQL_START_COURSE } from "../freeCourse";
 import { JsonLd, SITE_URL, absoluteUrl, breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "../seo";
 import { SvedenHeader } from "../sveden/SvedenHeader";
+import { CourseCarousel } from "./CourseCarousel";
 import styles from "./free-courses.module.css";
 
 const courses = [
@@ -52,7 +53,7 @@ export default function FreeCoursesPage() {
       <SvedenHeader />
       <main className={styles.catalog}>
         <h1>{FREE_COURSES_LINK.label}</h1>
-        <div className={styles.grid}>
+        <CourseCarousel courses={courses.map(({ slug, title }) => ({ slug, title }))}>
           {courses.map(({ slug, tags, ...course }) => {
             const card = { ...course, tagRows: [tags.slice(0, 2), tags.slice(2)] };
             return <div key={slug} id={slug}>
@@ -60,7 +61,7 @@ export default function FreeCoursesPage() {
               <div className={styles.mobile}><PythonMobileCard {...card} catalog /></div>
             </div>;
           })}
-        </div>
+        </CourseCarousel>
       </main>
       <ResponsiveSiteFooter />
     </>
