@@ -5336,7 +5336,7 @@ export default function App({
               data-scroll-target="reviews"
               href="/reviews"
             >
-              отзывы
+              Отзывы
             </a>
             <div className="site-mobile-menu__nav-group">
               <div className="site-mobile-menu__nav-row">

@@ -19,10 +19,10 @@ export const ADULT_NAV_LINKS = [...ADULT_COURSE_LINKS, FREE_COURSES_LINK] as con
 
 export const CHILD_COURSE_LINKS = childrenCourseNavigation;
 
-export const CONTACTS_LINK = { label: "контакты", href: "/contacts" } as const;
+export const CONTACTS_LINK = { label: "Контакты", href: "/contacts" } as const;
 
 export const ABOUT_SITE_LINKS = [
-  { label: "отзывы", href: "/reviews" },
+  { label: "Отзывы", href: "/reviews" },
   CONTACTS_LINK,
   { label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure },
   { label: "Блог", href: "/blog" },
