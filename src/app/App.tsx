@@ -5019,13 +5019,11 @@ export default function App({
   const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
-  // Keep one coordinate system in every browser. Safari CSS zoom changes
-  // layout/scroll metrics and made the canvas height depend on viewport width.
   const canvasStyle: CSSProperties = {
     width: `${activeDesign.width}px`,
     height: `${homeContentDesignHeight || activeDesign.height}px`,
-    transform: `scale(${viewport.scale})`,
-  };
+    "--home-canvas-scale": viewport.scale,
+  } as CSSProperties;
 
   useLayoutEffect(() => {
     if (isStandaloneRoute) {
@@ -5047,9 +5045,7 @@ export default function App({
       animationFrame = window.requestAnimationFrame(() => {
         const footer = canvas.querySelector<HTMLElement>("[data-site-footer]");
         if (!footer) return;
-        // Measure the footer in layout pixels, independently of scale, scroll
-        // position, and the height assigned to the outer canvas.
-        const measuredHeight = getLayoutBottom(footer, canvas);
+        const measuredHeight = getLayoutBottom(footer, canvas, viewport.scale);
         if (measuredHeight === null || measuredHeight <= 0) return;
 
         setHomeContentDesignHeight((currentHeight) => (
@@ -5088,7 +5084,7 @@ export default function App({
       resizeObserver.disconnect();
       formObserver.disconnect();
     };
-  }, [activeDesign.height, isStandaloneRoute, viewport.isMobile, viewport.scale]);
+  }, [activeDesign.height, isMetrikaSelectorMode, isStandaloneRoute, viewport.isMobile, viewport.scale]);
 
   return (
     <main
@@ -5238,7 +5234,7 @@ export default function App({
       ) : (
         <div
           ref={homeCanvasRef}
-          className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : ""]
+          className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : "", isMetrikaSelectorMode ? "site-canvas--selector" : ""]
             .filter(Boolean)
             .join(" ")}
           style={canvasStyle}

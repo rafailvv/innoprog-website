@@ -10,7 +10,7 @@ vi.mock("./App", async () => ({ default: (await import("../imports/MainScreenMob
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), back: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }) }));
 
 describe("home hero preload selection", () => {
-  it("preloads the first-screen image before its background without alternate unused candidates", () => {
+  it("preloads the unchanged first-screen image before its background without alternate unused candidates", () => {
     const document = new DOMParser().parseFromString(renderToStaticMarkup(<HomePage />), "text/html");
     const image = document.querySelector('img[alt="Студент ИННОПРОГ за ноутбуком"]');
     expect(image?.getAttribute("src")).toBe(HOME_CRITICAL_IMAGE_URLS[0]);

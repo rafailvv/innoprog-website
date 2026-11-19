@@ -1,12 +1,8 @@
-/** Layout coordinates deliberately exclude transforms and browser zoom. */
-export function getLayoutBottom(element: HTMLElement, ancestor: HTMLElement): number | null {
-  let bottom = element.offsetHeight;
-  let current: HTMLElement | null = element;
-  while (current && current !== ancestor) {
-    bottom += current.offsetTop;
-    current = current.offsetParent as HTMLElement | null;
-  }
-  return current === ancestor ? Math.ceil(bottom) : null;
+/** Convert the rendered distance to layout pixels without rounding each nested offset. */
+export function getLayoutBottom(element: HTMLElement, ancestor: HTMLElement, scale: number): number | null {
+  if (!ancestor.contains(element)) return null;
+  const renderedBottom = element.getBoundingClientRect().bottom - ancestor.getBoundingClientRect().top;
+  return Math.ceil(renderedBottom / scale);
 }
 
 export function getRenderedScale(element: HTMLElement): number {

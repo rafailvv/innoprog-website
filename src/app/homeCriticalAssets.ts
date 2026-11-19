@@ -1,4 +1,4 @@
-import heroImage from "../imports/MainScreenDesktop/home-hero.webp";
+import heroImage from "../imports/MainScreenDesktop/a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
 import backgroundImage from "../imports/MainScreenDesktop/home-background.opt.webp";
 
 // Both responsive home surfaces use these exact files. Keep the hero first so

@@ -168,7 +168,17 @@ body {
   top: 0;
   left: 0;
   transform-origin: top left;
+  transform: scale(var(--home-canvas-scale, 1));
   opacity: 1;
+}
+
+@supports (zoom: 1) {
+  /* Lay out text at its display size. Keep transform-based coordinates for Metrika's visual selector. */
+  .site-canvas:not(.site-canvas--selector) {
+    zoom: var(--home-canvas-scale, 1);
+    transform: none;
+    contain: layout;
+  }
 }
 
 .site-shell--home-route:not(.site-shell--mobile) .site-canvas > [data-name="главный экран Д"] {
@@ -707,7 +717,9 @@ body {
   justify-content: space-between;
   align-items: center;
   border-radius: 40px;
-  background: linear-gradient(110deg, #7055af, #4e3b80);
+  background: rgba(156, 120, 255, 0.4);
+  -webkit-backdrop-filter: blur(74px);
+  backdrop-filter: blur(74px);
 }
 
 .site-mobile-platform-start-button {
@@ -2266,7 +2278,9 @@ button[data-name="кнопки пд"] *,
 .site-start-button {
   z-index: 30;
   border: 0;
-  background: linear-gradient(110deg, #7055af, #4e3b80);
+  background: rgba(156, 120, 255, 0.6);
+  -webkit-backdrop-filter: blur(74px);
+  backdrop-filter: blur(74px);
   cursor: pointer;
   appearance: none;
 }
@@ -2277,13 +2291,6 @@ button[data-name="кнопки пд"] {
   font: inherit;
   cursor: pointer;
   appearance: none;
-}
-
-.site-start-button:focus-visible,
-.site-mobile-hero-start-button:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 7px #464a6a;
 }
 
 .site-start-button__icon {

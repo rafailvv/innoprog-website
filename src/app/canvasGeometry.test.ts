@@ -6,21 +6,22 @@ function layout(element: HTMLElement, values: Record<string, unknown>) {
 }
 
 describe("scaled canvas geometry", () => {
-  it("measures a nested footer without reading its scaled viewport rectangle", () => {
+  it("converts a nested footer's scaled bottom to canvas units regardless of scroll position", () => {
     const canvas = document.createElement("div");
     const stack = document.createElement("div");
     const footer = document.createElement("footer");
-    layout(stack, { offsetTop: 3436, offsetParent: canvas });
-    layout(footer, { offsetTop: 10427, offsetHeight: 533, offsetParent: stack });
-    expect(getLayoutBottom(footer, canvas)).toBe(14396);
-    layout(footer, { offsetTop: 10600 });
-    expect(getLayoutBottom(footer, canvas)).toBe(14569);
-    layout(footer, { offsetTop: 10427 });
-    expect(getLayoutBottom(footer, canvas)).toBe(14396);
+    canvas.append(stack);
+    stack.append(footer);
+    let scrollY = 0;
+    canvas.getBoundingClientRect = () => ({ top: -scrollY }) as DOMRect;
+    footer.getBoundingClientRect = () => ({ bottom: 10797.25 - scrollY }) as DOMRect;
+    expect(getLayoutBottom(footer, canvas, 0.75)).toBe(14397);
+    scrollY = 10500;
+    expect(getLayoutBottom(footer, canvas, 0.75)).toBe(14397);
   });
 
   it("rejects elements outside the canvas", () => {
-    expect(getLayoutBottom(document.createElement("footer"), document.createElement("div"))).toBeNull();
+    expect(getLayoutBottom(document.createElement("footer"), document.createElement("div"), 1)).toBeNull();
   });
 
   it.each([0.5, 1, 1.5, 2])("keeps carousel centers in layout units at scale %s", (scale) => {
