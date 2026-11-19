@@ -1,5 +1,4 @@
 export const MOBILE_DESIGN_WIDTH = 390;
-export const MOBILE_DESIGN_HEIGHT = 10610;
 
 export const MOBILE_HERO_ACTIONS_HEIGHT = 80;
 export const MOBILE_FEATURES_BG_TOP = 701;

@@ -2494,7 +2494,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component4 />
-      <MainScreenMobileFooter />
+      <MainScreenMobileFooter compact />
     </div>
   );
 }
@@ -2511,9 +2511,9 @@ function Frame176() {
   );
 }
 
-function Frame173() {
+function HomeSections() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[80px] items-center left-0 w-[390px]" style={{ top: MOBILE_NEXT_SECTIONS_TOP }}>
+    <div className="flex flex-col gap-[80px] items-center w-full">
       <Frame171 />
       <Frame196 />
       <MainScreenMobileTeachersSection />
@@ -2536,30 +2536,32 @@ export function MainScreenMobileResultsSection() {
 
 export default function Component() {
   return (
-    <div className="bg-white relative size-full" data-name="гланый экран М">
-      <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
-      <MainScreenMobileHeader />
-      <Frame194 />
-      <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
-      <Frame145 />
-      <Frame147 />
-      <Frame173 />
-      <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
-          <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
-      </div>
-      <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button" data-application-open aria-haspopup="dialog">
-        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">бесплатное занятие</span>
-        <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
-          <span className="block relative shrink-0 size-[16px]">
-            <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.6457 16.6327">
-                <path d={svgPaths.p2b850d80} stroke="var(--stroke-0, #9C78FF)" />
-              </svg>
+    <div className="w-full" data-name="гланый экран М">
+      <div className="relative" style={{ height: MOBILE_NEXT_SECTIONS_TOP }}>
+        <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
+        <MainScreenMobileHeader />
+        <Frame194 />
+        <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
+        <Frame145 />
+        <Frame147 />
+        <div className="absolute h-[410px] left-[-57px] top-[330px] w-[490px]" data-name="IMG_2949 1">
+            <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute inset-0 max-w-none object-bottom object-cover pointer-events-none size-full" src={imgImg29491} />
+        </div>
+        <button className="-translate-x-1/2 absolute left-1/2 site-mobile-hero-start-button top-[607px]" data-name="кнопки пд" type="button" data-application-open aria-haspopup="dialog">
+          <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">бесплатное занятие</span>
+          <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
+            <span className="block relative shrink-0 size-[16px]">
+              <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 16.6457 16.6327">
+                  <path d={svgPaths.p2b850d80} stroke="var(--stroke-0, #9C78FF)" />
+                </svg>
+              </span>
             </span>
           </span>
-        </span>
-      </button>
-      <HomeCoursesLink compact />
+        </button>
+        <HomeCoursesLink compact />
+      </div>
+      <HomeSections />
     </div>
   );
 }

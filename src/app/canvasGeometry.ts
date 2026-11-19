@@ -1,10 +1,3 @@
-/** Convert the rendered distance to layout pixels without rounding each nested offset. */
-export function getLayoutBottom(element: HTMLElement, ancestor: HTMLElement, scale: number): number | null {
-  if (!ancestor.contains(element)) return null;
-  const renderedBottom = element.getBoundingClientRect().bottom - ancestor.getBoundingClientRect().top;
-  return Math.ceil(renderedBottom / scale);
-}
-
 export function getRenderedScale(element: HTMLElement): number {
   const scale = element.getBoundingClientRect().width / element.offsetWidth;
   return Number.isFinite(scale) && scale > 0 ? scale : 1;

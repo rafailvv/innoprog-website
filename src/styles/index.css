@@ -126,10 +126,6 @@ body {
   background: #ffffff;
 }
 
-#root:has(.site-shell--home-route) {
-  background: #464a6a;
-}
-
 .site-shell {
   position: relative;
   width: 100%;
@@ -149,14 +145,6 @@ body {
   overflow-y: visible;
 }
 
-.site-shell--mobile.site-shell--home-route {
-  background: #464a6a;
-}
-
-.site-shell--home-route {
-  background: #464a6a;
-}
-
 .site-shell--mobile,
 .site-shell--mobile * {
   -webkit-text-size-adjust: 100%;
@@ -173,32 +161,24 @@ body {
 }
 
 @supports (zoom: 1) {
-  /* Lay out text at its display size. Keep transform-based coordinates for Metrika's visual selector. */
+  /* Keep the page in normal flow and let each section paint its own background. */
   .site-canvas:not(.site-canvas--selector) {
+    position: relative;
     zoom: var(--home-canvas-scale, 1);
     transform: none;
-    contain: layout;
   }
 }
 
-.site-shell--home-route:not(.site-shell--mobile) .site-canvas > [data-name="главный экран Д"] {
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0,
-    #ffffff calc(100% - 560px),
-    #464a6a calc(100% - 560px),
-    #464a6a 100%
-  );
+.site-canvas .site-main-header--desktop {
+  position: absolute !important;
 }
 
-.site-shell--mobile.site-shell--home-route .site-canvas > [data-name="гланый экран М"] {
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0,
-    #ffffff calc(100% - 960px),
-    #464a6a calc(100% - 960px),
-    #464a6a 100%
-  );
+.site-shell--home-route:has(> .site-canvas--selector) {
+  overflow: clip;
+}
+
+@supports not (zoom: 1) {
+  .site-shell--home-route { overflow: clip; }
 }
 
 .site-main-desktop-footer {
@@ -237,8 +217,22 @@ body {
 
 .site-shell--home-route .site-canvas .site-main-desktop-footer {
   margin-top: 0;
+  padding-bottom: 24px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  transform: none;
+}
+
+.site-canvas--mobile [data-site-footer] {
+  isolation: isolate;
+}
+
+.site-canvas--mobile .site-mobile-footer__watermark > div {
+  z-index: -1;
+}
+
+.site-shell--home-route:has(> .site-cookie-banner) .site-canvas [data-site-footer] {
+  padding-bottom: calc((80px + env(safe-area-inset-bottom, 0px)) / var(--home-canvas-scale, 1));
 }
 
 .site-canvas--mobile {
@@ -4231,6 +4225,3 @@ button[data-name="кнопки пд"] {
 /* Shared callback forms, including generated adult landing/course screens. */
 .site-shell .site-lead-input, .site-shell .site-course-lead-input { border-radius:22px; }
 @media(max-width:767px) { .site-shell .site-lead-input, .site-shell .site-course-lead-input { border-radius:18px; } }
-
-/* A transformed canvas must not extend the home page beyond its measured footer. */
-.site-shell--home-route { overflow:clip; }

@@ -1842,9 +1842,9 @@ function Frame126() {
   );
 }
 
-function Frame122() {
+function HomeSections() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[148px] items-center left-1/2 top-[3436px]">
+    <div className="flex flex-col gap-[148px] items-center">
       <Frame127 />
       <Component1 />
       <Component2 />
@@ -1856,10 +1856,6 @@ function Frame122() {
       <Frame126 />
     </div>
   );
-}
-
-function Frame128() {
-  return <div className="absolute h-[467px] left-[calc(62.5%+65px)] top-[11324px] w-[52px]" />;
 }
 
 function Frame123() {
@@ -1937,54 +1933,55 @@ export function MainScreenDesktopResultsSection() {
 
 export default function Component() {
   return (
-    <div className="bg-white relative size-full" data-name="главный экран Д">
-      <div className="-translate-x-1/2 absolute bg-[#464a6a] h-[1345px] left-1/2 rounded-[60px] top-[1883px] w-[1440px]" />
-      <div className="-translate-x-1/2 absolute h-[1612px] left-1/2 top-[592px] w-[1440px]">
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 1546">
-          <path d={svgPaths.p32693a00} fill="var(--fill-0, #9C78FF)" />
-        </svg>
-      </div>
-      <Frame84 />
-      <Frame129 />
-      <div className="absolute font-['Manrope:Bold',sans-serif] font-bold leading-[0] left-[889px] text-[#464a6a] text-[32px] text-right top-[347px] uppercase w-[471px] z-20">
-        <p className="leading-[39px] mb-0 whitespace-nowrap">с упором на практику</p>
-        <p className="leading-[39px] whitespace-nowrap">и персональное обучение</p>
-      </div>
-      <MainScreenDesktopHeader />
-      <Frame122 />
-      <div className="absolute flex h-[720.578px] items-center justify-center left-[47px] top-[2505px] w-[659.177px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
-        <div className="flex-none rotate-[90.25deg]">
-          <div className="h-[656px] relative w-[717.676px]">
-            <div className="absolute inset-[-30.49%_-27.87%]">
-              <img alt="" className="block size-full" decoding="async" src={homeCourseGlow} />
+    <div className="w-full" data-name="главный экран Д">
+      <div className="relative h-[3436px]">
+        <div className="-translate-x-1/2 absolute bg-[#464a6a] h-[1345px] left-1/2 rounded-[60px] top-[1883px] w-[1440px]" />
+        <div className="-translate-x-1/2 absolute h-[1612px] left-1/2 top-[592px] w-[1440px]">
+          <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 1546">
+            <path d={svgPaths.p32693a00} fill="var(--fill-0, #9C78FF)" />
+          </svg>
+        </div>
+        <Frame84 />
+        <Frame129 />
+        <div className="absolute font-['Manrope:Bold',sans-serif] font-bold leading-[0] left-[889px] text-[#464a6a] text-[32px] text-right top-[347px] uppercase w-[471px] z-20">
+          <p className="leading-[39px] mb-0 whitespace-nowrap">с упором на практику</p>
+          <p className="leading-[39px] whitespace-nowrap">и персональное обучение</p>
+        </div>
+        <MainScreenDesktopHeader />
+        <div className="absolute flex h-[720.578px] items-center justify-center left-[47px] top-[2505px] w-[659.177px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
+          <div className="flex-none rotate-[90.25deg]">
+            <div className="h-[656px] relative w-[717.676px]">
+              <div className="absolute inset-[-30.49%_-27.87%]">
+                <img alt="" className="block size-full" decoding="async" src={homeCourseGlow} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-[636px] left-[calc(43.75%+56px)] top-[177px] w-[798px]" data-name="IMG_2949 1">
-        <div className="absolute inset-0 mix-blend-darken overflow-hidden pointer-events-none">
-          <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
+        <div className="-translate-x-1/2 absolute h-[636px] left-[calc(43.75%+56px)] top-[177px] w-[798px]" data-name="IMG_2949 1">
+          <div className="absolute inset-0 mix-blend-darken overflow-hidden pointer-events-none">
+            <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
+          </div>
         </div>
-      </div>
-      <div className="absolute top-[652px] inset-x-0 z-30 flex items-center justify-center gap-[16px]">
-        <button className="relative flex h-[88px] items-center justify-between gap-[24px] px-[24px] py-[16px] rounded-[40px] site-start-button" data-name="кнопки пд" data-node-id="3401:839" type="button" data-application-open aria-haspopup="dialog">
-          <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">записаться на бесплатное занятие</span>
-          <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
-            <span className="block relative shrink-0 size-[32px]">
-              <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
-                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
-                  <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #9C78FF)" strokeWidth="2" />
-                </svg>
+        <div className="absolute top-[652px] inset-x-0 z-30 flex items-center justify-center gap-[16px]">
+          <button className="relative flex h-[88px] items-center justify-between gap-[24px] px-[24px] py-[16px] rounded-[40px] site-start-button" data-name="кнопки пд" data-node-id="3401:839" type="button" data-application-open aria-haspopup="dialog">
+            <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">записаться на бесплатное занятие</span>
+            <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 site-start-button__icon" data-name="Frame 40/Frame 707">
+              <span className="block relative shrink-0 size-[32px]">
+                <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
+                  <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 33.2913 33.2654">
+                    <path d={svgPaths.p3b802100} stroke="var(--stroke-0, #9C78FF)" strokeWidth="2" />
+                  </svg>
+                </span>
               </span>
             </span>
-          </span>
-        </button>
-        <HomeCoursesLink />
+          </button>
+          <HomeCoursesLink />
+        </div>
+        <Frame131 />
+        <Group11 />
+        <Group12 />
       </div>
-      <Frame128 />
-      <Frame131 />
-      <Group11 />
-      <Group12 />
+      <HomeSections />
     </div>
   );
 }

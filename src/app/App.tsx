@@ -2,7 +2,7 @@
 import { LeadModal } from "./components/LeadModal";
 import { getLeadPayload, isLeadPayloadValid, sendLeadApplication, type LeadPayload } from "./leadApplication";
 import "../styles/adult-pages.css";
-import { getLayoutBottom, getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
+import { getRenderedScale, getVisibleCarouselCenter } from "./canvasGeometry";
 
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -34,7 +34,6 @@ import {
   type StudentReview,
 } from "./studentReviewsData";
 import {
-  MOBILE_DESIGN_HEIGHT,
   MOBILE_DESIGN_WIDTH,
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
@@ -80,14 +79,12 @@ const MlEngineerCourseMobile = dynamic(() => import("../imports/MlEngineerCourse
 
 const DESKTOP_DESIGN = {
   width: 1440,
-  height: 14457,
 };
 
 const ABOUT_DESIGN_WIDTH = DESKTOP_DESIGN.width;
 
 const MOBILE_DESIGN = {
   width: MOBILE_DESIGN_WIDTH,
-  height: MOBILE_DESIGN_HEIGHT,
 };
 
 const MOBILE_BREAKPOINT = 768;
@@ -3550,7 +3547,7 @@ export default function App({
   const [leadFormError, setLeadFormError] = useState("");
   const [isLeadSubmitting, setIsLeadSubmitting] = useState(false);
   const [shouldShowCookieBanner, setShouldShowCookieBanner] = useState(false);
-  const [homeContentDesignHeight, setHomeContentDesignHeight] = useState<number | null>(null);
+  const [homeFallbackHeight, setHomeFallbackHeight] = useState<number>();
   const homeCanvasRef = useRef<HTMLDivElement>(null);
   const smartCaptchaRef = useRef<YandexSmartCaptchaHandle>(null);
   const pageTransitionTimerRef = useRef<number | null>(null);
@@ -5021,70 +5018,23 @@ export default function App({
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle: CSSProperties = {
     width: `${activeDesign.width}px`,
-    height: `${homeContentDesignHeight || activeDesign.height}px`,
     "--home-canvas-scale": viewport.scale,
   } as CSSProperties;
 
   useLayoutEffect(() => {
-    if (isStandaloneRoute) {
-      setHomeContentDesignHeight(null);
-      return;
-    }
-
     const canvas = homeCanvasRef.current;
-
-    if (!canvas) {
+    if (!canvas || isStandaloneRoute || (!isMetrikaSelectorMode && CSS.supports("zoom", "1"))) {
+      setHomeFallbackHeight(undefined);
       return;
     }
 
-    let animationFrame = 0;
-    let settleTimer = 0;
-
-    const measureContent = () => {
-      window.cancelAnimationFrame(animationFrame);
-      animationFrame = window.requestAnimationFrame(() => {
-        const footer = canvas.querySelector<HTMLElement>("[data-site-footer]");
-        if (!footer) return;
-        const measuredHeight = getLayoutBottom(footer, canvas, viewport.scale);
-        if (measuredHeight === null || measuredHeight <= 0) return;
-
-        setHomeContentDesignHeight((currentHeight) => (
-          currentHeight === measuredHeight ? currentHeight : measuredHeight
-        ));
-      });
-    };
-
-    const resizeObserver = new ResizeObserver(measureContent);
-    resizeObserver.observe(canvas);
-
-    const observed = new WeakSet<Element>();
-    const observeForms = () => {
-      canvas.querySelectorAll('[data-name="заявка"], [data-site-footer]').forEach((section) => {
-        if (!observed.has(section)) {
-          resizeObserver.observe(section);
-          observed.add(section);
-        }
-      });
-    };
-    if (canvas.firstElementChild) resizeObserver.observe(canvas.firstElementChild);
-    observeForms();
-    const formObserver = new MutationObserver(() => { observeForms(); measureContent(); });
-    formObserver.observe(canvas, { childList: true, subtree: true });
-
-    measureContent();
-    window.addEventListener("resize", measureContent, { passive: true });
-    window.addEventListener("load", measureContent, { once: true });
-    settleTimer = window.setTimeout(measureContent, 500);
-
-    return () => {
-      window.cancelAnimationFrame(animationFrame);
-      window.clearTimeout(settleTimer);
-      window.removeEventListener("resize", measureContent);
-      window.removeEventListener("load", measureContent);
-      resizeObserver.disconnect();
-      formObserver.disconnect();
-    };
-  }, [activeDesign.height, isMetrikaSelectorMode, isStandaloneRoute, viewport.isMobile, viewport.scale]);
+    // Only the transform fallback needs space reserved in the document.
+    const measure = () => setHomeFallbackHeight(Math.ceil(canvas.getBoundingClientRect().height));
+    const observer = new ResizeObserver(measure);
+    observer.observe(canvas);
+    measure();
+    return () => observer.disconnect();
+  }, [isStandaloneRoute, isMetrikaSelectorMode, viewport.scale]);
 
   return (
     <main
@@ -5116,9 +5066,7 @@ export default function App({
       ].filter(Boolean).join(" ")}
       onClick={handleSiteClick}
       onKeyDown={handleSiteKeyDown}
-      style={isStandaloneRoute ? undefined : {
-        minHeight: `${Math.ceil((homeContentDesignHeight || activeDesign.height) * viewport.scale)}px`,
-      }}
+      style={isStandaloneRoute || homeFallbackHeight === undefined ? undefined : { minHeight: homeFallbackHeight }}
     >
       {!isMetrikaSelectorMode && (shouldShowLoader || isPageTransitionLoading) ? (
         <div className="site-loader" aria-hidden={isReady && !isPageTransitionLoading}>
