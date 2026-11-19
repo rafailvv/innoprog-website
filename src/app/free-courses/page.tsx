@@ -1,3 +1,4 @@
+import { ArrowDown } from "lucide-react";
 import { PythonDesktopCard, PythonMobileCard } from "../../imports/shared/PythonDirectionCard";
 import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
 import { FREE_COURSES_LINK } from "../courseNavigation";
@@ -15,7 +16,6 @@ const courses = [
 ];
 const catalogDescription = "Бесплатные курсы ИННОПРОГ для новичков. Напишите первую программу на Python, проанализируйте данные, соберите отчёт по заказам в SQL или спрогнозируйте время доставки с помощью машинного обучения.";
 const catalogUrl = absoluteUrl(FREE_COURSES_LINK.href);
-
 
 export const metadata = createPageMetadata({
   title: "Бесплатные курсы программирования с нуля",
@@ -51,17 +51,40 @@ export default function FreeCoursesPage() {
         }} />;
       })}
       <SvedenHeader />
-      <main className={styles.catalog}>
-        <h1>{FREE_COURSES_LINK.label}</h1>
-        <CourseCarousel courses={courses.map(({ slug, title }) => ({ slug, title }))}>
-          {courses.map(({ slug, tags, ...course }) => {
-            const card = { ...course, tagRows: [tags.slice(0, 2), tags.slice(2)] };
-            return <div key={slug} id={slug}>
-              <div className={styles.desktop}><PythonDesktopCard {...card} catalog /></div>
-              <div className={styles.mobile}><PythonMobileCard {...card} catalog /></div>
-            </div>;
-          })}
-        </CourseCarousel>
+      <main className={styles.landing}>
+        <section className={`${styles.container} ${styles.hero}`} aria-labelledby="free-courses-title">
+          <div className={styles.heroCopy}>
+            <h1 id="free-courses-title">{FREE_COURSES_LINK.label}</h1>
+            <p>Изучите основы программирования, напишите первый код или попробуйте себя в аналитике и машинном обучении. Все курсы рассчитаны на новичков.</p>
+            <a className={styles.heroAction} href="#programs">
+              выберите курс
+              <span><ArrowDown aria-hidden="true" size={24} /></span>
+            </a>
+          </div>
+          <div className={styles.heroVisual} aria-hidden="true">
+            <img
+              alt=""
+              src="/free-courses-banner-pearl.webp"
+              width={780}
+              height={822}
+              fetchPriority="high"
+            />
+          </div>
+        </section>
+        <section className={styles.programs} id="programs" aria-labelledby="free-courses-programs-title">
+          <div className={styles.container}>
+            <h2 id="free-courses-programs-title">Курсы</h2>
+            <CourseCarousel courses={courses.map(({ slug, title }) => ({ slug, title }))}>
+              {courses.map(({ slug, tags, ...course }) => {
+                const card = { ...course, tagRows: [tags.slice(0, 2), tags.slice(2)] };
+                return <div key={slug} id={slug}>
+                  <div className={styles.desktop}><PythonDesktopCard {...card} catalog /></div>
+                  <div className={styles.mobile}><PythonMobileCard {...card} catalog /></div>
+                </div>;
+              })}
+            </CourseCarousel>
+          </div>
+        </section>
       </main>
       <ResponsiveSiteFooter />
     </>

@@ -1,26 +1,104 @@
-.catalog {
-  width: min(1280px, calc(100% - 100% / 9));
-  margin-inline: auto;
-  padding-block: max(156px, 12vw) 64px;
+.landing {
+  background-color: #fff;
+  color: #191724;
+  font-family: var(--font-manrope), Manrope, Arial, sans-serif;
 }
 
-.catalog + :global(.site-main-footer-surface) {
+.container {
+  width: min(1280px, calc(100% - 100% / 9));
+  margin-inline: auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: max(132px, 12vw) clamp(48px, 6vw, 96px);
+}
+
+.heroCopy h1,
+.programs h2 {
+  margin: 0;
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  max-width: 9em;
+  font-size: clamp(50px, 6.65vw, 96px);
+  line-height: 0.98;
+}
+
+.heroCopy p {
+  max-width: 530px;
+  margin: 24px 0 32px;
+  font-size: clamp(18px, 1.8vw, 26px);
+  line-height: 1.35;
+}
+
+.heroAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 12px 12px 28px;
+  border-radius: 40px;
+  color: #fff;
+  background: #464a6a;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.heroAction:hover {
+  background: #373a56;
+}
+
+.heroAction:focus-visible {
+  outline: 3px solid #464a6a;
+  outline-offset: 4px;
+}
+
+.heroAction span {
+  display: grid;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  color: #464a6a;
+  background: #fff;
+}
+
+.heroVisual {
+  display: grid;
+  place-items: center;
+}
+
+.heroVisual img {
+  width: min(100%, 420px);
+  height: auto;
+}
+
+.programs {
+  padding-block: clamp(44px, 5.5vw, 80px);
+}
+
+.programs h2 {
+  margin-bottom: clamp(24px, 3vw, 44px);
+  font-size: clamp(32px, 4.45vw, 64px);
+  line-height: 1.06;
+}
+
+.landing + :global(.site-main-footer-surface) {
   margin-top: 0;
 }
 
-.catalog + :global(.site-main-footer-surface--desktop) :global(.site-main-desktop-footer__content) {
+.landing + :global(.site-main-footer-surface--desktop) :global(.site-main-desktop-footer__content) {
   margin-top: 48px;
-}
-
-.catalog h1 {
-  margin: 0 0 clamp(40px, 7.2vw, 104px);
-  color: #000;
-  font-family: "Raleway", sans-serif;
-  font-size: clamp(54px, 6.67vw, 96px);
-  font-weight: 700;
-  line-height: 1.01;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .grid {
@@ -45,7 +123,7 @@
     padding: 20px;
   }
 
-  .desktop > a h2,
+  .desktop > a h3,
   .desktop :global(.site-desktop-direction-hover__title) {
     font-size: clamp(26px, 2.1vw, 30px);
     line-height: 1.1;
@@ -85,14 +163,35 @@
 }
 
 @media (max-width: 767px) {
-  .catalog {
+  .container {
     width: calc(100% - 40px);
-    padding-block: 18px 48px;
   }
 
-  .catalog h1 {
-    font-size: clamp(32px, 10.3vw, 52px);
-    line-height: 1.075;
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding-block: 16px 24px;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(36px, 11.3vw, 64px);
+  }
+
+  .heroCopy p {
+    margin-block: 16px 20px;
+  }
+
+  .heroAction {
+    padding: 8px 8px 8px 20px;
+  }
+
+  .heroAction span {
+    width: 40px;
+    height: 40px;
+  }
+
+  .heroVisual img {
+    width: min(70%, 260px);
   }
 
   .grid {

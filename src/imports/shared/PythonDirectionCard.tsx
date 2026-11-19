@@ -30,8 +30,6 @@ function PythonArtwork({ layout = "desktop" }: { layout?: "desktop" | "mobile" |
 }
 
 export function PythonDesktopCard({ href, title, description, tagRows, action, artwork, catalog = false }: CardProps & { catalog?: boolean }) {
-  const Heading = catalog ? "h2" : "h3";
-
   return (
     <a
       className={`site-desktop-direction-card bg-[#9c78ff] flex flex-col h-[452px] items-end justify-between overflow-clip p-[24px] relative rounded-[40px] shrink-0 text-white no-underline ${catalog ? "w-full" : "w-[410.667px]"}`}
@@ -46,7 +44,7 @@ export function PythonDesktopCard({ href, title, description, tagRows, action, a
         </div>
       ) : <DirectionArrow />}
       <div className="flex flex-col gap-[16px] relative shrink-0 w-full">
-        <Heading className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] text-[36px]">{title}</Heading>
+        <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[38px] text-[36px]">{title}</h3>
         <p className="font-['Manrope:Regular',sans-serif] leading-[22px] text-[20px]">{description}</p>
       </div>
       {!artwork && <PythonArtwork />}
@@ -56,8 +54,6 @@ export function PythonDesktopCard({ href, title, description, tagRows, action, a
 }
 
 export function PythonMobileCard({ href, title, description, tagRows, action, artwork, catalog = false, children }: CardProps & { catalog?: boolean; children?: ReactNode }) {
-  const Heading = catalog ? "h2" : "h3";
-
   return (
     <a
       className={`bg-[#9c78ff] block overflow-clip relative rounded-[40px] shrink-0 text-white no-underline ${catalog ? "min-h-[400px] w-full" : "h-full w-[390px]"}`}
@@ -80,7 +76,7 @@ export function PythonMobileCard({ href, title, description, tagRows, action, ar
           {!catalog && <DirectionArrow mobile />}
         </div>
         <div className="flex flex-col gap-[16px] items-start w-full">
-          <Heading className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] text-[32px]">{title}</Heading>
+          <h3 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[28px] text-[32px]">{title}</h3>
           {children ?? <p className="font-['Manrope:Regular',sans-serif] text-[16px] leading-[18px] tracking-[0.48px]">{description}</p>}
           {action && <span className="w-full rounded-[32px] bg-[#464a6a] p-[12px] text-center font-bold">{action}</span>}
         </div>
