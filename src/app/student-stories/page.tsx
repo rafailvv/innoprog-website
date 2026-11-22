@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import kirillPhoto from "../../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import anastasiaPhoto from "../../imports/MainScreenDesktop/review-anastasia-high.webp";
@@ -58,20 +58,16 @@ export default function StudentStoriesPage() {
     <>
       <JsonLd data={webPageJsonLd({ path, name: title, description, pageType: "CollectionPage" })} />
       <JsonLd data={breadcrumbJsonLd([{ name: "Главная", path: "/" }, { name: title, path }])} />
-      <SvedenHeader />
+      <div className={styles.header}>
+        <SvedenHeader />
+      </div>
       <main className={styles.page}>
         <div className={styles.hero}>
-          <div className={`${styles.container} ${styles.top}`}>
-            <a className={styles.back} href="/about">
-              <ArrowLeft aria-hidden="true" />
-              О нас
-            </a>
-            <nav aria-label="Хлебные крошки" className={styles.breadcrumb}>
-              <a href="/">Главная</a>
-              <span aria-hidden="true">/</span>
-              <strong aria-current="page">{title}</strong>
-            </nav>
-          </div>
+          <nav aria-label="Хлебные крошки" className={`${styles.container} ${styles.breadcrumb}`}>
+            <a href="/">Главная</a>
+            <span aria-hidden="true">/</span>
+            <strong aria-current="page">{title}</strong>
+          </nav>
           <div className={`${styles.container} ${styles.intro}`}>
             <div className={styles.introCopy}>
               <h1>Истории <span>учеников</span></h1>
