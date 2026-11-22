@@ -806,6 +806,135 @@
   aspect-ratio: 4 / 3;
   object-fit: contain;
 }
+.subscription {
+  display: grid;
+  grid-template-areas:
+    "intro details"
+    "action details";
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  gap: 26px clamp(24px, 4vw, 56px);
+  margin-block: 12px 0;
+}
+.subscriptionIntro {
+  grid-area: intro;
+}
+.subscriptionLabel {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 30px;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 750;
+}
+.subscriptionIntro h2 {
+  margin: 18px 0;
+  font-size: clamp(28px, 3.35vw, 48px);
+  line-height: 1.06;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.subscriptionIntro h2 span {
+  display: block;
+  color: var(--purple);
+}
+.subscriptionIntro p,
+.subscriptionAction p,
+.subscriptionDetails p {
+  margin: 0;
+  line-height: 1.5;
+}
+.subscriptionDetails {
+  grid-area: details;
+}
+.subscriptionDetails h3 {
+  margin: 0 0 16px;
+  color: var(--school-accent);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.subscriptionDetails ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.subscriptionDetails li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.subscriptionDetails li + li {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--school-line);
+}
+.subscriptionIcon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--school-surface);
+  color: var(--school-accent);
+}
+.subscriptionDetails h4 {
+  margin: 0 0 4px;
+  color: var(--school-heading);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.subscriptionDetails p,
+.subscriptionAction p {
+  font-size: 15px;
+}
+.subscriptionAction {
+  grid-area: action;
+  border-top: 1px solid var(--school-line);
+  padding-top: 20px;
+}
+.subscriptionAction .button {
+  margin-top: 14px;
+  font-size: 18px;
+}
+@media (max-width: 860px) {
+  .subscription {
+    grid-template-areas: "intro" "details" "action";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+  .subscriptionAction {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .subscriptionAction .button {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .subscription {
+    gap: 20px;
+  }
+  .subscriptionIntro h2 {
+    margin-block: 14px;
+    font-size: clamp(24px, 7.3vw, 40px);
+  }
+  .subscriptionIntro p {
+    font-size: 16px;
+  }
+  .subscriptionDetails h4 {
+    font-size: 16px;
+  }
+  .subscriptionIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+}
 .pricing {
   padding: 48px 0;
   background: #fff;
@@ -816,12 +945,14 @@
   align-items: start;
   gap: clamp(20px, 3vw, 44px);
 }
+.subscriptionDetails,
 .applicationCard,
 .priceCard {
   border-radius: 30px;
   padding: clamp(20px, 3vw, 36px);
   box-shadow: 0 12px 28px rgb(46 34 73 / 14%);
 }
+.subscriptionDetails,
 .applicationCard {
   background: #fff;
   border: 1px solid var(--school-line);
@@ -1486,6 +1617,7 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
+  .subscriptionDetails,
   .applicationCard,
   .priceCard {
     border-radius: 22px;

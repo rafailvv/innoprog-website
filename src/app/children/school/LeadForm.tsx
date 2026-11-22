@@ -105,7 +105,7 @@ export default function LeadForm({ course, formId, context, presentation = "inli
     </div>
   );
   return (
-    <form className={formStyles.form} onSubmit={submit} aria-busy={pending} aria-label="Заявка на бесплатное занятие">
+    <form className={formStyles.form} onSubmit={submit} aria-busy={pending} aria-label={context || "Заявка на бесплатное занятие"}>
       <YandexSmartCaptcha ref={captcha} />
       <div className={formStyles.fields}>
         <label className={formStyles.field}>

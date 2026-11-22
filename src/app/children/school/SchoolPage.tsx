@@ -4,7 +4,7 @@ import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
 import Link from "next/link";
-import { CalendarDays, CodeXml, Compass, GraduationCap, Laptop, Layers, Trophy, UserRound, Workflow } from "lucide-react";
+import { CalendarDays, CalendarOff, CodeXml, Compass, GraduationCap, Laptop, Layers, Trophy, UserRound, UsersRound, WalletCards, Workflow } from "lucide-react";
 import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
 import { LeadSheetControls, leadSheetClassName } from "../../components/LeadSheetControls";
@@ -121,6 +121,32 @@ const steps = [
   ],
 ];
 
+const subscriptionBenefits = [
+  {
+    Icon: WalletCards,
+    title: "Без банковских кредитов",
+    description: "Можно платить частями напрямую школе, без скрытых условий",
+  },
+  {
+    Icon: Layers,
+    title: "На любые курсы школы",
+    description: "Ребёнок может пробовать разные направления и заниматься тем, что ему интересно",
+  },
+  {
+    Icon: UsersRound,
+    title: "Один абонемент на нескольких детей",
+    description: "Дети из одной семьи могут выбрать разные курсы и заниматься с разной частотой",
+  },
+  {
+    Icon: CalendarOff,
+    title: "Без срока действия",
+    description: "Занятия не сгорают, поэтому можно учиться в своём темпе и делать перерывы",
+  },
+];
+
+const defaultApplicationDescription =
+  "Оставьте заявку, и мы поможем подобрать направление и удобное время занятий";
+
 function subscribeViewport(callback: () => void) {
   window.addEventListener("resize", callback);
   return () => window.removeEventListener("resize", callback);
@@ -141,12 +167,16 @@ export default function SchoolPage() {
   const isMobile = width < 768;
   const scale = width / (isMobile ? 390 : 1440);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [application, setApplication] = useState({ title: "", open: false });
+  const [application, setApplication] = useState({
+    title: "",
+    description: defaultApplicationDescription,
+    open: false,
+  });
   const applicationDialog = useRef<HTMLDivElement>(null);
   const applicationTrigger = useRef<HTMLElement | null>(null);
-  const openApplication = (title: string) => {
+  const openApplication = (title: string, description = defaultApplicationDescription) => {
     applicationTrigger.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    setApplication({ title, open: true });
+    setApplication({ title, description, open: true });
   };
   const closeApplication = () => setApplication((current) => ({ ...current, open: false }));
   const carousel = useRef<HTMLDivElement>(null);
@@ -579,6 +609,51 @@ export default function SchoolPage() {
             loading="lazy" decoding="async"
           />
         </section>
+        <section
+          className={`${styles.container} ${styles.subscription}`}
+          id="subscriptions"
+          aria-labelledby="children-subscription-title"
+        >
+          <div className={styles.subscriptionIntro}>
+            <span className={styles.subscriptionLabel}>Гибкая оплата</span>
+            <h2 id="children-subscription-title">
+              Оплата <span>абонементами</span>
+            </h2>
+            <p>
+              Выберите пакет от 4 до 96 занятий и платите в удобном темпе.
+              На большие пакеты действуют скидки
+            </p>
+          </div>
+          <div className={styles.subscriptionDetails}>
+            <h3>Как это работает</h3>
+            <ul role="list">
+              {subscriptionBenefits.map(({ Icon, title, description }) => (
+                <li key={title}>
+                  <span className={styles.subscriptionIcon} aria-hidden="true">
+                    <Icon size={22} strokeWidth={1.75} />
+                  </span>
+                  <div>
+                    <h4>{title}</h4>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.subscriptionAction}>
+            <p>Оставьте заявку, и мы рассчитаем стоимость по телефону</p>
+            <button
+              className={styles.button}
+              type="button"
+              onClick={() => openApplication(
+                "Рассчитать стоимость обучения",
+                "Оставьте заявку, и мы подберём абонемент и рассчитаем стоимость по телефону",
+              )}
+            >
+              Рассчитать стоимость
+            </button>
+          </div>
+        </section>
         <section className={styles.pricing} id="tariff">
           <div className={styles.container}>
             <aside className={styles.priceCard} aria-labelledby="children-price-title">
@@ -643,8 +718,7 @@ export default function SchoolPage() {
             <div className={styles.applicationModalBody}>
               <Dialog.Title>{application.title}</Dialog.Title>
               <Dialog.Description className={styles.applicationModalDescription}>
-                Оставьте заявку, и мы поможем подобрать направление и удобное
-                время занятий
+                {application.description}
               </Dialog.Description>
               <LeadForm key={application.title} context={application.title} presentation="modal" />
             </div>
