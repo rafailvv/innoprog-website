@@ -359,12 +359,17 @@
   gap: 10px;
   margin-bottom: 14px;
 }
-.courseContent .age {
-  justify-self: start;
+.courseBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.courseBadges .age {
   border-color: #ded6eb;
-  padding: 5px 12px;
+  padding: 5px clamp(7px, 2.4cqi, 12px);
   color: #464a6a;
-  font-size: 14px;
+  font-size: clamp(13px, 4.5cqi, 14px);
+  white-space: nowrap;
 }
 .courseIcon {
   grid-column: 2;

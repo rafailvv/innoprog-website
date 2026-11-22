@@ -39,7 +39,8 @@ const courses = [
   {
     id: "python",
     titleLines: ["программирование", "на Python"],
-    age: "9 до 17",
+    age: "9–17 лет",
+    level: "beginner",
     bullets: [
       "Научим писать код и создавать приложения",
       "Покажем, как применять Python на\u00a0практике",
@@ -49,7 +50,8 @@ const courses = [
   {
     id: "web",
     titleLines: ["создание сайтов", "с нуля"],
-    age: "9 до 17",
+    age: "9–17 лет",
+    level: "beginner",
     bullets: [
       "Научим создавать сайты",
       "Покажем, как добавлять анимации",
@@ -59,7 +61,8 @@ const courses = [
   {
     id: "exam",
     titleLines: ["информатика", "ОГЭ/ЕГЭ"],
-    age: "9 до 17",
+    age: "9–17 лет",
+    level: "beginner",
     bullets: [
       "Разберём темы, на которых теряются баллы",
       "Закроем пробелы и подтянем слабые знания",
@@ -69,7 +72,8 @@ const courses = [
   {
     id: "olympiad",
     titleLines: ["олимпиадное", "программирование"],
-    age: "12 до 17",
+    age: "12–17 лет",
+    level: "prerequisite",
     bullets: [
       "Подготовимся к ВсОШ, перечневым олимпиадам",
       "Разберём задачи любой сложности",
@@ -79,7 +83,8 @@ const courses = [
   {
     id: "ai",
     titleLines: ["разработка", "нейросетей"],
-    age: "12 до 17",
+    age: "12–17 лет",
+    level: "beginner",
     bullets: [
       "Познакомим с разработкой нейросетей",
       "Покажем, как тренировать модели",
@@ -89,7 +94,8 @@ const courses = [
   {
     id: "games",
     titleLines: ["создание", "3D игр"],
-    age: "10 до 17",
+    age: "10–17 лет",
+    level: "beginner",
     bullets: [
       "Освоим редактор Unreal Engine",
       "Разберём основы геймдизайна",
@@ -97,6 +103,11 @@ const courses = [
     ],
   },
 ] as const;
+const courseLevelLabels = {
+  beginner: "с нуля",
+  prerequisite: "нужна база",
+} as const;
+
 const steps = [
   [
     "Индивидуальные занятия",
@@ -327,11 +338,14 @@ export default function SchoolPage() {
               </p>
             </header>
             <div className={styles.courseGrid}>
-              {courses.map(({ id, titleLines, age, bullets }) => (
+              {courses.map(({ id, titleLines, age, level, bullets }) => (
                 <article className={styles.course} key={id} id={id}>
                   <div className={styles.courseContent}>
                     <div className={styles.courseMeta}>
-                      <span className={styles.age}>для детей от {age} лет</span>
+                      <div className={styles.courseBadges}>
+                        <span className={styles.age}>{age}</span>
+                        <span className={styles.age}>{courseLevelLabels[level]}</span>
+                      </div>
                       <h3>
                         {titleLines[0]}<br />{titleLines[1]}
                       </h3>
