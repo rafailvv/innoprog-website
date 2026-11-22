@@ -815,7 +815,7 @@
   grid-template-rows: auto 1fr;
   align-items: start;
   gap: 26px clamp(24px, 4vw, 56px);
-  margin-block: 12px 0;
+  margin-block: clamp(32px, 4vw, 56px) 0;
 }
 .subscriptionIntro {
   grid-area: intro;
@@ -823,9 +823,9 @@
 .subscriptionLabel {
   display: inline-block;
   padding: 6px 14px;
-  border: 1px solid currentColor;
   border-radius: 30px;
-  background: #fff;
+  background: var(--purple);
+  color: #fff;
   font-size: 15px;
   font-weight: 750;
 }

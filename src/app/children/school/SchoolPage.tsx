@@ -389,6 +389,51 @@ export default function SchoolPage() {
             />
           </div>
         </section>
+        <section
+          className={`${styles.container} ${styles.subscription}`}
+          id="subscriptions"
+          aria-labelledby="children-subscription-title"
+        >
+          <div className={styles.subscriptionIntro}>
+            <span className={styles.subscriptionLabel}>гибкая оплата</span>
+            <h2 id="children-subscription-title">
+              Оплата <span>абонементами</span>
+            </h2>
+            <p>
+              Выберите пакет от 4 до 96 занятий и платите в удобном темпе.
+              На большие пакеты действуют скидки
+            </p>
+          </div>
+          <div className={styles.subscriptionDetails}>
+            <h3>Как это работает</h3>
+            <ul role="list">
+              {subscriptionBenefits.map(({ Icon, title, description }) => (
+                <li key={title}>
+                  <span className={styles.subscriptionIcon} aria-hidden="true">
+                    <Icon size={22} strokeWidth={1.75} />
+                  </span>
+                  <div>
+                    <h4>{title}</h4>
+                    <p>{description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.subscriptionAction}>
+            <p>Оставьте заявку, и мы рассчитаем стоимость по телефону</p>
+            <button
+              className={styles.button}
+              type="button"
+              onClick={() => openApplication(
+                "Рассчитать стоимость обучения",
+                "Оставьте заявку, и мы подберём абонемент и рассчитаем стоимость по телефону",
+              )}
+            >
+              Рассчитать стоимость
+            </button>
+          </div>
+        </section>
         <div className={styles.waveArea}>
           <section
             className={`${styles.container} ${styles.section}`}
@@ -608,51 +653,6 @@ export default function SchoolPage() {
             height={1086}
             loading="lazy" decoding="async"
           />
-        </section>
-        <section
-          className={`${styles.container} ${styles.subscription}`}
-          id="subscriptions"
-          aria-labelledby="children-subscription-title"
-        >
-          <div className={styles.subscriptionIntro}>
-            <span className={styles.subscriptionLabel}>Гибкая оплата</span>
-            <h2 id="children-subscription-title">
-              Оплата <span>абонементами</span>
-            </h2>
-            <p>
-              Выберите пакет от 4 до 96 занятий и платите в удобном темпе.
-              На большие пакеты действуют скидки
-            </p>
-          </div>
-          <div className={styles.subscriptionDetails}>
-            <h3>Как это работает</h3>
-            <ul role="list">
-              {subscriptionBenefits.map(({ Icon, title, description }) => (
-                <li key={title}>
-                  <span className={styles.subscriptionIcon} aria-hidden="true">
-                    <Icon size={22} strokeWidth={1.75} />
-                  </span>
-                  <div>
-                    <h4>{title}</h4>
-                    <p>{description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.subscriptionAction}>
-            <p>Оставьте заявку, и мы рассчитаем стоимость по телефону</p>
-            <button
-              className={styles.button}
-              type="button"
-              onClick={() => openApplication(
-                "Рассчитать стоимость обучения",
-                "Оставьте заявку, и мы подберём абонемент и рассчитаем стоимость по телефону",
-              )}
-            >
-              Рассчитать стоимость
-            </button>
-          </div>
         </section>
         <section className={styles.pricing} id="tariff">
           <div className={styles.container}>
