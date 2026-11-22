@@ -26,6 +26,7 @@ export type Teacher = {
   name: string;
   nameLines: [string, string];
   role: TeacherRole;
+  developmentExperienceYears: number;
   image: string;
 };
 
@@ -34,84 +35,98 @@ export const teachers: Teacher[] = [
     name: "Сергей Попкович",
     nameLines: ["Сергей", "Попкович"],
     role: "Python-разработчик",
+    developmentExperienceYears: 6,
     image: sergeyPopkovich,
   },
   {
     name: "Данила Дробышев",
     nameLines: ["Данила", "Дробышев"],
     role: "C++ разработчик",
+    developmentExperienceYears: 5,
     image: danilaDrobyshev,
   },
   {
     name: "Григорий Чепель",
     nameLines: ["Григорий", "Чепель"],
     role: "Python-разработчик",
+    developmentExperienceYears: 5,
     image: grigoryChepel,
   },
   {
     name: "Алан Агузаров",
     nameLines: ["Алан", "Агузаров"],
     role: "Data Scientist",
+    developmentExperienceYears: 5,
     image: alanAguzarov,
   },
   {
     name: "Павел Мягчилов",
     nameLines: ["Павел", "Мягчилов"],
     role: "Python-разработчик",
+    developmentExperienceYears: 4,
     image: pavelMyagchilov,
   },
   {
     name: "Джамбулат Таджидинов",
     nameLines: ["Джамбулат", "Таджидинов"],
     role: "Unreal Engine разработчик",
+    developmentExperienceYears: 5,
     image: dzhambulatTadzhidinov,
   },
   {
     name: "Полина Караева",
     nameLines: ["Полина", "Караева"],
     role: "Python-разработчик",
+    developmentExperienceYears: 3,
     image: polinaKaraeva,
   },
   {
     name: "Лев Быков",
     nameLines: ["Лев", "Быков"],
     role: "Java-разработчик",
+    developmentExperienceYears: 4,
     image: levBykov,
   },
   {
     name: "Анна Надымова",
     nameLines: ["Анна", "Надымова"],
     role: "Data-аналитик",
+    developmentExperienceYears: 3,
     image: annaNadymova,
   },
   {
     name: "Павел Кротов",
     nameLines: ["Павел", "Кротов"],
     role: "Python-разработчик",
+    developmentExperienceYears: 4,
     image: pavelKrotov,
   },
   {
     name: "Илья Коченков",
     nameLines: ["Илья", "Коченков"],
     role: "Data Scientist",
+    developmentExperienceYears: 5,
     image: ilyaKochenkov,
   },
   {
     name: "Артемий Королев",
     nameLines: ["Артемий", "Королев"],
     role: "Python-разработчик",
+    developmentExperienceYears: 4,
     image: artemyKorolev,
   },
   {
     name: "Иван Мурзин",
     nameLines: ["Иван", "Мурзин"],
     role: "Frontend-разработчик",
+    developmentExperienceYears: 4,
     image: ivanMurzin,
   },
   {
     name: "Данил Афончиков",
     nameLines: ["Данил", "Афончиков"],
     role: "Data Scientist",
+    developmentExperienceYears: 5,
     image: danilAfonchikov,
   },
 ];

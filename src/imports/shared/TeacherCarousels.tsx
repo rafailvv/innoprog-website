@@ -27,6 +27,15 @@ function TeacherName({ teacher }: { teacher: Teacher }) {
   );
 }
 
+const russianPluralRules = new Intl.PluralRules("ru");
+
+function TeacherExperience({ years }: { years: number }) {
+  const plural = russianPluralRules.select(years);
+  const unit = plural === "one" ? "год" : plural === "few" ? "года" : "лет";
+
+  return <>{years} {unit} опыта разработки</>;
+}
+
 function DesktopTeacherCard({ teacher }: { teacher: Teacher }) {
   return (
     <article className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[302px]" data-name={teacher.name}>
@@ -37,9 +46,12 @@ function DesktopTeacherCard({ teacher }: { teacher: Teacher }) {
         <h3 className="font-['Raleway:Bold',sans-serif] font-bold leading-[36px] relative shrink-0 text-[40px] uppercase w-full">
           <TeacherName teacher={teacher} />
         </h3>
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">
-          {teacher.role}
-        </p>
+        <div className="flex flex-col gap-[6px] w-full">
+          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">{teacher.role}</p>
+          <p className="font-['Manrope:Regular',sans-serif] leading-[20px] text-[16px] text-white/85">
+            <TeacherExperience years={teacher.developmentExperienceYears} />
+          </p>
+        </div>
       </div>
     </article>
   );
@@ -78,9 +90,12 @@ function MobileTeacherCard({ teacher }: { teacher: Teacher }) {
         <h3 className="font-['Manrope:Bold',sans-serif] font-bold leading-[18px] min-h-[36px] relative shrink-0 text-[20px] w-full">
           <TeacherName teacher={teacher} />
         </h3>
-        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full">
-          {teacher.role}
-        </p>
+        <div className="flex flex-col gap-[4px] w-full">
+          <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full max-[430px]:text-[15px] max-[430px]:leading-[17px] max-[430px]:tracking-[0.3px]">{teacher.role}</p>
+          <p className="font-['Manrope:Regular',sans-serif] leading-[16px] text-[12px] text-white/85">
+            <TeacherExperience years={teacher.developmentExperienceYears} />
+          </p>
+        </div>
       </div>
     </article>
   );

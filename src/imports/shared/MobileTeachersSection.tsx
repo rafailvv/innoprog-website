@@ -13,7 +13,7 @@ function Component1() {
 
 function Frame155({ preferredRole }: { preferredRole?: TeacherRole }) {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] h-[780px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
+    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] min-h-[780px] items-center mt-[12px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
       <Component1 />
       <MobileTeacherCarousel preferredRole={preferredRole} />
     </div>
