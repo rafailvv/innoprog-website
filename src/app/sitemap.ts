@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { FREE_COURSES_LINK } from "./courseNavigation";
+import { FREE_COURSES_LINK, STUDENT_STORIES_LINK } from "./courseNavigation";
 import { BLOG_ARTICLES } from "./blog/data";
 import { REVIEW_ROUTE_TO_KEY, SITE_URL } from "./seo";
 import { childrenCoursePaths } from "./children/courses/course-paths";
@@ -13,6 +13,7 @@ const PAGE_UPDATED_AT: Readonly<Record<string, string>> = {
   "/blog": BLOG_ARTICLES.map((article) => article.updatedAt ?? article.publishedAt).sort().at(-1)!,
   ...Object.fromEntries(BLOG_ARTICLES.map((article) => [`/blog/${article.slug}`, article.updatedAt ?? article.publishedAt])),
   [FREE_COURSES_LINK.href]: "2026-11-14",
+  [STUDENT_STORIES_LINK.href]: "2026-11-23",
   "/": "2026-10-19", "/python-course": "2026-10-19",
   "/data-science-course": "2026-10-19", "/frontend-developer-course": "2026-10-19",
   "/data-analyst-course": "2026-10-19", "/cpp-developer-course": "2026-10-15",
@@ -51,6 +52,7 @@ const baseRoutes = [
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contacts", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews", changeFrequency: "monthly", priority: 0.75 },
+  { path: STUDENT_STORIES_LINK.href, changeFrequency: "monthly", priority: 0.75 },
 ] as const;
 
 const routes = [

@@ -21,8 +21,11 @@ export const CHILD_COURSE_LINKS = childrenCourseNavigation;
 
 export const CONTACTS_LINK = { label: "Контакты", href: "/contacts" } as const;
 
+export const STUDENT_STORIES_LINK = { label: "Истории учеников", href: "/student-stories" } as const;
+
 export const ABOUT_SITE_LINKS = [
   { label: "Отзывы", href: "/reviews" },
+  STUDENT_STORIES_LINK,
   CONTACTS_LINK,
   { label: EDUCATION_DISCLOSURE_LABEL, href: LEGAL_LINKS.educationDisclosure },
   { label: "Блог", href: "/blog" },

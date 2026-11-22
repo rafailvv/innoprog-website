@@ -7,14 +7,14 @@ import { ArticleBody } from "./ArticleBody";
 import sitemap from "../sitemap";
 
 describe("published blog contracts", () => {
-  it("exposes six distinct articles and 49 canonical sitemap URLs", () => {
+  it("exposes six distinct articles and 50 canonical sitemap URLs", () => {
     expect(BLOG_ARTICLES).toHaveLength(6);
     for (const field of ["slug", "seoTitle", "description"] as const) {
       expect(new Set(BLOG_ARTICLES.map(article => article[field])).size).toBe(6);
     }
     const routes = sitemap();
-    expect(routes).toHaveLength(49);
-    expect(new Set(routes.map(route => route.url)).size).toBe(49);
+    expect(routes).toHaveLength(50);
+    expect(new Set(routes.map(route => route.url)).size).toBe(50);
     expect(routes.some(route => route.url.endsWith("/contacts"))).toBe(true);
     for (const article of BLOG_ARTICLES) {
       expect(routes.find(route => route.url.endsWith(`/blog/${article.slug}`))?.lastModified).toEqual(new Date(`${article.updatedAt ?? article.publishedAt}T00:00:00.000Z`));

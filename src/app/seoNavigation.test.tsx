@@ -2,7 +2,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import App from "./App";
-import { CHILD_COURSE_LINKS } from "./courseNavigation";
+import { CHILD_COURSE_LINKS, STUDENT_STORIES_LINK } from "./courseNavigation";
 import sitemap from "./sitemap";
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), back: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }) }));
@@ -27,6 +27,7 @@ describe("server-rendered navigation", () => {
       expect(d.querySelector(`a[href="${href}"]`), href).not.toBeNull();
     }
     const menu = d.querySelector('nav[aria-label="Мобильное меню"]');
+    expect(menu?.querySelector(`a[href="${STUDENT_STORIES_LINK.href}"]`)?.textContent).toBe(STUDENT_STORIES_LINK.label);
     expect(menu?.hasAttribute("hidden")).toBe(true);
     expect(menu?.getAttribute("aria-hidden")).toBe("true");
   });
