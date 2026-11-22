@@ -3,7 +3,7 @@ import ChildrenMobileMenu from "./ChildrenMobileMenu";
 import { childrenCourseNavigation } from "./courses/course-paths";
 import { useState, useSyncExternalStore, type ReactNode, type CSSProperties } from "react";
 import { SiteHeader } from "../components/ResponsiveSiteHeader";
-import { SiteFooter } from "../components/ResponsiveSiteFooter";
+import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
 import styles from "./school/school.module.css";
 function subscribe(callback: () => void) {
   window.addEventListener("resize", callback);
@@ -50,7 +50,7 @@ export default function ChildrenShell({
         />
       </div>
       {children}
-      <SiteFooter isMobile={isMobile} scale={scale} compactMobile />
+      <ResponsiveSiteFooter applicationHref="#application" />
       <ChildrenMobileMenu open={menu} onOpenChange={setMenu} />
     </div>
   );

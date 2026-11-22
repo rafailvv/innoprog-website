@@ -7,17 +7,3 @@ export function MaxIcon({ className }: { className?: string }) {
   </svg>
   );
 }
-
-export default function MaxFooterLink({ sizeClass }: { sizeClass: string }) {
-  return (
-    <a
-      aria-label="Написать в MAX"
-      className={`grid shrink-0 place-items-center rounded-[40px] bg-[var(--fill-0,#D9D9D9)] text-black ${sizeClass}`}
-      href={MAX_CONTACT_URL}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <MaxIcon className="size-[54%]" />
-    </a>
-  );
-}

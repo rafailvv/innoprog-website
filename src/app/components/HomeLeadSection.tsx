@@ -1,3 +1,4 @@
+import { CONTACT_HOURS, CONTACT_RESPONSE_TIME } from "../contactHours";
 import swirl from "../../imports/MainScreenDesktop/28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
 import { HomeApplicationDetails } from "./HomeCommercialBlocks";
 import { InlineLeadForm } from "./InlineLeadForm";
@@ -10,7 +11,7 @@ export function HomeLeadSection() {
       <div className={styles.content}>
         <header className={styles.heading}>
           <h2>Заявка<br />на обучение</h2>
-          <p>Оставьте заявку, и мы свяжемся с вами в удобное время</p>
+          <p>{CONTACT_HOURS}<br />{CONTACT_RESPONSE_TIME}</p>
         </header>
         <InlineLeadForm />
         <HomeApplicationDetails />

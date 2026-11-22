@@ -1,17 +1,24 @@
 import React from "react";
+import { EducationLicenseLink } from "./components/EducationLicenseLink";
 
 export const SOFTWARE_REGISTRY_NOTICE =
   'ПО "INNOPROG" зарегистрировано в реестре российского ПО (реестровая запись №34485 от 15.07.2026)';
 
 export function FooterLegalDetails({
   compactActivityCodes = false,
+  showEducationLicense = false,
 }: {
   compactActivityCodes?: boolean;
+  showEducationLicense?: boolean;
 }) {
   return (
     <>
       ООО «ИННОПРОГ», ИНН 1683011286, ОГРН 1221600105440
       <br aria-hidden="true" />
+      {showEducationLicense && <>
+        <EducationLicenseLink />
+        <br aria-hidden="true" />
+      </>}
       {SOFTWARE_REGISTRY_NOTICE}
       <br aria-hidden="true" />
       {compactActivityCodes

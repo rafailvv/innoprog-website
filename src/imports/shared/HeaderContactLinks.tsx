@@ -1,4 +1,4 @@
-import { MynauiTelegram, TablerPhoneCall } from "./DesktopSiteFooter";
+import { MynauiTelegram, TablerPhoneCall } from "./ContactIcons";
 import { MAX_CONTACT_URL, MaxIcon } from "./MaxFooterLink";
 
 export const TRIAL_APPLICATION_HREF = "/application";

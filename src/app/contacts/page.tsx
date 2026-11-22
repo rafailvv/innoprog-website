@@ -1,7 +1,8 @@
 import aboutInnopolisUrl from "../../imports/MainScreenDesktop/about-innopolis.opt.webp";
-import { MaterialSymbolsMailOutline, MynauiTelegram, TablerPhoneCall } from "../../imports/shared/DesktopSiteFooter";
+import { MaterialSymbolsMailOutline, MynauiTelegram, TablerPhoneCall } from "../../imports/shared/ContactIcons";
 import { MAX_CONTACT_URL, MaxIcon } from "../../imports/shared/MaxFooterLink";
 import { ResponsiveSiteFooter } from "../components/ResponsiveSiteFooter";
+import { CONTACT_HOURS, CONTACT_RESPONSE_TIME } from "../contactHours";
 import { LEGAL_LINKS } from "../legalLinks";
 import { JsonLd, SITE_URL, breadcrumbJsonLd, createPageMetadata, organizationJsonLd, webPageJsonLd } from "../seo";
 import { SvedenHeader } from "../sveden/SvedenHeader";
@@ -74,19 +75,22 @@ export default function ContactsPage() {
               <p>Поможем выбрать курс и тариф, ответим на вопросы об оплате и налоговом&nbsp;вычете</p>
             </header>
 
-            <ul aria-label="Способы связи" className={styles.methods}>
-              {contactMethods.map(({ label, value, href, icon }) => (
-                <li key={label}>
-                  <a href={href} className={styles.method}>
-                    <div aria-hidden="true" className={styles.methodIcon}>{icon}</div>
-                    <span className={styles.methodText}>
-                      <span className={styles.methodLabel}>{label}</span>
-                      <span>{value}</span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className={styles.contactDetails}>
+              <ul aria-label="Способы связи" className={styles.methods}>
+                {contactMethods.map(({ label, value, href, icon }) => (
+                  <li key={label}>
+                    <a href={href} className={styles.method}>
+                      <div aria-hidden="true" className={styles.methodIcon}>{icon}</div>
+                      <span className={styles.methodText}>
+                        <span className={styles.methodLabel}>{label}</span>
+                        <span>{value}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.hours}><strong>{CONTACT_HOURS}</strong><br />{CONTACT_RESPONSE_TIME}</p>
+            </div>
 
             <section className={`site-about-city ${styles.city}`} aria-labelledby="contact-city">
               <h2 id="contact-city">Мы из Иннополиса</h2>
@@ -94,7 +98,6 @@ export default function ContactsPage() {
                 <img alt="Иннополис" decoding="async" height={468} loading="lazy" src={aboutInnopolisUrl} width={791} />
                 <div>
                   <p><strong>Адрес.</strong> {ADDRESS}</p>
-                  <p><strong>Режим работы.</strong> По будням с 09:00 до 21:00 по московскому времени. Суббота и воскресенье выходные</p>
                 </div>
               </div>
             </section>

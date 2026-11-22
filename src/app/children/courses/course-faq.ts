@@ -1,3 +1,4 @@
+import { PARENT_GUIDE } from "../../firstLessonLinks";
 import { type ChildrenCourse, childrenCoursePath } from "./course-data";
 
 export type ChildrenCourseFaq = {
@@ -50,7 +51,7 @@ const directionAnswers: Record<string, { start: string; format: string; equipmen
 export function getChildrenCourseFaq(course: ChildrenCourse): ChildrenCourseFaq[] {
   const direction = directionAnswers[course.slug];
   return [
-    { question: "Нужны ли знания программирования перед началом?", answer: [direction.start + " " + direction.related.explanation + " Если ещё выбираете направление, прочитайте руководство для родителей."], link: { label: direction.related.label, href: childrenCoursePath(direction.related.slug) }, links: [{ label: "руководство для родителей", href: "/blog/kak-vybrat-programmirovanie-rebenku" }] },
+    { question: "Нужны ли знания программирования перед началом?", answer: [direction.start + " " + direction.related.explanation + " Если ещё выбираете направление, прочитайте руководство для родителей."], link: { label: direction.related.label, href: childrenCoursePath(direction.related.slug) }, links: [{ label: "руководство для родителей", href: PARENT_GUIDE }] },
     { question: "Как проходят занятия?", answer: [`Онлайн, один на один с преподавателем. Урок длится 45–60 минут. Расписание и темп подбираем индивидуально. ${direction.format}`] },
     {
       question: "Сколько времени займёт обучение?",

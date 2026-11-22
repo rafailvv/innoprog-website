@@ -9,7 +9,7 @@ import mobileHomePaths from "../../../imports/MainScreenMobile/svg-paths";
 import * as Dialog from "@radix-ui/react-dialog";
 import { LeadSheetControls, leadSheetClassName } from "../../components/LeadSheetControls";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
-import { SiteFooter } from "../../components/ResponsiveSiteFooter";
+import { ResponsiveSiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "./source-data.json";
 import styles from "./school.module.css";
 import LeadForm from "./LeadForm";
@@ -679,7 +679,7 @@ export default function SchoolPage() {
                 <p>вычет можно оформить после окончания курса</p>
               </div>
             </aside>
-            <div className={styles.applicationCard}>
+            <div className={styles.applicationCard} id="application">
               <h2>Заявка на обучение</h2>
               <p>Оставьте заявку, и мы свяжемся с вами в удобное для вас время.</p>
               <LeadForm />
@@ -688,7 +688,7 @@ export default function SchoolPage() {
         </section>
       </main>
       <div className={styles.footerJoin}>
-        <SiteFooter isMobile={isMobile} scale={scale} compactMobile />
+        <ResponsiveSiteFooter applicationHref="#application" />
       </div>
       <ChildrenMobileMenu open={menuOpen} onOpenChange={setMenuOpen} onApplication={() => openApplication("Подобрать курс для ребёнка")} />
       <Dialog.Root

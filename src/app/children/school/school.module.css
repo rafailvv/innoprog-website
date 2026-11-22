@@ -964,8 +964,10 @@
 .footerJoin > footer {
   margin-top: 0;
 }
-.footerJoin > footer:global(.site-main-footer-surface--mobile) {
-  border-radius: 28px 28px 0 0;
+@media (max-width: 767px) {
+  .footerJoin [data-site-footer] {
+    border-radius: 28px 28px 0 0;
+  }
 }
 .form {
   display: flex;

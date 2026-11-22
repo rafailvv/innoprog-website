@@ -40,12 +40,13 @@ import {
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
 import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
-import { SiteFooter } from "./components/ResponsiveSiteFooter";
+import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
 import { TariffsInformation } from "./tariffs/TariffsInformation";
 import { CourseTariffCards } from "../imports/shared/CourseTariffCards";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
+import { EducationLicenseLink } from "./components/EducationLicenseLink";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
 const MainScreen = dynamic(() => import("../imports/MainScreenDesktop/MainScreenDesktop"));
@@ -1259,7 +1260,7 @@ function CourseReviewsPage({
           </div>
         </section>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -1350,7 +1351,7 @@ function ReviewsIndexPage({
           ) : null}
         </section>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -1491,7 +1492,7 @@ function StudentReviewPage({
           </div>
         </section>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -1613,7 +1614,7 @@ function ReviewStoryPage({
         </section>
       </div>
 
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -1748,7 +1749,7 @@ function AboutPage({
                 <a href={LEGAL_LINKS.representativeConsent} rel="noopener noreferrer" target="_blank">Согласие законного представителя на обработку персональных данных несовершеннолетнего и представителя</a>
               </div>
               <div>
-                <a href={LEGAL_LINKS.license} rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
+                <a href={LEGAL_LINKS.licenseExtract} rel="noopener noreferrer" target="_blank">Выписка из реестра лицензий на образовательную деятельность</a>
                 <a href={LEGAL_LINKS.advertisingConsent} rel="noopener noreferrer" target="_blank">Согласие на получение рекламной и информационной рассылки</a>
               </div>
             </div>
@@ -1758,7 +1759,7 @@ function AboutPage({
         </div>
       </section>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </>
   );
 }
@@ -1830,6 +1831,7 @@ function TariffsPage({
                 <span>Выгодные</span>{" "}
                 <strong>условия оплаты</strong>
               </h1>
+              <EducationLicenseLink className="site-tariffs-page__license" />
             </header>
 
             <section className="site-tariffs-page__conditions" aria-label="Условия оплаты">
@@ -1850,7 +1852,7 @@ function TariffsPage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2113,7 +2115,7 @@ function PythonCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2363,7 +2365,7 @@ function DataScienceCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2482,7 +2484,7 @@ function FrontendCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2601,7 +2603,7 @@ function DataAnalystCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2720,7 +2722,7 @@ function CppCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2839,7 +2841,7 @@ function MobileDeveloperCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -2958,7 +2960,7 @@ function UnrealEngineCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -3070,7 +3072,7 @@ function JavaCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }
@@ -3182,7 +3184,7 @@ function MlEngineerCoursePage({
           </div>
         </div>
       </div>
-      <SiteFooter isMobile={isMobile} scale={headerScale} />
+      <ResponsiveSiteFooter />
     </section>
   );
 }

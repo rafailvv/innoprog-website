@@ -3,6 +3,8 @@ import { LeadSubmitLabel } from "../components/LeadSubmitLabel";
 import { LeadPhoneField } from "../components/LeadPhoneField";
 import { isCompleteLeadPhone, leadPhoneNumber } from "../leadPhone";
 import { CaptchaNotice } from "../components/CaptchaNotice";
+import { CONTACT_HOURS, CONTACT_RESPONSE_TIME } from "../contactHours";
+import { FIRST_LESSON_GUIDE } from "../firstLessonLinks";
 import { CallbackTimeReveal } from "../components/CallbackTimeReveal";
 import { CallbackTimePicker } from "../components/CallbackTimePicker";
 import { trackApplicationSuccess } from "../analytics";
@@ -81,6 +83,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
             <h1 id="application-success-title">Заявка успешно отправлена!</h1>
             <p>Спасибо, что доверяете нам</p>
             <p>Администратор ИННОПРОГ свяжется с вами в ближайшее время и поможет подобрать подходящий формат обучения</p>
+            <a className="site-first-lesson-guide-link" href={FIRST_LESSON_GUIDE}>Памятка к первому занятию</a>
             <a className="site-application-submit" href="/">на главную</a>
           </div>
         </section>
@@ -157,7 +160,7 @@ export default function LeadApplicationPage({ success = false }: { success?: boo
           </div>
           <form className="site-application-form" onSubmit={handleSubmit}>
             <h2>Оставьте заявку</h2>
-            <p>Свяжемся с вами в удобное время</p>
+            <p>{CONTACT_HOURS}<br />{CONTACT_RESPONSE_TIME}</p>
             <div className="site-application-fields">
               <input aria-label="Ваше имя" autoComplete="name" name="name" placeholder="Ваше имя" type="text" />
               <LeadPhoneField value={phone} onValueChange={setPhone} />

@@ -66,6 +66,11 @@
   text-wrap: balance;
 }
 
+.contactDetails {
+  display: grid;
+  gap: clamp(18px, 2.2vw, 32px);
+}
+
 .methods {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -404,4 +409,11 @@
     padding-inline: 16px;
     line-height: 24px;
   }
+}
+
+.hours {
+  margin: 0;
+  color: #514763;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.5;
 }

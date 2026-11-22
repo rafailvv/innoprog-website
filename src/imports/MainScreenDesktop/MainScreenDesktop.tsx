@@ -7,8 +7,7 @@ import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommer
 import { MentorBenefitBriefcaseIcon, MentorBenefitSupportIcon } from "../shared/MentorBenefitIcons";
 import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
-import { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
-export { MainScreenDesktopFooter } from "../shared/DesktopSiteFooter";
+import { SiteFooterContent } from "../../app/components/SiteFooterContent";
 import svgPaths from "./svg-j2mtrggl1r";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import imgGain from "./home-background.opt.webp";
@@ -1837,7 +1836,7 @@ function Frame126() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0">
       <Component8 />
-      <MainScreenDesktopFooter />
+      <SiteFooterContent landmark />
     </div>
   );
 }

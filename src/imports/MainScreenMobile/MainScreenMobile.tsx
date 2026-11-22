@@ -7,8 +7,7 @@ import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 export { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
-import { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
-export { MainScreenMobileFooter } from "../shared/MobileSiteFooter";
+import { SiteFooterContent } from "../../app/components/SiteFooterContent";
 import svgPaths from "./svg-paths";
 import imgGain from "../MainScreenDesktop/home-background.opt.webp";
 import imgCourseDataScience from "../MainScreenDesktop/course-data-analyst-desktop.webp";
@@ -2494,7 +2493,7 @@ function Frame182() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-[390px]">
       <Component4 />
-      <MainScreenMobileFooter compact />
+      <SiteFooterContent landmark />
     </div>
   );
 }

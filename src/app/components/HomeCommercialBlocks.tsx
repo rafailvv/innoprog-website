@@ -1,4 +1,4 @@
-import { MynauiTelegram, TablerPhoneCall } from "../../imports/shared/DesktopSiteFooter";
+import { MynauiTelegram, TablerPhoneCall } from "../../imports/shared/ContactIcons";
 import styles from "./HomeCommercialBlocks.module.css";
 
 export function HomeCoursesLink({ compact = false }: { compact?: boolean }) {

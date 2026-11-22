@@ -1,4 +1,6 @@
 "use client";
+import { CONTACT_HOURS, CONTACT_RESPONSE_TIME } from "../../contactHours";
+import { FIRST_LESSON_GUIDE } from "../../firstLessonLinks";
 import { LeadSubmitLabel } from "../../components/LeadSubmitLabel";
 import { LeadPhoneField } from "../../components/LeadPhoneField";
 import { isCompleteLeadPhone, leadPhoneNumber } from "../../leadPhone";
@@ -102,10 +104,12 @@ export default function LeadForm({ course, formId, context, presentation = "inli
       <span className={formStyles.successIcon} aria-hidden="true">✓</span>
       <h3>Заявка отправлена!</h3>
       <p>Спасибо! Мы свяжемся с вами и подберём удобное время занятия</p>
+      <a className="site-first-lesson-guide-link" href={FIRST_LESSON_GUIDE}>Памятка к первому занятию</a>
     </div>
   );
   return (
     <form className={formStyles.form} onSubmit={submit} aria-busy={pending} aria-label={context || "Заявка на бесплатное занятие"}>
+      <p className={formStyles.contactHours}>{CONTACT_HOURS}<br />{CONTACT_RESPONSE_TIME}</p>
       <YandexSmartCaptcha ref={captcha} />
       <div className={formStyles.fields}>
         <label className={formStyles.field}>

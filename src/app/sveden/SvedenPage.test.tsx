@@ -96,7 +96,7 @@ describe("educational disclosure server HTML", () => {
     const html = renderToStaticMarkup(<SvedenPage section="common" />);
     expect(html).toContain("site-main-header--mobile");
     expect(html).toContain("site-main-header--desktop");
-    expect(html).toContain("site-main-footer-surface__mobile-canvas");
+    expect(html).toContain("site-main-footer-surface");
     expect(html).toContain('href="/reviews"');
     expect(html).toContain('href="/about"');
     expect(html).toContain('href="/application"');

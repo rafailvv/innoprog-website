@@ -1,5 +1,7 @@
 "use client";
 
+import { CONTACT_HOURS, CONTACT_RESPONSE_TIME } from "../contactHours";
+import { FIRST_LESSON_GUIDE } from "../firstLessonLinks";
 import type { FormEvent, KeyboardEvent, ReactNode } from "react";
 import { CallbackTimePicker } from "./CallbackTimePicker";
 import { CaptchaNotice } from "./CaptchaNotice";
@@ -33,7 +35,7 @@ function handleConsentKey(event: KeyboardEvent<HTMLDivElement>, toggle: () => vo
 export function LeadModal({
   state, onClose, onHome, onSubmit, draft = {}, consent, advertisingConsent, submitDisabled = false,
   onToggleConsent, onToggleAdvertisingConsent, pending, error,
-  subtitle = "Оставьте заявку, и мы свяжемся с вами в удобное время",
+  subtitle = <>{CONTACT_HOURS}<br />{CONTACT_RESPONSE_TIME}</>,
 }: Props) {
   return (
     <div
@@ -202,6 +204,7 @@ export function LeadModal({
               Администратор ИННОПРОГ свяжется с вами в ближайшее время, уточнит детали и поможет подобрать
               подходящий формат обучения. Пожалуйста, ожидайте 🙏
             </p>
+            <a className="site-first-lesson-guide-link" href={FIRST_LESSON_GUIDE}>Памятка к первому занятию</a>
             <button className="site-lead-modal__submit" onClick={onClose} type="button">
               закрыть
             </button>

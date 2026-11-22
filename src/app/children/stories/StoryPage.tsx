@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useSyncExternalStore, type CSSProperties } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { SiteHeader } from "../../components/ResponsiveSiteHeader";
-import { SiteFooter } from "../../components/ResponsiveSiteFooter";
+import { ResponsiveSiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "../school/source-data.json";
 import school from "../school/school.module.css";
 import styles from "./story.module.css";
@@ -148,7 +148,7 @@ export default function StoryPage({ index }: { index: number }) {
           </Link>
         </div>
       </main>
-      <SiteFooter isMobile={isMobile} scale={scale} />
+      <ResponsiveSiteFooter applicationHref="/children#application" />
       <ChildrenMobileMenu open={menu} onOpenChange={setMenu} applicationHref="/children#tariff" />
       <Dialog.Root
         open={photo !== null}

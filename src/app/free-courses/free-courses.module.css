@@ -97,10 +97,6 @@
   margin-top: 0;
 }
 
-.landing + :global(.site-main-footer-surface--desktop) :global(.site-main-desktop-footer__content) {
-  margin-top: 48px;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
