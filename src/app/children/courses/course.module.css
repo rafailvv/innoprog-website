@@ -371,11 +371,6 @@
 .price b {
   grid-column: 1;
   font-size: 42px;
-  letter-spacing: -1px;
-}
-.price b span {
-  display: inline-block;
-  font-size: 0.625em;
 }
 .formCard {
   background: #fff;

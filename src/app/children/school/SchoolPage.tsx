@@ -665,7 +665,13 @@ export default function SchoolPage() {
                 <h3 id="children-price-title">Стоимость обучения</h3>
                 <span className={styles.discount}>−{childrenLessonPrice.discount}%</span>
                 <del>{childrenLessonPrice.regularLabel}&nbsp;руб</del>
-                <p><span>от</span> {childrenLessonPrice.startingLabel} <span>руб за занятие</span></p>
+                <p className={styles.lessonPrice}>
+                  <span className={styles.lessonPriceAmount}>
+                    <span className={styles.lessonPriceNote}>от</span>{" "}
+                    <span className={styles.lessonPriceNumber}>{childrenLessonPrice.startingLabel}</span>
+                  </span>{" "}
+                  <span className={styles.lessonPriceNote}>руб за занятие</span>
+                </p>
               </div>
               <ul className={styles.priceBenefits}>
                 <li>

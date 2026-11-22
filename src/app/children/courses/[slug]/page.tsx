@@ -342,7 +342,13 @@ export default async function Page({ params }: Props) {
               <div className={styles.price} id="course-section-price">
                 <span>Стоимость обучения</span>
                 <del>{childrenLessonPrice.regularLabel}&nbsp;руб</del>
-                <b><span>от</span> {childrenLessonPrice.startingLabel} <span>руб за занятие</span></b>
+                <b className={school.lessonPrice}>
+                  <span className={school.lessonPriceAmount}>
+                    <span className={school.lessonPriceNote}>от</span>{" "}
+                    <span className={school.lessonPriceNumber}>{childrenLessonPrice.startingLabel}</span>
+                  </span>{" "}
+                  <span className={school.lessonPriceNote}>руб за занятие</span>
+                </b>
                 <span className={school.discount}>−{childrenLessonPrice.discount}%</span>
               </div>
             </div>

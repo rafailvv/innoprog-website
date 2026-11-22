@@ -1089,13 +1089,30 @@
   grid-column: 1;
   align-self: start;
   font-size: clamp(26px, 3.4vw, 44px);
-  font-weight: 800;
-  line-height: 1.2;
   margin: 4px 0 0;
 }
-.price p span {
-  display: inline-block;
-  font-size: 0.625em;
+.lessonPrice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 0.15em;
+  font-weight: 800;
+  line-height: 1.12;
+}
+.lessonPriceAmount {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.11em;
+  white-space: nowrap;
+}
+.lessonPriceNumber {
+  font-variant-numeric: lining-nums proportional-nums;
+  letter-spacing: -0.035em;
+}
+.lessonPriceNote {
+  font-size: clamp(14px, 0.43em, 19px);
+  font-weight: 750;
+  line-height: 1.2;
 }
 .discount {
   grid-area: 2 / 2 / span 2;
