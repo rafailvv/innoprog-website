@@ -15,6 +15,7 @@ import { ResponsiveSiteFooter } from "../../components/ResponsiveSiteFooter";
 import data from "./source-data.json";
 import styles from "./school.module.css";
 import LeadForm from "./LeadForm";
+import SchoolComparison from "./SchoolComparison";
 import NearViewportImage from "./NearViewportImage";
 import { childrenTeachers as teachers } from "./teacher-data";
 import { childrenCoursePaths } from "../courses/course-paths";
@@ -464,6 +465,7 @@ export default function SchoolPage() {
             </button>
           </div>
         </section>
+        <SchoolComparison className={styles.container} />
         <div className={styles.waveArea}>
           <section
             className={`${styles.container} ${styles.section}`}
