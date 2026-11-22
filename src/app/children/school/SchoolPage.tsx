@@ -1,6 +1,7 @@
 "use client";
 import ChildrenMobileMenu from "../ChildrenMobileMenu";
 import ChildrenFaq from "../ChildrenFaq";
+import ChildrenTrialIntro from "../ChildrenTrialIntro";
 import { childrenLessonPrice } from "../lesson-price";
 import { childrenCourseNavigation } from "../courses/course-paths";
 
@@ -572,13 +573,7 @@ export default function SchoolPage() {
           className={`${styles.container} ${styles.section}`}
           id="reviews"
         >
-          <h2>Отзывы учеников</h2>
-          <div className={styles.reviewHeading}>
-            <p>
-              Что думают о курсах сами дети? Читайте реальные{" "}
-              <strong>отзывы наших учеников</strong>
-            </p>
-          </div>
+          <ChildrenTrialIntro />
           <div className={styles.reviews} ref={carousel}>
             {data.reviews.map((item, i) => (
               <article key={item.name}>

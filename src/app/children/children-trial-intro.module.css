@@ -1,0 +1,56 @@
+.block {
+  margin-bottom: 32px;
+  padding: 41px 48px 45px;
+  border-radius: 32px;
+  background: #f3edff;
+  color: #464a6a;
+}
+
+.block::before {
+  display: block;
+  width: 44px;
+  height: 5px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background: #9c78ff;
+  content: "";
+}
+
+.block > .title {
+  margin: 0;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+.block > .description {
+  max-width: 720px;
+  margin: 16px 0 0;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .block {
+    margin-bottom: 24px;
+    padding: 26px 24px 28px;
+    border-radius: 26px;
+  }
+
+  .block::before {
+    width: 36px;
+    margin-bottom: 17px;
+  }
+
+  .block > .title {
+    font-size: 30px;
+  }
+
+  .block > .description {
+    margin-top: 14px;
+    font-size: 16px;
+  }
+}

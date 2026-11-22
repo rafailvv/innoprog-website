@@ -6,6 +6,7 @@ import CourseArrow from "../CourseArrow";
 import { getChildrenCourseFaq, type ChildrenCourseFaq } from "../course-faq";
 import ChildrenShell from "../../ChildrenShell";
 import ChildrenFaq from "../../ChildrenFaq";
+import ChildrenTrialIntro from "../../ChildrenTrialIntro";
 import { childrenLessonPrice } from "../../lesson-price";
 import LeadForm from "../../school/LeadForm";
 import source from "../../school/source-data.json";
@@ -321,6 +322,7 @@ export default async function Page({ params }: Props) {
               answer: <FaqAnswer item={item} />,
             }))}
           />
+          <ChildrenTrialIntro />
         </div>
         <section className={styles.application} id="application">
           <div className={school.container}>
