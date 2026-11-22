@@ -262,9 +262,6 @@ function Frame84() {
     <div className="absolute content-stretch flex flex-col gap-[60px] h-[1346px] items-center left-[80px] top-[834px] w-[1280px]">
       <Frame83 />
       <Frame87 />
-      <button className="bg-[#464a6a] content-stretch flex h-[79px] items-center justify-center px-[28px] py-0 relative rounded-[40px] shrink-0" data-name="кнопки пд" data-application-open data-node-id="3401:529" type="button">
-        <span className="block font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">Подробнее</span>
-      </button>
     </div>
   );
 }
