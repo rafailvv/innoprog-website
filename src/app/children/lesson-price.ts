@@ -6,6 +6,6 @@ const currencyAmount = new Intl.NumberFormat("ru-RU");
 export const childrenLessonPrice = {
   starting,
   discount,
-  startingLabel: currencyAmount.format(starting),
+  startingLabel: currencyAmount.format(starting).replace(/\u00a0/g, "\u202f"),
   regularLabel: currencyAmount.format(regular),
 };
