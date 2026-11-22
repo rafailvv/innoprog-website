@@ -1,6 +1,10 @@
 .page {
   --purple: #9c78ff;
   --ink: #201c2d;
+  --school-heading: #464a6a;
+  --school-accent: #6544a9;
+  --school-line: #e1d9ed;
+  --school-surface: #f5f0fc;
   color: var(--ink);
   background: #fff;
   font-family: var(--font-manrope), Arial, sans-serif;
@@ -25,10 +29,6 @@
   letter-spacing: -0.7px;
 }
 .schoolMain {
-  --school-heading: #464a6a;
-  --school-accent: #6544a9;
-  --school-line: #e1d9ed;
-  --school-surface: #f5f0fc;
   color: #464255;
 }
 .schoolMain :is(h2, h3) {
@@ -687,6 +687,9 @@
   padding-inline: 28px;
 }
 .faq h2 {
+  color: var(--school-heading);
+  font-weight: 750;
+  text-transform: uppercase;
   margin-bottom: 36px;
 }
 .faqItem {
@@ -747,6 +750,9 @@
 .faqToggle[aria-expanded="true"] + .faqAnswer {
   grid-template-rows: 1fr;
   opacity: 1;
+}
+.faqAnswer[aria-hidden="true"] {
+  visibility: hidden;
 }
 .faqAnswer > div {
   min-height: 0;
@@ -1053,6 +1059,10 @@
   font-weight: 800;
   line-height: 1.2;
   margin: 4px 0 0;
+}
+.price p span {
+  display: inline-block;
+  font-size: 0.625em;
 }
 .discount {
   grid-area: 2 / 2 / span 2;
@@ -1629,9 +1639,6 @@
   }
   .price p {
     font-size: clamp(34px, 12.1cqi, 38px);
-  }
-  .price p span {
-    font-size: 0.625em;
   }
   .priceBenefits {
     margin-top: 18px;

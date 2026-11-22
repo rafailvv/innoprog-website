@@ -36,6 +36,12 @@ for (const path of paths) {
   const find = type => schemas.find(s => s['@type'] === type);
   assert.ok(find('BreadcrumbList'), `${path}: breadcrumbs schema`);
   assert.ok(find('WebPage') || find('FAQPage') || find('Article'), `${path}: page schema`);
+  if (path === '/children' || path.includes('/courses/')) {
+    const price = d.querySelector(path === '/children' ? '#tariff' : '#course-section-price');
+    assert.equal(text(price.querySelector('del').textContent), '1 938 ₽', `${path}: regular lesson price`);
+    assert.match(text(price.textContent), /от 1 415 ₽ за занятие/u, `${path}: visible starting price per lesson`);
+    assert.match(price.textContent, /−27%/u, `${path}: visible discount`);
+  }
   if (path === '/children') {
     assert.equal(find('WebPage')?.mentions?.length, 3, 'Published children teachers');
     for (const teacher of find('WebPage').mentions) {
@@ -45,9 +51,9 @@ for (const path of paths) {
   }
   if (path.includes('/courses/')) {
     assert.ok(find('Course') && find('FAQPage'), `${path}: course and FAQ schema`);
-    assert.equal(find('Course').offers?.price, '7290', `${path}: current monthly price`);
-    assert.equal(find('Course').offers?.priceSpecification?.unitText, 'месяц', `${path}: price is monthly`);
-    assert.ok(text(d.body.textContent).replace(/\s/g, '').includes('7290'), `${path}: price matches visible content`);
+    assert.equal(find('Course').offers?.price, '1415', `${path}: starting lesson price`);
+    assert.equal(find('Course').offers?.priceSpecification?.price, '1415', `${path}: unit price matches offer`);
+    assert.equal(find('Course').offers?.priceSpecification?.unitText, 'занятие', `${path}: price is per lesson`);
     assert.equal(find('Course').isAccessibleForFree, false, `${path}: paid course with a free introductory lesson`);
     const modules = [...d.querySelectorAll('#program .site-course-program-module')];
     assert.equal(modules.length, ({ python: 20, 'web-development': 11, 'informatics-exams': 12, 'olympiad-programming': 12, 'neural-networks': 12, 'game-development': 14 }[path.split('/').pop()]), `${path}: complete program`);

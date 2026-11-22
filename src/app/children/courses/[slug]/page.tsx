@@ -5,6 +5,8 @@ import ProgramAccordion from "../ProgramAccordion";
 import CourseArrow from "../CourseArrow";
 import { getChildrenCourseFaq, type ChildrenCourseFaq } from "../course-faq";
 import ChildrenShell from "../../ChildrenShell";
+import ChildrenFaq from "../../ChildrenFaq";
+import { childrenLessonPrice } from "../../lesson-price";
 import LeadForm from "../../school/LeadForm";
 import source from "../../school/source-data.json";
 import {
@@ -85,14 +87,14 @@ export default async function Page({ params }: Props) {
           offers: {
             "@type": "Offer",
             url: `${absoluteUrl(path)}#application`,
-            price: "7290",
+            price: String(childrenLessonPrice.starting),
             priceCurrency: "RUB",
             seller: { "@id": "https://innoprog.ru/#organization" },
             priceSpecification: {
               "@type": "UnitPriceSpecification",
-              price: "7290",
+              price: String(childrenLessonPrice.starting),
               priceCurrency: "RUB",
-              unitText: "месяц",
+              unitText: "занятие",
             },
           },
           hasCourseInstance: {
@@ -311,22 +313,14 @@ export default async function Page({ params }: Props) {
               </div>
             </section>
           ) : null}
-          <section className={styles.faq} id="course-section-faq">
-            <h2 className={styles.sectionTitle}>
-              Часто задаваемые
-              <br />
-              вопросы
-            </h2>
-            {faq.map((item) => (
-              <details key={item.question}>
-                <summary>
-                  {item.question}
-                  <span aria-hidden="true">+</span>
-                </summary>
-                <p><FaqAnswer item={item} /></p>
-              </details>
-            ))}
-          </section>
+          <ChildrenFaq
+            id="course-section-faq"
+            className={styles.faq}
+            items={faq.map((item) => ({
+              question: item.question,
+              answer: <FaqAnswer item={item} />,
+            }))}
+          />
         </div>
         <section className={styles.application} id="application">
           <div className={school.container}>
@@ -347,9 +341,9 @@ export default async function Page({ params }: Props) {
               </p>
               <div className={styles.price} id="course-section-price">
                 <span>Стоимость обучения</span>
-                <del>9 990 ₽/мес</del>
-                <b>7&nbsp;290 ₽/мес</b>
-                <span className={school.discount}>−27%</span>
+                <del>{childrenLessonPrice.regularLabel}&nbsp;₽</del>
+                <b><span>от</span> {childrenLessonPrice.startingLabel}&nbsp;₽ <span>за занятие</span></b>
+                <span className={school.discount}>−{childrenLessonPrice.discount}%</span>
               </div>
             </div>
             <div className={styles.formCard}>

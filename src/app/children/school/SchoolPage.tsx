@@ -1,5 +1,7 @@
 "use client";
 import ChildrenMobileMenu from "../ChildrenMobileMenu";
+import ChildrenFaq from "../ChildrenFaq";
+import { childrenLessonPrice } from "../lesson-price";
 import { childrenCourseNavigation } from "../courses/course-paths";
 
 import { useRef, useState, useSyncExternalStore, type MouseEvent, type CSSProperties } from "react";
@@ -28,6 +30,7 @@ function CtaArrow() {
 }
 
 const a = data.assets;
+const faqItems = data.faq.map(([question, answer]) => ({ question, answer }));
 const heroImage = "/children/school/hero-illustration-transparent";
 const heroAvif = `${heroImage}-480.avif 480w, ${heroImage}-768.avif 768w, ${heroImage}-1080.avif 1080w, ${heroImage}-1440.avif 1440w`;
 const heroWebp = `${heroImage}-480.webp 480w, ${heroImage}-768.webp 768w, ${heroImage}-1080.webp 1080w, ${heroImage}.webp 1440w`;
@@ -180,7 +183,6 @@ export default function SchoolPage() {
   };
   const closeApplication = () => setApplication((current) => ({ ...current, open: false }));
   const carousel = useRef<HTMLDivElement>(null);
-  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
   const scrollReviews = (direction: -1 | 1) => {
     const track = carousel.current;
     const first = track?.children[0];
@@ -585,37 +587,11 @@ export default function SchoolPage() {
             </button>
           </div>
         </section>
-        <section
-          className={`${styles.container} ${styles.section} ${styles.faq}`}
+        <ChildrenFaq
           id="faq"
-        >
-          <h2>Часто задаваемые вопросы</h2>
-          {data.faq.map(([question, answer], index) => {
-            const isOpen = openQuestions.includes(question);
-            const answerId = `children-faq-answer-${index}`;
-            return (
-              <div className={styles.faqItem} key={question}>
-                <button
-                  className={styles.faqToggle}
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={answerId}
-                  onClick={() => setOpenQuestions((current) =>
-                    current.includes(question)
-                      ? current.filter((item) => item !== question)
-                      : [...current, question],
-                  )}
-                >
-                  {question}
-                  <span aria-hidden="true">+</span>
-                </button>
-                <div className={styles.faqAnswer} id={answerId} aria-hidden={!isOpen}>
-                  <div><p>{answer}</p></div>
-                </div>
-              </div>
-            );
-          })}
-        </section>
+          className={`${styles.container} ${styles.section}`}
+          items={faqItems}
+        />
         <section
           className={`${styles.container} ${styles.section} ${styles.trial}`}
         >
@@ -659,9 +635,9 @@ export default function SchoolPage() {
             <aside className={styles.priceCard} aria-labelledby="children-price-title">
               <div className={styles.price}>
                 <h3 id="children-price-title">Стоимость обучения</h3>
-                <span className={styles.discount}>−27%</span>
-                <del>9 990 руб/мес</del>
-                <p>7&nbsp;290 <span>руб/мес</span></p>
+                <span className={styles.discount}>−{childrenLessonPrice.discount}%</span>
+                <del>{childrenLessonPrice.regularLabel}&nbsp;₽</del>
+                <p><span>от</span> {childrenLessonPrice.startingLabel}&nbsp;₽ <span>за занятие</span></p>
               </div>
               <ul className={styles.priceBenefits}>
                 <li>

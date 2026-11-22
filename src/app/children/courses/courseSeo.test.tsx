@@ -10,18 +10,21 @@ describe("children course search content", () => {
     const document = new DOMParser().parseFromString(renderToStaticMarkup(await Page({ params: Promise.resolve({ slug: course.slug }) })), "text/html");
     const data = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(node => JSON.parse(node.textContent!));
     const faq = data.find(node => node["@type"] === "FAQPage");
-    const details = Array.from(document.querySelectorAll("details"));
+    const faqSection = document.getElementById("course-section-faq")!;
     const items = getChildrenCourseFaq(course);
-    expect(details).toHaveLength(4);
+    const toggles = Array.from(faqSection.querySelectorAll("button[aria-controls]"));
+    expect(toggles).toHaveLength(4);
     expect(faq.mainEntity).toHaveLength(4);
-    details.forEach((detail, index) => {
-      expect(detail.hasAttribute("open")).toBe(false);
-      expect(detail.querySelector("p")!.textContent).toBe(faq.mainEntity[index].acceptedAnswer.text);
+    toggles.forEach((toggle, index) => {
+      const answer = document.getElementById(toggle.getAttribute("aria-controls")!);
+      expect(toggle.getAttribute("aria-expanded")).toBe("false");
+      expect(answer?.getAttribute("aria-hidden")).toBe("true");
+      expect(answer?.querySelector("p")?.textContent).toBe(faq.mainEntity[index].acceptedAnswer.text);
       expect(faq.mainEntity[index].name).toBe(items[index].question);
     });
-    expect(document.querySelector('details a[href="/blog/kak-vybrat-programmirovanie-rebenku"]')).not.toBeNull();
+    expect(faqSection.querySelector('a[href="/blog/kak-vybrat-programmirovanie-rebenku"]')).not.toBeNull();
     const link = items[0].link!;
-    expect(document.querySelector(`details a[href="${link.href}"]`)!.textContent).toBe(link.label);
+    expect(faqSection.querySelector(`a[href="${link.href}"]`)!.textContent).toBe(link.label);
     expect(childrenCourses.some(other => childrenCoursePath(other.slug) === link.href)).toBe(true);
     expect(link.href).not.toBe(childrenCoursePath(course.slug));
     expect(document.querySelectorAll("h1")).toHaveLength(1);
