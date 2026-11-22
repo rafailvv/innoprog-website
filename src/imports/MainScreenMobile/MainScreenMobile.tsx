@@ -1,5 +1,6 @@
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonMobileCard } from "../shared/PythonDirectionCard";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
+import { HomeFaqSection } from "../../app/components/HomeFaqSection";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
 import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
@@ -2505,6 +2506,7 @@ function Frame176() {
       <Frame175 />
       <Frame180 />
       <FreeTrialSection compact />
+      <HomeFaqSection compact />
       <Frame182 />
     </div>
   );

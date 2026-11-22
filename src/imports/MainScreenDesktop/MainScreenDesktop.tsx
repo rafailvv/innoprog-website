@@ -1,6 +1,7 @@
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonDesktopCard } from "../shared/PythonDirectionCard";
 import { DirectionHoverOverlay } from "../shared/DirectionHoverOverlay";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
+import { HomeFaqSection } from "../../app/components/HomeFaqSection";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
 import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
@@ -1852,6 +1853,7 @@ function HomeSections() {
       <Frame124 />
       <Component7 />
       <FreeTrialSection />
+      <HomeFaqSection />
       <Frame126 />
     </div>
   );

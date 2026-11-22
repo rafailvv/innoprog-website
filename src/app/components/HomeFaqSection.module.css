@@ -1,0 +1,68 @@
+.section {
+  width: 100%;
+  scroll-margin-top: 120px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  margin: 0 80px 104px;
+  color: #000;
+  font: 700 96px/1 Raleway, sans-serif;
+  text-transform: uppercase;
+}
+
+.titleAccent {
+  align-self: flex-end;
+  color: #9c78ff;
+  font-size: 199px;
+}
+
+.trigger {
+  list-style: none;
+}
+
+.trigger::-webkit-details-marker {
+  display: none;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #464a6a;
+  outline-offset: -4px;
+}
+
+.section .answer {
+  opacity: 1;
+  transform: none;
+}
+
+.answer a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.section details[open] :global(.site-course-faq-arrow) {
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+.compact {
+  scroll-margin-top: 72px;
+}
+
+.compact .title {
+  gap: 8px;
+  margin: 0 20px 40px;
+  font: 800 32px/32px var(--font-manrope), sans-serif;
+}
+
+.compact .titleAccent {
+  align-self: flex-start;
+  font: 700 40px/43px Raleway, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section :global(.site-course-faq-arrow) {
+    transition: none;
+  }
+}
