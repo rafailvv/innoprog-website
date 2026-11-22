@@ -38,8 +38,8 @@ for (const path of paths) {
   assert.ok(find('WebPage') || find('FAQPage') || find('Article'), `${path}: page schema`);
   if (path === '/children' || path.includes('/courses/')) {
     const price = d.querySelector(path === '/children' ? '#tariff' : '#course-section-price');
-    assert.equal(text(price.querySelector('del').textContent), '1 938 ₽', `${path}: regular lesson price`);
-    assert.match(text(price.textContent), /от 1 415 ₽ за занятие/u, `${path}: visible starting price per lesson`);
+    assert.equal(text(price.querySelector('del').textContent), '1 938 руб', `${path}: regular lesson price`);
+    assert.match(text(price.textContent), /от 1 415 руб за занятие/u, `${path}: visible starting price per lesson`);
     assert.match(price.textContent, /−27%/u, `${path}: visible discount`);
   }
   if (path === '/children') {
