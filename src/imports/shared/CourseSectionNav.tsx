@@ -4,18 +4,18 @@ export type CourseAudience = "adult" | "children";
 
 const courseLinks = {
   adult: [
-    { href: "#course-section-program", label: "Программа" },
-    { href: "#course-section-projects", label: "Проекты" },
-    { href: "#course-section-price", label: "Стоимость" },
-    { href: "#course-section-reviews", label: "Отзывы" },
-    { href: "#course-section-faq", label: "Вопросы" },
+    { href: "#course-section-program", label: "программа" },
+    { href: "#course-section-projects", label: "проекты" },
+    { href: "#course-section-price", label: "стоимость" },
+    { href: "#course-section-reviews", label: "отзывы" },
+    { href: "#course-section-faq", label: "вопросы" },
   ],
   children: [
-    { href: "#course-section-skills", label: "Чему научится" },
-    { href: "#program", label: "Программа" },
-    { href: "#course-section-format", label: "Как учимся" },
-    { href: "#course-section-price", label: "Стоимость" },
-    { href: "#course-section-faq", label: "Вопросы" },
+    { href: "#course-section-skills", label: "чему научится" },
+    { href: "#program", label: "программа" },
+    { href: "#course-section-format", label: "как учимся" },
+    { href: "#course-section-price", label: "стоимость" },
+    { href: "#course-section-faq", label: "вопросы" },
   ],
 } as const;
 
