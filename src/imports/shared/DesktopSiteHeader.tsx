@@ -27,55 +27,35 @@ p3f074c00: "M154.573 55.8335C154.573 57.2168 154.757 59.1843 154.757 59.1843C154
 pa705100: "M67.5056 51.4113L68.6414 50.3749C65.8217 47.8058 61.2347 47.8058 58.4149 50.3749C57.0467 51.6177 56.2969 53.2733 56.2969 55.0299C56.2969 56.7866 57.0511 58.4422 58.4149 59.685C59.8226 60.9673 61.6776 61.6085 63.5282 61.6085C65.3787 61.6085 67.2337 60.9673 68.6414 59.685L67.5056 58.6486C65.313 60.6467 61.7434 60.6467 59.5507 58.6486C58.4895 57.6824 57.9019 56.3957 57.9019 55.0255C57.9019 53.6554 58.4851 52.3731 59.5507 51.4025C61.7434 49.4132 65.3086 49.4132 67.5056 51.4113Z"
 };
 
-function Group1() {
+function DesktopLogo() {
   return (
-    <div className="col-1 h-[52.018px] ml-[148.57px] mt-0 relative row-1 w-[122.433px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 122.433 52.0178">
-        <g>
-          <path d={svgPaths.p277c6d00} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1e39dff0} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p2994bec0} fill="var(--fill-0, #9C78FF)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group2() {
-  return (
-    <div className="col-1 h-[61.617px] ml-0 mt-[3.38px] relative row-1 w-[270.998px]" data-name="Group">
-      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 270.998 61.6172">
-        <g>
-          <path d={svgPaths.p21e03d80} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p1add300} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p213f6200} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p3d873900} fill="var(--fill-0, #9C78FF)" />
-          <path d={svgPaths.p30670c00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p251fd0f0} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p115ed500} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p33413b00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p111ef500} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p19c58a00} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p2a61d800} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p1ef19480} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.pa705100} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p16f42000} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p24c97600} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p10fe4280} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p2ccd9200} fill="var(--fill-0, #201C2D)" />
-          <path d={svgPaths.p3f074c00} fill="var(--fill-0, #201C2D)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-function Group() {
-  return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-name="Group">
-      <Group1 />
-      <Group2 />
-    </div>
+    <svg aria-hidden="true" className="block h-auto w-[190px]" viewBox="0 0 271.003 65">
+      <g transform="translate(148.57 0)">
+        <path d={svgPaths.p277c6d00} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p1e39dff0} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p2994bec0} fill="var(--fill-0, #9C78FF)" />
+      </g>
+      <g transform="translate(0 3.38)">
+        <path d={svgPaths.p21e03d80} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p1add300} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p213f6200} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p3d873900} fill="var(--fill-0, #9C78FF)" />
+        <path d={svgPaths.p30670c00} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p251fd0f0} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p115ed500} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p33413b00} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p111ef500} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p19c58a00} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p2a61d800} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p1ef19480} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.pa705100} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p16f42000} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p24c97600} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p10fe4280} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p2ccd9200} fill="var(--fill-0, #201C2D)" />
+        <path d={svgPaths.p3f074c00} fill="var(--fill-0, #201C2D)" />
+      </g>
+    </svg>
   );
 }
 
@@ -129,6 +109,9 @@ function Frame58({ childrenActive, childrenHref, childrenLinks }: { childrenActi
           ))}
         </div>
       </div>
+      <a className="relative shrink-0" data-main-nav="tariffs" data-name="Text" href="/tariffs">
+        <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[30px] text-[24px] text-black whitespace-nowrap">выгода</p>
+      </a>
       <div className="site-main-header__nav-group">
         <a aria-haspopup="menu" className="h-[17px] relative shrink-0 w-[72px]" data-main-nav="about" data-name="Text" href="/about">
           <p className="absolute font-['Manrope:Regular',sans-serif] font-normal inset-0 leading-[30px] text-[24px] text-black whitespace-nowrap">о нас</p>
@@ -146,7 +129,7 @@ export function MainScreenDesktopHeader({ childrenActive, childrenHref, children
   return (
     <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
       <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
-        <Group />
+        <DesktopLogo />
       </a>
       <Frame58 childrenActive={childrenActive} childrenHref={childrenHref} childrenLinks={childrenLinks} />
       <div className="site-main-header__actions">
