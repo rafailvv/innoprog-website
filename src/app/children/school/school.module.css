@@ -412,6 +412,34 @@
   font-weight: 700;
   text-decoration: none;
 }
+.courseAdvice {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(200px, 23vw, 280px);
+  align-items: center;
+  gap: 16px 24px;
+  padding: clamp(32px, 3.2vw, 44px) clamp(18px, 3vw, 34px);
+  border-color: transparent;
+  background: var(--school-heading);
+  color: #e8e7ef;
+}
+.courseAdvice h3 {
+  color: #fff;
+  font-size: clamp(22px, 2.2vw, 30px);
+  text-transform: none;
+}
+.courseAdviceCopy p {
+  margin: 4px 0 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.courseAdviceButton {
+  align-self: center;
+  margin: 0;
+}
+.courseAdviceButton:focus-visible {
+  outline-color: #fff;
+}
 .realSkills {
   max-width: 840px;
   margin: 28px auto 0 !important;
@@ -1405,6 +1433,17 @@
   }
   .course h3 {
     font-size: clamp(16px, 6.4cqi, 30px);
+  }
+  .courseAdvice {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 16px;
+  }
+  .courseAdvice h3 {
+    font-size: 22px;
+  }
+  .courseAdviceCopy p {
+    font-size: 16px;
   }
   .waveArea {
     background-size:

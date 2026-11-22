@@ -365,6 +365,20 @@ export default function SchoolPage() {
                   </div>
                 </article>
               ))}
+              <article className={`${styles.course} ${styles.courseAdvice}`}>
+                <div className={styles.courseAdviceCopy}>
+                  <h3>Не знаете, что выбрать?</h3>
+                  <p>Запишитесь на бесплатное занятие, подберём курс</p>
+                </div>
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.detailLink} ${styles.courseAdviceButton}`}
+                  onClick={() => openApplication("Запись на бесплатное занятие")}
+                >
+                  записаться
+                  <CtaArrow />
+                </button>
+              </article>
             </div>
             <p className={styles.realSkills}>
               Мы не обучаем Scratch, Roblox и Minecraft, так как наш курс
