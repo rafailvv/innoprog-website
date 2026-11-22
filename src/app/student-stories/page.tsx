@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import kirillPhoto from "../../imports/MainScreenDesktop/review-story-kirill-hero.webp";
 import anastasiaPhoto from "../../imports/MainScreenDesktop/review-anastasia-high.webp";
@@ -61,18 +61,24 @@ export default function StudentStoriesPage() {
       <SvedenHeader />
       <main className={styles.page}>
         <div className={styles.hero}>
-          <div className={`${styles.container} ${styles.intro}`}>
+          <div className={`${styles.container} ${styles.top}`}>
+            <a className={styles.back} href="/about">
+              <ArrowLeft aria-hidden="true" />
+              О нас
+            </a>
             <nav aria-label="Хлебные крошки" className={styles.breadcrumb}>
               <a href="/">Главная</a>
-              <ChevronRight size={13} aria-hidden="true" />
-              <span aria-current="page">{title}</span>
+              <span aria-hidden="true">/</span>
+              <strong aria-current="page">{title}</strong>
             </nav>
+          </div>
+          <div className={`${styles.container} ${styles.intro}`}>
             <div className={styles.introCopy}>
               <h1>Истории <span>учеников</span></h1>
               <p>{introLead}{" "}<br className={styles.desktopBreak} />{introResult}</p>
             </div>
             <div className={styles.illustration}>
-              <Image src={storyIllustration} alt="" fill sizes="(max-width: 767px) clamp(76px, 25vw, 140px), 360px" priority />
+              <Image src={storyIllustration} alt="" fill sizes="(max-width: 767px) clamp(76px, 25vw, 140px), min(32vw, 360px)" priority />
             </div>
           </div>
         </div>
