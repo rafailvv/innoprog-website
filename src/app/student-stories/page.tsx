@@ -74,7 +74,7 @@ export default function StudentStoriesPage() {
               <p>{introLead}{" "}<br className={styles.desktopBreak} />{introResult}</p>
             </div>
             <div className={styles.illustration}>
-              <Image src={storyIllustration} alt="" fill sizes="(max-width: 767px) clamp(76px, 25vw, 140px), min(32vw, 360px)" priority />
+              <Image src={storyIllustration} alt="" fill priority unoptimized />
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function StudentStoriesPage() {
                             src={story.image}
                             alt=""
                             fill
-                            sizes="(max-width: 767px) 23vw, 170px"
+                            unoptimized
                             style={{ objectPosition: story.position }}
                           />
                         </div>
