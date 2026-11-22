@@ -2097,7 +2097,7 @@ function PythonCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Python-разработчик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2347,7 +2347,7 @@ function DataScienceCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Data Science">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2466,7 +2466,7 @@ function FrontendCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Frontend-разработчик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2585,7 +2585,7 @@ function DataAnalystCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Data-аналитик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2704,7 +2704,7 @@ function CppCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="C++ разработчик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2823,7 +2823,7 @@ function MobileDeveloperCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Мобильный разработчик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -2942,7 +2942,7 @@ function UnrealEngineCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Unreal Engine">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3054,7 +3054,7 @@ function JavaCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Курс Java-разработчик">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"
@@ -3166,7 +3166,7 @@ function MlEngineerCoursePage({
 
   return (
     <section className="site-python-course-page" aria-label="Курс ML-инженер">
-      <SiteHeader isMobile={isMobile} scale={headerScale} />
+      <SiteHeader courseAudience="adult" isMobile={isMobile} scale={headerScale} />
       <div className="site-python-course-page__content-shell" style={courseContentShellStyle}>
         <div
           className="site-python-course-page__content-canvas"

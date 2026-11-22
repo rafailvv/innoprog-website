@@ -2627,7 +2627,7 @@ function Frame249() {
 
 function Frame78() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[1440px] site-course-render-section site-course-after-results-section">
+    <div id="course-section-projects" className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[1440px] site-course-render-section site-course-after-results-section">
       <Frame259 />
       <Frame249 />
     </div>
@@ -3135,7 +3135,7 @@ function Frame110() {
 
 function Component6() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center overflow-hidden py-[80px] relative rounded-[40px] shrink-0 w-full site-course-render-section site-course-program-section" data-name="программа">
+    <div id="course-section-program" className="bg-[#464a6a] content-stretch flex flex-col gap-[80px] items-center overflow-hidden py-[80px] relative rounded-[40px] shrink-0 w-full site-course-render-section site-course-program-section" data-name="программа">
       <div className="absolute flex h-[2579.243px] items-center justify-center left-[-228px] pointer-events-none top-[-849px] w-[2601.092px] site-course-program-star-wrap">
         <div className="-rotate-30 flex-none">
           <div
@@ -3825,7 +3825,7 @@ function Frame66() {
 
 function Component8() {
   return (
-    <div className="bg-[#9c78ff] content-stretch flex flex-col gap-[80px] items-start py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-reviews-section" data-name="отзывы">
+    <div id="course-section-reviews" className="bg-[#9c78ff] content-stretch flex flex-col gap-[80px] items-start py-[80px] relative rounded-[40px] shrink-0 w-[1440px] site-course-render-section site-course-reviews-section" data-name="отзывы">
       <div className="absolute flex h-[1305.563px] items-center justify-center left-[-318px] top-[-150px] w-[2187.149px] site-course-reviews-bg">
         <div className="flex-none rotate-[-100.48deg]">
           <div className="h-[2048.76px] relative w-[948.755px]" data-name="Cloned_Circles_2">
@@ -3903,7 +3903,7 @@ function Frame179() {
 
 function Component10() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-center relative shrink-0 w-[1280px] site-course-render-section" data-name="тариф">
+    <div id="course-section-price" className="content-stretch flex flex-col gap-[80px] items-center relative shrink-0 w-[1280px] site-course-render-section" data-name="тариф">
       <Frame203 />
       <Frame179 />
       <CourseTariffCards />
@@ -4197,7 +4197,7 @@ function Frame137() {
 
 function Component12() {
   return (
-    <div className="content-stretch flex flex-col gap-[104px] items-center relative shrink-0 w-full" data-name="вопросы">
+    <div id="course-section-faq" className="content-stretch flex flex-col gap-[104px] items-center relative shrink-0 w-full" data-name="вопросы">
       <Frame132 />
       <Frame137 />
     </div>

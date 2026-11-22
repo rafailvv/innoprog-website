@@ -2659,7 +2659,7 @@ function Frame279() {
 
 function Frame198() {
   return (
-    <div className="site-course-mobile-projects-section content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
+    <div id="course-section-projects" className="site-course-mobile-projects-section content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[350px]">
       <Frame67 />
       <Frame279 />
     </div>
@@ -3163,7 +3163,7 @@ function Frame201() {
 
 function Frame203() {
   return (
-    <div className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] items-center py-[40px] relative rounded-[24px] shrink-0 w-[390px] z-10">
+    <div id="course-section-program" className="bg-[#464a6a] content-stretch flex flex-col gap-[40px] items-center py-[40px] relative rounded-[24px] shrink-0 w-[390px] z-10">
       <Frame202 />
       <Frame201 />
     </div>
@@ -3939,7 +3939,7 @@ function Frame252() {
 
 function Frame251() {
   return (
-    <div className="bg-[#9c78ff] content-stretch flex flex-col gap-[40px] items-start px-[20px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
+    <div id="course-section-reviews" className="bg-[#9c78ff] content-stretch flex flex-col gap-[40px] items-start px-[20px] py-[40px] relative rounded-[40px] shrink-0 w-[390px]">
       <Frame222 />
       <Frame252 />
     </div>
@@ -4009,7 +4009,7 @@ function Frame204() {
 
 function Frame212() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
+    <div id="course-section-price" className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
       <Frame204 />
       <CourseTariffCards compact />
     </div>
@@ -4309,7 +4309,7 @@ function Frame210() {
 
 function Frame211() {
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
+    <div id="course-section-faq" className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full">
       <Frame118 />
       <Frame210 />
     </div>

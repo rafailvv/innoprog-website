@@ -18,9 +18,11 @@ function serverViewport() {
 export default function ChildrenShell({
   children,
   className = "",
+  courseNavigation = false,
 }: {
   children: ReactNode;
   className?: string;
+  courseNavigation?: boolean;
 }) {
   const width = useSyncExternalStore(subscribe, viewport, serverViewport);
   const isMobile = width < 768;
@@ -30,6 +32,7 @@ export default function ChildrenShell({
     <div className={`${styles.page} ${className}`} style={{ "--children-desktop-scale": Math.max(1, scale) } as CSSProperties}>
       <div className={styles.header}>
         <SiteHeader
+          courseAudience={courseNavigation ? "children" : undefined}
           childrenActive
           childrenHref="/children"
           childrenLinks={childrenCourseNavigation}

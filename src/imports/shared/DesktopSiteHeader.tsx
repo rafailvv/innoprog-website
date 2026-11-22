@@ -3,6 +3,8 @@
 import { useId, useState } from "react";
 import { ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS } from "../../app/courseNavigation";
 import { HeaderContactLinks, TRIAL_APPLICATION_HREF } from "./HeaderContactLinks";
+import { CourseSectionNav, type CourseAudience } from "./CourseSectionNav";
+
 const svgPaths = {
 p10fe4280: "M114.301 48.6534H112.695V61.4152H114.301V48.6534Z",
 p111ef500: "M254.123 0H240.569L257.439 22.6296H270.998L254.123 0Z",
@@ -125,13 +127,29 @@ function Frame58({ childrenActive, childrenHref, childrenLinks }: { childrenActi
   );
 }
 
-export function MainScreenDesktopHeader({ childrenActive, childrenHref, childrenLinks, applicationHref }: { childrenActive?: boolean; childrenHref?: string; childrenLinks?: readonly {label: string; href: string}[]; applicationHref?: string } = {}) {
+export function MainScreenDesktopHeader({
+  childrenActive,
+  childrenHref,
+  childrenLinks,
+  applicationHref,
+  courseAudience,
+}: {
+  childrenActive?: boolean;
+  childrenHref?: string;
+  childrenLinks?: readonly { label: string; href: string }[];
+  applicationHref?: string;
+  courseAudience?: CourseAudience;
+} = {}) {
   return (
     <div className="absolute content-stretch flex items-center justify-between left-[80px] rounded-[40px] site-main-header site-main-header--desktop top-[24px] w-[1280px]">
       <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
         <DesktopLogo />
       </a>
-      <Frame58 childrenActive={childrenActive} childrenHref={childrenHref} childrenLinks={childrenLinks} />
+      {courseAudience ? (
+        <CourseSectionNav audience={courseAudience} />
+      ) : (
+        <Frame58 childrenActive={childrenActive} childrenHref={childrenHref} childrenLinks={childrenLinks} />
+      )}
       <div className="site-main-header__actions">
         <HeaderContactLinks variant="desktop" />
         <a

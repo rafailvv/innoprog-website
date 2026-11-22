@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
     ? source.reviews[["amir", "eldar", "almaz"].indexOf(course.story)]
     : null;
   return (
-    <ChildrenShell className={styles.shell}>
+    <ChildrenShell className={styles.shell} courseNavigation>
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -181,7 +181,7 @@ export default async function Page({ params }: Props) {
               </div>
             </div>
           </section>
-          <section className={styles.skillsSection}>
+          <section className={styles.skillsSection} id="course-section-skills">
             <div className={styles.sectionHeading}>
               <span>02 / Навыки</span>
               <h2 className={styles.sectionTitle}>
@@ -241,7 +241,7 @@ export default async function Page({ params }: Props) {
               и интересам ученика
             </p>
           </section>
-          <section className={styles.format}>
+          <section className={styles.format} id="course-section-format">
             <div>
               <span className={styles.label}>
                 05 / Поддержка на каждом шаге
@@ -311,7 +311,7 @@ export default async function Page({ params }: Props) {
               </div>
             </section>
           ) : null}
-          <section className={styles.faq}>
+          <section className={styles.faq} id="course-section-faq">
             <h2 className={styles.sectionTitle}>
               Часто задаваемые
               <br />
@@ -345,7 +345,7 @@ export default async function Page({ params }: Props) {
                 Оставьте заявку на курс «{course.title}». Обсудим ваши цели,
                 познакомимся с ребёнком и подберём удобное время
               </p>
-              <div className={styles.price}>
+              <div className={styles.price} id="course-section-price">
                 <span>Стоимость обучения</span>
                 <del>9 990 ₽/мес</del>
                 <b>7&nbsp;290 ₽/мес</b>
