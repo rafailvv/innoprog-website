@@ -21,6 +21,7 @@ const schoolLinks = [
 const guideLinks = [
   { label: "Памятка к первому занятию", href: FIRST_LESSON_GUIDE },
   { label: "Руководство для родителей", href: PARENT_GUIDE },
+  { label: "Руководство по платформе", href: "https://innoprog.ru/files/technical/platform-user-guide.pdf" },
 ];
 
 const documents = [
