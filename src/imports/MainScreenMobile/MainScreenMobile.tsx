@@ -1600,8 +1600,8 @@ function Frame157() {
   return (
     <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full">
       <h2 className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[34px] relative shrink-0 text-[36px] w-full">
-        <span className="text-black">Наши ученики </span>
-        <span className="text-[#9c78ff]">никогда не остаются 1 на 1 с проблемой</span>
+        <span className="text-black">Сомневаешься, </span>
+        <span className="text-[#9c78ff]">что у тебя получится?</span>
       </h2>
       <Frame65 />
       <ProblemSupportImage />

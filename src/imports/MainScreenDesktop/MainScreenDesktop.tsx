@@ -1011,7 +1011,7 @@ function Frame41() {
 function Component3() {
   return (
     <div className="content-stretch flex flex-col gap-[208px] items-start relative shrink-0 w-[1280px]" data-name="3">
-      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[48px] text-black uppercase w-full">Наши ученики никогда не остаются 1 на 1 с проблемой</h2>
+      <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[47px] relative shrink-0 text-[48px] text-black uppercase w-full">Сомневаешься, что у тебя получится?</h2>
       <Frame41 />
     </div>
   );
