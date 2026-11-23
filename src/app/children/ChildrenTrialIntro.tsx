@@ -5,8 +5,7 @@ export default function ChildrenTrialIntro() {
     <div className={styles.block}>
       <h2 className={styles.title}>Родители и дети выбирают нас</h2>
       <p className={styles.description}>
-        На бесплатном пробном занятии ребёнок знакомится с преподавателем и
-        пробует задания по теме курса
+        78% семей выбирают наши онлайн курсы программирования для детей после пробного занятия
       </p>
     </div>
   );
