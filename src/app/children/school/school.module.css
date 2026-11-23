@@ -985,7 +985,10 @@
 }
 .applicationCard > p {
   font-size: 19px;
-  margin: 12px 0 24px;
+  margin: 12px 0 8px;
+}
+.applicationCard > form > p:first-child {
+  margin-top: 0;
 }
 .footerJoin > footer {
   margin-top: 0;
@@ -1670,7 +1673,6 @@
   }
   .applicationCard > p {
     font-size: 16px;
-    margin-bottom: 18px;
   }
   .form {
     max-width: none;
