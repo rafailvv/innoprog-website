@@ -1,6 +1,6 @@
 import { HeaderContactLinks } from "./HeaderContactLinks";
 
-import { CourseSectionNav, type CourseAudience } from "./CourseSectionNav";
+import { useCourseSectionAlignment, type CourseAudience } from "./CourseSectionNav";
 
 const svgPaths = {
 p185f4180: "M126.467 5.78418C125.648 5.19234 124.712 4.75185 123.662 4.46268C122.611 4.17351 121.532 4.02757 120.432 4.02757C119.357 4.02757 118.292 4.17351 117.241 4.46268C116.19 4.75185 115.261 5.19234 114.452 5.78418C113.646 6.37602 112.991 7.11921 112.491 8.01373C111.99 8.90825 111.74 9.94601 111.74 11.1297V18.194C111.74 19.3777 111.99 20.41 112.491 21.291C112.991 22.172 113.651 22.9098 114.471 23.5016C115.291 24.0935 116.226 24.534 117.277 24.8232C118.328 25.1123 119.392 25.2583 120.468 25.2583C121.571 25.2583 122.641 25.1123 123.678 24.8232C124.715 24.534 125.645 24.0935 126.467 23.5016C127.287 22.9098 127.947 22.172 128.448 21.291C128.949 20.41 129.199 19.3777 129.199 18.194V11.1297C129.199 9.94601 128.949 8.90825 128.448 8.01373C127.947 7.11921 127.287 6.37602 126.467 5.78418ZM123.854 18.194C123.854 18.9237 123.502 19.4776 122.798 19.856C122.094 20.2343 121.318 20.4235 120.471 20.4235C120.061 20.4235 119.651 20.3803 119.241 20.2911C118.831 20.2046 118.46 20.0641 118.127 19.8749C117.794 19.6857 117.53 19.4533 117.337 19.175C117.145 18.8993 117.049 18.5696 117.049 18.194V11.1297C117.049 10.7513 117.145 10.4108 117.337 10.1109C117.53 9.80818 117.786 9.56226 118.108 9.37579C118.427 9.18661 118.787 9.04337 119.186 8.94068C119.582 8.84068 119.986 8.78934 120.396 8.78934C120.831 8.78934 121.255 8.83259 121.664 8.92177C122.074 9.01095 122.446 9.14877 122.779 9.33795C123.111 9.52712 123.376 9.77304 123.565 10.0757C123.758 10.3784 123.854 10.7297 123.854 11.1324V18.194V18.194Z",
@@ -103,6 +103,8 @@ export function MainScreenMobileHeader({
   applicationHref?: string;
   courseAudience?: CourseAudience;
 } = {}) {
+  useCourseSectionAlignment(courseAudience, true);
+
   return (
     <div className={`absolute content-stretch flex items-start justify-between left-[23px] site-main-header site-main-header--mobile top-[40px] w-[350px]${courseAudience ? " site-main-header--course-mobile" : ""}`} data-name="хедер М">
       <a aria-label="На главную" className="site-main-header__logo-button" data-site-home href="/">
@@ -112,10 +114,9 @@ export function MainScreenMobileHeader({
       {applicationHref
         ? <a className="site-main-header__mobile-application" href={applicationHref}>подобрать курс</a>
         : <HeaderContactLinks variant="mobile" />}
-      <button aria-expanded={menuOpen} aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0 size-[40px]" data-mobile-menu-toggle type="button">
+      <button aria-expanded={menuOpen} aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} className="bg-[#9c78ff] content-stretch cursor-pointer flex flex-col items-center justify-center p-[12px] relative rounded-[32px] shrink-0" data-mobile-menu-toggle type="button">
         <Frame5 />
       </button>
-      {courseAudience && <CourseSectionNav audience={courseAudience} mobile />}
     </div>
   );
 }

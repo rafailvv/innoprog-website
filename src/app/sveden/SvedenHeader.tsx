@@ -98,7 +98,7 @@ export function SvedenHeader() {
 
       <nav ref={menuRef} hidden={!menuOpen} aria-label="Мобильное меню" className="site-mobile-menu site-mobile-menu--open sveden-mobile-menu">
           <div className="site-mobile-menu__top">
-            <a aria-label="На главную" className="site-mobile-menu__logo" href="/"><img alt="ИННОПРОГ Education" src="/logo-education-360.webp" /></a>
+            <a aria-label="На главную" className="site-mobile-menu__logo" href="/"><img alt="ИННОПРОГ Education" src="/logo-mobile-menu.png" loading="lazy" /></a>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" onClick={() => setMenuOpen(false)} type="button"><span aria-hidden="true" /></button>
           </div>
           <div className="site-mobile-menu__links">

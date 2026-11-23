@@ -94,7 +94,7 @@ function MobileHeaderSurface({
   responsive?: boolean;
   scale: number;
 }) {
-  const height = courseAudience ? 124 : 112;
+  const height = courseAudience ? 72 : 112;
 
   return (
     <header

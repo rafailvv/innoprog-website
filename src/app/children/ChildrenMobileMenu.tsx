@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ADULT_NAV_LINKS, ABOUT_SITE_LINKS } from "../courseNavigation";
 import { childrenCourseNavigation } from "./courses/course-paths";
+import { CourseSectionLinks } from "../../imports/shared/CourseSectionNav";
 
-export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, applicationHref = "#application" }: {
+export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, applicationHref = "#application", courseNavigation = false }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onApplication?: () => void;
   applicationHref?: string;
+  courseNavigation?: boolean;
 }) {
   const [group, setGroup] = useState<string | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -45,18 +47,24 @@ export default function ChildrenMobileMenu({ open, onOpenChange, onApplication, 
           contentRef.current?.focus();
         }} onCloseAutoFocus={(event) => {
           event.preventDefault();
-          document.querySelector<HTMLButtonElement>(".site-responsive-header--mobile [data-mobile-menu-toggle]")?.focus();
+          document.querySelector<HTMLButtonElement>(".site-responsive-header--mobile [data-mobile-menu-toggle]")?.focus({ preventScroll: true });
         }}>
           <Dialog.Title style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clipPath: "inset(50%)" }}>Мобильное меню</Dialog.Title>
           <div className="site-mobile-menu__top">
-            <a aria-label="На главную" className="site-mobile-menu__logo" href="/" onClick={close}><img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-education-360.webp" /></a>
+            <a aria-label="На главную" className="site-mobile-menu__logo" href="/" onClick={close}><img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-mobile-menu.png" /></a>
             <Dialog.Close aria-label="Закрыть меню" className="site-mobile-menu__close"><span aria-hidden="true" /></Dialog.Close>
           </div>
-          <nav className="site-mobile-menu__links" aria-label="Навигация">
-            {renderGroup(groups[0])}
-            {renderGroup(groups[1])}
-            <a href="/reviews" onClick={close}>отзывы</a>
-            {renderGroup(groups[2])}
+          <nav className={`site-mobile-menu__links${courseNavigation ? " site-mobile-menu__course-links" : ""}`} aria-label={courseNavigation ? "Разделы курса" : "Навигация"}>
+            {courseNavigation ? (
+              <CourseSectionLinks audience="children" onClick={close} />
+            ) : (
+              <>
+                {renderGroup(groups[0])}
+                {renderGroup(groups[1])}
+                <a href="/reviews" onClick={close}>отзывы</a>
+                {renderGroup(groups[2])}
+              </>
+            )}
           </nav>
           {onApplication ? <button type="button" className="site-mobile-menu__cta" onClick={() => { close(); onApplication(); }}>подобрать направление</button> : <a className="site-mobile-menu__cta" style={{ textDecoration: "none" }} href={applicationHref} onClick={close}>подобрать направление</a>}
         </Dialog.Content>

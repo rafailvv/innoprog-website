@@ -1,3 +1,4 @@
+import { MobileProjectsHeading } from "../shared/MobileProjectsHeading";
 import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
@@ -2397,16 +2398,7 @@ function Frame112() {
 
 function Frame67() {
   return (
-    <div className="[word-break:break-word] content-stretch flex flex-col font-bold gap-[16px] items-start leading-[0] relative shrink-0 uppercase w-[350px]">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] relative shrink-0 text-[#9c78ff] text-[0px] w-full">
-        <span className="font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] text-[40px]">15</span>
-        <span className="leading-[43px] text-[40px]">{` примерных тем`}</span>
-      </p>
-      <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] relative shrink-0 text-[20px] text-black w-full">
-        <p className="leading-[20px] mb-0">по программе</p>
-        <p className="leading-[20px]">обучения</p>
-      </div>
-    </div>
+    <MobileProjectsHeading count={15} />
   );
 }
 

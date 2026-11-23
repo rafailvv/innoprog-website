@@ -295,25 +295,8 @@ body {
     top: 16px !important;
   }
 
-  .site-main-header--course-mobile .site-course-section-nav {
-    grid-column: 1 / -1;
-    justify-content: space-between;
-    gap: 3px;
-    margin-inline: -20px;
-    padding-inline: 6px;
-    overflow-x: auto;
-    border-radius: 20px;
-    background: #fff;
-    font-size: 13px;
-    line-height: 1.3;
-  }
-
-  .site-main-header--course-mobile .site-course-section-nav > a {
-    min-height: 40px;
-  }
-
   .site-shell--python-course-route [id^="course-section-"] {
-    scroll-margin-top: 34vw;
+    scroll-margin-top: 19vw;
   }
 }
 
@@ -392,9 +375,14 @@ body {
 }
 
 .site-header-contacts--mobile {
-  --contact-size: 44px;
+  --contact-size: var(--mobile-header-control-size, 40px);
   margin-left: auto;
   margin-right: 12px;
+}
+
+.site-header-contacts--mobile svg path + path {
+  transform: scale(0.8);
+  transform-origin: center;
 }
 
 .site-main-header--mobile:has(.site-header-contacts--mobile) {
@@ -435,9 +423,15 @@ body {
 }
 
 .site-main-header--mobile {
+  --mobile-header-control-size: 40px;
   position: absolute !important;
   top: 40px !important;
   padding: 8px 10px;
+}
+
+.site-main-header--mobile > [data-mobile-menu-toggle] {
+  width: var(--mobile-header-control-size);
+  height: var(--mobile-header-control-size);
 }
 
 .site-shell--mobile.site-shell--python-course-route .site-main-header-surface--mobile {
@@ -2482,7 +2476,8 @@ button[data-name="кнопки пд"] {
   height: 31px;
 }
 
-.site-mobile-menu[hidden] { display: none; }
+.site-mobile-menu[hidden],
+.site-mobile-menu__links[hidden] { display: none; }
 
 .site-mobile-menu {
   position: fixed;
@@ -2668,6 +2663,45 @@ button[data-name="кнопки пд"] {
 .site-mobile-menu__links [data-active="true"] {
   background: transparent;
   color: rgba(255, 255, 255, 0.72);
+}
+
+.site-mobile-menu__course-links {
+  gap: 4px;
+  margin-block: 16px;
+}
+
+.site-mobile-menu__course-links > a {
+  display: grid;
+  height: auto;
+  min-height: 44px;
+  place-items: center;
+}
+
+.site-mobile-projects-heading {
+  display: flex;
+  width: 350px;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.site-mobile-projects-heading h2 {
+  margin: 0;
+  color: #9c78ff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.site-mobile-projects-heading p {
+  margin: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .site-mobile-menu__nav-group {

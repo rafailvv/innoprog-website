@@ -43,6 +43,7 @@ import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react"
 import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
+import { CourseSectionLinks } from "../imports/shared/CourseSectionNav";
 import { TariffsInformation } from "./tariffs/TariffsInformation";
 import { CourseTariffCards } from "../imports/shared/CourseTariffCards";
 import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/YandexSmartCaptcha";
@@ -3473,7 +3474,11 @@ export default function App({
       ...window.history.state,
       [INTERNAL_NAVIGATION_HISTORY_KEY]: true,
     }, "");
-  }, [initialRouteKey]);
+    if (isInitialCoursePage && !window.location.hash) {
+      // Next can keep the previous scroll position if the course surface is already in view.
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [initialRouteKey, isInitialCoursePage]);
 
   useEffect(() => {
     const routeState = getRouteState(initialRoute);
@@ -4056,7 +4061,7 @@ export default function App({
     setShouldShowCookieBanner(false);
   };
 
-  const pushInternalRoute = (nextPath: string) => {
+  const pushInternalRoute = (nextPath: string, scroll = true) => {
     const currentPath = `${window.location.pathname}${window.location.search}`;
 
     if (currentPath !== nextPath || window.location.hash) {
@@ -4065,7 +4070,7 @@ export default function App({
         [RETURN_SCROLL_HISTORY_KEY]: window.scrollY,
       }, "");
       pendingInternalPath = nextPath;
-      router.push(nextPath);
+      router.push(nextPath, { scroll });
     }
   };
 
@@ -4264,7 +4269,12 @@ export default function App({
 
   const openCoursePage = (nextPath: string) => {
     setIsMobileMenuOpen(false);
-    router.push(nextPath);
+    if (window.location.pathname === nextPath) {
+      router.push(nextPath, { scroll: false });
+      window.scrollTo({ top: 0, behavior: "instant" });
+      return;
+    }
+    pushInternalRoute(nextPath, false);
   };
 
   const openPythonCoursePage = () => openCoursePage("/python-course");
@@ -4908,7 +4918,9 @@ export default function App({
   const isReviewRoute = Boolean(activeReviewStory);
   const isCourseReviewRoute = Boolean(activeCourseReview);
   const isStudentReviewRoute = Boolean(activeStudentReview);
-  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute || isTariffsRoute;
+  const isAdultCourseRoute = isPythonCourseRoute || isDataScienceCourseRoute || isFrontendCourseRoute || isDataAnalystCourseRoute
+    || isCppCourseRoute || isMobileDeveloperCourseRoute || isUnrealEngineCourseRoute || isJavaCourseRoute || isMlEngineerCourseRoute;
+  const isStandaloneRoute = isReviewRoute || isCourseReviewRoute || isStudentReviewRoute || isReviewsRoute || isAboutRoute || isAdultCourseRoute || isTariffsRoute;
   const viewportWidth = activeDesign.width * viewport.scale;
   const aboutScale = viewportWidth / ABOUT_DESIGN_WIDTH;
   const canvasStyle: CSSProperties = {
@@ -5103,13 +5115,18 @@ export default function App({
         >
           <div className="site-mobile-menu__top">
             <button aria-label="На главную" className="site-mobile-menu__logo" data-site-home type="button">
-              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-education-360.webp" />
+              <img alt="ИННОПРОГ Education" title="ИННОПРОГ Education" src="/logo-mobile-menu.png" loading="lazy" />
             </button>
             <button aria-label="Закрыть меню" className="site-mobile-menu__close" data-mobile-menu-toggle type="button">
               <span aria-hidden="true" />
             </button>
           </div>
-          <div className="site-mobile-menu__links">
+          {isAdultCourseRoute && (
+            <div className="site-mobile-menu__links site-mobile-menu__course-links" role="group" aria-label="Разделы курса">
+              <CourseSectionLinks audience="adult" onClick={() => setIsMobileMenuOpen(false)} />
+            </div>
+          )}
+          <div className="site-mobile-menu__links" hidden={isAdultCourseRoute}>
             <div className="site-mobile-menu__nav-group">
               <div className="site-mobile-menu__nav-row">
                 <button

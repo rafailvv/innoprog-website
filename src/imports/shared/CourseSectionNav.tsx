@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type MouseEventHandler } from "react";
 
 export type CourseAudience = "adult" | "children";
 
@@ -19,17 +19,11 @@ const courseLinks = {
   ],
 } as const;
 
-export function CourseSectionNav({
-  audience,
-  mobile = false,
-}: {
-  audience: CourseAudience;
-  mobile?: boolean;
-}) {
-  const links = courseLinks[audience];
+export function useCourseSectionAlignment(audience?: CourseAudience, mobile = false) {
+  const links = audience ? courseLinks[audience] : undefined;
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 767px)").matches !== mobile) return;
+    if (!links || window.matchMedia("(max-width: 767px)").matches !== mobile) return;
 
     const alignCurrentSection = () => {
       const hash = window.location.hash;
@@ -67,12 +61,25 @@ export function CourseSectionNav({
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, [links, mobile]);
+}
 
+export function CourseSectionLinks({
+  audience,
+  onClick,
+}: {
+  audience: CourseAudience;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+}) {
+  return courseLinks[audience].map(({ href, label }) => (
+    <a href={href} key={href} onClick={onClick}>{label}</a>
+  ));
+}
+
+export function CourseSectionNav({ audience }: { audience: CourseAudience }) {
+  useCourseSectionAlignment(audience);
   return (
     <nav aria-label="Разделы курса" className="site-course-section-nav">
-      {links.map(({ href, label }) => (
-        <a href={href} key={href}>{label}</a>
-      ))}
+      <CourseSectionLinks audience={audience} />
     </nav>
   );
 }

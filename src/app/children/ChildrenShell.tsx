@@ -51,7 +51,7 @@ export default function ChildrenShell({
       </div>
       {children}
       <ResponsiveSiteFooter applicationHref="#application" />
-      <ChildrenMobileMenu open={menu} onOpenChange={setMenu} />
+      <ChildrenMobileMenu open={menu} onOpenChange={setMenu} courseNavigation={courseNavigation} />
     </div>
   );
 }

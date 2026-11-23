@@ -229,7 +229,7 @@
 
 @media (max-width: 767px) {
   .header :global(.site-main-header--mobile) {
-    --stories-control-size: 44px;
+    --mobile-header-control-size: 44px;
     --stories-control-gap: 12px;
     inset-inline: 16px;
     width: auto;
@@ -237,14 +237,11 @@
   }
 
   .header :global(.site-header-contacts--mobile) {
-    --contact-size: var(--stories-control-size);
     gap: var(--stories-control-gap);
     margin-right: var(--stories-control-gap);
   }
 
   .header :global([data-mobile-menu-toggle]) {
-    width: var(--stories-control-size);
-    height: var(--stories-control-size);
     border-radius: 50%;
     color: #fff;
   }
