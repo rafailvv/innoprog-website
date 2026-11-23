@@ -1,3 +1,4 @@
+import { javaDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { JAVA_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function JavaCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={javaDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={javaCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/java-developer-course")} />
       <JsonLd

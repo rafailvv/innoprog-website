@@ -1,3 +1,4 @@
+import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
@@ -318,13 +319,15 @@ function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-160px] top-[72px] w-[616px]" data-name="Иллюстрация аналитической панели">
-        <img loading="eager" fetchPriority="high" decoding="async"
-          alt="Панель аналитики с графиком данных"
-          className="block h-full max-w-none object-contain pointer-events-none w-full"
-          src={imgDataAnalystHero}
-          srcSet={`${imgDataAnalystHeroCompact} 658w, ${imgDataAnalystHero} 938w`}
-          sizes="157.949vw"
-        />
+        <MobileCourseHero>
+          <img loading="eager" fetchPriority="high" decoding="async"
+            alt="Панель аналитики с графиком данных"
+            className="block h-full max-w-none object-contain pointer-events-none w-full"
+            src={imgDataAnalystHero}
+            srcSet={`${imgDataAnalystHeroCompact} 658w, ${imgDataAnalystHero} 938w`}
+            sizes="157.949vw"
+          />
+        </MobileCourseHero>
       </div>
     </div>
   );

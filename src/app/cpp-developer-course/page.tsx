@@ -1,3 +1,4 @@
+import { cppDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { CPP_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function CppCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={cppDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={cppCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/cpp-developer-course")} />
       <JsonLd

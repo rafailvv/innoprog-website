@@ -95,33 +95,52 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-const avitoPixel = `
-var _apxl = window._apxl || (window._apxl = []);
-_apxl.push({
-    id: 8824496,
-    start: (new Date()).getTime()
-});
-_apxl.q = _apxl.q || [];
-_apxl.sendEvent = _apxl.sendEvent || function (args) {
-    _apxl.q.push([args, location.href, (new Date()).getTime()]);
-};
-(function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script");
-    ts.type = "text/javascript";
-    ts.async = true;
-    ts.id = id;
-    ts.src = "https://ac.avito.ru/tag.js";
-    var f = function () {
-        var s = d.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(ts, s);
-    };
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f, false);
-    } else {
-        f();
-    }
-})(document, window, "apxl-code");
+const analyticsBootstrap = `
+(function (w, d) {
+  w.ym = w.ym || function () { (w.ym.a = w.ym.a || []).push(arguments); };
+  w.ym.l = Date.now();
+  w.ym(110454081, "init", {
+    ssr: true, webvisor: true, clickmap: true, referrer: d.referrer,
+    url: w.location.href, accurateTrackBounce: true, trackLinks: true
+  });
+
+  var pixel = w._apxl || (w._apxl = []);
+  pixel.push({ id: 8824496, start: Date.now() });
+  pixel.q = pixel.q || [];
+  pixel.sendEvent = pixel.sendEvent || function (args) {
+    pixel.q.push([args, w.location.href, Date.now()]);
+  };
+
+  function include(id, url) {
+    if (d.getElementById(id) || Array.prototype.some.call(d.scripts, function (script) { return script.src === url; })) return;
+    var script = d.createElement("script");
+    script.async = true;
+    script.id = id;
+    script.src = url;
+    d.head.appendChild(script);
+  }
+
+  function start() {
+    w.removeEventListener("pointerdown", start, true);
+    w.removeEventListener("keydown", start, true);
+    include("innoprog-metrika", "https://mc.yandex.ru/metrika/tag.js?id=110454081");
+    include("apxl-code", "https://ac.avito.ru/tag.js");
+  }
+
+  function startWhenIdle() {
+    if (typeof w.requestIdleCallback === "function") w.requestIdleCallback(start, { timeout: 1000 });
+    else w.setTimeout(start, 0);
+  }
+
+  if (new URLSearchParams(w.location.search).get("_ym_debug") === "1") {
+    start();
+  } else {
+    w.addEventListener("pointerdown", start, { passive: true, capture: true });
+    w.addEventListener("keydown", start, { capture: true });
+    if (d.readyState === "complete") startWhenIdle();
+    else w.addEventListener("load", startWhenIdle, { once: true });
+  }
+})(window, document);
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -131,20 +150,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript><style>{".site-loader{display:none!important}"}</style></noscript>
         <meta name="yandex-verification" content="ca948d488c7e73d2" />
         <meta name="google-site-verification" content="ASsR_pT14eTWgOIz2S4bbEAO5UhRtcHBqv1F1O2a1AE" />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `(function(m,e,t,r,i,k,a){
-    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110454081', 'ym');
-
-ym(110454081, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`,
-          }}
-        />
-        <script dangerouslySetInnerHTML={{ __html: avitoPixel }} />
+        <script dangerouslySetInnerHTML={{ __html: analyticsBootstrap }} />
       </head>
       <body className={manrope.className}>
         <noscript

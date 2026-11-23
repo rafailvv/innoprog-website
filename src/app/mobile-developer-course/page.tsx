@@ -1,3 +1,4 @@
+import { mobileDeveloperDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { MOBILE_DEVELOPER_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function MobileDeveloperCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={mobileDeveloperDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={mobileDeveloperCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/mobile-developer-course")} />
       <JsonLd

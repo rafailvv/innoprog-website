@@ -1,0 +1,17 @@
+export const galleryPreviews: Record<string, string> = {
+  "/children/school/review-1-gallery-1.jpg": "/children/school/review-1-gallery-1-672.webp",
+  "/children/school/review-1-gallery-2.jpg": "/children/school/review-1-gallery-2-672.webp",
+  "/children/school/review-1-gallery-3.jpg": "/children/school/review-1-gallery-3-672.webp",
+  "/children/school/review-1-gallery-4.jpg": "/children/school/review-1-gallery-4-672.webp",
+  "/children/school/review-1-gallery-5.jpg": "/children/school/review-1-gallery-5-672.webp",
+  "/children/school/review-2-gallery-1.jpg": "/children/school/review-2-gallery-1-672.webp",
+  "/children/school/review-2-gallery-2.jpg": "/children/school/review-2-gallery-2-672.webp",
+  "/children/school/review-2-gallery-3.jpg": "/children/school/review-2-gallery-3-672.webp",
+  "/children/school/review-2-gallery-4.jpg": "/children/school/review-2-gallery-4-672.webp",
+  "/children/school/review-3-gallery-1.jpg": "/children/school/review-3-gallery-1-672.webp",
+  "/children/school/review-3-gallery-2.jpg": "/children/school/review-3-gallery-2-672.webp",
+  "/children/school/review-3-gallery-3.jpg": "/children/school/review-3-gallery-3-672.webp",
+  "/children/school/review-3-gallery-4.jpg": "/children/school/review-3-gallery-4-672.webp",
+  "/children/school/review-3-gallery-5.jpg": "/children/school/review-3-gallery-5-672.webp",
+  "/children/school/review-3-gallery-6.jpg": "/children/school/review-3-gallery-6-672.webp",
+};

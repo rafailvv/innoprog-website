@@ -1,3 +1,4 @@
+import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
@@ -330,13 +331,15 @@ function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-109px] top-[72px] w-[597px]" data-name="Иллюстрация процессора C++">
-        <img loading="eager" fetchPriority="high" decoding="async"
-          alt="Процессор с символом языка программирования C++"
-          className="block h-full max-w-none object-contain pointer-events-none w-full"
-          src={imgCppHero}
-          srcSet={`${imgCppHeroCompact} 637w, ${imgCppHero} 909w`}
-          sizes="153.077vw"
-        />
+        <MobileCourseHero>
+          <img loading="eager" fetchPriority="high" decoding="async"
+            alt="Процессор с символом языка программирования C++"
+            className="block h-full max-w-none object-contain pointer-events-none w-full"
+            src={imgCppHero}
+            srcSet={`${imgCppHeroCompact} 637w, ${imgCppHero} 909w`}
+            sizes="153.077vw"
+          />
+        </MobileCourseHero>
       </div>
     </div>
   );

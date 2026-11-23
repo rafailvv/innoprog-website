@@ -1,3 +1,4 @@
+import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
@@ -331,13 +332,15 @@ function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-100px] top-[72px] w-[673px]" data-name="Иллюстрация нейронной сети">
-        <img loading="eager" fetchPriority="high" decoding="async"
-          alt="Объёмная схема нейронной сети"
-          className="block brightness-[1.35] h-full hue-rotate-[8deg] max-w-none object-contain pointer-events-none saturate-[1.65] w-full"
-          src={imgMlEngineerHero}
-          srcSet={`${imgMlEngineerHeroCompact} 719w, ${imgMlEngineerHero} 1025w`}
-          sizes="172.564vw"
-        />
+        <MobileCourseHero>
+          <img loading="eager" fetchPriority="high" decoding="async"
+            alt="Объёмная схема нейронной сети"
+            className="block brightness-[1.35] h-full hue-rotate-[8deg] max-w-none object-contain pointer-events-none saturate-[1.65] w-full"
+            src={imgMlEngineerHero}
+            srcSet={`${imgMlEngineerHeroCompact} 719w, ${imgMlEngineerHero} 1025w`}
+            sizes="172.564vw"
+          />
+        </MobileCourseHero>
       </div>
     </div>
   );

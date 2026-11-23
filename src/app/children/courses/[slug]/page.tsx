@@ -153,7 +153,7 @@ export default async function Page({ params }: Props) {
               </div>
               <img
                 src={`${artwork}-800.webp`}
-                srcSet={`${artwork}-480.webp 480w, ${artwork}-800.webp 800w`}
+                srcSet={`${artwork}-420.webp 420w, ${artwork}-480.webp 480w, ${artwork}-800.webp 800w`}
                 sizes="(max-width: 1100px) 240px, max(300px, 20.84vw)"
                 alt={course.title}
                 width={800}

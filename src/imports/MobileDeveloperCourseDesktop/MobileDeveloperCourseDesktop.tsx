@@ -5,8 +5,7 @@ import svgPaths from "./svg-egdjewsyn7";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
-import imgFocus from "./9748a62f98f2fa651b919d513ca6b44cb04d3882.opt.webp";
-import imgMobileDeveloperHero from "../shared/course-heroes/mobile-developer-phone.delivery.webp";
+import { mobileDeveloperDesktopHero as imgMobileDeveloperHero } from "../courseDesktopHeroAssets";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 import { FooterLegalDetails } from "../../app/FooterLegalDetails";
 const imgImage119 = "/videos/flutter-mentor-hd-v1.mp4";
@@ -16,7 +15,7 @@ import imgCollabration from "./0ddae1105f6319bcc13e96735e2d30ab76fbfe3d.png";
 import imgFrame700 from "./be4bcdab4e03df29cf083299f1a129432fb6cfb8.opt.webp";
 import imgRectangle40091 from "./b3b6b9e6c7b7057cd9decf85d4436740e0aace34.opt.webp";
 import imgImage52 from "./438bc548f7863d8ef2b783a4cb669ce08d59b346.png";
-import imgBalance from "./7c7f9895d31d45c04affa2dd30f717ed232ed528.png";
+import { CourseHeroBackdrop, CourseStructureBackdrop } from "../shared/CourseBackgroundArt";
 import imgImage46 from "./40ec54b08771963beaaad715c22e691c4519e3d3.opt.webp";
 import imgRectangle40094 from "./401f5acc82f0b1eb082db219ab3471a1ef5fab51.png";
 import imgRectangle40093 from "./c5868c6b299d567b64d10ff0d69c0d1a0b46230c.png";
@@ -2344,14 +2343,7 @@ function Component3() {
       <div className="site-course-structure__sticky-side relative shrink-0 w-[465px]">
         <div className="site-course-structure__sticky-balance-art" aria-hidden="true">
           <div className="flex-none rotate-[22.09deg]">
-            <div
-              className="h-[1333.056px] opacity-90 pointer-events-none relative w-[1527.983px]"
-              data-name="Balance"
-              style={{
-                background: `url(${imgBalance}) #9c78ff 50% / cover no-repeat`,
-                backgroundBlendMode: "color-burn",
-              }}
-            />
+            <CourseStructureBackdrop />
           </div>
         </div>
         <div className="site-course-structure__sticky-title [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Raleway:Bold',sans-serif] font-bold leading-[97px] relative shrink-0 text-[96px] text-white uppercase w-[465px]">
@@ -4487,14 +4479,7 @@ function CourseTopBackground() {
       <div className="absolute bg-[#9c78ff] inset-0" />
       <div className="absolute flex h-[2878.892px] items-center justify-center left-[-396px] top-[254px] w-[2836.465px]">
         <div className="flex-none rotate-[-23.78deg]">
-          <div
-            className="h-[2209.064px] opacity-90 pointer-events-none relative w-[2126.168px]"
-            data-name="Focus"
-            style={{
-              background: `url(${imgFocus}) #9c78ff 50% / cover no-repeat`,
-              backgroundBlendMode: "color-burn",
-            }}
-          />
+          <CourseHeroBackdrop />
         </div>
       </div>
       <CourseTopGlows />

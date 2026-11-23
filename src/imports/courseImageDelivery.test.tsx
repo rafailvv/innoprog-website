@@ -54,6 +54,10 @@ describe("course image delivery", () => {
     expect(prioritized).toHaveLength(1);
     expect(prioritized[0].getAttribute("loading")).toBe("eager");
     expect(prioritized[0].getAttribute("decoding")).toBe("async");
+    if (path.endsWith("CourseMobile.tsx")) {
+      const desktopFallback = prioritized[0].closest("picture")?.querySelector('source[media="(min-width: 768px)"]');
+      expect(desktopFallback?.getAttribute("srcset")).toMatch(/^data:image\/gif;base64,/);
+    }
 
     const projects = [...document.querySelectorAll(".site-course-project-visual img, .site-course-mobile-project-visual img")];
     const skillIcons = [...document.querySelectorAll(".site-course-skill-icon img")];

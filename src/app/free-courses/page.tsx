@@ -65,6 +65,8 @@ export default function FreeCoursesPage() {
             <img
               alt=""
               src="/free-courses-banner-pearl.webp"
+              srcSet="/free-courses-banner-pearl-480.webp 480w, /free-courses-banner-pearl.webp 780w"
+              sizes="(max-width: 767px) min(70vw, 260px), 420px"
               width={780}
               height={822}
               fetchPriority="high"

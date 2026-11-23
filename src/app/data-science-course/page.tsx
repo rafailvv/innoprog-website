@@ -1,3 +1,4 @@
+import { dataScienceDesktopHeroCandidates, dataScienceDesktopHeroSizes } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { DATA_SCIENCE_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function DataScienceCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" imageSrcSet={dataScienceDesktopHeroCandidates} imageSizes={dataScienceDesktopHeroSizes} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={dataScienceCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-science-course")} />
       <JsonLd

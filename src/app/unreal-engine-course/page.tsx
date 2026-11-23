@@ -1,3 +1,4 @@
+import { unrealEngineDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { UNREAL_ENGINE_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function UnrealEngineCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={unrealEngineDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={unrealEngineCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/unreal-engine-course")} />
       <JsonLd

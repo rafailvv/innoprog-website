@@ -1,3 +1,4 @@
+import { frontendDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { FRONTEND_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function FrontendCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={frontendDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={frontendCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/frontend-developer-course")} />
       <JsonLd

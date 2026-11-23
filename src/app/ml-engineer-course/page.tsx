@@ -1,3 +1,4 @@
+import { mlEngineerDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { ML_ENGINEER_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function MlEngineerCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={mlEngineerDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={mlEngineerCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/ml-engineer-course")} />
       <JsonLd

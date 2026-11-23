@@ -1,3 +1,4 @@
+import { dataAnalystDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
 import { DATA_ANALYST_COURSE_KEYWORDS } from "../courseKeywords";
@@ -30,6 +31,7 @@ export const metadata = createPageMetadata({
 export default function DataAnalystCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={dataAnalystDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={dataAnalystCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-analyst-course")} />
       <JsonLd

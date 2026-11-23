@@ -38,7 +38,7 @@ import {
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
-import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { memo, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
 import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
@@ -49,35 +49,35 @@ import { YandexSmartCaptcha, type YandexSmartCaptchaHandle } from "./components/
 import { EducationLicenseLink } from "./components/EducationLicenseLink";
 import { EDUCATION_DISCLOSURE_LABEL, LEGAL_LINKS } from "./legalLinks";
 
-const MainScreen = dynamic(() => import("../imports/MainScreenDesktop/MainScreenDesktop"));
-const MainScreenMobile = dynamic(() => import("../imports/MainScreenMobile/MainScreenMobile"));
+const MainScreen = memo(dynamic(() => import("../imports/MainScreenDesktop/MainScreenDesktop")));
+const MainScreenMobile = memo(dynamic(() => import("../imports/MainScreenMobile/MainScreenMobile")));
 
-const PythonCourseDesktop = dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop"));
-const PythonCourseMobile = dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile"));
-const DataScienceCourseDesktop = dynamic(() => import("../imports/DataScienceCourseDesktop/DataScienceCourseDesktop"));
-const DataScienceCourseMobile = dynamic(() => import("../imports/DataScienceCourseMobile/DataScienceCourseMobile"));
-const FrontendCourseDesktop = dynamic(() => import("../imports/FrontendCourseDesktop/FrontendCourseDesktop"));
-const FrontendCourseMobile = dynamic(() => import("../imports/FrontendCourseMobile/FrontendCourseMobile"));
-const DataAnalystCourseDesktop = dynamic(() => import("../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop"));
-const DataAnalystCourseMobile = dynamic(() => import("../imports/DataAnalystCourseMobile/DataAnalystCourseMobile"));
-const CppCourseDesktop = dynamic(() => import("../imports/CppCourseDesktop/CppCourseDesktop"));
-const CppCourseMobile = dynamic(() => import("../imports/CppCourseMobile/CppCourseMobile"));
-const MobileDeveloperCourseDesktop = dynamic(
+const PythonCourseDesktop = memo(dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop")));
+const PythonCourseMobile = memo(dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile")));
+const DataScienceCourseDesktop = memo(dynamic(() => import("../imports/DataScienceCourseDesktop/DataScienceCourseDesktop")));
+const DataScienceCourseMobile = memo(dynamic(() => import("../imports/DataScienceCourseMobile/DataScienceCourseMobile")));
+const FrontendCourseDesktop = memo(dynamic(() => import("../imports/FrontendCourseDesktop/FrontendCourseDesktop")));
+const FrontendCourseMobile = memo(dynamic(() => import("../imports/FrontendCourseMobile/FrontendCourseMobile")));
+const DataAnalystCourseDesktop = memo(dynamic(() => import("../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop")));
+const DataAnalystCourseMobile = memo(dynamic(() => import("../imports/DataAnalystCourseMobile/DataAnalystCourseMobile")));
+const CppCourseDesktop = memo(dynamic(() => import("../imports/CppCourseDesktop/CppCourseDesktop")));
+const CppCourseMobile = memo(dynamic(() => import("../imports/CppCourseMobile/CppCourseMobile")));
+const MobileDeveloperCourseDesktop = memo(dynamic(
   () => import("../imports/MobileDeveloperCourseDesktop/MobileDeveloperCourseDesktop"),
-);
-const MobileDeveloperCourseMobile = dynamic(
+));
+const MobileDeveloperCourseMobile = memo(dynamic(
   () => import("../imports/MobileDeveloperCourseMobile/MobileDeveloperCourseMobile"),
-);
-const UnrealEngineCourseDesktop = dynamic(
+));
+const UnrealEngineCourseDesktop = memo(dynamic(
   () => import("../imports/UnrealEngineCourseDesktop/UnrealEngineCourseDesktop"),
-);
-const UnrealEngineCourseMobile = dynamic(
+));
+const UnrealEngineCourseMobile = memo(dynamic(
   () => import("../imports/UnrealEngineCourseMobile/UnrealEngineCourseMobile"),
-);
-const JavaCourseDesktop = dynamic(() => import("../imports/JavaCourseDesktop/JavaCourseDesktop"));
-const JavaCourseMobile = dynamic(() => import("../imports/JavaCourseMobile/JavaCourseMobile"));
-const MlEngineerCourseDesktop = dynamic(() => import("../imports/MlEngineerCourseDesktop/MlEngineerCourseDesktop"));
-const MlEngineerCourseMobile = dynamic(() => import("../imports/MlEngineerCourseMobile/MlEngineerCourseMobile"));
+));
+const JavaCourseDesktop = memo(dynamic(() => import("../imports/JavaCourseDesktop/JavaCourseDesktop")));
+const JavaCourseMobile = memo(dynamic(() => import("../imports/JavaCourseMobile/JavaCourseMobile")));
+const MlEngineerCourseDesktop = memo(dynamic(() => import("../imports/MlEngineerCourseDesktop/MlEngineerCourseDesktop")));
+const MlEngineerCourseMobile = memo(dynamic(() => import("../imports/MlEngineerCourseMobile/MlEngineerCourseMobile")));
 
 const DESKTOP_DESIGN = {
   width: 1440,
@@ -3426,10 +3426,9 @@ export default function App({
   const [activeReviewsDirection, setActiveReviewsDirection] = useState<ReviewsDirectionKey>(
     initialRouteState.activeReviewsDirection,
   );
-  const [isReady, setIsReady] = useState(isInitialCoursePage);
-  // Course HTML is immediately useful on mobile, but desktop must retain the
-  // overlay until hydration replaces the mobile SSR tree. CSS keeps this
-  // overlay hidden on a matching, already-ready mobile course.
+  const [isReady, setIsReady] = useState(true);
+  // The server-rendered mobile content can paint immediately. Desktop keeps
+  // the overlay until hydration replaces the mobile SSR tree.
   const [shouldShowLoader, setShouldShowLoader] = useState(true);
   const [isConsentChecked, setIsConsentChecked] = useState(false);
   const [isAdvertisingConsentChecked, setIsAdvertisingConsentChecked] = useState(false);

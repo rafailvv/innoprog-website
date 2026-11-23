@@ -169,6 +169,15 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  @supports (zoom: calc(100vw / 390px)) {
+    /* Match the phone viewport before the home canvas hydrates. */
+    .site-canvas--mobile:not(.site-canvas--selector) {
+      zoom: calc(100vw / 390px);
+    }
+  }
+}
+
 .site-canvas .site-main-header--desktop {
   position: absolute !important;
 }

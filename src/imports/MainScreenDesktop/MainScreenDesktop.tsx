@@ -1,3 +1,4 @@
+import NearViewportImage from "../../app/components/NearViewportImage";
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonDesktopCard } from "../shared/PythonDirectionCard";
 import { DirectionHoverOverlay } from "../shared/DirectionHoverOverlay";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
@@ -248,7 +249,7 @@ function Frame87() {
       <div className="-translate-x-1/2 absolute h-[738px] left-1/2 top-[-18px] w-[1280px]">
         <div className="absolute inset-[-44.64%_-23.44%]">
           {/* Pre-render the SVG glow so Safari can paint it without a large live blur during scrolling. */}
-          <img alt="" className="block size-full" decoding="async" src={homeBenefitsGlow} />
+          <NearViewportImage alt="" className="block size-full" decoding="async" src={homeBenefitsGlow} />
         </div>
       </div>
       <Frame85 />
@@ -1172,7 +1173,7 @@ function Frame42() {
 function Frame80() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full">
-      <ResultsBackground eager />
+      <ResultsBackground />
       <h2 className="font-['Raleway:Bold',sans-serif] font-bold leading-[0] relative shrink-0 text-white uppercase w-full">
         <span className="block h-[80px] leading-[97px] min-w-full relative shrink-0 text-[96px] w-[min-content]">Что вы получите</span>
         <span className="block leading-[97px] relative shrink-0 text-[64px] text-right whitespace-nowrap">после обучения</span>
@@ -1950,7 +1951,7 @@ export default function Component() {
           <div className="flex-none rotate-[90.25deg]">
             <div className="h-[656px] relative w-[717.676px]">
               <div className="absolute inset-[-30.49%_-27.87%]">
-                <img alt="" className="block size-full" decoding="async" src={homeCourseGlow} />
+                <NearViewportImage alt="" className="block size-full" decoding="async" src={homeCourseGlow} />
               </div>
             </div>
           </div>

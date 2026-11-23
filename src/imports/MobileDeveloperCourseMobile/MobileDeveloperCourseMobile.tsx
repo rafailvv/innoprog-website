@@ -1,3 +1,4 @@
+import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
@@ -330,13 +331,15 @@ function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-149px] top-[72px] w-[840px]" data-name="Иллюстрация мобильного приложения">
-        <img loading="eager" fetchPriority="high" decoding="async"
-          alt="Смартфон для разработки мобильных приложений"
-          className="block h-full max-w-none object-contain pointer-events-none w-full"
-          src={imgMobileDeveloperHero}
-          srcSet={`${imgMobileDeveloperHeroCompact} 897w, ${imgMobileDeveloperHero} 1280w`}
-          sizes="215.385vw"
-        />
+        <MobileCourseHero>
+          <img loading="eager" fetchPriority="high" decoding="async"
+            alt="Смартфон для разработки мобильных приложений"
+            className="block h-full max-w-none object-contain pointer-events-none w-full"
+            src={imgMobileDeveloperHero}
+            srcSet={`${imgMobileDeveloperHeroCompact} 897w, ${imgMobileDeveloperHero} 1280w`}
+            sizes="215.385vw"
+          />
+        </MobileCourseHero>
       </div>
     </div>
   );

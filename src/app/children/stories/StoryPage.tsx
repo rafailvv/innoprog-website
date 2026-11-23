@@ -10,6 +10,7 @@ import data from "../school/source-data.json";
 import school from "../school/school.module.css";
 import styles from "./story.module.css";
 import { storySlugs, storyTitles } from "./story-data";
+import { galleryPreviews } from "./galleryPreviews";
 const slugs = storySlugs;
 const titles = storyTitles;
 function subscribe(callback: () => void) {
@@ -97,9 +98,12 @@ export default function StoryPage({ index }: { index: number }) {
                 >
                   <img
                     src={src}
+                    srcSet={galleryPreviews[src] ? `${galleryPreviews[src]} 672w, ${src} 1024w` : undefined}
+                    sizes="(max-width: 767px) min(calc(100vw - 32px), 440px), (max-width: 1100px) 264px, 30vw"
                     alt={`${item.name}: фотография ${i + 1}`}
                     width={600}
                     height={450}
+                    decoding="async"
                     loading="lazy"
                   />
                   <span>{String(i + 1).padStart(2, "0")} ↗</span>

@@ -1,4 +1,5 @@
 import App, { type AppInitialRoute } from "../App";
+import { findStudentReviewByRouteSlug, normalizeReviewsDirectionKey } from "../studentReviewsData";
 import {
   JsonLd,
   REVIEWS_PAGE_KEYWORDS,
@@ -26,9 +27,15 @@ export async function generateMetadata({ searchParams }: {
   });
 }
 
-const reviewsRoute: AppInitialRoute = { page: "reviews" };
+export default async function ReviewsPage({ searchParams }: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const { direction, review } = await searchParams;
+  const item = findStudentReviewByRouteSlug(Array.isArray(review) ? review[0] : review);
+  const initialRoute: AppInitialRoute = item
+    ? { page: "studentReview", review: item.id }
+    : { page: "reviews", direction: normalizeReviewsDirectionKey(Array.isArray(direction) ? direction[0] : direction) };
 
-export default function ReviewsPage() {
   return (
     <>
       <JsonLd
@@ -45,7 +52,7 @@ export default function ReviewsPage() {
           { name: "Отзывы", path: "/reviews" },
         ])}
       />
-      <App initialRoute={reviewsRoute} />
+      <App initialRoute={initialRoute} />
     </>
   );
 }

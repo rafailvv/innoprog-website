@@ -17,7 +17,7 @@ import data from "./source-data.json";
 import styles from "./school.module.css";
 import LeadForm from "./LeadForm";
 import SchoolComparison from "./SchoolComparison";
-import NearViewportImage from "./NearViewportImage";
+import NearViewportImage from "../../components/NearViewportImage";
 import { childrenTeachers as teachers } from "./teacher-data";
 import { childrenCoursePaths } from "../courses/course-paths";
 
@@ -34,7 +34,7 @@ function CtaArrow() {
 const a = data.assets;
 const faqItems = data.faq.map(([question, answer]) => ({ question, answer }));
 const heroImage = "/children/school/hero-illustration-transparent";
-const heroAvif = `${heroImage}-480.avif 480w, ${heroImage}-768.avif 768w, ${heroImage}-1080.avif 1080w, ${heroImage}-1440.avif 1440w`;
+const heroAvif = `${heroImage}-480.avif 480w, ${heroImage}-672.avif 672w, ${heroImage}-768.avif 768w, ${heroImage}-1080.avif 1080w, ${heroImage}-1440.avif 1440w`;
 const heroWebp = `${heroImage}-480.webp 480w, ${heroImage}-768.webp 768w, ${heroImage}-1080.webp 1080w, ${heroImage}.webp 1440w`;
 const heroSizes = "(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 49vw, 47vw";
 const courses = [
