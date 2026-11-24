@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd, absoluteUrl, breadcrumbJsonLd, webPageJsonLd } from "../../seo";
@@ -6,6 +7,7 @@ import { articleFaqJsonLd, articleJsonLd, articleMetadata } from "../metadata";
 import { BlogShell } from "../BlogShell";
 import { ArticleBody } from "../ArticleBody";
 import { ArticleCard } from "../ArticleCard";
+import { BlogTrialBanner } from "../BlogTrialBanner";
 import styles from "../blog.module.css";
 
 // Unknown slugs must reach notFound(); Next 15's static-only fallback logs NoFallbackError.
@@ -22,6 +24,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound();
   const path = `/blog/${article.slug}`;
   const related = BLOG_ARTICLES.filter((entry) => entry.slug !== article.slug);
+  const trialAfterIndex = Math.max(0, Math.floor(article.sections.length / 2) - 1);
   return <BlogShell>
     <JsonLd data={articleJsonLd(article)} />
     <JsonLd data={articleFaqJsonLd(article)} />
@@ -40,7 +43,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <aside className={styles.toc} aria-labelledby="article-toc-title"><div className={styles.tocInner}><h2 id="article-toc-title">В этой статье</h2><ol>{article.sections.map((section) => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ol></div></aside>
         <div className={styles.prose}>
           <div className={styles.lead}>{article.introduction.map((text) => <p key={text}>{text}</p>)}</div>
-          {article.sections.map((section) => <section className={styles.articleSection} id={section.id} key={section.id}><h2>{section.title}</h2>{section.blocks.map((block, index) => <ArticleBody block={block} key={index} />)}</section>)}
+          {article.sections.map((section, sectionIndex) => (
+            <Fragment key={section.id}>
+              <section className={styles.articleSection} id={section.id}><h2>{section.title}</h2>{section.blocks.map((block, index) => <ArticleBody block={block} key={index} />)}</section>
+              {sectionIndex === trialAfterIndex && <BlogTrialBanner variant="article" />}
+            </Fragment>
+          ))}
           <section className={styles.faq} aria-labelledby="article-faq"><h2 id="article-faq">Частые вопросы</h2>{article.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section>
           <section className={styles.sources} aria-labelledby="article-sources"><h2 id="article-sources">Источники и документация</h2><ul>{article.sources.map((source) => <li key={source.url}><a href={source.url} rel="noopener noreferrer" target="_blank">{source.title}<span aria-hidden="true"> ↗</span></a></li>)}</ul></section>
           <aside className={styles.courseCta} id="article-course"><p>{article.course.description}</p><Link className={styles.primaryLink} href={article.course.href}>{article.course.label}<span aria-hidden="true">↗</span></Link></aside>

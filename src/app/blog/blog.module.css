@@ -31,6 +31,7 @@
 .cardBody > p { margin:0 0 28px; color:#59556a; font-size:16px; line-height:1.65; }
 .cardBottom { margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:10px; padding-top:24px; border-top:1px solid #ece7f4; color:#59556a; font-size:12px; }
 .cardArrow { display:grid; place-items:center; border-radius:50%; width:34px; height:34px; background:#f3effb; color:#464a6a; font-size:22px; }
+.trialBannerIndex + .indexCta { margin-top:28px; }
 .indexCta { display:flex; justify-content:space-between; align-items:center; gap:36px; margin-top:72px; border-radius:40px; background:#f3effb; padding:42px 44px; }
 .indexCta h2 { margin:12px 0 14px; font-size:32px; line-height:1.2; letter-spacing:-.03em; }
 .indexCta p { max-width:620px; margin:0; color:#59556a; font-size:18px; line-height:1.55; }
@@ -98,6 +99,7 @@
   .cardBody { padding:24px; }
   .card h3 { font-size:23px; margin-top:18px; }
   .cardBody > p { font-size:16px; }
+  .trialBannerIndex + .indexCta { margin-top:20px; }
   .indexCta { margin-top:44px; border-radius:28px; padding:28px 24px; gap:26px; }
   .indexCta h2 { font-size:28px; }
   .indexCta p { font-size:16px; }

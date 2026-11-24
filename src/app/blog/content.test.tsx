@@ -4,6 +4,8 @@ import { describe, expect, it } from "vitest";
 import { BLOG_ARTICLES, articleCountLabel, readingMinutes } from "./data";
 import { articleFaqJsonLd, articleJsonLd, articleMetadata } from "./metadata";
 import { ArticleBody } from "./ArticleBody";
+import BlogPage from "./page";
+import ArticlePage from "./[slug]/page";
 import sitemap from "../sitemap";
 
 describe("published blog contracts", () => {
@@ -49,5 +51,36 @@ describe("published blog contracts", () => {
   });
   it.each([[1,"1 статья"],[3,"3 статьи"],[6,"6 статей"],[11,"11 статей"],[21,"21 статья"]])("declines article count %s", (count, label) => {
     expect(articleCountLabel(Number(count))).toBe(label);
+  });
+  it("renders the compact trial banner on the blog index before the course selection CTA", () => {
+    const html = renderToStaticMarkup(<BlogPage />);
+    const articlesIndex = html.indexOf('id="blog-articles-title"');
+    const trialIndex = html.indexOf('id="blog-trial-banner"');
+    const ctaIndex = html.indexOf("Выберите направление обучения");
+    expect(articlesIndex).toBeGreaterThan(-1);
+    expect(trialIndex).toBeGreaterThan(articlesIndex);
+    expect(ctaIndex).toBeGreaterThan(trialIndex);
+    expect(html).toContain('href="/application?type=trial"');
+    expect(html).toContain("Начните с бесплатного занятия");
+    expect(html).toContain("записаться на занятие");
+    expect(html).toContain('href="/application"');
+  });
+  it.each(BLOG_ARTICLES)("renders the compact trial banner in the middle of article $slug", async (article) => {
+    const html = renderToStaticMarkup(await ArticlePage({ params: Promise.resolve({ slug: article.slug }) }));
+    const midIndex = Math.max(0, Math.floor(article.sections.length / 2) - 1);
+    const beforeSectionId = article.sections[midIndex].id;
+    const afterSectionId = article.sections[midIndex + 1].id;
+    const beforePos = html.indexOf(`id="${beforeSectionId}"`);
+    const trialPos = html.indexOf('id="blog-trial-banner"');
+    const afterPos = html.indexOf(`id="${afterSectionId}"`);
+    const articleClosePos = html.indexOf("</article>");
+    expect(beforePos).toBeGreaterThan(-1);
+    expect(trialPos).toBeGreaterThan(beforePos);
+    expect(afterPos).toBeGreaterThan(trialPos);
+    expect(articleClosePos).toBeGreaterThan(trialPos);
+    expect(html).toContain('id="article-course"');
+    expect(html).toContain('id="article-related"');
+    expect(html).toContain('href="/application?type=trial"');
+    expect(html).toContain("Начните с бесплатного занятия");
   });
 });
