@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import NearViewportImage from "../../app/components/NearViewportImage";
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonDesktopCard } from "../shared/PythonDirectionCard";
 import { DirectionHoverOverlay } from "../shared/DirectionHoverOverlay";
@@ -1840,9 +1841,10 @@ function Frame126() {
   );
 }
 
-function HomeSections() {
+function HomeSections({ beforeCourses }: { beforeCourses?: ReactNode }) {
   return (
     <div className="flex flex-col gap-[148px] items-center">
+      {beforeCourses}
       <Frame127 />
       <Component1 />
       <Component2 />
@@ -1930,7 +1932,7 @@ export function MainScreenDesktopResultsSection() {
   return <Component4 />;
 }
 
-export default function Component() {
+export default function Component({ beforeCourses }: { beforeCourses?: ReactNode }) {
   return (
     <div className="w-full" data-name="главный экран Д">
       <div className="relative h-[3436px]">
@@ -1980,7 +1982,7 @@ export default function Component() {
         <Group11 />
         <Group12 />
       </div>
-      <HomeSections />
+      <HomeSections beforeCourses={beforeCourses} />
     </div>
   );
 }

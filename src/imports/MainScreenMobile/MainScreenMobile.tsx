@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { PYTHON_DIRECTION_DESCRIPTION, PYTHON_DIRECTION_TITLE, PythonMobileCard } from "../shared/PythonDirectionCard";
 import { FreeCoursesBanner } from "../shared/FreeCoursesBanner";
 import { HomeFaqSection } from "../../app/components/HomeFaqSection";
@@ -2512,9 +2513,10 @@ function Frame176() {
   );
 }
 
-function HomeSections() {
+function HomeSections({ beforeCourses }: { beforeCourses?: ReactNode }) {
   return (
     <div className="flex flex-col gap-[80px] items-center w-full">
+      {beforeCourses}
       <Frame171 />
       <Frame196 />
       <MainScreenMobileTeachersSection />
@@ -2535,7 +2537,7 @@ export function MainScreenMobileResultsSection() {
   return <Component2 />;
 }
 
-export default function Component() {
+export default function Component({ beforeCourses }: { beforeCourses?: ReactNode }) {
   return (
     <div className="w-full" data-name="гланый экран М">
       <div className="relative" style={{ height: MOBILE_NEXT_SECTIONS_TOP }}>
@@ -2562,7 +2564,7 @@ export default function Component() {
         </button>
         <HomeCoursesLink compact />
       </div>
-      <HomeSections />
+      <HomeSections beforeCourses={beforeCourses} />
     </div>
   );
 }

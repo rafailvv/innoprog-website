@@ -39,7 +39,7 @@ import {
 } from "./mobileLayout";
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
 import { memo, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent } from "react";
+import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent, ReactNode } from "react";
 import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
 import { MobileMenuContacts } from "../imports/shared/HeaderContactLinks";
@@ -3394,8 +3394,10 @@ function clearPageTransition() {
 
 export default function App({
   initialRoute = { page: "home" },
+  homeBeforeCourses,
 }: {
   initialRoute?: AppInitialRoute;
+  homeBeforeCourses?: ReactNode;
 }) {
   const initialRouteState = getRouteState(initialRoute);
   const isInitialCoursePage = isCoursePageRoute(initialRoute);
@@ -5094,7 +5096,11 @@ export default function App({
             .join(" ")}
           style={canvasStyle}
         >
-          {viewport.isMobile ? <MainScreenMobile /> : <MainScreen />}
+          {viewport.isMobile ? (
+            <MainScreenMobile beforeCourses={homeBeforeCourses} />
+          ) : (
+            <MainScreen beforeCourses={homeBeforeCourses} />
+          )}
         </div>
       )}
       {(
