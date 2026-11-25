@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import styles from "./HomeAudience.module.css";
+
+const audienceId = "komu-podoydet";
 
 const audiences = [
   {
@@ -29,8 +34,20 @@ const audiences = [
 ];
 
 export function HomeAudience() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (window.location.hash !== `#${audienceId}`) return;
+
+    // The desktop canvas replaces the mobile server layout after hydration.
+    const frame = window.requestAnimationFrame(() => {
+      sectionRef.current?.scrollIntoView({ behavior: "instant" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <section className={styles.section} aria-labelledby="home-audience-title" id="komu-podoydet">
+    <section ref={sectionRef} className={styles.section} aria-labelledby="home-audience-title" id={audienceId}>
       <h2 className={styles.title} id="home-audience-title">Кому подойдёт обучение?</h2>
       <ul className={styles.cards} role="list">
         {audiences.map(({ title, courses }) => (

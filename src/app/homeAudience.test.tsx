@@ -1,3 +1,4 @@
+import { render, waitFor } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
@@ -42,5 +43,19 @@ describe("home audience section", () => {
     const paths = sitemap().map(({ url }) => new URL(url).pathname);
     expect(paths.filter((path) => path === "/")).toHaveLength(1);
     expect(paths).not.toContain("/preview/home");
+  });
+
+  it("realigns a direct audience link after the section mounts", async () => {
+    const previousUrl = window.location.href;
+    window.history.replaceState(null, "", "/#komu-podoydet");
+    const { getByRole, unmount } = render(<HomeAudience />);
+    try {
+      const section = getByRole("region", { name: "Кому подойдёт обучение?" });
+      section.scrollIntoView = vi.fn();
+      await waitFor(() => expect(section.scrollIntoView).toHaveBeenCalledWith({ behavior: "instant" }));
+    } finally {
+      unmount();
+      window.history.replaceState(null, "", previousUrl);
+    }
   });
 });
