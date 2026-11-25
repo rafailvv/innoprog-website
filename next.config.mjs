@@ -204,10 +204,6 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: "/preview/home",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
-      },
     ];
   },
   async redirects() {
@@ -221,6 +217,11 @@ const nextConfig = {
       {
         source: "/main",
         destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/preview/home",
+        destination: "/#komu-podoydet",
         permanent: true,
       },
       {

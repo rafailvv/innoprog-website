@@ -12,7 +12,6 @@ export function GET() {
     "Disallow: /api/",
     "Disallow: /application/request",
     "Disallow: /healthz",
-    "Disallow: /preview/home",
     "Clean-param: direction&review /reviews",
     "Clean-param: ref&amp /",
     "Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term",

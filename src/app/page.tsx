@@ -1,4 +1,5 @@
 import App from "./App";
+import { HomeAudience } from "./components/HomeAudience";
 import { HOME_CRITICAL_IMAGE_URLS } from "./homeCriticalAssets";
 import {
   JsonLd,
@@ -40,7 +41,7 @@ export default function HomePage() {
         })}
       />
       <JsonLd data={breadcrumbJsonLd([{ name: "Главная", path: "/" }])} />
-      <App initialRoute={{ page: "home" }} />
+      <App initialRoute={{ page: "home" }} homeBeforeCourses={<HomeAudience />} />
     </>
   );
 }
