@@ -20,7 +20,10 @@ export function BlogTrialBanner({
   return (
     <aside className={containerClassName} aria-labelledby={headingId}>
       <div className={styles.copy}>
-        <span className={styles.eyebrow}>Бесплатное занятие · до 45 минут</span>
+        <div className={styles.badges}>
+          <span className={styles.badge}>Бесплатное занятие</span>{" "}
+          <span className={styles.badge}>до 45 минут</span>
+        </div>
         <h2 className={styles.title} id={headingId}>Начните с бесплатного занятия</h2>
         <p className={styles.description}>
           Обсудите цель с преподавателем, разберёте простую задачу и напишете первую программу

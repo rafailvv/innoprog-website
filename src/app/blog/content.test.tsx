@@ -61,6 +61,9 @@ describe("published blog contracts", () => {
     expect(trialIndex).toBeGreaterThan(articlesIndex);
     expect(ctaIndex).toBeGreaterThan(trialIndex);
     expect(html).toContain('href="/application?type=trial"');
+    expect(html).toContain("Бесплатное занятие");
+    expect(html).toContain("до 45 минут");
+    expect(html).not.toContain("·");
     expect(html).toContain("Начните с бесплатного занятия");
     expect(html).toContain("записаться на занятие");
     expect(html).toContain('href="/application"');
@@ -81,6 +84,9 @@ describe("published blog contracts", () => {
     expect(html).toContain('id="article-course"');
     expect(html).toContain('id="article-related"');
     expect(html).toContain('href="/application?type=trial"');
+    expect(html).toContain("Бесплатное занятие");
+    expect(html).toContain("до 45 минут");
+    expect(html).not.toContain("·");
     expect(html).toContain("Начните с бесплатного занятия");
   });
 });

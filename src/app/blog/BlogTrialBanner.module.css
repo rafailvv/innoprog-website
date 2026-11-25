@@ -28,14 +28,25 @@
   flex: 1 1 320px;
 }
 
-.eyebrow {
-  display: inline-block;
-  align-self: flex-start;
-  color: #d8c9fb;
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0.03em;
 }
 
 .banner .title {
