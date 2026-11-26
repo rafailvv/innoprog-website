@@ -55,8 +55,14 @@ describe("course image delivery", () => {
     expect(prioritized[0].getAttribute("loading")).toBe("eager");
     expect(prioritized[0].getAttribute("decoding")).toBe("async");
     if (path.endsWith("CourseMobile.tsx")) {
-      const desktopFallback = prioritized[0].closest("picture")?.querySelector('source[media="(min-width: 768px)"]');
+      const picture = prioritized[0].closest("picture");
+      const desktopFallback = picture?.querySelector('source[media="(min-width: 768px)"]');
       expect(desktopFallback?.getAttribute("srcset")).toMatch(/^data:image\/gif;base64,/);
+      if (!path.includes("Python")) {
+        const avif = picture?.querySelector('source[type="image/avif"]');
+        expect(avif?.getAttribute("srcset")).toContain(".avif ");
+        expect(avif?.getAttribute("sizes")).toBe(prioritized[0].getAttribute("sizes"));
+      }
     }
 
     const projects = [...document.querySelectorAll(".site-course-project-visual img, .site-course-mobile-project-visual img")];

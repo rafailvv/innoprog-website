@@ -4983,8 +4983,8 @@ export default function App({
             alt="ИННОПРОГ Education" title="ИННОПРОГ Education"
             className="site-loader__logo"
             decoding="async"
-            loading={isInitialCoursePage ? "lazy" : undefined}
-            fetchPriority={isInitialCoursePage ? "low" : "high"}
+            loading="lazy"
+            fetchPriority="low"
             src="/logo_education.lossless.webp"
           />
           <div className="site-loader__bar">

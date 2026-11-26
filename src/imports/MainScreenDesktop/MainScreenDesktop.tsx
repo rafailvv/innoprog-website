@@ -50,6 +50,7 @@ import imgReviewKirillHero from "./review-story-kirill-hero.webp";
 import imgImage112 from "./031fb2cc26a5ba0b51db501faeceecc6efad82f1.opt.webp";
 import imgCircleStackSwirl1 from "./28cb6142c60d2e2ea34c6d404d2f0ef611085859.opt.webp";
 import imgImg29491 from "./a9544174871795971e5fb7802195e10ce3fa4432.opt.webp";
+import { HOME_HERO_AVIF } from "../../app/homeCriticalAssets";
 import img70211AppleMockupProDriveAirLaptopsDisc1 from "./platform-laptop-desktop.webp";
 import imgImage118 from "./platform-screen-desktop.webp";
 import imgImage120 from "./platform-phone-screen-desktop.webp";
@@ -1960,7 +1961,10 @@ export default function Component({ beforeCourses }: { beforeCourses?: ReactNode
         </div>
         <div className="-translate-x-1/2 absolute h-[636px] left-[calc(43.75%+56px)] top-[177px] w-[798px]" data-name="IMG_2949 1">
           <div className="absolute inset-0 mix-blend-darken overflow-hidden pointer-events-none">
-            <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
+            <picture className="contents">
+              <source type="image/avif" srcSet={HOME_HERO_AVIF} />
+              <img alt="Студент ИННОПРОГ за ноутбуком" title="Студент ИННОПРОГ за ноутбуком" decoding="async" fetchPriority="high" loading="eager" className="absolute h-[106.98%] left-[-11.94%] max-w-none top-[-1.87%] w-[127.78%]" src={imgImg29491} />
+            </picture>
           </div>
         </div>
         <div className="absolute top-[652px] inset-x-0 z-30 flex items-center justify-center gap-[16px]">

@@ -1,4 +1,4 @@
-import avitoLogo from "./python-course-avito.png";
+import avitoLogo from "./python-course-avito.webp";
 
 const courseDetails = [
   { value: "12 месяцев", label: "длится программа" },
