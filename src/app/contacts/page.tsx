@@ -60,8 +60,8 @@ export default function ContactsPage() {
         { name: "Контакты", path: "/contacts" },
       ])} />
 
+      <SvedenHeader />
       <div className={styles.page}>
-        <SvedenHeader />
         <main className={styles.contacts}>
           <nav aria-label="Хлебные крошки" className={styles.breadcrumbs}>
             <a href="/">главная</a>

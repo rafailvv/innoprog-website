@@ -84,6 +84,7 @@
 }
 
 .programs {
+  scroll-margin-top: max(144px, 10vw);
   padding-block: clamp(44px, 5.5vw, 80px);
 }
 
@@ -159,6 +160,10 @@
 }
 
 @media (max-width: 767px) {
+  .programs {
+    scroll-margin-top: max(112px, 29vw);
+  }
+
   .container {
     width: calc(100% - 40px);
   }
