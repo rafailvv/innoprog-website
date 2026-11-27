@@ -5,7 +5,6 @@ import { HomeFaqSection } from "../../app/components/HomeFaqSection";
 import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
 import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
-import { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 export { MainScreenMobileHeader } from "../shared/MobileSiteHeader";
 import { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
 export { MainScreenMobileTeachersSection } from "../shared/MobileTeachersSection";
@@ -2543,7 +2542,6 @@ export default function Component({ beforeCourses }: { beforeCourses?: ReactNode
     <div className="w-full" data-name="гланый экран М">
       <div className="relative" style={{ height: MOBILE_NEXT_SECTIONS_TOP }}>
         <div className="absolute bg-[#464a6a] left-0 rounded-bl-[40px] rounded-br-[40px] w-[390px]" style={{ height: MOBILE_PLATFORM_HEIGHT, top: MOBILE_PLATFORM_TOP }} />
-        <MainScreenMobileHeader />
         <Frame194 />
         <div className="absolute bg-[#9c78ff] left-0 w-[390px]" style={{ height: MOBILE_FEATURES_BG_HEIGHT, top: MOBILE_FEATURES_BG_TOP }} />
         <Frame145 />

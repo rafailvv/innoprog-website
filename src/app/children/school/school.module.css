@@ -1338,7 +1338,13 @@
     letter-spacing: -0.4px;
   }
   .header {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
     height: 112px;
+  }
+  .header > :global(.site-main-header-surface--mobile) {
+    position: relative;
   }
   .schoolHeader {
     height: auto;
@@ -1767,7 +1773,7 @@
 }
 @media (max-width: 767px) {
   .page section[id] {
-    scroll-margin-top: 115px;
+    scroll-margin-top: max(115px, 29vw);
   }
 }
 

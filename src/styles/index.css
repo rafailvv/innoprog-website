@@ -178,8 +178,21 @@ body {
   }
 }
 
-.site-canvas .site-main-header--desktop {
-  position: absolute !important;
+.site-home-header {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  height: 0;
+}
+
+.site-canvas :is(#courses, #home-reviews, #home-application) {
+  scroll-margin-top: 144px;
+}
+
+@media (max-width: 767px) {
+  .site-canvas :is(#courses, #home-reviews, #home-application) {
+    scroll-margin-top: 112px;
+  }
 }
 
 .site-shell--home-route:has(> .site-canvas--selector) {
@@ -655,12 +668,16 @@ body {
 }
 
 .site-main-header-surface--mobile {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1200;
   width: 100%;
   max-width: 100vw;
   margin: 0 auto;
-  overflow: hidden;
+}
+
+.site-home-header > .site-main-header-surface--mobile {
+  position: relative;
 }
 
 .site-main-header-surface__mobile-canvas {

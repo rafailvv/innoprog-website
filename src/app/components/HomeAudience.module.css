@@ -2,7 +2,7 @@
   display: grid;
   gap: 40px;
   width: 1280px;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 144px;
 }
 
 .title {
@@ -77,7 +77,7 @@
 :global(.site-canvas--mobile) .section {
   gap: 24px;
   width: 350px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: 112px;
 }
 
 :global(.site-canvas--mobile) .title {

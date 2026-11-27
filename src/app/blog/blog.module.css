@@ -84,6 +84,7 @@
 .relatedCards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; max-width:900px; }
 @media(max-width:1100px) { .cards { gap:18px; } .cardBody { padding:22px; } .card h3 { font-size:20px; } .articleLayout { grid-template-columns:190px minmax(0,1fr); gap:40px; } .indexCta { flex-direction:column; align-items:flex-start; } }
 @media(max-width:767px) {
+  .page { --header-clearance:max(112px,28.72vw); }
   .main { width:calc(100% - 32px); padding-top:24px; }
   .breadcrumbs { margin-bottom:26px; font-size:12px; gap:8px; }
   .indexIntro { padding-bottom:36px; }
@@ -95,7 +96,7 @@
   .sectionHeading h2 { font-size:24px; }
   .sectionHeading > span,.sectionHeading > a { font-size:13px; margin-top:4px; }
   .cards,.relatedCards { grid-template-columns:1fr; gap:24px; }
-  .card { border-radius:28px; scroll-margin-top:16px; }
+  .card { border-radius:28px; }
   .cardBody { padding:24px; }
   .card h3 { font-size:23px; margin-top:18px; }
   .cardBody > p { font-size:16px; }
@@ -116,7 +117,7 @@
   .prose { font-size:17px; line-height:1.8; }
   .lead p:first-child { font-size:19px; line-height:1.7; }
   .prose h2 { font-size:26px; line-height:1.3; margin-bottom:20px; }
-  .articleSection { padding-top:36px; scroll-margin-top:110px; }
+  .articleSection { padding-top:36px; scroll-margin-top:var(--header-clearance); }
   .note { padding:20px; font-size:16px; }
   .tableScroll table { font-size:14px; }
   .tableScroll th,.tableScroll td { padding:12px 15px; }

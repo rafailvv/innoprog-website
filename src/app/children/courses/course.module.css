@@ -755,7 +755,7 @@
   }
 
   .shell .main :is(:global(#program), [id^="course-section-"]) {
-    scroll-margin-top: 24px;
+    scroll-margin-top: 22vw;
   }
 }
 

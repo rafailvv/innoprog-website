@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 144px;
 }
 
 .title {
@@ -47,7 +47,7 @@
 }
 
 .compact {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 112px;
 }
 
 .compact .title {

@@ -5089,19 +5089,24 @@ export default function App({
           isMobile={viewport.isMobile}
         />
       ) : (
-        <div
-          ref={homeCanvasRef}
-          className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : "", isMetrikaSelectorMode ? "site-canvas--selector" : ""]
-            .filter(Boolean)
-            .join(" ")}
-          style={canvasStyle}
-        >
-          {viewport.isMobile ? (
-            <MainScreenMobile beforeCourses={homeBeforeCourses} />
-          ) : (
-            <MainScreen beforeCourses={homeBeforeCourses} />
-          )}
-        </div>
+        <>
+          <div className="site-home-header">
+            <SiteHeader isMobile={viewport.isMobile} scale={viewport.scale} />
+          </div>
+          <div
+            ref={homeCanvasRef}
+            className={["site-canvas", viewport.isMobile ? "site-canvas--mobile" : "", isMetrikaSelectorMode ? "site-canvas--selector" : ""]
+              .filter(Boolean)
+              .join(" ")}
+            style={canvasStyle}
+          >
+            {viewport.isMobile ? (
+              <MainScreenMobile beforeCourses={homeBeforeCourses} />
+            ) : (
+              <MainScreen beforeCourses={homeBeforeCourses} />
+            )}
+          </div>
+        </>
       )}
       {(
         <nav

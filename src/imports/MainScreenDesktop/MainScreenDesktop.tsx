@@ -8,7 +8,6 @@ import { HomeLeadSection } from "../../app/components/HomeLeadSection";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
 import { HomeCoursesLink, HomePricePanel } from "../../app/components/HomeCommercialBlocks";
 import { MentorBenefitBriefcaseIcon, MentorBenefitSupportIcon } from "../shared/MentorBenefitIcons";
-import { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 export { MainScreenDesktopHeader } from "../shared/DesktopSiteHeader";
 import { SiteFooterContent } from "../../app/components/SiteFooterContent";
 import svgPaths from "./svg-j2mtrggl1r";
@@ -1949,7 +1948,6 @@ export default function Component({ beforeCourses }: { beforeCourses?: ReactNode
           <p className="leading-[39px] mb-0 whitespace-nowrap">с упором на практику</p>
           <p className="leading-[39px] whitespace-nowrap">и персональное обучение</p>
         </div>
-        <MainScreenDesktopHeader />
         <div className="absolute flex h-[720.578px] items-center justify-center left-[47px] top-[2505px] w-[659.177px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "18" } as React.CSSProperties}>
           <div className="flex-none rotate-[90.25deg]">
             <div className="h-[656px] relative w-[717.676px]">
