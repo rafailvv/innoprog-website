@@ -6,10 +6,10 @@ import { AdultCourseAvitoLogo, AdultCourseDetails, AdultCourseQuestions } from "
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties } from "react";
-import svgPaths from "./svg-5im7jl6ott";
+import svgPaths from "../shared/adultCourseMobileSvgPaths";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
-import imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1 from "./7931bf7c07ccdad5245879036c315759973c84ac.opt.webp";
+import { pythonMobileHero } from "../courseMobileHeroAssets";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/python-mentor-hd-v2.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -311,7 +311,7 @@ function Frame237() {
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-127px] top-[72px] w-[407px]" data-name="ChatGPT Image 30 апр. 2026 г., 11_32_21_Nero_AI_Image_Upscaler_Photo_Face_Nero_AI_Background_Remover_transparent 1">
         <MobileCourseHero>
-          <img loading="eager" fetchPriority="high" decoding="async" alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgChatGptImage302026113221NeroAiImageUpscalerPhotoFaceNeroAiBackgroundRemoverTransparent1} />
+          <img loading="eager" fetchPriority="high" decoding="async" alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={pythonMobileHero} />
         </MobileCourseHero>
       </div>
     </div>

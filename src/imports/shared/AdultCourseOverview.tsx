@@ -64,6 +64,7 @@ export function AdultCourseAvitoLogo({ compact = false }: { compact?: boolean })
       alt="Авито"
       className={`block w-auto shrink-0 ${compact ? "h-[28px]" : "ml-[16px] h-[36px]"}`}
       decoding="async"
+      fetchPriority="low"
     />
   );
 }

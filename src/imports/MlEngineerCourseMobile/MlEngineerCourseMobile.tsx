@@ -7,13 +7,12 @@ import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import svgPaths from "./svg-5im7jl6ott";
+import svgPaths from "../shared/adultCourseMobileSvgPaths";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
 import imgMlEngineerHero from "../shared/course-heroes/ml-neural-network.delivery.webp";
 import imgMlEngineerHeroCompact from "../shared/course-heroes/ml-neural-network-420h.delivery.webp";
-import heroAvif from "../shared/course-heroes/ml-neural-network.delivery.avif";
-import heroCompactAvif from "../shared/course-heroes/ml-neural-network-420h.delivery.avif";
+import { mlEngineerMobileHeroAvifCandidates, mlEngineerMobileHeroSizes } from "../courseMobileHeroAssets";
 import { LazyAutoplayVideo } from "../../app/components/LazyAutoplayVideo";
 const imgImage119 = "/videos/personal-mentor-hq.mp4";
 import imgBenefitCard1 from "../MainScreenDesktop/benefit-card1-figma.png";
@@ -338,13 +337,13 @@ function Frame237() {
   return (
     <div className="bg-[rgba(255,255,255,0.6)] col-1 content-stretch flex flex-col h-[537px] items-end justify-between ml-0 mt-0 overflow-clip p-[24px] relative rounded-[40px] row-1 w-[350px]">
       <div className="absolute h-[393px] left-[-100px] top-[72px] w-[673px]" data-name="Иллюстрация нейронной сети">
-        <MobileCourseHero avifSrcSet={`${heroCompactAvif} 719w, ${heroAvif} 1025w`}>
+        <MobileCourseHero avifSrcSet={mlEngineerMobileHeroAvifCandidates}>
           <img loading="eager" fetchPriority="high" decoding="async"
             alt="Объёмная схема нейронной сети"
             className="block brightness-[1.35] h-full hue-rotate-[8deg] max-w-none object-contain pointer-events-none saturate-[1.65] w-full"
             src={imgMlEngineerHero}
             srcSet={`${imgMlEngineerHeroCompact} 719w, ${imgMlEngineerHero} 1025w`}
-            sizes="172.564vw"
+            sizes={mlEngineerMobileHeroSizes}
           />
         </MobileCourseHero>
       </div>

@@ -1,3 +1,4 @@
+import { pythonMobileHero } from "../../imports/courseMobileHeroAssets";
 import { pythonDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
@@ -31,6 +32,7 @@ export const metadata = createPageMetadata({
 export default function PythonCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" href={pythonMobileHero} media="(width < 768px)" fetchPriority="high" />
       <link rel="preload" as="image" href={pythonDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={pythonCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/python-course")} />

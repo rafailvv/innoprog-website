@@ -1,3 +1,4 @@
+import { mlEngineerMobileHeroAvifCandidates, mlEngineerMobileHeroSizes } from "../../imports/courseMobileHeroAssets";
 import { mlEngineerDesktopHero } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
@@ -31,6 +32,7 @@ export const metadata = createPageMetadata({
 export default function MlEngineerCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" type="image/avif" imageSrcSet={mlEngineerMobileHeroAvifCandidates} imageSizes={mlEngineerMobileHeroSizes} media="(width < 768px)" fetchPriority="high" />
       <link rel="preload" as="image" href={mlEngineerDesktopHero} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={mlEngineerCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/ml-engineer-course")} />

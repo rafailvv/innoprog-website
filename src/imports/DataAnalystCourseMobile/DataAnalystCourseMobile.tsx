@@ -7,7 +7,7 @@ import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import svgPaths from "./svg-5im7jl6ott";
+import svgPaths from "../shared/adultCourseMobileSvgPaths";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
 import imgDataAnalystHero from "../shared/course-heroes/data-analyst-dashboard.delivery.webp";

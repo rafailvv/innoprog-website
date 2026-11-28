@@ -6,7 +6,7 @@ import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties, type ReactNode } from "react";
-import svgPaths from "./svg-5im7jl6ott";
+import svgPaths from "../shared/adultCourseMobileSvgPaths";
 import { CourseSkillIcon, CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
 import imgFrontendHero from "../shared/course-heroes/frontend-code-window.delivery.webp";

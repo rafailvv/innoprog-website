@@ -4,7 +4,7 @@ import { FreeTrialSection } from "../../app/components/FreeTrialSection";
 import { AdultCourseAvitoLogo, AdultCourseDetails, AdultCourseQuestions } from "../shared/AdultCourseOverview";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type ReactNode } from "react";
-import svgPaths from "./svg-egdjewsyn7";
+import svgPaths from "../shared/adultCourseDesktopSvgPaths";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";

@@ -5,7 +5,7 @@ import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLead
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { useState, type ReactNode } from "react";
-import svgPaths from "./svg-egdjewsyn7";
+import svgPaths from "../shared/adultCourseDesktopSvgPaths";
 import { DesktopTeacherCarousel } from "../shared/TeacherCarousels";
 import { CourseSkillList } from "../shared/CourseSkillIcon";
 import { CourseTariffCards } from "../shared/CourseTariffCards";
