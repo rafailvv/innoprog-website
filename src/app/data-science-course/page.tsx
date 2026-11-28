@@ -16,6 +16,18 @@ import {
 
 const courseFaqItems = getCourseFaqItems("dataScience");
 
+// Next serves these hashed stylesheets with a deployment query. Webpack's
+// lazy CSS loader looks up the same stylesheet by path in data-href.
+const reuseInitialStyles = `
+  for (const sheet of document.querySelectorAll('link[rel="stylesheet"][href^="/_next/static/css/"]')) {
+    const href = sheet.getAttribute("href");
+    const pathname = href?.split("?dpl=")[0];
+    if (pathname && pathname !== href && pathname.endsWith(".css")) {
+      sheet.setAttribute("data-href", pathname);
+    }
+  }
+`;
+
 export const metadata = createPageMetadata({
   title:
     "Курс Data Science с нуля онлайн с наставником — ИННОПРОГ",
@@ -34,6 +46,7 @@ export default function DataScienceCourseRoute() {
     <>
       <link rel="preload" as="image" type="image/avif" imageSrcSet={dataScienceMobileHeroAvifCandidates} imageSizes={dataScienceMobileHeroSizes} media="(width < 768px)" fetchPriority="high" />
       <link rel="preload" as="image" imageSrcSet={dataScienceDesktopHeroCandidates} imageSizes={dataScienceDesktopHeroSizes} media="(min-width: 768px)" fetchPriority="high" />
+      <script dangerouslySetInnerHTML={{ __html: reuseInitialStyles }} />
       <JsonLd data={dataScienceCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-science-course")} />
       <JsonLd
