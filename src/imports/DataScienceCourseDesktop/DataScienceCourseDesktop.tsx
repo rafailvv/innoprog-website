@@ -1,3 +1,6 @@
+import { FreeTrialSection } from "../../app/components/FreeTrialSection";
+import { AdultCourseAvitoLogo, AdultCourseDetails, AdultCourseQuestions } from "../shared/AdultCourseOverview";
+import { adultCourseOverviewContent } from "../shared/adultCourseOverviewContent";
 import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
@@ -415,7 +418,7 @@ function Frame271() {
 
 function Frame209() {
   return (
-    <div className="content-stretch flex gap-[4px] items-start relative shrink-0">
+    <div className="content-stretch flex gap-[4px] items-center relative shrink-0">
       <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Medium',sans-serif] font-medium leading-[41px] relative shrink-0 text-[32px] text-black uppercase whitespace-nowrap w-[64px]">4.9</p>
       <div className="relative shrink-0 size-[27px]">
         <div className="absolute inset-[0_2.45%_9.55%_2.45%]">
@@ -453,6 +456,7 @@ function Frame209() {
         </div>
         <Frame271 />
       </div>
+      <AdultCourseAvitoLogo />
     </div>
   );
 }
@@ -487,7 +491,10 @@ function Frame229() {
             <img loading="eager" fetchPriority="high" decoding="async" alt="Курс Data Science в ИННОПРОГ" title="Курс Data Science в ИННОПРОГ" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgDataScienceHero} srcSet={dataScienceDesktopHeroCandidates} sizes={dataScienceDesktopHeroSizes} />
           </div>
           <Frame228 />
-          <Frame227 />
+          <div className="relative flex w-full items-end justify-between">
+            <AdultCourseDetails course="dataScience" />
+            <Frame227 />
+          </div>
         </div>
       </div>
     </div>
@@ -596,10 +603,10 @@ function Frame74() {
 function Frame76() {
   return (
     <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[465px]">
-      <button className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
+      <a className="bg-[#464a6a] cursor-pointer relative rounded-[40px] shrink-0 w-full no-underline" aria-haspopup="dialog" data-application-open data-name="кнопки пд" href="/application?type=trial">
         <span className="flex flex-row items-center justify-center size-full">
           <span className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
-            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">начать обучение</span>
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[35px] relative shrink-0 text-[32px] text-white whitespace-nowrap">бесплатное занятие</span>
             <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0" data-name="Frame 40/Frame 707">
               <span className="block relative shrink-0 size-[32px]">
                 <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
@@ -611,7 +618,7 @@ function Frame76() {
             </span>
           </span>
         </span>
-      </button>
+      </a>
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
         <span aria-hidden className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <span className="flex flex-row items-center justify-center size-full">
@@ -3813,7 +3820,7 @@ function Frame174() {
     <div className="flex-[1_0_0] min-w-px relative rounded-[40px]">
       <div className="flex flex-col items-center justify-center size-full">
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center justify-center p-[32px] relative size-full text-black text-center">
-          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase w-full">Оплата по факту обучения</p>
+          <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:ExtraBold',sans-serif] font-extrabold leading-[40px] relative shrink-0 text-[40px] uppercase w-full">Оплата за один месяц</p>
           <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[24px] w-full">
             <p className="leading-[30px] mb-0">Без кредитов, рассрочек</p>
             <p className="leading-[30px]">и скрытых обязательств</p>
@@ -4418,7 +4425,9 @@ function Frame194WithoutFooter() {
         <FreeCoursePromo slug="data-science-start" />
         <Component8 />
       </div>
+      <FreeTrialSection courseFocus={adultCourseOverviewContent.dataScience.trialFocus} />
       <Component10 />
+      <AdultCourseQuestions course="dataScience" />
       <Component11 />
       <Component12 />
     </div>

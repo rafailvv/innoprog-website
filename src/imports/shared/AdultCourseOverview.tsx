@@ -1,13 +1,13 @@
+import { adultCourseOverviewContent, type AdultCourseOverviewKey } from "./adultCourseOverviewContent";
 import avitoLogo from "./python-course-avito.webp";
 
-const courseDetails = [
-  { value: "12 месяцев", label: "длится программа" },
+const sharedCourseDetails = [
   { value: "4, 8 или 12", label: "занятий в месяц на выбор" },
   { value: "до 60 минут", label: "занятие один на один" },
   { value: "бесплатно", label: "первое занятие до 45 минут" },
 ];
 
-const questions = [
+const pythonQuestions = [
   {
     title: "Не поздно ли начинать в моём возрасте?",
     answer:
@@ -30,10 +30,14 @@ const questions = [
   },
 ];
 
-export function PythonCourseDetails({ compact = false }: { compact?: boolean }) {
+type CourseOverviewProps = { course: AdultCourseOverviewKey; compact?: boolean };
+
+export function AdultCourseDetails({ course, compact = false }: CourseOverviewProps) {
+  const { name, months } = adultCourseOverviewContent[course];
+  const courseDetails = [{ value: `${months} месяцев`, label: "длится программа" }, ...sharedCourseDetails];
   return (
     <ul
-      aria-label="Формат курса Python"
+      aria-label={`Формат курса «${name}»`}
       className={compact ? "grid w-full grid-cols-2 gap-[8px]" : "ml-[8px] grid grid-cols-[repeat(2,max-content)] gap-[12px]"}
     >
       {courseDetails.map(({ value, label }) => (
@@ -53,7 +57,7 @@ export function PythonCourseDetails({ compact = false }: { compact?: boolean }) 
   );
 }
 
-export function PythonCourseAvitoLogo({ compact = false }: { compact?: boolean }) {
+export function AdultCourseAvitoLogo({ compact = false }: { compact?: boolean }) {
   return (
     <img
       src={avitoLogo}
@@ -64,14 +68,33 @@ export function PythonCourseAvitoLogo({ compact = false }: { compact?: boolean }
   );
 }
 
-export function PythonCourseQuestions({ compact = false }: { compact?: boolean }) {
+export function AdultCourseQuestions({ course, compact = false }: CourseOverviewProps) {
+  const id = course === "python" ? "python-course-questions" : "adult-course-questions";
+  const questions = course === "python" ? pythonQuestions : [
+    {
+      title: "Не поздно ли начинать в моём возрасте?",
+      answer: "На первом занятии преподаватель поможет оценить ваш уровень и подобрать посильную задачу. Дальше вы сможете выбрать темп, подходящий вашему графику.",
+    },
+    {
+      title: "Нужен ли опыт или техническое образование?",
+      answer: `Практику подбираем по вашему уровню. Если вы начинаете с нуля, можно начать ${adultCourseOverviewContent[course].startingPoint}. Требования к документам для программы профпереподготовки указаны в условиях обучения.`,
+    },
+    {
+      title: "Успею ли я учиться, если работаю?",
+      answer: "Можно начать с четырёх индивидуальных занятий в месяц. С преподавателем согласуете расписание, а время на самостоятельную практику разберёте на вводном занятии.",
+    },
+    {
+      title: "Что будет с оплатой, если я решу остановиться?",
+      answer: "Абонемент оплачивается на один месяц. Продление по желанию. При отказе от обучения сумма возврата определяется по фактически оказанным услугам и расходам по оферте.",
+    },
+  ];
   return (
     <section
-      aria-labelledby="python-course-questions"
+      aria-labelledby={id}
       className={`mx-auto flex flex-col ${compact ? "w-[350px] gap-[16px]" : "w-[1280px] gap-[40px]"}`}
     >
       <h2
-        id="python-course-questions"
+        id={id}
         className={`font-extrabold text-[#464a6a] uppercase ${compact ? "text-[32px] leading-[36px]" : "text-[56px] leading-[60px]"}`}
       >
         <span className="text-[#9c78ff]">Получится</span> ли у меня?

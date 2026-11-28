@@ -1,3 +1,6 @@
+import { FreeTrialSection } from "../../app/components/FreeTrialSection";
+import { AdultCourseDetails, AdultCourseQuestions } from "../shared/AdultCourseOverview";
+import { adultCourseOverviewContent } from "../shared/adultCourseOverviewContent";
 import { MobileProjectsHeading } from "../shared/MobileProjectsHeading";
 import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
@@ -247,7 +250,7 @@ function handleCourseCarouselClick(
 }
 
 function Frame180() {
-  return <div className="-translate-x-1/2 absolute bg-[#9c78ff] h-[2234px] left-1/2 rounded-bl-[40px] rounded-br-[40px] top-0 w-[390px]" />;
+  return <div className="absolute inset-0 bg-[#9c78ff] rounded-b-[40px]" />;
 }
 
 function Group1() {
@@ -527,10 +530,10 @@ function Frame65() {
 function Frame181() {
   return (
     <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
-      <button className="bg-[#464a6a] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд" type="button">
+      <a className="bg-[#464a6a] cursor-pointer relative rounded-[40px] shrink-0 w-full no-underline" aria-haspopup="dialog" data-application-open data-name="кнопки пд" href="/application?type=trial">
         <span className="flex flex-row items-center justify-center size-full">
           <span className="content-stretch flex items-center justify-between px-[24px] py-[16px] relative size-full">
-            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">начать обучение</span>
+            <span className="block [text-box-edge:cap_alphabetic] [text-box-trim:trim-both] [word-break:break-word] font-['Manrope:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[24px] text-white whitespace-nowrap">бесплатное занятие</span>
             <span className="bg-white content-stretch flex items-center justify-center p-[12px] relative rounded-[40px] shrink-0 size-[36px]" data-name="Frame 40/Frame 707">
               <span className="block relative shrink-0 size-[16px]">
                 <span className="block absolute inset-[-1.98%_-4.04%_-1.98%_0]">
@@ -542,7 +545,7 @@ function Frame181() {
             </span>
           </span>
         </span>
-      </button>
+      </a>
       <button className="bg-[rgba(255,255,255,0.8)] cursor-pointer h-[46px] relative rounded-[40px] shrink-0 w-full" data-name="кнопки пд">
         <span aria-hidden className="block absolute border-3 border-[rgba(0,0,0,0.6)] border-solid inset-0 pointer-events-none rounded-[40px]" />
         <span className="flex flex-row items-center justify-center size-full">
@@ -563,6 +566,7 @@ function Frame182() {
         <p className="leading-[20px] mb-0">мобильную разработку</p>
         <p className="leading-[20px]">Dart, Flutter, API и публикацию</p>
       </div>
+      <AdultCourseDetails course="mobileDeveloper" compact />
       <Frame65 />
       <Frame181 />
     </div>
@@ -672,7 +676,7 @@ function Group11() {
 
 function Frame183() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] items-start left-[20px] top-[120px] w-[350px]">
+    <div className="relative mx-auto flex w-[350px] flex-col items-start gap-[40px] pt-[120px] pb-[44px]">
       <Frame238 />
       <Frame182 />
       <Group11 />
@@ -763,7 +767,7 @@ function Frame64() {
 
 function Frame236() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[16px] items-center justify-center left-1/2 top-[677px] w-[318px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[16px] items-center justify-center left-1/2 top-[641px] w-[318px]">
       <Frame269 />
       <Frame64 />
     </div>
@@ -3946,7 +3950,7 @@ function Frame251() {
 function Frame152() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-center relative shrink-0 text-black whitespace-nowrap">
-      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">Оплата по факту обучения</p>
+      <p className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Bold',sans-serif] font-bold leading-[20px] relative shrink-0 text-[20px] uppercase">Оплата за один месяц</p>
       <div className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both] font-['Manrope:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-center tracking-[0.48px]">
         <p className="leading-[18px] mb-0">Без кредитов, рассрочек</p>
         <p className="leading-[18px]">и скрытых обязательств</p>
@@ -4485,10 +4489,12 @@ function Group8() {
 
 function Frame213() {
   return (
-    <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[2314px] relative shrink-0 w-[390px]">
+    <div className="site-course-mobile-content-flow content-stretch flex flex-col gap-[80px] items-start pt-[80px] relative shrink-0 w-[390px]">
       <Frame200 />
       <Frame251 />
+      <FreeTrialSection courseFocus={adultCourseOverviewContent.mobileDeveloper.trialFocus} compact />
       <Frame212 />
+      <AdultCourseQuestions course="mobileDeveloper" compact />
       <Frame209 />
       <Frame211 />
     </div>
@@ -4498,9 +4504,11 @@ function Frame213() {
 export default function MobileDeveloperCourseMobile() {
   return (
     <div className="bg-white relative w-[390px]" data-name="напр-ие М">
-      <Frame180 />
-      <Frame183 />
-      <Frame236 />
+      <div className="relative">
+        <Frame180 />
+        <Frame183 />
+        <Frame236 />
+      </div>
       <Frame213 />
     </div>
   );

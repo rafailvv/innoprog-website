@@ -1,7 +1,7 @@
 import { DesktopCourseLeadSection } from "../../app/components/DesktopCourseLeadSection";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
-import { PythonCourseAvitoLogo, PythonCourseDetails, PythonCourseQuestions } from "../shared/PythonCourseOverview";
+import { AdultCourseAvitoLogo, AdultCourseDetails, AdultCourseQuestions } from "../shared/AdultCourseOverview";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type ReactNode } from "react";
 import svgPaths from "./svg-egdjewsyn7";
@@ -378,7 +378,7 @@ function Frame209() {
         </div>
         <Frame271 />
       </div>
-      <PythonCourseAvitoLogo />
+      <AdultCourseAvitoLogo />
     </div>
   );
 }
@@ -414,7 +414,7 @@ function Frame229() {
           </div>
           <Frame228 />
           <div className="relative flex w-full items-end justify-between">
-            <PythonCourseDetails />
+            <AdultCourseDetails course="python" />
             <Frame227 />
           </div>
         </div>
@@ -4391,7 +4391,7 @@ function Frame194WithoutFooter() {
       </div>
       <FreeTrialSection />
       <Component10 />
-      <PythonCourseQuestions />
+      <AdultCourseQuestions course="python" />
       <Component11 />
       <Component12 />
     </div>

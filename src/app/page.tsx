@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <>
       <link rel="preload" as="image" type="image/avif" href={HOME_HERO_AVIF} fetchPriority="high" />
-      <link rel="preload" as="image" href={HOME_BACKGROUND_IMAGE} fetchPriority="low" />
+      <link rel="preload" as="image" href={HOME_BACKGROUND_IMAGE} media="(min-width: 768px)" fetchPriority="low" />
       <JsonLd data={siteNavigationJsonLd} />
       <JsonLd data={keyPagesJsonLd} />
       <JsonLd data={courseCatalogJsonLd} />

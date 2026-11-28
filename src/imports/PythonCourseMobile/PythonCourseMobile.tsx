@@ -2,7 +2,7 @@ import { MobileProjectsHeading } from "../shared/MobileProjectsHeading";
 import { MobileCourseHero } from "../shared/MobileCourseHero";
 import { FreeCoursePromo } from "../shared/FreeCoursePromo";
 import { FreeTrialSection } from "../../app/components/FreeTrialSection";
-import { PythonCourseAvitoLogo, PythonCourseDetails, PythonCourseQuestions } from "../shared/PythonCourseOverview";
+import { AdultCourseAvitoLogo, AdultCourseDetails, AdultCourseQuestions } from "../shared/AdultCourseOverview";
 import { InlineLeadForm } from "../../app/components/InlineLeadForm";
 import { CourseReviewCard } from "../shared/CourseReviewCard";
 import { useState, type CSSProperties } from "react";
@@ -533,7 +533,7 @@ function Frame182() {
         <p className="leading-[20px] mb-0">backend-разработку</p>
         <p className="leading-[20px]">на Python и Django</p>
       </div>
-      <PythonCourseDetails compact />
+      <AdultCourseDetails course="python" compact />
       <Frame65 />
       <Frame181 />
     </div>
@@ -716,7 +716,7 @@ function Frame269() {
   return (
     <div className="flex w-[294px] shrink-0 flex-col items-center gap-[8px]">
       <Frame219 />
-      <PythonCourseAvitoLogo compact />
+      <AdultCourseAvitoLogo compact />
     </div>
   );
 }
@@ -4475,7 +4475,7 @@ function Frame213() {
       </div>
       <FreeTrialSection compact />
       <Frame212 />
-      <PythonCourseQuestions compact />
+      <AdultCourseQuestions course="python" compact />
       <Frame209 />
       <Frame211 />
     </div>

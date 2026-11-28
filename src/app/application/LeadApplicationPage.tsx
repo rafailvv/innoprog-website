@@ -8,6 +8,7 @@ import { FIRST_LESSON_GUIDE } from "../firstLessonLinks";
 import { CallbackTimeReveal } from "../components/CallbackTimeReveal";
 import { CallbackTimePicker } from "../components/CallbackTimePicker";
 import { trackApplicationSuccess } from "../analytics";
+import { ADULT_COURSE_LINKS } from "../courseNavigation";
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useRef, useState } from "react";
@@ -34,6 +35,16 @@ function isValidLead(payload: LeadPayload) {
   );
 }
 
+function getApplicationSourcePage(): string {
+  const application = new URL(window.location.href);
+  if (application.searchParams.get("type") !== "trial" || !document.referrer) return application.href;
+
+  const source = new URL(document.referrer);
+  return source.origin === application.origin && ADULT_COURSE_LINKS.some(({ href }) => href === source.pathname)
+    ? source.href
+    : application.href;
+}
+
 async function sendApplication(payload: LeadPayload, captchaToken: string): Promise<void> {
   const response = await fetch(APPLICATION_REQUEST_URL, {
     method: "POST",
@@ -41,7 +52,7 @@ async function sendApplication(payload: LeadPayload, captchaToken: string): Prom
     body: JSON.stringify({
       ...payload,
       captcha_token: captchaToken,
-      source_page: window.location.href,
+      source_page: getApplicationSourcePage(),
       form_id: "standalone-application",
     }),
   });

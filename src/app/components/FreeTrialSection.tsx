@@ -17,7 +17,18 @@ const stepArt = [
   <MentorBenefitBriefcaseIcon />,
 ];
 
-export function FreeTrialSection({ compact = false }: { compact?: boolean }) {
+type FreeTrialSectionProps = {
+  compact?: boolean;
+  courseFocus?: string;
+};
+
+export function FreeTrialSection({ compact = false, courseFocus }: FreeTrialSectionProps) {
+  const steps = courseFocus ? [
+    { title: "Обсудим", text: "вашу цель и опыт, чтобы выбрать подходящую точку старта" },
+    { title: "Разберём", text: courseFocus },
+    { title: "Попробуем", text: "решить небольшую задачу по направлению вместе с преподавателем. Сложность подберём под ваш уровень" },
+    trialSteps[3],
+  ] : trialSteps;
   return (
     <section className={`${styles.section}${compact ? ` ${styles.compact}` : ""}`} aria-label="Бесплатное занятие">
       <div className={styles.heading}>
@@ -25,10 +36,12 @@ export function FreeTrialSection({ compact = false }: { compact?: boolean }) {
           <span className={styles.duration}>до <strong>45</strong> минут</span>
           <span className={styles.title}>на бесплатном занятии</span>
         </h2>
-        <p>Вы поймёте, подходит ли вам направление и получается ли у вас писать код</p>
+        <p>{courseFocus
+          ? "Вы познакомитесь с преподавателем и поймёте, подходит ли вам направление и формат обучения"
+          : "Вы поймёте, подходит ли вам направление и получается ли у вас писать код"}</p>
       </div>
       <ol className={styles.steps}>
-        {trialSteps.map((step, index) => (
+        {steps.map((step, index) => (
           <li className={styles.step} key={step.title}>
             {!compact && <div className={styles.stepArt} aria-hidden="true">{stepArt[index]}</div>}
             <span className={styles.number} aria-hidden="true">({index + 1})</span>
@@ -41,7 +54,7 @@ export function FreeTrialSection({ compact = false }: { compact?: boolean }) {
       </ol>
       <div className={styles.footer}>
         <p>Абонемент покупаете после, если решите учиться</p>
-        <a className={styles.cta} href="/application?type=trial">
+        <a className={styles.cta} href="/application?type=trial" data-application-open={courseFocus ? "" : undefined} aria-haspopup={courseFocus ? "dialog" : undefined}>
           записаться на занятие
           <span aria-hidden="true">
             <svg viewBox="0 0 33.2913 33.2654" fill="none" focusable="false">

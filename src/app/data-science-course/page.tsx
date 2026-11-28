@@ -1,3 +1,4 @@
+import { dataScienceMobileHeroAvifCandidates, dataScienceMobileHeroSizes } from "../../imports/DataScienceCourseMobile/dataScienceMobileHero";
 import { dataScienceDesktopHeroCandidates, dataScienceDesktopHeroSizes } from "../../imports/courseDesktopHeroAssets";
 import App from "../App";
 import { getCourseFaqItems } from "../../imports/courseDirectionFaqData";
@@ -31,6 +32,7 @@ export const metadata = createPageMetadata({
 export default function DataScienceCourseRoute() {
   return (
     <>
+      <link rel="preload" as="image" type="image/avif" imageSrcSet={dataScienceMobileHeroAvifCandidates} imageSizes={dataScienceMobileHeroSizes} media="(width < 768px)" fetchPriority="high" />
       <link rel="preload" as="image" imageSrcSet={dataScienceDesktopHeroCandidates} imageSizes={dataScienceDesktopHeroSizes} media="(min-width: 768px)" fetchPriority="high" />
       <JsonLd data={dataScienceCourseJsonLd} />
       <JsonLd data={faqPageJsonLd(courseFaqItems, "/data-science-course")} />
