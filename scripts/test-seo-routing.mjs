@@ -148,6 +148,13 @@ try {
         assert.doesNotMatch(meta.content, /noindex/i, route);
       }
       assert.equal(document.querySelectorAll("h1").length, 1, `${route}: exactly one heading`);
+      if (route === "/data-science-course") {
+        const stylesheets = [...document.querySelectorAll('link[rel="stylesheet"]')]
+          .map((link) => new URL(link.getAttribute("href"), url).pathname);
+        assert.equal(new Set(stylesheets).size, stylesheets.length, "Data Science: duplicate initial stylesheets");
+        assert.ok(document.querySelector('main img[alt="Курс Data Science в ИННОПРОГ"][fetchpriority="high"]'),
+          "Data Science: mobile hero must be present before hydration");
+      }
       const ids = [...document.querySelectorAll("[id]")].map(node => node.id);
       assert.equal(new Set(ids).size, ids.length, `${route}: duplicate DOM IDs`);
       for (const id of ids) assert.doesNotMatch(id, /[\t\n\f\r ]/, `${route}: whitespace in ID`);

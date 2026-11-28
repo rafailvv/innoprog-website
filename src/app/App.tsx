@@ -38,7 +38,7 @@ import {
   MOBILE_SCROLL_TARGETS,
 } from "./mobileLayout";
 import { ADULT_COURSE_LINKS, ADULT_NAV_LINKS, CHILD_COURSE_LINKS, ABOUT_SITE_LINKS, CONTACTS_LINK } from "./courseNavigation";
-import { memo, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { lazy, memo, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { CSSProperties, FormEvent, KeyboardEvent, MouseEvent, ReactNode } from "react";
 import { ResponsiveSiteFooter } from "./components/ResponsiveSiteFooter";
 import { SiteHeader } from "./components/ResponsiveSiteHeader";
@@ -56,7 +56,8 @@ const MainScreenMobile = memo(dynamic(() => import("../imports/MainScreenMobile/
 const PythonCourseDesktop = memo(dynamic(() => import("../imports/PythonCourseDesktop/PythonCourseDesktop")));
 const PythonCourseMobile = memo(dynamic(() => import("../imports/PythonCourseMobile/PythonCourseMobile")));
 const DataScienceCourseDesktop = memo(dynamic(() => import("../imports/DataScienceCourseDesktop/DataScienceCourseDesktop")));
-const DataScienceCourseMobile = memo(dynamic(() => import("../imports/DataScienceCourseMobile/DataScienceCourseMobile")));
+// The shell already includes the mobile course styles. Avoid a second stylesheet link from next/dynamic.
+const DataScienceCourseMobile = lazy(() => import("../imports/DataScienceCourseMobile/DataScienceCourseMobile"));
 const FrontendCourseDesktop = memo(dynamic(() => import("../imports/FrontendCourseDesktop/FrontendCourseDesktop")));
 const FrontendCourseMobile = memo(dynamic(() => import("../imports/FrontendCourseMobile/FrontendCourseMobile")));
 const DataAnalystCourseDesktop = memo(dynamic(() => import("../imports/DataAnalystCourseDesktop/DataAnalystCourseDesktop")));
@@ -2207,7 +2208,7 @@ function DataScienceCoursePage({
   useEffect(() => {
     const canvas = courseCanvasRef.current;
 
-    if (!canvas) {
+    if (!canvas || isMobile) {
       return;
     }
 

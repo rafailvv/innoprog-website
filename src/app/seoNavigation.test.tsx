@@ -1,5 +1,6 @@
+import { PassThrough } from "node:stream";
 import React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToPipeableStream, renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import App from "./App";
 import { CHILD_COURSE_LINKS, STUDENT_STORIES_LINK } from "./courseNavigation";
@@ -7,12 +8,27 @@ import sitemap from "./sitemap";
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn(), back: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }) }));
 
+function renderReadyHtml(element: React.ReactElement): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const output = new PassThrough();
+    output.setEncoding("utf8");
+    let html = "";
+    output.on("data", (chunk: string) => { html += chunk; });
+    output.on("end", () => resolve(html));
+    output.on("error", reject);
+    const renderer = renderToPipeableStream(element, {
+      onAllReady: () => renderer.pipe(output),
+      onError: reject,
+    });
+  });
+}
+
 describe("server-rendered navigation", () => {
   it.each([
     "pythonCourse", "dataScienceCourse", "frontendCourse", "dataAnalystCourse",
     "cppCourse", "mobileDeveloperCourse", "unrealEngineCourse", "javaCourse", "mlEngineerCourse",
-  ] as const)("retains a desktop viewport cover for a mobile-ready course on %s", (page) => {
-    const d = new DOMParser().parseFromString(renderToStaticMarkup(<App initialRoute={{ page }} />), "text/html");
+  ] as const)("retains a desktop viewport cover for a mobile-ready course on %s", async (page) => {
+    const d = new DOMParser().parseFromString(await renderReadyHtml(<App initialRoute={{ page }} />), "text/html");
     const shell = d.querySelector(".site-shell");
     // The same response serves phones and desktops: phones can paint this
     // ready tree immediately; CSS must have an overlay available on desktops.
