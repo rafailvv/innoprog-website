@@ -49,11 +49,11 @@ export const teachers: Teacher[] = [
     image: danilaDrobyshev,
   },
   {
-    name: "Григорий Чепель",
-    nameLines: ["Григорий", "Чепель"],
-    role: "Python-разработчик",
+    name: "Данил Афончиков",
+    nameLines: ["Данил", "Афончиков"],
+    role: "Data Scientist",
     experienceYears: 5,
-    image: grigoryChepel,
+    image: danilAfonchikov,
   },
   {
     name: "Артём Езенок",
@@ -134,11 +134,11 @@ export const teachers: Teacher[] = [
     image: ivanMurzin,
   },
   {
-    name: "Данил Афончиков",
-    nameLines: ["Данил", "Афончиков"],
-    role: "Data Scientist",
+    name: "Григорий Чепель",
+    nameLines: ["Григорий", "Чепель"],
+    role: "Python-разработчик",
     experienceYears: 5,
-    image: danilAfonchikov,
+    image: grigoryChepel,
   },
 ];
 
