@@ -29,11 +29,12 @@ function TeacherName({ teacher }: { teacher: Teacher }) {
 
 const russianPluralRules = new Intl.PluralRules("ru");
 
-function TeacherExperience({ years }: { years: number }) {
+function TeacherExperience({ teacher }: { teacher: Teacher }) {
+  const { experienceYears: years, experienceField = "разработки" } = teacher;
   const plural = russianPluralRules.select(years);
   const unit = plural === "one" ? "год" : plural === "few" ? "года" : "лет";
 
-  return <>{years} {unit} опыта разработки</>;
+  return <>{years} {unit} опыта {experienceField}</>;
 }
 
 function DesktopTeacherCard({ teacher }: { teacher: Teacher }) {
@@ -49,7 +50,7 @@ function DesktopTeacherCard({ teacher }: { teacher: Teacher }) {
         <div className="flex flex-col gap-[6px] w-full">
           <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[22px] relative shrink-0 text-[20px] w-full">{teacher.role}</p>
           <p className="font-['Manrope:Regular',sans-serif] leading-[20px] text-[16px] text-white/85">
-            <TeacherExperience years={teacher.developmentExperienceYears} />
+            <TeacherExperience teacher={teacher} />
           </p>
         </div>
       </div>
@@ -93,7 +94,7 @@ function MobileTeacherCard({ teacher }: { teacher: Teacher }) {
         <div className="flex flex-col gap-[4px] w-full">
           <p className="font-['Manrope:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[16px] tracking-[0.48px] w-full max-[430px]:text-[15px] max-[430px]:leading-[17px] max-[430px]:tracking-[0.3px]">{teacher.role}</p>
           <p className="font-['Manrope:Regular',sans-serif] leading-[16px] text-[12px] text-white/85">
-            <TeacherExperience years={teacher.developmentExperienceYears} />
+            <TeacherExperience teacher={teacher} />
           </p>
         </div>
       </div>
